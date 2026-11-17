@@ -255,17 +255,22 @@
       "یافته امنیتی با اولویت بالا درباره امکان اعطای نقش admin از updateRoles ثبت شد.",
       "Claim ناقص و moderation نقدها ناقص است؛ نقد pending بدون مسیر moderation ممکن است منتشر نشود.",
       "کنترل اشتراک در نمایش عمومی اطلاعات هنرمند تأیید نشد و با تصمیم محصول درباره اشتراک فعال مغایرت دارد.",
-      "هیچ فایل یا داده‌ای در مخزن سورس اصلی تغییر نکرد."
+      "هیچ فایل یا داده‌ای در مخزن سورس اصلی تغییر نکرد.",
+      "مرحله سوم ممیزی فقط‌خواندنی در 2026-11-17 تکمیل شد: موجودی و محتوای ۲۲ Migration، ترتیب وابستگی‌ها، کلیدهای خارجی، قیود unique/index و روابط Eloquent منتخب بررسی شدند.",
+      "قید unique روی artist_user.user_id تأیید شد؛ هر حساب حداکثر یک پروفایل هنرمند دارد. قید چند حرفه برای هر پروفایل نیز در artist_professions تأیید شد.",
+      "شناسه‌های ar و am با روند تولید و یکتایی در Migration/Model تأیید شدند؛ ساختار شرکت‌ها و شناسه co پیدا نشد.",
+      "دو Migration با نام مشابه site_settings بررسی شدند؛ اولی جدول را ایجاد و دومی ستون‌های تکمیلی را اضافه می‌کند و ترتیب فعلی آن‌ها منطقی است.",
+      "شش یافته DB-001 تا DB-006 برای شرکت‌ها، سیاست همگامی حرفه‌ها، Claim تکراری، محدوده امتیاز، عوامل تکراری و روابط ترجمه ثبت شدند."
     ],
     "pending_at_that_point": [
-      "مرحله سوم ممیزی دیتابیس، Migrationها، کلیدهای خارجی، قیدهای یکتا و روابط Eloquent.",
       "اصلاح امنیتی اعطای نقش admin و افزودن تست عدم ارتقای غیرمجاز.",
       "تکمیل Claim و مسیر عمومی ارسال/تأیید.",
       "تکمیل moderation نقدها و رسیدگی به گزارش‌ها.",
       "پیاده‌سازی یا تأیید سیستم اشتراک و کنترل نمایش عمومی اطلاعات هنرمند.",
       "تصمیم کاربر درباره باقی‌ماندن نقش artist پس از قطع اتصال پروفایل.",
       "یکپارچه‌سازی public_id در URLها و پیشنهاد جستجوی هنرمند.",
-      "تست مرورگری فونت و نمایش پشتو."
+      "تست مرورگری فونت و نمایش پشتو.",
+      "مرحله چهارم: تطبیق فقط‌خواندنی دیتابیس محلی با Migrationها و تعیین سیاست‌های معماری/قیود باقی‌مانده."
     ]
   },
   "incomplete_or_planned": [
@@ -791,13 +796,17 @@
   ],
   "source_code_audit": {
     "audit_date": "2026-11-17",
-    "status": "partial_read_only_audit",
+    "status": "stage_3_completed_read_only",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "branch": "main",
     "commit": "a56e92080a227b9e4c531c9edf2e55a02e6946ab",
     "scope_completed": [
       "مرحله ۱: ساختار مخزن، فایل‌ها، مدل‌ها، کنترلرها، viewها، migrationها، سرویس‌ها، policyها، middlewareها و تست‌ها",
-      "مرحله ۲: مسیرها، کنترل دسترسی، نقش‌ها، گردش‌کار درخواست حرفه‌ای، Claim، نقد و امتیاز، حریم خصوصی هنرمند و واردسازی"
+      "مرحله ۲: مسیرها، کنترل دسترسی، نقش‌ها، گردش‌کار درخواست حرفه‌ای، Claim، نقد و امتیاز، حریم خصوصی هنرمند و واردسازی",
+      "مرحله سوم ممیزی فقط‌خواندنی دیتابیس و روابط در commit a56e92080a227b9e4c531c9edf2e55a02e6946ab تکمیل شد: فهرست ۲۲ Migration، ترتیب وابستگی‌ها، کلیدهای خارجی، قیود یکتا و ایندکس‌های مهم بررسی شدند.",
+      "روابط اصلی Eloquent و مدل‌های User، Artist، Title، TitleCredit، ProfessionalRequest، TitleRating، TitleReview، TitleReviewReport، Profession، Language و SiteSetting با ساختار Migration تطبیق داده شدند.",
+      "قید یکتایی artist_user.user_id تضمین می‌کند هر حساب حداکثر به یک پروفایل هنرمند متصل باشد؛ artist_professions نیز برای هر جفت هنرمند/حرفه قید یکتا دارد.",
+      "شناسه‌های ar و am در Migration و Model دارای روند تولید و قید یکتایی هستند؛ شناسه co و جدول شرکت‌ها در سورس بررسی‌شده وجود ندارد."
     ],
     "repository_inventory": {
       "tree_entries": 460,
@@ -894,6 +903,48 @@
         "title": "فایل‌های پشتیبان در مخزن سورس",
         "detail": "فایل‌هایی با پسوندهایی مانند .backup-roles و .phase5.bak در مخزن هستند؛ باید از فایل‌های فعال تفکیک و درباره نگهداری آن‌ها تصمیم گرفته شود.",
         "status": "cleanup_review_only"
+      },
+      {
+        "id": "DB-001",
+        "severity": "high",
+        "title": "نبود مدل و جدول شرکت‌ها و شناسه co",
+        "detail": "در فهرست ۲۲ Migration و Modelهای بررسی‌شده، جدول/model اجرایی companies و سازوکار public_id با پیشوند co پیدا نشد. این بخش با تصمیم معماری سه‌گانه ar/am/co هنوز پیاده‌سازی نشده است.",
+        "status": "not_implemented_in_audited_source"
+      },
+      {
+        "id": "DB-002",
+        "severity": "medium",
+        "title": "نیاز به تعیین سیاست همگامی حرفه‌های حساب و پروفایل",
+        "detail": "حرفه‌های حساب در user_professions و حرفه‌های پروفایل در artist_professions نگهداری می‌شوند و کنترلر تأیید درخواست، هر دو را به‌روزرسانی می‌کند. این دو جدول الزاماً تکراری نیستند، اما باید مرجع هرکدام و سیاست همگام‌سازی تغییرات بعدی روشن باشد.",
+        "status": "design_policy_review_required"
+      },
+      {
+        "id": "DB-003",
+        "severity": "medium",
+        "title": "قید دیتابیسی برای جلوگیری از Claim تکراری وجود ندارد",
+        "detail": "artist_claim_requests دارای ایندکس‌های artist_id/status و user_id/status است، اما قید unique برای ترکیب کاربر و پروفایل ندارد. دیتابیس به‌تنهایی درخواست‌های مشابه را مسدود نمی‌کند؛ کنترل برنامه‌ای نیز باید جداگانه بررسی شود.",
+        "status": "database_constraint_missing_application_guard_unverified"
+      },
+      {
+        "id": "DB-004",
+        "severity": "medium",
+        "title": "محدوده امتیاز در دیتابیس محدود نشده است",
+        "detail": "ستون title_ratings.rating از نوع unsignedTinyInteger است؛ این نوع مقادیر منفی را نمی‌پذیرد اما محدوده محصول مانند ۱ تا ۱۰ را تضمین نمی‌کند. اعتبارسنجی درخواست و قید مناسب دیتابیس باید بررسی شوند.",
+        "status": "range_constraint_not_confirmed"
+      },
+      {
+        "id": "DB-005",
+        "severity": "medium",
+        "title": "قید یکتایی برای عوامل اثر تعریف نشده است",
+        "detail": "title_credits دارای ایندکس title_id و user_id است، اما قید unique برای ترکیب اثر، هنرمند و حرفه دیده نشد. چون یک فرد ممکن است چند نقش یا شخصیت در یک اثر داشته باشد، قاعده کسب‌وکار باید پیش از افزودن قید مشخص شود.",
+        "status": "business_rule_review_required"
+      },
+      {
+        "id": "DB-006",
+        "severity": "low",
+        "title": "روابط معکوس ترجمه‌ها در مدل Language کامل نیست",
+        "detail": "مدل Language رابطه artistTranslations را تعریف می‌کند؛ روابط معکوس سایر مدل‌های ترجمه در فایل Language.php بررسی‌شده دیده نشد. این مورد بیشتر محدودیت سهولت دسترسی در Eloquent است و به‌تنهایی نقص داده یا Migration محسوب نمی‌شود.",
+        "status": "model_relationships_incomplete"
       }
     ],
     "route_and_access_findings": [
@@ -934,23 +985,25 @@
       "شرکت‌ها به‌عنوان مدل/جدول اجرایی مستقل با public_id=co",
       "اخبار، جشنواره‌ها و جوایز",
       "API اختصاصی",
-      "تکمیل استفاده از public_id در تمام URLها و پیشنهادهای جستجو"
+      "تکمیل استفاده از public_id در تمام URLها و پیشنهادهای جستجو",
+      "جدول/model مستقل شرکت‌ها و public_id با پیشوند co",
+      "قید دیتابیسی برای جلوگیری از Claim تکراری کاربر و پروفایل",
+      "قید محدوده مجاز امتیاز (مانند ۱ تا ۱۰) در سطح دیتابیس",
+      "قاعده نهایی جلوگیری از ثبت عوامل تکراری؛ نیازمند تصمیم محصول درباره چند نقش/شخصیت یک فرد در یک اثر"
     ],
     "next_audit": {
-      "stage": 3,
-      "title": "ممیزی دیتابیس و روابط",
-      "status": "pending_for_next_session",
+      "stage": 4,
+      "title": "تطبیق دیتابیس واقعی و تکمیل کنترل‌های معماری",
+      "status": "planned",
       "tasks": [
-        "بررسی تمام ۲۲ Migration و ترتیب اجرا",
-        "بررسی foreign key، unique و indexها",
-        "تطبیق Migrationها با Modelها و روابط Eloquent",
-        "بررسی قید یک حساب به یک پروفایل هنرمند",
-        "بررسی تولید و یکتایی public_id برای ar و am و وضعیت co",
-        "بررسی جداول درخواست حرفه‌ای، نقد، امتیاز و گزارش",
-        "بررسی Migrationهای هم‌نام/متناقض، به‌ویژه site_settings",
-        "تطبیق دیتابیس با تصمیم‌های معماری AMDB"
+        "مقایسه ساختار دیتابیس محلی با Migrationها از طریق دستورات فقط‌خواندنی و بدون تغییر داده",
+        "بررسی سیاست نهایی و همگامی user_professions و artist_professions",
+        "تعیین قاعده Claim تکراری و عوامل تکراری پیش از هر تغییر schema",
+        "بررسی اعتبارسنجی محدوده امتیاز و محدودیت‌های آن",
+        "طراحی مدل شرکت‌ها و public_id با پیشوند co مطابق تصمیم محصول",
+        "تکمیل بررسی روابط معکوس ترجمه‌ها و پوشش تست قیود کلیدی"
       ],
-      "safety": "فقط‌خواندنی؛ بدون اجرای migration، تغییر جدول یا دست‌کاری داده."
+      "safety": "ابتدا فقط‌خواندنی؛ هر تغییر Migration یا داده فقط با درخواست و تأیید جداگانه کاربر."
     },
     "limitations": [
       "ممیزی دو مرحله اول فقط‌خواندنی و مبتنی بر سورس GitHub در commit مشخص بوده است.",
@@ -958,5 +1011,75 @@
       "نتیجه بررسی ایستا، اثبات وضعیت مجوزهای کاربران واقعی یا رفتار runtime نیست.",
       "مرحله سوم دیتابیس هنوز انجام نشده است."
     ]
+  },
+  "database_schema_audit": {
+    "audit_date": "2026-11-17",
+    "status": "completed_static_source_audit",
+    "source_repository": "https://github.com/armanaria111/amdb-laravel2",
+    "branch": "main",
+    "commit": "a56e92080a227b9e4c531c9edf2e55a02e6946ab",
+    "migration_inventory_count": 22,
+    "migrations_reviewed_count": 22,
+    "scope": "بررسی ایستای فایل‌های Migration و Modelهای منتخب؛ هیچ Migration اجرا نشد و دیتابیس محلی/عملیاتی خوانده نشد.",
+    "migration_order": [
+      "0001_01_01_000000_create_users_table.php",
+      "0001_01_01_000001_create_cache_table.php",
+      "0001_01_01_000002_create_jobs_table.php",
+      "2026_10_31_105622_create_professional_system_tables.php",
+      "2026_10_31_135726_create_content_catalog_tables.php",
+      "2026_11_01_164656_create_amdb_languages_table.php",
+      "2026_11_01_164657_create_amdb_rbac_tables.php",
+      "2026_11_01_164658_create_artist_profiles_tables.php",
+      "2026_11_01_164659_add_artist_id_to_title_credits_table.php",
+      "2026_11_01_164700_create_amdb_translation_tables.php",
+      "2026_11_03_162538_add_unique_user_constraint_to_artist_user_table.php",
+      "2026_11_03_170349_create_rating_review_system_tables.php",
+      "2026_11_03_172004_create_title_external_ratings_table.php",
+      "2026_11_03_181029_add_revision_status_to_professional_requests_table.php",
+      "2026_11_05_133617_create_title_submission_requests_table.php",
+      "2026_11_05_133718_create_credit_submission_requests_table.php",
+      "2026_11_05_140355_create_artist_user_audits_table.php",
+      "2026_11_13_152433_add_wordpress_import_fields_to_artists_table.php",
+      "2026_11_15_144745_add_public_id_to_artists_table.php",
+      "2026_11_15_155447_add_public_id_to_titles_table.php",
+      "2026_11_15_180804_create_site_settings_table.php",
+      "2026_11_15_181806_create_site_settings_table.php"
+    ],
+    "verified": [
+      "artist_user.user_id دارای قید unique است و هر حساب حداکثر به یک پروفایل متصل می‌شود؛ جفت artist_id/user_id نیز یکتا است.",
+      "artist_professions روی artist_id/profession_id قید unique دارد؛ هر پروفایل می‌تواند چند حرفه داشته باشد ولی حرفه یکسان دوباره درج نمی‌شود.",
+      "professional_request_profession و user_professions دارای قیود یکتایی ترکیبی هستند.",
+      "title_genre، title_country، seasons(title_id, season_number) و episodes(season_id, episode_number) دارای قیود یکتا هستند.",
+      "title_ratings(title_id,user_id)، title_review_reactions(review_id,user_id) و title_review_reports(review_id,user_id) دارای قیود یکتایی هستند.",
+      "title_external_ratings(title_id,source) یکتا است.",
+      "artist_translations(artist_id,language_code) یکتا است.",
+      "artists.public_id و titles.public_id با پیشوندهای ar و am و قید یکتایی تولید می‌شوند.",
+      "کلیدهای خارجی عمدتاً از cascadeOnDelete، restrictOnDelete یا nullOnDelete مطابق نوع رابطه استفاده می‌کنند.",
+      "دو Migration سایت‌تنظیمات نام مشابه دارند اما اولی جدول را می‌سازد و دومی ستون‌های تکمیلی را اضافه می‌کند؛ ترتیب وابستگی درست است."
+    ],
+    "model_relationship_review": [
+      "User: روابط حرفه‌ها، درخواست حرفه‌ای، هنرمندان متصل، نقش‌ها، مجوزها، امتیازها، نقدها و گزارش‌ها.",
+      "Artist: ترجمه‌ها، حرفه‌ها، کاربران متصل، سوابق اتصال، Claimها، لینک‌های اجتماعی، تنظیمات تماس و عوامل.",
+      "Title: نوع محتوا، ژانرها، کشورها، فصل‌ها، عوامل، ترجمه‌ها، امتیازها، نقدها و امتیازهای خارجی.",
+      "TitleCredit: روابط اثر، هنرمند، کاربر و حرفه.",
+      "ProfessionalRequest: کاربر، مدیر بررسی‌کننده و حرفه‌های انتخاب‌شده.",
+      "TitleReview: اثر، نویسنده، والد/پاسخ‌ها، مدیر، واکنش‌ها و گزارش‌ها.",
+      "TitleReviewReport: نقد، گزارش‌دهنده و بررسی‌کننده.",
+      "Language: رابطه artistTranslations با کلید language_code به code."
+    ],
+    "findings": [
+      "DB-001",
+      "DB-002",
+      "DB-003",
+      "DB-004",
+      "DB-005",
+      "DB-006"
+    ],
+    "limitations": [
+      "این ممیزی ایستای GitHub است؛ وضعیت واقعی دیتابیس محلی یا عملیاتی را اثبات نمی‌کند.",
+      "وجود Migration در مخزن به معنی اجراشدن آن روی دیتابیس نیست.",
+      "قواعد اعتبارسنجی runtime و رفتار هم‌زمانی خارج از آنچه در فایل‌های بررسی‌شده دیده شد، باید در مرحله‌های بعدی تست شوند."
+    ],
+    "safety": "هیچ دستور migrate اجرا نشد؛ هیچ جدول، رکورد یا فایل سورس اصلی تغییر نکرد."
   }
 }
