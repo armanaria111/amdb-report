@@ -278,7 +278,7 @@
       "SEC-001 تکمیل شد: UserController::updateRoles اعطای role=admin به کاربر عادی را صریحاً منع نمی‌کند؛ User::isAdmin نقش admin را معتبر می‌شناسد. شدت مسیر سوءاستفاده به امکان دسترسی دارنده users.manage وابسته است.",
       "RoleManagementTest پوشش تستی برای منع حذف نقش سیستمی دارد، اما تست‌های صریح منع ویرایش نقش سیستمی، اعطای admin و محدودیت نقش artist در فایل بررسی‌شده دیده نشدند.",
       "هیچ تست PHPUnit، آزمون runtime یا بررسی دیتابیس محلی در مرحله ششم اجرا نشد؛ هیچ فایل سورس اصلی، Migration یا داده‌ای تغییر نکرد.",
-      "اصلاحات P0 در شاخه security/p0-rbac-hardening و PR شماره 1 به‌صورت Draft ارائه شدند؛ هنوز merge نشده‌اند. 12 فایل شامل middleware محدودکننده پنل هنرمند، محدودیت نقش‌های سیستمی، محافظت اعطای admin با AMDB_SUPER_ADMIN_EMAIL، اصلاح Seeder و تست‌های Feature تغییر کرده‌اند. PHPUnit اجرا نشده و هیچ Migration/دیتابیسی تغییر نکرده است."
+      "اصلاحات امنیتی P0 با PR شماره 1 در مخزن amdb-laravel2 ادغام شدند. commit شاخه main: 71537bfc393ee7cde59082bd985083629b22db34. ایمیل مدیر ارشد در config/amdb.php و .env.example روی armanaria111@gmail.com تنظیم و در main تأیید شد. هیچ Migration یا دیتابیسی تغییر نکرد؛ PHPUnit هنوز اجرا نشده است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1293,14 +1293,17 @@
       "کنترل مالکیت منابع هنرمند"
     ],
     "note": "این ممیزی ایستای سورس GitHub است. تست‌ها اجرا نشده‌اند و دیتابیس محلی بررسی نشده است. هیچ تغییری در سورس محصول یا دیتابیس انجام نشده است.",
-    "remediation_status": "draft_pull_request_open",
+    "remediation_status": "merged_into_main",
     "pull_request": {
       "repository": "https://github.com/armanaria111/amdb-laravel2",
       "number": 1,
       "url": "https://github.com/armanaria111/amdb-laravel2/pull/1",
       "branch": "security/p0-rbac-hardening",
-      "status": "open_draft_not_merged",
-      "changed_files": 12,
+      "status": "merged",
+      "merged_at": "2026-11-17T19:28:23Z",
+      "merge_commit": "71537bfc393ee7cde59082bd985083629b22db34",
+      "main_branch_verified": true,
+      "super_admin_email": "armanaria111@gmail.com",
       "tests_added": 7,
       "tests_executed": false,
       "database_or_migrations_changed": false
