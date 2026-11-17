@@ -13,7 +13,9 @@
     "local_path": "C:\\laragon\\www\\amdb",
     "last_verified": "2026-11-17",
     "overall_progress": null,
-    "progress_note": "درصد پیشرفت کلی تعیین نشده است؛ اعداد ممیزی ساختار دیتابیس، درصد تکمیل محصول نیستند."
+    "progress_note": "درصد پیشرفت کلی تعیین نشده است؛ اعداد ممیزی ساختار دیتابیس، درصد تکمیل محصول نیستند.",
+    "database_name": "amdbl",
+    "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد."
   },
   "languages": [
     {
@@ -46,16 +48,121 @@
     "note": "این اعداد خروجی ممیزی گزارش‌شده در گفتگوی توسعه هستند؛ وضعیت فعلی فایل‌ها و دیتابیس در 2026-11-17 مستقیماً از مخزن کد اصلی دوباره ممیزی نشده است.",
     "migrations": {
       "ran_count": 10,
-      "status": "همه ۱۰ مهاجرت در migrate:status با وضعیت Ran گزارش شدند.",
-      "known_areas": [
-        "زبان‌ها و پشتیبانی چندزبانه",
-        "نقش‌ها و دسترسی‌ها (RBAC)",
-        "پروفایل هنرمندان",
-        "ارتباط artist_id با داده‌های مرتبط",
-        "ترجمه‌ها"
+      "status": "۱۰ مهاجرت اجراشده در migrate:status با وضعیت Ran گزارش شدند.",
+      "groups": [
+        {
+          "name": "زیرساخت Laravel",
+          "detail": "users، cache و jobs"
+        },
+        {
+          "name": "سیستم حرفه‌ای",
+          "detail": "professional_system"
+        },
+        {
+          "name": "کاتالوگ محتوا",
+          "detail": "content_catalog"
+        },
+        {
+          "name": "زبان‌ها",
+          "detail": "languages"
+        },
+        {
+          "name": "نقش‌ها و دسترسی‌ها",
+          "detail": "RBAC"
+        },
+        {
+          "name": "پروفایل هنرمندان",
+          "detail": "artist_profiles"
+        },
+        {
+          "name": "اعتباردهی عوامل آثار",
+          "detail": "افزودن artist_id به title_credits"
+        },
+        {
+          "name": "ترجمه‌ها",
+          "detail": "translation"
+        }
       ],
-      "note": "نام کامل همه ۱۰ فایل migration در اطلاعات بازیابی‌شده موجود نیست؛ از حدس‌زدن نام جدول‌ها خودداری شده است."
-    }
+      "note": "این‌ها گروه‌ها/نام‌های ثبت‌شده در گفتگو هستند؛ نام کامل فایل‌های migration در دسترس نیست."
+    },
+    "known_tables": [
+      {
+        "name": "users",
+        "area": "هویت و حساب کاربری",
+        "status": "reported"
+      },
+      {
+        "name": "cache",
+        "area": "زیرساخت Laravel",
+        "status": "reported"
+      },
+      {
+        "name": "jobs",
+        "area": "صف وظایف Laravel",
+        "status": "reported"
+      },
+      {
+        "name": "professions",
+        "area": "سیستم حرفه‌ها",
+        "status": "reported"
+      },
+      {
+        "name": "professional_requests",
+        "area": "درخواست ارتقای حرفه‌ای",
+        "status": "reported"
+      },
+      {
+        "name": "user_professions",
+        "area": "حرفه‌های کاربر/هنرمند",
+        "status": "reported"
+      },
+      {
+        "name": "professional_request_profession",
+        "area": "حرفه‌های انتخاب‌شده در درخواست",
+        "status": "reported"
+      },
+      {
+        "name": "content_types",
+        "area": "انواع محتوا",
+        "status": "reported"
+      },
+      {
+        "name": "titles",
+        "area": "آثار فیلم و سریال",
+        "status": "reported"
+      },
+      {
+        "name": "genres",
+        "area": "ژانرها",
+        "status": "reported"
+      },
+      {
+        "name": "title_genre",
+        "area": "رابطه آثار و ژانرها",
+        "status": "reported"
+      },
+      {
+        "name": "countries",
+        "area": "کشورها",
+        "status": "reported"
+      },
+      {
+        "name": "languages",
+        "area": "زبان‌های سامانه",
+        "status": "reported"
+      },
+      {
+        "name": "translations",
+        "area": "ترجمه محتوا",
+        "status": "reported"
+      },
+      {
+        "name": "title_credits",
+        "area": "عوامل و اعتبارهای آثار؛ شامل artist_id",
+        "status": "reported"
+      }
+    ],
+    "known_tables_note": "این فهرست فقط نام‌هایی است که در گفتگو صریحاً ثبت شده‌اند؛ فهرست کامل ۴۲ جدول بازیابی نشده است."
   },
   "implemented_or_reported": [
     {
@@ -215,49 +322,398 @@
     {
       "title": "دستورهای چندخطی Tinker",
       "detail": "استفاده از -> در ورودی چندخطی باعث خطای parse شده بود؛ دستور یک‌خطی جایگزین هنوز نیازمند تأیید بود."
+    },
+    {
+      "title": "تکمیل داشبورد مدیریت",
+      "detail": "وجود مجوزها و routeها به معنی کامل بودن پنل مدیریت نیست؛ صفحات و عملیات باید ممیزی شوند."
+    },
+    {
+      "title": "بررسی کامل فصل‌ها و قسمت‌ها",
+      "detail": "این بخش در نقشه معماری مطرح شده، اما تکمیل پیاده‌سازی در اطلاعات موجود تأیید نشده است."
+    },
+    {
+      "title": "همگام‌سازی گزارش با گفتگوها",
+      "detail": "این داشبورد به‌صورت خودکار به تمام گفتگوها متصل نیست؛ به‌روزرسانی باید هنگام در دسترس بودن اطلاعات گفتگو انجام شود."
     }
   ],
   "milestones": [
     {
-      "title": "راه‌اندازی Laravel و محیط محلی",
+      "title": "راه‌اندازی محیط Windows و Laragon",
       "state": "reported_done",
-      "detail": "Windows، Laragon، Laravel 13.39.0 و PHP 8.5.12."
+      "detail": "محیط محلی پروژه در C:\\laragon\\www\\amdb گزارش شده است."
     },
     {
-      "title": "اتصال MySQL و مهاجرت‌های اولیه",
+      "title": "نصب Laravel و PHP",
       "state": "reported_done",
-      "detail": "اتصال MySQL و اجرای migrationها گزارش شده است."
+      "detail": "Laravel 13.39.0 و PHP 8.5.12."
     },
     {
-      "title": "ساختار دیتابیس و مدل‌ها",
+      "title": "اتصال MySQL",
+      "state": "reported_done",
+      "detail": "نام دیتابیس ثبت‌شده در گفتگو: amdbl."
+    },
+    {
+      "title": "اجرای ۱۰ migration",
+      "state": "reported_done",
+      "detail": "تمام ۱۰ migration در migrate:status با وضعیت Ran گزارش شدند."
+    },
+    {
+      "title": "ممیزی ۴۲ جدول دیتابیس",
       "state": "reported_audit",
-      "detail": "ممیزی 2026-11-01: ۴۲ جدول، ۲۵ مدل، ۶۶ رابطه و ۲۷ مسیر؛ اعداد مربوط به ممیزی آن تاریخ‌اند."
+      "detail": "عدد ثبت‌شده در ممیزی ۱ نوامبر ۲۰۲۶."
     },
     {
-      "title": "سیستم حرفه‌ها و کاتالوگ آثار",
+      "title": "ساخت ۲۵ مدل Eloquent",
+      "state": "reported_audit",
+      "detail": "عدد ثبت‌شده در ممیزی ۱ نوامبر ۲۰۲۶."
+    },
+    {
+      "title": "تعریف ۶۶ رابطه مدل‌ها",
+      "state": "reported_audit",
+      "detail": "عدد ثبت‌شده در ممیزی ۱ نوامبر ۲۰۲۶."
+    },
+    {
+      "title": "ثبت ۲۷ مسیر",
+      "state": "reported_audit",
+      "detail": "عدد ثبت‌شده در ممیزی ۱ نوامبر ۲۰۲۶."
+    },
+    {
+      "title": "زیرساخت سیستم حرفه‌ها",
       "state": "reported_done",
-      "detail": "مهاجرت‌ها و Seederهای مرتبط با حرفه‌ها و کاتالوگ پایه گزارش شده‌اند."
+      "detail": "professions، professional_requests، user_professions و professional_request_profession."
     },
     {
-      "title": "چندزبانگی، RBAC و پروفایل هنرمند",
+      "title": "اجرای ProfessionSeeder",
       "state": "reported_done",
-      "detail": "۱۰ migration در وضعیت Ran؛ حوزه‌های languages، RBAC، artist profiles، artist_id و translations در گزارش ممیزی آمده‌اند."
+      "detail": "اجرای موفق Seeder حرفه‌ها گزارش شد."
     },
     {
-      "title": "شناسه عمومی هنرمندان، آثار و شرکت‌ها",
-      "state": "partial",
-      "detail": "الگوی شناسه و بخشی از پیاده‌سازی هنرمندان انجام شده؛ استفاده در URLها و تکمیل همه موجودیت‌ها باقی است."
+      "title": "کاتالوگ پایه آثار",
+      "state": "reported_done",
+      "detail": "content_types، titles، genres، title_genre و countries در گفتگو ثبت شده‌اند."
     },
     {
-      "title": "پنل‌ها، نقد و بررسی و مدیریت محتوا",
+      "title": "ساختار زبان‌ها و ترجمه‌ها",
+      "state": "reported_done",
+      "detail": "گروه migrationهای languages و translation اجرا شده است."
+    },
+    {
+      "title": "ساختار RBAC",
+      "state": "reported_done",
+      "detail": "مهاجرت RBAC اجرا شده؛ تکمیل پنل‌ها جداگانه ارزیابی می‌شود."
+    },
+    {
+      "title": "پروفایل هنرمندان",
+      "state": "reported_done",
+      "detail": "مهاجرت artist_profiles گزارش شده است."
+    },
+    {
+      "title": "اتصال هنرمند به تیتراژ آثار",
+      "state": "reported_done",
+      "detail": "افزودن artist_id به title_credits گزارش شده است."
+    },
+    {
+      "title": "مسیرهای عمومی هنرمندان",
+      "state": "reported_done",
+      "detail": "artists.index و artists.show در ممیزی ۱۵ نوامبر عمومی گزارش شدند."
+    },
+    {
+      "title": "شناسه عمومی هنرمند در URL",
       "state": "incomplete",
-      "detail": "چند بخش در ممیزی قبلی ناقص یا غایب گزارش شده‌اند."
+      "detail": "URL هنوز از id داخلی استفاده می‌کرد."
+    },
+    {
+      "title": "شناسه عمومی آثار و شرکت‌ها",
+      "state": "planned",
+      "detail": "قالب am و co مشخص شده؛ پیاده‌سازی کامل تأیید نشده است."
+    },
+    {
+      "title": "پنل هنرمند",
+      "state": "incomplete",
+      "detail": "پروفایل وجود دارد؛ داشبورد کامل نیازمند توسعه است."
+    },
+    {
+      "title": "تنظیمات سایت",
+      "state": "incomplete",
+      "detail": "مجوز settings.manage وجود دارد، اما صفحه تنظیمات ناقص بود."
+    },
+    {
+      "title": "نقد و بررسی و امتیازدهی",
+      "state": "incomplete",
+      "detail": "بخش reviews در ممیزی قبلی ناقص گزارش شده است."
+    },
+    {
+      "title": "نظارت و مدیریت محتوا",
+      "state": "incomplete",
+      "detail": "گردش‌کار moderation نیازمند تکمیل است."
+    },
+    {
+      "title": "اخبار، جشنواره و جوایز",
+      "state": "planned",
+      "detail": "در نقشه راه محصول قرار دارد."
+    },
+    {
+      "title": "API، رسانه و اعلان‌ها",
+      "state": "planned",
+      "detail": "در نقشه راه محصول قرار دارد."
+    },
+    {
+      "title": "ترجمه و فونت مستقل پشتو",
+      "state": "incomplete",
+      "detail": "فونت مناسب و مستقل پشتو باید پیاده‌سازی و تست شود."
     }
   ],
   "changelog": [
     {
       "date": "2026-11-17",
+      "text": "بازطراحی گزارش جامع: افزودن معماری، فهرست جداول شناخته‌شده، گروه‌های migration، نقشه قابلیت‌ها، نقشه راه چندمرحله‌ای و تاریخچه توسعه. موارد اجراشده از موارد ناقص و برنامه‌ریزی‌شده تفکیک شدند."
+    },
+    {
+      "date": "2026-11-17",
       "text": "گزارش با جزئیات گفتگوی ساخت دیتابیس و ممیزی‌های قبلی تکمیل شد؛ وضعیت‌های گزارش‌شده، ناقص و برنامه‌ریزی‌شده از هم جدا شدند."
+    }
+  ],
+  "architecture": {
+    "identity_and_access": [
+      "کاربر عادی، مدیر و هنرمند/عوامل فیلم سه نوع پنل/سطح دسترسی هدف هستند.",
+      "کاربر عادی امکان ارسال درخواست تأیید حرفه‌ای دارد.",
+      "تأیید یا رد درخواست حرفه‌ای توسط مدیر انجام می‌شود و پس از تأیید، دسترسی‌های هنرمند فعال می‌شوند.",
+      "هر حساب فقط یک پروفایل هنرمند دارد؛ پروفایل هنرمند می‌تواند چند حرفه هم‌زمان داشته باشد.",
+      "سیستم RBAC برای مدیریت نقش‌ها و مجوزها در ساختار دیتابیس گزارش شده است."
+    ],
+    "catalog": [
+      "کاتالوگ آثار بر پایه titles و content_types طراحی شده است.",
+      "ژانرها با genres و title_genre به آثار متصل می‌شوند.",
+      "کشورها با countries ثبت می‌شوند.",
+      "title_credits برای اتصال هنرمندان به عوامل/اعتبارهای آثار استفاده می‌شود و artist_id به آن اضافه شده است.",
+      "فیلم، سریال، فصل و قسمت در نقشه معماری مطرح شده‌اند؛ تکمیل همه این بخش‌ها باید جداگانه بررسی شود."
+    ],
+    "localization": [
+      "زبان‌های en، fa-AF و ps.",
+      "دری و پشتو دارای جهت RTL هستند.",
+      "ساختار languages و translations در migrationهای اجراشده گزارش شده است.",
+      "فونت مناسب باید برای هر زبان جداگانه تنظیم شود؛ پشتو به فونت مستقل نیاز دارد."
+    ],
+    "stable_ids": [
+      "هنرمند: ar0000123",
+      "اثر: am0000123",
+      "شرکت: co0000123"
+    ]
+  },
+  "feature_map": [
+    {
+      "name": "حساب کاربری و احراز هویت",
+      "state": "reported_done",
+      "detail": "جدول users و زیرساخت پایه Laravel گزارش شده است."
+    },
+    {
+      "name": "نقش‌ها و مجوزها (RBAC)",
+      "state": "reported_done",
+      "detail": "مهاجرت RBAC اجرا شده؛ تکمیل همه صفحات پنل به معنی آن نیست."
+    },
+    {
+      "name": "درخواست تأیید حرفه‌ای",
+      "state": "partial",
+      "detail": "ساختار جداول حرفه‌ها و درخواست‌ها وجود دارد؛ گردش‌کار کامل باید تست شود."
+    },
+    {
+      "name": "پروفایل هنرمند",
+      "state": "reported_done",
+      "detail": "مهاجرت artist_profiles گزارش شده است."
+    },
+    {
+      "name": "چند حرفه برای یک هنرمند",
+      "state": "reported_done",
+      "detail": "طراحی user_professions برای نگهداری چند حرفه هم‌زمان گزارش شده است."
+    },
+    {
+      "name": "کاتالوگ فیلم و سریال",
+      "state": "partial",
+      "detail": "مهاجرت content_catalog و موجودیت‌های پایه ثبت شده؛ جزئیات فصل/قسمت نیازمند بررسی است."
+    },
+    {
+      "name": "ژانر و کشور",
+      "state": "reported_done",
+      "detail": "genres، title_genre و countries در گفتگو ثبت شده‌اند."
+    },
+    {
+      "name": "عوامل و تیتراژ آثار",
+      "state": "partial",
+      "detail": "title_credits و افزودن artist_id گزارش شده است."
+    },
+    {
+      "name": "چندزبانگی و ترجمه",
+      "state": "reported_done",
+      "detail": "ساختار languages و translations گزارش شده؛ فونت‌ها و ترجمه کامل رابط نیازمند بررسی‌اند."
+    },
+    {
+      "name": "شناسه عمومی هنرمندان",
+      "state": "partial",
+      "detail": "public_id و backfill مطرح/اجرا شده، اما URL هنوز از id داخلی استفاده می‌کرد."
+    },
+    {
+      "name": "شناسه عمومی آثار و شرکت‌ها",
+      "state": "planned",
+      "detail": "قالب am و co مصوب است؛ پیاده‌سازی باید بررسی شود."
+    },
+    {
+      "name": "امتیازدهی و نقد و بررسی",
+      "state": "incomplete",
+      "detail": "بخش reviews در ممیزی قبلی ناقص گزارش شده است."
+    },
+    {
+      "name": "نظارت و انتشار محتوا",
+      "state": "incomplete",
+      "detail": "گردش‌کار moderation ناقص گزارش شده است."
+    },
+    {
+      "name": "پنل مدیریت",
+      "state": "partial",
+      "detail": "بخشی از مسیرها و مجوزها وجود دارند؛ تکمیل همه امکانات نیازمند ممیزی است."
+    },
+    {
+      "name": "پنل کاربر عادی",
+      "state": "planned",
+      "detail": "در نقشه معماری آمده؛ تکمیل نهایی تأیید نشده است."
+    },
+    {
+      "name": "پنل هنرمند",
+      "state": "incomplete",
+      "detail": "پروفایل و مسیرهای عمومی وجود دارند؛ داشبورد کامل هنرمند تأیید نشده است."
+    },
+    {
+      "name": "اخبار و مقالات",
+      "state": "planned",
+      "detail": "در نقشه راه معماری مطرح شده است."
+    },
+    {
+      "name": "جشنواره‌ها و جوایز",
+      "state": "planned",
+      "detail": "در نقشه راه معماری مطرح شده است."
+    },
+    {
+      "name": "API",
+      "state": "planned",
+      "detail": "در نقشه راه معماری مطرح شده است."
+    },
+    {
+      "name": "رسانه، اعلان‌ها و گزارش‌ها",
+      "state": "planned",
+      "detail": "در نقشه راه معماری مطرح شده‌اند؛ پیاده‌سازی تأیید نشده است."
+    },
+    {
+      "name": "پیشنهاد اصلاح اطلاعات",
+      "state": "planned",
+      "detail": "Edit suggestions در نقشه راه آمده است."
+    },
+    {
+      "name": "افزونه‌پذیری",
+      "state": "planned",
+      "detail": "ساختار افزونه‌ها در معماری پیشنهادی مطرح شده است."
+    },
+    {
+      "name": "تنظیمات سایت",
+      "state": "incomplete",
+      "detail": "مجوز settings.manage وجود داشت، ولی صفحه تنظیمات پیاده‌سازی نشده بود."
+    },
+    {
+      "name": "مسیرهای claims",
+      "state": "planned",
+      "detail": "در آخرین بررسی مسیرهای claims وجود نداشت."
+    }
+  ],
+  "roadmap": [
+    {
+      "phase": "۱. زیرساخت و معماری",
+      "state": "reported_done",
+      "items": [
+        "Laravel و MySQL",
+        "زبان‌ها و ترجمه‌ها",
+        "RBAC پایه",
+        "سیستم حرفه‌ها و پروفایل هنرمند"
+      ]
+    },
+    {
+      "phase": "۲. کاتالوگ فیلم و سریال",
+      "state": "partial",
+      "items": [
+        "انواع محتوا، آثار، ژانرها و کشورها",
+        "عوامل و اعتبارهای آثار",
+        "فصل‌ها و قسمت‌ها؛ نیازمند بررسی تکمیل"
+      ]
+    },
+    {
+      "phase": "۳. هنرمندان و شرکت‌ها",
+      "state": "partial",
+      "items": [
+        "پروفایل هنرمند و چند حرفه",
+        "شناسه عمومی هنرمند",
+        "شناسه آثار و شرکت‌ها و استفاده در URLها"
+      ]
+    },
+    {
+      "phase": "۴. پنل‌های مدیریتی",
+      "state": "partial",
+      "items": [
+        "پنل مدیریت",
+        "پنل کاربر عادی",
+        "پنل هنرمند و گردش‌کار درخواست حرفه‌ای",
+        "تنظیمات و claims"
+      ]
+    },
+    {
+      "phase": "۵. تعامل کاربران و کیفیت محتوا",
+      "state": "incomplete",
+      "items": [
+        "امتیازدهی و نقد و بررسی",
+        "نظارت و گردش‌کار انتشار",
+        "پیشنهاد اصلاح اطلاعات"
+      ]
+    },
+    {
+      "phase": "۶. محتوای تکمیلی و توسعه‌پذیری",
+      "state": "planned",
+      "items": [
+        "اخبار و مقالات",
+        "جشنواره‌ها و جوایز",
+        "API، رسانه، اعلان‌ها، گزارش‌ها و افزونه‌ها"
+      ]
+    },
+    {
+      "phase": "۷. چندزبانگی و انتشار نهایی",
+      "state": "partial",
+      "items": [
+        "ترجمه کامل انگلیسی، دری و پشتو",
+        "فونت اختصاصی هر زبان",
+        "تست نهایی و بررسی واکنش‌گرایی"
+      ]
+    }
+  ],
+  "development_history": [
+    {
+      "date": "2026-11-01",
+      "title": "ممیزی اولیه دیتابیس",
+      "detail": "Laravel 13.39.0، PHP 8.5.12، MySQL با نام amdbl؛ ۱۰ migration در وضعیت Ran، ۴۲ جدول، ۲۵ مدل، ۶۶ رابطه و ۲۷ route و صفر خطای فنی گزارش شد."
+    },
+    {
+      "date": "2026-11-01",
+      "title": "مهاجرت‌های معماری",
+      "detail": "گروه‌های ثبت‌شده: users/cache/jobs، professional_system، content_catalog، languages، RBAC، artist_profiles، artist_id در title_credits و translation."
+    },
+    {
+      "date": "2026-11-15",
+      "title": "مسیرها و شناسه هنرمندان",
+      "detail": "۱۳ مسیر هنرمند/مدیریت/ورود داده؛ artists.index و artists.show عمومی؛ syntax فایل‌ها و optimize:clear موفق گزارش شد."
+    },
+    {
+      "date": "2026-11-15",
+      "title": "موارد باز فنی",
+      "detail": "URL هنرمند هنوز بر اساس id داخلی بود؛ claims وجود نداشت؛ settings.manage موجود اما صفحه تنظیمات پیاده نشده بود."
+    },
+    {
+      "date": "2026-11-17",
+      "title": "ایجاد گزارش GitHub",
+      "detail": "مخزن amdb-report برای گزارش و پیگیری ساخته شد؛ کد اصلی AMDB نباید در این مخزن تغییر کند."
     }
   ]
 }
