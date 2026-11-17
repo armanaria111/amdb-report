@@ -271,9 +271,19 @@
       "ویرایش پروفایل هنرمند artist_professions را بدون همگامی user_professions تغییر می‌دهد و حرفه‌های فعال بدون بازبینی مدیر قابل افزودن‌اند.",
       "public_id هنرمند در صفحه نمایش داده می‌شود اما Route عمومی و پیشنهاد جستجو همچنان از ID داخلی استفاده می‌کنند.",
       "Rate limiting ورود در Route/Controller بررسی‌شده پیدا نشد؛ شرکت‌ها و شناسه co نیز همچنان در سورس وجود ندارند.",
-      "هیچ تغییری در مخزن اصلی، Migration یا دیتابیس انجام نشد."
+      "هیچ تغییری در مخزن اصلی، Migration یا دیتابیس انجام نشد.",
+      "مرحله ششم ممیزی امنیتی P0 به‌صورت فقط‌خواندنی روی commit a56e92080a227b9e4c531c9edf2e55a02e6946ab تکمیل شد.",
+      "SEC-002 دوباره تأیید شد: نقش artist مجوزهای artists.manage، titles.create و titles.edit دارد؛ مسیرهای CRUD مدیریت با این مجوزها محافظت می‌شوند و کنترل مالکیت در Admin/ArtistController مشاهده نشد.",
+      "SEC-003 دوباره تأیید شد: RolePolicy::update و UpdateRoleRequest نقش‌های is_system را از ویرایش مستثنا نمی‌کنند؛ RoleController امکان sync مجوزها و تغییر slug را دارد.",
+      "SEC-001 تکمیل شد: UserController::updateRoles اعطای role=admin به کاربر عادی را صریحاً منع نمی‌کند؛ User::isAdmin نقش admin را معتبر می‌شناسد. شدت مسیر سوءاستفاده به امکان دسترسی دارنده users.manage وابسته است.",
+      "RoleManagementTest پوشش تستی برای منع حذف نقش سیستمی دارد، اما تست‌های صریح منع ویرایش نقش سیستمی، اعطای admin و محدودیت نقش artist در فایل بررسی‌شده دیده نشدند.",
+      "هیچ تست PHPUnit، آزمون runtime یا بررسی دیتابیس محلی در مرحله ششم اجرا نشد؛ هیچ فایل سورس اصلی، Migration یا داده‌ای تغییر نکرد."
     ],
     "pending_at_that_point": [
+      "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
+      "رفع SEC-002: حذف مجوزهای مدیریت سراسری از نقش artist، تعریف workflow پیشنهاد آثار و کنترل مالکیت",
+      "رفع SEC-003: منع تغییر نام، slug و permission نقش‌های سیستمی",
+      "رفع SEC-001: مسدودسازی اعطای admin از مسیر عمومی و تعریف سازوکار مدیر ارشد از پیش تعیین‌شده",
       "اصلاح ماتریس مجوزها و جلوگیری از دسترسی نقش artist به مدیریت سراسری هنرمندان/آثار",
       "محدودسازی ویرایش/اعطای نقش admin و نقش‌های سیستمی؛ افزودن تست جلوگیری از privilege escalation",
       "تکمیل moderation نقدها و رسیدگی به گزارش‌ها",
@@ -1224,5 +1234,63 @@
       "قواعد اعتبارسنجی runtime و رفتار هم‌زمانی خارج از آنچه در فایل‌های بررسی‌شده دیده شد، باید در مرحله‌های بعدی تست شوند."
     ],
     "safety": "هیچ دستور migrate اجرا نشد؛ هیچ جدول، رکورد یا فایل سورس اصلی تغییر نکرد."
+  },
+  "security_audit": {
+    "audit_date": "2026-11-17",
+    "stage": "stage_6_p0_read_only_completed",
+    "source_repository": "https://github.com/armanaria111/amdb-laravel2",
+    "source_commit": "a56e92080a227b9e4c531c9edf2e55a02e6946ab",
+    "runtime_tests_executed": false,
+    "local_database_inspected": false,
+    "findings": [
+      {
+        "id": "SEC-002",
+        "severity": "high",
+        "status": "confirmed",
+        "title": "مجوزهای بیش از حد گسترده نقش artist",
+        "evidence": [
+          "RolePermissionSeeder.php",
+          "routes/web.php",
+          "PermissionMiddleware.php",
+          "Admin/ArtistController.php"
+        ],
+        "impact": "دسترسی به مدیریت سراسری هنرمندان و ایجاد/ویرایش آثار از مسیرهای پنل مدیریت",
+        "remediation": "تفکیک مجوزهای پنل هنرمند، پیشنهاد ثبت اثر و کنترل مالکیت"
+      },
+      {
+        "id": "SEC-003",
+        "severity": "high",
+        "status": "confirmed",
+        "title": "امکان ویرایش نقش‌های سیستمی",
+        "evidence": [
+          "RolePolicy.php",
+          "RoleController.php",
+          "UpdateRoleRequest.php"
+        ],
+        "impact": "دارنده roles.manage می‌تواند slug یا permissionهای نقش‌های سیستمی از جمله admin را تغییر دهد",
+        "remediation": "ممنوعیت update نقش is_system و حفاظت از slugهای رزروشده در تمام لایه‌ها"
+      },
+      {
+        "id": "SEC-001",
+        "severity": "high_critical_impact",
+        "status": "confirmed_missing_guard",
+        "title": "نبود محافظ اختصاصی برای اعطای نقش admin",
+        "evidence": [
+          "Admin/UserController.php::updateRoles",
+          "routes/web.php",
+          "User.php::isAdmin"
+        ],
+        "impact": "دارنده users.manage می‌تواند نقش admin را به کاربر عادی اختصاص دهد؛ مسیر در خود عملیات به مدیر ارشد محدود نشده است",
+        "remediation": "مسدودسازی اعطای admin در مسیر عمومی و تعریف هویت مدیر ارشد با مسیر اختصاصی و audit"
+      }
+    ],
+    "test_gaps": [
+      "منع ویرایش نقش‌های سیستمی",
+      "منع اعطای admin از updateRoles",
+      "منع دسترسی artist به CRUD سراسری هنرمندان",
+      "منع ایجاد/ویرایش مستقیم اثر توسط artist در پنل مدیریت",
+      "کنترل مالکیت منابع هنرمند"
+    ],
+    "note": "این ممیزی ایستای سورس GitHub است. تست‌ها اجرا نشده‌اند و دیتابیس محلی بررسی نشده است. هیچ تغییری در سورس محصول یا دیتابیس انجام نشده است."
   }
 }
