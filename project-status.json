@@ -278,7 +278,8 @@
       "SEC-001 تکمیل شد: UserController::updateRoles اعطای role=admin به کاربر عادی را صریحاً منع نمی‌کند؛ User::isAdmin نقش admin را معتبر می‌شناسد. شدت مسیر سوءاستفاده به امکان دسترسی دارنده users.manage وابسته است.",
       "RoleManagementTest پوشش تستی برای منع حذف نقش سیستمی دارد، اما تست‌های صریح منع ویرایش نقش سیستمی، اعطای admin و محدودیت نقش artist در فایل بررسی‌شده دیده نشدند.",
       "هیچ تست PHPUnit، آزمون runtime یا بررسی دیتابیس محلی در مرحله ششم اجرا نشد؛ هیچ فایل سورس اصلی، Migration یا داده‌ای تغییر نکرد.",
-      "اصلاحات امنیتی P0 با PR شماره 1 در مخزن amdb-laravel2 ادغام شدند. commit شاخه main: 71537bfc393ee7cde59082bd985083629b22db34. ایمیل مدیر ارشد در config/amdb.php و .env.example روی armanaria111@gmail.com تنظیم و در main تأیید شد. هیچ Migration یا دیتابیسی تغییر نکرد؛ PHPUnit هنوز اجرا نشده است."
+      "اصلاحات امنیتی P0 با PR شماره 1 در مخزن amdb-laravel2 ادغام شدند. commit شاخه main: 71537bfc393ee7cde59082bd985083629b22db34. ایمیل مدیر ارشد در config/amdb.php و .env.example روی armanaria111@gmail.com تنظیم و در main تأیید شد. هیچ Migration یا دیتابیسی تغییر نکرد؛ PHPUnit هنوز اجرا نشده است.",
+      "پس از ادغام PR شماره 1، مقدار پیش‌فرض ایمیل مدیر ارشد طوری اصلاح شد که حتی اگر AMDB_SUPER_ADMIN_EMAIL در .env خالی باشد، armanaria111@gmail.com استفاده شود. آخرین commit شاخه main: 4c9c70500edf6e911085de959ef6152815a154bd."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1306,7 +1307,9 @@
       "super_admin_email": "armanaria111@gmail.com",
       "tests_added": 7,
       "tests_executed": false,
-      "database_or_migrations_changed": false
+      "database_or_migrations_changed": false,
+      "latest_main_commit": "4c9c70500edf6e911085de959ef6152815a154bd",
+      "super_admin_email_fallback_handles_empty_env": true
     }
   }
 }
