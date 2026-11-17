@@ -260,17 +260,32 @@
       "قید unique روی artist_user.user_id تأیید شد؛ هر حساب حداکثر یک پروفایل هنرمند دارد. قید چند حرفه برای هر پروفایل نیز در artist_professions تأیید شد.",
       "شناسه‌های ar و am با روند تولید و یکتایی در Migration/Model تأیید شدند؛ ساختار شرکت‌ها و شناسه co پیدا نشد.",
       "دو Migration با نام مشابه site_settings بررسی شدند؛ اولی جدول را ایجاد و دومی ستون‌های تکمیلی را اضافه می‌کند و ترتیب فعلی آن‌ها منطقی است.",
-      "شش یافته DB-001 تا DB-006 برای شرکت‌ها، سیاست همگامی حرفه‌ها، Claim تکراری، محدوده امتیاز، عوامل تکراری و روابط ترجمه ثبت شدند."
+      "شش یافته DB-001 تا DB-006 برای شرکت‌ها، سیاست همگامی حرفه‌ها، Claim تکراری، محدوده امتیاز، عوامل تکراری و روابط ترجمه ثبت شدند.",
+      "مرحله چهارم ممیزی ایستای سورس در commit a56e92080a227b9e4c531c9edf2e55a02e6946ab تکمیل شد؛ بنا به درخواست کاربر تطبیق دیتابیس محلی با Migrationها از محدوده حذف شد.",
+      "RolePermissionSeeder، Routeها، Admin/ArtistController و RolePolicy نشان دادند نقش artist به‌واسطه artists.manage می‌تواند به مسیرهای مدیریت سراسری هنرمندان دسترسی پیدا کند؛ این مسیرها مالکیت را بررسی نمی‌کنند.",
+      "RolePolicy و UpdateRoleRequest ویرایش نقش‌های سیستمی را محدود نمی‌کنند؛ متد updateRoles نیز اعطای role=admin به کاربر عادی را صریحاً مسدود نکرده است.",
+      "در مسیرهای فعلی Route/Controller برای moderation نقدها و رسیدگی به گزارش‌ها یافت نشد؛ نقدها pending و گزارش‌ها pending ذخیره می‌شوند.",
+      "Claim قدیمی مسیر ثبت عمومی ندارد و تأیید مستقیم آن غیرفعال است؛ مسیر رد باقی مانده است.",
+      "جداول و Modelهای title_submission_requests و credit_submission_requests در سورس وجود دارند اما workflow و Route/Controller اجرایی متناظر پیدا نشد.",
+      "ناسازگاری language_code در Migration/Model با locale در فرم ویرایش هنرمند تأیید شد؛ همچنین تغییر primary_name نام ترجمه‌های موجود را خودکار به‌روزرسانی نمی‌کند.",
+      "ویرایش پروفایل هنرمند artist_professions را بدون همگامی user_professions تغییر می‌دهد و حرفه‌های فعال بدون بازبینی مدیر قابل افزودن‌اند.",
+      "public_id هنرمند در صفحه نمایش داده می‌شود اما Route عمومی و پیشنهاد جستجو همچنان از ID داخلی استفاده می‌کنند.",
+      "Rate limiting ورود در Route/Controller بررسی‌شده پیدا نشد؛ شرکت‌ها و شناسه co نیز همچنان در سورس وجود ندارند.",
+      "هیچ تغییری در مخزن اصلی، Migration یا دیتابیس انجام نشد."
     ],
     "pending_at_that_point": [
-      "اصلاح امنیتی اعطای نقش admin و افزودن تست عدم ارتقای غیرمجاز.",
-      "تکمیل Claim و مسیر عمومی ارسال/تأیید.",
-      "تکمیل moderation نقدها و رسیدگی به گزارش‌ها.",
-      "پیاده‌سازی یا تأیید سیستم اشتراک و کنترل نمایش عمومی اطلاعات هنرمند.",
-      "تصمیم کاربر درباره باقی‌ماندن نقش artist پس از قطع اتصال پروفایل.",
-      "یکپارچه‌سازی public_id در URLها و پیشنهاد جستجوی هنرمند.",
-      "تست مرورگری فونت و نمایش پشتو.",
-      "مرحله چهارم: تطبیق فقط‌خواندنی دیتابیس محلی با Migrationها و تعیین سیاست‌های معماری/قیود باقی‌مانده."
+      "اصلاح ماتریس مجوزها و جلوگیری از دسترسی نقش artist به مدیریت سراسری هنرمندان/آثار",
+      "محدودسازی ویرایش/اعطای نقش admin و نقش‌های سیستمی؛ افزودن تست جلوگیری از privilege escalation",
+      "تکمیل moderation نقدها و رسیدگی به گزارش‌ها",
+      "تعیین تکلیف Claim قدیمی و مسیر ثبت درخواست مالکیت پروفایل",
+      "تکمیل یا حذف workflowهای ناقص title_submission_requests و credit_submission_requests",
+      "تعیین سیاست همگامی user_professions و artist_professions و تأیید تغییرات حرفه‌ای",
+      "اصلاح locale/language_code در فرم ویرایش هنرمند و تعیین سیاست تغییر نام ترجمه‌ها",
+      "یکپارچه‌سازی public_id هنرمند در URL و پیشنهادهای جستجو",
+      "طراحی سیستم اشتراک و اعمال آن بر نمایش عمومی پروفایل طبق تصمیم محصول",
+      "طراحی مدل شرکت‌ها و شناسه co",
+      "تعیین قاعده جلوگیری از عوامل تکراری با پشتیبانی از چند حرفه/شخصیت",
+      "افزودن Rate limiting ورود و تست‌های امنیتی و هم‌زمانی"
     ]
   },
   "incomplete_or_planned": [
@@ -343,6 +358,36 @@
       "title": "تست‌های امنیتی و گردش‌کار",
       "state": "incomplete",
       "detail": "تست اختصاصی برای role escalation، moderation، اشتراک، Claim و چند گردش‌کار کلیدی در مجموعه تست بررسی‌شده تأیید نشد."
+    },
+    {
+      "title": "تفکیک مجوزهای پنل هنرمند از مدیریت سراسری",
+      "state": "incomplete",
+      "detail": "نقش artist مجوز artists.manage و titles.create/edit دارد؛ Routeهای مدیریتی از همین مجوزها استفاده می‌کنند و محدودیت مالکیت هنرمند در Admin/ArtistController دیده نشد."
+    },
+    {
+      "title": "حفاظت از نقش‌های سیستمی و اعطای نقش مدیر",
+      "state": "incomplete",
+      "detail": "اعطای admin به کاربر عادی صریحاً مسدود نشده و ویرایش مجوزهای نقش سیستمی در RolePolicy محدود نشده است."
+    },
+    {
+      "title": "مدیریت نقدها و گزارش‌ها",
+      "state": "incomplete",
+      "detail": "ثبت نقد و گزارش وجود دارد اما Route/Controller مدیریتی برای moderation و رسیدگی به گزارش‌ها پیدا نشد."
+    },
+    {
+      "title": "درخواست ثبت اثر و عوامل",
+      "state": "schema_only",
+      "detail": "Migration و Model درخواست‌های title_submission_requests و credit_submission_requests وجود دارد اما workflow و مسیرهای عملیاتی آن‌ها در Route/Controller یافت نشد."
+    },
+    {
+      "title": "ترجمه فرم ویرایش هنرمند",
+      "state": "needs_fix",
+      "detail": "View از locale استفاده می‌کند در حالی‌که مدل و Migration از language_code استفاده می‌کنند؛ نام ترجمه‌های موجود نیز هنگام تغییر primary_name همگام نمی‌شود."
+    },
+    {
+      "title": "Rate limiting ورود",
+      "state": "needs_review",
+      "detail": "در Route و Controller ورود throttle یا RateLimiter اختصاصی پیدا نشد."
     }
   ],
   "known_issues": [
@@ -796,7 +841,7 @@
   ],
   "source_code_audit": {
     "audit_date": "2026-11-17",
-    "status": "stage_3_completed_read_only",
+    "status": "stage_4_completed_read_only",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "branch": "main",
     "commit": "a56e92080a227b9e4c531c9edf2e55a02e6946ab",
@@ -806,7 +851,12 @@
       "مرحله سوم ممیزی فقط‌خواندنی دیتابیس و روابط در commit a56e92080a227b9e4c531c9edf2e55a02e6946ab تکمیل شد: فهرست ۲۲ Migration، ترتیب وابستگی‌ها، کلیدهای خارجی، قیود یکتا و ایندکس‌های مهم بررسی شدند.",
       "روابط اصلی Eloquent و مدل‌های User، Artist، Title، TitleCredit، ProfessionalRequest، TitleRating، TitleReview، TitleReviewReport، Profession، Language و SiteSetting با ساختار Migration تطبیق داده شدند.",
       "قید یکتایی artist_user.user_id تضمین می‌کند هر حساب حداکثر به یک پروفایل هنرمند متصل باشد؛ artist_professions نیز برای هر جفت هنرمند/حرفه قید یکتا دارد.",
-      "شناسه‌های ar و am در Migration و Model دارای روند تولید و قید یکتایی هستند؛ شناسه co و جدول شرکت‌ها در سورس بررسی‌شده وجود ندارد."
+      "شناسه‌های ar و am در Migration و Model دارای روند تولید و قید یکتایی هستند؛ شناسه co و جدول شرکت‌ها در سورس بررسی‌شده وجود ندارد.",
+      "مرحله چهارم به درخواست کاربر فقط از روی سورس GitHub انجام شد؛ تطبیق دیتابیس محلی با Migrationها از محدوده این مرحله کنار گذاشته شد.",
+      "کنترلرهای مدیریت نقش، کاربر، هنرمند، درخواست حرفه‌ای، نقد و امتیاز، ورود، جستجو و آثار؛ مدل‌ها، Seederها، Middlewareها، Routeها و Viewهای مرتبط دوباره بررسی شدند.",
+      "بررسی ماتریس مجوزها نشان داد نقش artist مجوزهای artists.manage و titles.create/titles.edit دارد و این مجوزها به مسیرهای مدیریتی عمومی‌تر از محدوده مالکیت فردی دسترسی می‌دهند.",
+      "بررسی Claim، نقدها و گزارش‌ها نشان داد برخی مدل‌ها/جدول‌ها وجود دارند اما گردش‌کار کامل ثبت/تأیید/رسیدگی در Routeها و Controllerها حاضر نیست.",
+      "بررسی ترجمه پروفایل هنرمند، شناسه‌های عمومی، حرفه‌های حساب/پروفایل، درخواست‌های ثبت اثر/عوامل، محدودسازی ورود و ساختار شرکت‌ها تکمیل شد."
     ],
     "repository_inventory": {
       "tree_entries": 460,
@@ -836,8 +886,8 @@
         "id": "SEC-001",
         "severity": "high",
         "title": "احتمال ارتقای نقش admin از مسیر مدیریت نقش کاربران",
-        "detail": "در Admin/UserController.php متد updateRoles مانع اختصاص role=admin به حساب غیرمدیر نمی‌شود؛ Route با users.manage محافظت شده و کنترل اختصاصی مدیر اصلی در این مسیر تأیید نشد. هر دارنده users.manage ممکن است بتواند حسابی را به admin ارتقا دهد.",
-        "missing_test": "تست عدم امکان اعطای admin توسط کاربر غیرمدیر دارای users.manage",
+        "detail": "متد updateRoles کاربرانی را که از قبل مدیرند از ویرایش نقش منع می‌کند، اما نقش admin را از فهرست نقش‌های قابل اعطا به کاربر عادی حذف نمی‌کند. افزون بر آن، RolePolicy::update و UpdateRoleRequest ویرایش نقش‌های سیستمی از جمله admin را منع نمی‌کنند؛ دارنده roles.manage/users.manage می‌تواند به مسیر ارتقای دسترسی برسد. باید مجوز اعطای admin فقط در اختیار مدیر ارشد/فرایند امن باشد و ویرایش نقش‌های سیستمی محدود شود.",
+        "missing_test": "تست عدم اعطای admin به کاربر عادی، عدم ویرایش مجوزهای نقش admin توسط مدیر نقش عادی و آزمون ماتریس مجوزها",
         "status": "needs_fix_and_security_test",
         "note": "این یافته از بررسی ایستا است؛ اینکه در محیط عملیاتی کدام حساب‌ها users.manage دارند از سورس به‌تنهایی مشخص نیست."
       },
@@ -945,6 +995,83 @@
         "title": "روابط معکوس ترجمه‌ها در مدل Language کامل نیست",
         "detail": "مدل Language رابطه artistTranslations را تعریف می‌کند؛ روابط معکوس سایر مدل‌های ترجمه در فایل Language.php بررسی‌شده دیده نشد. این مورد بیشتر محدودیت سهولت دسترسی در Eloquent است و به‌تنهایی نقص داده یا Migration محسوب نمی‌شود.",
         "status": "model_relationships_incomplete"
+      },
+      {
+        "id": "SEC-002",
+        "severity": "high",
+        "title": "مجوزهای نقش هنرمند به مسیرهای مدیریت سراسری دسترسی می‌دهند",
+        "detail": "RolePermissionSeeder برای نقش artist مجوزهای artists.manage و titles.create و titles.edit را ثبت می‌کند. Routeهای /admin/artists و عملیات مدیریت پروفایل با artists.manage محافظت شده‌اند و کنترل مالکیت در Admin/ArtistController وجود ندارد؛ بنابراین حساب هنرمند می‌تواند به عملیات مدیریت پروفایل هنرمندان دیگر دسترسی پیدا کند. مجوزهای titles.create/edit نیز مسیرهای مدیریت آثار را باز می‌کنند. این دسترسی‌ها باید از مجوزهای پنل هنرمند/درخواست‌های مالک جدا شوند.",
+        "status": "needs_permission_matrix_fix_and_tests"
+      },
+      {
+        "id": "SEC-003",
+        "severity": "high",
+        "title": "ویرایش نقش‌های سیستمی محدود نشده است",
+        "detail": "RolePolicy::delete حذف نقش سیستمی را منع می‌کند، اما RolePolicy::update فقط roles.manage را بررسی می‌کند. RoleController::update و UpdateRoleRequest نیز تغییر slug و permissions نقش‌های سیستمی را می‌پذیرند؛ در نتیجه نقش admin قابل بازپیکربندی است.",
+        "status": "needs_fix"
+      },
+      {
+        "id": "REV-002",
+        "severity": "high",
+        "title": "گزارش‌های نقد بدون گردش‌کار مدیریتی می‌مانند",
+        "detail": "storeReport گزارش را با status=pending ذخیره می‌کند و مجوزهای reviews.manage و reports.manage در Seeder وجود دارند، اما در routes/web.php هیچ Route مدیریتی برای فهرست، بررسی، تأیید، رد یا بستن گزارش‌ها و moderation نقدها دیده نشد. نقدها نیز pending می‌مانند و فقط approved در صفحه عمومی نمایش داده می‌شود.",
+        "status": "incomplete"
+      },
+      {
+        "id": "WF-002",
+        "severity": "medium",
+        "title": "درخواست‌های ثبت اثر و عوامل فقط در سطح جدول و Model دیده می‌شوند",
+        "detail": "title_submission_requests و credit_submission_requests دارای Migration و Model هستند، اما در فهرست Controllerها و routes/web.php مسیرهای ارسال کاربر، نمایش در پنل مدیریت، تأیید/رد/درخواست اصلاح و تبدیل درخواست به Title/TitleCredit پیدا نشدند.",
+        "status": "schema_model_only_no_workflow_routes"
+      },
+      {
+        "id": "WF-003",
+        "severity": "medium",
+        "title": "تغییر وضعیت درخواست حرفه‌ای در revision/reject قفل و بازبینی اتمیک ندارد",
+        "detail": "approve درخواست را داخل transaction و lockForUpdate بازبینی می‌کند؛ اما requestRevision و reject ابتدا وضعیت مدل بارگذاری‌شده را بررسی و سپس بدون transaction/lock update می‌کنند. درخواست‌های هم‌زمان مدیران می‌توانند وضعیت نهایی و اطلاعات reviewer را بازنویسی کنند.",
+        "status": "needs_concurrency_hardening"
+      },
+      {
+        "id": "DB-007",
+        "severity": "medium",
+        "title": "ویرایش ترجمه هنرمند از کلید locale به‌جای language_code استفاده می‌کند",
+        "detail": "Migration و مدل ArtistTranslation ستون language_code را تعریف می‌کنند و ArtistController نیز با language_code ذخیره/بازیابی می‌کند؛ اما resources/views/artists/edit.blade.php ترجمه زندگی‌نامه و نام حرفه را با firstWhere('locale', ...) می‌خواند. این ناسازگاری باعث می‌شود ترجمه‌های قبلی در فرم ویرایش به‌درستی بارگذاری نشوند.",
+        "status": "confirmed_view_model_field_mismatch"
+      },
+      {
+        "id": "DB-008",
+        "severity": "medium",
+        "title": "تغییر نام اصلی هنرمند لزوماً نام ترجمه‌های موجود را به‌روزرسانی نمی‌کند",
+        "detail": "ArtistController@update مقدار primary_name را تغییر می‌دهد، اما برای ردیف‌های ArtistTranslation موجود فقط biography را به‌روزرسانی می‌کند و name ترجمه قبلی را دست‌نخورده می‌گذارد؛ فرم نیز فیلد مستقل برای نام هر زبان ندارد. باید مشخص شود نام اصلی و نام‌های ترجمه‌شده مستقل‌اند یا باید همگام شوند.",
+        "status": "product_and_implementation_review_required"
+      },
+      {
+        "id": "DB-009",
+        "severity": "medium",
+        "title": "حرفه‌های حساب و پروفایل پس از ویرایش می‌توانند از هم جدا شوند",
+        "detail": "تأیید درخواست حرفه‌ای هر دو جدول user_professions و artist_professions را به‌روزرسانی می‌کند؛ اما ArtistController@update فقط artist_professions را sync می‌کند و هیچ جریان بازبینی/همگامی برای user_professions ندارد. علاوه بر آن، مالک پروفایل می‌تواند هر حرفه فعال را مستقیماً به پروفایل اضافه کند، بدون تأیید مجدد مدیر. باید مرجع و سیاست تأیید روشن شود.",
+        "status": "policy_and_workflow_required"
+      },
+      {
+        "id": "ID-002",
+        "severity": "medium",
+        "title": "public_id هنرمند در URL عمومی استفاده نمی‌شود",
+        "detail": "ArtistController@show از implicit model binding بر اساس کلید داخلی id استفاده می‌کند و SearchController در پیشنهاد زنده route('artists.show', $artist->id) می‌سازد؛ در حالی‌که public_id مانند ar0000123 در مدل/مهاجرت تولید می‌شود. شناسه عمومی نمایش داده می‌شود اما مسیر عمومی همچنان به ID داخلی متکی است.",
+        "status": "partial_public_identifier_integration"
+      },
+      {
+        "id": "AUTH-002",
+        "severity": "medium",
+        "title": "Rate limiting ورود در Route و Controller فعلی دیده نشد",
+        "detail": "POST /login بدون throttle middleware ثبت شده، AuthController@login نیز RateLimiter یا محدودسازی تلاش ناموفق ندارد و AppServiceProvider فقط RolePolicy را ثبت می‌کند. این بررسی ایستا است و تنظیمات زیرساختی بیرون از مخزن را پوشش نمی‌دهد.",
+        "status": "needs_rate_limit_and_auth_tests"
+      },
+      {
+        "id": "DB-010",
+        "severity": "medium",
+        "title": "قانون جلوگیری از عوامل تکراری هنوز تعریف نشده و workflow عوامل نیز موجود نیست",
+        "detail": "title_credits قید unique ترکیبی برای اثر/هنرمند/حرفه ندارد و مسیر ثبت مستقیم یا تأیید credit submission در Controller/Routeها پیدا نشد. افزودن unique ساده بدون تصمیم درباره چند حرفه، چند شخصیت و نام تیتراژ یک هنرمند ممکن است داده معتبر را مسدود کند.",
+        "status": "business_rule_required_before_schema_change"
       }
     ],
     "route_and_access_findings": [
@@ -958,7 +1085,12 @@
       "واردسازی با مجوز اختصاصی محافظت می‌شود.",
       "ارجاع Route به متد public ناموجود در بررسی انجام‌شده پیدا نشد.",
       "RoleMiddleware تعریف شده اما در Routeهای بررسی‌شده استفاده نشده است؛ نیاز به ارزیابی معماری دارد.",
-      "RolePolicy تنها Policy مشخص در بررسی بود؛ بسیاری از مجوزها به‌صورت دستی در Controller/Middleware بررسی می‌شوند."
+      "RolePolicy تنها Policy مشخص در بررسی بود؛ بسیاری از مجوزها به‌صورت دستی در Controller/Middleware بررسی می‌شوند.",
+      "نقش artist در RolePermissionSeeder مجوز artists.manage دارد؛ این مجوز در Routeهای مدیریت سراسری هنرمندان استفاده می‌شود و Admin/ArtistController عملیات را به مالک محدود نمی‌کند.",
+      "نقش artist مجوز titles.create و titles.edit دارد و این مجوزها Routeهای /admin/titles را باز می‌کنند؛ جداسازی مجوز پنل هنرمند از مدیریت مدیریتی لازم است.",
+      "RolePolicy حذف نقش سیستمی را محدود می‌کند اما ویرایش نقش سیستمی و مجوزهای آن را محدود نمی‌کند.",
+      "Route یا Controller مدیریتی برای moderation نقدها و رسیدگی به گزارش‌ها یافت نشد؛ مجوزهای reviews.manage و reports.manage تعریف شده‌اند اما مسیر عملیاتی ندارند.",
+      "Route/Controller ثبت Claim کاربر و گردش‌کار ثبت/تأیید درخواست‌های title_submission_requests و credit_submission_requests یافت نشد."
     ],
     "workflow_details": {
       "professional_request": [
@@ -976,7 +1108,8 @@
         "استفاده از Transaction و lock هنگام تأیید",
         "حفظ نقش user پس از اعطای artist"
       ],
-      "artist_disconnect": "تست فعلی باقی‌ماندن نقش artist پس از قطع اتصال را انتظار دارد؛ تصمیم نهایی محصول هنوز تأیید نشده است."
+      "artist_disconnect": "تست فعلی باقی‌ماندن نقش artist پس از قطع اتصال را انتظار دارد؛ تصمیم نهایی محصول هنوز تأیید نشده است.",
+      "artist_profession_edit": "ویرایش پروفایل هنرمند artist_professions را مستقیماً sync می‌کند؛ user_professions تغییر نمی‌کند و حرفه جدید بدون بازبینی مدیر به پروفایل عمومی افزوده می‌شود. سیاست مرجع/تأیید باید تعیین شود."
     },
     "explicitly_not_confirmed_in_source": [
       "سیستم اشتراک و پرداخت هنرمندان",
@@ -989,27 +1122,37 @@
       "جدول/model مستقل شرکت‌ها و public_id با پیشوند co",
       "قید دیتابیسی برای جلوگیری از Claim تکراری کاربر و پروفایل",
       "قید محدوده مجاز امتیاز (مانند ۱ تا ۱۰) در سطح دیتابیس",
-      "قاعده نهایی جلوگیری از ثبت عوامل تکراری؛ نیازمند تصمیم محصول درباره چند نقش/شخصیت یک فرد در یک اثر"
+      "قاعده نهایی جلوگیری از ثبت عوامل تکراری؛ نیازمند تصمیم محصول درباره چند نقش/شخصیت یک فرد در یک اثر",
+      "گردش‌کار اجرایی ثبت، تأیید، رد و اصلاح درخواست‌های title_submission_requests و credit_submission_requests",
+      "مسیرهای مدیریتی moderation نقدها و رسیدگی به title_review_reports",
+      "محدودسازی نرخ ورود در Route/Controller (throttle/RateLimiter)",
+      "استفاده از public_id هنرمند به‌عنوان شناسه Route عمومی",
+      "مدل‌های Eloquent مستقل برای season_translations و episode_translations",
+      "یکپارچگی کلیدهای language_code و locale در Viewهای ویرایش هنرمند"
     ],
     "next_audit": {
-      "stage": 4,
-      "title": "تطبیق دیتابیس واقعی و تکمیل کنترل‌های معماری",
-      "status": "planned",
+      "stage": 5,
+      "title": "تعیین تصمیم‌های محصول و آماده‌سازی اصلاحات مرحله‌ای",
+      "status": "awaiting_product_decisions_no_code_changes",
       "tasks": [
-        "مقایسه ساختار دیتابیس محلی با Migrationها از طریق دستورات فقط‌خواندنی و بدون تغییر داده",
-        "بررسی سیاست نهایی و همگامی user_professions و artist_professions",
-        "تعیین قاعده Claim تکراری و عوامل تکراری پیش از هر تغییر schema",
-        "بررسی اعتبارسنجی محدوده امتیاز و محدودیت‌های آن",
-        "طراحی مدل شرکت‌ها و public_id با پیشوند co مطابق تصمیم محصول",
-        "تکمیل بررسی روابط معکوس ترجمه‌ها و پوشش تست قیود کلیدی"
+        "تعیین مرز دقیق مجوزهای نقش artist و مدیر محتوا؛ حذف دسترسی به مدیریت سراسری هنرمندان از نقش artist مگر با تصمیم صریح",
+        "تعیین سیاست محافظت از نقش admin و نقش‌های سیستمی و افزودن تست‌های جلوگیری از ارتقای غیرمجاز",
+        "تعیین سیاست مرجع حرفه‌ها: user_professions در برابر artist_professions و نیاز/عدم نیاز به تأیید مدیر هنگام ویرایش",
+        "تعیین سیاست Claim برای اتصال به پروفایل موجود و تصمیم درباره جایگزینی یا حذف workflow قدیمی",
+        "طراحی گردش‌کار moderation نقدها و گزارش‌ها",
+        "تصمیم درباره تکمیل workflow ثبت اثر و ثبت عوامل یا حذف مدل‌ها/جداول بلااستفاده پس از بررسی داده‌ها",
+        "تعیین قاعده یکتایی عوامل با پشتیبانی از چند حرفه و چند شخصیت در یک اثر",
+        "تصمیم درباره مدل شرکت‌ها و شناسه co",
+        "تکمیل استفاده از public_id در URL هنرمند و اصلاح کلیدهای ترجمه View",
+        "طراحی و افزودن Rate limiting ورود و تست‌های امنیتی/هم‌زمانی"
       ],
-      "safety": "ابتدا فقط‌خواندنی؛ هر تغییر Migration یا داده فقط با درخواست و تأیید جداگانه کاربر."
+      "safety": "این مرحله فقط ممیزی سورس بود؛ هیچ کد محصول، Migration یا داده‌ای تغییر نکرد. هر اصلاح در مخزن اصلی نیازمند درخواست صریح کاربر است."
     },
     "limitations": [
-      "ممیزی دو مرحله اول فقط‌خواندنی و مبتنی بر سورس GitHub در commit مشخص بوده است.",
-      "هیچ دستور Laravel روی سیستم محلی اجرا نشده و دیتابیس زنده بررسی نشده است.",
-      "نتیجه بررسی ایستا، اثبات وضعیت مجوزهای کاربران واقعی یا رفتار runtime نیست.",
-      "مرحله سوم دیتابیس هنوز انجام نشده است."
+      "این ممیزی ایستای مخزن GitHub در branch main و commit مشخص است؛ رفتار runtime را به‌تنهایی اثبات نمی‌کند.",
+      "به درخواست کاربر، تطبیق دیتابیس محلی با Migrationها از محدوده مرحله چهارم حذف شد؛ بنابراین وضعیت دیتابیس واقعی دوباره بررسی نشده است.",
+      "هیچ تست PHPUnit یا مرورگر در این نوبت اجرا نشد؛ پوشش تست از روی فایل‌های موجود ارزیابی شد.",
+      "هیچ فایلی در مخزن سورس اصلی تغییر نکرد و هیچ Migration یا دستور تغییردهنده داده اجرا نشد."
     ]
   },
   "database_schema_audit": {
