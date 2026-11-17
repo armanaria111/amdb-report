@@ -27,6 +27,20 @@ function render(d){
  $("#languageList").innerHTML=(d.languages||[]).map(x=>'<div class="language"><b>'+esc(x.label)+'</b><code>'+esc(x.code)+'</code><span>'+esc(x.direction.toUpperCase())+'</span><small>'+esc(x.font_status||"")+'</small></div>').join("");
  $("#identifierList").innerHTML=(d.identifier_system?.formats||[]).map(x=>'<div class="identifier"><span>'+esc(x.entity)+'</span><code>'+esc(x.example)+'</code></div>').join("");
  $("#identifierNote").textContent=d.identifier_system?.detail||"";
+ const audit=d.source_code_audit||{};
+ $("#sourceAuditStatus").textContent=audit.status?"ممیزی سورس · "+audit.audit_date:"ممیزی سورس هنوز ثبت نشده است";
+ $("#sourceAuditCommit").textContent=audit.commit||"—";
+ $("#sourceAuditScope").innerHTML=(audit.scope_completed||[]).map(x=>'<div class="mini-tile">'+esc(x)+'</div>').join("");
+ const inv=audit.repository_inventory||{};
+ $("#sourceAuditInventory").innerHTML=[
+  ["ورودی‌های درخت مخزن",inv.tree_entries],["Migrationها",inv.migration_files],["مدل‌های PHP",inv.php_model_files],
+  ["فایل‌های Blade",inv.blade_files],["خطوط web.php",inv.web_route_lines],["Routeهای نام‌گذاری‌شده",inv.named_route_calls]
+ ].map(x=>'<div class="stat"><small>'+esc(x[0])+'</small><strong>'+esc(x[1]??"—")+'</strong></div>').join("");
+ $("#sourceAuditFeatures").innerHTML=(audit.confirmed_implemented_areas||[]).map(x=>'<article class="list-row"><p>'+esc(x)+'</p></article>').join("");
+ $("#sourceAuditRisks").innerHTML=(audit.confirmed_gaps_and_risks||[]).map(x=>row({title:x.id+" · "+x.title,detail:x.detail,state:x.severity==="high"?"incomplete":x.status==="awaiting_product_decision"?"planned":"partial"})).join("");
+ const next=audit.next_audit||{};
+ $("#sourceAuditNext").innerHTML='<article class="list-row"><div class="row-title">'+esc(next.title||"مرحله بعدی مشخص نشده")+'</div><p>'+esc((next.tasks||[]).join(" · "))+'</p><p>'+esc(next.safety||"")+'</p></article>';
+ $("#sourceAuditLimits").innerHTML=(audit.limitations||[]).map(x=>'<li>'+esc(x)+'</li>').join("");
  $("#changelogList").innerHTML=(d.changelog||[]).map(x=>'<article class="timeline-item"><time>'+esc(x.date)+'</time><p>'+esc(x.text)+'</p></article>').join("");
 }
 function renderFeatures(){
