@@ -277,7 +277,8 @@
       "SEC-003 دوباره تأیید شد: RolePolicy::update و UpdateRoleRequest نقش‌های is_system را از ویرایش مستثنا نمی‌کنند؛ RoleController امکان sync مجوزها و تغییر slug را دارد.",
       "SEC-001 تکمیل شد: UserController::updateRoles اعطای role=admin به کاربر عادی را صریحاً منع نمی‌کند؛ User::isAdmin نقش admin را معتبر می‌شناسد. شدت مسیر سوءاستفاده به امکان دسترسی دارنده users.manage وابسته است.",
       "RoleManagementTest پوشش تستی برای منع حذف نقش سیستمی دارد، اما تست‌های صریح منع ویرایش نقش سیستمی، اعطای admin و محدودیت نقش artist در فایل بررسی‌شده دیده نشدند.",
-      "هیچ تست PHPUnit، آزمون runtime یا بررسی دیتابیس محلی در مرحله ششم اجرا نشد؛ هیچ فایل سورس اصلی، Migration یا داده‌ای تغییر نکرد."
+      "هیچ تست PHPUnit، آزمون runtime یا بررسی دیتابیس محلی در مرحله ششم اجرا نشد؛ هیچ فایل سورس اصلی، Migration یا داده‌ای تغییر نکرد.",
+      "اصلاحات P0 در شاخه security/p0-rbac-hardening و PR شماره 1 به‌صورت Draft ارائه شدند؛ هنوز merge نشده‌اند. 12 فایل شامل middleware محدودکننده پنل هنرمند، محدودیت نقش‌های سیستمی، محافظت اعطای admin با AMDB_SUPER_ADMIN_EMAIL، اصلاح Seeder و تست‌های Feature تغییر کرده‌اند. PHPUnit اجرا نشده و هیچ Migration/دیتابیسی تغییر نکرده است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1291,6 +1292,18 @@
       "منع ایجاد/ویرایش مستقیم اثر توسط artist در پنل مدیریت",
       "کنترل مالکیت منابع هنرمند"
     ],
-    "note": "این ممیزی ایستای سورس GitHub است. تست‌ها اجرا نشده‌اند و دیتابیس محلی بررسی نشده است. هیچ تغییری در سورس محصول یا دیتابیس انجام نشده است."
+    "note": "این ممیزی ایستای سورس GitHub است. تست‌ها اجرا نشده‌اند و دیتابیس محلی بررسی نشده است. هیچ تغییری در سورس محصول یا دیتابیس انجام نشده است.",
+    "remediation_status": "draft_pull_request_open",
+    "pull_request": {
+      "repository": "https://github.com/armanaria111/amdb-laravel2",
+      "number": 1,
+      "url": "https://github.com/armanaria111/amdb-laravel2/pull/1",
+      "branch": "security/p0-rbac-hardening",
+      "status": "open_draft_not_merged",
+      "changed_files": 12,
+      "tests_added": 7,
+      "tests_executed": false,
+      "database_or_migrations_changed": false
+    }
   }
 }
