@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "48e4d2eecf29d53738c71a6c2931261952cf9e32",
+    "latest_main_commit": "3db6963f80e6a46d5e96ac469b59c3d3dea35de0",
     "latest_main_commit_verified_on": "2026-11-18"
   },
   "languages": [
@@ -145,7 +145,7 @@
       "eloquent_model_files": 40,
       "audit_type": "static GitHub source tree and route-name inventory; no database/runtime inspection",
       "report_document": "docs/stage-3-database-relationships-audit-2026-11-18.md",
-      "latest_main_commit": "48e4d2eecf29d53738c71a6c2931261952cf9e32",
+      "latest_main_commit": "3db6963f80e6a46d5e96ac469b59c3d3dea35de0",
       "route_definitions": 102
     },
     "current_findings": [
@@ -428,7 +428,9 @@
       "PR31 و PR32 هر دو در main ادغام شدند؛ داشبوردهای مدیر/هنرمند/کاربر و صفحات فهرست هنرمندان و کاتالوگ فیلم/سریال اکنون متن‌های خود را از فایل‌های locale مستقل دریافت می‌کنند.",
       "کلیدهای مورد استفاده در پنج View تغییرکرده با بخش ترجمه هر سه زبان تطبیق داده شدند و کلید مفقودی مشاهده نشد؛ جهت LTR/RTL قبلی حفظ شده است.",
       "بازبینی ایستای ۲۵ فایل Controller و Command فعال انجام شد؛ در خطوط بررسی‌شده متن کاربری فارسی/عربی سخت‌کدشده پیدا نشد. موارد باقی‌مانده در چند View عمدتاً comment یا جداکننده‌های متنی بودند.",
-      "آخرین commit main پس از PR32: 48e4d2eecf29d53738c71a6c2931261952cf9e32. هیچ تست، Migration، Seeder یا عملیات دیتابیس محلی اجرا نشد."
+      "آخرین commit main پس از PR32: 48e4d2eecf29d53738c71a6c2931261952cf9e32. هیچ تست، Migration، Seeder یا عملیات دیتابیس محلی اجرا نشد.",
+      "PR33 با موفقیت ادغام شد: ساختار نامعتبر JSON object در default_names هر سه فایل admin-settings.php به آرایه associative معتبر PHP تبدیل شد و دو پیام پاسخ SiteSettingController چندزبانه شدند.",
+      "آخرین commit main پس از PR33: 3db6963f80e6a46d5e96ac469b59c3d3dea35de0؛ هیچ تست، PHP command، Migration، Seeder یا تغییر دیتابیس محلی انجام نشد."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1627,9 +1629,9 @@
   },
   "current_work": {
     "stage": "ممیزی و تکمیل چندزبانگی رابط کاربری و گردش‌کارها پس از ادغام امنیت و کاتالوگ",
-    "status": "no_open_pull_requests_i18n_dashboards_and_public_catalogs_merged_static_review_continues",
+    "status": "no_open_pull_requests_i18n_and_site_settings_syntax_fix_merged_db_audit_next",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "latest_main_commit": "48e4d2eecf29d53738c71a6c2931261952cf9e32",
+    "latest_main_commit": "3db6963f80e6a46d5e96ac469b59c3d3dea35de0",
     "merged_pull_requests": [
       {
         "number": 8,
@@ -1799,9 +1801,17 @@
         "merge_commit": "48e4d2eecf29d53738c71a6c2931261952cf9e32",
         "status": "merged",
         "tests_executed": false
+      },
+      {
+        "number": 33,
+        "title": "Fix site settings locale PHP syntax and messages",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/33",
+        "merge_commit": "3db6963f80e6a46d5e96ac469b59c3d3dea35de0",
+        "status": "merged",
+        "tests_executed": false
       }
     ],
-    "next_step": "تکمیل بررسی ایستای باقیمانده فایل‌های ترجمه و بررسی امنیت/قیود DB-010 و DB-012 تا DB-019؛ سپس تعیین تکلیف اشتراک و داده‌های legacy Claim. اجرای تست جامع، بررسی مرورگری سه زبان، Migration/Seeder محلی و انتقال legacy evidence در مرحله نهایی و پس از backup.",
+    "next_step": "ادامه بازبینی ساختار فایل‌های locale و ممیزی DB-010 و DB-012 تا DB-019؛ بررسی موارد ناسازگار و طراحی اصلاحات با preflight حفظ داده. تست جامع و بررسی مرورگری سه زبان در پایان؛ Migration/Seeder و انتقال legacy evidence فقط پس از backup.",
     "operational_runbook": "docs/operational-runbook-private-evidence-2026-11-18.md"
   },
   "application_audit": {
@@ -2651,6 +2661,27 @@
     ],
     "static_checks": "کلیدهای استفاده‌شده در Viewها با هر سه زبان تطبیق داده شدند؛ هیچ کلید مفقودی دیده نشد. متن‌های UI سخت‌کدشده در صفحات تغییرکرده حذف شدند؛ تطبیق بصری مرورگر هنوز در مرحله نهایی است.",
     "tests_executed": false,
+    "local_database_modified": false
+  },
+  "site_settings_locale_fix": {
+    "date": "2026-11-18",
+    "status": "merged_static_review_not_runtime_tested",
+    "pull_request": 33,
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/33",
+    "merge_commit": "3db6963f80e6a46d5e96ac469b59c3d3dea35de0",
+    "files": [
+      "lang/en/admin-settings.php",
+      "lang/fa-AF/admin-settings.php",
+      "lang/ps/admin-settings.php",
+      "app/Http/Controllers/Admin/SiteSettingController.php"
+    ],
+    "fixes": [
+      "سه مقدار default_names که به شکل JSON object نامعتبر داخل فایل PHP قرار گرفته بودند به آرایه associative معتبر PHP تبدیل شدند.",
+      "پیام اعتبارسنجی فعال بودن زبان پیش‌فرض برای هر سه زبان ترجمه شد.",
+      "پیام موفقیت ذخیره تنظیمات از رشته hard-coded انگلیسی به کلید ترجمه admin-settings.saved متصل شد."
+    ],
+    "tests_executed": false,
+    "migrations_executed": false,
     "local_database_modified": false
   }
 }
