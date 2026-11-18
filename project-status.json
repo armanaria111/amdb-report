@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "419c2678996adc69b7dfff887a73fc842d60013a",
+    "latest_main_commit": "8e1c6c795b5becfd742be6e9453c7708dc6fab83",
     "latest_main_commit_verified_on": "2026-11-18"
   },
   "languages": [
@@ -145,7 +145,7 @@
       "eloquent_model_files": 40,
       "audit_type": "static GitHub source tree and route-name inventory; no database/runtime inspection",
       "report_document": "docs/stage-3-database-relationships-audit-2026-11-18.md",
-      "latest_main_commit": "419c2678996adc69b7dfff887a73fc842d60013a",
+      "latest_main_commit": "8e1c6c795b5becfd742be6e9453c7708dc6fab83",
       "route_definitions": 102
     },
     "current_findings": [
@@ -421,7 +421,10 @@
       "وضعیت PRهای 22 تا 28 از GitHub دوباره بررسی شد: هر هفت PR بسته و merged هستند؛ هیچ PR بازی در فهرست PRهای کاربر برای مخزن سورس باقی نمانده است.",
       "PR22 تا PR28 بخش‌های مهمی از پیام‌های پروفایل و درخواست حرفه‌ای، Controllerهای مدیریت، Viewهای مدیریت درخواست حرفه‌ای/نقش/هنرمند/واردسازی/اثر/کاربر و تنظیمات سایت/Claim قدیمی را برای en، fa-AF و ps چندزبانه کردند.",
       "آخرین commit شاخه main برابر 419c2678996adc69b7dfff887a73fc842d60013a و merge commit مربوط به PR28 است؛ گزارش قبلی تا PR21 به‌روز بود و اکنون PR22 تا PR28 نیز ثبت شدند.",
-      "هیچ تستی اجرا نشده؛ هیچ Migration، Seeder، عملیات انتقال فایل یا تغییر دیتابیس محلی انجام نشده است."
+      "هیچ تستی اجرا نشده؛ هیچ Migration، Seeder، عملیات انتقال فایل یا تغییر دیتابیس محلی انجام نشده است.",
+      "PR29 با موفقیت ادغام شد: صفحات ورود/ثبت‌نام، پروفایل حساب، فرم درخواست حرفه‌ای و تاریخچه درخواست کاربر برای en/fa-AF/ps ترجمه شدند؛ جهت دو صفحه درخواست بر اساس locale تنظیم شد.",
+      "PR30 با موفقیت ادغام شد: لینک مستقیم public storage مدرک درخواست حرفه‌ای با Route دانلود احراز‌شده جایگزین شد؛ دانلود فقط برای مالک همان درخواست مجاز است و فایل private/local در اولویت قرار دارد؛ fallback احراز‌شده برای فایل‌های legacy public موقتاً حفظ شده است.",
+      "آخرین commit شاخه main پس از PR30: 8e1c6c795b5becfd742be6e9453c7708dc6fab83. PR29 و PR30 ادغام شدند؛ تست runtime اجرا نشده است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1620,9 +1623,9 @@
   },
   "current_work": {
     "stage": "ممیزی و تکمیل چندزبانگی رابط کاربری و گردش‌کارها پس از ادغام امنیت و کاتالوگ",
-    "status": "no_open_pull_requests_all_recent_i18n_prs_merged_static_audit_continues",
+    "status": "no_open_pull_requests_recent_i18n_and_private_evidence_fixes_merged_static_audit_continues",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "latest_main_commit": "419c2678996adc69b7dfff887a73fc842d60013a",
+    "latest_main_commit": "8e1c6c795b5becfd742be6e9453c7708dc6fab83",
     "merged_pull_requests": [
       {
         "number": 8,
@@ -1760,9 +1763,25 @@
         "status": "merged",
         "url": "https://github.com/armanaria111/amdb-laravel2/pull/28",
         "tests_executed": false
+      },
+      {
+        "number": 29,
+        "title": "Localize authentication and user professional workflows",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/29",
+        "merge_commit": "9d62e832e297c16e7a31a03b9d93ae3593896849",
+        "status": "merged",
+        "tests_executed": false
+      },
+      {
+        "number": 30,
+        "title": "Serve professional evidence through owner-authorized downloads",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/30",
+        "merge_commit": "8e1c6c795b5becfd742be6e9453c7708dc6fab83",
+        "status": "merged",
+        "tests_executed": false
       }
     ],
-    "next_step": "ادامه ممیزی ایستای رشته‌های سخت‌کدشده با تمرکز بر بخش‌های باقی‌مانده خارج از Viewها و Controllerهای پوشش‌داده‌شده در PR22 تا PR28؛ سپس ممیزی DB-010 و DB-012 تا DB-019. تست جامع، Migration/Seeder محلی و انتقال legacy evidence در مرحله نهایی/پس از backup انجام می‌شوند.",
+    "next_step": "ادامه ممیزی ایستای رشته‌های سخت‌کدشده در داشبوردها، صفحات عمومی، فرم‌های ثبت آثار/عوامل و Viewهای باقیمانده؛ سپس ممیزی DB-010 و DB-012 تا DB-019. تست جامع در پایان؛ Migration/Seeder و انتقال legacy evidence فقط پس از backup.",
     "operational_runbook": "docs/operational-runbook-private-evidence-2026-11-18.md"
   },
   "application_audit": {
@@ -2434,7 +2453,7 @@
   "post_pr21_localization": {
     "date": "2026-11-18",
     "status": "merged_static_review",
-    "latest_main_commit": "419c2678996adc69b7dfff887a73fc842d60013a",
+    "latest_main_commit": "8e1c6c795b5becfd742be6e9453c7708dc6fab83",
     "pull_requests": [
       {
         "number": 22,
@@ -2512,6 +2531,14 @@
         "status": "merged",
         "url": "https://github.com/armanaria111/amdb-laravel2/pull/28",
         "tests_executed": false
+      },
+      {
+        "number": 29,
+        "title": "Localize authentication and user professional workflows",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/29",
+        "merge_commit": "9d62e832e297c16e7a31a03b9d93ae3593896849",
+        "status": "merged",
+        "tests_executed": false
       }
     ],
     "coverage": [
@@ -2521,12 +2548,28 @@
       "PR25: Viewهای مدیریت هنرمند و واردسازی WordPress",
       "PR26: Viewهای مدیریت آثار",
       "PR27: Viewهای مدیریت کاربران و نقش‌ها",
-      "PR28: Viewهای تنظیمات سایت و Claim قدیمی"
+      "PR28: Viewهای تنظیمات سایت و Claim قدیمی",
+      "PR29: چندزبانه‌سازی ورود، ثبت‌نام، پروفایل حساب، فرم درخواست حرفه‌ای و تاریخچه درخواست‌های کاربر؛ جهت صفحه با زبان فعال هماهنگ شد."
     ],
     "tests_executed": false,
     "migrations_executed": false,
     "seeders_executed": false,
     "local_database_modified": false,
     "remaining": "ممیزی تکمیلی متن‌های hard-coded در بخش‌های باقیمانده؛ تست ترجمه‌ها و رفتار RTL در مرحله نهایی."
+  },
+  "user_professional_evidence_download": {
+    "date": "2026-11-18",
+    "status": "implemented_merged_not_runtime_tested",
+    "pull_request": 30,
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/30",
+    "merge_commit": "8e1c6c795b5becfd742be6e9453c7708dc6fab83",
+    "route": "professional-requests.own-evidence",
+    "authorization": "authenticated owner of the ProfessionalRequest only; other users receive 404",
+    "storage": "download from private local disk first; temporary authenticated fallback to public disk for legacy files pending controlled migration",
+    "view": "resources/views/professional-requests/create.blade.php",
+    "tests_executed": false,
+    "migrations_executed": false,
+    "local_database_modified": false,
+    "note": "Direct asset('storage/...') link was replaced by an owner-authorized download route. Legacy public files remain directly accessible until the separately planned backup-and-migrate operation is completed."
   }
 }
