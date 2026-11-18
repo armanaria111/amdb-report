@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "df39ca19d86cdddf7ee650f131437f66e18722a6",
+    "latest_main_commit": "5a34ef8d8c68eab3e144abe4f1c7a9d270e97648",
     "latest_main_commit_verified_on": "2026-11-18"
   },
   "languages": [
@@ -392,7 +392,10 @@
       "PR17 و PR18 به‌ترتیب با merge commit ebcde1cda601b32ed40956de55b2ee6972cc9e9d و 7b8f7350274054097c6e52ac214525bbda3af3af ادغام شدند؛ فرمان انتقال مدارک قدیمی اکنون retry-safe است و dry-run فایل‌های already-private را از موارد نیازمند انتقال تفکیک می‌کند.",
       "PR19 برای credit evidence در main ادغام شده است؛ آپلود و ارسال مجدد مدرک credit روی local/private disk، دانلود مدیر با مجوز و تست Feature مرتبط در main موجود است. Merge commit: df39ca19d86cdddf7ee650f131437f66e18722a6.",
       "در زمان بررسی نهایی هیچ PR بازی در مخزن اصلی باقی نمانده است. همه تغییرات اخیر وارد main شده‌اند.",
-      "هیچ تست، Migration، Seeder یا فرمان انتقال فایل اجرا نشده؛ دیتابیس محلی amdbl و فایل‌های محلی دست‌نخورده‌اند."
+      "هیچ تست، Migration، Seeder یا فرمان انتقال فایل اجرا نشده؛ دیتابیس محلی amdbl و فایل‌های محلی دست‌نخورده‌اند.",
+      "PR20 در 2026-11-18 ادغام شد: پیام‌های امتیازدهی، نقد/گزارش و گردش‌کار درخواست حرفه‌ای به ترجمه‌های مستقل en، fa-AF و ps منتقل شدند.",
+      "ممیزی ایستای دو Controller پس از PR20 نشان داد متن‌های غیرانگلیسی باقی‌مانده در آن‌ها فقط توضیحات و commentهای توسعه‌دهنده‌اند؛ انتقال سایر رشته‌های سخت‌کدشده پروژه هنوز باز است.",
+      "main در commit 5a34ef8d8c68eab3e144abe4f1c7a9d270e97648 بررسی شد؛ تست‌ها اجرا نشده‌اند."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1757,10 +1760,10 @@
       {
         "id": "I18N-004",
         "severity": "medium",
-        "status": "partially_remediated_in_main_pending_review",
+        "status": "partially_remediated_in_pr20_merged",
         "title": "متن‌های رابط چندزبانه داخل View و Controller hard-code شده‌اند",
-        "detail": "نمونه‌ها: آرایه texts در artists/show.blade.php و پیام‌های مستقیم فارسی در Controllerها؛ متن‌های جستجوی Layout از قبل از lang/{locale}/search.php استفاده می‌کردند و جزو این یافته نیستند. آرایه صفحه عمومی هنرمند در شاخه کاری به فایل‌های ترجمه منتقل شده است.",
-        "remediation": "متون صفحه عمومی هنرمند به فایل‌های lang منتقل شدند؛ سایر متن‌های hard-coded نیازمند ممیزی‌اند."
+        "detail": "متن‌های صفحه عمومی هنرمند پیش‌تر به فایل‌های زبان منتقل شده بودند. PR20 پیام‌های ثبت/ویرایش/حذف نقد، ثبت امتیاز، گزارش نقد و پیام‌های اعتبارسنجی/تأیید/اصلاح/رد درخواست حرفه‌ای را از Controllerها به ترجمه‌های en، fa-AF و ps منتقل کرد. ممیزی سایر Controllerها و Viewهای قدیمی هنوز لازم است.",
+        "remediation": "PR20 بخشی از متن‌های سخت‌کدشده RatingReviewController و Admin/ProfessionalRequestController را چندزبانه کرد؛ ادامه ممیزی و انتقال سایر رشته‌ها باز است."
       },
       {
         "id": "SEC-007",
@@ -2259,5 +2262,30 @@
     "tests_executed": false,
     "migrations_executed": false,
     "local_database_modified": false
+  },
+  "review_professional_i18n": {
+    "date": "2026-11-18",
+    "status": "partially_implemented_merged",
+    "pull_request": 20,
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/20",
+    "merge_commit": "5a34ef8d8c68eab3e144abe4f1c7a9d270e97648",
+    "controllers": [
+      "RatingReviewController",
+      "Admin/ProfessionalRequestController"
+    ],
+    "languages": [
+      "en",
+      "fa-AF",
+      "ps"
+    ],
+    "changes": [
+      "پیام موفقیت امتیازدهی",
+      "پیام ثبت/ویرایش/حذف نقد و گزارش نقد",
+      "پیام‌های اعتبارسنجی درخواست حرفه‌ای",
+      "پیام‌های تأیید، اصلاح و رد درخواست",
+      "دلیل ثبت‌شده در audit اتصال هنرمند"
+    ],
+    "tests_executed": false,
+    "remaining": "سایر Controllerها و Viewهای قدیمی از نظر متن‌های سخت‌کدشده باید ممیزی شوند."
   }
 }
