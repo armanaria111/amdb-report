@@ -347,7 +347,11 @@
       "یافته WF-004: evidence_path درخواست عوامل در Migration وجود دارد اما فرم و Controller فعلی مدرک را به صورت متن دریافت می‌کنند و Route دانلود فایل credit وجود ندارد.",
       "یافته TEST-002: RoleManagementTest مجوز artists.claim را در ماتریس نقش artist انتظار دارد اما RolePermissionSeeder فعلی آن را در فهرست مجوزها/نقش قرار نمی‌دهد؛ تست اجرا نشده است.",
       "در نسخه فعلی Route/Controllerهای moderation نقد و گزارش و گردش‌کار ثبت اثر/عوامل وجود دارند؛ یافته‌های تاریخی نبود این مسیرها برای main فعلی باید resolved تلقی شوند.",
-      "در صفحه عمومی هنرمند، فلگ‌های نمایش تماس و فیلتر is_public شبکه‌های اجتماعی رعایت می‌شوند؛ فونت‌های Inter/Vazirmatn/Noto Sans Arabic نیز جداگانه به زبان‌ها نگاشت شده‌اند."
+      "در صفحه عمومی هنرمند، فلگ‌های نمایش تماس و فیلتر is_public شبکه‌های اجتماعی رعایت می‌شوند؛ فونت‌های Inter/Vazirmatn/Noto Sans Arabic نیز جداگانه به زبان‌ها نگاشت شده‌اند.",
+      "بازبینی ایستای PR7 انجام شد: Migrationهای companies/company_translations/title_companies افزایشی‌اند و روابط چندنقشی شرکت با اثر پشتیبانی می‌شوند.",
+      "PR7 مسیر هنرمند را با {artist:public_id} به شناسه ar متصل می‌کند؛ این اصلاح تا زمان ادغام PR هنوز وارد main نشده است.",
+      "در بازبینی PR7 سه مورد کم‌اولویت CAT-001، I18N-001 و FILE-001 ثبت شد: فیلتر نوع محتوای فعال، ترجمه کشور و ترتیب حذف لوگوی قبلی.",
+      "PR7 هنوز ۶۶ commit جلوتر و ۴۵ commit عقب‌تر از main و mergeable=false است؛ ادغام مستقیم انجام نشد."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1489,12 +1493,12 @@
     }
   },
   "current_work": {
-    "stage": "Stage 4 — Authorization, moderation and workflow audit",
-    "status": "partial_static_audit_completed",
+    "stage": "Stage 4 — Authorization, workflow and pending PR review",
+    "status": "static_audit_partial_completed",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
     "report_document": "https://github.com/armanaria111/amdb-report/blob/main/docs/stage-4-authorization-and-workflow-audit-2026-11-18.md",
-    "next_step": "تکمیل ممیزی ایستای مسیرهای باقی‌مانده، شناسه‌های عمومی و چندزبانگی؛ سپس تهیه طرح اصلاحات در شاخه جداگانه. اجرای تست‌ها فقط در مرحله نهایی."
+    "next_step": "ادامه ممیزی ایستای بخش‌های باقی‌مانده و آماده‌سازی طرح اصلاح AUTH-004/AUTH-005 و یافته‌های PR7؛ سپس به‌روزرسانی شاخه PR7 بدون ادغام مستقیم. تست‌ها فقط در مرحله نهایی."
   },
   "application_audit": {
     "audit_date": "2026-11-18",
@@ -1535,7 +1539,8 @@
         "status": "confirmed_static",
         "title": "Route عمومی هنرمند هنوز از شناسه داخلی استفاده می‌کند",
         "detail": "Artist route از implicit model binding استفاده می‌کند و Artist مدل getRouteKeyName یا binding سفارشی public_id ندارد؛ public_id در صفحه نمایش داده می‌شود اما URL همچنان بر id متکی است.",
-        "remediation": "استفاده یکپارچه از ar public_id در route binding و لینک‌ها با سازگاری برای URLهای قدیمی."
+        "remediation": "استفاده یکپارچه از ar public_id در route binding و لینک‌ها با سازگاری برای URLهای قدیمی.",
+        "candidate_fix_in_pr7": "PR7 route را به {artist:public_id} تغییر داده و SearchController لینک ar public_id می‌سازد؛ تا زمان ادغام، main هنوز این اصلاح را ندارد."
       },
       {
         "id": "WF-004",
@@ -1581,5 +1586,69 @@
     "source_code_modified": false,
     "report_document": "https://github.com/armanaria111/amdb-report/blob/main/docs/stage-4-authorization-and-workflow-audit-2026-11-18.md",
     "note": "این مرحله صرفاً ممیزی ایستای GitHub است. تست‌ها و عملیات دیتابیس طبق درخواست کاربر برای انتهای پروژه نگه داشته شده‌اند."
+  },
+  "company_catalog_pr_review": {
+    "audit_date": "2026-11-18",
+    "repository": "https://github.com/armanaria111/amdb-laravel2",
+    "pull_request": 7,
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/7",
+    "branch": "catalog/company-profiles-public-ids",
+    "head_commit": "e8b6118391730d198345034ef1f8ff6c090cb2c6",
+    "main_commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
+    "ahead_by": 66,
+    "behind_by": 45,
+    "changed_files": 34,
+    "merge_base": "c08b7f7b9bccf1fb19bc022d0deb54d10ec8476c",
+    "mergeable": false,
+    "mergeable_state": "dirty",
+    "review_status": "static_review_completed_pending_branch_refresh",
+    "verified": [
+      "Migration شرکت‌ها افزایشی است و companies، company_translations و title_companies را ایجاد می‌کند؛ داده/جدول‌های موجود را حذف یا بازسازی نمی‌کند.",
+      "public_id شرکت با پیشوند co و قید unique در مدل تولید می‌شود.",
+      "شرکت می‌تواند برای یک اثر چند نقش مستقل داشته باشد و unique ترکیبی از ثبت تکراری همان نقش جلوگیری می‌کند.",
+      "Route عمومی هنرمند در PR7 از {artist:public_id} و regex ar[0-9]{7} استفاده می‌کند؛ در صورت ادغام، شکاف شناسه عمومی هنرمند در main رفع می‌شود.",
+      "Routeهای مدیریت شرکت با companies.view و companies.manage محافظت شده‌اند؛ جستجوی کامل و پیشنهاد زنده شرکت را پوشش می‌دهند.",
+      "صفحه عمومی اثر شرکت غیرفعال را فیلتر می‌کند."
+    ],
+    "findings": [
+      {
+        "id": "CAT-001",
+        "severity": "low",
+        "status": "needs_fix",
+        "title": "صفحه شرکت نوع محتوای غیرفعال را از فهرست آثار حذف نمی‌کند",
+        "detail": "CompanyController::show فقط is_published را بررسی می‌کند؛ MovieController::show فعال بودن contentType را نیز الزام می‌کند.",
+        "remediation": "در Query آثار شرکت شرط active بودن contentType افزوده شود."
+      },
+      {
+        "id": "I18N-001",
+        "severity": "low",
+        "status": "needs_fix",
+        "title": "نام کشور در صفحه شرکت ترجمه نمی‌شود",
+        "detail": "companies.show country.name پایه را نمایش می‌دهد، در حالی که Country و CountryTranslation ترجمه‌های زبان را پشتیبانی می‌کنند.",
+        "remediation": "country.translations بارگذاری و بر اساس locale نمایش داده شود."
+      },
+      {
+        "id": "FILE-001",
+        "severity": "low",
+        "status": "needs_fix",
+        "title": "لوگوی قبلی پیش از commit تراکنش حذف می‌شود",
+        "detail": "Admin CompanyController فایل قدیمی را قبل از موفقیت ذخیره فایل جدید و commit دیتابیس حذف می‌کند؛ شکست عملیات می‌تواند رکورد را به مسیر فایل حذف‌شده متصل نگه دارد.",
+        "remediation": "حذف فایل قدیمی پس از commit موفق و پاکسازی فایل جدید در صورت شکست."
+      }
+    ],
+    "test_file": "tests/Feature/CompanyCatalogTest.php",
+    "tests_defined": 4,
+    "tests_executed": false,
+    "shared_conflict_files": [
+      "routes/web.php",
+      "database/seeders/RolePermissionSeeder.php",
+      "resources/views/layouts/app.blade.php",
+      "resources/views/admin/dashboard.blade.php",
+      "resources/css/app.css"
+    ],
+    "decision": "PR7 مستقیم ادغام نشود؛ ابتدا branch با main به‌روز و تعارض‌ها حل و بازبینی شوند.",
+    "report_document": "https://github.com/armanaria111/amdb-report/blob/main/docs/pr-7-company-catalog-static-review-2026-11-18.md",
+    "source_code_modified": false,
+    "database_modified": false
   }
 }
