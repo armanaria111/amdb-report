@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "df39ca19d86cdddf7ee650f131437f66e18722a6",
+    "latest_main_commit": "53dbcebea50d550a1011a10ed478a5d02bbff9af",
     "latest_main_commit_verified_on": "2026-11-18"
   },
   "languages": [
@@ -52,8 +52,8 @@
     "syntax_or_audit_errors": 0,
     "note": "شمارش‌های منبع پس از ادغام PR10 به‌روزرسانی شده‌اند: ۴۵ جدول تعریف‌شده، ۴۰ مدل، ۲۷ فایل Migration و ۱۰۳ تعریف Route. این‌ها شمارش ایستای سورس‌اند و تعداد جدول‌های واقعی یا Migrationهای اجراشده دیتابیس محلی را اثبات نمی‌کنند. هیچ Migration اجرا نشده است.",
     "migrations": {
-      "source_file_count": 27,
-      "application_migration_file_count": 24,
+      "source_file_count": 28,
+      "application_migration_file_count": 25,
       "framework_migration_file_count": 3,
       "ran_count": 10,
       "ran_count_note": "۱۰ مورد Ran مربوط به گزارش قدیمی migrate:status است و وضعیت فعلی محیط محلی در این ممیزی بررسی نشده است.",
@@ -138,15 +138,15 @@
     ],
     "known_tables_note": "این فهرست فقط نام‌هایی است که در گفتگو صریحاً ثبت شده‌اند؛ فهرست کامل ۴۲ جدول بازیابی نشده است.",
     "current_source_snapshot": {
-      "commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
-      "migration_files": 27,
-      "application_migration_files": 24,
+      "commit": "53dbcebea50d550a1011a10ed478a5d02bbff9af",
+      "migration_files": 28,
+      "application_migration_files": 25,
       "framework_migration_files": 3,
       "eloquent_model_files": 40,
-      "audit_type": "source_inventory_updated_from_merged_pr_diffs_not_full_runtime_or_database_audit",
+      "audit_type": "static GitHub source tree and route-name inventory; no database/runtime inspection",
       "report_document": "docs/stage-3-database-relationships-audit-2026-11-18.md",
       "latest_main_commit": "46cb61737572b1b247f4d9436f70f370ca20d471",
-      "route_definitions": 103
+      "route_definitions": 102
     },
     "current_findings": [
       {
@@ -157,7 +157,9 @@
       {
         "id": "DB-011",
         "severity": "low",
-        "summary": "مدل Language فقط رابطه معکوس artistTranslations دارد و روابط معکوس سایر ترجمه‌ها تعریف نشده‌اند."
+        "summary": "روابط معکوس مدل Language برای ترجمه‌های country، company، profession، title و artist تعریف شده‌اند.",
+        "status": "fixed_in_pr21_merged",
+        "remediation": "PR21 سه رابطه companyTranslations، professionTranslations و titleTranslations را افزود؛ رابطه‌های artistTranslations و countryTranslations از قبل وجود داشتند."
       },
       {
         "id": "DB-012",
@@ -182,22 +184,30 @@
       {
         "id": "DB-016",
         "severity": "medium",
-        "summary": "FK مربوط به parent_id در title_reviews تضمین نمی‌کند نقد والد و پاسخ متعلق به یک title باشند."
+        "summary": "FK مربوط به parent_id در title_reviews تضمین نمی‌کند نقد والد و پاسخ متعلق به یک title باشند.",
+        "status": "application_guarded_database_constraint_open",
+        "remediation": "RatingReviewController پاسخ را فقط به نقد والد تأییدشده و متعلق به همان title_id متصل می‌کند؛ قید چندستونی دیتابیسی وجود ندارد."
       },
       {
         "id": "DB-017",
         "severity": "medium",
-        "summary": "title_credits سازگاری artist_id و user_id را در سطح دیتابیس enforce نمی‌کند."
+        "summary": "title_credits سازگاری artist_id و user_id را در سطح دیتابیس enforce نمی‌کند.",
+        "status": "application_guarded_database_constraint_open",
+        "remediation": "SubmissionModerationController پیش از ساخت TitleCredit اتصال user_id به artist_id با is_owner=true را بررسی می‌کند؛ قید دیتابیسی همچنان وجود ندارد."
       },
       {
         "id": "DB-018",
         "severity": "medium",
-        "summary": "credit_submission_requests در سطح DB اثبات نمی‌کند user_id به artist_id متصل است؛ کنترل باید در سرویس و تست باشد."
+        "summary": "credit_submission_requests در سطح DB اثبات نمی‌کند user_id به artist_id متصل است؛ کنترل باید در سرویس و تست باشد.",
+        "status": "application_guarded_database_constraint_open",
+        "remediation": "UserSubmissionController فقط artist متصل به کاربر مالک را برای ثبت می‌پذیرد و moderation مجدداً اتصال مالک را بررسی می‌کند؛ قید دیتابیسی همچنان وجود ندارد."
       },
       {
         "id": "DB-019",
         "severity": "medium",
-        "summary": "artist_profession_change_requests برای درخواست pending تکراری قید یکتا ندارد؛ مسیر تراکنشی PR6 باید با تست هم‌زمانی پوشش داده شود."
+        "summary": "artist_profession_change_requests برای درخواست pending تکراری قید یکتا ندارد؛ مسیر تراکنشی PR6 باید با تست هم‌زمانی پوشش داده شود.",
+        "status": "application_guarded_concurrency_test_pending",
+        "remediation": "ArtistProfessionChangeController ردیف Artist را lockForUpdate می‌کند و درخواست‌های pending/revision همان حرفه را رد می‌کند؛ تست هم‌زمانی نهایی اجرا نشده و قید یکتای دیتابیسی وجود ندارد."
       }
     ]
   },
@@ -398,7 +408,10 @@
       "main در commit 5a34ef8d8c68eab3e144abe4f1c7a9d270e97648 بررسی شد؛ تست‌ها اجرا نشده‌اند.",
       "راهنمای عملیاتی Windows برای backup، dry-run، اجرای کنترل‌شده --apply و راستی‌آزمایی انتقال مدارک قدیمی در docs/operational-runbook-private-evidence-2026-11-18.md ایجاد شد؛ هیچ دستور آن اجرا نشده است.",
       "وضعیت main پس از ادغام PR19 ثبت شد؛ در جستجوی PRهای باز هیچ PR بازی باقی نمانده است.",
-      "آخرین commit اصلی تأییدشده در این نوبت df39ca19d86cdddf7ee650f131437f66e18722a6 است."
+      "آخرین commit اصلی تأییدشده در این نوبت df39ca19d86cdddf7ee650f131437f66e18722a6 است.",
+      "PR21 در 2026-11-18 ادغام شد: Language اکنون رابطه معکوس ترجمه‌های country، company، profession، title و artist را دارد.",
+      "موجودی ایستای سورس در commit 53dbcebea50d550a1011a10ed478a5d02bbff9af: ۲۸ فایل Migration، ۲۵ Migration برنامه، ۳ Migration چارچوب، ۴۰ مدل و ۱۰۲ فراخوانی route name؛ این شمارش وضعیت دیتابیس محلی را اثبات نمی‌کند.",
+      "هیچ Migration، Seeder، تست یا فرمان انتقال فایل روی محیط محلی اجرا نشده است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -2296,5 +2309,29 @@
     ],
     "tests_executed": false,
     "remaining": "سایر Controllerها و Viewهای قدیمی از نظر متن‌های سخت‌کدشده باید ممیزی شوند."
-  }
+  },
+  "language_relations": {
+    "date": "2026-11-18",
+    "status": "complete_in_pr21_merged",
+    "pull_request": 21,
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/21",
+    "merge_commit": "53dbcebea50d550a1011a10ed478a5d02bbff9af",
+    "relations": [
+      "countryTranslations",
+      "companyTranslations",
+      "professionTranslations",
+      "titleTranslations",
+      "artistTranslations"
+    ]
+  },
+  "current_open_items": [
+    "اجرای تست جامع Feature/Unit و بررسی runtime در انتهای کار؛ هیچ تستی تا این مرحله اجرا نشده است.",
+    "بازبینی و اجرای Migrationهای جدید فقط پس از backup دیتابیس و تأیید وضعیت محیط محلی.",
+    "اجرای Seeder ترجمه کشورها پس از Migration؛ CountrySeeder در DatabaseSeeder پس از LanguageSeeder قرار گرفته است.",
+    "اجرای dry-run فرمان amdb:secure-professional-evidence، بررسی خروجی، تهیه backup دیتابیس و storage/app/public و سپس اجرای --apply فقط پس از تأیید.",
+    "تأیید مقدار AMDB_SUPER_ADMIN_EMAIL در محیط استقرار.",
+    "ادامه ممیزی متن‌های سخت‌کدشده در سایر Controllerها و Viewها؛ PR20 فقط بخشی از I18N-004 را پوشش داد.",
+    "ادامه ممیزی DB-010، DB-012 تا DB-015 و تعیین تکلیف قیدهای دیتابیسی DB-016 تا DB-019.",
+    "تعیین تکلیف سیستم اشتراک و جدول/مدل legacy مربوط به artist_claim_requests."
+  ]
 }
