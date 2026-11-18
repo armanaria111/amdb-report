@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "ebcde1cda601b32ed40956de55b2ee6972cc9e9d",
+    "latest_main_commit": "df39ca19d86cdddf7ee650f131437f66e18722a6",
     "latest_main_commit_verified_on": "2026-11-18"
   },
   "languages": [
@@ -385,7 +385,10 @@
       "main در commit f5fd2c5c951a727f90204f7083a8f040ca47b3a9 بررسی شد؛ Migration، Seeder و تست‌ها عمداً اجرا نشده‌اند.",
       "PR17 با merge commit ebcde1cda601b32ed40956de55b2ee6972cc9e9d ادغام شد؛ فرمان انتقال legacy evidence اکنون در اجرای مجدد می‌تواند نسخه public باقی‌مانده را حتی پس از تغییر مسیر دیتابیس به private پیدا و حذف کند.",
       "یک تست Feature برای retry پاک‌سازی فایل public باقی‌مانده پس از private شدن evidence_path اضافه شد؛ تست اجرا نشده است.",
-      "آخرین main commit پس از ادغام PR17: ebcde1cda601b32ed40956de55b2ee6972cc9e9d. هیچ تست، Migration، Seeder یا فرمان انتقال فایل اجرا نشد."
+      "آخرین main commit پس از ادغام PR17: ebcde1cda601b32ed40956de55b2ee6972cc9e9d. هیچ تست، Migration، Seeder یا فرمان انتقال فایل اجرا نشد.",
+      "PR19 در 2026-11-18 ادغام شد: مدرک درخواست ثبت عوامل/credit روی local/private disk ذخیره می‌شود؛ Route دانلود فقط با submissions.manage قابل دسترسی است؛ جایگزینی فایل پس از commit موفق انجام می‌شود.",
+      "برای PR19 تست Feature ذخیره خصوصی، عدم استفاده از public disk، جایگزینی و حذف فایل قبلی، دانلود مدیر و منع دسترسی کاربر عادی اضافه شد؛ هیچ تستی اجرا نشده است.",
+      "main در commit df39ca19d86cdddf7ee650f131437f66e18722a6 بررسی شد؛ هیچ Migration، Seeder یا عملیات دیتابیس اجرا نشده است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -2068,7 +2071,7 @@
       "تست retry برای پاک‌سازی نسخه public باقی‌مانده پس از به‌روزرسانی مسیر دیتابیس (PR17)"
     ],
     "remaining_checks": [
-      "افزودن تست‌های ذخیره private، مجوز دانلود و dry-run/اجرای فرمان انتقال مدارک",
+      "اجرای تست‌های ذخیره خصوصی، مجوز دانلود و جایگزینی مدارک title/credit و تست dry-run/اجرای فرمان انتقال مدارک قدیمی در مرحله نهایی",
       "بررسی کامل فهرست مجوزهای حساس پس از تعیین تکلیف PR7 و companies.manage",
       "تأیید مقدار AMDB_SUPER_ADMIN_EMAIL در محیط استقرار",
       "بازبینی mergeability در GitHub"
@@ -2091,7 +2094,14 @@
     "merge_commit": "e0f503ea32824232c6ece8b06bbf1197f39f84e2",
     "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/8",
     "pending": "فایل‌های قدیمی public هنوز نیازمند انتقال کنترل‌شده پس از backup هستند؛ تست‌ها در مرحله نهایی اجرا می‌شوند.",
-    "latest_main_commit": "ebcde1cda601b32ed40956de55b2ee6972cc9e9d"
+    "latest_main_commit": "ebcde1cda601b32ed40956de55b2ee6972cc9e9d",
+    "credit_evidence_workflow": {
+      "pull_request": 19,
+      "status": "merged",
+      "detail": "بارگذاری مدرک درخواست credit روی local/private disk و دانلود مدیر با submissions.manage تکمیل شد؛ evidence_path موجود استفاده می‌شود و Migration جدید لازم نیست.",
+      "tests_added": true,
+      "tests_executed": false
+    }
   },
   "company_catalog_integration": {
     "original_pr7": {
@@ -2180,5 +2190,35 @@
       "lang/ps/companies.php"
     ],
     "detail": "کاماهای جاافتاده پس از ترجمه admin.restored در هر سه فایل اضافه شد."
+  },
+  "credit_evidence_security": {
+    "date": "2026-11-18",
+    "status": "implemented_merged_not_runtime_validated",
+    "pull_request": 19,
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/19",
+    "merge_commit": "df39ca19d86cdddf7ee650f131437f66e18722a6",
+    "storage_disk": "local",
+    "storage_prefix": "submissions/credits/",
+    "allowed_file_types": [
+      "pdf",
+      "jpg",
+      "jpeg",
+      "png",
+      "webp"
+    ],
+    "max_file_size_kb": 10240,
+    "admin_download_route": "admin.submissions.credits.evidence",
+    "permission": "submissions.manage",
+    "replacement_behavior": "فایل قدیمی فقط پس از commit موفق تراکنش حذف می‌شود؛ در صورت شکست DB فایل جدید پاک می‌شود؛ در صورت عدم آپلود فایل جدید، مدرک قبلی حفظ می‌شود.",
+    "tests_added": [
+      "ذخیره خصوصی مدرک",
+      "عدم قرارگیری روی public disk",
+      "جایگزینی و پاکسازی فایل قدیمی",
+      "دانلود مدیر",
+      "ممانعت از دانلود کاربر عادی"
+    ],
+    "tests_executed": false,
+    "migrations_executed": false,
+    "local_database_modified": false
   }
 }
