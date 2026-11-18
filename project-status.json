@@ -399,13 +399,13 @@
     },
     {
       "title": "مدیریت نقدها و گزارش‌ها",
-      "state": "prepared_in_pr",
-      "detail": "صف مدیریتی نقدها و گزارش‌ها در PR شماره ۳ آماده شده؛ تأیید/رد نقد و resolve/dismiss گزارش با مجوزهای مستقل و قفل تراکنشی تعریف شده‌اند. هنوز ادغام و runtime test نشده است."
+      "state": "implemented_unverified",
+      "detail": "نسخه نهایی در PR شماره ۴ ادغام شده است؛ PR شماره ۳ superseded شد. runtime test هنوز انجام نشده است."
     },
     {
       "title": "درخواست ثبت اثر و عوامل",
-      "state": "prepared_in_pr",
-      "detail": "PR شماره ۵ گردش‌کار کامل پیشنهاد آثار و عوامل، صف مدیر، تأیید/رد/اصلاح، ارسال مجدد، event history و جلوگیری از عوامل تکراری را آماده کرده است؛ هنوز ادغام نشده و Migrationها اجرا نشده‌اند."
+      "state": "implemented_unverified",
+      "detail": "PR شماره ۵ با موفقیت در main ادغام شد: گردش‌کار پیشنهاد اثر و عوامل، صف مدیر، تأیید/رد/درخواست اصلاح، ارسال مجدد، event history، مدرک خصوصی و جلوگیری از تکرار عوامل اضافه شدند. سه Migration در سورس هستند اما اجرا نشده‌اند."
     },
     {
       "title": "ترجمه فرم ویرایش هنرمند",
@@ -694,8 +694,8 @@
     },
     {
       "name": "کاتالوگ فیلم و سریال",
-      "state": "partial",
-      "detail": "کاتالوگ و موجودیت‌های پایه در main وجود دارند؛ PR شماره ۵ گردش‌کار پیشنهاد ثبت فیلم/سریال و ایجاد رکورد منتشرشده پس از تأیید مدیر را آماده کرده است. PR هنوز ادغام نشده است."
+      "state": "implemented_unverified",
+      "detail": "گردش‌کار پیشنهاد فیلم/سریال، بررسی مدیر، درخواست اصلاح/رد و ایجاد اثر منتشرشده پس از تأیید با PR شماره ۵ در main ادغام شده است؛ Migrationها اجرا نشده و runtime test باقی است."
     },
     {
       "name": "ژانر و کشور",
@@ -704,8 +704,8 @@
     },
     {
       "name": "عوامل و تیتراژ آثار",
-      "state": "partial",
-      "detail": "title_credits و artist_id در schema وجود دارند؛ PR شماره ۵ گردش‌کار پیشنهاد عوامل، تأیید مدیر و جلوگیری از تکرار با کلید اثر/هنرمند/حرفه/شخصیت را آماده کرده است. PR هنوز ادغام نشده و Migration جدید اجرا نشده است."
+      "state": "implemented_unverified",
+      "detail": "گردش‌کار پیشنهاد عوامل و تأیید مدیر، history، resubmission و جلوگیری از تکرار با کلید اثر/هنرمند/حرفه/شخصیت با PR شماره ۵ در main ادغام شده است؛ Migrationها اجرا نشده و runtime test باقی است."
     },
     {
       "name": "چندزبانگی و ترجمه",
@@ -730,7 +730,7 @@
     {
       "name": "نظارت و انتشار محتوا",
       "state": "implemented_unverified",
-      "detail": "صف مدیریت نقدها و گزارش‌های تخلف با PR شماره ۴ در main ادغام شد؛ کنترل مجوز، قفل تراکنشی و ترجمه سه زبان اضافه شده است. تأیید نهایی runtime/QA باقی است."
+      "detail": "صف مدیریت نقدها و گزارش‌های تخلف با PR شماره ۴ در main ادغام شده؛ کنترل مجوز، قفل تراکنشی و ترجمه سه زبان اضافه شده است. تأیید نهایی runtime/QA باقی است."
     },
     {
       "name": "پنل مدیریت",
@@ -789,13 +789,13 @@
     },
     {
       "name": "پیشنهاد ثبت آثار",
-      "state": "prepared_in_pr",
-      "detail": "PR شماره ۵ امکان پیشنهاد فیلم/سریال توسط کاربر و هنرمند، بررسی مدیر، درخواست اصلاح، رد و ایجاد اثر منتشرشده پس از تأیید را آماده کرده است؛ هنوز در main ادغام نشده."
+      "state": "implemented_unverified",
+      "detail": "PR شماره ۵ با موفقیت در main ادغام شد؛ پیشنهاد ثبت اثر، صف مدیر، درخواست اصلاح، رد و ایجاد اثر منتشرشده پس از تأیید اضافه شد. Migrationها اجرا نشده‌اند."
     },
     {
       "name": "پیشنهاد ثبت عوامل",
-      "state": "prepared_in_pr",
-      "detail": "PR شماره ۵ پیشنهاد عوامل توسط حساب متصل به پروفایل فعال هنرمند، انتخاب حرفه تأییدشده، بررسی مدیر و جلوگیری از عوامل تکراری را آماده کرده است؛ هنوز در main ادغام نشده."
+      "state": "implemented_unverified",
+      "detail": "PR شماره ۵ با موفقیت در main ادغام شد؛ پیشنهاد عوامل توسط حساب متصل به پروفایل فعال، انتخاب حرفه تأییدشده و جلوگیری از تکرار credit اضافه شد. Migrationها اجرا نشده‌اند."
     }
   ],
   "roadmap": [
@@ -814,7 +814,7 @@
       "state": "partial",
       "items": [
         "انواع محتوا، آثار، ژانرها و کشورها",
-        "عوامل و اعتبارهای آثار",
+        "عوامل و اعتبارهای آثار؛ گردش‌کار پیشنهاد و تأیید در main، Migration/QA معلق",
         "فصل‌ها و قسمت‌ها؛ نیازمند بررسی تکمیل"
       ]
     },
@@ -940,6 +940,16 @@
       "date": "2026-11-17",
       "title": "انتقال CSS سراسری به فایل مرکزی",
       "detail": "CSS اصلی layout از layouts/app.blade.php به resources/css/app.css منتقل شد؛ CSS داشبورد مدیریت نیز قبلاً به فایل مرکزی منتقل شده بود. هنوز تعدادی View قدیمی دارای style attribute یا style block هستند و باید در یک پاک‌سازی جداگانه مهاجرت کنند."
+    },
+    {
+      "date": "2026-11-18",
+      "title": "ادغام گردش‌کار پیشنهاد ثبت آثار و عوامل — PR شماره ۵",
+      "detail": "PR شماره ۵ با موفقیت در main ادغام شد. افزوده شد: پیشنهاد فیلم/سریال، پیشنهاد عوامل توسط هنرمند متصل، صف مدیر، تأیید/رد/درخواست اصلاح، resubmission، تاریخچه رویدادها، فایل مدرک خصوصی، کلید یکتای نرمال‌شده برای جلوگیری از تکرار credit، ترجمه‌های en/fa-AF/ps و تست‌های Feature. Merge commit: c08b7f7b9bccf1fb19bc022d0deb54d10ec8476c. سه Migration فقط به سورس اضافه شده‌اند و اجرا نشده‌اند؛ تست‌ها اجرا نشده‌اند."
+    },
+    {
+      "date": "2026-11-18",
+      "title": "تأیید وضعیت ادغام PRهای اصلی",
+      "detail": "PRهای ۱، ۲، ۴ و ۵ در main ادغام شده‌اند. PR شماره ۳ بسته و با PR شماره ۴ جایگزین شده است؛ هیچ کد نهایی moderation از دست نرفته است."
     }
   ],
   "source_code_audit": {
@@ -1404,47 +1414,61 @@
     }
   },
   "current_work": {
-    "updated_at": "2026-11-17",
+    "updated_at": "2026-11-18",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "base_branch": "main",
-    "base_commit": "da51b77bd8d56028bf7cc41c410e28033c5ded5b",
-    "items": [
+    "base_commit": "c08b7f7b9bccf1fb19bc022d0deb54d10ec8476c",
+    "merged_pull_requests": [
       {
-        "title": "یکپارچه‌سازی درخواست ثبت پروفایل هنرمند",
-        "pull_request": 2,
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/2",
-        "branch": "workflow/artist-registration-unification",
+        "number": 1,
+        "title": "Security P0: harden artist access and system role management",
+        "merge_commit": "71537bfc393ee7cde59082bd985083629b22db34",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/1"
+      },
+      {
+        "number": 2,
+        "title": "Unify artist registration and profile connection workflow",
         "merge_commit": "f32a3e9a2be973b9345fbaeedc44b92827be3eb0",
-        "state": "merged",
-        "detail": "PR شماره ۲ با موفقیت در main ادغام شد. درخواست ثبت هنرمند مسیر واحد است؛ مدیر حساب را به پروفایل موجود متصل می‌کند یا پروفایل جدید می‌سازد. Claim مستقل از مسیر فعال کنار گذاشته شد."
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/2"
       },
       {
-        "title": "مدیریت نقدها و گزارش‌های تخلف",
-        "pull_request": 4,
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/4",
-        "branch": "workflow/review-report-moderation-mainline",
+        "number": 4,
+        "title": "Add admin moderation for reviews and user reports (replacement for PR #3)",
         "merge_commit": "da51b77bd8d56028bf7cc41c410e28033c5ded5b",
-        "state": "merged",
-        "detail": "صف مدیریتی نقدها و گزارش‌ها، تأیید/رد نقد، رسیدگی به گزارش‌ها، ترجمه سه زبان و CSS مرکزی وارد main شد. تست runtime هنوز اجرا نشده است."
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/4"
       },
       {
-        "title": "پیشنهاد ثبت فیلم/سریال و عوامل",
-        "pull_request": 5,
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/5",
-        "branch": "workflow/title-credit-submissions",
-        "head_commit": "9adefdae112baa0eab95e045c4a52e7cf9a484fd",
-        "state": "open",
-        "mergeable": true,
-        "changed_files": 24,
-        "detail": "گردش‌کار پیشنهاد اثر و عوامل، صف بررسی مدیر، اصلاح و ارسال مجدد، تاریخچه رویدادها، مدرک خصوصی، جلوگیری از عوامل تکراری و ترجمه‌های سه زبان در PR شماره ۵ آماده شده؛ هنوز در main ادغام نشده است."
+        "number": 5,
+        "title": "Implement title and credit submission workflows",
+        "merge_commit": "c08b7f7b9bccf1fb19bc022d0deb54d10ec8476c",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/5"
       }
     ],
-    "tests_executed": false,
-    "tests_added": true,
-    "tests_note": "تست‌های Feature برای PR شماره ۵ نوشته شده‌اند؛ به‌دلیل نداشتن دسترسی کاربر به محیط محلی، هیچ تست PHPUnit یا runtime اجرا نشده است.",
-    "database_changed": false,
-    "migrations_added": 3,
-    "migrations_executed": false,
-    "seeders_executed": false
+    "superseded_pull_requests": [
+      {
+        "number": 3,
+        "state": "closed_unmerged",
+        "superseded_by": 4,
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/3"
+      }
+    ],
+    "latest_work": {
+      "title": "گردش‌کار پیشنهاد ثبت آثار و عوامل",
+      "status": "merged_into_main",
+      "detail": "کاربر و هنرمند می‌توانند پیشنهاد فیلم/سریال ارسال کنند؛ هنرمند متصل به پروفایل فعال می‌تواند عوامل را با حرفه تأییدشده پیشنهاد دهد. مدیر امکان تأیید، رد و درخواست اصلاح دارد؛ resubmission، تاریخچه رویدادها، فایل مدرک خصوصی، جلوگیری از تکرار credit با کلید اثر/هنرمند/حرفه/شخصیت و ترجمه‌های سه زبان اضافه شده‌اند.",
+      "pull_request": 5,
+      "merge_commit": "c08b7f7b9bccf1fb19bc022d0deb54d10ec8476c"
+    },
+    "validation": {
+      "feature_tests_added": true,
+      "tests_executed": false,
+      "runtime_browser_validation": false,
+      "migrations_included": 3,
+      "migrations_executed": false,
+      "seeders_executed": false,
+      "database_changed": false,
+      "note": "سه Migration افزایشی در PR شماره ۵ به سورس اضافه شده‌اند؛ هیچ Migration یا Seeder اجرا نشده و دیتابیس تغییر نکرده است. تست‌های PHPUnit و runtime به زمان دسترسی کاربر به محیط محلی موکول شده‌اند."
+    },
+    "next_phase": "بازبینی و اصلاح سیاست همگام‌سازی حرفه‌ها و ترجمه‌های هنرمند؛ سپس شرکت‌ها و شناسه co و بعد سیستم اشتراک."
   }
 }
