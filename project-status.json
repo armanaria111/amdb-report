@@ -160,63 +160,72 @@
       {
         "id": "DB-010",
         "severity": "medium",
-        "summary": "submission_request_events از request_type/request_id بدون FK به جدول درخواست‌ها استفاده می‌کند؛ حذف درخواست می‌تواند event یتیم باقی بگذارد."
+        "summary": "submission_request_events دارای request_type و request_id عمومی است؛ actor_id FK دارد اما request_id به title_submission_requests یا credit_submission_requests FK ندارد. دو مدل درخواست relation فیلترشده بر اساس request_type دارند. حذف درخواست می‌تواند event یتیم بگذارد.",
+        "status": "open_schema_design",
+        "remediation": "طراحی مهاجرت افزایشی با ستون‌های typed nullable FK، preflight برای typeهای نامعتبر/روابط یتیم، backfill، تغییر writer و relationها و سپس حذف ستون‌های polymorphic قدیمی پس از دوره سازگاری."
       },
       {
         "id": "DB-011",
         "severity": "low",
-        "summary": "روابط معکوس مدل Language برای ترجمه‌های country، company، profession، title و artist تعریف شده‌اند.",
-        "status": "fixed_in_pr21_merged",
-        "remediation": "PR21 سه رابطه companyTranslations، professionTranslations و titleTranslations را افزود؛ رابطه‌های artistTranslations و countryTranslations از قبل وجود داشتند."
+        "summary": "Language model دارای روابط artistTranslations، countryTranslations، companyTranslations، professionTranslations و titleTranslations است.",
+        "status": "fixed_in_pr21",
+        "remediation": "در کد فعلی تأیید شد؛ تست runtime هنوز اجرا نشده."
       },
       {
         "id": "DB-012",
         "severity": "medium",
-        "summary": "unique index عوامل به artist_id و profession_id nullable وابسته است؛ در MySQL رکوردهای دارای NULL از یکتایی ترکیبی عبور می‌کنند."
+        "summary": "Migration عنوان‌عوامل، unique index را روی title_id/artist_id/profession_id/character_name_key می‌سازد و preflight duplicate فقط ردیف‌هایی را بررسی می‌کند که artist_id و profession_id هر دو non-null باشند. MySQL برای کلید مرکب شامل NULL یکتایی کامل را تضمین نمی‌کند.",
+        "status": "conditional_gap_for_nullable_legacy_credits",
+        "remediation": "تا زمانی که سیاست هویت برای creditهای بدون artist یا profession تعریف نشده، این را محدودیت آگاهانه/مشروط ثبت کن؛ برای legacy creditها کلید یکتای جدید را بدون تعریف business identity اضافه نکن."
       },
       {
         "id": "DB-013",
         "severity": "medium",
-        "summary": "artist_claim_requests قید یکتایی برای درخواست تکراری ندارد؛ Claim از مسیر محصول کنار گذاشته شده اما جدول/model قدیمی باقی است."
+        "summary": "artist_claim_requests در migration و ArtistClaimRequest model و رابطه Artist::claimRequests وجود دارد؛ در routes/web.php و کنترلرهای Artist/Admin/ArtistController مسیر فعال claim یا کنترلر claim در main پیدا نشد.",
+        "status": "legacy_model_and_table_no_active_route_found",
+        "remediation": "قبل از حذف جدول/model، داده‌های قدیمی و نیاز به تاریخچه claim بررسی شوند؛ فعلاً به‌عنوان legacy نگه‌داری شود و مسیر فعال جدیدی به آن وصل نشود."
       },
       {
         "id": "DB-014",
         "severity": "medium",
-        "summary": "PR34 Migration افزایشی برای CHECK محدوده امتیاز داخلی ۱ تا ۱۰ و اعتبارسنجی امتیاز خارجی (score >= 0، max_score > 0، score <= max_score) اضافه کرده است؛ Migration هنوز روی دیتابیس محلی اجرا نشده است.",
-        "status": "fixed_in_pr34_merged_migration_not_executed"
+        "summary": "Migration PR34 preflight داده‌های نامعتبر و سپس CHECK داخلی ۱..۱۰ و خارجی score>=0، max_score>0 و score<=max_score را اضافه می‌کند. این بررسی فقط سورس را تأیید می‌کند؛ اجرای migration در دیتابیس محلی بررسی نشده.",
+        "status": "fixed_in_pr34_migration_not_executed",
+        "remediation": "در کد فعلی تأیید شد؛ تست runtime هنوز اجرا نشده."
       },
       {
         "id": "DB-015",
         "severity": "low",
-        "summary": "artist_profile_merges مانع source_artist_id برابر target_artist_id یا ثبت merge تکراری در سطح DB نمی‌شود."
+        "summary": "artist_profile_merges دارای FKهای source/target با restrictOnDelete و index جداست، اما check برای source != target و unique pair ندارد. در tree فعلی مدل ArtistProfileMerge و relationهای Artist::sourceMerges/targetMerges دیده می‌شوند؛ controller یا route merge در main پیدا نشد.",
+        "status": "future_workflow_constraint_gap",
+        "remediation": "هنگام ساخت workflow ادغام هنرمندان، CHECK source_artist_id <> target_artist_id و قید جلوگیری از merge تکراری را همراه preflight اضافه کن؛ فعلاً مدل به‌تنهایی workflow فعال محسوب نمی‌شود."
       },
       {
         "id": "DB-016",
         "severity": "medium",
-        "summary": "FK مربوط به parent_id در title_reviews تضمین نمی‌کند نقد والد و پاسخ متعلق به یک title باشند.",
-        "status": "application_guarded_database_constraint_open",
-        "remediation": "RatingReviewController پاسخ را فقط به نقد والد تأییدشده و متعلق به همان title_id متصل می‌کند؛ قید چندستونی دیتابیسی وجود ندارد."
+        "summary": "RatingReviewController قبل از ایجاد پاسخ، parent را به title جاری محدود می‌کند و parent_id null و status approved را الزام می‌کند؛ Migration فقط FK ساده parent_id به title_reviews.id دارد و same-title را در DB تضمین نمی‌کند.",
+        "status": "application_guarded_composite_fk_candidate",
+        "remediation": "قید مرکب (parent_id,title_id) به (id,title_id) قابل بررسی است؛ قبل از افزودن، preflight mismatch و سازگاری MySQL/MariaDB بررسی شود."
       },
       {
         "id": "DB-017",
         "severity": "medium",
-        "summary": "title_credits سازگاری artist_id و user_id را در سطح دیتابیس enforce نمی‌کند.",
-        "status": "application_guarded_database_constraint_open",
-        "remediation": "SubmissionModerationController پیش از ساخت TitleCredit اتصال user_id به artist_id با is_owner=true را بررسی می‌کند؛ قید دیتابیسی همچنان وجود ندارد."
+        "summary": "SubmissionModerationController قبل از ساخت TitleCredit، وجود اتصال artist/user با is_owner=true را بررسی می‌کند. title_credits دارای FK مستقل برای artist_id و user_id است، اما pair بودن artist_user را enforce نمی‌کند. TitleCredit model هم فقط normalize کردن character_name_key را انجام می‌دهد.",
+        "status": "application_guarded_composite_fk_candidate",
+        "remediation": "قید مرکب به artist_user نیازمند تصمیم روشن درباره رفتار disconnect و ON DELETE است؛ nullOnDelete دو ستونی می‌تواند هر دو شناسه را پاک کند و باید اثر آن بر تاریخچه credit بررسی شود."
       },
       {
         "id": "DB-018",
         "severity": "medium",
-        "summary": "credit_submission_requests در سطح DB اثبات نمی‌کند user_id به artist_id متصل است؛ کنترل باید در سرویس و تست باشد.",
-        "status": "application_guarded_database_constraint_open",
-        "remediation": "UserSubmissionController فقط artist متصل به کاربر مالک را برای ثبت می‌پذیرد و moderation مجدداً اتصال مالک را بررسی می‌کند؛ قید دیتابیسی همچنان وجود ندارد."
+        "summary": "UserSubmissionController فقط artist متصل به user با is_owner=true را برای ثبت credit request انتخاب می‌کند و moderation مجدداً owner بودن را بررسی می‌کند. credit_submission_requests به user و artist جداگانه FK دارد؛ حذف ردیف artist_user به‌تنهایی درخواست را پاک یا محدود نمی‌کند.",
+        "status": "application_guarded_lifecycle_gap",
+        "remediation": "FK مرکب با ON DELETE CASCADE تاریخچه درخواست را حذف می‌کند و RESTRICT ممکن است disconnect را برای همیشه مسدود کند؛ ابتدا سیاست lifecycle درخواست‌های قدیمی/بسته و disconnect تعیین شود."
       },
       {
         "id": "DB-019",
         "severity": "medium",
-        "summary": "artist_profession_change_requests برای درخواست pending تکراری قید یکتا ندارد؛ مسیر تراکنشی PR6 باید با تست هم‌زمانی پوشش داده شود.",
-        "status": "application_guarded_concurrency_test_pending",
-        "remediation": "ArtistProfessionChangeController ردیف Artist را lockForUpdate می‌کند و درخواست‌های pending/revision همان حرفه را رد می‌کند؛ تست هم‌زمانی نهایی اجرا نشده و قید یکتای دیتابیسی وجود ندارد."
+        "summary": "ArtistProfessionChangeController::store تراکنش را با lockForUpdate روی ردیف Artist آغاز می‌کند و برای هر profession وجود pending/revision را رد می‌کند؛ resubmit ردیف درخواست را lock می‌کند اما همان قفل Artist و بررسی جامع سایر درخواست‌های باز را ندارد. Migration فقط indexهای status دارد، unique conditional ندارد.",
+        "status": "application_serialized_store_but_no_database_unique",
+        "remediation": "سناریوی هم‌زمانی store/resubmit/moderation باید در مرحله تست نهایی پوشش داده شود؛ قید unique شرطی/ستون generated MySQL فقط پس از تصمیم درباره چند درخواست باز و preflight طراحی شود."
       }
     ]
   },
@@ -445,7 +454,8 @@
       "آخرین main پس از PR34 روی commit 8b939a4325a9017ffc06678032e5f23b80e9fc94 تأیید شد. در زمان بررسی هیچ PR بازی در مخزن اصلی وجود نداشت.",
       "ممیزی read-only فناوری و دارایی‌ها در commit 8b939a4325a9017ffc06678032e5f23b80e9fc94 انجام شد: Composer/NPM lockfiles، Vite/Tailwind، Font Awesome Pro 7.3.1 محلی، فونت‌های Inter/Vazirmatn/Noto Sans Arabic و تنظیم Bunny Instrument Sans ثبت شدند.",
       "موجودی فعلی Git tree: ۵۵۵ ورودی، ۲۹ Migration، ۴۰ مدل، ۵۰ فایل Blade، ۶۳ فایل ترجمه PHP، ۱۰۳ Route نام‌گذاری‌شده، ۸۸ فایل CSS فونت‌آوسام و ۳۸ فایل WOFF2.",
-      "PR34 در main است و قیدهای CHECK محدوده امتیاز را اضافه کرده؛ Migration اجرا نشده است. تعداد جدول‌های فعلی و وضعیت migrate:status محلی در این نوبت بازشماری/بررسی نشدند و عمداً نامشخص باقی ماندند."
+      "PR34 در main است و قیدهای CHECK محدوده امتیاز را اضافه کرده؛ Migration اجرا نشده است. تعداد جدول‌های فعلی و وضعیت migrate:status محلی در این نوبت بازشماری/بررسی نشدند و عمداً نامشخص باقی ماندند.",
+      "ممیزی مجدد DB-010 و DB-012 تا DB-019 روی آخرین main انجام شد؛ DB-011 و DB-014 اصلاح‌شده‌اند، DB-016 تا DB-019 کنترل نرم‌افزاری یا قفل تراکنشی دارند اما محدودیت دیتابیسی/lifecycle باز است، و DB-013/DB-015 به‌عنوان ساختارهای legacy بدون route/controller فعال شناسایی شدند."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -793,6 +803,10 @@
     }
   ],
   "changelog": [
+    {
+      "date": "2026-11-18",
+      "text": "بازممیزی روابط دیتابیس روی main commit 8b939a4 تکمیل شد: وضعیت DB-010 تا DB-019 با Migrationها، مدل‌ها و کنترلرها تطبیق داده شد؛ DB-011/014 اصلاح‌شده، DB-013/015 legacy بدون route/controller فعال، DB-016/017/018 application-guarded و DB-019 دارای قفل تراکنشی در مسیر store ثبت شد. سیاست‌های ON DELETE و قیدهای افزایشی قبل از PR بعدی باید مشخص شوند."
+    },
     {
       "date": "2026-11-18",
       "text": "ممیزی فناوری و دارایی‌های رابط کاربری در main commit 8b939a4: ثبت نسخه‌های قفل‌شده Composer/NPM، Tailwind 4، Vite 8، Livewire 4، Chart.js 4، Font Awesome Pro 7.3.1 محلی (۸۸ CSS و ۳۸ WOFF2)، فونت‌های Inter/Vazirmatn/Noto Sans Arabic و تنظیم Bunny Instrument Sans. شمارش سورس به ۵۵۵ ورودی، ۲۹ Migration، ۴۰ مدل، ۵۰ Blade، ۶۳ فایل ترجمه و ۱۰۳ Route نام‌گذاری‌شده به‌روزرسانی شد؛ جدول‌های فعلی و migrate:status محلی عمداً نامشخص ماندند."
@@ -1517,7 +1531,7 @@
   },
   "database_schema_audit": {
     "audit_date": "2026-11-17",
-    "status": "historical_snapshot_pending_full_reaudit",
+    "status": "latest_main_static_reaudit_completed_followup_constraints_pending",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "branch": "main",
     "commit": "a56e92080a227b9e4c531c9edf2e55a02e6946ab",
@@ -1585,7 +1599,72 @@
     ],
     "safety": "هیچ دستور migrate اجرا نشد؛ هیچ جدول، رکورد یا فایل سورس اصلی تغییر نکرد.",
     "latest_main_commit_seen": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
-    "note": "این سند در ابتدا بر اساس snapshot قدیمی‌تر تهیه شده است؛ PR34 بعداً قیدهای CHECK امتیاز را اضافه کرده است. یافته‌های دیگر تا زمان ممیزی کامل روی latest_main_commit_seen باید تاریخی/نیازمند تطبیق تلقی شوند."
+    "note": "این سند در ابتدا بر اساس snapshot قدیمی‌تر تهیه شده است؛ PR34 بعداً قیدهای CHECK امتیاز را اضافه کرده است. یافته‌های دیگر تا زمان ممیزی کامل روی latest_main_commit_seen باید تاریخی/نیازمند تطبیق تلقی شوند.",
+    "re_audit_2026_11_18": {
+      "date": "2026-11-18",
+      "source_commit": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
+      "method": "بازبینی ایستای Migrationها، مدل‌های Eloquent و کنترلرهای درخواست/نقد در main؛ بدون اجرای برنامه یا اتصال به دیتابیس.",
+      "findings": [
+        {
+          "id": "DB-010",
+          "status": "open_schema_design",
+          "verified": "submission_request_events دارای request_type و request_id عمومی است؛ actor_id FK دارد اما request_id به title_submission_requests یا credit_submission_requests FK ندارد. دو مدل درخواست relation فیلترشده بر اساس request_type دارند. حذف درخواست می‌تواند event یتیم بگذارد.",
+          "recommendation": "طراحی مهاجرت افزایشی با ستون‌های typed nullable FK، preflight برای typeهای نامعتبر/روابط یتیم، backfill، تغییر writer و relationها و سپس حذف ستون‌های polymorphic قدیمی پس از دوره سازگاری."
+        },
+        {
+          "id": "DB-011",
+          "status": "fixed_in_pr21",
+          "verified": "Language model دارای روابط artistTranslations، countryTranslations، companyTranslations، professionTranslations و titleTranslations است."
+        },
+        {
+          "id": "DB-012",
+          "status": "conditional_gap_for_nullable_legacy_credits",
+          "verified": "Migration عنوان‌عوامل، unique index را روی title_id/artist_id/profession_id/character_name_key می‌سازد و preflight duplicate فقط ردیف‌هایی را بررسی می‌کند که artist_id و profession_id هر دو non-null باشند. MySQL برای کلید مرکب شامل NULL یکتایی کامل را تضمین نمی‌کند.",
+          "recommendation": "تا زمانی که سیاست هویت برای creditهای بدون artist یا profession تعریف نشده، این را محدودیت آگاهانه/مشروط ثبت کن؛ برای legacy creditها کلید یکتای جدید را بدون تعریف business identity اضافه نکن."
+        },
+        {
+          "id": "DB-013",
+          "status": "legacy_model_and_table_no_active_route_found",
+          "verified": "artist_claim_requests در migration و ArtistClaimRequest model و رابطه Artist::claimRequests وجود دارد؛ در routes/web.php و کنترلرهای Artist/Admin/ArtistController مسیر فعال claim یا کنترلر claim در main پیدا نشد.",
+          "recommendation": "قبل از حذف جدول/model، داده‌های قدیمی و نیاز به تاریخچه claim بررسی شوند؛ فعلاً به‌عنوان legacy نگه‌داری شود و مسیر فعال جدیدی به آن وصل نشود."
+        },
+        {
+          "id": "DB-014",
+          "status": "fixed_in_pr34_migration_not_executed",
+          "verified": "Migration PR34 preflight داده‌های نامعتبر و سپس CHECK داخلی ۱..۱۰ و خارجی score>=0، max_score>0 و score<=max_score را اضافه می‌کند. این بررسی فقط سورس را تأیید می‌کند؛ اجرای migration در دیتابیس محلی بررسی نشده."
+        },
+        {
+          "id": "DB-015",
+          "status": "future_workflow_constraint_gap",
+          "verified": "artist_profile_merges دارای FKهای source/target با restrictOnDelete و index جداست، اما check برای source != target و unique pair ندارد. در tree فعلی مدل ArtistProfileMerge و relationهای Artist::sourceMerges/targetMerges دیده می‌شوند؛ controller یا route merge در main پیدا نشد.",
+          "recommendation": "هنگام ساخت workflow ادغام هنرمندان، CHECK source_artist_id <> target_artist_id و قید جلوگیری از merge تکراری را همراه preflight اضافه کن؛ فعلاً مدل به‌تنهایی workflow فعال محسوب نمی‌شود."
+        },
+        {
+          "id": "DB-016",
+          "status": "application_guarded_composite_fk_candidate",
+          "verified": "RatingReviewController قبل از ایجاد پاسخ، parent را به title جاری محدود می‌کند و parent_id null و status approved را الزام می‌کند؛ Migration فقط FK ساده parent_id به title_reviews.id دارد و same-title را در DB تضمین نمی‌کند.",
+          "recommendation": "قید مرکب (parent_id,title_id) به (id,title_id) قابل بررسی است؛ قبل از افزودن، preflight mismatch و سازگاری MySQL/MariaDB بررسی شود."
+        },
+        {
+          "id": "DB-017",
+          "status": "application_guarded_composite_fk_candidate",
+          "verified": "SubmissionModerationController قبل از ساخت TitleCredit، وجود اتصال artist/user با is_owner=true را بررسی می‌کند. title_credits دارای FK مستقل برای artist_id و user_id است، اما pair بودن artist_user را enforce نمی‌کند. TitleCredit model هم فقط normalize کردن character_name_key را انجام می‌دهد.",
+          "recommendation": "قید مرکب به artist_user نیازمند تصمیم روشن درباره رفتار disconnect و ON DELETE است؛ nullOnDelete دو ستونی می‌تواند هر دو شناسه را پاک کند و باید اثر آن بر تاریخچه credit بررسی شود."
+        },
+        {
+          "id": "DB-018",
+          "status": "application_guarded_lifecycle_gap",
+          "verified": "UserSubmissionController فقط artist متصل به user با is_owner=true را برای ثبت credit request انتخاب می‌کند و moderation مجدداً owner بودن را بررسی می‌کند. credit_submission_requests به user و artist جداگانه FK دارد؛ حذف ردیف artist_user به‌تنهایی درخواست را پاک یا محدود نمی‌کند.",
+          "recommendation": "FK مرکب با ON DELETE CASCADE تاریخچه درخواست را حذف می‌کند و RESTRICT ممکن است disconnect را برای همیشه مسدود کند؛ ابتدا سیاست lifecycle درخواست‌های قدیمی/بسته و disconnect تعیین شود."
+        },
+        {
+          "id": "DB-019",
+          "status": "application_serialized_store_but_no_database_unique",
+          "verified": "ArtistProfessionChangeController::store تراکنش را با lockForUpdate روی ردیف Artist آغاز می‌کند و برای هر profession وجود pending/revision را رد می‌کند؛ resubmit ردیف درخواست را lock می‌کند اما همان قفل Artist و بررسی جامع سایر درخواست‌های باز را ندارد. Migration فقط indexهای status دارد، unique conditional ندارد.",
+          "recommendation": "سناریوی هم‌زمانی store/resubmit/moderation باید در مرحله تست نهایی پوشش داده شود؛ قید unique شرطی/ستون generated MySQL فقط پس از تصمیم درباره چند درخواست باز و preflight طراحی شود."
+        }
+      ]
+    }
   },
   "security_audit": {
     "audit_date": "2026-11-17",
@@ -1664,7 +1743,7 @@
   },
   "current_work": {
     "stage": "ممیزی و تکمیل چندزبانگی رابط کاربری و گردش‌کارها پس از ادغام امنیت و کاتالوگ",
-    "status": "technology_inventory_reported_next_database_audit",
+    "status": "latest_main_database_relationships_reaudit_completed",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "latest_main_commit": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
     "merged_pull_requests": [
@@ -1855,7 +1934,7 @@
         "migrations_executed": false
       }
     ],
-    "next_step": "بازبینی ممیزی DB-010 و DB-012 تا DB-019 روی commit فعلی، تطبیق یافته‌های تاریخی با کد جدید و تکمیل مستندات؛ سپس مرور باقی‌مانده امنیت و گردش‌کارها. تست‌ها در پایان و بدون اجرای Migration/Seeder یا تغییر دیتابیس تا زمان backup و تأیید.",
+    "next_step": "طراحی و پیاده‌سازی PR بعدی برای قیود افزایشی کم‌ریسک (ابتدا DB-015 و DB-016) با preflight و سازگاری MySQL/MariaDB؛ DB-010، DB-017، DB-018 و DB-019 پس از تعیین سیاست lifecycle و disconnect طراحی شوند. تست‌ها در پایان.",
     "operational_runbook": "docs/operational-runbook-private-evidence-2026-11-18.md"
   },
   "application_audit": {
@@ -2521,11 +2600,15 @@
     "اجرای dry-run فرمان amdb:secure-professional-evidence، بررسی خروجی، تهیه backup دیتابیس و storage/app/public و سپس اجرای --apply فقط پس از تأیید.",
     "تأیید مقدار AMDB_SUPER_ADMIN_EMAIL در محیط استقرار.",
     "ادامه ممیزی رشته‌های سخت‌کدشده در بخش‌های باقیمانده؛ PR22 تا PR28 بخشی از Controllerها و Viewهای پروفایل، مدیریت هنرمند، واردسازی، نقش، اثر، کاربر، تنظیمات و Claim را چندزبانه کردند.",
-    "ادامه ممیزی DB-010، DB-012 تا DB-015 و تعیین تکلیف قیدهای دیتابیسی DB-016 تا DB-019.",
     "تعیین تکلیف سیستم اشتراک و جدول/مدل legacy مربوط به artist_claim_requests.",
     "تأیید مجوز تجاری Font Awesome Pro 7.3.1؛ هدر فایل Commercial License را اعلام می‌کند اما سند مجوز در این ممیزی تأیید نشده است.",
     "تأیید نمایش مرورگری فونت‌های Inter، Vazirmatn و Noto Sans Arabic و پوشش کامل نویسه‌های پشتو.",
-    "تطبیق مجدد کامل یافته‌های امنیتی و دیتابیس قدیمی با commit فعلی؛ بعضی اسناد ممیزی هنوز به snapshotهای قبلی اشاره می‌کنند."
+    "DB-010: جایگزینی امن شناسه polymorphic رویدادهای درخواست با FKهای نوع‌دار پس از preflight/backfill و تغییر writer/relations.",
+    "DB-012: تعیین هویت یکتای creditهای legacy که artist_id یا profession_id ندارند؛ قید فعلی فقط هویت کامل را پوشش می‌دهد.",
+    "DB-013 و DB-015: تعیین تکلیف داده و مدل‌های legacy claim/merge؛ در main فعلی route/controller فعال متناظر پیدا نشد.",
+    "DB-016: بررسی قید مرکب نقد والد و عنوان با preflight؛ کنترل نرم‌افزاری فعلی وجود دارد.",
+    "DB-017 و DB-018: تصمیم درباره رفتار حذف/قطع اتصال artist_user پیش از افزودن FK مرکب برای pair هنرمند/کاربر.",
+    "DB-019: افزودن/ارزیابی قید جلوگیری از درخواست حرفه تکراری و پوشش هم‌زمانی store/resubmit/moderation در تست نهایی."
   ],
   "post_pr21_localization": {
     "date": "2026-11-18",
