@@ -1532,26 +1532,15 @@
   },
   "current_work": {
     "stage": "Stage 4 — security, workflow and localization hardening",
-    "status": "working_branch_static_review_in_progress",
+    "status": "draft_pr_open_static_review_pending",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
     "working_branch": "security/stage4-hardening",
     "latest_branch_commit": "f548c0bc6a0cec05f625f263aec9e19778d91eb3",
-    "pull_request": {
-      "number": 8,
-      "url": "https://github.com/armanaria111/amdb-laravel2/pull/8",
-      "title": "Harden role privileges and secure professional evidence",
-      "branch": "security/stage4-hardening",
-      "base": "main",
-      "base_commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
-      "latest_branch_commit": "f548c0bc6a0cec05f625f263aec9e19778d91eb3",
-      "state": "open",
-      "draft": true,
-      "ahead_by": 37,
-      "behind_by": 0
-    },
+    "pull_request": 8,
     "report_document": "https://github.com/armanaria111/amdb-report/blob/main/docs/stage-4-hardening-pr-8-static-review-2026-11-18.md",
-    "next_step": "ادامه بازبینی ایستای شاخه security/stage4-hardening، تکمیل اصلاحات و سپس ساخت PR پیش‌نویس. فرمان انتقال مدارک و همه تست‌ها فقط پس از backup/هماهنگی و در مرحله نهایی اجرا شوند."
+    "next_step": "ادامه بازبینی ایستای PR شماره ۸، تکمیل موارد باقی‌مانده چندزبانه/امنیتی و آماده‌سازی برنامه انتقال مدارک قدیمی. هیچ تست یا فرمان انتقال اجرا نشود تا مرحله نهایی و تأیید کاربر.",
+    "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/8"
   },
   "application_audit": {
     "audit_date": "2026-11-18",
@@ -1773,14 +1762,19 @@
       "behind_by": 0,
       "changed_files": 30,
       "merge_base": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
-      "status": "ahead"
+      "status": "ahead",
+      "head_commit": "b310d75f84967fd28b501effcc2d071943583360"
     },
     "source_code_modified_on_main": false,
     "source_code_modified_on_working_branch": true,
-    "pull_request_created": false,
+    "pull_request_created": true,
     "migrations_executed": false,
     "local_database_modified": false,
-    "legacy_evidence_migration_executed": false
+    "legacy_evidence_migration_executed": false,
+    "pull_request_number": 8,
+    "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/8",
+    "pull_request_draft": true,
+    "pull_request_mergeable": true
   },
   "company_catalog_pr_review": {
     "audit_date": "2026-11-18",
