@@ -1628,6 +1628,14 @@
         "title": "فرمان CLI ساخت مدیر دارای اعتبارنامه ثابت بود",
         "detail": "CreateAdminUser.php حساب admin@amdb.af را با رمز ثابت Amdb@Admin2026! ایجاد می‌کرد و is_admin=true می‌گذاشت.",
         "remediation": "فرمان در security/stage4-hardening به ایمیل ورودی، رمز تعاملی حداقل ۱۲ نویسه، تأیید رمز و تأیید صریح برای حساب موجود تغییر کرده؛ fallback ایمیل superadmin نیز حذف شده است."
+      },
+      {
+        "id": "SEC-007",
+        "severity": "high",
+        "status": "confirmed_static_remediated_in_branch",
+        "title": "فرمان CLI ساخت مدیر دارای اعتبارنامه ثابت بود",
+        "detail": "CreateAdminUser.php حساب admin@amdb.af را با رمز ثابت Amdb@Admin2026! ایجاد می‌کرد و is_admin=true می‌گذاشت.",
+        "remediation": "فرمان در security/stage4-hardening به ایمیل ورودی، رمز تعاملی حداقل ۱۲ نویسه، تأیید رمز و تأیید صریح برای حساب موجود تغییر کرده؛ fallback ایمیل superadmin نیز حذف شده است."
       }
     ],
     "verified_controls": [
