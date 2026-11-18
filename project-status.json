@@ -1502,12 +1502,12 @@
       }
     ],
     "latest_work": {
-      "title": "درخواست تغییر حرفه هنرمندان و اصلاح چندزبانگی پروفایل",
+      "title": "کاتالوگ شرکت‌ها و شناسه عمومی co",
       "status": "open_pull_request",
-      "pull_request": 6,
-      "url": "https://github.com/armanaria111/amdb-laravel2/pull/6",
-      "detail": "درخواست افزودن/حذف حرفه برای پروفایل فعال؛ تأیید/رد/درخواست اصلاح مدیر؛ ارسال مجدد و تاریخچه رویداد؛ همگام‌سازی artist_professions و user_professions؛ جلوگیری از حذف آخرین حرفه؛ نام و زندگی‌نامه مستقل en/fa-AF/ps؛ اصلاح کلید language_code؛ انتقال ترجمه فرم ویرایش هنرمند، داشبورد مدیریت و جستجوی عمومی به فایل‌های مستقل زبان.",
-      "head_commit": "298e593eac2532bcf17483c645b6ada9fa7a83d4"
+      "pull_request": 7,
+      "url": "https://github.com/armanaria111/amdb-laravel2/pull/7",
+      "head_commit": "e8b6118391730d198345034ef1f8ff6c090cb2c6",
+      "detail": "مدیریت شرکت‌های تولید، توزیع و استودیو؛ شناسه پایدار co؛ ترجمه سه‌زبانه؛ اطلاعات تماس و لوگو؛ رابطه چندنقشی شرکت با آثار؛ صفحات عمومی و مدیریت؛ جستجوی کامل و زنده؛ پیوند هنرمندان با شناسه ar. PR باز و هنوز ادغام نشده است."
     },
     "validation": {
       "feature_tests_added": true,
