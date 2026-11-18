@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
+    "latest_main_commit": "a9cf3ab84381163abf9158e4eb3a8af7efc31c2c",
     "latest_main_commit_verified_on": "2026-11-18"
   },
   "languages": [
@@ -58,12 +58,12 @@
     "syntax_or_audit_errors": 0,
     "note": "موجودی سورس در commit فعلی: ۲۹ فایل Migration (۲۶ برنامه و ۳ چارچوب)، ۴۰ مدل Eloquent، ۵۰ فایل Blade، ۶۳ فایل ترجمه PHP در سه زبان و ۱۰۳ فراخوانی نام‌گذاری Route. شمارش دقیق جدول‌های تعریف‌شده در این نوبت بازشماری نشده و عمداً null است؛ تعداد جدول‌های واقعی و وضعیت Migrationهای دیتابیس محلی نیز تأیید نشده‌اند.",
     "migrations": {
-      "source_file_count": 29,
-      "application_migration_file_count": 26,
+      "source_file_count": 30,
+      "application_migration_file_count": 27,
       "framework_migration_file_count": 3,
       "ran_count": null,
       "ran_count_note": "وضعیت migrate:status محلی در این نوبت بررسی نشده است؛ عدد تاریخی ۱۰ دیگر به‌عنوان وضعیت فعلی نمایش داده نمی‌شود.",
-      "status": "فقط فایل‌های Migration در شاخه main شمارش شدند؛ هیچ Migration اجرا نشده است."
+      "status": "۳۰ فایل Migration در main شمارش شد؛ ۲۷ مربوط به دامنه AMDB و ۳ فایل زیرساخت Laravel. هیچ Migration اجرا نشده است."
     },
     "known_tables": [
       {
@@ -144,17 +144,18 @@
     ],
     "known_tables_note": "این فهرست نمونه‌ای از جدول‌های ثبت‌شده قبلی است و فهرست کامل schema فعلی نیست. شمارش جدول‌های فعلی تا بازشماری همه Migrationها عمداً نامشخص مانده است.",
     "current_source_snapshot": {
-      "commit": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
-      "migration_files": 29,
-      "application_migration_files": 26,
+      "commit": "a9cf3ab84381163abf9158e4eb3a8af7efc31c2c",
+      "migration_files": 30,
+      "application_migration_files": 27,
       "framework_migration_files": 3,
       "eloquent_model_files": 40,
       "blade_files": 50,
       "translation_php_files": 63,
       "named_route_calls": 103,
       "audit_type": "read-only GitHub tree, dependency lockfiles, CSS, Blade layout and route inventory",
-      "latest_main_commit": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
-      "note": "این شمارش‌ها از مخزن GitHub هستند و اجرای runtime یا وضعیت دیتابیس محلی را اثبات نمی‌کنند."
+      "latest_main_commit": "a9cf3ab84381163abf9158e4eb3a8af7efc31c2c",
+      "note": "آمار فایل‌ها از Git tree شاخه main پس از ادغام PR35 استخراج شده است؛ وضعیت اجرای Migrationها روی دیتابیس محلی بررسی نشده است.",
+      "tree_entries": 556
     },
     "current_findings": [
       {
@@ -195,16 +196,16 @@
       {
         "id": "DB-015",
         "severity": "low",
-        "summary": "artist_profile_merges دارای FKهای source/target با restrictOnDelete و index جداست، اما check برای source != target و unique pair ندارد. در tree فعلی مدل ArtistProfileMerge و relationهای Artist::sourceMerges/targetMerges دیده می‌شوند؛ controller یا route merge در main پیدا نشد.",
-        "status": "future_workflow_constraint_gap",
-        "remediation": "هنگام ساخت workflow ادغام هنرمندان، CHECK source_artist_id <> target_artist_id و قید جلوگیری از merge تکراری را همراه preflight اضافه کن؛ فعلاً مدل به‌تنهایی workflow فعال محسوب نمی‌شود."
+        "summary": "PR35 یک CHECK برای source_artist_id <> target_artist_id اضافه کرده است. قید یکتای جلوگیری از تکرار دقیق source/target هنوز اضافه نشده، چون workflow merge در main route/controller فعال ندارد و semantics تاریخچه ادغام هنوز مشخص نیست.",
+        "status": "self_merge_check_added_pr35_duplicate_pair_rule_open",
+        "remediation": "هنگام پیاده‌سازی workflow ادغام، سیاست تکرار source/target تعیین و سپس unique مناسب با preflight اضافه شود."
       },
       {
         "id": "DB-016",
         "severity": "medium",
-        "summary": "RatingReviewController قبل از ایجاد پاسخ، parent را به title جاری محدود می‌کند و parent_id null و status approved را الزام می‌کند؛ Migration فقط FK ساده parent_id به title_reviews.id دارد و same-title را در DB تضمین نمی‌کند.",
-        "status": "application_guarded_composite_fk_candidate",
-        "remediation": "قید مرکب (parent_id,title_id) به (id,title_id) قابل بررسی است؛ قبل از افزودن، preflight mismatch و سازگاری MySQL/MariaDB بررسی شود."
+        "summary": "PR35 FK ساده parent_id را با FK مرکب (parent_id,title_id) به (id,title_id) جایگزین می‌کند؛ بنابراین دیتابیس نیز پاسخ به نقدی از عنوان دیگر را منع می‌کند. Migration اجرا نشده است.",
+        "status": "fixed_in_pr35_migration_not_executed",
+        "remediation": "پس از backup و بررسی محیط MySQL/MariaDB، Migration با preflight اجرا شود؛ هیچ تستی تا مرحله نهایی اجرا نشده است."
       },
       {
         "id": "DB-017",
@@ -455,7 +456,8 @@
       "ممیزی read-only فناوری و دارایی‌ها در commit 8b939a4325a9017ffc06678032e5f23b80e9fc94 انجام شد: Composer/NPM lockfiles، Vite/Tailwind، Font Awesome Pro 7.3.1 محلی، فونت‌های Inter/Vazirmatn/Noto Sans Arabic و تنظیم Bunny Instrument Sans ثبت شدند.",
       "موجودی فعلی Git tree: ۵۵۵ ورودی، ۲۹ Migration، ۴۰ مدل، ۵۰ فایل Blade، ۶۳ فایل ترجمه PHP، ۱۰۳ Route نام‌گذاری‌شده، ۸۸ فایل CSS فونت‌آوسام و ۳۸ فایل WOFF2.",
       "PR34 در main است و قیدهای CHECK محدوده امتیاز را اضافه کرده؛ Migration اجرا نشده است. تعداد جدول‌های فعلی و وضعیت migrate:status محلی در این نوبت بازشماری/بررسی نشدند و عمداً نامشخص باقی ماندند.",
-      "ممیزی مجدد DB-010 و DB-012 تا DB-019 روی آخرین main انجام شد؛ DB-011 و DB-014 اصلاح‌شده‌اند، DB-016 تا DB-019 کنترل نرم‌افزاری یا قفل تراکنشی دارند اما محدودیت دیتابیسی/lifecycle باز است، و DB-013/DB-015 به‌عنوان ساختارهای legacy بدون route/controller فعال شناسایی شدند."
+      "ممیزی مجدد DB-010 و DB-012 تا DB-019 روی آخرین main انجام شد؛ DB-011 و DB-014 اصلاح‌شده‌اند، DB-016 تا DB-019 کنترل نرم‌افزاری یا قفل تراکنشی دارند اما محدودیت دیتابیسی/lifecycle باز است، و DB-013/DB-015 به‌عنوان ساختارهای legacy بدون route/controller فعال شناسایی شدند.",
+      "PR35 با موفقیت ادغام شد: CHECK جلوگیری از self-merge و FK مرکب برای هم‌عنوان بودن نقد والد/پاسخ؛ merge commit a9cf3ab84381163abf9158e4eb3a8af7efc31c2c. Migration اجرا نشده و تست‌ها به مرحله نهایی موکول شده‌اند."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -803,6 +805,10 @@
     }
   ],
   "changelog": [
+    {
+      "date": "2026-11-18",
+      "text": "PR35 ادغام شد (a9cf3ab): Migration افزایشی با preflight برای جلوگیری از self-merge هنرمند و تضمین اینکه پاسخ نقد به نقد والد از همان title متصل باشد. آمار main به ۵۵۶ ورودی و ۳۰ Migration (۲۷ برنامه + ۳ زیرساخت) به‌روز شد؛ هیچ Migration یا تستی اجرا نشده است."
+    },
     {
       "date": "2026-11-18",
       "text": "بازممیزی روابط دیتابیس روی main commit 8b939a4 تکمیل شد: وضعیت DB-010 تا DB-019 با Migrationها، مدل‌ها و کنترلرها تطبیق داده شد؛ DB-011/014 اصلاح‌شده، DB-013/015 legacy بدون route/controller فعال، DB-016/017/018 application-guarded و DB-019 دارای قفل تراکنشی در مسیر store ثبت شد. سیاست‌های ON DELETE و قیدهای افزایشی قبل از PR بعدی باید مشخص شوند."
@@ -1213,7 +1219,7 @@
     "status": "current_main_inventory_review_with_historical_findings",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "branch": "main",
-    "commit": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
+    "commit": "a9cf3ab84381163abf9158e4eb3a8af7efc31c2c",
     "scope_completed": [
       "مرحله ۱: ساختار مخزن، فایل‌ها، مدل‌ها، کنترلرها، viewها، migrationها، سرویس‌ها، policyها، middlewareها و تست‌ها",
       "مرحله ۲: مسیرها، کنترل دسترسی، نقش‌ها، گردش‌کار درخواست حرفه‌ای، Claim، نقد و امتیاز، حریم خصوصی هنرمند و واردسازی",
@@ -1229,8 +1235,8 @@
       "ممیزی موجودی فناوری و دارایی‌های رابط کاربری در commit 8b939a4325a9017ffc06678032e5f23b80e9fc94: composer.json/lock، package.json/lock، vite.config.js، resources/css/app.css، resources/views/layouts/app.blade.php و موجودی Font Awesome."
     ],
     "repository_inventory": {
-      "tree_entries": 555,
-      "migration_files": 29,
+      "tree_entries": 556,
+      "migration_files": 30,
       "php_model_files": 40,
       "blade_files": 50,
       "web_route_lines": 628,
@@ -1238,7 +1244,9 @@
       "note": "آمار فایل‌ها از Git tree شاخه main در commit فعلی استخراج شده است. یافته‌های امنیتی/منطقی قبلی در این ساختار به‌طور کامل بازبینی نشده‌اند و باید به‌عنوان یافته‌های ممیزی قبلی خوانده شوند.",
       "translation_php_files": 63,
       "fontawesome_css_files": 88,
-      "fontawesome_woff2_files": 38
+      "fontawesome_woff2_files": 38,
+      "application_migration_files": 27,
+      "framework_migration_files": 3
     },
     "confirmed_implemented_areas": [
       "ساختار Laravel شامل Controller، Middleware، Model، Policy، Service، Migration، Seeder و تست",
@@ -1531,7 +1539,7 @@
   },
   "database_schema_audit": {
     "audit_date": "2026-11-17",
-    "status": "latest_main_static_reaudit_completed_followup_constraints_pending",
+    "status": "latest_main_static_reaudit_with_pr35_integrity_migration_merged_not_executed",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "branch": "main",
     "commit": "a56e92080a227b9e4c531c9edf2e55a02e6946ab",
@@ -1598,7 +1606,7 @@
       "قواعد اعتبارسنجی runtime و رفتار هم‌زمانی خارج از آنچه در فایل‌های بررسی‌شده دیده شد، باید در مرحله‌های بعدی تست شوند."
     ],
     "safety": "هیچ دستور migrate اجرا نشد؛ هیچ جدول، رکورد یا فایل سورس اصلی تغییر نکرد.",
-    "latest_main_commit_seen": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
+    "latest_main_commit_seen": "a9cf3ab84381163abf9158e4eb3a8af7efc31c2c",
     "note": "این سند در ابتدا بر اساس snapshot قدیمی‌تر تهیه شده است؛ PR34 بعداً قیدهای CHECK امتیاز را اضافه کرده است. یافته‌های دیگر تا زمان ممیزی کامل روی latest_main_commit_seen باید تاریخی/نیازمند تطبیق تلقی شوند.",
     "re_audit_2026_11_18": {
       "date": "2026-11-18",
@@ -1635,15 +1643,15 @@
         },
         {
           "id": "DB-015",
-          "status": "future_workflow_constraint_gap",
-          "verified": "artist_profile_merges دارای FKهای source/target با restrictOnDelete و index جداست، اما check برای source != target و unique pair ندارد. در tree فعلی مدل ArtistProfileMerge و relationهای Artist::sourceMerges/targetMerges دیده می‌شوند؛ controller یا route merge در main پیدا نشد.",
-          "recommendation": "هنگام ساخت workflow ادغام هنرمندان، CHECK source_artist_id <> target_artist_id و قید جلوگیری از merge تکراری را همراه preflight اضافه کن؛ فعلاً مدل به‌تنهایی workflow فعال محسوب نمی‌شود."
+          "status": "self_merge_check_added_pr35_duplicate_pair_rule_open",
+          "verified": "PR35 یک CHECK برای source_artist_id <> target_artist_id اضافه کرده است. قید یکتای جلوگیری از تکرار دقیق source/target هنوز اضافه نشده، چون workflow merge در main route/controller فعال ندارد و semantics تاریخچه ادغام هنوز مشخص نیست.",
+          "recommendation": "هنگام پیاده‌سازی workflow ادغام، سیاست تکرار source/target تعیین و سپس unique مناسب با preflight اضافه شود."
         },
         {
           "id": "DB-016",
-          "status": "application_guarded_composite_fk_candidate",
-          "verified": "RatingReviewController قبل از ایجاد پاسخ، parent را به title جاری محدود می‌کند و parent_id null و status approved را الزام می‌کند؛ Migration فقط FK ساده parent_id به title_reviews.id دارد و same-title را در DB تضمین نمی‌کند.",
-          "recommendation": "قید مرکب (parent_id,title_id) به (id,title_id) قابل بررسی است؛ قبل از افزودن، preflight mismatch و سازگاری MySQL/MariaDB بررسی شود."
+          "status": "fixed_in_pr35_migration_not_executed",
+          "verified": "PR35 FK ساده parent_id را با FK مرکب (parent_id,title_id) به (id,title_id) جایگزین می‌کند؛ بنابراین دیتابیس نیز پاسخ به نقدی از عنوان دیگر را منع می‌کند. Migration اجرا نشده است.",
+          "recommendation": "پس از backup و بررسی محیط MySQL/MariaDB، Migration با preflight اجرا شود؛ هیچ تستی تا مرحله نهایی اجرا نشده است."
         },
         {
           "id": "DB-017",
@@ -1743,9 +1751,9 @@
   },
   "current_work": {
     "stage": "ممیزی و تکمیل چندزبانگی رابط کاربری و گردش‌کارها پس از ادغام امنیت و کاتالوگ",
-    "status": "latest_main_database_relationships_reaudit_completed",
+    "status": "pr35_merged_next_db010_and_lifecycle_audit",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "latest_main_commit": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
+    "latest_main_commit": "a9cf3ab84381163abf9158e4eb3a8af7efc31c2c",
     "merged_pull_requests": [
       {
         "number": 8,
@@ -1932,9 +1940,18 @@
         "status": "merged",
         "tests_executed": false,
         "migrations_executed": false
+      },
+      {
+        "number": 35,
+        "title": "Enforce review-parent and artist-merge integrity",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/35",
+        "merge_commit": "a9cf3ab84381163abf9158e4eb3a8af7efc31c2c",
+        "status": "merged",
+        "tests_executed": false,
+        "migrations_executed": false
       }
     ],
-    "next_step": "طراحی و پیاده‌سازی PR بعدی برای قیود افزایشی کم‌ریسک (ابتدا DB-015 و DB-016) با preflight و سازگاری MySQL/MariaDB؛ DB-010، DB-017، DB-018 و DB-019 پس از تعیین سیاست lifecycle و disconnect طراحی شوند. تست‌ها در پایان.",
+    "next_step": "طراحی تغییر چندمرحله‌ای DB-010 برای FKهای نوع‌دار رویدادهای title/credit با preflight و backfill؛ هم‌زمان بررسی policy حذف/قطع اتصال artist_user برای DB-017/018. سپس تعیین هویت creditهای legacy در DB-012 و تعیین تکلیف ساختارهای legacy DB-013. تست‌ها در پایان.",
     "operational_runbook": "docs/operational-runbook-private-evidence-2026-11-18.md"
   },
   "application_audit": {
@@ -2606,9 +2623,10 @@
     "DB-010: جایگزینی امن شناسه polymorphic رویدادهای درخواست با FKهای نوع‌دار پس از preflight/backfill و تغییر writer/relations.",
     "DB-012: تعیین هویت یکتای creditهای legacy که artist_id یا profession_id ندارند؛ قید فعلی فقط هویت کامل را پوشش می‌دهد.",
     "DB-013 و DB-015: تعیین تکلیف داده و مدل‌های legacy claim/merge؛ در main فعلی route/controller فعال متناظر پیدا نشد.",
-    "DB-016: بررسی قید مرکب نقد والد و عنوان با preflight؛ کنترل نرم‌افزاری فعلی وجود دارد.",
     "DB-017 و DB-018: تصمیم درباره رفتار حذف/قطع اتصال artist_user پیش از افزودن FK مرکب برای pair هنرمند/کاربر.",
-    "DB-019: افزودن/ارزیابی قید جلوگیری از درخواست حرفه تکراری و پوشش هم‌زمانی store/resubmit/moderation در تست نهایی."
+    "DB-019: افزودن/ارزیابی قید جلوگیری از درخواست حرفه تکراری و پوشش هم‌زمانی store/resubmit/moderation در تست نهایی.",
+    "DB-016: قید مرکب پاسخ نقد به همان عنوان در PR35 اضافه شد؛ اجرای Migration پس از backup و تست نهایی باقی است.",
+    "DB-015: جلوگیری از self-merge در PR35 اضافه شد؛ سیاست جلوگیری از merge تکراری دقیق در صورت ایجاد workflow فعال باقی است."
   ],
   "post_pr21_localization": {
     "date": "2026-11-18",
