@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "46cb61737572b1b247f4d9436f70f370ca20d471",
+    "latest_main_commit": "f5fd2c5c951a727f90204f7083a8f040ca47b3a9",
     "latest_main_commit_verified_on": "2026-11-18"
   },
   "languages": [
@@ -379,7 +379,10 @@
       "PR14 با merge commit 3d3002dd26d12ab9bc1b42e80743e9225b37df23 ادغام شد؛ CountryTranslation موجود در صفحه عمومی شرکت و فرم/فهرست مدیریت استفاده می‌شود و تست دری اضافه شد.",
       "PR15 با merge commit 46cb61737572b1b247f4d9436f70f370ca20d471 ادغام شد؛ slug شرکت به‌عنوان فیلد داخلی توضیح داده شد و شناسه co مرجع URL عمومی است؛ تست نام غیرلاتین بدون slug دستی اضافه شد.",
       "شمارش ایستای سورس پس از ادغام: ۲۷ فایل Migration، ۲۴ Migration دامنه، ۴۰ مدل Eloquent و ۱۰۳ تعریف Route. این اعداد تعداد واقعی جدول‌ها یا Migrationهای اجراشده دیتابیس محلی نیستند.",
-      "هیچ تست، Migration، Seeder یا انتقال فایل اجرا نشد؛ دیتابیس محلی amdbl تغییر نکرد."
+      "هیچ تست، Migration، Seeder یا انتقال فایل اجرا نشد؛ دیتابیس محلی amdbl تغییر نکرد.",
+      "PR13 در 2026-11-18 ادغام شد: خطای نحوی آرایه ترجمه شرکت‌ها در فایل‌های en، fa-AF و ps اصلاح شد.",
+      "PR16 در 2026-11-18 ادغام شد: Migration افزایشی country_translations، رابطه Language، ترجمه سه‌زبانه ۱۵ کشور و نمایش ترجمه نام کشور در بخش شرکت‌ها تکمیل شد.",
+      "main در commit f5fd2c5c951a727f90204f7083a8f040ca47b3a9 بررسی شد؛ Migration، Seeder و تست‌ها عمداً اجرا نشده‌اند."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1882,10 +1885,10 @@
       {
         "id": "I18N-001",
         "severity": "low",
-        "status": "fixed_in_pr14_merged",
+        "status": "fixed_in_pr16_merged",
         "title": "نام کشور در صفحه شرکت ترجمه نمی‌شود",
-        "detail": "صفحه شرکت هنوز countries.name پایه را نمایش می‌دهد. بررسی مجدد سورس فعلی CountryTranslation/model/table ترجمه کشور را پیدا نکرد؛ راه‌حل نیازمند طراحی افزایشی مستقل است.",
-        "remediation": "PR14 از CountryTranslation موجود استفاده کرد؛ Country و CompanyControllerها و Viewهای عمومی/مدیریتی ترجمه locale جاری را با fallback به en و countries.name نمایش می‌دهند. تست دری اضافه شده اما اجرا نشده است."
+        "detail": "مدل CountryTranslation و رابطه Country از قبل وجود داشتند، اما جدول country_translations در Migrationهای main ساخته نشده بود؛ بنابراین ذخیره ترجمه پایدار ممکن نبود.",
+        "remediation": "PR16 یک Migration افزایشی برای country_translations، رابطه معکوس Language، ترجمه انگلیسی/دری/پشتو برای ۱۵ کشور موجود در CountrySeeder و نمایش ترجمه در صفحه/فهرست عمومی و مدیریت شرکت‌ها را تکمیل کرد. تست Feature مربوط به نمایش ترجمه از قبل در main موجود بود؛ اجرا نشده است."
       },
       {
         "id": "FILE-001",
@@ -2117,5 +2120,43 @@
       "merge_commit": "46cb61737572b1b247f4d9436f70f370ca20d471",
       "status": "merged"
     }
+  },
+  "country_localization": {
+    "date": "2026-11-18",
+    "status": "implemented_merged_not_migrated_or_seeded_locally",
+    "pull_request": 16,
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/16",
+    "merge_commit": "f5fd2c5c951a727f90204f7083a8f040ca47b3a9",
+    "migration": "2026_11_18_120000_create_country_translations_table.php",
+    "table": "country_translations",
+    "languages": [
+      "en",
+      "fa-AF",
+      "ps"
+    ],
+    "seeded_country_count": 15,
+    "seeder": "CountrySeeder",
+    "database_seeder_order": [
+      "LanguageSeeder",
+      "CountrySeeder",
+      "RolePermissionSeeder"
+    ],
+    "data_safety": "مهاجرت فقط جدول جدید می‌سازد؛ Seeder رکوردهای موجود کشور، شناسه‌ها، نام پایه و created_at را حفظ می‌کند و ترجمه‌ها را درج/به‌روزرسانی می‌کند.",
+    "tests_executed": false,
+    "migrations_executed": false,
+    "seeders_executed": false,
+    "local_database_modified": false
+  },
+  "company_translation_syntax_fix": {
+    "date": "2026-11-18",
+    "pull_request": 13,
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/13",
+    "merge_commit": "8a7a185528131e1eb06b036e23994fe8d4f0e7f8",
+    "files": [
+      "lang/en/companies.php",
+      "lang/fa-AF/companies.php",
+      "lang/ps/companies.php"
+    ],
+    "detail": "کاماهای جاافتاده پس از ترجمه admin.restored در هر سه فایل اضافه شد."
   }
 }
