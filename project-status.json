@@ -1499,12 +1499,13 @@
     }
   },
   "current_work": {
-    "stage": "Stage 4 — Authorization, workflow and pending PR review",
-    "status": "static_audit_partial_completed",
+    "stage": "Stage 4 — security and localization hardening",
+    "status": "remediation_branch_in_progress_static_review_pending",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
+    "working_branch": "security/stage4-hardening",
     "report_document": "https://github.com/armanaria111/amdb-report/blob/main/docs/stage-4-authorization-and-workflow-audit-2026-11-18.md",
-    "next_step": "ادامه ممیزی ایستای AUTH-004/AUTH-006، PRIV-002، WF-003/WF-005 و I18N-003/I18N-004 و تعیین طرح اصلاح مرحله‌ای؛ PR7 هنوز dirty است و قبل از هر ادغام باید به main فعلی به‌روز شود. تست‌ها فقط در مرحله نهایی."
+    "next_step": "بازبینی ایستای تمام تغییرات شاخه security/stage4-hardening، تکمیل اصلاحات باقی‌مانده چندزبانه و سپس ساخت PR پیش‌نویس. تست‌ها فقط در انتهای پروژه."
   },
   "application_audit": {
     "audit_date": "2026-11-18",
@@ -1619,6 +1620,14 @@
         "title": "متن‌های رابط چندزبانه داخل View و Controller hard-code شده‌اند",
         "detail": "نمونه‌ها: searchLabels در layouts/app.blade.php، آرایه texts در artists/show.blade.php و پیام‌های مستقیم فارسی در Controllerها؛ برخی پیام‌ها mojibake هستند.",
         "remediation": "انتقال متن‌ها به lang/en، lang/fa-AF و lang/ps و استفاده از کلید ترجمه."
+      },
+      {
+        "id": "SEC-007",
+        "severity": "high",
+        "status": "confirmed_static_remediated_in_branch",
+        "title": "فرمان CLI ساخت مدیر دارای اعتبارنامه ثابت بود",
+        "detail": "CreateAdminUser.php حساب admin@amdb.af را با رمز ثابت Amdb@Admin2026! ایجاد می‌کرد و is_admin=true می‌گذاشت.",
+        "remediation": "فرمان در security/stage4-hardening به ایمیل ورودی، رمز تعاملی حداقل ۱۲ نویسه، تأیید رمز و تأیید صریح برای حساب موجود تغییر کرده؛ fallback ایمیل superadmin نیز حذف شده است."
       }
     ],
     "verified_controls": [
@@ -1651,7 +1660,34 @@
     "local_database_inspected": false,
     "source_code_modified": false,
     "report_document": "https://github.com/armanaria111/amdb-report/blob/main/docs/stage-4-authorization-and-workflow-audit-2026-11-18.md",
-    "note": "این مرحله صرفاً ممیزی ایستای GitHub است. تست‌ها و عملیات دیتابیس طبق درخواست کاربر برای انتهای پروژه نگه داشته شده‌اند."
+    "note": "این مرحله صرفاً ممیزی ایستای GitHub است. تست‌ها و عملیات دیتابیس طبق درخواست کاربر برای انتهای پروژه نگه داشته شده‌اند.",
+    "branch_remediations": {
+      "branch": "security/stage4-hardening",
+      "base_commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
+      "changes": [
+        "حفاظت از مجوزهای مدیریتی حساس در ساخت/ویرایش/حذف و واگذاری نقش سفارشی؛ فقط مدیر ارشد تعیین‌شده.",
+        "Rate Limit ورود: پنج تلاش ناموفق در پنجره ۶۰ ثانیه بر اساس ایمیل و IP؛ پیام‌های auth دری/پشتو ترجمه شدند.",
+        "مدارک جدید درخواست حرفه‌ای روی local/private disk ذخیره می‌شوند؛ لینک مستقیم public حذف و Route دانلود با submissions.manage افزوده شد.",
+        "فرمان dry-run پیش‌فرض amdb:secure-professional-evidence برای انتقال امن فایل‌های قدیمی public به private اضافه شد؛ اجرا نشده است.",
+        "requestRevision و reject درخواست حرفه‌ای داخل transaction و lockForUpdate قرار گرفتند.",
+        "ثبت درخواست حرفه‌ای برای حساب دارای پروفایل هنرمند مسدود و کاربر به گردش‌کار تغییر حرفه هدایت می‌شود.",
+        "شرط is_owner=true در ثبت، ویرایش، ارسال مجدد و تأیید درخواست credit اعمال شد.",
+        "CreateAdminUser از اعتبارنامه ثابت به ورودی امن تعاملی تغییر کرد.",
+        "default_locale و enabled_locales در Middleware، LanguageController و لینک‌های Layout اعمال شدند؛ دسترسی به SiteSetting پیش از وجود جدول نیز fallback امن دارد.",
+        "site_name و site_description ذخیره‌شده در SiteSetting در Layout استفاده می‌شوند.",
+        "متون صفحه عمومی هنرمند از Blade به lang/en، lang/fa-AF و lang/ps منتقل شدند."
+      ],
+      "pending_or_not_done": [
+        "فایل‌های قدیمی professional evidence تا اجرای فرمان amdb:secure-professional-evidence --apply پس از backup همچنان ممکن است روی public disk باقی بمانند.",
+        "باقی پیام‌های hard-coded در Controllerها و Viewها باید در ممیزی چندزبانه ادامه یابد.",
+        "ناسازگاری artists.claim در RoleManagementTest و RolePermissionSeeder هنوز تعیین تکلیف نشده است.",
+        "تست‌ها، lint/runtime و Migration اجرا نشده‌اند."
+      ],
+      "tests_executed": false,
+      "migrations_executed": false,
+      "local_database_modified": false,
+      "pull_request_created": false
+    }
   },
   "company_catalog_pr_review": {
     "audit_date": "2026-11-18",
