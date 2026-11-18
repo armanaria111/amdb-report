@@ -362,7 +362,8 @@
       "PR شماره ۸ با عنوان Harden role privileges and secure professional evidence به‌صورت Draft باز شد؛ URL: https://github.com/armanaria111/amdb-laravel2/pull/8.",
       "در PR8 حفاظت مجوزهای حساس در ساخت/ویرایش/واگذاری نقش سفارشی و ذخیره private مدارک جدید بررسی شد؛ رویدادهای Log::notice برای تغییرات حساس اضافه شدند.",
       "سه تست Feature برای منع ساخت، ویرایش و واگذاری نقش دارای مجوز حساس توسط non-super-admin اضافه شد؛ هیچ تستی اجرا نشد.",
-      "فرمان amdb:secure-professional-evidence با حالت پیش‌فرض dry-run اضافه شده اما اجرا نشده است؛ دیتابیس و فایل‌های محلی تغییر نکردند."
+      "فرمان amdb:secure-professional-evidence با حالت پیش‌فرض dry-run اضافه شده اما اجرا نشده است؛ دیتابیس و فایل‌های محلی تغییر نکردند.",
+      "پس از افزودن ثبت رویدادهای امنیتی و سه تست مجوز نقش سفارشی، head شاخه PR8 به f548c0bc6a0cec05f625f263aec9e19778d91eb3 به‌روزرسانی شد؛ PR همچنان Draft و ادغام‌نشده است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1535,7 +1536,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
     "working_branch": "security/stage4-hardening",
-    "latest_branch_commit": "2fca5e9d88cc450675bbde4545f3fd594b8df02e",
+    "latest_branch_commit": "f548c0bc6a0cec05f625f263aec9e19778d91eb3",
     "pull_request": {
       "number": 8,
       "url": "https://github.com/armanaria111/amdb-laravel2/pull/8",
@@ -1543,7 +1544,7 @@
       "branch": "security/stage4-hardening",
       "base": "main",
       "base_commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
-      "latest_branch_commit": "2fca5e9d88cc450675bbde4545f3fd594b8df02e",
+      "latest_branch_commit": "f548c0bc6a0cec05f625f263aec9e19778d91eb3",
       "state": "open",
       "draft": true,
       "ahead_by": 37,
@@ -1756,7 +1757,7 @@
         "ahead_by": 37,
         "behind_by": 0
       },
-      "latest_commit": "2fca5e9d88cc450675bbde4545f3fd594b8df02e",
+      "latest_commit": "f548c0bc6a0cec05f625f263aec9e19778d91eb3",
       "audit_log_added": true,
       "additional_authorization_tests_added": 3,
       "legacy_evidence_command_executed": false
@@ -1887,7 +1888,7 @@
     "branch": "security/stage4-hardening",
     "base": "main",
     "base_commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
-    "latest_branch_commit": "2fca5e9d88cc450675bbde4545f3fd594b8df02e",
+    "latest_branch_commit": "f548c0bc6a0cec05f625f263aec9e19778d91eb3",
     "state": "open",
     "draft": true,
     "ahead_by": 37,
