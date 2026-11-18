@@ -357,7 +357,12 @@
       "تست‌های موجود CompanyCatalogTest چهار سناریو دارند؛ soft delete/restore، slug چندزبانه و شکست لوگو پوشش ندارند؛ TEST-PR7-001 ثبت شد، تستی اجرا نشده است.",
       "مقایسه مستقیم routes/web.php در main و شاخه PR7 نشان داد شاخه PR7 مسیرهای user/admin مربوط به ArtistProfessionChangeController و ArtistProfessionChangeModerationController را ندارد.",
       "نسخه dashboard شاخه PR7 لینک صف درخواست‌های تغییر حرفه هنرمند را که در main وجود دارد ندارد؛ این موارد در PR7-CONFLICT-002 ثبت شد.",
-      "راهبرد حل تعارض PR7 مشخص شد: حفظ main برای workflowهای PR6 و افزودن افزایشی Routeها، جستجو، لینک‌ها و CSS شرکت‌ها؛ هیچ rebase/merge انجام نشده است."
+      "راهبرد حل تعارض PR7 مشخص شد: حفظ main برای workflowهای PR6 و افزودن افزایشی Routeها، جستجو، لینک‌ها و CSS شرکت‌ها؛ هیچ rebase/merge انجام نشده است.",
+      "شاخه security/stage4-hardening با main commit a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c مقایسه شد؛ صفر commit عقب‌ماندگی گزارش شد.",
+      "PR شماره ۸ با عنوان Harden role privileges and secure professional evidence به‌صورت Draft باز شد؛ URL: https://github.com/armanaria111/amdb-laravel2/pull/8.",
+      "در PR8 حفاظت مجوزهای حساس در ساخت/ویرایش/واگذاری نقش سفارشی و ذخیره private مدارک جدید بررسی شد؛ رویدادهای Log::notice برای تغییرات حساس اضافه شدند.",
+      "سه تست Feature برای منع ساخت، ویرایش و واگذاری نقش دارای مجوز حساس توسط non-super-admin اضافه شد؛ هیچ تستی اجرا نشد.",
+      "فرمان amdb:secure-professional-evidence با حالت پیش‌فرض dry-run اضافه شده اما اجرا نشده است؛ دیتابیس و فایل‌های محلی تغییر نکردند."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -478,6 +483,16 @@
       "title": "Rate limiting ورود",
       "state": "needs_review",
       "detail": "در Route و Controller ورود throttle یا RateLimiter اختصاصی پیدا نشد."
+    },
+    {
+      "title": "سخت‌سازی نقش‌های حساس و خصوصی‌سازی مدارک (PR #8)",
+      "state": "in_draft_pr",
+      "detail": "کد AUTH-004 و PRIV-002 به‌همراه AUTH-006، WF-003، WF-005 و I18N-003 در PR8 آماده بازبینی است؛ PR Draft است و تست‌ها اجرا نشده‌اند."
+    },
+    {
+      "title": "انتقال مدارک حرفه‌ای قدیمی از public به private",
+      "state": "pending_backup_and_manual_apply",
+      "detail": "فرمان dry-run پیش‌فرض اضافه شده؛ اجرای --apply فقط پس از پشتیبان‌گیری دیتابیس و storage/app/public و بررسی خروجی مجاز است. هیچ فایلی منتقل نشده است."
     }
   ],
   "known_issues": [
@@ -528,6 +543,18 @@
     {
       "title": "ابهام در Migrationهای تنظیمات",
       "detail": "دو Migration با نام create_site_settings_table وجود دارد؛ در مرحله سوم ترتیب، وابستگی و صحت ساختار بررسی شود."
+    },
+    {
+      "title": "بازبینی و ادغام سخت‌سازی امنیتی PR شماره ۸",
+      "detail": "PR8 در شاخه security/stage4-hardening به‌صورت Draft باز است؛ AUTH-004، PRIV-002 و اصلاحات همراه در کد شاخه آماده بازبینی‌اند، اما تست‌ها اجرا نشده و PR ادغام نشده است."
+    },
+    {
+      "title": "انتقال مدارک قدیمی درخواست حرفه‌ای",
+      "detail": "فایل‌هایی که پیش‌تر روی public disk ذخیره شده‌اند تا اجرای کنترل‌شده amdb:secure-professional-evidence --apply پس از backup ممکن است از URL عمومی در دسترس باشند؛ فرمان هنوز اجرا نشده است."
+    },
+    {
+      "title": "تست‌های حریم خصوصی مدارک حرفه‌ای",
+      "detail": "تست‌های ذخیره private، دانلود با/بدون مجوز و dry-run/انتقال legacy evidence باید پیش از ادغام نهایی اضافه و در مرحله تست نهایی اجرا شوند."
     }
   ],
   "milestones": [
@@ -700,6 +727,10 @@
     {
       "date": "2026-11-18",
       "text": "PR شماره ۷ برای کاتالوگ شرکت‌ها، شناسه co، رابطه شرکت و آثار و جستجوی شرکت‌ها آماده و باز است. PR شماره ۶ نیز برای گردش‌کار تغییر حرفه و ترجمه‌ها باز است. هر دو PR از main فعلی منشعب شده‌اند و فایل‌های مشترک دارند؛ قبل از ادغام هر دو باید branch دوم به‌روز شود. تست‌ها و Migrationها اجرا نشده‌اند."
+    },
+    {
+      "date": "2026-11-18",
+      "text": "شاخه security/stage4-hardening پس از بازبینی ایستا در PR شماره ۸ به‌صورت Draft باز شد. AUTH-004 با کنترل مجوزهای حساس در ساخت/ویرایش/واگذاری نقش و ثبت Log::notice تقویت شد؛ سه تست Feature جدید نوشته شد اما اجرا نشد. PRIV-002 برای آپلودهای جدید به private/local منتقل شد و فرمان dry-run پیش‌فرض انتقال مدارک قدیمی اضافه شد؛ فرمان اجرا نشده و فایل‌های public قدیمی تا انتقال کنترل‌شده همچنان ریسک دارند. AUTH-006، WF-003، WF-005 و I18N-003 نیز در شاخه اصلاح شده‌اند. هیچ Migration، Seeder، تست، عملیات دیتابیس یا انتقال فایل اجرا نشد."
     }
   ],
   "architecture": {
@@ -1499,13 +1530,27 @@
     }
   },
   "current_work": {
-    "stage": "Stage 4 — security and localization hardening",
-    "status": "remediation_branch_in_progress_static_review_pending",
+    "stage": "Stage 4 — security, workflow and localization hardening",
+    "status": "draft_pr_open_static_review_pending",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
     "working_branch": "security/stage4-hardening",
-    "report_document": "https://github.com/armanaria111/amdb-report/blob/main/docs/stage-4-authorization-and-workflow-audit-2026-11-18.md",
-    "next_step": "بازبینی ایستای تمام تغییرات شاخه security/stage4-hardening، تکمیل اصلاحات باقی‌مانده چندزبانه و سپس ساخت PR پیش‌نویس. تست‌ها فقط در انتهای پروژه."
+    "latest_branch_commit": "2fca5e9d88cc450675bbde4545f3fd594b8df02e",
+    "pull_request": {
+      "number": 8,
+      "url": "https://github.com/armanaria111/amdb-laravel2/pull/8",
+      "title": "Harden role privileges and secure professional evidence",
+      "branch": "security/stage4-hardening",
+      "base": "main",
+      "base_commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
+      "latest_branch_commit": "2fca5e9d88cc450675bbde4545f3fd594b8df02e",
+      "state": "open",
+      "draft": true,
+      "ahead_by": 37,
+      "behind_by": 0
+    },
+    "report_document": "https://github.com/armanaria111/amdb-report/blob/main/docs/stage-4-hardening-pr-8-static-review-2026-11-18.md",
+    "next_step": "بازبینی نهایی PR8، تکمیل تست‌های خصوصی‌بودن/دانلود/انتقال مدارک و بررسی mergeability؛ تست‌ها فقط در مرحله نهایی اجرا شوند. فرمان انتقال مدارک قدیمی فقط پس از backup و بررسی dry-run و با هماهنگی کاربر اجرا شود."
   },
   "application_audit": {
     "audit_date": "2026-11-18",
@@ -1527,10 +1572,10 @@
       {
         "id": "AUTH-004",
         "severity": "high",
-        "status": "confirmed_static",
+        "status": "remediated_in_draft_pr",
         "title": "امکان دور زدن مرز مدیر ارشد با نقش سفارشی پرمجوز",
         "detail": "کاربر دارای roles.manage و users.manage می‌تواند نقش سفارشی با مجوزهای حساس یا همه مجوزها بسازد و آن را به خود اختصاص دهد؛ کنترل فعلی فقط slug برابر admin را برای غیرمدیر ارشد محدود می‌کند. admin.area نیز نقش سفارشی غیر artist را مسدود نمی‌کند.",
-        "remediation": "محافظت از مجوزهای حساس در ساخت/ویرایش نقش و واگذاری آن‌ها؛ اعطای نقش‌های حاوی مجوز حساس فقط توسط مدیر ارشد و ثبت audit."
+        "remediation": "در PR8، StoreRoleRequest/UpdateRoleRequest/RolePolicy و UserController مجوزهای حساس را برای non-super-admin مسدود می‌کنند؛ واگذاری نقش‌های حساس فقط برای super-admin است. رویدادهای لاگ برنامه اضافه و سه تست Feature نوشته شده‌اند؛ اجرا نشده‌اند."
       },
       {
         "id": "AUTH-005",
@@ -1568,15 +1613,15 @@
       {
         "id": "PRIV-002",
         "severity": "high",
-        "status": "confirmed_static",
+        "status": "partially_remediated_in_draft_pr_legacy_files_pending",
         "title": "مدرک درخواست حرفه‌ای روی دیسک عمومی ذخیره می‌شود",
         "detail": "ProfessionalRequestController فایل را روی disk public ذخیره می‌کند؛ filesystems.php آن را public visibility و symlink public/storage دارد؛ صفحه مدیریت asset(storage/...) مستقیم می‌سازد و Route دانلود احراز هویت‌شده وجود ندارد.",
-        "remediation": "انتقال امن به local/private disk و Route دانلود با submissions.manage؛ فایل‌های موجود فقط پس از backup و inventory منتقل شوند."
+        "remediation": "در PR8 آپلود جدید به local/private منتقل و Route دانلود با submissions.manage اضافه شده است. فایل‌های قدیمی تا اجرای امن فرمان amdb:secure-professional-evidence --apply پس از backup ممکن است روی public باقی بمانند."
       },
       {
         "id": "AUTH-006",
         "severity": "medium_high",
-        "status": "confirmed_static",
+        "status": "remediated_in_draft_pr",
         "title": "ورود فاقد Rate Limit اختصاصی است",
         "detail": "AuthController::login و POST /login در routes/web.php محدودسازی تلاش‌های ناموفق یا throttle اختصاصی ندارند.",
         "remediation": "RateLimiter بر اساس IP و شناسه حساب، با تست lockout و reset."
@@ -1584,7 +1629,7 @@
       {
         "id": "WF-005",
         "severity": "medium",
-        "status": "confirmed_static",
+        "status": "remediated_in_draft_pr",
         "title": "کاربر دارای پروفایل می‌تواند درخواست حرفه‌ای جدید غیرقابل تأیید ثبت کند",
         "detail": "ProfessionalRequestController::create/store وجود artist profile را کنترل نمی‌کند، اما Admin ProfessionalRequestController::approve در صورت وجود اتصال قبلی کاربر را از تأیید منع می‌کند.",
         "remediation": "در GET/POST درخواست حرفه‌ای، کاربر دارای پروفایل به گردش‌کار تغییر حرفه هدایت شود."
@@ -1592,7 +1637,7 @@
       {
         "id": "WF-003",
         "severity": "medium",
-        "status": "confirmed_static",
+        "status": "remediated_in_draft_pr",
         "title": "revision/reject درخواست حرفه‌ای فاقد lock/transaction است",
         "detail": "approve تراکنش و lockForUpdate دارد اما requestRevision و reject فقط وضعیت مدل بارگذاری‌شده را بررسی و مستقیم update می‌کنند.",
         "remediation": "اجرای هر دو عملیات در transaction با lockForUpdate و بررسی مجدد status."
@@ -1608,7 +1653,7 @@
       {
         "id": "I18N-003",
         "severity": "medium",
-        "status": "confirmed_static",
+        "status": "remediated_in_draft_pr",
         "title": "تنظیم زبان پیش‌فرض و زبان‌های فعال در اجرای سایت اعمال نمی‌شود",
         "detail": "SiteSettingController مقادیر default_locale و enabled_locales را ذخیره می‌کند؛ SetLocale همیشه session locale با fallback en را می‌خواند، LanguageController فهرست ثابت سه زبان را قبول می‌کند و Layout هر سه لینک را بدون توجه به تنظیمات نشان می‌دهد.",
         "remediation": "منبع واحد زبان‌های فعال/پیش‌فرض؛ اتصال Middleware، LanguageController و Layout به تنظیمات و fallback معتبر."
@@ -1689,12 +1734,32 @@
         "فایل‌های قدیمی professional evidence تا اجرای فرمان amdb:secure-professional-evidence --apply پس از backup همچنان ممکن است روی public disk باقی بمانند.",
         "باقی پیام‌های hard-coded در Controllerها و Viewها باید در ممیزی چندزبانه ادامه یابد.",
         "ناسازگاری artists.claim در RoleManagementTest و RolePermissionSeeder هنوز تعیین تکلیف نشده است.",
-        "تست‌ها، lint/runtime و Migration اجرا نشده‌اند."
+        "تست‌ها، lint/runtime و Migration اجرا نشده‌اند.",
+        "PR شماره ۸ باز و Draft است؛ هنوز ادغام نشده و mergeability باید دوباره در GitHub بررسی شود.",
+        "تست‌های خصوصی‌بودن فایل، دانلود با/بدون مجوز و فرمان انتقال مدارک قدیمی هنوز باید افزوده و در مرحله نهایی اجرا شوند.",
+        "لاگ دسترسی‌های حساس در این PR از Log::notice استفاده می‌کند و جدول audit اختصاصی/تغییرناپذیر ایجاد نشده است."
       ],
       "tests_executed": false,
       "migrations_executed": false,
       "local_database_modified": false,
-      "pull_request_created": false
+      "pull_request_created": true,
+      "pull_request": {
+        "number": 8,
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/8",
+        "title": "Harden role privileges and secure professional evidence",
+        "branch": "security/stage4-hardening",
+        "base": "main",
+        "base_commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
+        "latest_branch_commit": "2fca5e9d88cc450675bbde4545f3fd594b8df02e",
+        "state": "open",
+        "draft": true,
+        "ahead_by": 37,
+        "behind_by": 0
+      },
+      "latest_commit": "2fca5e9d88cc450675bbde4545f3fd594b8df02e",
+      "audit_log_added": true,
+      "additional_authorization_tests_added": 3,
+      "legacy_evidence_command_executed": false
     }
   },
   "company_catalog_pr_review": {
@@ -1813,5 +1878,53 @@
       ],
       "action": "Do not replace shared files wholesale with PR7 versions; integrate additions into current main after branch refresh."
     }
+  },
+  "stage4_hardening": {
+    "date": "2026-11-18",
+    "number": 8,
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/8",
+    "title": "Harden role privileges and secure professional evidence",
+    "branch": "security/stage4-hardening",
+    "base": "main",
+    "base_commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
+    "latest_branch_commit": "2fca5e9d88cc450675bbde4545f3fd594b8df02e",
+    "state": "open",
+    "draft": true,
+    "ahead_by": 37,
+    "behind_by": 0,
+    "scope": [
+      "AUTH-004: محافظت از مجوزهای حساس در ساخت، ویرایش، حذف و واگذاری نقش‌های سفارشی",
+      "ثبت رویدادهای ساختاریافته تغییر نقش‌ها و واگذاری دسترسی‌های حساس در لاگ برنامه",
+      "PRIV-002: ذخیره مدارک جدید روی private/local disk و Route دانلود با submissions.manage",
+      "فرمان dry-run پیش‌فرض برای انتقال فایل‌های قدیمی public به private",
+      "AUTH-006: Rate Limit ورود بر اساس ایمیل نرمال‌شده و IP",
+      "WF-003: transaction و lock برای revision/reject",
+      "WF-005: هدایت حساب دارای پروفایل به workflow تغییر حرفه",
+      "I18N-003: اتصال تنظیم زبان‌های فعال و پیش‌فرض به Middleware و LanguageController"
+    ],
+    "tests_added": [
+      "منع ساخت نقش سفارشی دارای مجوز حساس توسط non-super-admin",
+      "منع ویرایش نقش موجود دارای مجوز حساس توسط non-super-admin",
+      "منع واگذاری نقش دارای مجوز حساس توسط non-super-admin"
+    ],
+    "remaining_checks": [
+      "افزودن تست‌های ذخیره private، مجوز دانلود و dry-run/اجرای فرمان انتقال مدارک",
+      "بررسی کامل فهرست مجوزهای حساس پس از تعیین تکلیف PR7 و companies.manage",
+      "تأیید مقدار AMDB_SUPER_ADMIN_EMAIL در محیط استقرار",
+      "بازبینی mergeability در GitHub"
+    ],
+    "audit_log_type": "Laravel application log via Log::notice; not a dedicated immutable database audit table",
+    "legacy_evidence_migration": {
+      "command": "php artisan amdb:secure-professional-evidence",
+      "default_mode": "dry-run",
+      "apply_option": "--apply",
+      "executed": false,
+      "backup_required": true
+    },
+    "tests_executed": false,
+    "migrations_executed": false,
+    "seeders_executed": false,
+    "local_database_modified": false,
+    "local_files_modified": false
   }
 }
