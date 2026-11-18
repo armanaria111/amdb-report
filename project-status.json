@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "f5fd2c5c951a727f90204f7083a8f040ca47b3a9",
+    "latest_main_commit": "ebcde1cda601b32ed40956de55b2ee6972cc9e9d",
     "latest_main_commit_verified_on": "2026-11-18"
   },
   "languages": [
@@ -382,7 +382,10 @@
       "هیچ تست، Migration، Seeder یا انتقال فایل اجرا نشد؛ دیتابیس محلی amdbl تغییر نکرد.",
       "PR13 در 2026-11-18 ادغام شد: خطای نحوی آرایه ترجمه شرکت‌ها در فایل‌های en، fa-AF و ps اصلاح شد.",
       "PR16 در 2026-11-18 ادغام شد: Migration افزایشی country_translations، رابطه Language، ترجمه سه‌زبانه ۱۵ کشور و نمایش ترجمه نام کشور در بخش شرکت‌ها تکمیل شد.",
-      "main در commit f5fd2c5c951a727f90204f7083a8f040ca47b3a9 بررسی شد؛ Migration، Seeder و تست‌ها عمداً اجرا نشده‌اند."
+      "main در commit f5fd2c5c951a727f90204f7083a8f040ca47b3a9 بررسی شد؛ Migration، Seeder و تست‌ها عمداً اجرا نشده‌اند.",
+      "PR17 با merge commit ebcde1cda601b32ed40956de55b2ee6972cc9e9d ادغام شد؛ فرمان انتقال legacy evidence اکنون در اجرای مجدد می‌تواند نسخه public باقی‌مانده را حتی پس از تغییر مسیر دیتابیس به private پیدا و حذف کند.",
+      "یک تست Feature برای retry پاک‌سازی فایل public باقی‌مانده پس از private شدن evidence_path اضافه شد؛ تست اجرا نشده است.",
+      "آخرین main commit پس از ادغام PR17: ebcde1cda601b32ed40956de55b2ee6972cc9e9d. هیچ تست، Migration، Seeder یا فرمان انتقال فایل اجرا نشد."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -769,6 +772,10 @@
     {
       "date": "2026-11-18",
       "text": "PR12 چهار تست Feature برای امنیت مدارک خصوصی اضافه و ادغام شد (b901e79); PR14 ترجمه نام کشور در شرکت‌ها با استفاده از CountryTranslation موجود و تست دری را ادغام کرد (3d3002d); PR15 سیاست slug داخلی شرکت و شناسه co برای URL عمومی را مستند و تست نام غیرلاتین را اضافه کرد (46cb617). تست‌ها اجرا نشده‌اند؛ هیچ Migration/Seeder یا تغییر دیتابیس محلی انجام نشد."
+    },
+    {
+      "date": "2026-11-18",
+      "text": "PR17 با ebcde1cda601b32ed40956de55b2ee6972cc9e9d ادغام شد؛ فرمان انتقال legacy evidence اکنون مسیر قدیمی public را از user_id و basename حتی پس از private شدن evidence_path بازسازی می‌کند تا اجرای مجدد بتواند فایل عمومی باقی‌مانده را حذف کند. تست retry اضافه شد اما اجرا نشد. فرمان انتقال هنوز اجرا نشده است."
     }
   ],
   "architecture": {
@@ -1571,7 +1578,7 @@
     "stage": "پس از ادغام امنیت، کاتالوگ شرکت و اصلاحات چندزبانه — اعتبارسنجی نهایی و انتقال امن مدارک قدیمی",
     "status": "merged_pending_final_validation_and_legacy_evidence_migration",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "latest_main_commit": "46cb61737572b1b247f4d9436f70f370ca20d471",
+    "latest_main_commit": "ebcde1cda601b32ed40956de55b2ee6972cc9e9d",
     "merged_pull_requests": [
       {
         "number": 8,
@@ -1607,6 +1614,12 @@
         "number": 15,
         "url": "https://github.com/armanaria111/amdb-laravel2/pull/15",
         "merge_commit": "46cb61737572b1b247f4d9436f70f370ca20d471",
+        "status": "merged"
+      },
+      {
+        "number": 17,
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/17",
+        "merge_commit": "ebcde1cda601b32ed40956de55b2ee6972cc9e9d",
         "status": "merged"
       }
     ],
@@ -1676,7 +1689,7 @@
         "status": "partially_remediated_in_main_legacy_files_pending_migration",
         "title": "مدرک درخواست حرفه‌ای روی دیسک عمومی ذخیره می‌شود",
         "detail": "ProfessionalRequestController فایل را روی disk public ذخیره می‌کند؛ filesystems.php آن را public visibility و symlink public/storage دارد؛ صفحه مدیریت asset(storage/...) مستقیم می‌سازد و Route دانلود احراز هویت‌شده وجود ندارد.",
-        "remediation": "آپلودهای جدید private هستند؛ Route دانلود محافظت‌شده و ۴ تست امنیت فایل/فرمان در PR12 وارد main شدند. فرمان انتقال legacy evidence هنوز اجرا نشده و فایل‌های قدیمی ممکن است از URL عمومی در دسترس باشند."
+        "remediation": "آپلودهای جدید private هستند؛ Route دانلود محافظت‌شده، چهار تست امنیت مدارک و اصلاح retry پاک‌سازی نسخه public (PR17) در main قرار دارند. فرمان انتقال legacy evidence هنوز اجرا نشده و فایل‌های قدیمی ممکن است از URL عمومی در دسترس باشند."
       },
       {
         "id": "AUTH-006",
@@ -1828,6 +1841,14 @@
         "state": "merged",
         "merge_commit": "b901e79af2b4d8a0e8f88710cbf7b4a8815a0bd3",
         "tests_added": 4,
+        "tests_executed": false
+      },
+      "evidence_cleanup_retry_fix": {
+        "number": 17,
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/17",
+        "state": "merged",
+        "merge_commit": "ebcde1cda601b32ed40956de55b2ee6972cc9e9d",
+        "tests_added": 1,
         "tests_executed": false
       }
     },
@@ -2043,7 +2064,8 @@
       "منع ساخت نقش سفارشی دارای مجوز حساس توسط non-super-admin",
       "منع ویرایش نقش موجود دارای مجوز حساس توسط non-super-admin",
       "منع واگذاری نقش دارای مجوز حساس توسط non-super-admin",
-      "ذخیره private مدرک، کنترل دسترسی دانلود، dry-run فرمان انتقال و اجرای صریح --apply (PR12)"
+      "ذخیره private مدرک، کنترل دسترسی دانلود، dry-run فرمان انتقال و اجرای صریح --apply (PR12)",
+      "تست retry برای پاک‌سازی نسخه public باقی‌مانده پس از به‌روزرسانی مسیر دیتابیس (PR17)"
     ],
     "remaining_checks": [
       "افزودن تست‌های ذخیره private، مجوز دانلود و dry-run/اجرای فرمان انتقال مدارک",
@@ -2069,7 +2091,7 @@
     "merge_commit": "e0f503ea32824232c6ece8b06bbf1197f39f84e2",
     "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/8",
     "pending": "فایل‌های قدیمی public هنوز نیازمند انتقال کنترل‌شده پس از backup هستند؛ تست‌ها در مرحله نهایی اجرا می‌شوند.",
-    "latest_main_commit": "46cb61737572b1b247f4d9436f70f370ca20d471"
+    "latest_main_commit": "ebcde1cda601b32ed40956de55b2ee6972cc9e9d"
   },
   "company_catalog_integration": {
     "original_pr7": {
