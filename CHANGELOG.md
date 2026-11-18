@@ -1,3 +1,12 @@
+## 2026-11-18 — ادغام PR37: اجرای امن Migration از GitHub Actions
+- PR37 ادغام شد: https://github.com/armanaria111/amdb-laravel2/pull/37
+- Workflow دستی `.github/workflows/prepare-staging-database.yml` اضافه شد تا Migrationهای Laravel روی دیتابیس آزمایشی Enzonic اجرا شوند؛ این روش با محدودیت نبود Shell/SSH در Render Free سازگار است.
+- اجرای Workflow فقط با `workflow_dispatch`، تأیید صریح نام دیتابیس آزمایشی، و Secretهای GitHub با نام‌های `AMDB_STAGING_DB_URL` و `AMDB_STAGING_APP_KEY` ممکن است.
+- Workflow فقط Composer dependencies را نصب می‌کند و `php artisan migrate --force` را اجرا می‌کند؛ Seeder و تست اجرا نمی‌شوند.
+- راهنمای `docs/deployment-render-staging.md` به‌روزرسانی شد.
+- آخرین commit مخزن اصلی: `0a9759736772cf1669834cbed1b0db7988d8f9d3`.
+- هیچ Migration یا تستی در این مرحله اجرا نشده؛ منتظر تنظیم Secretها و اجرای دستی کاربر هستیم.
+
 ## 2026-11-18 — ادغام PR36 و آماده‌سازی محیط آزمایشی Render
 - PR36 با موفقیت در مخزن اصلی ادغام شد: https://github.com/armanaria111/amdb-laravel2/pull/36
 - Dockerfile چندمرحله‌ای برای PHP 8.5/Apache، نصب PDO MySQL و ساخت assetهای Vite اضافه شد.
