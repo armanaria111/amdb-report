@@ -1,0 +1,94 @@
+# ممیزی تکمیلی مرحله چهارم — مجوزها، گردش‌کارها و حریم خصوصی
+تاریخ بررسی: 2026-11-18  
+مخزن سورس: [amdb-laravel2](https://github.com/armanaria111/amdb-laravel2)  
+شاخه: `main`  
+Commit بررسی‌شده: `a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c`
+
+## محدوده و روش
+این بررسی فقط‌خواندنی و مبتنی بر سورس GitHub است. Routeها، Middlewareها، Policyها، Controllerها، Requestها، Seederها، Modelها، Migrationها، Viewها و تست‌های مرتبط بررسی شدند. هیچ PHPUnit، تست runtime، Migration، Seeder یا فرمان دیتابیسی اجرا نشد. هیچ تغییری در مخزن سورس اصلی یا دیتابیس محلی انجام نشد.
+
+## یافته‌های جدید
+
+### AUTH-004 — امکان دور زدن مرز مدیر ارشد از طریق نقش سفارشی
+**شدت: بالا | وضعیت: تأییدشده در بررسی ایستا**
+
+- `StoreRoleRequest` و `UpdateRoleRequest` وجود مجوزها را بررسی می‌کنند، اما ایجاد/ویرایش نقش سفارشی را از دریافت مجوزهای حساس محدود نمی‌کنند.
+- `RoleController` تمام permission IDهای معتبر ارسالی را در نقش sync می‌کند.
+- `UserController::updateRoles` برای غیرمدیران فقط اعطای slug برابر `admin` را به مدیر ارشد محدود می‌کند؛ نقش سفارشی دارای مجوزهای مدیریتی حساس از این کنترل عبور می‌کند.
+- Middleware با نام `admin.area` فقط حساب دارای نقش artist را مسدود می‌کند؛ کاربری که نقش سفارشی پرمجوز دارد و نقش artist ندارد، از این سد عبور می‌کند.
+- بنابراین حسابی که هم‌زمان `roles.manage` و `users.manage` دارد می‌تواند نقش سفارشی با مجموعه گسترده یا تمام مجوزها بسازد و آن را به خودش اختصاص دهد. این مسیر می‌تواند مرز مدیر ارشد را بدون دریافت نقش `admin` دور بزند.
+
+**اصلاح پیشنهادی:** مجوزهای حساس مانند `users.manage`، `roles.manage`، `settings.manage`، `artists.manage`، `submissions.manage`، `reviews.manage` و `reports.manage` باید در ایجاد/ویرایش نقش و واگذاری نقش، سیاست محافظت‌شده داشته باشند. اعطای این مجوزها یا نقش‌های حاوی آن‌ها باید به مدیر ارشد محدود و ثبت ممیزی شود. تغییر نقش حساب خودِ عامل نیز باید صریحاً در سیاست واگذاری تعیین شود.
+
+فایل‌های شاهد:
+- `app/Http/Requests/Admin/StoreRoleRequest.php`
+- `app/Http/Requests/Admin/UpdateRoleRequest.php`
+- `app/Http/Controllers/Admin/RoleController.php`
+- `app/Http/Controllers/Admin/UserController.php`
+- `app/Http/Middleware/ArtistAdminAreaMiddleware.php`
+- `app/Models/User.php`
+
+### AUTH-005 — کنترل مالکیت پروفایل در ثبت عوامل به‌صورت کامل اعمال نشده است
+**شدت: متوسط | وضعیت: نیازمند سخت‌سازی**
+
+در مسیرهای ایجاد، ثبت، ویرایش و ارسال مجدد درخواست عوامل، ارتباط حساب با پروفایل هنرمند بررسی می‌شود؛ اما بعضی Queryها فقط وجود رابطه در `artist_user` را می‌سنجند و `is_owner = true` را الزام نمی‌کنند. کنترل تأیید مدیر نیز اتصال user به artist را بدون شرط مالکیت بررسی می‌کند. در مقابل، ویرایش پروفایل و درخواست تغییر حرفه از شرط مالکیت استفاده می‌کنند.
+
+با توجه به اینکه ستون `is_owner` در pivot وجود دارد و منطق محصول مالکیت پروفایل را مبنا قرار می‌دهد، بهتر است تمام مسیرهای ثبت و تأیید credit همین شرط را یکسان اعمال کنند؛ به‌ویژه برای داده‌های تاریخی یا اتصال‌های غیرمالک.
+
+فایل‌های شاهد:
+- `app/Http/Controllers/UserSubmissionController.php`
+- `app/Http/Controllers/Admin/SubmissionModerationController.php`
+- `app/Http/Controllers/ArtistController.php`
+- `app/Http/Controllers/ArtistProfessionChangeController.php`
+
+### ID-003 — مسیر عمومی هنرمند هنوز بر شناسه داخلی تکیه دارد
+**شدت: متوسط | وضعیت: تأییدشده در سورس main**
+
+Route عمومی `/artists/{artist}` به `ArtistController::show(Artist $artist)` متصل است. مدل `Artist` متد `getRouteKeyName()` یا binding سفارشی برای `public_id` تعریف نمی‌کند؛ در نتیجه implicit model binding به‌طور پیش‌فرض از کلید اصلی داخلی استفاده می‌کند. شناسه `ar...` تولید و در صفحه نمایش داده می‌شود، اما استفاده یکپارچه از آن در URL عمومی هنوز اثبات نشده است.
+
+**اصلاح پیشنهادی:** مسیر و binding عمومی باید با `public_id` پایدار کار کند؛ لینک‌های جستجو، کارت هنرمند و مسیرهای مرتبط نیز باید با همان شناسه سازگار شوند. این تغییر باید بدون شکستن لینک‌های قدیمی و با مسیر سازگاری کنترل‌شده انجام شود.
+
+### WF-004 — مدرک خصوصی درخواست عوامل هنوز گردش‌کار فایل ندارد
+**شدت: متوسط | وضعیت: شکاف پیاده‌سازی**
+
+Migration جدول `credit_submission_requests` ستون `evidence_path` را دارد، اما فرم فعلی مدرک را به شکل متن دریافت می‌کند و اعتبارسنجی Controller نیز `evidence` را رشته متنی می‌پذیرد، نه فایل. در Routeهای مدیریت نیز مسیر دانلود مدرک credit دیده نشد. در مقابل، مدرک درخواست ثبت اثر به دیسک `local` ذخیره و دانلود آن با مجوز `submissions.manage` محافظت شده است.
+
+**اصلاح پیشنهادی:** اگر مدرک فایل برای credit بخشی از نیاز محصول است، upload، ذخیره‌سازی خصوصی، اعتبارسنجی نوع/حجم، حذف امن فایل جایگزین و Route دانلود مجاز اضافه شود؛ در غیر این صورت ستون بلااستفاده پس از بررسی داده‌ها مستندسازی شود. هیچ تغییری در Migration فعلی پیشنهاد یا اجرا نشده است.
+
+### TEST-002 — ناسازگاری ایستای انتظار تست Seeder با کد فعلی
+**شدت: متوسط | وضعیت: ناسازگاری محتمل؛ تست اجرا نشده است**
+
+تست `RoleManagementTest::test_role_permission_seeder_removes_global_management_permissions_from_artist` انتظار دارد مجوز `artists.claim` در فهرست نهایی مجوزهای نقش artist وجود داشته باشد. اما `RolePermissionSeeder` فعلی این مجوز را در فهرست مجوزها ایجاد نمی‌کند و در آرایه `rolePermissions['artist']` نیز قرار نمی‌دهد؛ Seeder قبل از درج مجوزهای نقش، pivotهای قبلی نقش artist را پاک می‌کند. بنابراین انتظار تست با خروجی تعریف‌شده در سورس ناسازگار است.
+
+این مورد صرفاً از مقایسه ایستای تست و Seeder شناسایی شده است؛ PHPUnit اجرا نشده و نتیجه runtime ادعا نمی‌شود. در مرحله نهایی باید تصمیم گرفته شود که `artists.claim` واقعاً مجوز موردنیاز است یا assertion تست باید با ماتریس مصوب نقش artist هماهنگ شود.
+
+فایل‌های شاهد:
+- `database/seeders/RolePermissionSeeder.php`
+- `tests/Feature/Admin/RoleManagementTest.php`
+
+## کنترل‌هایی که در نسخه فعلی تأیید شدند
+- `RolePolicy::update/delete` و `UpdateRoleRequest` تغییر/حذف نقش‌های سیستمی و slugهای رزروشده `admin`، `user` و `artist` را منع می‌کنند.
+- Routeهای moderation نقدها و گزارش‌ها وجود دارند و با `reviews.manage` و `reports.manage` محافظت شده‌اند؛ یافته تاریخی نبود moderation در نسخه‌های قدیمی‌تر، برای commit فعلی دیگر معتبر نیست.
+- گردش‌کار ثبت عنوان و credit در Routeها و Controllerها وجود دارد؛ درخواست‌ها با transaction و lock بررسی و به Title/TitleCredit تبدیل می‌شوند.
+- مدرک درخواست عنوان روی دیسک `local` ذخیره می‌شود و Route دانلود آن در گروه `submissions.manage` قرار دارد.
+- نمایش عمومی ایمیل، تلفن و وب‌سایت هنرمند به فلگ‌های `show_email`، `show_phone` و `show_website` وابسته است؛ لینک‌های اجتماعی نیز در Controller فقط با `is_public = true` بارگذاری می‌شوند.
+- پاسخ به نقد در Controller به نقد تأییدشده و متعلق به همان اثر محدود شده است؛ محدودیت هم‌اثر بودن parent/child همچنان در سطح دیتابیس enforce نشده و یافته DB-016 باقی می‌ماند.
+- برای سه زبان، CSS خانواده فونت جداگانه تعریف کرده است: Inter برای انگلیسی، Vazirmatn برای دری و Noto Sans Arabic برای پشتو. مناسب‌بودن کامل پوشش نویسه‌های پشتو و نمایش واقعی باید در مرحله بررسی مرورگر تأیید شود.
+
+## وضعیت PR شماره ۷ — کاتالوگ شرکت‌ها
+در مقایسه شاخه `catalog/company-profiles-public-ids` با `main`:
+- شاخه PR حدود ۶۶ commit جلوتر و ۴۵ commit عقب‌تر از main است.
+- merge-base برابر `c08b7f7b9bccf1fb19bc022d0deb54d10ec8476c` و main فعلی `a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c` است.
+- ۳۴ فایل در PR تغییر کرده‌اند؛ از جمله `routes/web.php`، `RolePermissionSeeder.php`، `resources/views/layouts/app.blade.php`، `resources/views/admin/dashboard.blade.php` و `resources/css/app.css`.
+- وضعیت GitHub همچنان `mergeable=false` و `mergeable_state=dirty` است.
+
+**نتیجه:** PR نباید مستقیم ادغام شود. ابتدا باید شاخه با main فعلی به‌روز و تعارض‌های فایل‌های مشترک به‌صورت کنترل‌شده حل شوند؛ سپس بازبینی مستقل انجام شود.
+
+## گام‌های بعدی
+1. تکمیل ممیزی ایستای Routeها، مجوزها و گردش‌کارهای باقی‌مانده.
+2. تدوین طرح اصلاح AUTH-004 و AUTH-005 و بررسی تأثیر آن بر نقش‌های فعلی.
+3. تکمیل ممیزی public ID، چندزبانگی و تجربه صفحات عمومی.
+4. آماده‌سازی اصلاحات در شاخه/PR جداگانه در مخزن سورس اصلی؛ مخزن گزارش فقط برای مستندسازی باقی می‌ماند.
+5. اجرای تست جامع PHPUnit، بررسی Migration و مرورگر فقط در مرحله نهایی و با هماهنگی کاربر.
+
+**محدودیت:** هیچ تستی اجرا نشده، هیچ Migration یا Seeder اجرا نشده، دیتابیس محلی بررسی/تغییر داده نشده و هیچ کد محصولی تغییر نکرده است.
