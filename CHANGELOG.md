@@ -1,3 +1,13 @@
+## 2026-11-18 — ادغام PR36 و آماده‌سازی محیط آزمایشی Render
+- PR36 با موفقیت در مخزن اصلی ادغام شد: https://github.com/armanaria111/amdb-laravel2/pull/36
+- Dockerfile چندمرحله‌ای برای PHP 8.5/Apache، نصب PDO MySQL و ساخت assetهای Vite اضافه شد.
+- Blueprint سرویس آزمایشی Render با نام `amdb-staging` و تنظیمات مجزا برای MySQL خارجی، session/cache فایل‌محور و queue هم‌زمان اضافه شد.
+- راهنمای اتصال Enzonic MySQL 8.4 و Render در `docs/deployment-render-staging.md` مخزن اصلی ثبت شد.
+- Migrationها عمداً در startup خودکار اجرا نمی‌شوند؛ اجرای آن‌ها فقط پس از تأیید دیتابیس آزمایشی و به‌صورت دستی انجام خواهد شد.
+- آخرین commit شاخه main: `25776d72d2f950d1db2a01ea17214801352d42a8`.
+- سرویس Render و دیتابیس Enzonic هنوز توسط کاربر ایجاد نشده‌اند؛ محیط آزمایشی هنوز live نیست.
+- هیچ تست، Docker build، Migration یا عملیات دیتابیس اجرا نشد.
+
 ## 2026-11-18 — ادغام PR35 و به‌روزرسانی موجودی سورس
 - PR35 با موفقیت در مخزن اصلی ادغام شد؛ CHECK جلوگیری از self-merge و FK مرکب برای هم‌عنوان بودن نقد والد و پاسخ اضافه شد.
 - commit اصلی اکنون `a9cf3ab84381163abf9158e4eb3a8af7efc31c2c` است.
