@@ -94,3 +94,12 @@
 - اگر دیتابیس قبلاً به مسیر private تغییر کرده ولی حذف فایل public شکست خورده باشد، اجرای بعدی فرمان اکنون مسیر قدیمی را از user_id و basename بازسازی و پاک‌سازی می‌کند.
 - تست Feature برای این سناریو اضافه شد؛ اجرا نشده است.
 - فرمان انتقال legacy evidence هنوز اجرا نشده است.
+
+
+### تکمیل نهایی مدارک و گردش‌کار credit
+- **PR18 — ادغام شد:** https://github.com/armanaria111/amdb-laravel2/pull/18 — dry-run اکنون فایل‌های already-private را از موارد نیازمند انتقال جدا می‌کند. Merge commit: `7b8f7350274054097c6e52ac214525bbda3af3af`.
+- **PR19 — ادغام شد:** https://github.com/armanaria111/amdb-laravel2/pull/19 — مدارک credit به‌صورت private/local ذخیره، در resubmit به‌شکل امن تعویض و از Route مدیریتی محافظت‌شده دانلود می‌شوند. Merge commit: `df39ca19d86cdddf7ee650f131437f66e18722a6`.
+- آخرین commit ثبت‌شده main در این مرحله: `df39ca19d86cdddf7ee650f131437f66e18722a6`.
+- در زمان بررسی هیچ PR بازی باقی نمانده است.
+
+راهنمای اجرای کنترل‌شده انتقال مدارک قدیمی در [operational-runbook-private-evidence-2026-11-18.md](operational-runbook-private-evidence-2026-11-18.md) ثبت شد. فرمان هنوز اجرا نشده و تست‌ها نیز اجرا نشده‌اند.
