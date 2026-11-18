@@ -145,7 +145,7 @@
       "eloquent_model_files": 40,
       "audit_type": "static GitHub source tree and route-name inventory; no database/runtime inspection",
       "report_document": "docs/stage-3-database-relationships-audit-2026-11-18.md",
-      "latest_main_commit": "46cb61737572b1b247f4d9436f70f370ca20d471",
+      "latest_main_commit": "53dbcebea50d550a1011a10ed478a5d02bbff9af",
       "route_definitions": 102
     },
     "current_findings": [
@@ -411,7 +411,10 @@
       "آخرین commit اصلی تأییدشده در این نوبت df39ca19d86cdddf7ee650f131437f66e18722a6 است.",
       "PR21 در 2026-11-18 ادغام شد: Language اکنون رابطه معکوس ترجمه‌های country، company، profession، title و artist را دارد.",
       "موجودی ایستای سورس در commit 53dbcebea50d550a1011a10ed478a5d02bbff9af: ۲۸ فایل Migration، ۲۵ Migration برنامه، ۳ Migration چارچوب، ۴۰ مدل و ۱۰۲ فراخوانی route name؛ این شمارش وضعیت دیتابیس محلی را اثبات نمی‌کند.",
-      "هیچ Migration، Seeder، تست یا فرمان انتقال فایل روی محیط محلی اجرا نشده است."
+      "هیچ Migration، Seeder، تست یا فرمان انتقال فایل روی محیط محلی اجرا نشده است.",
+      "PR20 با merge commit 5a34ef8d8c68eab3e144abe4f1c7a9d270e97648 در main قرار دارد؛ پیام‌های امتیاز، نقد، گزارش و گردش‌کار درخواست حرفه‌ای به ترجمه‌های en/fa-AF/ps منتقل شده‌اند.",
+      "کامیت 53dbcebea50d550a1011a10ed478a5d02bbff9af روابط معکوس Language برای companyTranslations، professionTranslations و titleTranslations را تکمیل کرده است.",
+      "در زمان این بررسی هیچ Pull Request بازی در مخزن اصلی باقی نمانده است؛ ممیزی رشته‌های hard-coded سایر بخش‌ها هنوز ادامه دارد."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -435,23 +438,23 @@
   "incomplete_or_planned": [
     {
       "title": "تکمیل تجربه و گردش‌کار درخواست هنرمندی",
-      "state": "incomplete",
-      "detail": "جداول و بخش‌هایی از RBAC/پروفایل وجود دارند؛ گردش‌کار کامل درخواست، بررسی، تأیید و فعال‌سازی پنل باید جداگانه ممیزی شود."
+      "state": "implemented_unverified",
+      "detail": "درخواست ایجاد/اتصال پروفایل و درخواست تغییر حرفه با تأیید مدیر در PR2 و PR6 وارد main شده‌اند؛ تست runtime اجرا نشده و تجربه پنل هنرمند هنوز کامل نیست."
     },
     {
       "title": "پنل کامل هنرمند",
       "state": "incomplete",
-      "detail": "وجود پروفایل و مسیرهای عمومی به معنی تکمیل داشبورد و امکانات هنرمند نیست."
+      "detail": "پروفایل، ویرایش اطلاعات و درخواست تغییر حرفه وجود دارند؛ داشبورد کامل هنرمند، مدیریت آثار/اعتبارها و تجربه کامل پنل هنوز نیازمند تکمیل است."
     },
     {
       "title": "نقد و بررسی و امتیازدهی",
-      "state": "incomplete",
-      "detail": "در ممیزی قبلی، بخش reviews ناقص یا نیازمند تکمیل گزارش شده بود."
+      "state": "implemented_unverified",
+      "detail": "سیستم امتیاز، نقد، پاسخ، ویرایش/حذف نویسنده، واکنش و گزارش در سورس وجود دارد؛ moderation با PR4 و پیام‌های سه‌زبانه با PR20 در main هستند. تست runtime اجرا نشده است."
     },
     {
       "title": "مدیریت و نظارت محتوا",
-      "state": "incomplete",
-      "detail": "گردش‌کار moderation در ممیزی قبلی ناقص/نیازمند تکمیل گزارش شده بود."
+      "state": "implemented_unverified",
+      "detail": "صف moderation نقدها/گزارش‌ها و workflow ثبت/تأیید آثار و عوامل در main وجود دارد؛ بررسی کامل انتشار سایر انواع محتوا و تست runtime باقی است."
     },
     {
       "title": "اخبار و جشنواره‌ها",
@@ -476,7 +479,7 @@
     {
       "title": "استفاده از شناسه عمومی در URLها",
       "state": "partially_implemented_unverified",
-      "detail": "PR10 در main ادغام شد؛ Route عمومی هنرمند از ar public_id و شرکت‌ها از co public_id استفاده می‌کنند. آثار همچنان در Route عمومی با slug هستند و تست runtime اجرا نشده است."
+      "detail": "هنرمند با ar و شرکت با co در URL عمومی استفاده می‌شوند؛ آثار همچنان از slug در Route عمومی استفاده می‌کنند. تست runtime اجرا نشده است."
     },
     {
       "title": "جداول و مدل‌های قدیمی Claim",
@@ -531,7 +534,7 @@
     {
       "title": "Rate limiting ورود",
       "state": "implemented_unverified",
-      "detail": "RateLimiter بر اساس ایمیل نرمال‌شده و IP در PR8 وارد main شده؛ تست runtime اجرا نشده است."
+      "detail": "RateLimiter بر اساس ایمیل نرمال‌شده و IP در PR8 وارد main شده است؛ تست runtime اجرا نشده."
     },
     {
       "title": "سخت‌سازی نقش‌های حساس و خصوصی‌سازی مدارک (PR #8)",
@@ -806,6 +809,10 @@
     {
       "date": "2026-11-18",
       "text": "PR18 dry-run گزارش‌دهی already-private را بهبود داد و با 7b8f7350274054097c6e52ac214525bbda3af3af ادغام شد. PR19 مدارک credit را روی private/local ذخیره و با Route مدیر محافظت کرد؛ merge commit df39ca19d86cdddf7ee650f131437f66e18722a6. هیچ تستی اجرا نشد و انتقال مدارک legacy هنوز pending است."
+    },
+    {
+      "date": "2026-11-18",
+      "text": "PR20 ترجمه پیام‌های نقد/امتیاز و گردش‌کار درخواست حرفه‌ای را در سه زبان تکمیل کرد (5a34ef8); کامیت 53dbceb روابط معکوس Language برای ترجمه شرکت/حرفه/اثر را تکمیل کرد. تست‌ها اجرا نشده‌اند."
     }
   ],
   "architecture": {
@@ -865,8 +872,8 @@
     },
     {
       "name": "چند حرفه برای یک هنرمند",
-      "state": "reported_done",
-      "detail": "پروفایل می‌تواند چند حرفه داشته باشد. PR شماره ۶ گردش‌کار درخواست افزودن/حذف حرفه با تأیید مدیر را اضافه کرده و ویرایش مستقیم حرفه‌ها را از فرم هنرمند حذف می‌کند؛ PR باز و runtime test انجام نشده."
+      "state": "implemented_unverified",
+      "detail": "PR6 در main ادغام شده: درخواست افزودن/حذف حرفه با تأیید مدیر، حفظ آخرین حرفه و همگام‌سازی رابطه‌ها؛ تست runtime اجرا نشده است."
     },
     {
       "name": "کاتالوگ فیلم و سریال",
@@ -885,18 +892,18 @@
     },
     {
       "name": "چندزبانگی و ترجمه",
-      "state": "reported_done",
-      "detail": "ساختار زبان‌ها و ترجمه‌ها وجود دارد. PR شماره ۶ کلید language_code فرم هنرمند را اصلاح و نام/زندگی‌نامه مستقل en، fa-AF و ps و فایل‌های ترجمه مستقل برای فرم هنرمند، داشبورد مدیریت و جستجو اضافه کرده است؛ PR باز و runtime test انجام نشده."
+      "state": "implemented_unverified",
+      "detail": "ساختار ترجمه سه‌زبانه en/fa-AF/ps و روابط معکوس Language برای artist/company/profession/title/country وجود دارد. PR20 پیام‌های review و professional request را ترجمه‌پذیر کرد؛ ممیزی سایر رشته‌ها و بررسی مرورگری فونت‌ها باقی است."
     },
     {
       "name": "شناسه عمومی هنرمندان",
-      "state": "partial",
-      "detail": "Migration و تولید public_id برای Artist دیده شد؛ ArtistController@show و پیشنهاد زنده جستجو همچنان از شناسه داخلی استفاده می‌کنند."
+      "state": "implemented_unverified",
+      "detail": "Route عمومی هنرمند و لینک‌های جستجو از ar public_id استفاده می‌کنند؛ تست runtime و سازگاری URLهای قدیمی باید بررسی شود."
     },
     {
       "name": "شناسه عمومی آثار و شرکت‌ها",
       "state": "partial",
-      "detail": "public_id برای Title در سورس وجود دارد؛ مسیر Title همچنان slug دارد. موجودیت مستقل شرکت و شناسه co در سورس بررسی‌شده تأیید نشد."
+      "detail": "شرکت با co public_id در URL عمومی استفاده می‌شود؛ هنرمند با ar public_id؛ شناسه am در Title موجود است اما URL عمومی اثر همچنان slug است."
     },
     {
       "name": "امتیازدهی و نقد و بررسی",
@@ -921,7 +928,7 @@
     {
       "name": "پنل هنرمند",
       "state": "partial",
-      "detail": "داشبورد و ویرایش پروفایل هنرمند موجود است. PR شماره ۶ درخواست تغییر حرفه با تأیید مدیر و ترجمه مستقل فرم ویرایش را آماده کرده؛ هنوز ادغام نشده."
+      "detail": "ویرایش پروفایل، مدیریت چند حرفه از طریق درخواست تأیید مدیر و ترجمه سه‌زبانه وجود دارد؛ داشبورد کامل و همه امکانات پنل هنوز تکمیل نشده‌اند."
     },
     {
       "name": "اخبار و مقالات",
@@ -1605,10 +1612,10 @@
     }
   },
   "current_work": {
-    "stage": "پس از ادغام امنیت، کاتالوگ شرکت و اصلاحات چندزبانه — اعتبارسنجی نهایی و انتقال امن مدارک قدیمی",
-    "status": "merged_pending_final_validation_and_legacy_evidence_migration",
+    "stage": "ممیزی و تکمیل چندزبانگی رابط کاربری و گردش‌کارها پس از ادغام امنیت و کاتالوگ",
+    "status": "merged_changes_no_open_prs_static_audit_continues",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "latest_main_commit": "df39ca19d86cdddf7ee650f131437f66e18722a6",
+    "latest_main_commit": "53dbcebea50d550a1011a10ed478a5d02bbff9af",
     "merged_pull_requests": [
       {
         "number": 8,
@@ -1663,9 +1670,15 @@
         "url": "https://github.com/armanaria111/amdb-laravel2/pull/19",
         "merge_commit": "df39ca19d86cdddf7ee650f131437f66e18722a6",
         "status": "merged"
+      },
+      {
+        "number": 20,
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/20",
+        "merge_commit": "5a34ef8d8c68eab3e144abe4f1c7a9d270e97648",
+        "status": "merged"
       }
     ],
-    "next_step": "مطالعه runbook، تهیه backup دیتابیس و storage/app/public در محیط محلی، اجرای dry-run و سپس انتقال legacy evidence با --apply؛ پس از اتمام تغییرات اجرای تست جامع در انتهای کار. هیچ‌یک از این عملیات محلی هنوز اجرا نشده است.",
+    "next_step": "ممیزی رشته‌های باقی‌مانده hard-coded در Controller/View و اصلاح تدریجی ترجمه سه‌زبانه؛ سپس ممیزی نهایی سایر گردش‌کارها. انتقال legacy evidence و تست جامع همچنان در مرحله پایانی باقی است.",
     "operational_runbook": "docs/operational-runbook-private-evidence-2026-11-18.md"
   },
   "application_audit": {
@@ -1777,10 +1790,10 @@
       {
         "id": "I18N-004",
         "severity": "medium",
-        "status": "partially_remediated_in_pr20_merged",
+        "status": "partially_remediated_in_main_pending_full_audit",
         "title": "متن‌های رابط چندزبانه داخل View و Controller hard-code شده‌اند",
         "detail": "متن‌های صفحه عمومی هنرمند پیش‌تر به فایل‌های زبان منتقل شده بودند. PR20 پیام‌های ثبت/ویرایش/حذف نقد، ثبت امتیاز، گزارش نقد و پیام‌های اعتبارسنجی/تأیید/اصلاح/رد درخواست حرفه‌ای را از Controllerها به ترجمه‌های en، fa-AF و ps منتقل کرد. ممیزی سایر Controllerها و Viewهای قدیمی هنوز لازم است.",
-        "remediation": "PR20 بخشی از متن‌های سخت‌کدشده RatingReviewController و Admin/ProfessionalRequestController را چندزبانه کرد؛ ادامه ممیزی و انتقال سایر رشته‌ها باز است."
+        "remediation": "PR20 در main ادغام شد و پیام‌های RatingReviewController و Admin/ProfessionalRequestController را به lang/en، fa-AF و ps منتقل کرد. سایر Controllerها/Viewها هنوز باید ممیزی شوند."
       },
       {
         "id": "SEC-007",
