@@ -147,10 +147,10 @@ Route ورود در `routes/web.php` فقط در گروه `guest` است و `Aut
 **شدت: متوسط | وضعیت: مغایرت با تصمیم معماری**
 
 نمونه‌های قابل مشاهده:
-- `layouts/app.blade.php` متن‌های جستجوی زنده را در آرایه `$searchLabels` برای هر زبان نگه می‌دارد.
-- `resources/views/artists/show.blade.php` آرایه بزرگ `$texts` را برای en/fa-AF/ps داخل Blade تعریف می‌کند.
+- `layouts/app.blade.php` برای متن‌های جستجو از `__('search')` و فایل‌های `lang/{locale}/search.php` استفاده می‌کند؛ این بخش از قبل به‌درستی از فایل ترجمه خوانده می‌شود و یافته محسوب نمی‌شود.
+- `resources/views/artists/show.blade.php` آرایه بزرگ `$texts` را برای en/fa-AF/ps داخل Blade تعریف می‌کرد.
 - چند Controller مانند `RoleController`، `UserDashboardController` و `Admin/ArtistController` پیام‌های فارسی را مستقیم در کد نگه می‌دارند.
-- پیام خطای ورود در `AuthController` و پیام‌های خطای برخی Middlewareها به‌صورت متن mojibake دیده می‌شوند.
+- پیام خطای ورود در `AuthController` و پیام‌های خطای برخی Middlewareها به‌صورت متن mojibake دیده می‌شدند.
 
 این الگو با تصمیم مصوب پروژه که رشته‌های هر زبان باید در فایل مستقل همان زبان در `lang/en`، `lang/fa-AF` و `lang/ps` باشند، سازگار نیست.
 
@@ -189,3 +189,6 @@ Route POST /login و متد `AuthController::login` در سورس بررسی‌�
 **اصلاح پیشنهادی:** انتقال متن‌های رابط به فایل‌های lang/en، lang/fa-AF و lang/ps و استفاده از کلیدهای ترجمه. بازبینی نویسه‌های خراب‌شده نیز در همین مرحله انجام شود.
 
 این بازبینی فقط‌خواندنی بوده است؛ هیچ تست، Migration، Seeder یا عملیات دیتابیس اجرا نشده است.
+
+### وضعیت اصلاح I18N-004 در شاخه کاری
+در شاخه `security/stage4-hardening`، آرایه متون صفحه عمومی هنرمند از Blade حذف و به کلید `artists.public` در سه فایل زبان منتقل شده است. همچنین پیام‌های احراز هویت دری و پشتو ترجمه شده‌اند. این تغییرات هنوز در main ادغام نشده‌اند و سایر پیام‌های hard-coded باید در ادامه ممیزی/اصلاح شوند.
