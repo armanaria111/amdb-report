@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "25776d72d2f950d1db2a01ea17214801352d42a8",
+    "latest_main_commit": "0a9759736772cf1669834cbed1b0db7988d8f9d3",
     "latest_main_commit_verified_on": "2026-11-18"
   },
   "languages": [
@@ -1750,10 +1750,10 @@
     }
   },
   "current_work": {
-    "stage": "آماده‌سازی محیط آزمایشی Render با دیتابیس MySQL مستقل",
-    "status": "pr36_merged_render_staging_setup_pending_user_service_creation",
+    "stage": "آماده‌سازی و راه‌اندازی دیتابیس آزمایشی AMDB بدون نیاز به Shell در Render Free",
+    "status": "pr37_merged_manual_github_actions_staging_migrations_ready",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "latest_main_commit": "25776d72d2f950d1db2a01ea17214801352d42a8",
+    "latest_main_commit": "0a9759736772cf1669834cbed1b0db7988d8f9d3",
     "merged_pull_requests": [
       {
         "number": 8,
@@ -1958,9 +1958,18 @@
         "status": "merged",
         "tests_executed": false,
         "migrations_executed": false
+      },
+      {
+        "number": 37,
+        "title": "Add safe GitHub Actions workflow for staging migrations",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/37",
+        "merge_commit": "0a9759736772cf1669834cbed1b0db7988d8f9d3",
+        "status": "merged",
+        "tests_executed": false,
+        "migrations_executed": false
       }
     ],
-    "next_step": "کاربر حساب Enzonic و دیتابیس MySQL آزمایشی و سپس سرویس Render را طبق docs/deployment-render-staging.md ایجاد کند؛ مقادیر APP_KEY، APP_URL و DB_URL فقط در Environment سرویس Render ثبت شوند. پس از تأیید مقصد دیتابیس آزمایشی، migrationها به‌صورت دستی اجرا شوند. تست‌ها همچنان برای مرحله پایانی نگه داشته شوند.",
+    "next_step": "کاربر از موبایل، GitHub repository Settings → Secrets and variables → Actions دو secret به نام‌های AMDB_STAGING_DB_URL و AMDB_STAGING_APP_KEY ثبت کند؛ سپس Actions → Prepare staging database را با تأیید صریح دیتابیس آزمایشی اجرا کند. پس از موفقیت Migrationها، Render Blueprint را ایجاد و DB_URL و APP_KEY را در Environment سرویس ثبت کند. Seeders و تست‌ها هنوز اجرا نشده‌اند.",
     "operational_runbook": "docs/operational-runbook-private-evidence-2026-11-18.md"
   },
   "application_audit": {
@@ -3090,7 +3099,7 @@
     ]
   },
   "deployment_staging": {
-    "status": "deployment_files_merged_not_yet_deployed",
+    "status": "deployment_files_and_manual_migration_workflow_merged_not_yet_deployed",
     "application_host": "Render Free Web Service (Docker)",
     "database_host": "Enzonic Managed MySQL 8.4 Free",
     "application_branch": "main",
@@ -3108,6 +3117,11 @@
     "tests_executed": false,
     "docker_build_executed": false,
     "deployment_live": false,
-    "note": "زیرساخت استقرار به سورس اضافه شده است؛ سرویس‌های بیرونی هنوز توسط کاربر ایجاد نشده‌اند. دیتابیس staging باید مستقل از دیتابیس اصلی باشد. Render Free filesystem موقتی است و برای نگه‌داری دائمی آپلودها مناسب نیست."
+    "note": "برای Render Free که Shell/SSH ندارد، Migrationها از GitHub Actions با workflow_dispatch اجرا می‌شوند. اجرای Workflow نیازمند GitHub repository secrets و تأیید صریح است. هیچ Seeder یا Migrationی هنوز اجرا نشده است.",
+    "database_migration_runner": "GitHub Actions workflow_dispatch",
+    "migration_workflow": ".github/workflows/prepare-staging-database.yml",
+    "migration_pr": 37,
+    "migration_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/37",
+    "migrations_executed": false
   }
 }
