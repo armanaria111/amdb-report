@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "5a34ef8d8c68eab3e144abe4f1c7a9d270e97648",
+    "latest_main_commit": "df39ca19d86cdddf7ee650f131437f66e18722a6",
     "latest_main_commit_verified_on": "2026-11-18"
   },
   "languages": [
@@ -395,7 +395,10 @@
       "هیچ تست، Migration، Seeder یا فرمان انتقال فایل اجرا نشده؛ دیتابیس محلی amdbl و فایل‌های محلی دست‌نخورده‌اند.",
       "PR20 در 2026-11-18 ادغام شد: پیام‌های امتیازدهی، نقد/گزارش و گردش‌کار درخواست حرفه‌ای به ترجمه‌های مستقل en، fa-AF و ps منتقل شدند.",
       "ممیزی ایستای دو Controller پس از PR20 نشان داد متن‌های غیرانگلیسی باقی‌مانده در آن‌ها فقط توضیحات و commentهای توسعه‌دهنده‌اند؛ انتقال سایر رشته‌های سخت‌کدشده پروژه هنوز باز است.",
-      "main در commit 5a34ef8d8c68eab3e144abe4f1c7a9d270e97648 بررسی شد؛ تست‌ها اجرا نشده‌اند."
+      "main در commit 5a34ef8d8c68eab3e144abe4f1c7a9d270e97648 بررسی شد؛ تست‌ها اجرا نشده‌اند.",
+      "راهنمای عملیاتی Windows برای backup، dry-run، اجرای کنترل‌شده --apply و راستی‌آزمایی انتقال مدارک قدیمی در docs/operational-runbook-private-evidence-2026-11-18.md ایجاد شد؛ هیچ دستور آن اجرا نشده است.",
+      "وضعیت main پس از ادغام PR19 ثبت شد؛ در جستجوی PRهای باز هیچ PR بازی باقی نمانده است.",
+      "آخرین commit اصلی تأییدشده در این نوبت df39ca19d86cdddf7ee650f131437f66e18722a6 است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1649,7 +1652,8 @@
         "status": "merged"
       }
     ],
-    "next_step": "ممیزی ایستای نهایی تغییرات، آماده‌سازی و اجرای کنترل‌شده dry-run انتقال مدارک قدیمی پس از backup و سپس اجرای تست جامع در انتهای کار. دیتابیس محلی تا این لحظه تغییر نکرده است."
+    "next_step": "مطالعه runbook، تهیه backup دیتابیس و storage/app/public در محیط محلی، اجرای dry-run و سپس انتقال legacy evidence با --apply؛ پس از اتمام تغییرات اجرای تست جامع در انتهای کار. هیچ‌یک از این عملیات محلی هنوز اجرا نشده است.",
+    "operational_runbook": "docs/operational-runbook-private-evidence-2026-11-18.md"
   },
   "application_audit": {
     "audit_date": "2026-11-18",
@@ -2044,7 +2048,7 @@
       "state": "merged",
       "merge_commit": "d2cf4ce3bdbfca90eb5b9243450385a82197a163"
     },
-    "main_commit_after_merge": "46cb61737572b1b247f4d9436f70f370ca20d471",
+    "main_commit_after_merge": "df39ca19d86cdddf7ee650f131437f66e18722a6",
     "pull_request_10": {
       "number": 10,
       "url": "https://github.com/armanaria111/amdb-laravel2/pull/10",
@@ -2110,7 +2114,9 @@
       "تست retry برای پاک‌سازی نسخه public باقی‌مانده پس از به‌روزرسانی مسیر دیتابیس (PR17)",
       "تست retry پاک‌سازی legacy public (PR17)",
       "تست گزارش صحیح فایل‌های already-private در dry-run (PR18)",
-      "تست ذخیره/تعویض/دانلود مدرک credit خصوصی (PR19)"
+      "تست ذخیره/تعویض/دانلود مدرک credit خصوصی (PR19)",
+      "تست private credit evidence (PR19)",
+      "تست retry-safe cleanup و dry-run already-private (PR17/PR18)"
     ],
     "remaining_checks": [
       "اجرای تست‌های ذخیره خصوصی، مجوز دانلود و جایگزینی مدارک title/credit و تست dry-run/اجرای فرمان انتقال مدارک قدیمی در مرحله نهایی",
@@ -2143,7 +2149,8 @@
       "detail": "بارگذاری مدرک درخواست credit روی local/private disk و دانلود مدیر با submissions.manage تکمیل شد؛ evidence_path موجود استفاده می‌شود و Migration جدید لازم نیست.",
       "tests_added": true,
       "tests_executed": false
-    }
+    },
+    "legacy_evidence_migration_runbook": "docs/operational-runbook-private-evidence-2026-11-18.md"
   },
   "company_catalog_integration": {
     "original_pr7": {
@@ -2193,7 +2200,9 @@
       "url": "https://github.com/armanaria111/amdb-laravel2/pull/15",
       "merge_commit": "46cb61737572b1b247f4d9436f70f370ca20d471",
       "status": "merged"
-    }
+    },
+    "latest_main_commit": "df39ca19d86cdddf7ee650f131437f66e18722a6",
+    "private_evidence_runbook": "docs/operational-runbook-private-evidence-2026-11-18.md"
   },
   "country_localization": {
     "date": "2026-11-18",
