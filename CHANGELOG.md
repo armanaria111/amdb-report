@@ -354,3 +354,9 @@
 - PR20 با merge commit `5a34ef8d8c68eab3e144abe4f1c7a9d270e97648` در main قرار دارد؛ پیام‌های امتیاز، ثبت/ویرایش/حذف نقد، گزارش نقد و پیام‌های تأیید/اصلاح/رد درخواست حرفه‌ای به ترجمه‌های en/fa-AF/ps منتقل شدند.
 - کامیت `53dbcebea50d550a1011a10ed478a5d02bbff9af` روابط معکوس Language برای ترجمه شرکت‌ها، حرفه‌ها و آثار را تکمیل کرد.
 - ممیزی سایر رشته‌های hard-coded ادامه دارد؛ هیچ تست یا Migration اجرا نشد.
+
+## 2026-11-18 — Reconcile report with current source main
+- Updated the recorded AMDB source `main` head to `8b939a4325a9017ffc06678032e5f23b80e9fc94`.
+- Confirmed the company catalog migration, models, controllers and public routes are already present in the current source `main`; the old company-catalog branch is 66 commits behind and 241 commits ahead, so it must not be merged directly.
+- Confirmed the old Stage 4 security branch is 154 commits behind current `main`; role privilege guards and the private professional-evidence migration command are already present in current source.
+- This was a focused source reconciliation, not a full audit. No tests, migrations, seeders, database commands, or local file operations were run.
