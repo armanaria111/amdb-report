@@ -293,3 +293,9 @@
 - یک تست Feature برای این سناریوی retry اضافه شد؛ اجرا نشده است.
 - PR17 با merge commit `ebcde1cda601b32ed40956de55b2ee6972cc9e9d` ادغام شد.
 - فرمان انتقال هنوز اجرا نشده؛ هیچ فایل یا دیتابیس محلی تغییر نکرده است.
+
+## 2026-11-18 — تکمیل امنیت مدارک حرفه‌ای و credit
+- PR17 فرمان انتقال legacy evidence را retry-safe کرد؛ merge commit `ebcde1cda601b32ed40956de55b2ee6972cc9e9d`.
+- PR18 dry-run را طوری اصلاح کرد که فایل‌های already-private را از فایل‌های نیازمند انتقال جدا کند؛ merge commit `7b8f7350274054097c6e52ac214525bbda3af3af`.
+- PR19 ذخیره private مدارک درخواست عوامل/credit، تعویض امن مدرک در resubmit، Route دانلود مدیر و تست Feature را در main دارد؛ merge commit `df39ca19d86cdddf7ee650f131437f66e18722a6`.
+- هیچ تستی اجرا نشده و فرمان انتقال مدارک قدیمی professional evidence اجرا نشده است؛ دیتابیس و فایل‌های محلی دست‌نخورده‌اند.
