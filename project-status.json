@@ -25,19 +25,19 @@
       "code": "en",
       "label": "English",
       "direction": "ltr",
-      "font_status": "نیازمند تعیین/بررسی فونت اختصاصی"
+      "font_status": "در CSS خانواده Inter تعریف شده؛ بررسی پوشش/نمایش مرورگری در مرحله نهایی باقی است."
     },
     {
       "code": "fa-AF",
       "label": "دری",
       "direction": "rtl",
-      "font_status": "فونت فعلی پروژه نیازمند بازبینی"
+      "font_status": "در CSS خانواده Vazirmatn تعریف شده؛ بررسی نمایش مرورگری در مرحله نهایی باقی است."
     },
     {
       "code": "ps",
       "label": "پښتو",
       "direction": "rtl",
-      "font_status": "فونت مستقل پشتو هنوز نیازمند پیاده‌سازی/تأیید"
+      "font_status": "در CSS خانواده مستقل Noto Sans Arabic تعریف شده؛ پوشش کامل نویسه‌های پشتو و نمایش مرورگری هنوز تأیید نشده است."
     }
   ],
   "database_audit": {
@@ -339,7 +339,15 @@
       "یافته‌های تکمیلی DB-010 تا DB-019 درباره eventهای polymorphic بدون FK، روابط معکوس Language، NULL در unique عوامل، Claim legacy، محدوده امتیاز، self-merge، هم‌عنوان بودن پاسخ نقد، سازگاری artist/user، مالکیت درخواست credit و درخواست حرفه‌ای تکراری ثبت شدند.",
       "رفتارهای cascade/restrict/nullOnDelete و soft delete برای User، Artist، Title، ترجمه‌ها، کاتالوگ و auditها از روی Migrationها بررسی شدند.",
       "سند ممیزی مرحله سوم در docs/stage-3-database-relationships-audit-2026-11-18.md در مخزن گزارش ایجاد شد.",
-      "این مرحله فقط ایستا بود؛ هیچ Migration، Seeder، PHPUnit یا عملیات دیتابیس محلی اجرا نشد و هیچ کد سورس اصلی تغییر نکرد."
+      "این مرحله فقط ایستا بود؛ هیچ Migration، Seeder، PHPUnit یا عملیات دیتابیس محلی اجرا نشد و هیچ کد سورس اصلی تغییر نکرد.",
+      "ممیزی تکمیلی مجوزها و گردش‌کارها در commit a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c انجام شد؛ هیچ تست یا عملیات دیتابیس اجرا نشد.",
+      "یافته AUTH-004: امکان ساخت و واگذاری نقش سفارشی دارای مجوزهای حساس می‌تواند محدودیت اعطای slug=admin به مدیر ارشد را دور بزند.",
+      "یافته AUTH-005: بعضی مسیرهای ثبت و تأیید عوامل فقط وجود رابطه user/artist را بررسی می‌کنند و شرط is_owner را الزام نمی‌کنند.",
+      "یافته ID-003: مسیر عمومی هنرمند از implicit model binding با کلید داخلی استفاده می‌کند؛ binding مبتنی بر ar public_id هنوز در مدل تعریف نشده است.",
+      "یافته WF-004: evidence_path درخواست عوامل در Migration وجود دارد اما فرم و Controller فعلی مدرک را به صورت متن دریافت می‌کنند و Route دانلود فایل credit وجود ندارد.",
+      "یافته TEST-002: RoleManagementTest مجوز artists.claim را در ماتریس نقش artist انتظار دارد اما RolePermissionSeeder فعلی آن را در فهرست مجوزها/نقش قرار نمی‌دهد؛ تست اجرا نشده است.",
+      "در نسخه فعلی Route/Controllerهای moderation نقد و گزارش و گردش‌کار ثبت اثر/عوامل وجود دارند؛ یافته‌های تاریخی نبود این مسیرها برای main فعلی باید resolved تلقی شوند.",
+      "در صفحه عمومی هنرمند، فلگ‌های نمایش تماس و فیلتر is_public شبکه‌های اجتماعی رعایت می‌شوند؛ فونت‌های Inter/Vazirmatn/Noto Sans Arabic نیز جداگانه به زبان‌ها نگاشت شده‌اند."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1481,11 +1489,97 @@
     }
   },
   "current_work": {
-    "stage": "Stage 3 — Database and Eloquent relationships audit",
-    "status": "static_audit_completed",
+    "stage": "Stage 4 — Authorization, moderation and workflow audit",
+    "status": "partial_static_audit_completed",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
-    "report_document": "https://github.com/armanaria111/amdb-report/blob/main/docs/stage-3-database-relationships-audit-2026-11-18.md",
-    "next_step": "بررسی وضعیت واقعی Migrationها و داده‌های تکراری در دیتابیس محلی پس از backup؛ سپس اجرای کنترل‌شده تست‌ها."
+    "report_document": "https://github.com/armanaria111/amdb-report/blob/main/docs/stage-4-authorization-and-workflow-audit-2026-11-18.md",
+    "next_step": "تکمیل ممیزی ایستای مسیرهای باقی‌مانده، شناسه‌های عمومی و چندزبانگی؛ سپس تهیه طرح اصلاحات در شاخه جداگانه. اجرای تست‌ها فقط در مرحله نهایی."
+  },
+  "application_audit": {
+    "audit_date": "2026-11-18",
+    "source_repository": "https://github.com/armanaria111/amdb-laravel2",
+    "source_commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
+    "status": "partial_static_read_only_completed",
+    "scope": [
+      "RBAC و نقش‌های سفارشی",
+      "Route/Middleware/Policyهای مدیریت",
+      "گردش‌کار ثبت اثر و عوامل",
+      "moderation نقد و گزارش",
+      "مالکیت پروفایل هنرمند",
+      "حریم خصوصی اطلاعات تماس و شبکه‌های اجتماعی",
+      "شناسه عمومی هنرمند",
+      "فونت‌های سه‌زبانه",
+      "مقایسه ایستای تست‌ها و Seeder"
+    ],
+    "findings": [
+      {
+        "id": "AUTH-004",
+        "severity": "high",
+        "status": "confirmed_static",
+        "title": "امکان دور زدن مرز مدیر ارشد با نقش سفارشی پرمجوز",
+        "detail": "کاربر دارای roles.manage و users.manage می‌تواند نقش سفارشی با مجوزهای حساس یا همه مجوزها بسازد و آن را به خود اختصاص دهد؛ کنترل فعلی فقط slug برابر admin را برای غیرمدیر ارشد محدود می‌کند. admin.area نیز نقش سفارشی غیر artist را مسدود نمی‌کند.",
+        "remediation": "محافظت از مجوزهای حساس در ساخت/ویرایش نقش و واگذاری آن‌ها؛ اعطای نقش‌های حاوی مجوز حساس فقط توسط مدیر ارشد و ثبت audit."
+      },
+      {
+        "id": "AUTH-005",
+        "severity": "medium",
+        "status": "needs_hardening",
+        "title": "شرط مالکیت پروفایل در درخواست عوامل یکپارچه نیست",
+        "detail": "برخی مسیرهای UserSubmissionController و تأیید credit فقط وجود رابطه user/artist را بررسی می‌کنند و is_owner=true را الزام نمی‌کنند؛ در حالی که مسیر ویرایش پروفایل و درخواست تغییر حرفه مالکیت را می‌سنجند.",
+        "remediation": "اعمال شرط wherePivot/is_owner در ایجاد، ویرایش، resubmit و moderation درخواست credit."
+      },
+      {
+        "id": "ID-003",
+        "severity": "medium",
+        "status": "confirmed_static",
+        "title": "Route عمومی هنرمند هنوز از شناسه داخلی استفاده می‌کند",
+        "detail": "Artist route از implicit model binding استفاده می‌کند و Artist مدل getRouteKeyName یا binding سفارشی public_id ندارد؛ public_id در صفحه نمایش داده می‌شود اما URL همچنان بر id متکی است.",
+        "remediation": "استفاده یکپارچه از ar public_id در route binding و لینک‌ها با سازگاری برای URLهای قدیمی."
+      },
+      {
+        "id": "WF-004",
+        "severity": "medium",
+        "status": "implementation_gap",
+        "title": "گردش‌کار فایل مدرک درخواست عوامل تکمیل نیست",
+        "detail": "credit_submission_requests.evidence_path در Migration وجود دارد اما فرم و Controller فعلی evidence را رشته متنی می‌گیرند و Route دانلود مدرک credit یافت نشد.",
+        "remediation": "در صورت نیاز محصول، upload خصوصی و Route دانلود مجاز اضافه شود؛ در غیر این صورت ستون پس از بررسی داده‌ها به‌عنوان بلااستفاده مستند شود."
+      },
+      {
+        "id": "TEST-002",
+        "severity": "medium",
+        "status": "static_assertion_mismatch_not_executed",
+        "title": "انتظار تست Seeder با ماتریس نقش artist ناسازگار است",
+        "detail": "RoleManagementTest وجود artists.claim را در مجوزهای نهایی artist انتظار دارد؛ RolePermissionSeeder این permission را ایجاد نمی‌کند و در ماتریس artist قرار نمی‌دهد و pivotهای قبلی را پاک می‌کند. تست اجرا نشده است.",
+        "remediation": "تعیین تکلیف نیاز واقعی artists.claim و هماهنگ‌کردن Seeder و assertion در مرحله اصلاح؛ اجرای PHPUnit فقط در انتها."
+      }
+    ],
+    "verified_controls": [
+      "RolePolicy و UpdateRoleRequest از ویرایش/حذف نقش‌های سیستمی و slugهای رزروشده جلوگیری می‌کنند.",
+      "Routeهای moderation نقد و گزارش در main وجود دارند و با reviews.manage و reports.manage محافظت شده‌اند.",
+      "گردش‌کار ارسال و moderation عنوان و عوامل در Route/Controller وجود دارد.",
+      "دانلود مدرک درخواست عنوان در گروه submissions.manage است و فایل روی دیسک local ذخیره می‌شود.",
+      "نمایش عمومی اطلاعات تماس با فلگ‌های show_* کنترل می‌شود و لینک‌های اجتماعی با is_public فیلتر می‌شوند.",
+      "پاسخ نقد در Controller به نقد تأییدشده همان اثر محدود شده است.",
+      "برای en/fa-AF/ps خانواده فونت مجزا در CSS تعریف شده؛ پوشش واقعی پشتو هنوز باید در مرورگر بررسی شود."
+    ],
+    "pr7_status": {
+      "number": 7,
+      "branch": "catalog/company-profiles-public-ids",
+      "ahead_by": 66,
+      "behind_by": 45,
+      "changed_files": 34,
+      "merge_base": "c08b7f7b9bccf1fb19bc022d0deb54d10ec8476c",
+      "current_main": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
+      "mergeable": false,
+      "mergeable_state": "dirty",
+      "decision": "ادغام نشود؛ ابتدا شاخه با main به‌روز و تعارض‌ها کنترل‌شده حل شوند."
+    },
+    "tests_executed": false,
+    "migrations_or_seeders_executed": false,
+    "local_database_inspected": false,
+    "source_code_modified": false,
+    "report_document": "https://github.com/armanaria111/amdb-report/blob/main/docs/stage-4-authorization-and-workflow-audit-2026-11-18.md",
+    "note": "این مرحله صرفاً ممیزی ایستای GitHub است. تست‌ها و عملیات دیتابیس طبق درخواست کاربر برای انتهای پروژه نگه داشته شده‌اند."
   }
 }
