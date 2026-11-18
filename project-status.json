@@ -417,7 +417,11 @@
       "در زمان این بررسی هیچ Pull Request بازی در مخزن اصلی باقی نمانده است؛ ممیزی رشته‌های hard-coded سایر بخش‌ها هنوز ادامه دارد.",
       "پس از PR21، سه commit جدید روی main شناسایی شد: f6c72ef افزودن فایل‌های ترجمه سه‌زبانه تنظیمات سایت و صفحه Claim قدیمی؛ daa154e ترجمه برچسب وضعیت Claim؛ 419c267 انتقال رشته‌های View تنظیمات سایت و Claim به فایل‌های ترجمه en، fa-AF و ps.",
       "آخرین commit فعلی main با جستجوی commitهای مخزن تأیید شد: 419c2678996adc69b7dfff887a73fc842d60013a؛ این commit پس از 53dbcebea50d550a1011a10ed478a5d02bbff9af قرار دارد.",
-      "فایل project-status.json و CHANGELOG مخزن گزارش با وضعیت جدید main همگام شدند؛ این تغییر فقط در مخزن گزارش است و هیچ کد برنامه یا دیتابیس تغییر نکرد."
+      "فایل project-status.json و CHANGELOG مخزن گزارش با وضعیت جدید main همگام شدند؛ این تغییر فقط در مخزن گزارش است و هیچ کد برنامه یا دیتابیس تغییر نکرد.",
+      "وضعیت PRهای 22 تا 28 از GitHub دوباره بررسی شد: هر هفت PR بسته و merged هستند؛ هیچ PR بازی در فهرست PRهای کاربر برای مخزن سورس باقی نمانده است.",
+      "PR22 تا PR28 بخش‌های مهمی از پیام‌های پروفایل و درخواست حرفه‌ای، Controllerهای مدیریت، Viewهای مدیریت درخواست حرفه‌ای/نقش/هنرمند/واردسازی/اثر/کاربر و تنظیمات سایت/Claim قدیمی را برای en، fa-AF و ps چندزبانه کردند.",
+      "آخرین commit شاخه main برابر 419c2678996adc69b7dfff887a73fc842d60013a و merge commit مربوط به PR28 است؛ گزارش قبلی تا PR21 به‌روز بود و اکنون PR22 تا PR28 نیز ثبت شدند.",
+      "هیچ تستی اجرا نشده؛ هیچ Migration، Seeder، عملیات انتقال فایل یا تغییر دیتابیس محلی انجام نشده است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1616,7 +1620,7 @@
   },
   "current_work": {
     "stage": "ممیزی و تکمیل چندزبانگی رابط کاربری و گردش‌کارها پس از ادغام امنیت و کاتالوگ",
-    "status": "merged_changes_no_open_prs_static_audit_continues",
+    "status": "no_open_pull_requests_all_recent_i18n_prs_merged_static_audit_continues",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "latest_main_commit": "419c2678996adc69b7dfff887a73fc842d60013a",
     "merged_pull_requests": [
@@ -1679,9 +1683,86 @@
         "url": "https://github.com/armanaria111/amdb-laravel2/pull/20",
         "merge_commit": "5a34ef8d8c68eab3e144abe4f1c7a9d270e97648",
         "status": "merged"
+      },
+      {
+        "number": 22,
+        "title": "Localize artist profile and user professional request feedback",
+        "merge_commit": "3fe24a037ea6bf06c474833d14df4c83429d25aa",
+        "changed_files": 9,
+        "additions": 75,
+        "deletions": 21,
+        "status": "merged",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/22",
+        "tests_executed": false
+      },
+      {
+        "number": 23,
+        "title": "Localize admin artist, import, role, title and user feedback",
+        "merge_commit": "32eae57fce472bb3b034487a81c8dc607b07342f",
+        "changed_files": 8,
+        "additions": 118,
+        "deletions": 31,
+        "status": "merged",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/23",
+        "tests_executed": false
+      },
+      {
+        "number": 24,
+        "title": "Localize professional request moderation and role management views",
+        "merge_commit": "d1f714c93c94d601306b3f991950359e164a5de2",
+        "changed_files": 10,
+        "additions": 285,
+        "deletions": 82,
+        "status": "merged",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/24",
+        "tests_executed": false
+      },
+      {
+        "number": 25,
+        "title": "Localize artist administration and WordPress import views",
+        "merge_commit": "8ce4f4473c1cd6da1aa93345e94a97498cc59bb8",
+        "changed_files": 11,
+        "additions": 276,
+        "deletions": 77,
+        "status": "merged",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/25",
+        "tests_executed": false
+      },
+      {
+        "number": 26,
+        "title": "Localize title administration views in three languages",
+        "merge_commit": "1123b8d11352b7f41b2df1643a19bcf0d06a2a6d",
+        "changed_files": 8,
+        "additions": 218,
+        "deletions": 56,
+        "status": "merged",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/26",
+        "tests_executed": false
+      },
+      {
+        "number": 27,
+        "title": "Localize admin user and role management views",
+        "merge_commit": "8e3bf570d541cbfca79e51d815cab85ba03fb496",
+        "changed_files": 9,
+        "additions": 311,
+        "deletions": 72,
+        "status": "merged",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/27",
+        "tests_executed": false
+      },
+      {
+        "number": 28,
+        "title": "Localize admin site settings and legacy artist claims",
+        "merge_commit": "419c2678996adc69b7dfff887a73fc842d60013a",
+        "changed_files": 8,
+        "additions": 137,
+        "deletions": 99,
+        "status": "merged",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/28",
+        "tests_executed": false
       }
     ],
-    "next_step": "ادامه ممیزی ایستای رشته‌های سخت‌کدشده در Controllerها و Viewها پس از ترجمه تنظیمات سایت و Claim قدیمی؛ سپس بررسی DB-010 و DB-012 تا DB-019. تست جامع، Migration/Seeder محلی و انتقال legacy evidence همچنان برای مرحله نهایی/پس از backup نگه داشته می‌شوند.",
+    "next_step": "ادامه ممیزی ایستای رشته‌های سخت‌کدشده با تمرکز بر بخش‌های باقی‌مانده خارج از Viewها و Controllerهای پوشش‌داده‌شده در PR22 تا PR28؛ سپس ممیزی DB-010 و DB-012 تا DB-019. تست جامع، Migration/Seeder محلی و انتقال legacy evidence در مرحله نهایی/پس از backup انجام می‌شوند.",
     "operational_runbook": "docs/operational-runbook-private-evidence-2026-11-18.md"
   },
   "application_audit": {
@@ -2346,7 +2427,7 @@
     "اجرای Seeder ترجمه کشورها پس از Migration؛ CountrySeeder در DatabaseSeeder پس از LanguageSeeder قرار گرفته است.",
     "اجرای dry-run فرمان amdb:secure-professional-evidence، بررسی خروجی، تهیه backup دیتابیس و storage/app/public و سپس اجرای --apply فقط پس از تأیید.",
     "تأیید مقدار AMDB_SUPER_ADMIN_EMAIL در محیط استقرار.",
-    "ادامه ممیزی متن‌های سخت‌کدشده در سایر Controllerها و Viewها؛ PR20 فقط بخشی از I18N-004 را پوشش داد.",
+    "ادامه ممیزی رشته‌های سخت‌کدشده در بخش‌های باقیمانده؛ PR22 تا PR28 بخشی از Controllerها و Viewهای پروفایل، مدیریت هنرمند، واردسازی، نقش، اثر، کاربر، تنظیمات و Claim را چندزبانه کردند.",
     "ادامه ممیزی DB-010، DB-012 تا DB-015 و تعیین تکلیف قیدهای دیتابیسی DB-016 تا DB-019.",
     "تعیین تکلیف سیستم اشتراک و جدول/مدل legacy مربوط به artist_claim_requests."
   ],
@@ -2354,23 +2435,98 @@
     "date": "2026-11-18",
     "status": "merged_static_review",
     "latest_main_commit": "419c2678996adc69b7dfff887a73fc842d60013a",
-    "commits": [
+    "pull_requests": [
       {
-        "sha": "f6c72ef71627cb3d57801aacbab97e50e75887cf",
-        "detail": "فایل‌های ترجمه site-settings و artist-claims برای en، fa-AF و ps اضافه شدند."
+        "number": 22,
+        "title": "Localize artist profile and user professional request feedback",
+        "merge_commit": "3fe24a037ea6bf06c474833d14df4c83429d25aa",
+        "changed_files": 9,
+        "additions": 75,
+        "deletions": 21,
+        "status": "merged",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/22",
+        "tests_executed": false
       },
       {
-        "sha": "daa154ea1739e630464b67a520beb9c32de50210",
-        "detail": "برچسب وضعیت درخواست Claim از مقدار خام به کلید ترجمه‌شده تبدیل شد."
+        "number": 23,
+        "title": "Localize admin artist, import, role, title and user feedback",
+        "merge_commit": "32eae57fce472bb3b034487a81c8dc607b07342f",
+        "changed_files": 8,
+        "additions": 118,
+        "deletions": 31,
+        "status": "merged",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/23",
+        "tests_executed": false
       },
       {
-        "sha": "419c2678996adc69b7dfff887a73fc842d60013a",
-        "detail": "رشته‌های View تنظیمات سایت و درخواست‌های Claim به ترجمه‌های سه‌زبانه متصل شدند."
+        "number": 24,
+        "title": "Localize professional request moderation and role management views",
+        "merge_commit": "d1f714c93c94d601306b3f991950359e164a5de2",
+        "changed_files": 10,
+        "additions": 285,
+        "deletions": 82,
+        "status": "merged",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/24",
+        "tests_executed": false
+      },
+      {
+        "number": 25,
+        "title": "Localize artist administration and WordPress import views",
+        "merge_commit": "8ce4f4473c1cd6da1aa93345e94a97498cc59bb8",
+        "changed_files": 11,
+        "additions": 276,
+        "deletions": 77,
+        "status": "merged",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/25",
+        "tests_executed": false
+      },
+      {
+        "number": 26,
+        "title": "Localize title administration views in three languages",
+        "merge_commit": "1123b8d11352b7f41b2df1643a19bcf0d06a2a6d",
+        "changed_files": 8,
+        "additions": 218,
+        "deletions": 56,
+        "status": "merged",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/26",
+        "tests_executed": false
+      },
+      {
+        "number": 27,
+        "title": "Localize admin user and role management views",
+        "merge_commit": "8e3bf570d541cbfca79e51d815cab85ba03fb496",
+        "changed_files": 9,
+        "additions": 311,
+        "deletions": 72,
+        "status": "merged",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/27",
+        "tests_executed": false
+      },
+      {
+        "number": 28,
+        "title": "Localize admin site settings and legacy artist claims",
+        "merge_commit": "419c2678996adc69b7dfff887a73fc842d60013a",
+        "changed_files": 8,
+        "additions": 137,
+        "deletions": 99,
+        "status": "merged",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/28",
+        "tests_executed": false
       }
+    ],
+    "coverage": [
+      "PR22: پیام‌های پروفایل هنرمند، حساب کاربری و درخواست حرفه‌ای",
+      "PR23: پیام‌های Controllerهای مدیریت هنرمند، واردسازی، نقش، اثر و کاربر",
+      "PR24: Viewهای مدیریت درخواست حرفه‌ای و نقش‌ها",
+      "PR25: Viewهای مدیریت هنرمند و واردسازی WordPress",
+      "PR26: Viewهای مدیریت آثار",
+      "PR27: Viewهای مدیریت کاربران و نقش‌ها",
+      "PR28: Viewهای تنظیمات سایت و Claim قدیمی"
     ],
     "tests_executed": false,
     "migrations_executed": false,
+    "seeders_executed": false,
     "local_database_modified": false,
-    "remaining": "بازبینی ایستای سایر Controllerها و Viewها برای رشته‌های سخت‌کدشده؛ بررسی کیفیت متن‌های ترجمه و رفتار مرورگری در تست نهایی."
+    "remaining": "ممیزی تکمیلی متن‌های hard-coded در بخش‌های باقیمانده؛ تست ترجمه‌ها و رفتار RTL در مرحله نهایی."
   }
 }
