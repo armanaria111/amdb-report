@@ -19,6 +19,32 @@ function render(d){
  $("#migrationGroups").innerHTML=(a.migrations?.groups||[]).map(x=>'<div class="mini-tile"><b>'+esc(x.name)+'</b><span>'+esc(x.detail)+'</span></div>').join("");
  $("#tableList").innerHTML=(a.known_tables||[]).map(x=>'<div class="table-chip"><code>'+esc(x.name)+'</code><span>'+esc(x.area)+'</span></div>').join("");
  $("#tableNote").textContent=a.known_tables_note||a.migrations?.note||"";
+
+ const tech=d.technology_inventory||{};
+ $("#technologyAuditDate").textContent="ممیزی ایستا · "+(tech.audit_date||"—")+" · "+(tech.source_commit||"");
+ $("#technologyMethod").textContent=tech.method||"";
+ const techRows=(items)=> (items||[]).map(x=>'<article class="tech-card"><div class="tech-title">'+esc(x.name)+'</div><code>'+esc(x.locked_version||"version not locked")+'</code><p>'+esc(x.purpose||"")+'</p></article>').join("");
+ $("#technologyPhp").innerHTML=techRows(tech.php_dependencies);
+ $("#technologyDev").innerHTML=techRows(tech.php_dev_dependencies);
+ $("#technologyFrontend").innerHTML=techRows(tech.frontend_dependencies);
+ const ic=tech.icon_library||{};
+ $("#technologyIcons").innerHTML='<div class="tech-title">'+esc(ic.name||"—")+' '+esc(ic.version||"")+'</div><p>'+esc(ic.delivery||"")+'</p><div class="tech-meta"><span>CSS: '+esc(ic.css_file_count??"—")+'</span><span>WOFF2: '+esc(ic.woff2_file_count??"—")+'</span></div><p>'+esc(ic.license||"")+'</p><p><code>'+esc(ic.example_usage||"")+'</code></p>';
+ const fonts=tech.typography||[];
+ $("#technologyFonts").innerHTML=fonts.map(x=>'<article class="tech-card"><div class="tech-title">'+esc(x.locale)+" · "+esc(x.font)+'</div><code>'+esc(x.direction.toUpperCase())+'</code><p>'+esc(x.source||"")+'</p><small>'+esc(x.css_selector||"")+'</small></article>').join("");
+ const inv=tech.local_assets||{};
+ const ri=tech.repository_inventory||{};
+ $("#technologyCounts").innerHTML=[
+  ["ورودی‌های مخزن",d.source_code_audit?.repository_inventory?.tree_entries],
+  ["Migrationها",d.database_audit?.migrations?.source_file_count],
+  ["مدل‌ها",d.database_audit?.eloquent_models],
+  ["فایل‌های Blade",d.source_code_audit?.repository_inventory?.blade_files],
+  ["فایل‌های ترجمه",d.source_code_audit?.repository_inventory?.translation_php_files],
+  ["Routeهای نام‌گذاری‌شده",d.database_audit?.routes],
+  ["Font Awesome CSS",inv.fontawesome_css_files],
+  ["Font Awesome WOFF2",inv.fontawesome_woff2_files]
+ ].map(x=>'<div class="stat"><small>'+esc(x[0])+'</small><strong>'+esc(x[1]??"—")+'</strong></div>').join("");
+ $("#technologyNotes").innerHTML=(tech.next_actions||[]).map(x=>'<li>'+esc(x)+'</li>').join("");
+
  renderFeatures();
  $("#roadmapList").innerHTML=(d.roadmap||[]).map((x,i)=>'<article class="phase"><div class="phase-head"><span class="phase-num">'+String(i+1).padStart(2,"0")+'</span><div><h3>'+esc(x.phase)+'</h3>'+status(x.state)+'</div></div><ul>'+((x.items||[]).map(t=>'<li>'+esc(t)+'</li>').join(""))+'</ul></article>').join("");
  $("#decisionList").innerHTML=(d.decisions||[]).map(x=>'<div class="decision">'+esc(x)+'</div>').join("");
