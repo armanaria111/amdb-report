@@ -354,7 +354,10 @@
       "PR7 هنوز ۶۶ commit جلوتر و ۴۵ commit عقب‌تر از main و mergeable=false است؛ ادغام مستقیم انجام نشد.",
       "بازبینی تکمیلی PR7: Company از SoftDeletes استفاده می‌کند اما در UI مدیریت Route/فهرست restore وجود ندارد؛ CAT-002 ثبت شد.",
       "بازبینی تکمیلی PR7: uniqueSlug از Str::slug بدون locale صریح و fallback عمومی company استفاده می‌کند؛ سیاست slug برای نام‌های دری/پشتو نیازمند تصمیم است (CAT-003).",
-      "تست‌های موجود CompanyCatalogTest چهار سناریو دارند؛ soft delete/restore، slug چندزبانه و شکست لوگو پوشش ندارند؛ TEST-PR7-001 ثبت شد، تستی اجرا نشده است."
+      "تست‌های موجود CompanyCatalogTest چهار سناریو دارند؛ soft delete/restore، slug چندزبانه و شکست لوگو پوشش ندارند؛ TEST-PR7-001 ثبت شد، تستی اجرا نشده است.",
+      "مقایسه مستقیم routes/web.php در main و شاخه PR7 نشان داد شاخه PR7 مسیرهای user/admin مربوط به ArtistProfessionChangeController و ArtistProfessionChangeModerationController را ندارد.",
+      "نسخه dashboard شاخه PR7 لینک صف درخواست‌های تغییر حرفه هنرمند را که در main وجود دارد ندارد؛ این موارد در PR7-CONFLICT-002 ثبت شد.",
+      "راهبرد حل تعارض PR7 مشخص شد: حفظ main برای workflowهای PR6 و افزودن افزایشی Routeها، جستجو، لینک‌ها و CSS شرکت‌ها؛ هیچ rebase/merge انجام نشده است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1664,7 +1667,7 @@
     "merge_base": "c08b7f7b9bccf1fb19bc022d0deb54d10ec8476c",
     "mergeable": false,
     "mergeable_state": "dirty",
-    "review_status": "static_review_extended_pending_branch_refresh",
+    "review_status": "static_review_extended_conflicts_mapped_pending_branch_refresh",
     "verified": [
       "Migration شرکت‌ها افزایشی است و companies، company_translations و title_companies را ایجاد می‌کند؛ داده/جدول‌های موجود را حذف یا بازسازی نمی‌کند.",
       "public_id شرکت با پیشوند co و قید unique در مدل تولید می‌شود.",
@@ -1721,6 +1724,14 @@
         "title": "پوشش تست کاتالوگ شرکت برای soft delete، بازیابی و slug چندزبانه ناقص است",
         "detail": "چهار تست موجود شناسه، چند نقش، صفحه عمومی و inactive را پوشش می‌دهند؛ سناریوهای soft delete/restore، کشور ترجمه‌شده، slug نام غیرلاتین و شکست ذخیره لوگو دیده نشدند. تست اجرا نشده است.",
         "remediation": "افزودن سناریوهای نام‌برده به پوشش تست نهایی؛ اجرای تست‌ها فقط در انتهای پروژه."
+      },
+      {
+        "id": "PR7-CONFLICT-002",
+        "severity": "high",
+        "status": "confirmed_static_conflict_risk",
+        "title": "نسخه شاخه PR7 مسیرهای تغییر حرفه هنرمند PR6 را ندارد",
+        "detail": "routes/web.php در شاخه PR7 import و Routeهای ArtistProfessionChangeController و ArtistProfessionChangeModerationController را که در main پس از PR6 وجود دارند ندارد؛ dashboard شاخه PR نیز لینک صف درخواست‌های تغییر حرفه را حذف کرده است. جایگزینی کامل این فایل‌ها می‌تواند قابلیت PR6 را از دسترس خارج کند.",
+        "remediation": "main فعلی مبنای حل تعارض باشد؛ Routeها و لینک‌های PR6 حفظ شوند و Routeهای شرکت و لینک‌های PR7 به‌صورت افزایشی اضافه شوند."
       }
     ],
     "test_file": "tests/Feature/CompanyCatalogTest.php",
@@ -1736,6 +1747,27 @@
     "decision": "ادغام مستقیم انجام نشود؛ CAT-001، I18N-001 و FILE-001 و همچنین CAT-002/CAT-003 باید تعیین تکلیف شوند؛ سپس شاخه با main به‌روز و تعارض‌ها حل شوند.",
     "report_document": "https://github.com/armanaria111/amdb-report/blob/main/docs/pr-7-company-catalog-static-review-2026-11-18.md",
     "source_code_modified": false,
-    "database_modified": false
+    "database_modified": false,
+    "conflict_analysis": {
+      "confirmed_missing_from_pr_branch": [
+        "ArtistProfessionChangeController import and user request routes in routes/web.php",
+        "ArtistProfessionChangeModerationController import and admin moderation routes in routes/web.php",
+        "Admin dashboard link to artist profession change request queue"
+      ],
+      "preserve_from_main": [
+        "PR6 artist profession change submission and moderation routes",
+        "PR6 admin dashboard queue link",
+        "Existing role/permission safeguards and recent role seeder behavior",
+        "Current three-language layout and search behavior"
+      ],
+      "bring_from_pr7": [
+        "Public company catalog routes",
+        "Admin company routes guarded by companies.view and companies.manage",
+        "Company search suggestions and search result display",
+        "Company navigation/dashboard links",
+        "Company CSS and title-company relation UI"
+      ],
+      "action": "Do not replace shared files wholesale with PR7 versions; integrate additions into current main after branch refresh."
+    }
   }
 }
