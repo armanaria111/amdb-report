@@ -41,52 +41,21 @@
     }
   ],
   "database_audit": {
-    "audit_date": "2026-11-01",
-    "status": "reported_audit",
+    "audit_date": "2026-11-18",
+    "status": "static_source_audit_current_main",
     "tables": 42,
-    "eloquent_models": 25,
-    "model_relations": 66,
+    "eloquent_models": 37,
+    "model_relations": null,
     "routes": 27,
     "syntax_or_audit_errors": 0,
-    "note": "این اعداد خروجی ممیزی گزارش‌شده در گفتگوی توسعه هستند؛ وضعیت فعلی فایل‌ها و دیتابیس در 2026-11-17 مستقیماً از مخزن کد اصلی دوباره ممیزی نشده است.",
+    "note": "این ممیزی فقط ساختار تعریف‌شده در سورس main را بررسی می‌کند؛ تعداد جدول‌ها و وضعیت Migrationهای دیتابیس محلی از این snapshot قابل اثبات نیست. مقادیر قبلی ۴۲ جدول، ۶۶ رابطه و ۱۰ migration اجراشده گزارش تاریخی‌اند و در این نوبت از دیتابیس محلی دوباره تأیید نشده‌اند.",
     "migrations": {
+      "source_file_count": 26,
+      "application_migration_file_count": 23,
+      "framework_migration_file_count": 3,
       "ran_count": 10,
-      "status": "۱۰ مهاجرت اجراشده در migrate:status با وضعیت Ran گزارش شدند.",
-      "groups": [
-        {
-          "name": "زیرساخت Laravel",
-          "detail": "users، cache و jobs"
-        },
-        {
-          "name": "سیستم حرفه‌ای",
-          "detail": "professional_system"
-        },
-        {
-          "name": "کاتالوگ محتوا",
-          "detail": "content_catalog"
-        },
-        {
-          "name": "زبان‌ها",
-          "detail": "languages"
-        },
-        {
-          "name": "نقش‌ها و دسترسی‌ها",
-          "detail": "RBAC"
-        },
-        {
-          "name": "پروفایل هنرمندان",
-          "detail": "artist_profiles"
-        },
-        {
-          "name": "اعتباردهی عوامل آثار",
-          "detail": "افزودن artist_id به title_credits"
-        },
-        {
-          "name": "ترجمه‌ها",
-          "detail": "translation"
-        }
-      ],
-      "note": "این‌ها گروه‌ها/نام‌های ثبت‌شده در گفتگو هستند؛ نام کامل فایل‌های migration در دسترس نیست."
+      "ran_count_note": "۱۰ مورد Ran مربوط به گزارش قدیمی migrate:status است و وضعیت فعلی محیط محلی در این ممیزی بررسی نشده است.",
+      "status": "کد Migrationها در شاخه main بررسی شد؛ هیچ Migration اجرا نشده است."
     },
     "known_tables": [
       {
@@ -165,7 +134,68 @@
         "status": "reported"
       }
     ],
-    "known_tables_note": "این فهرست فقط نام‌هایی است که در گفتگو صریحاً ثبت شده‌اند؛ فهرست کامل ۴۲ جدول بازیابی نشده است."
+    "known_tables_note": "این فهرست فقط نام‌هایی است که در گفتگو صریحاً ثبت شده‌اند؛ فهرست کامل ۴۲ جدول بازیابی نشده است.",
+    "current_source_snapshot": {
+      "commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
+      "migration_files": 26,
+      "application_migration_files": 23,
+      "framework_migration_files": 3,
+      "eloquent_model_files": 37,
+      "audit_type": "static_read_only",
+      "report_document": "docs/stage-3-database-relationships-audit-2026-11-18.md"
+    },
+    "current_findings": [
+      {
+        "id": "DB-010",
+        "severity": "medium",
+        "summary": "submission_request_events از request_type/request_id بدون FK به جدول درخواست‌ها استفاده می‌کند؛ حذف درخواست می‌تواند event یتیم باقی بگذارد."
+      },
+      {
+        "id": "DB-011",
+        "severity": "low",
+        "summary": "مدل Language فقط رابطه معکوس artistTranslations دارد و روابط معکوس سایر ترجمه‌ها تعریف نشده‌اند."
+      },
+      {
+        "id": "DB-012",
+        "severity": "medium",
+        "summary": "unique index عوامل به artist_id و profession_id nullable وابسته است؛ در MySQL رکوردهای دارای NULL از یکتایی ترکیبی عبور می‌کنند."
+      },
+      {
+        "id": "DB-013",
+        "severity": "medium",
+        "summary": "artist_claim_requests قید یکتایی برای درخواست تکراری ندارد؛ Claim از مسیر محصول کنار گذاشته شده اما جدول/model قدیمی باقی است."
+      },
+      {
+        "id": "DB-014",
+        "severity": "medium",
+        "summary": "برای محدوده title_ratings.rating و score/max_score امتیاز خارجی قید CHECK دیتابیسی مشاهده نشد."
+      },
+      {
+        "id": "DB-015",
+        "severity": "low",
+        "summary": "artist_profile_merges مانع source_artist_id برابر target_artist_id یا ثبت merge تکراری در سطح DB نمی‌شود."
+      },
+      {
+        "id": "DB-016",
+        "severity": "medium",
+        "summary": "FK مربوط به parent_id در title_reviews تضمین نمی‌کند نقد والد و پاسخ متعلق به یک title باشند."
+      },
+      {
+        "id": "DB-017",
+        "severity": "medium",
+        "summary": "title_credits سازگاری artist_id و user_id را در سطح دیتابیس enforce نمی‌کند."
+      },
+      {
+        "id": "DB-018",
+        "severity": "medium",
+        "summary": "credit_submission_requests در سطح DB اثبات نمی‌کند user_id به artist_id متصل است؛ کنترل باید در سرویس و تست باشد."
+      },
+      {
+        "id": "DB-019",
+        "severity": "medium",
+        "summary": "artist_profession_change_requests برای درخواست pending تکراری قید یکتا ندارد؛ مسیر تراکنشی PR6 باید با تست هم‌زمانی پوشش داده شود."
+      }
+    ]
   },
   "implemented_or_reported": [
     {
@@ -302,7 +332,14 @@
       "یک Migration افزایشی برای جدول درخواست تغییر حرفه و تاریخچه آن به main اضافه شد؛ Migration اجرا نشده و دیتابیس تغییر نکرده است.",
       "PR شماره ۷ کاتالوگ شرکت‌ها پس از ادغام PR شماره ۶ اکنون mergeable=false گزارش می‌شود؛ به دلیل هم‌پوشانی فایل‌ها باید شاخه آن به‌روز و تعارض‌ها حل شوند و تا آن زمان نباید ادغام شود.",
       "main در زمان بررسی روی commit a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c قرار دارد؛ PR شماره ۵ و ۶ ادغام شده‌اند، PR شماره ۷ باز و نیازمند حل تعارض است.",
-      "هیچ Migration، Seeder، PHPUnit یا عملیات دیتابیس در این مرحله اجرا نشد؛ داده‌های دیتابیس دست‌نخورده باقی ماندند."
+      "هیچ Migration، Seeder، PHPUnit یا عملیات دیتابیس در این مرحله اجرا نشد؛ داده‌های دیتابیس دست‌نخورده باقی ماندند.",
+      "بازبینی مجدد مرحله سوم روی آخرین main پس از ادغام PR6، commit a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c، انجام شد.",
+      "موجودی واقعی سورس فعلی: ۲۶ فایل Migration (۳ زیرساخت Laravel و ۲۳ دامنه AMDB) و ۳۷ مدل Eloquent؛ شمارش قبلی ۲۲ Migration و ۳۴ مدل مربوط به snapshot قدیمی بود.",
+      "قیود کلیدی artist_user.user_id، artist_professions(artist_id, profession_id)، user_professions، RBAC، امتیاز/واکنش/گزارش و روابط کاتالوگ/ترجمه در کد Migration بازبینی شدند.",
+      "یافته‌های تکمیلی DB-010 تا DB-019 درباره eventهای polymorphic بدون FK، روابط معکوس Language، NULL در unique عوامل، Claim legacy، محدوده امتیاز، self-merge، هم‌عنوان بودن پاسخ نقد، سازگاری artist/user، مالکیت درخواست credit و درخواست حرفه‌ای تکراری ثبت شدند.",
+      "رفتارهای cascade/restrict/nullOnDelete و soft delete برای User، Artist، Title، ترجمه‌ها، کاتالوگ و auditها از روی Migrationها بررسی شدند.",
+      "سند ممیزی مرحله سوم در docs/stage-3-database-relationships-audit-2026-11-18.md در مخزن گزارش ایجاد شد.",
+      "این مرحله فقط ایستا بود؛ هیچ Migration، Seeder، PHPUnit یا عملیات دیتابیس محلی اجرا نشد و هیچ کد سورس اصلی تغییر نکرد."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1444,84 +1481,11 @@
     }
   },
   "current_work": {
-    "updated_at": "2026-11-18",
+    "stage": "Stage 3 — Database and Eloquent relationships audit",
+    "status": "static_audit_completed",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "base_branch": "main",
-    "base_commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
-    "merged_pull_requests": [
-      {
-        "number": 1,
-        "title": "Security P0: harden artist access and system role management",
-        "merge_commit": "71537bfc393ee7cde59082bd985083629b22db34",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/1"
-      },
-      {
-        "number": 2,
-        "title": "Unify artist registration and profile connection workflow",
-        "merge_commit": "f32a3e9a2be973b9345fbaeedc44b92827be3eb0",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/2"
-      },
-      {
-        "number": 4,
-        "title": "Add admin moderation for reviews and user reports (replacement for PR #3)",
-        "merge_commit": "da51b77bd8d56028bf7cc41c410e28033c5ded5b",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/4"
-      },
-      {
-        "number": 5,
-        "title": "Implement title and credit submission workflows",
-        "merge_commit": "c08b7f7b9bccf1fb19bc022d0deb54d10ec8476c",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/5"
-      },
-      {
-        "number": 6,
-        "title": "Require approval for artist profession changes and fix multilingual profiles",
-        "merge_commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/6"
-      }
-    ],
-    "superseded_pull_requests": [
-      {
-        "number": 3,
-        "state": "closed_unmerged",
-        "superseded_by": 4,
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/3"
-      }
-    ],
-    "open_pull_requests": [
-      {
-        "number": 7,
-        "title": "Add company catalog, co public IDs and title-company relationships",
-        "branch": "catalog/company-profiles-public-ids",
-        "head_commit": "e8b6118391730d198345034ef1f8ff6c090cb2c6",
-        "mergeable": false,
-        "mergeable_state": "blocked_by_conflicts",
-        "changed_files": 34,
-        "additions": 1718,
-        "deletions": 414,
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/7",
-        "detail": "کاتالوگ شرکت‌ها، شناسه co، ترجمه سه‌زبانه، ارتباط شرکت و اثر، صفحات عمومی و جستجو. پس از ادغام PR شماره ۶، شاخه با main تعارض دارد؛ پیش از ادغام باید به‌روز و بازبینی شود."
-      }
-    ],
-    "latest_work": {
-      "title": "یکپارچه‌سازی شاخه کاتالوگ شرکت‌ها با main",
-      "status": "blocked_by_conflicts",
-      "pull_request": 7,
-      "url": "https://github.com/armanaria111/amdb-laravel2/pull/7",
-      "head_commit": "e8b6118391730d198345034ef1f8ff6c090cb2c6",
-      "detail": "PR شماره ۷ قابلیت‌های کاتالوگ شرکت‌ها و شناسه co را پیاده‌سازی کرده، اما پس از ادغام PR شماره ۶ با main تعارض دارد. گام بعدی حل تعارض‌ها و بازبینی مجدد تست‌ها و Migration است."
-    },
-    "validation": {
-      "feature_tests_added": true,
-      "tests_executed": false,
-      "runtime_browser_validation": false,
-      "migrations_included": 5,
-      "migrations_executed": false,
-      "seeders_executed": false,
-      "database_changed": false,
-      "ci_workflow_runs": 0,
-      "note": "سه Migration افزایشی در PR شماره ۵، یک Migration در PR شماره ۶ و یک Migration در PR شماره ۷ در سورس هستند؛ هیچ Migration یا Seeder اجرا نشده و دیتابیس تغییر نکرده است. تست‌های PHPUnit و اعتبارسنجی مرورگر اجرا نشده‌اند."
-    },
-    "next_phase": "حل تعارض و بازبینی PR شماره ۷؛ سپس اجرای PHPUnit و بررسی runtime روی سیستم محلی پیش از اجرای Migrationهای افزایشی؛ بعد از QA، طراحی و پیاده‌سازی سیستم اشتراک هنرمندان و کنترل نمایش عمومی اطلاعات."
+    "source_commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
+    "report_document": "https://github.com/armanaria111/amdb-report/blob/main/docs/stage-3-database-relationships-audit-2026-11-18.md",
+    "next_step": "بررسی وضعیت واقعی Migrationها و داده‌های تکراری در دیتابیس محلی پس از backup؛ سپس اجرای کنترل‌شده تست‌ها."
   }
 }
