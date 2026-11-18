@@ -431,7 +431,9 @@
       "آخرین commit main پس از PR32: 48e4d2eecf29d53738c71a6c2931261952cf9e32. هیچ تست، Migration، Seeder یا عملیات دیتابیس محلی اجرا نشد.",
       "PR33 با موفقیت ادغام شد: ساختار نامعتبر JSON object در default_names هر سه فایل admin-settings.php به آرایه associative معتبر PHP تبدیل شد و دو پیام پاسخ SiteSettingController چندزبانه شدند.",
       "آخرین commit main پس از PR33: 3db6963f80e6a46d5e96ac469b59c3d3dea35de0؛ هیچ تست، PHP command، Migration، Seeder یا تغییر دیتابیس محلی انجام نشد.",
-      "بازبینی تطبیقی جدید: شاخه main فعلی روی commit 8b939a4325a9017ffc06678032e5f23b80e9fc94 است؛ شاخه قدیمی catalog/company-profiles-public-ids نسبت به main، ۶۶ commit عقب و ۲۴۱ commit جلو است و ادغام مستقیم آن امن نیست. ساختار کاتالوگ شرکت‌ها، مسیرهای عمومی و Migration شرکت‌ها هم‌اکنون در main موجودند. شاخه security/stage4-hardening نیز ۱۵۴ commit از main عقب است؛ بخش‌هایی از hardening امنیتی از جمله کنترل نقش‌های حساس و فرمان انتقال مدارک خصوصی در main حاضرند. این بررسی نقطه‌ای است و به‌معنای ممیزی کامل یا اجرای تست نیست."
+      "بازبینی تطبیقی جدید: شاخه main فعلی روی commit 8b939a4325a9017ffc06678032e5f23b80e9fc94 است؛ شاخه قدیمی catalog/company-profiles-public-ids نسبت به main، ۶۶ commit عقب و ۲۴۱ commit جلو است و ادغام مستقیم آن امن نیست. ساختار کاتالوگ شرکت‌ها، مسیرهای عمومی و Migration شرکت‌ها هم‌اکنون در main موجودند. شاخه security/stage4-hardening نیز ۱۵۴ commit از main عقب است؛ بخش‌هایی از hardening امنیتی از جمله کنترل نقش‌های حساس و فرمان انتقال مدارک خصوصی در main حاضرند. این بررسی نقطه‌ای است و به‌معنای ممیزی کامل یا اجرای تست نیست.",
+      "PR34 با موفقیت ادغام شد: Migration افزایشی برای قید CHECK محدوده title_ratings.rating بین ۱ تا ۱۰ و اعتبارسنجی title_external_ratings (score >= 0، max_score > 0 و score <= max_score) اضافه شد. پیش از افزودن قیدها، داده‌های نامعتبر شمارش می‌شوند و در صورت وجود، Migration بدون تغییر schema متوقف می‌شود؛ پشتیبانی نسخه MySQL/MariaDB نیز بررسی می‌شود. Migration اجرا نشده و دیتابیس محلی دست‌نخورده است.",
+      "آخرین main پس از PR34 روی commit 8b939a4325a9017ffc06678032e5f23b80e9fc94 تأیید شد. در زمان بررسی هیچ PR بازی در مخزن اصلی وجود نداشت."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -830,6 +832,10 @@
     {
       "date": "2026-11-18",
       "text": "PR20 ترجمه پیام‌های نقد/امتیاز و گردش‌کار درخواست حرفه‌ای را در سه زبان تکمیل کرد (5a34ef8); کامیت 53dbceb روابط معکوس Language برای ترجمه شرکت/حرفه/اثر را تکمیل کرد. تست‌ها اجرا نشده‌اند."
+    },
+    {
+      "date": "2026-11-18",
+      "text": "PR34 برای اعمال قیدهای CHECK محدوده امتیاز داخلی و امتیاز خارجی با preflight داده‌های نامعتبر در main ادغام شد. آخرین commit: 8b939a4325a9017ffc06678032e5f23b80e9fc94. هیچ تست یا Migration اجرا نشد و دیتابیس محلی تغییر نکرد."
     }
   ],
   "architecture": {
@@ -1630,9 +1636,9 @@
   },
   "current_work": {
     "stage": "ممیزی و تکمیل چندزبانگی رابط کاربری و گردش‌کارها پس از ادغام امنیت و کاتالوگ",
-    "status": "no_open_pull_requests_i18n_and_site_settings_syntax_fix_merged_db_audit_next",
+    "status": "pr34_merged_no_open_prs_next_database_audit",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "latest_main_commit": "3db6963f80e6a46d5e96ac469b59c3d3dea35de0",
+    "latest_main_commit": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
     "merged_pull_requests": [
       {
         "number": 8,
@@ -1810,9 +1816,18 @@
         "merge_commit": "3db6963f80e6a46d5e96ac469b59c3d3dea35de0",
         "status": "merged",
         "tests_executed": false
+      },
+      {
+        "number": 34,
+        "title": "Enforce rating ranges with preflighted database checks",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/34",
+        "merge_commit": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
+        "status": "merged",
+        "tests_executed": false,
+        "migrations_executed": false
       }
     ],
-    "next_step": "ادامه بازبینی ساختار فایل‌های locale و ممیزی DB-010 و DB-012 تا DB-019؛ بررسی موارد ناسازگار و طراحی اصلاحات با preflight حفظ داده. تست جامع و بررسی مرورگری سه زبان در پایان؛ Migration/Seeder و انتقال legacy evidence فقط پس از backup.",
+    "next_step": "ادامه ممیزی DB-010 و DB-012 تا DB-019 روی آخرین main؛ اولویت با بررسی سازگاری قیود و داده‌های موجود، تعیین سیاست موارد ناقص و طراحی Migrationهای افزایشی با preflight. سپس تکمیل اشتراک هنرمندان و محدودیت نمایش عمومی اطلاعات طبق تصمیم محصول. تست‌ها در پایان؛ هیچ Migration/Seeder یا عملیات دیتابیس بدون backup و تأیید اجرا نشود.",
     "operational_runbook": "docs/operational-runbook-private-evidence-2026-11-18.md"
   },
   "application_audit": {
