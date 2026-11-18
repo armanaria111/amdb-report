@@ -6,7 +6,7 @@
 - Pull Request: https://github.com/armanaria111/amdb-laravel2/pull/8
 - وضعیت PR: باز، Draft
 - مبنای مقایسه: `main` در commit `a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c`
-- آخرین commit شاخه در زمان ثبت این سند: `2fca5e9d88cc450675bbde4545f3fd594b8df02e`
+- آخرین commit شاخه در زمان ثبت این سند: `f548c0bc6a0cec05f625f263aec9e19778d91eb3`
 - مقایسه شاخه: 37 commit جلوتر و صفر commit عقب‌تر از main (وضعیت مقایسه GitHub؛ mergeability خود PR باید دوباره بررسی شود).
 
 ## 1. AUTH-004 — جلوگیری از ارتقای دسترسی از طریق نقش سفارشی
