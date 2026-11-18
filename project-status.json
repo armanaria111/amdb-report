@@ -1471,7 +1471,7 @@
         "number": 6,
         "title": "Require approval for artist profession changes and fix multilingual profiles",
         "branch": "workflow/artist-profession-requests-and-translations",
-        "head_commit": "1d3d743b8b2d4b3e85cb4509adedc390f7e0ebc0",
+        "head_commit": "6adf70042acc0262653b67437f464efe106b0058",
         "mergeable": true,
         "mergeable_state": "clean",
         "changed_files": 25,
@@ -1486,7 +1486,8 @@
       "status": "open_pull_request",
       "pull_request": 6,
       "url": "https://github.com/armanaria111/amdb-laravel2/pull/6",
-      "detail": "درخواست افزودن/حذف حرفه برای پروفایل فعال؛ تأیید/رد/درخواست اصلاح مدیر؛ ارسال مجدد و تاریخچه رویداد؛ همگام‌سازی artist_professions و user_professions؛ جلوگیری از حذف آخرین حرفه؛ نام و زندگی‌نامه مستقل en/fa-AF/ps؛ اصلاح کلید language_code؛ انتقال ترجمه فرم ویرایش هنرمند، داشبورد مدیریت و جستجوی عمومی به فایل‌های مستقل زبان."
+      "detail": "درخواست افزودن/حذف حرفه برای پروفایل فعال؛ تأیید/رد/درخواست اصلاح مدیر؛ ارسال مجدد و تاریخچه رویداد؛ همگام‌سازی artist_professions و user_professions؛ جلوگیری از حذف آخرین حرفه؛ نام و زندگی‌نامه مستقل en/fa-AF/ps؛ اصلاح کلید language_code؛ انتقال ترجمه فرم ویرایش هنرمند، داشبورد مدیریت و جستجوی عمومی به فایل‌های مستقل زبان.",
+      "head_commit": "6adf70042acc0262653b67437f464efe106b0058"
     },
     "validation": {
       "feature_tests_added": true,
