@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "a9cf3ab84381163abf9158e4eb3a8af7efc31c2c",
+    "latest_main_commit": "25776d72d2f950d1db2a01ea17214801352d42a8",
     "latest_main_commit_verified_on": "2026-11-18"
   },
   "languages": [
@@ -144,7 +144,7 @@
     ],
     "known_tables_note": "این فهرست نمونه‌ای از جدول‌های ثبت‌شده قبلی است و فهرست کامل schema فعلی نیست. شمارش جدول‌های فعلی تا بازشماری همه Migrationها عمداً نامشخص مانده است.",
     "current_source_snapshot": {
-      "commit": "a9cf3ab84381163abf9158e4eb3a8af7efc31c2c",
+      "commit": "25776d72d2f950d1db2a01ea17214801352d42a8",
       "migration_files": 30,
       "application_migration_files": 27,
       "framework_migration_files": 3,
@@ -153,9 +153,9 @@
       "translation_php_files": 63,
       "named_route_calls": 103,
       "audit_type": "read-only GitHub tree, dependency lockfiles, CSS, Blade layout and route inventory",
-      "latest_main_commit": "a9cf3ab84381163abf9158e4eb3a8af7efc31c2c",
-      "note": "آمار فایل‌ها از Git tree شاخه main پس از ادغام PR35 استخراج شده است؛ وضعیت اجرای Migrationها روی دیتابیس محلی بررسی نشده است.",
-      "tree_entries": 556
+      "latest_main_commit": "25776d72d2f950d1db2a01ea17214801352d42a8",
+      "note": "آمار فایل‌های برنامه از Git tree شاخه main پس از ادغام PR36 به‌روزرسانی شد؛ ۶ فایل زیرساخت استقرار اضافه شده‌اند و تعداد Migrationها (۳۰)، مدل‌ها (۴۰)، Bladeها (۵۰) و ترجمه‌ها (۶۳) تغییر نکرده است. وضعیت اجرای Migrationها روی دیتابیس محلی بررسی نشده است.",
+      "tree_entries": 564
     },
     "current_findings": [
       {
@@ -1750,10 +1750,10 @@
     }
   },
   "current_work": {
-    "stage": "ممیزی و تکمیل چندزبانگی رابط کاربری و گردش‌کارها پس از ادغام امنیت و کاتالوگ",
-    "status": "pr35_merged_next_db010_and_lifecycle_audit",
+    "stage": "آماده‌سازی محیط آزمایشی Render با دیتابیس MySQL مستقل",
+    "status": "pr36_merged_render_staging_setup_pending_user_service_creation",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "latest_main_commit": "a9cf3ab84381163abf9158e4eb3a8af7efc31c2c",
+    "latest_main_commit": "25776d72d2f950d1db2a01ea17214801352d42a8",
     "merged_pull_requests": [
       {
         "number": 8,
@@ -1949,9 +1949,18 @@
         "status": "merged",
         "tests_executed": false,
         "migrations_executed": false
+      },
+      {
+        "number": 36,
+        "title": "Add portable Render staging deployment",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/36",
+        "merge_commit": "25776d72d2f950d1db2a01ea17214801352d42a8",
+        "status": "merged",
+        "tests_executed": false,
+        "migrations_executed": false
       }
     ],
-    "next_step": "طراحی تغییر چندمرحله‌ای DB-010 برای FKهای نوع‌دار رویدادهای title/credit با preflight و backfill؛ هم‌زمان بررسی policy حذف/قطع اتصال artist_user برای DB-017/018. سپس تعیین هویت creditهای legacy در DB-012 و تعیین تکلیف ساختارهای legacy DB-013. تست‌ها در پایان.",
+    "next_step": "کاربر حساب Enzonic و دیتابیس MySQL آزمایشی و سپس سرویس Render را طبق docs/deployment-render-staging.md ایجاد کند؛ مقادیر APP_KEY، APP_URL و DB_URL فقط در Environment سرویس Render ثبت شوند. پس از تأیید مقصد دیتابیس آزمایشی، migrationها به‌صورت دستی اجرا شوند. تست‌ها همچنان برای مرحله پایانی نگه داشته شوند.",
     "operational_runbook": "docs/operational-runbook-private-evidence-2026-11-18.md"
   },
   "application_audit": {
@@ -3079,5 +3088,26 @@
       "بررسی اینکه Chart.js و Laravel Scout در کدام صفحات/driverها واقعاً فعال هستند.",
       "در صورت نیاز به نصب reproducible، ثبت نسخه Font Awesome و روش به‌روزرسانی/مجوز در مستندات پروژه."
     ]
+  },
+  "deployment_staging": {
+    "status": "deployment_files_merged_not_yet_deployed",
+    "application_host": "Render Free Web Service (Docker)",
+    "database_host": "Enzonic Managed MySQL 8.4 Free",
+    "application_branch": "main",
+    "pull_request": 36,
+    "source_commit": "25776d72d2f950d1db2a01ea17214801352d42a8",
+    "files": [
+      "Dockerfile",
+      ".dockerignore",
+      "docker/apache-vhost.conf",
+      "docker/entrypoint.sh",
+      "render.yaml",
+      "docs/deployment-render-staging.md"
+    ],
+    "database_migrations_automatic": false,
+    "tests_executed": false,
+    "docker_build_executed": false,
+    "deployment_live": false,
+    "note": "زیرساخت استقرار به سورس اضافه شده است؛ سرویس‌های بیرونی هنوز توسط کاربر ایجاد نشده‌اند. دیتابیس staging باید مستقل از دیتابیس اصلی باشد. Render Free filesystem موقتی است و برای نگه‌داری دائمی آپلودها مناسب نیست."
   }
 }
