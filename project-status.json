@@ -17,7 +17,7 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
+    "source_commit_audited": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "latest_main_commit": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
     "latest_main_commit_verified_on": "2026-11-18"
@@ -27,37 +27,43 @@
       "code": "en",
       "label": "English",
       "direction": "ltr",
-      "font_status": "در CSS خانواده Inter تعریف شده؛ بررسی پوشش/نمایش مرورگری در مرحله نهایی باقی است."
+      "font": "Inter",
+      "font_source": "Google Fonts stylesheet in resources/views/layouts/app.blade.php",
+      "font_status": "در CSS برای html[lang=en] به‌کار رفته؛ دریافت و نمایش مرورگری در این نوبت تست نشده است."
     },
     {
       "code": "fa-AF",
       "label": "دری",
       "direction": "rtl",
-      "font_status": "در CSS خانواده Vazirmatn تعریف شده؛ بررسی نمایش مرورگری در مرحله نهایی باقی است."
+      "font": "Vazirmatn",
+      "font_source": "Google Fonts stylesheet in resources/views/layouts/app.blade.php",
+      "font_status": "در CSS برای html[lang=fa-AF] به‌کار رفته؛ پوشش و نمایش مرورگری در این نوبت تست نشده است."
     },
     {
       "code": "ps",
       "label": "پښتو",
       "direction": "rtl",
-      "font_status": "در CSS خانواده مستقل Noto Sans Arabic تعریف شده؛ پوشش کامل نویسه‌های پشتو و نمایش مرورگری هنوز تأیید نشده است."
+      "font": "Noto Sans Arabic",
+      "font_source": "Google Fonts stylesheet in resources/views/layouts/app.blade.php",
+      "font_status": "در CSS برای html[lang=ps] به‌کار رفته؛ پوشش کامل نویسه‌های پشتو و نمایش مرورگری در این نوبت تست نشده است."
     }
   ],
   "database_audit": {
     "audit_date": "2026-11-18",
     "status": "static_source_audit_current_main",
-    "tables": 45,
+    "tables": null,
     "eloquent_models": 40,
     "model_relations": null,
     "routes": 103,
     "syntax_or_audit_errors": 0,
-    "note": "شمارش‌های منبع پس از ادغام PR10 به‌روزرسانی شده‌اند: ۴۵ جدول تعریف‌شده، ۴۰ مدل، ۲۷ فایل Migration و ۱۰۳ تعریف Route. این‌ها شمارش ایستای سورس‌اند و تعداد جدول‌های واقعی یا Migrationهای اجراشده دیتابیس محلی را اثبات نمی‌کنند. هیچ Migration اجرا نشده است.",
+    "note": "موجودی سورس در commit فعلی: ۲۹ فایل Migration (۲۶ برنامه و ۳ چارچوب)، ۴۰ مدل Eloquent، ۵۰ فایل Blade، ۶۳ فایل ترجمه PHP در سه زبان و ۱۰۳ فراخوانی نام‌گذاری Route. شمارش دقیق جدول‌های تعریف‌شده در این نوبت بازشماری نشده و عمداً null است؛ تعداد جدول‌های واقعی و وضعیت Migrationهای دیتابیس محلی نیز تأیید نشده‌اند.",
     "migrations": {
-      "source_file_count": 28,
-      "application_migration_file_count": 25,
+      "source_file_count": 29,
+      "application_migration_file_count": 26,
       "framework_migration_file_count": 3,
-      "ran_count": 10,
-      "ran_count_note": "۱۰ مورد Ran مربوط به گزارش قدیمی migrate:status است و وضعیت فعلی محیط محلی در این ممیزی بررسی نشده است.",
-      "status": "کد Migrationها در شاخه main بررسی شد؛ هیچ Migration اجرا نشده است."
+      "ran_count": null,
+      "ran_count_note": "وضعیت migrate:status محلی در این نوبت بررسی نشده است؛ عدد تاریخی ۱۰ دیگر به‌عنوان وضعیت فعلی نمایش داده نمی‌شود.",
+      "status": "فقط فایل‌های Migration در شاخه main شمارش شدند؛ هیچ Migration اجرا نشده است."
     },
     "known_tables": [
       {
@@ -136,17 +142,19 @@
         "status": "reported"
       }
     ],
-    "known_tables_note": "این فهرست فقط نام‌هایی است که در گفتگو صریحاً ثبت شده‌اند؛ فهرست کامل ۴۲ جدول بازیابی نشده است.",
+    "known_tables_note": "این فهرست نمونه‌ای از جدول‌های ثبت‌شده قبلی است و فهرست کامل schema فعلی نیست. شمارش جدول‌های فعلی تا بازشماری همه Migrationها عمداً نامشخص مانده است.",
     "current_source_snapshot": {
-      "commit": "53dbcebea50d550a1011a10ed478a5d02bbff9af",
-      "migration_files": 28,
-      "application_migration_files": 25,
+      "commit": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
+      "migration_files": 29,
+      "application_migration_files": 26,
       "framework_migration_files": 3,
       "eloquent_model_files": 40,
-      "audit_type": "static GitHub source tree and route-name inventory; no database/runtime inspection",
-      "report_document": "docs/stage-3-database-relationships-audit-2026-11-18.md",
-      "latest_main_commit": "3db6963f80e6a46d5e96ac469b59c3d3dea35de0",
-      "route_definitions": 102
+      "blade_files": 50,
+      "translation_php_files": 63,
+      "named_route_calls": 103,
+      "audit_type": "read-only GitHub tree, dependency lockfiles, CSS, Blade layout and route inventory",
+      "latest_main_commit": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
+      "note": "این شمارش‌ها از مخزن GitHub هستند و اجرای runtime یا وضعیت دیتابیس محلی را اثبات نمی‌کنند."
     },
     "current_findings": [
       {
@@ -174,7 +182,8 @@
       {
         "id": "DB-014",
         "severity": "medium",
-        "summary": "برای محدوده title_ratings.rating و score/max_score امتیاز خارجی قید CHECK دیتابیسی مشاهده نشد."
+        "summary": "PR34 Migration افزایشی برای CHECK محدوده امتیاز داخلی ۱ تا ۱۰ و اعتبارسنجی امتیاز خارجی (score >= 0، max_score > 0، score <= max_score) اضافه کرده است؛ Migration هنوز روی دیتابیس محلی اجرا نشده است.",
+        "status": "fixed_in_pr34_merged_migration_not_executed"
       },
       {
         "id": "DB-015",
@@ -433,7 +442,10 @@
       "آخرین commit main پس از PR33: 3db6963f80e6a46d5e96ac469b59c3d3dea35de0؛ هیچ تست، PHP command، Migration، Seeder یا تغییر دیتابیس محلی انجام نشد.",
       "بازبینی تطبیقی جدید: شاخه main فعلی روی commit 8b939a4325a9017ffc06678032e5f23b80e9fc94 است؛ شاخه قدیمی catalog/company-profiles-public-ids نسبت به main، ۶۶ commit عقب و ۲۴۱ commit جلو است و ادغام مستقیم آن امن نیست. ساختار کاتالوگ شرکت‌ها، مسیرهای عمومی و Migration شرکت‌ها هم‌اکنون در main موجودند. شاخه security/stage4-hardening نیز ۱۵۴ commit از main عقب است؛ بخش‌هایی از hardening امنیتی از جمله کنترل نقش‌های حساس و فرمان انتقال مدارک خصوصی در main حاضرند. این بررسی نقطه‌ای است و به‌معنای ممیزی کامل یا اجرای تست نیست.",
       "PR34 با موفقیت ادغام شد: Migration افزایشی برای قید CHECK محدوده title_ratings.rating بین ۱ تا ۱۰ و اعتبارسنجی title_external_ratings (score >= 0، max_score > 0 و score <= max_score) اضافه شد. پیش از افزودن قیدها، داده‌های نامعتبر شمارش می‌شوند و در صورت وجود، Migration بدون تغییر schema متوقف می‌شود؛ پشتیبانی نسخه MySQL/MariaDB نیز بررسی می‌شود. Migration اجرا نشده و دیتابیس محلی دست‌نخورده است.",
-      "آخرین main پس از PR34 روی commit 8b939a4325a9017ffc06678032e5f23b80e9fc94 تأیید شد. در زمان بررسی هیچ PR بازی در مخزن اصلی وجود نداشت."
+      "آخرین main پس از PR34 روی commit 8b939a4325a9017ffc06678032e5f23b80e9fc94 تأیید شد. در زمان بررسی هیچ PR بازی در مخزن اصلی وجود نداشت.",
+      "ممیزی read-only فناوری و دارایی‌ها در commit 8b939a4325a9017ffc06678032e5f23b80e9fc94 انجام شد: Composer/NPM lockfiles، Vite/Tailwind، Font Awesome Pro 7.3.1 محلی، فونت‌های Inter/Vazirmatn/Noto Sans Arabic و تنظیم Bunny Instrument Sans ثبت شدند.",
+      "موجودی فعلی Git tree: ۵۵۵ ورودی، ۲۹ Migration، ۴۰ مدل، ۵۰ فایل Blade، ۶۳ فایل ترجمه PHP، ۱۰۳ Route نام‌گذاری‌شده، ۸۸ فایل CSS فونت‌آوسام و ۳۸ فایل WOFF2.",
+      "PR34 در main است و قیدهای CHECK محدوده امتیاز را اضافه کرده؛ Migration اجرا نشده است. تعداد جدول‌های فعلی و وضعیت migrate:status محلی در این نوبت بازشماری/بررسی نشدند و عمداً نامشخص باقی ماندند."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -782,6 +794,10 @@
   ],
   "changelog": [
     {
+      "date": "2026-11-18",
+      "text": "ممیزی فناوری و دارایی‌های رابط کاربری در main commit 8b939a4: ثبت نسخه‌های قفل‌شده Composer/NPM، Tailwind 4، Vite 8، Livewire 4، Chart.js 4، Font Awesome Pro 7.3.1 محلی (۸۸ CSS و ۳۸ WOFF2)، فونت‌های Inter/Vazirmatn/Noto Sans Arabic و تنظیم Bunny Instrument Sans. شمارش سورس به ۵۵۵ ورودی، ۲۹ Migration، ۴۰ مدل، ۵۰ Blade، ۶۳ فایل ترجمه و ۱۰۳ Route نام‌گذاری‌شده به‌روزرسانی شد؛ جدول‌های فعلی و migrate:status محلی عمداً نامشخص ماندند."
+    },
+    {
       "date": "2026-11-17",
       "text": "ثبت نتایج ممیزی read-only مرحله اول و دوم سورس اصلی Laravel: موجودی فایل‌ها، قابلیت‌های تأییدشده، مسیرها و کنترل دسترسی، گردش‌کار درخواست حرفه‌ای، یافته‌های امنیتی، نقص Claim و Review moderation، مغایرت اشتراک و فهرست کارهای مرحله سوم."
     },
@@ -1073,6 +1089,11 @@
   ],
   "development_history": [
     {
+      "date": "2026-11-18",
+      "title": "تکمیل موجودی فناوری، کتابخانه‌ها و دارایی‌های AMDB",
+      "detail": "فهرست وابستگی‌های مستقیم Composer و NPM با نسخه‌های composer.lock/package-lock.json ثبت شد. Font Awesome Pro 7.3.1 و فونت‌های محلی، فونت‌های سه زبان، تنظیمات Vite/Tailwind و موارد نیازمند تأیید مجوز/مرورگر مستندسازی شدند. فقط مخزن گزارش تغییر کرد؛ هیچ تست، build، Migration، Seeder یا عملیات دیتابیس اجرا نشد."
+    },
+    {
       "date": "2026-11-01",
       "title": "ممیزی اولیه دیتابیس",
       "detail": "Laravel 13.39.0، PHP 8.5.12، MySQL با نام amdbl؛ ۱۰ migration در وضعیت Ran، ۴۲ جدول، ۲۵ مدل، ۶۶ رابطه و ۲۷ route و صفر خطای فنی گزارش شد."
@@ -1174,11 +1195,11 @@
     }
   ],
   "source_code_audit": {
-    "audit_date": "2026-11-17",
-    "status": "stage_4_completed_read_only",
+    "audit_date": "2026-11-18",
+    "status": "current_main_inventory_review_with_historical_findings",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "branch": "main",
-    "commit": "a56e92080a227b9e4c531c9edf2e55a02e6946ab",
+    "commit": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
     "scope_completed": [
       "مرحله ۱: ساختار مخزن، فایل‌ها، مدل‌ها، کنترلرها، viewها، migrationها، سرویس‌ها، policyها، middlewareها و تست‌ها",
       "مرحله ۲: مسیرها، کنترل دسترسی، نقش‌ها، گردش‌کار درخواست حرفه‌ای، Claim، نقد و امتیاز، حریم خصوصی هنرمند و واردسازی",
@@ -1190,16 +1211,20 @@
       "کنترلرهای مدیریت نقش، کاربر، هنرمند، درخواست حرفه‌ای، نقد و امتیاز، ورود، جستجو و آثار؛ مدل‌ها، Seederها، Middlewareها، Routeها و Viewهای مرتبط دوباره بررسی شدند.",
       "بررسی ماتریس مجوزها نشان داد نقش artist مجوزهای artists.manage و titles.create/titles.edit دارد و این مجوزها به مسیرهای مدیریتی عمومی‌تر از محدوده مالکیت فردی دسترسی می‌دهند.",
       "بررسی Claim، نقدها و گزارش‌ها نشان داد برخی مدل‌ها/جدول‌ها وجود دارند اما گردش‌کار کامل ثبت/تأیید/رسیدگی در Routeها و Controllerها حاضر نیست.",
-      "بررسی ترجمه پروفایل هنرمند، شناسه‌های عمومی، حرفه‌های حساب/پروفایل، درخواست‌های ثبت اثر/عوامل، محدودسازی ورود و ساختار شرکت‌ها تکمیل شد."
+      "بررسی ترجمه پروفایل هنرمند، شناسه‌های عمومی، حرفه‌های حساب/پروفایل، درخواست‌های ثبت اثر/عوامل، محدودسازی ورود و ساختار شرکت‌ها تکمیل شد.",
+      "ممیزی موجودی فناوری و دارایی‌های رابط کاربری در commit 8b939a4325a9017ffc06678032e5f23b80e9fc94: composer.json/lock، package.json/lock، vite.config.js، resources/css/app.css، resources/views/layouts/app.blade.php و موجودی Font Awesome."
     ],
     "repository_inventory": {
-      "tree_entries": 460,
-      "migration_files": 22,
-      "php_model_files": 34,
-      "blade_files": 37,
-      "web_route_lines": 73,
-      "named_route_calls": 71,
-      "note": "آمار از درخت فایل و محتوای مخزن GitHub استخراج شده است؛ اجرای محلی Laravel یا اتصال زنده به دیتابیس در این دو مرحله انجام نشده است."
+      "tree_entries": 555,
+      "migration_files": 29,
+      "php_model_files": 40,
+      "blade_files": 50,
+      "web_route_lines": 628,
+      "named_route_calls": 103,
+      "note": "آمار فایل‌ها از Git tree شاخه main در commit فعلی استخراج شده است. یافته‌های امنیتی/منطقی قبلی در این ساختار به‌طور کامل بازبینی نشده‌اند و باید به‌عنوان یافته‌های ممیزی قبلی خوانده شوند.",
+      "translation_php_files": 63,
+      "fontawesome_css_files": 88,
+      "fontawesome_woff2_files": 38
     },
     "confirmed_implemented_areas": [
       "ساختار Laravel شامل Controller، Middleware، Model، Policy، Service، Migration، Seeder و تست",
@@ -1486,7 +1511,8 @@
       "این ممیزی ایستای مخزن GitHub در branch main و commit مشخص است؛ رفتار runtime را به‌تنهایی اثبات نمی‌کند.",
       "به درخواست کاربر، تطبیق دیتابیس محلی با Migrationها از محدوده مرحله چهارم حذف شد؛ بنابراین وضعیت دیتابیس واقعی دوباره بررسی نشده است.",
       "هیچ تست PHPUnit یا مرورگر در این نوبت اجرا نشد؛ پوشش تست از روی فایل‌های موجود ارزیابی شد.",
-      "هیچ فایلی در مخزن سورس اصلی تغییر نکرد و هیچ Migration یا دستور تغییردهنده داده اجرا نشد."
+      "هیچ فایلی در مخزن سورس اصلی تغییر نکرد و هیچ Migration یا دستور تغییردهنده داده اجرا نشد.",
+      "یافته‌های جزئی امنیت و workflow که در commitهای قدیمی‌تر ثبت شده‌اند در این نوبت به‌صورت کامل با آخرین main تطبیق داده نشدند؛ سندهای دارای commit قدیمی باید تاریخی تلقی شوند."
     ]
   },
   "database_schema_audit": {
@@ -1636,7 +1662,7 @@
   },
   "current_work": {
     "stage": "ممیزی و تکمیل چندزبانگی رابط کاربری و گردش‌کارها پس از ادغام امنیت و کاتالوگ",
-    "status": "pr34_merged_no_open_prs_next_database_audit",
+    "status": "technology_inventory_reported_next_database_audit",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "latest_main_commit": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
     "merged_pull_requests": [
@@ -1827,7 +1853,7 @@
         "migrations_executed": false
       }
     ],
-    "next_step": "ادامه ممیزی DB-010 و DB-012 تا DB-019 روی آخرین main؛ اولویت با بررسی سازگاری قیود و داده‌های موجود، تعیین سیاست موارد ناقص و طراحی Migrationهای افزایشی با preflight. سپس تکمیل اشتراک هنرمندان و محدودیت نمایش عمومی اطلاعات طبق تصمیم محصول. تست‌ها در پایان؛ هیچ Migration/Seeder یا عملیات دیتابیس بدون backup و تأیید اجرا نشود.",
+    "next_step": "بازبینی ممیزی DB-010 و DB-012 تا DB-019 روی commit فعلی، تطبیق یافته‌های تاریخی با کد جدید و تکمیل مستندات؛ سپس مرور باقی‌مانده امنیت و گردش‌کارها. تست‌ها در پایان و بدون اجرای Migration/Seeder یا تغییر دیتابیس تا زمان backup و تأیید.",
     "operational_runbook": "docs/operational-runbook-private-evidence-2026-11-18.md"
   },
   "application_audit": {
@@ -2494,7 +2520,10 @@
     "تأیید مقدار AMDB_SUPER_ADMIN_EMAIL در محیط استقرار.",
     "ادامه ممیزی رشته‌های سخت‌کدشده در بخش‌های باقیمانده؛ PR22 تا PR28 بخشی از Controllerها و Viewهای پروفایل، مدیریت هنرمند، واردسازی، نقش، اثر، کاربر، تنظیمات و Claim را چندزبانه کردند.",
     "ادامه ممیزی DB-010، DB-012 تا DB-015 و تعیین تکلیف قیدهای دیتابیسی DB-016 تا DB-019.",
-    "تعیین تکلیف سیستم اشتراک و جدول/مدل legacy مربوط به artist_claim_requests."
+    "تعیین تکلیف سیستم اشتراک و جدول/مدل legacy مربوط به artist_claim_requests.",
+    "تأیید مجوز تجاری Font Awesome Pro 7.3.1؛ هدر فایل Commercial License را اعلام می‌کند اما سند مجوز در این ممیزی تأیید نشده است.",
+    "تأیید نمایش مرورگری فونت‌های Inter، Vazirmatn و Noto Sans Arabic و پوشش کامل نویسه‌های پشتو.",
+    "تطبیق مجدد کامل یافته‌های امنیتی و دیتابیس قدیمی با commit فعلی؛ بعضی اسناد ممیزی هنوز به snapshotهای قبلی اشاره می‌کنند."
   ],
   "post_pr21_localization": {
     "date": "2026-11-18",
@@ -2699,5 +2728,253 @@
     "tests_executed": false,
     "migrations_executed": false,
     "local_database_modified": false
+  },
+  "technology_inventory": {
+    "audit_date": "2026-11-18",
+    "status": "static_manifest_layout_and_asset_inventory",
+    "source_repository": "https://github.com/armanaria111/amdb-laravel2",
+    "source_branch": "main",
+    "source_commit": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
+    "method": "بازبینی read-only فایل‌های composer.json/lock، package.json/lock، vite.config.js، resources/css/app.css، resources/views/layouts/app.blade.php و Git tree. هیچ نصب، build، تست یا اجرای برنامه انجام نشد.",
+    "php_runtime": {
+      "requirement": "^8.3",
+      "last_user_reported_local_version": "8.5.12",
+      "note": "نسخه محلی قبلاً توسط کاربر گزارش شده؛ در این نوبت روی سیستم محلی بررسی نشده است."
+    },
+    "php_dependencies": [
+      {
+        "name": "Laravel Framework",
+        "package": "laravel/framework",
+        "locked_version": "v13.43.0",
+        "purpose": "هسته برنامه، Routing، ORM، Migration، Auth و زیرساخت"
+      },
+      {
+        "name": "Laravel Scout",
+        "package": "laravel/scout",
+        "locked_version": "v11.10.0",
+        "purpose": "لایه یکپارچه‌سازی جستجو؛ driver و اتصال runtime جداگانه نیازمند بررسی است"
+      },
+      {
+        "name": "Laravel Tinker",
+        "package": "laravel/tinker",
+        "locked_version": "v3.0.2",
+        "purpose": "تعامل با برنامه از طریق REPL"
+      },
+      {
+        "name": "Livewire",
+        "package": "livewire/livewire",
+        "locked_version": "v4.4.8",
+        "constraint": "*",
+        "purpose": "کامپوننت‌های تعاملی PHP محور"
+      },
+      {
+        "name": "Spatie Activitylog",
+        "package": "spatie/laravel-activitylog",
+        "locked_version": "5.1.5",
+        "purpose": "ثبت رویدادها و تاریخچه فعالیت"
+      },
+      {
+        "name": "Spatie Media Library",
+        "package": "spatie/laravel-medialibrary",
+        "locked_version": "11.23.13",
+        "purpose": "مدیریت رسانه و فایل‌های وابسته به مدل"
+      },
+      {
+        "name": "Spatie Sitemap",
+        "package": "spatie/laravel-sitemap",
+        "locked_version": "8.2.0",
+        "purpose": "تولید Sitemap"
+      },
+      {
+        "name": "Spatie Translatable",
+        "package": "spatie/laravel-translatable",
+        "locked_version": "6.15.0",
+        "purpose": "مدیریت ویژگی‌های ترجمه‌پذیر"
+      }
+    ],
+    "php_dev_dependencies": [
+      {
+        "name": "Laravel Debugbar",
+        "package": "barryvdh/laravel-debugbar",
+        "locked_version": "v4.4.5",
+        "purpose": "ابزار عیب‌یابی توسعه"
+      },
+      {
+        "name": "Faker",
+        "package": "fakerphp/faker",
+        "locked_version": "v1.24.1",
+        "purpose": "تولید داده ساختگی برای توسعه/تست"
+      },
+      {
+        "name": "Laravel Pail",
+        "package": "laravel/pail",
+        "locked_version": "v1.2.7",
+        "purpose": "نمایش لاگ‌ها در محیط توسعه"
+      },
+      {
+        "name": "Laravel Pao",
+        "package": "laravel/pao",
+        "locked_version": "v1.1.5",
+        "purpose": "ابزار کمکی توسعه Laravel"
+      },
+      {
+        "name": "Laravel Pint",
+        "package": "laravel/pint",
+        "locked_version": "v1.32.3",
+        "purpose": "قالب‌بندی کد PHP"
+      },
+      {
+        "name": "Mockery",
+        "package": "mockery/mockery",
+        "locked_version": "1.6.15",
+        "purpose": "Mocking در تست‌ها"
+      },
+      {
+        "name": "Collision",
+        "package": "nunomaduro/collision",
+        "locked_version": "v8.9.5",
+        "purpose": "خروجی خطا و تست در CLI"
+      },
+      {
+        "name": "PHPUnit",
+        "package": "phpunit/phpunit",
+        "locked_version": "12.5.42",
+        "purpose": "چارچوب تست PHP"
+      }
+    ],
+    "frontend_dependencies": [
+      {
+        "name": "Tailwind CSS",
+        "package": "tailwindcss",
+        "locked_version": "4.3.3",
+        "kind": "devDependency",
+        "purpose": "utility-first CSS"
+      },
+      {
+        "name": "Tailwind Vite Plugin",
+        "package": "@tailwindcss/vite",
+        "locked_version": "4.3.3",
+        "kind": "devDependency",
+        "purpose": "اتصال Tailwind 4 به Vite"
+      },
+      {
+        "name": "Vite",
+        "package": "vite",
+        "locked_version": "8.3.5",
+        "kind": "devDependency",
+        "purpose": "dev server و build دارایی‌های فرانت‌اند"
+      },
+      {
+        "name": "Laravel Vite Plugin",
+        "package": "laravel-vite-plugin",
+        "locked_version": "3.2.0",
+        "kind": "devDependency",
+        "purpose": "یکپارچه‌سازی Vite با Laravel؛ افزونه fonts نیز از همین پکیج import شده"
+      },
+      {
+        "name": "Chart.js",
+        "package": "chart.js",
+        "locked_version": "4.6.1",
+        "kind": "dependency",
+        "purpose": "نمودارهای JavaScript؛ وجود در manifest تأیید است اما استفاده اجرایی آن در این بازبینی اثبات نشده"
+      },
+      {
+        "name": "Concurrently",
+        "package": "concurrently",
+        "locked_version": "10.0.6",
+        "kind": "devDependency",
+        "purpose": "اجرای هم‌زمان چند فرمان توسعه"
+      },
+      {
+        "name": "Laravel Multiplex",
+        "package": "@laravel/multiplex",
+        "locked_version": "0.4.5",
+        "kind": "optionalDependency",
+        "purpose": "وابستگی اختیاری؛ فعال بودن مسیر استفاده بررسی نشده"
+      }
+    ],
+    "build_configuration": {
+      "css_entry": "resources/css/app.css",
+      "js_entry": "resources/js/app.js",
+      "css_framework_import": "@import \"tailwindcss\";",
+      "content_sources": [
+        "resources/views",
+        "resources/js"
+      ],
+      "fonts_plugin": "bunny() from laravel-vite-plugin/fonts",
+      "configured_bunny_font": "Instrument Sans (400, 500, 600)",
+      "configured_bunny_font_usage": "در CSS اصلی font-family های Inter/Vazirmatn/Noto Sans Arabic اعمال می‌شوند؛ استفاده واقعی Instrument Sans در صفحه تأیید نشده."
+    },
+    "icon_library": {
+      "name": "Font Awesome Pro",
+      "version": "7.3.1",
+      "delivery": "فایل‌های محلی vendored، نه dependency ثبت‌شده در Composer یا npm",
+      "directory": "public/vendor/fontawesome/",
+      "css_file_count": 88,
+      "woff2_file_count": 38,
+      "stylesheets_loaded_in_layout": [
+        "fontawesome.css",
+        "brands.css",
+        "solid.css",
+        "regular.css",
+        "light.css",
+        "thin.css",
+        "duotone.css"
+      ],
+      "example_usage": "<i class=\"fa-solid fa-magnifying-glass\"></i>",
+      "license": "هدر فایل‌ها Commercial License را اعلام می‌کند؛ سند خرید/مجوز معتبر در مخزن بررسی‌شده یافت/تأیید نشد. پیش از انتشار عمومی، مجوز استفاده و توزیع این نسخه Pro باید بررسی شود."
+    },
+    "typography": [
+      {
+        "locale": "en",
+        "font": "Inter",
+        "direction": "ltr",
+        "source": "Google Fonts",
+        "css_selector": "html[lang=\"en\"] body"
+      },
+      {
+        "locale": "fa-AF",
+        "font": "Vazirmatn",
+        "direction": "rtl",
+        "source": "Google Fonts",
+        "css_selector": "html[lang=\"fa-AF\"] body"
+      },
+      {
+        "locale": "ps",
+        "font": "Noto Sans Arabic",
+        "direction": "rtl",
+        "source": "Google Fonts",
+        "css_selector": "html[lang=\"ps\"] body"
+      }
+    ],
+    "local_assets": {
+      "fontawesome_css_files": 88,
+      "fontawesome_woff2_files": 38,
+      "favicon": "public/favicon.ico",
+      "note": "فونت‌های UI از Google Fonts دریافت می‌شوند و فایل‌های فونت UI محلی در Git tree فعلی مشاهده نشدند؛ فایل‌های WOFF2 موجود مربوط به Font Awesome هستند."
+    },
+    "manifest_constraints": [
+      "محدوده Composer برای Laravel ^13.17 است و نسخه دقیق قفل‌شده v13.43.0 است.",
+      "محدوده PHP در Composer ^8.3 است.",
+      "محدوده Livewire در composer.json به‌صورت * است؛ بهتر است در بازبینی وابستگی‌ها محدودیت نسخه مشخص شود.",
+      "Font Awesome در package.json یا composer.json ثبت نشده و به‌صورت فایل محلی در public/vendor ارائه شده است."
+    ],
+    "verification": {
+      "manifests_and_lockfiles_reviewed": true,
+      "layout_and_css_reviewed": true,
+      "asset_tree_reviewed": true,
+      "runtime_installation_verified": false,
+      "vite_build_executed": false,
+      "browser_rendering_verified": false,
+      "chart_js_runtime_usage_verified": false,
+      "fontawesome_license_verified": false,
+      "tests_executed": false
+    },
+    "next_actions": [
+      "تأیید مجوز تجاری Font Awesome Pro 7.3.1 و نگهداری سند مجوز خارج از مخزن عمومی.",
+      "بررسی نمایش واقعی فونت‌های انگلیسی، دری و پشتو در مرورگر و پوشش نویسه‌های پشتو.",
+      "بررسی اینکه Chart.js و Laravel Scout در کدام صفحات/driverها واقعاً فعال هستند.",
+      "در صورت نیاز به نصب reproducible، ثبت نسخه Font Awesome و روش به‌روزرسانی/مجوز در مستندات پروژه."
+    ]
   }
 }
