@@ -1,3 +1,10 @@
+## 2026-11-18 — PR38: ساده‌سازی Secretهای اجرای Migration آزمایشی
+- PR38 ادغام شد: https://github.com/armanaria111/amdb-laravel2/pull/38
+- Secret غیرضروری `AMDB_STAGING_APP_KEY` از Workflow حذف شد؛ اجرای Migration فقط به `AMDB_STAGING_DB_URL` نیاز دارد.
+- راهنمای موبایل به‌روزرسانی شد. APP_KEY جداگانه و فقط برای اجرای وب‌سایت روی Render تنظیم خواهد شد.
+- آخرین commit مخزن اصلی: `a15cafe1f3c216e50f561d05ad7609ca8066770f`.
+- هیچ تست یا Migration اجرا نشده است.
+
 ## 2026-11-18 — ادغام PR37: اجرای امن Migration از GitHub Actions
 - PR37 ادغام شد: https://github.com/armanaria111/amdb-laravel2/pull/37
 - Workflow دستی `.github/workflows/prepare-staging-database.yml` اضافه شد تا Migrationهای Laravel روی دیتابیس آزمایشی Enzonic اجرا شوند؛ این روش با محدودیت نبود Shell/SSH در Render Free سازگار است.
