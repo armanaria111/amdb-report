@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "3db6963f80e6a46d5e96ac469b59c3d3dea35de0",
+    "latest_main_commit": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
     "latest_main_commit_verified_on": "2026-11-18"
   },
   "languages": [
@@ -430,7 +430,8 @@
       "بازبینی ایستای ۲۵ فایل Controller و Command فعال انجام شد؛ در خطوط بررسی‌شده متن کاربری فارسی/عربی سخت‌کدشده پیدا نشد. موارد باقی‌مانده در چند View عمدتاً comment یا جداکننده‌های متنی بودند.",
       "آخرین commit main پس از PR32: 48e4d2eecf29d53738c71a6c2931261952cf9e32. هیچ تست، Migration، Seeder یا عملیات دیتابیس محلی اجرا نشد.",
       "PR33 با موفقیت ادغام شد: ساختار نامعتبر JSON object در default_names هر سه فایل admin-settings.php به آرایه associative معتبر PHP تبدیل شد و دو پیام پاسخ SiteSettingController چندزبانه شدند.",
-      "آخرین commit main پس از PR33: 3db6963f80e6a46d5e96ac469b59c3d3dea35de0؛ هیچ تست، PHP command، Migration، Seeder یا تغییر دیتابیس محلی انجام نشد."
+      "آخرین commit main پس از PR33: 3db6963f80e6a46d5e96ac469b59c3d3dea35de0؛ هیچ تست، PHP command، Migration، Seeder یا تغییر دیتابیس محلی انجام نشد.",
+      "بازبینی تطبیقی جدید: شاخه main فعلی روی commit 8b939a4325a9017ffc06678032e5f23b80e9fc94 است؛ شاخه قدیمی catalog/company-profiles-public-ids نسبت به main، ۶۶ commit عقب و ۲۴۱ commit جلو است و ادغام مستقیم آن امن نیست. ساختار کاتالوگ شرکت‌ها، مسیرهای عمومی و Migration شرکت‌ها هم‌اکنون در main موجودند. شاخه security/stage4-hardening نیز ۱۵۴ commit از main عقب است؛ بخش‌هایی از hardening امنیتی از جمله کنترل نقش‌های حساس و فرمان انتقال مدارک خصوصی در main حاضرند. این بررسی نقطه‌ای است و به‌معنای ممیزی کامل یا اجرای تست نیست."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
