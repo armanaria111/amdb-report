@@ -6,7 +6,7 @@
     "abbreviation": "AMDB",
     "domain": "https://amdb.af",
     "repository": "https://github.com/armanaria111/amdb-report",
-    "framework": "Laravel 13.39.0",
+    "framework": "Laravel 13 (composer.lock: v13.43.0; local runtime last reported by user: 13.39.0)",
     "php": "8.5.12",
     "database": "MySQL",
     "development_environment": "Windows 10 + Laragon 8",
@@ -1517,7 +1517,7 @@
   },
   "database_schema_audit": {
     "audit_date": "2026-11-17",
-    "status": "completed_static_source_audit",
+    "status": "historical_snapshot_pending_full_reaudit",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "branch": "main",
     "commit": "a56e92080a227b9e4c531c9edf2e55a02e6946ab",
@@ -1583,7 +1583,9 @@
       "وجود Migration در مخزن به معنی اجراشدن آن روی دیتابیس نیست.",
       "قواعد اعتبارسنجی runtime و رفتار هم‌زمانی خارج از آنچه در فایل‌های بررسی‌شده دیده شد، باید در مرحله‌های بعدی تست شوند."
     ],
-    "safety": "هیچ دستور migrate اجرا نشد؛ هیچ جدول، رکورد یا فایل سورس اصلی تغییر نکرد."
+    "safety": "هیچ دستور migrate اجرا نشد؛ هیچ جدول، رکورد یا فایل سورس اصلی تغییر نکرد.",
+    "latest_main_commit_seen": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
+    "note": "این سند در ابتدا بر اساس snapshot قدیمی‌تر تهیه شده است؛ PR34 بعداً قیدهای CHECK امتیاز را اضافه کرده است. یافته‌های دیگر تا زمان ممیزی کامل روی latest_main_commit_seen باید تاریخی/نیازمند تطبیق تلقی شوند."
   },
   "security_audit": {
     "audit_date": "2026-11-17",
