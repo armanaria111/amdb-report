@@ -1498,7 +1498,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
     "report_document": "https://github.com/armanaria111/amdb-report/blob/main/docs/stage-4-authorization-and-workflow-audit-2026-11-18.md",
-    "next_step": "تکمیل ممیزی ایستای احراز هویت و گردش‌کارها؛ آماده‌سازی طرح اصلاح PRIV-002، AUTH-004/AUTH-006، AUTH-005 و WF-003/WF-005. تست‌ها فقط در مرحله نهایی."
+    "next_step": "تکمیل ممیزی ایستای چندزبانگی، احراز هویت و گردش‌کار؛ سپس آماده‌سازی طرح اصلاح مرحله‌ای PRIV-002، AUTH-004/AUTH-006، WF-003/WF-005 و I18N-003/I18N-004. تست‌ها فقط در مرحله نهایی."
   },
   "application_audit": {
     "audit_date": "2026-11-18",
@@ -1597,6 +1597,22 @@
         "title": "تست مستقل workflow درخواست حرفه‌ای وجود ندارد",
         "detail": "در فایل‌های تست فعلی، Feature test مستقل برای submit/revision/approve/reject و دسترسی امن به مدرک حرفه‌ای مشاهده نشد.",
         "remediation": "افزودن پوشش در مرحله نهایی؛ تست اجرا نشده است."
+      },
+      {
+        "id": "I18N-003",
+        "severity": "medium",
+        "status": "confirmed_static",
+        "title": "تنظیم زبان پیش‌فرض و زبان‌های فعال در اجرای سایت اعمال نمی‌شود",
+        "detail": "SiteSettingController مقادیر default_locale و enabled_locales را ذخیره می‌کند؛ SetLocale همیشه session locale با fallback en را می‌خواند، LanguageController فهرست ثابت سه زبان را قبول می‌کند و Layout هر سه لینک را بدون توجه به تنظیمات نشان می‌دهد.",
+        "remediation": "منبع واحد زبان‌های فعال/پیش‌فرض؛ اتصال Middleware، LanguageController و Layout به تنظیمات و fallback معتبر."
+      },
+      {
+        "id": "I18N-004",
+        "severity": "medium",
+        "status": "confirmed_architecture_mismatch",
+        "title": "متن‌های رابط چندزبانه داخل View و Controller hard-code شده‌اند",
+        "detail": "نمونه‌ها: searchLabels در layouts/app.blade.php، آرایه texts در artists/show.blade.php و پیام‌های مستقیم فارسی در Controllerها؛ برخی پیام‌ها mojibake هستند.",
+        "remediation": "انتقال متن‌ها به lang/en، lang/fa-AF و lang/ps و استفاده از کلید ترجمه."
       }
     ],
     "verified_controls": [
@@ -1609,7 +1625,8 @@
       "برای en/fa-AF/ps خانواده فونت مجزا در CSS تعریف شده؛ پوشش واقعی پشتو هنوز باید در مرورگر بررسی شود.",
       "تأیید درخواست حرفه‌ای از transaction و lockForUpdate استفاده می‌کند؛ عملیات revision و reject هنوز فاقد همین حفاظت اتمیک هستند.",
       "ارسال درخواست حرفه‌ای کاربر با قفل ردیف User از ثبت هم‌زمان چند درخواست باز جلوگیری می‌کند.",
-      "مدارک درخواست حرفه‌ای در وضعیت فعلی روی public disk ذخیره می‌شوند؛ این یک ریسک حریم خصوصی تأییدشده است."
+      "مدارک درخواست حرفه‌ای در وضعیت فعلی روی public disk ذخیره می‌شوند؛ این یک ریسک حریم خصوصی تأییدشده است.",
+      "CSS برای en/fa-AF/ps خانواده فونت جدا تعریف می‌کند؛ Noto Sans Arabic برای پشتو نیازمند تأیید پوشش نویسه و مرورگر است."
     ],
     "pr7_status": {
       "number": 7,
