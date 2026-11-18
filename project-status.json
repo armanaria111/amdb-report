@@ -18,7 +18,9 @@
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
-    "report_repository": "https://github.com/armanaria111/amdb-report"
+    "report_repository": "https://github.com/armanaria111/amdb-report",
+    "latest_main_commit": "d2cf4ce3bdbfca90eb5b9243450385a82197a163",
+    "latest_main_commit_verified_on": "2026-11-18"
   },
   "languages": [
     {
@@ -363,7 +365,14 @@
       "در PR8 حفاظت مجوزهای حساس در ساخت/ویرایش/واگذاری نقش سفارشی و ذخیره private مدارک جدید بررسی شد؛ رویدادهای Log::notice برای تغییرات حساس اضافه شدند.",
       "سه تست Feature برای منع ساخت، ویرایش و واگذاری نقش دارای مجوز حساس توسط non-super-admin اضافه شد؛ هیچ تستی اجرا نشد.",
       "فرمان amdb:secure-professional-evidence با حالت پیش‌فرض dry-run اضافه شده اما اجرا نشده است؛ دیتابیس و فایل‌های محلی تغییر نکردند.",
-      "پس از افزودن ثبت رویدادهای امنیتی و سه تست مجوز نقش سفارشی، head شاخه PR8 به f548c0bc6a0cec05f625f263aec9e19778d91eb3 به‌روزرسانی شد؛ PR همچنان Draft و ادغام‌نشده است."
+      "پس از افزودن ثبت رویدادهای امنیتی و سه تست مجوز نقش سفارشی، head شاخه PR8 به f548c0bc6a0cec05f625f263aec9e19778d91eb3 به‌روزرسانی شد؛ PR همچنان Draft و ادغام‌نشده است.",
+      "PR8 با موفقیت در main ادغام شد؛ merge commit e0f503ea32824232c6ece8b06bbf1197f39f84e2. سخت‌سازی AUTH-004، خصوصی‌سازی آپلودهای جدید مدارک، Rate limit، قفل workflowها، مالکیت credit و تنظیمات locale وارد main شدند.",
+      "PR7 قدیمی به‌دلیل انشعاب از main قدیمی بسته شد؛ کاتالوگ شرکت‌ها روی main پس از PR8 در PR10 بازسازی و با موفقیت ادغام شد؛ merge commit 1c823df9eec360a0ebbec36a624239dba8703beb.",
+      "PR10 Routeها و لینک‌های PR6 برای تغییر حرفه هنرمند را حفظ کرد و کاتالوگ شرکت‌ها، شناسه co، روابط title-company، جستجو و ترجمه‌ها را افزود.",
+      "در PR10 امکان نمایش فهرست شرکت‌های soft-deleted و restore با companies.manage اضافه شد؛ لوگوی قبلی پس از commit موفق حذف می‌شود و در شکست DB فایل جدید پاک می‌شود.",
+      "PR11 فیلتر آثار صفحه شرکت را به published + active content type محدود کرد؛ merge commit d2cf4ce3bdbfca90eb5b9243450385a82197a163.",
+      "PR9 به‌عنوان شاخه واسط بسته شد و PR7 و PR9 هر دو با PR10 جایگزین شدند.",
+      "هیچ تست، Migration یا Seeder اجرا نشد؛ دیتابیس amdbl و فایل‌های محلی دست‌نخورده ماندند. فرمان انتقال legacy evidence نیز اجرا نشده است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -427,8 +436,8 @@
     },
     {
       "title": "استفاده از شناسه عمومی در URLها",
-      "state": "partially_implemented",
-      "detail": "PR شماره ۷ انتقال URLهای هنرمند به شناسه ar را پیاده‌سازی کرده اما هنوز ادغام نشده است؛ وضعیت main باید پس از ادغام و QA اصلاح شود."
+      "state": "partially_implemented_unverified",
+      "detail": "PR10 در main ادغام شد؛ Route عمومی هنرمند از ar public_id و شرکت‌ها از co public_id استفاده می‌کنند. آثار همچنان در Route عمومی با slug هستند و تست runtime اجرا نشده است."
     },
     {
       "title": "جداول و مدل‌های قدیمی Claim",
@@ -482,18 +491,28 @@
     },
     {
       "title": "Rate limiting ورود",
-      "state": "needs_review",
-      "detail": "در Route و Controller ورود throttle یا RateLimiter اختصاصی پیدا نشد."
+      "state": "implemented_unverified",
+      "detail": "RateLimiter بر اساس ایمیل نرمال‌شده و IP در PR8 وارد main شده؛ تست runtime اجرا نشده است."
     },
     {
       "title": "سخت‌سازی نقش‌های حساس و خصوصی‌سازی مدارک (PR #8)",
-      "state": "in_draft_pr",
-      "detail": "کد AUTH-004 و PRIV-002 به‌همراه AUTH-006، WF-003، WF-005 و I18N-003 در PR8 آماده بازبینی است؛ PR Draft است و تست‌ها اجرا نشده‌اند."
+      "state": "implemented_unverified",
+      "detail": "PR8 با موفقیت در main ادغام شد؛ انتقال مدارک قدیمی و تست جامع هنوز باقی است."
     },
     {
       "title": "انتقال مدارک حرفه‌ای قدیمی از public به private",
       "state": "pending_backup_and_manual_apply",
       "detail": "فرمان dry-run پیش‌فرض اضافه شده؛ اجرای --apply فقط پس از پشتیبان‌گیری دیتابیس و storage/app/public و بررسی خروجی مجاز است. هیچ فایلی منتقل نشده است."
+    },
+    {
+      "title": "کاتالوگ شرکت‌ها و شناسه co",
+      "state": "implemented_unverified",
+      "detail": "PR10 در main ادغام شد: کاتالوگ شرکت، ترجمه سه‌زبانه، شناسه co، روابط چندنقشی با آثار، جستجو و پنل مدیریت. Migration محلی اجرا نشده و تست‌ها اجرا نشده‌اند."
+    },
+    {
+      "title": "فیلتر آثار شرکت بر اساس فعال بودن نوع محتوا",
+      "state": "implemented_unverified",
+      "detail": "PR11 در main ادغام شد؛ تست Feature نوشته شده اما اجرا نشده است."
     }
   ],
   "known_issues": [
@@ -547,15 +566,15 @@
     },
     {
       "title": "بازبینی و ادغام سخت‌سازی امنیتی PR شماره ۸",
-      "detail": "PR8 در شاخه security/stage4-hardening به‌صورت Draft باز است؛ AUTH-004، PRIV-002 و اصلاحات همراه در کد شاخه آماده بازبینی‌اند، اما تست‌ها اجرا نشده و PR ادغام نشده است."
+      "detail": "PR8 در main ادغام شد (merge commit e0f503ea32824232c6ece8b06bbf1197f39f84e2). تست‌ها هنوز اجرا نشده‌اند."
     },
     {
       "title": "انتقال مدارک قدیمی درخواست حرفه‌ای",
-      "detail": "فایل‌هایی که پیش‌تر روی public disk ذخیره شده‌اند تا اجرای کنترل‌شده amdb:secure-professional-evidence --apply پس از backup ممکن است از URL عمومی در دسترس باشند؛ فرمان هنوز اجرا نشده است."
+      "detail": "آپلودهای جدید private هستند؛ legacy evidence هنوز روی public disk ممکن است در دسترس باشد. فرمان amdb:secure-professional-evidence --apply فقط پس از backup و بررسی dry-run اجرا شود؛ تا این لحظه اجرا نشده است."
     },
     {
       "title": "تست‌های حریم خصوصی مدارک حرفه‌ای",
-      "detail": "تست‌های ذخیره private، دانلود با/بدون مجوز و dry-run/انتقال legacy evidence باید پیش از ادغام نهایی اضافه و در مرحله تست نهایی اجرا شوند."
+      "detail": "تست‌های ذخیره private، دانلود با/بدون مجوز و dry-run/انتقال legacy evidence هنوز باید تکمیل و در مرحله تست نهایی اجرا شوند."
     }
   ],
   "milestones": [
@@ -732,6 +751,10 @@
     {
       "date": "2026-11-18",
       "text": "شاخه security/stage4-hardening پس از بازبینی ایستا در PR شماره ۸ به‌صورت Draft باز شد. AUTH-004 با کنترل مجوزهای حساس در ساخت/ویرایش/واگذاری نقش و ثبت Log::notice تقویت شد؛ سه تست Feature جدید نوشته شد اما اجرا نشد. PRIV-002 برای آپلودهای جدید به private/local منتقل شد و فرمان dry-run پیش‌فرض انتقال مدارک قدیمی اضافه شد؛ فرمان اجرا نشده و فایل‌های public قدیمی تا انتقال کنترل‌شده همچنان ریسک دارند. AUTH-006، WF-003، WF-005 و I18N-003 نیز در شاخه اصلاح شده‌اند. هیچ Migration، Seeder، تست، عملیات دیتابیس یا انتقال فایل اجرا نشد."
+    },
+    {
+      "date": "2026-11-18",
+      "text": "PR8 امنیت و مدارک خصوصی با e0f503ea32824232c6ece8b06bbf1197f39f84e2 ادغام شد؛ PR10 کاتالوگ شرکت‌ها روی main به‌روز پس از PR8 با 1c823df9eec360a0ebbec36a624239dba8703beb ادغام شد؛ PR11 فیلتر نوع محتوای فعال با d2cf4ce3bdbfca90eb5b9243450385a82197a163 ادغام شد. PR7 و PR9 به‌عنوان شاخه‌های قدیمی بسته شدند. هیچ تست/Migration/Seeder اجرا نشد؛ دیتابیس محلی تغییر نکرد و انتقال legacy evidence هنوز pending است."
     }
   ],
   "architecture": {
@@ -1531,16 +1554,31 @@
     }
   },
   "current_work": {
-    "stage": "Stage 4 — security, workflow and localization hardening",
-    "status": "draft_pr_open_static_review_pending",
+    "stage": "پس از ادغام سخت‌سازی امنیتی و کاتالوگ شرکت‌ها — تکمیل انتقال legacy evidence و اعتبارسنجی نهایی",
+    "status": "merged_pending_final_validation_and_legacy_evidence_migration",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
-    "working_branch": "security/stage4-hardening",
-    "latest_branch_commit": "f548c0bc6a0cec05f625f263aec9e19778d91eb3",
-    "pull_request": 8,
-    "report_document": "https://github.com/armanaria111/amdb-report/blob/main/docs/stage-4-hardening-pr-8-static-review-2026-11-18.md",
-    "next_step": "ادامه بازبینی ایستای PR شماره ۸، تکمیل موارد باقی‌مانده چندزبانه/امنیتی و آماده‌سازی برنامه انتقال مدارک قدیمی. هیچ تست یا فرمان انتقال اجرا نشود تا مرحله نهایی و تأیید کاربر.",
-    "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/8"
+    "latest_main_commit": "d2cf4ce3bdbfca90eb5b9243450385a82197a163",
+    "merged_pull_requests": [
+      {
+        "number": 8,
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/8",
+        "merge_commit": "e0f503ea32824232c6ece8b06bbf1197f39f84e2",
+        "status": "merged"
+      },
+      {
+        "number": 10,
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/10",
+        "merge_commit": "1c823df9eec360a0ebbec36a624239dba8703beb",
+        "status": "merged"
+      },
+      {
+        "number": 11,
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/11",
+        "merge_commit": "d2cf4ce3bdbfca90eb5b9243450385a82197a163",
+        "status": "merged"
+      }
+    ],
+    "next_step": "تکمیل بازبینی ایستای یافته‌های باقی‌مانده، بررسی AMDB_SUPER_ADMIN_EMAIL در محیط استقرار، تهیه backup و dry-run انتقال مدارک قدیمی؛ سپس اجرای تست جامع در انتهای کار. هیچ تست یا Migration محلی هنوز اجرا نشده است."
   },
   "application_audit": {
     "audit_date": "2026-11-18",
@@ -1562,26 +1600,26 @@
       {
         "id": "AUTH-004",
         "severity": "high",
-        "status": "remediated_in_branch_pending_review",
+        "status": "remediated_in_main_pending_runtime_test",
         "title": "امکان دور زدن مرز مدیر ارشد با نقش سفارشی پرمجوز",
         "detail": "کاربر دارای roles.manage و users.manage می‌تواند نقش سفارشی با مجوزهای حساس یا همه مجوزها بسازد و آن را به خود اختصاص دهد؛ کنترل فعلی فقط slug برابر admin را برای غیرمدیر ارشد محدود می‌کند. admin.area نیز نقش سفارشی غیر artist را مسدود نمی‌کند.",
-        "remediation": "در PR8، StoreRoleRequest/UpdateRoleRequest/RolePolicy و UserController مجوزهای حساس را برای non-super-admin مسدود می‌کنند؛ واگذاری نقش‌های حساس فقط برای super-admin است. رویدادهای لاگ برنامه اضافه و سه تست Feature نوشته شده‌اند؛ اجرا نشده‌اند."
+        "remediation": "PR8 با موفقیت در main ادغام شد؛ مجوزهای حساس در ساخت/ویرایش/حذف نقش و واگذاری آن کنترل می‌شوند و تغییرات حساس Log::notice دارند. تست‌ها نوشته شده اما اجرا نشده‌اند."
       },
       {
         "id": "AUTH-005",
         "severity": "medium",
-        "status": "remediated_in_branch_pending_review",
+        "status": "remediated_in_main_pending_runtime_test",
         "title": "شرط مالکیت پروفایل در درخواست عوامل یکپارچه نیست",
         "detail": "برخی مسیرهای UserSubmissionController و تأیید credit فقط وجود رابطه user/artist را بررسی می‌کنند و is_owner=true را الزام نمی‌کنند؛ در حالی که مسیر ویرایش پروفایل و درخواست تغییر حرفه مالکیت را می‌سنجند.",
-        "remediation": "اعمال شرط wherePivot/is_owner در ایجاد، ویرایش، resubmit و moderation درخواست credit."
+        "remediation": "PR8 شرط مالکیت is_owner=true را در مسیرهای درخواست credit اعمال کرد؛ تست runtime اجرا نشده است."
       },
       {
         "id": "ID-003",
         "severity": "medium",
-        "status": "confirmed_static",
+        "status": "remediated_in_main_pending_runtime_test",
         "title": "Route عمومی هنرمند هنوز از شناسه داخلی استفاده می‌کند",
         "detail": "Artist route از implicit model binding استفاده می‌کند و Artist مدل getRouteKeyName یا binding سفارشی public_id ندارد؛ public_id در صفحه نمایش داده می‌شود اما URL همچنان بر id متکی است.",
-        "remediation": "استفاده یکپارچه از ar public_id در route binding و لینک‌ها با سازگاری برای URLهای قدیمی.",
+        "remediation": "PR10 در main ادغام شد؛ Route عمومی هنرمند و لینک‌های مربوط از ar public_id استفاده می‌کنند. سازگاری URLهای قدیمی باید در QA نهایی بررسی شود.",
         "candidate_fix_in_pr7": "PR7 route را به {artist:public_id} تغییر داده و SearchController لینک ar public_id می‌سازد؛ تا زمان ادغام، main هنوز این اصلاح را ندارد."
       },
       {
@@ -1595,42 +1633,42 @@
       {
         "id": "TEST-002",
         "severity": "medium",
-        "status": "remediated_in_branch_pending_execution",
+        "status": "remediated_in_main_pending_execution",
         "title": "انتظار تست Seeder با ماتریس نقش artist ناسازگار است",
         "detail": "RoleManagementTest وجود artists.claim را در مجوزهای نهایی artist انتظار دارد؛ RolePermissionSeeder این permission را ایجاد نمی‌کند و در ماتریس artist قرار نمی‌دهد و pivotهای قبلی را پاک می‌کند. تست اجرا نشده است.",
-        "remediation": "در شاخه security/stage4-hardening انتظار artists.claim از تست حذف شد، چون این permission در ماتریس جاری و مسیر محصول فعال نیست؛ تست اجرا نشده است."
+        "remediation": "انتظار قدیمی artists.claim در RoleManagementTest با ماتریس فعلی Seeder هماهنگ شد؛ تست اجرا نشده است."
       },
       {
         "id": "PRIV-002",
         "severity": "high",
-        "status": "partially_remediated_in_branch_legacy_files_pending_migration",
+        "status": "partially_remediated_in_main_legacy_files_pending_migration",
         "title": "مدرک درخواست حرفه‌ای روی دیسک عمومی ذخیره می‌شود",
         "detail": "ProfessionalRequestController فایل را روی disk public ذخیره می‌کند؛ filesystems.php آن را public visibility و symlink public/storage دارد؛ صفحه مدیریت asset(storage/...) مستقیم می‌سازد و Route دانلود احراز هویت‌شده وجود ندارد.",
-        "remediation": "آپلودهای جدید در شاخه security/stage4-hardening به local/private منتقل شده‌اند؛ Route دانلود با submissions.manage اضافه شده و فرمان dry-run پیش‌فرض برای انتقال فایل‌های قدیمی public نوشته شده است. تا اجرای فرمان پس از backup، فایل‌های legacy ممکن است همچنان عمومی باشند."
+        "remediation": "آپلودهای جدید private هستند و Route دانلود مجاز اضافه شده؛ فرمان انتقال legacy evidence هنوز اجرا نشده و فایل‌های قدیمی ممکن است از URL عمومی در دسترس باشند."
       },
       {
         "id": "AUTH-006",
         "severity": "medium_high",
-        "status": "remediated_in_branch_pending_review",
+        "status": "remediated_in_main_pending_runtime_test",
         "title": "ورود فاقد Rate Limit اختصاصی است",
         "detail": "AuthController::login و POST /login در routes/web.php محدودسازی تلاش‌های ناموفق یا throttle اختصاصی ندارند.",
-        "remediation": "RateLimiter بر اساس IP و شناسه حساب، با تست lockout و reset."
+        "remediation": "RateLimiter ورود در PR8 وارد main شد؛ تست runtime اجرا نشده است."
       },
       {
         "id": "WF-005",
         "severity": "medium",
-        "status": "remediated_in_branch_pending_review",
+        "status": "remediated_in_main_pending_runtime_test",
         "title": "کاربر دارای پروفایل می‌تواند درخواست حرفه‌ای جدید غیرقابل تأیید ثبت کند",
         "detail": "ProfessionalRequestController::create/store وجود artist profile را کنترل نمی‌کند، اما Admin ProfessionalRequestController::approve در صورت وجود اتصال قبلی کاربر را از تأیید منع می‌کند.",
-        "remediation": "در GET/POST درخواست حرفه‌ای، کاربر دارای پروفایل به گردش‌کار تغییر حرفه هدایت شود."
+        "remediation": "هدایت حساب متصل به پروفایل به workflow تغییر حرفه در PR8 وارد main شد؛ تست runtime اجرا نشده است."
       },
       {
         "id": "WF-003",
         "severity": "medium",
-        "status": "remediated_in_branch_pending_review",
+        "status": "remediated_in_main_pending_runtime_test",
         "title": "revision/reject درخواست حرفه‌ای فاقد lock/transaction است",
         "detail": "approve تراکنش و lockForUpdate دارد اما requestRevision و reject فقط وضعیت مدل بارگذاری‌شده را بررسی و مستقیم update می‌کنند.",
-        "remediation": "اجرای هر دو عملیات در transaction با lockForUpdate و بررسی مجدد status."
+        "remediation": "revision/reject با transaction و lockForUpdate در PR8 وارد main شد؛ تست runtime اجرا نشده است."
       },
       {
         "id": "TEST-003",
@@ -1643,18 +1681,18 @@
       {
         "id": "I18N-003",
         "severity": "medium",
-        "status": "remediated_in_branch_pending_review",
+        "status": "remediated_in_main_pending_runtime_test",
         "title": "تنظیم زبان پیش‌فرض و زبان‌های فعال در اجرای سایت اعمال نمی‌شود",
         "detail": "SiteSettingController مقادیر default_locale و enabled_locales را ذخیره می‌کند؛ SetLocale همیشه session locale با fallback en را می‌خواند، LanguageController فهرست ثابت سه زبان را قبول می‌کند و Layout هر سه لینک را بدون توجه به تنظیمات نشان می‌دهد.",
-        "remediation": "منبع واحد زبان‌های فعال/پیش‌فرض؛ اتصال Middleware، LanguageController و Layout به تنظیمات و fallback معتبر."
+        "remediation": "LocaleSettings و زبان‌های فعال/پیش‌فرض و تنظیمات نام/توضیح سایت در PR8 وارد main شدند؛ بررسی مرورگری باقی است."
       },
       {
         "id": "I18N-004",
         "severity": "medium",
-        "status": "partially_remediated_in_branch_pending_review",
+        "status": "partially_remediated_in_main_pending_review",
         "title": "متن‌های رابط چندزبانه داخل View و Controller hard-code شده‌اند",
         "detail": "نمونه‌ها: آرایه texts در artists/show.blade.php و پیام‌های مستقیم فارسی در Controllerها؛ متن‌های جستجوی Layout از قبل از lang/{locale}/search.php استفاده می‌کردند و جزو این یافته نیستند. آرایه صفحه عمومی هنرمند در شاخه کاری به فایل‌های ترجمه منتقل شده است.",
-        "remediation": "انتقال متن‌ها به lang/en، lang/fa-AF و lang/ps و استفاده از کلید ترجمه."
+        "remediation": "متون صفحه عمومی هنرمند در PR8 به lang/en، lang/fa-AF و lang/ps منتقل شدند؛ سایر متن‌های hard-coded نیازمند ممیزی تکمیلی‌اند."
       },
       {
         "id": "SEC-007",
@@ -1742,20 +1780,17 @@
       "pull_request": {
         "number": 8,
         "url": "https://github.com/armanaria111/amdb-laravel2/pull/8",
-        "title": "Harden role privileges and secure professional evidence",
-        "branch": "security/stage4-hardening",
-        "base": "main",
-        "base_commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
-        "latest_branch_commit": "2fca5e9d88cc450675bbde4545f3fd594b8df02e",
-        "state": "open",
-        "draft": true,
-        "ahead_by": 37,
-        "behind_by": 0
+        "state": "merged",
+        "draft": false,
+        "merged": true,
+        "merge_commit": "e0f503ea32824232c6ece8b06bbf1197f39f84e2"
       },
       "latest_commit": "f548c0bc6a0cec05f625f263aec9e19778d91eb3",
       "audit_log_added": true,
       "additional_authorization_tests_added": 3,
-      "legacy_evidence_command_executed": false
+      "legacy_evidence_command_executed": false,
+      "merged_to_main": true,
+      "merge_commit": "e0f503ea32824232c6ece8b06bbf1197f39f84e2"
     },
     "branch_stats": {
       "ahead_by": 40,
@@ -1784,13 +1819,13 @@
     "branch": "catalog/company-profiles-public-ids",
     "head_commit": "e8b6118391730d198345034ef1f8ff6c090cb2c6",
     "main_commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
-    "ahead_by": 66,
-    "behind_by": 45,
+    "ahead_by": 0,
+    "behind_by": 0,
     "changed_files": 34,
     "merge_base": "c08b7f7b9bccf1fb19bc022d0deb54d10ec8476c",
-    "mergeable": false,
+    "mergeable": true,
     "mergeable_state": "dirty",
-    "review_status": "static_review_extended_conflicts_mapped_pending_branch_refresh",
+    "review_status": "merged_to_main_with_follow_up_fix",
     "verified": [
       "Migration شرکت‌ها افزایشی است و companies، company_translations و title_companies را ایجاد می‌کند؛ داده/جدول‌های موجود را حذف یا بازسازی نمی‌کند.",
       "public_id شرکت با پیشوند co و قید unique در مدل تولید می‌شود.",
@@ -1803,62 +1838,62 @@
       {
         "id": "CAT-001",
         "severity": "low",
-        "status": "needs_fix",
+        "status": "fixed_in_pr11_merged",
         "title": "صفحه شرکت نوع محتوای غیرفعال را از فهرست آثار حذف نمی‌کند",
         "detail": "CompanyController::show فقط is_published را بررسی می‌کند؛ MovieController::show فعال بودن contentType را نیز الزام می‌کند.",
-        "remediation": "در Query آثار شرکت شرط active بودن contentType افزوده شود."
+        "remediation": "PR11 فیلتر active بودن contentType را به Query آثار صفحه شرکت اضافه کرد؛ تست Feature نوشته شد اما اجرا نشده است."
       },
       {
         "id": "I18N-001",
         "severity": "low",
-        "status": "needs_fix",
+        "status": "open_needs_separate_design",
         "title": "نام کشور در صفحه شرکت ترجمه نمی‌شود",
-        "detail": "companies.show country.name پایه را نمایش می‌دهد، در حالی که Country و CountryTranslation ترجمه‌های زبان را پشتیبانی می‌کنند.",
+        "detail": "صفحه شرکت هنوز countries.name پایه را نمایش می‌دهد. بررسی مجدد سورس فعلی CountryTranslation/model/table ترجمه کشور را پیدا نکرد؛ راه‌حل نیازمند طراحی افزایشی مستقل است.",
         "remediation": "country.translations بارگذاری و بر اساس locale نمایش داده شود."
       },
       {
         "id": "FILE-001",
         "severity": "low",
-        "status": "needs_fix",
+        "status": "mitigated_in_pr10_merged",
         "title": "لوگوی قبلی پیش از commit تراکنش حذف می‌شود",
         "detail": "Admin CompanyController فایل قدیمی را قبل از موفقیت ذخیره فایل جدید و commit دیتابیس حذف می‌کند؛ شکست عملیات می‌تواند رکورد را به مسیر فایل حذف‌شده متصل نگه دارد.",
-        "remediation": "حذف فایل قدیمی پس از commit موفق و پاکسازی فایل جدید در صورت شکست."
+        "remediation": "آپلود لوگوی جدید ابتدا انجام می‌شود، transaction دیتابیس commit می‌شود و سپس لوگوی قبلی حذف می‌شود؛ در شکست transaction فایل جدید پاک می‌شود."
       },
       {
         "id": "CAT-002",
         "severity": "low_medium",
-        "status": "confirmed_static",
+        "status": "fixed_in_pr10_merged",
         "title": "شرکت soft delete می‌شود اما مسیر بازیابی در پنل وجود ندارد",
         "detail": "Company از SoftDeletes استفاده می‌کند و destroy فقط delete را اجرا می‌کند؛ فهرست مدیریت رکوردهای soft-deleted را پنهان می‌کند و Route/صفحه restore در PR دیده نشد. رکورد فیزیکی باقی می‌ماند اما بازیابی از UI ممکن نیست.",
-        "remediation": "افزودن فهرست حذف‌شده‌ها و restore با companies.manage، یا روشن‌کردن اینکه حذف از دید محصول غیرقابل‌بازگشت است."
+        "remediation": "فیلتر with_trashed و Route restore با companies.manage در PR10 اضافه شد؛ تست Feature نوشته شده و اجرا نشده است."
       },
       {
         "id": "CAT-003",
         "severity": "low",
-        "status": "needs_product_decision",
+        "status": "open_product_decision",
         "title": "سیاست ساخت slug برای نام‌های غیرلاتین روشن نیست",
-        "detail": "uniqueSlug از Str::slug بدون locale صریح استفاده می‌کند و خروجی خالی را به company تبدیل می‌کند؛ رفتار نام‌های دری/پشتو و transliteration کنترل‌شده پوشش داده نشده است.",
+        "detail": "شناسه عمومی co در URL عمومی استفاده می‌شود؛ slug داخلی برای نام‌های غیرلاتین هنوز سیاست transliteration اختصاصی ندارد.",
         "remediation": "تعریف سیاست slug چندزبانه؛ transliteration کنترل‌شده یا استفاده از co public ID در URL عمومی و slug اختیاری."
       },
       {
         "id": "TEST-PR7-001",
         "severity": "low",
-        "status": "coverage_gap_not_executed",
+        "status": "partially_improved_tests_not_executed",
         "title": "پوشش تست کاتالوگ شرکت برای soft delete، بازیابی و slug چندزبانه ناقص است",
         "detail": "چهار تست موجود شناسه، چند نقش، صفحه عمومی و inactive را پوشش می‌دهند؛ سناریوهای soft delete/restore، کشور ترجمه‌شده، slug نام غیرلاتین و شکست ذخیره لوگو دیده نشدند. تست اجرا نشده است.",
-        "remediation": "افزودن سناریوهای نام‌برده به پوشش تست نهایی؛ اجرای تست‌ها فقط در انتهای پروژه."
+        "remediation": "تست restore شرکت در PR10 و فیلتر content type غیرفعال در PR11 افزوده شد؛ کل مجموعه هنوز اجرا نشده و شکاف country localization و logo failure test باقی است."
       },
       {
         "id": "PR7-CONFLICT-002",
         "severity": "high",
-        "status": "confirmed_static_conflict_risk",
+        "status": "resolved_in_pr10_merged",
         "title": "نسخه شاخه PR7 مسیرهای تغییر حرفه هنرمند PR6 را ندارد",
         "detail": "routes/web.php در شاخه PR7 import و Routeهای ArtistProfessionChangeController و ArtistProfessionChangeModerationController را که در main پس از PR6 وجود دارند ندارد؛ dashboard شاخه PR نیز لینک صف درخواست‌های تغییر حرفه را حذف کرده است. جایگزینی کامل این فایل‌ها می‌تواند قابلیت PR6 را از دسترس خارج کند.",
-        "remediation": "main فعلی مبنای حل تعارض باشد؛ Routeها و لینک‌های PR6 حفظ شوند و Routeهای شرکت و لینک‌های PR7 به‌صورت افزایشی اضافه شوند."
+        "remediation": "PR10 روی main پس از PR8 بازسازی و ادغام شد؛ Routeهای PR6 و لینک صف تغییر حرفه حفظ شدند و Route/لینک شرکت افزوده شد."
       }
     ],
     "test_file": "tests/Feature/CompanyCatalogTest.php",
-    "tests_defined": 4,
+    "tests_defined": 6,
     "tests_executed": false,
     "shared_conflict_files": [
       "routes/web.php",
@@ -1867,9 +1902,9 @@
       "resources/views/admin/dashboard.blade.php",
       "resources/css/app.css"
     ],
-    "decision": "ادغام مستقیم انجام نشود؛ CAT-001، I18N-001 و FILE-001 و همچنین CAT-002/CAT-003 باید تعیین تکلیف شوند؛ سپس شاخه با main به‌روز و تعارض‌ها حل شوند.",
+    "decision": "PR7 قدیمی بسته و جایگزین شد؛ ادغام کاتالوگ شرکت‌ها از طریق PR10 روی main پس از PR8 انجام شد. CAT-001 با PR11 اصلاح شد. I18N-001 و CAT-003 همچنان بازند.",
     "report_document": "https://github.com/armanaria111/amdb-report/blob/main/docs/pr-7-company-catalog-static-review-2026-11-18.md",
-    "source_code_modified": false,
+    "source_code_modified": true,
     "database_modified": false,
     "conflict_analysis": {
       "confirmed_missing_from_pr_branch": [
@@ -1891,7 +1926,37 @@
         "Company CSS and title-company relation UI"
       ],
       "action": "Do not replace shared files wholesale with PR7 versions; integrate additions into current main after branch refresh."
-    }
+    },
+    "original_pr_state": "closed_superseded",
+    "original_pr_closed": true,
+    "integration_pr": {
+      "number": 10,
+      "url": "https://github.com/armanaria111/amdb-laravel2/pull/10",
+      "branch": "integration/company-catalog-after-security",
+      "state": "merged",
+      "merge_commit": "1c823df9eec360a0ebbec36a624239dba8703beb",
+      "merged_at": "2026-11-18"
+    },
+    "follow_up_pr": {
+      "number": 11,
+      "url": "https://github.com/armanaria111/amdb-laravel2/pull/11",
+      "state": "merged",
+      "merge_commit": "d2cf4ce3bdbfca90eb5b9243450385a82197a163"
+    },
+    "main_commit_after_merge": "d2cf4ce3bdbfca90eb5b9243450385a82197a163",
+    "pull_request_10": {
+      "number": 10,
+      "url": "https://github.com/armanaria111/amdb-laravel2/pull/10",
+      "merge_commit": "1c823df9eec360a0ebbec36a624239dba8703beb",
+      "status": "merged"
+    },
+    "pull_request_11": {
+      "number": 11,
+      "url": "https://github.com/armanaria111/amdb-laravel2/pull/11",
+      "merge_commit": "d2cf4ce3bdbfca90eb5b9243450385a82197a163",
+      "status": "merged"
+    },
+    "original_branch_closed": true
   },
   "stage4_hardening": {
     "date": "2026-11-18",
@@ -1901,9 +1966,9 @@
     "branch": "security/stage4-hardening",
     "base": "main",
     "base_commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
-    "latest_branch_commit": "f548c0bc6a0cec05f625f263aec9e19778d91eb3",
-    "state": "open",
-    "draft": true,
+    "latest_branch_commit": "b310d75f84967fd28b501effcc2d071943583360",
+    "state": "merged",
+    "draft": false,
     "ahead_by": 37,
     "behind_by": 0,
     "scope": [
@@ -1939,6 +2004,45 @@
     "migrations_executed": false,
     "seeders_executed": false,
     "local_database_modified": false,
-    "local_files_modified": false
+    "local_files_modified": false,
+    "merged": true,
+    "merged_at": "2026-11-18",
+    "merge_commit": "e0f503ea32824232c6ece8b06bbf1197f39f84e2",
+    "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/8",
+    "pending": "فایل‌های قدیمی public هنوز نیازمند انتقال کنترل‌شده پس از backup هستند؛ تست‌ها در مرحله نهایی اجرا می‌شوند."
+  },
+  "company_catalog_integration": {
+    "original_pr7": {
+      "number": 7,
+      "state": "closed_superseded",
+      "url": "https://github.com/armanaria111/amdb-laravel2/pull/7"
+    },
+    "interim_pr9": {
+      "number": 9,
+      "state": "closed_superseded",
+      "url": "https://github.com/armanaria111/amdb-laravel2/pull/9"
+    },
+    "merged_pr10": {
+      "number": 10,
+      "url": "https://github.com/armanaria111/amdb-laravel2/pull/10",
+      "merge_commit": "1c823df9eec360a0ebbec36a624239dba8703beb",
+      "status": "merged"
+    },
+    "follow_up_pr11": {
+      "number": 11,
+      "url": "https://github.com/armanaria111/amdb-laravel2/pull/11",
+      "merge_commit": "d2cf4ce3bdbfca90eb5b9243450385a82197a163",
+      "status": "merged"
+    },
+    "tests_defined": 6,
+    "tests_executed": false,
+    "migrations_executed": false,
+    "local_database_modified": false,
+    "pending": [
+      "I18N-001 کشور چندزبانه",
+      "CAT-003 سیاست slug نام‌های غیرلاتین",
+      "تست نهایی restore/logo/search/relations",
+      "اجرای Migration شرکت‌ها روی محیط محلی فقط پس از backup و بررسی"
+    ]
   }
 }
