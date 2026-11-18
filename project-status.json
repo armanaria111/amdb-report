@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "0a9759736772cf1669834cbed1b0db7988d8f9d3",
+    "latest_main_commit": "a15cafe1f3c216e50f561d05ad7609ca8066770f",
     "latest_main_commit_verified_on": "2026-11-18"
   },
   "languages": [
@@ -1753,7 +1753,7 @@
     "stage": "آماده‌سازی و راه‌اندازی دیتابیس آزمایشی AMDB بدون نیاز به Shell در Render Free",
     "status": "pr37_merged_manual_github_actions_staging_migrations_ready",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "latest_main_commit": "0a9759736772cf1669834cbed1b0db7988d8f9d3",
+    "latest_main_commit": "a15cafe1f3c216e50f561d05ad7609ca8066770f",
     "merged_pull_requests": [
       {
         "number": 8,
@@ -1967,9 +1967,18 @@
         "status": "merged",
         "tests_executed": false,
         "migrations_executed": false
+      },
+      {
+        "number": 38,
+        "title": "Remove unnecessary key secret from staging migrations",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/38",
+        "merge_commit": "a15cafe1f3c216e50f561d05ad7609ca8066770f",
+        "status": "merged",
+        "tests_executed": false,
+        "migrations_executed": false
       }
     ],
-    "next_step": "کاربر از موبایل، GitHub repository Settings → Secrets and variables → Actions دو secret به نام‌های AMDB_STAGING_DB_URL و AMDB_STAGING_APP_KEY ثبت کند؛ سپس Actions → Prepare staging database را با تأیید صریح دیتابیس آزمایشی اجرا کند. پس از موفقیت Migrationها، Render Blueprint را ایجاد و DB_URL و APP_KEY را در Environment سرویس ثبت کند. Seeders و تست‌ها هنوز اجرا نشده‌اند.",
+    "next_step": "از موبایل، در GitHub repository Settings → Secrets and variables → Actions فقط Secret با نام AMDB_STAGING_DB_URL را ثبت کن؛ سپس Actions → Prepare staging database را با تأیید صریح دیتابیس آزمایشی اجرا کن. APP_KEY برای اجرای Migration لازم نیست؛ برای اجرای وب‌سایت روی Render بعداً APP_KEY مستقل staging در Render تنظیم خواهد شد. پس از موفقیت Migrationها، Render Blueprint را ایجاد کن. Seeder و تست‌ها هنوز اجرا نشده‌اند.",
     "operational_runbook": "docs/operational-runbook-private-evidence-2026-11-18.md"
   },
   "application_audit": {
@@ -3104,7 +3113,7 @@
     "database_host": "Enzonic Managed MySQL 8.4 Free",
     "application_branch": "main",
     "pull_request": 36,
-    "source_commit": "25776d72d2f950d1db2a01ea17214801352d42a8",
+    "source_commit": "a15cafe1f3c216e50f561d05ad7609ca8066770f",
     "files": [
       "Dockerfile",
       ".dockerignore",
@@ -3117,11 +3126,11 @@
     "tests_executed": false,
     "docker_build_executed": false,
     "deployment_live": false,
-    "note": "برای Render Free که Shell/SSH ندارد، Migrationها از GitHub Actions با workflow_dispatch اجرا می‌شوند. اجرای Workflow نیازمند GitHub repository secrets و تأیید صریح است. هیچ Seeder یا Migrationی هنوز اجرا نشده است.",
+    "note": "برای Render Free که Shell/SSH ندارد، Migrationها از GitHub Actions با workflow_dispatch اجرا می‌شوند. فقط Secret با نام AMDB_STAGING_DB_URL لازم است؛ APP_KEY برای Migration لازم نیست و فقط هنگام اجرای وب‌سایت در Render تنظیم می‌شود. هیچ Seeder یا Migrationی هنوز اجرا نشده است.",
     "database_migration_runner": "GitHub Actions workflow_dispatch",
     "migration_workflow": ".github/workflows/prepare-staging-database.yml",
-    "migration_pr": 37,
-    "migration_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/37",
+    "migration_pr": 38,
+    "migration_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/38",
     "migrations_executed": false
   }
 }
