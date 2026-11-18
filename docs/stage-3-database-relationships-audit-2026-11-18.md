@@ -97,3 +97,15 @@
 5. DB-012 و DB-013 فعلاً نیازمند تصمیم محصول/داده‌اند، نه Migration حدسی.
 6. تست‌های PHPUnit و runtime طبق درخواست کاربر برای مرحله نهایی نگه داشته می‌شوند.
 
+
+
+## 8. نتیجه PR35 پس از ادغام
+
+**PR:** [#35 — Enforce review-parent and artist-merge integrity](https://github.com/armanaria111/amdb-laravel2/pull/35)  
+**Merge commit:** `a9cf3ab84381163abf9158e4eb3a8af7efc31c2c`  
+
+- DB-015: قید CHECK برای جلوگیری از self-merge اضافه شد. جلوگیری از ثبت چندباره یک جفت source/target هنوز به تصمیم درباره semantics تاریخچه ادغام نیاز دارد؛ workflow فعالی در main پیدا نشد.
+- DB-016: FK مرکب `(parent_id, title_id) -> (id, title_id)` اضافه شد تا پاسخ به نقد متعلق به عنوان دیگر در سطح دیتابیس نیز ممنوع باشد.
+- Migration قبل از DDL تعداد self-merge و پاسخ‌های متصل به عنوان دیگر را می‌شمارد و در صورت وجود داده ناسازگار متوقف می‌شود. رفتار cascade حذف سخت نقدها حفظ شده است.
+- Migration هنوز روی دیتابیس محلی اجرا نشده و تست‌ها طبق برنامه برای مرحله نهایی نگه داشته شده‌اند.
+- موجودی سورس پس از PR35: ۵۵۶ ورودی Git tree و ۳۰ فایل Migration (۲۷ برنامه + ۳ زیرساخت Laravel).
