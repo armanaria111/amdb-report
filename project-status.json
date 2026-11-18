@@ -1532,7 +1532,7 @@
   },
   "current_work": {
     "stage": "Stage 4 — security, workflow and localization hardening",
-    "status": "draft_pr_open_static_review_pending",
+    "status": "working_branch_static_review_in_progress",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
     "working_branch": "security/stage4-hardening",
@@ -1551,7 +1551,7 @@
       "behind_by": 0
     },
     "report_document": "https://github.com/armanaria111/amdb-report/blob/main/docs/stage-4-hardening-pr-8-static-review-2026-11-18.md",
-    "next_step": "بازبینی نهایی PR8، تکمیل تست‌های خصوصی‌بودن/دانلود/انتقال مدارک و بررسی mergeability؛ تست‌ها فقط در مرحله نهایی اجرا شوند. فرمان انتقال مدارک قدیمی فقط پس از backup و بررسی dry-run و با هماهنگی کاربر اجرا شود."
+    "next_step": "ادامه بازبینی ایستای شاخه security/stage4-hardening، تکمیل اصلاحات و سپس ساخت PR پیش‌نویس. فرمان انتقال مدارک و همه تست‌ها فقط پس از backup/هماهنگی و در مرحله نهایی اجرا شوند."
   },
   "application_audit": {
     "audit_date": "2026-11-18",
@@ -1573,7 +1573,7 @@
       {
         "id": "AUTH-004",
         "severity": "high",
-        "status": "remediated_in_draft_pr",
+        "status": "remediated_in_branch_pending_review",
         "title": "امکان دور زدن مرز مدیر ارشد با نقش سفارشی پرمجوز",
         "detail": "کاربر دارای roles.manage و users.manage می‌تواند نقش سفارشی با مجوزهای حساس یا همه مجوزها بسازد و آن را به خود اختصاص دهد؛ کنترل فعلی فقط slug برابر admin را برای غیرمدیر ارشد محدود می‌کند. admin.area نیز نقش سفارشی غیر artist را مسدود نمی‌کند.",
         "remediation": "در PR8، StoreRoleRequest/UpdateRoleRequest/RolePolicy و UserController مجوزهای حساس را برای non-super-admin مسدود می‌کنند؛ واگذاری نقش‌های حساس فقط برای super-admin است. رویدادهای لاگ برنامه اضافه و سه تست Feature نوشته شده‌اند؛ اجرا نشده‌اند."
@@ -1581,7 +1581,7 @@
       {
         "id": "AUTH-005",
         "severity": "medium",
-        "status": "needs_hardening",
+        "status": "remediated_in_branch_pending_review",
         "title": "شرط مالکیت پروفایل در درخواست عوامل یکپارچه نیست",
         "detail": "برخی مسیرهای UserSubmissionController و تأیید credit فقط وجود رابطه user/artist را بررسی می‌کنند و is_owner=true را الزام نمی‌کنند؛ در حالی که مسیر ویرایش پروفایل و درخواست تغییر حرفه مالکیت را می‌سنجند.",
         "remediation": "اعمال شرط wherePivot/is_owner در ایجاد، ویرایش، resubmit و moderation درخواست credit."
@@ -1606,23 +1606,23 @@
       {
         "id": "TEST-002",
         "severity": "medium",
-        "status": "static_assertion_mismatch_not_executed",
+        "status": "remediated_in_branch_pending_execution",
         "title": "انتظار تست Seeder با ماتریس نقش artist ناسازگار است",
         "detail": "RoleManagementTest وجود artists.claim را در مجوزهای نهایی artist انتظار دارد؛ RolePermissionSeeder این permission را ایجاد نمی‌کند و در ماتریس artist قرار نمی‌دهد و pivotهای قبلی را پاک می‌کند. تست اجرا نشده است.",
-        "remediation": "تعیین تکلیف نیاز واقعی artists.claim و هماهنگ‌کردن Seeder و assertion در مرحله اصلاح؛ اجرای PHPUnit فقط در انتها."
+        "remediation": "در شاخه security/stage4-hardening انتظار artists.claim از تست حذف شد، چون این permission در ماتریس جاری و مسیر محصول فعال نیست؛ تست اجرا نشده است."
       },
       {
         "id": "PRIV-002",
         "severity": "high",
-        "status": "partially_remediated_in_draft_pr_legacy_files_pending",
+        "status": "partially_remediated_in_branch_legacy_files_pending_migration",
         "title": "مدرک درخواست حرفه‌ای روی دیسک عمومی ذخیره می‌شود",
         "detail": "ProfessionalRequestController فایل را روی disk public ذخیره می‌کند؛ filesystems.php آن را public visibility و symlink public/storage دارد؛ صفحه مدیریت asset(storage/...) مستقیم می‌سازد و Route دانلود احراز هویت‌شده وجود ندارد.",
-        "remediation": "در PR8 آپلود جدید به local/private منتقل و Route دانلود با submissions.manage اضافه شده است. فایل‌های قدیمی تا اجرای امن فرمان amdb:secure-professional-evidence --apply پس از backup ممکن است روی public باقی بمانند."
+        "remediation": "آپلودهای جدید در شاخه security/stage4-hardening به local/private منتقل شده‌اند؛ Route دانلود با submissions.manage اضافه شده و فرمان dry-run پیش‌فرض برای انتقال فایل‌های قدیمی public نوشته شده است. تا اجرای فرمان پس از backup، فایل‌های legacy ممکن است همچنان عمومی باشند."
       },
       {
         "id": "AUTH-006",
         "severity": "medium_high",
-        "status": "remediated_in_draft_pr",
+        "status": "remediated_in_branch_pending_review",
         "title": "ورود فاقد Rate Limit اختصاصی است",
         "detail": "AuthController::login و POST /login در routes/web.php محدودسازی تلاش‌های ناموفق یا throttle اختصاصی ندارند.",
         "remediation": "RateLimiter بر اساس IP و شناسه حساب، با تست lockout و reset."
@@ -1630,7 +1630,7 @@
       {
         "id": "WF-005",
         "severity": "medium",
-        "status": "remediated_in_draft_pr",
+        "status": "remediated_in_branch_pending_review",
         "title": "کاربر دارای پروفایل می‌تواند درخواست حرفه‌ای جدید غیرقابل تأیید ثبت کند",
         "detail": "ProfessionalRequestController::create/store وجود artist profile را کنترل نمی‌کند، اما Admin ProfessionalRequestController::approve در صورت وجود اتصال قبلی کاربر را از تأیید منع می‌کند.",
         "remediation": "در GET/POST درخواست حرفه‌ای، کاربر دارای پروفایل به گردش‌کار تغییر حرفه هدایت شود."
@@ -1638,7 +1638,7 @@
       {
         "id": "WF-003",
         "severity": "medium",
-        "status": "remediated_in_draft_pr",
+        "status": "remediated_in_branch_pending_review",
         "title": "revision/reject درخواست حرفه‌ای فاقد lock/transaction است",
         "detail": "approve تراکنش و lockForUpdate دارد اما requestRevision و reject فقط وضعیت مدل بارگذاری‌شده را بررسی و مستقیم update می‌کنند.",
         "remediation": "اجرای هر دو عملیات در transaction با lockForUpdate و بررسی مجدد status."
@@ -1654,7 +1654,7 @@
       {
         "id": "I18N-003",
         "severity": "medium",
-        "status": "remediated_in_draft_pr",
+        "status": "remediated_in_branch_pending_review",
         "title": "تنظیم زبان پیش‌فرض و زبان‌های فعال در اجرای سایت اعمال نمی‌شود",
         "detail": "SiteSettingController مقادیر default_locale و enabled_locales را ذخیره می‌کند؛ SetLocale همیشه session locale با fallback en را می‌خواند، LanguageController فهرست ثابت سه زبان را قبول می‌کند و Layout هر سه لینک را بدون توجه به تنظیمات نشان می‌دهد.",
         "remediation": "منبع واحد زبان‌های فعال/پیش‌فرض؛ اتصال Middleware، LanguageController و Layout به تنظیمات و fallback معتبر."
@@ -1662,15 +1662,15 @@
       {
         "id": "I18N-004",
         "severity": "medium",
-        "status": "confirmed_architecture_mismatch",
+        "status": "partially_remediated_in_branch_pending_review",
         "title": "متن‌های رابط چندزبانه داخل View و Controller hard-code شده‌اند",
-        "detail": "نمونه‌ها: searchLabels در layouts/app.blade.php، آرایه texts در artists/show.blade.php و پیام‌های مستقیم فارسی در Controllerها؛ برخی پیام‌ها mojibake هستند.",
+        "detail": "نمونه‌ها: آرایه texts در artists/show.blade.php و پیام‌های مستقیم فارسی در Controllerها؛ متن‌های جستجوی Layout از قبل از lang/{locale}/search.php استفاده می‌کردند و جزو این یافته نیستند. آرایه صفحه عمومی هنرمند در شاخه کاری به فایل‌های ترجمه منتقل شده است.",
         "remediation": "انتقال متن‌ها به lang/en، lang/fa-AF و lang/ps و استفاده از کلید ترجمه."
       },
       {
         "id": "SEC-007",
         "severity": "high",
-        "status": "confirmed_static_remediated_in_branch",
+        "status": "remediated_in_branch_pending_review",
         "title": "فرمان CLI ساخت مدیر دارای اعتبارنامه ثابت بود",
         "detail": "CreateAdminUser.php حساب admin@amdb.af را با رمز ثابت Amdb@Admin2026! ایجاد می‌کرد و is_admin=true می‌گذاشت.",
         "remediation": "فرمان در security/stage4-hardening به ایمیل ورودی، رمز تعاملی حداقل ۱۲ نویسه، تأیید رمز و تأیید صریح برای حساب موجود تغییر کرده؛ fallback ایمیل superadmin نیز حذف شده است."
@@ -1678,7 +1678,7 @@
       {
         "id": "SEC-007",
         "severity": "high",
-        "status": "confirmed_static_remediated_in_branch",
+        "status": "remediated_in_branch_pending_review",
         "title": "فرمان CLI ساخت مدیر دارای اعتبارنامه ثابت بود",
         "detail": "CreateAdminUser.php حساب admin@amdb.af را با رمز ثابت Amdb@Admin2026! ایجاد می‌کرد و is_admin=true می‌گذاشت.",
         "remediation": "فرمان در security/stage4-hardening به ایمیل ورودی، رمز تعاملی حداقل ۱۲ نویسه، تأیید رمز و تأیید صریح برای حساب موجود تغییر کرده؛ fallback ایمیل superadmin نیز حذف شده است."
@@ -1729,7 +1729,11 @@
         "CreateAdminUser از اعتبارنامه ثابت به ورودی امن تعاملی تغییر کرد.",
         "default_locale و enabled_locales در Middleware، LanguageController و لینک‌های Layout اعمال شدند؛ دسترسی به SiteSetting پیش از وجود جدول نیز fallback امن دارد.",
         "site_name و site_description ذخیره‌شده در SiteSetting در Layout استفاده می‌شوند.",
-        "متون صفحه عمومی هنرمند از Blade به lang/en، lang/fa-AF و lang/ps منتقل شدند."
+        "متون صفحه عمومی هنرمند از Blade به lang/en، lang/fa-AF و lang/ps منتقل شدند.",
+        "RoleController و UserController تغییرات/واگذاری نقش‌های دارای مجوز حساس را با Log::notice ثبت می‌کنند.",
+        "سه تست Feature برای منع ساخت، ویرایش و واگذاری نقش سفارشی دارای مجوز حساس اضافه شده‌اند؛ تست‌ها اجرا نشده‌اند.",
+        "انتظار قدیمی artists.claim در RoleManagementTest با ماتریس فعلی RolePermissionSeeder هماهنگ شده است.",
+        "فرمان ساخت مدیر دارای --verified اختیاری برای تأیید ایمیل پس از بررسی خارج از سیستم دارد."
       ],
       "pending_or_not_done": [
         "فایل‌های قدیمی professional evidence تا اجرای فرمان amdb:secure-professional-evidence --apply پس از backup همچنان ممکن است روی public disk باقی بمانند.",
@@ -1738,7 +1742,9 @@
         "تست‌ها، lint/runtime و Migration اجرا نشده‌اند.",
         "PR شماره ۸ باز و Draft است؛ هنوز ادغام نشده و mergeability باید دوباره در GitHub بررسی شود.",
         "تست‌های خصوصی‌بودن فایل، دانلود با/بدون مجوز و فرمان انتقال مدارک قدیمی هنوز باید افزوده و در مرحله نهایی اجرا شوند.",
-        "لاگ دسترسی‌های حساس در این PR از Log::notice استفاده می‌کند و جدول audit اختصاصی/تغییرناپذیر ایجاد نشده است."
+        "لاگ دسترسی‌های حساس در این PR از Log::notice استفاده می‌کند و جدول audit اختصاصی/تغییرناپذیر ایجاد نشده است.",
+        "مقدار AMDB_SUPER_ADMIN_EMAIL در .env استقرار باید صریحاً تنظیم شود؛ در .env.example و config دیگر fallback ثابت وجود ندارد.",
+        "باید پوشش تستی خصوصی‌بودن مدرک، Rate Limit، مالکیت credit، قفل moderation و تنظیمات locale در مرحله نهایی تکمیل شود."
       ],
       "tests_executed": false,
       "migrations_executed": false,
@@ -1761,7 +1767,20 @@
       "audit_log_added": true,
       "additional_authorization_tests_added": 3,
       "legacy_evidence_command_executed": false
-    }
+    },
+    "branch_stats": {
+      "ahead_by": 40,
+      "behind_by": 0,
+      "changed_files": 30,
+      "merge_base": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
+      "status": "ahead"
+    },
+    "source_code_modified_on_main": false,
+    "source_code_modified_on_working_branch": true,
+    "pull_request_created": false,
+    "migrations_executed": false,
+    "local_database_modified": false,
+    "legacy_evidence_migration_executed": false
   },
   "company_catalog_pr_review": {
     "audit_date": "2026-11-18",
