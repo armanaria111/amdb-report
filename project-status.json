@@ -351,7 +351,10 @@
       "بازبینی ایستای PR7 انجام شد: Migrationهای companies/company_translations/title_companies افزایشی‌اند و روابط چندنقشی شرکت با اثر پشتیبانی می‌شوند.",
       "PR7 مسیر هنرمند را با {artist:public_id} به شناسه ar متصل می‌کند؛ این اصلاح تا زمان ادغام PR هنوز وارد main نشده است.",
       "در بازبینی PR7 سه مورد کم‌اولویت CAT-001، I18N-001 و FILE-001 ثبت شد: فیلتر نوع محتوای فعال، ترجمه کشور و ترتیب حذف لوگوی قبلی.",
-      "PR7 هنوز ۶۶ commit جلوتر و ۴۵ commit عقب‌تر از main و mergeable=false است؛ ادغام مستقیم انجام نشد."
+      "PR7 هنوز ۶۶ commit جلوتر و ۴۵ commit عقب‌تر از main و mergeable=false است؛ ادغام مستقیم انجام نشد.",
+      "بازبینی تکمیلی PR7: Company از SoftDeletes استفاده می‌کند اما در UI مدیریت Route/فهرست restore وجود ندارد؛ CAT-002 ثبت شد.",
+      "بازبینی تکمیلی PR7: uniqueSlug از Str::slug بدون locale صریح و fallback عمومی company استفاده می‌کند؛ سیاست slug برای نام‌های دری/پشتو نیازمند تصمیم است (CAT-003).",
+      "تست‌های موجود CompanyCatalogTest چهار سناریو دارند؛ soft delete/restore، slug چندزبانه و شکست لوگو پوشش ندارند؛ TEST-PR7-001 ثبت شد، تستی اجرا نشده است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1498,7 +1501,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit": "a5f8f8bae5668683b36e1f9c1f8856e04f6eb37c",
     "report_document": "https://github.com/armanaria111/amdb-report/blob/main/docs/stage-4-authorization-and-workflow-audit-2026-11-18.md",
-    "next_step": "تکمیل ممیزی ایستای چندزبانگی، احراز هویت و گردش‌کار؛ سپس آماده‌سازی طرح اصلاح مرحله‌ای PRIV-002، AUTH-004/AUTH-006، WF-003/WF-005 و I18N-003/I18N-004. تست‌ها فقط در مرحله نهایی."
+    "next_step": "ادامه ممیزی ایستای AUTH-004/AUTH-006، PRIV-002، WF-003/WF-005 و I18N-003/I18N-004 و تعیین طرح اصلاح مرحله‌ای؛ PR7 هنوز dirty است و قبل از هر ادغام باید به main فعلی به‌روز شود. تست‌ها فقط در مرحله نهایی."
   },
   "application_audit": {
     "audit_date": "2026-11-18",
@@ -1661,7 +1664,7 @@
     "merge_base": "c08b7f7b9bccf1fb19bc022d0deb54d10ec8476c",
     "mergeable": false,
     "mergeable_state": "dirty",
-    "review_status": "static_review_completed_pending_branch_refresh",
+    "review_status": "static_review_extended_pending_branch_refresh",
     "verified": [
       "Migration شرکت‌ها افزایشی است و companies، company_translations و title_companies را ایجاد می‌کند؛ داده/جدول‌های موجود را حذف یا بازسازی نمی‌کند.",
       "public_id شرکت با پیشوند co و قید unique در مدل تولید می‌شود.",
@@ -1694,6 +1697,30 @@
         "title": "لوگوی قبلی پیش از commit تراکنش حذف می‌شود",
         "detail": "Admin CompanyController فایل قدیمی را قبل از موفقیت ذخیره فایل جدید و commit دیتابیس حذف می‌کند؛ شکست عملیات می‌تواند رکورد را به مسیر فایل حذف‌شده متصل نگه دارد.",
         "remediation": "حذف فایل قدیمی پس از commit موفق و پاکسازی فایل جدید در صورت شکست."
+      },
+      {
+        "id": "CAT-002",
+        "severity": "low_medium",
+        "status": "confirmed_static",
+        "title": "شرکت soft delete می‌شود اما مسیر بازیابی در پنل وجود ندارد",
+        "detail": "Company از SoftDeletes استفاده می‌کند و destroy فقط delete را اجرا می‌کند؛ فهرست مدیریت رکوردهای soft-deleted را پنهان می‌کند و Route/صفحه restore در PR دیده نشد. رکورد فیزیکی باقی می‌ماند اما بازیابی از UI ممکن نیست.",
+        "remediation": "افزودن فهرست حذف‌شده‌ها و restore با companies.manage، یا روشن‌کردن اینکه حذف از دید محصول غیرقابل‌بازگشت است."
+      },
+      {
+        "id": "CAT-003",
+        "severity": "low",
+        "status": "needs_product_decision",
+        "title": "سیاست ساخت slug برای نام‌های غیرلاتین روشن نیست",
+        "detail": "uniqueSlug از Str::slug بدون locale صریح استفاده می‌کند و خروجی خالی را به company تبدیل می‌کند؛ رفتار نام‌های دری/پشتو و transliteration کنترل‌شده پوشش داده نشده است.",
+        "remediation": "تعریف سیاست slug چندزبانه؛ transliteration کنترل‌شده یا استفاده از co public ID در URL عمومی و slug اختیاری."
+      },
+      {
+        "id": "TEST-PR7-001",
+        "severity": "low",
+        "status": "coverage_gap_not_executed",
+        "title": "پوشش تست کاتالوگ شرکت برای soft delete، بازیابی و slug چندزبانه ناقص است",
+        "detail": "چهار تست موجود شناسه، چند نقش، صفحه عمومی و inactive را پوشش می‌دهند؛ سناریوهای soft delete/restore، کشور ترجمه‌شده، slug نام غیرلاتین و شکست ذخیره لوگو دیده نشدند. تست اجرا نشده است.",
+        "remediation": "افزودن سناریوهای نام‌برده به پوشش تست نهایی؛ اجرای تست‌ها فقط در انتهای پروژه."
       }
     ],
     "test_file": "tests/Feature/CompanyCatalogTest.php",
@@ -1706,7 +1733,7 @@
       "resources/views/admin/dashboard.blade.php",
       "resources/css/app.css"
     ],
-    "decision": "PR7 مستقیم ادغام نشود؛ ابتدا branch با main به‌روز و تعارض‌ها حل و بازبینی شوند.",
+    "decision": "ادغام مستقیم انجام نشود؛ CAT-001، I18N-001 و FILE-001 و همچنین CAT-002/CAT-003 باید تعیین تکلیف شوند؛ سپس شاخه با main به‌روز و تعارض‌ها حل شوند.",
     "report_document": "https://github.com/armanaria111/amdb-report/blob/main/docs/pr-7-company-catalog-static-review-2026-11-18.md",
     "source_code_modified": false,
     "database_modified": false
