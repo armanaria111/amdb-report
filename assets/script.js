@@ -57,10 +57,10 @@ function render(d){
  $("#sourceAuditStatus").textContent=audit.status?"ممیزی سورس · "+audit.audit_date:"ممیزی سورس هنوز ثبت نشده است";
  $("#sourceAuditCommit").textContent=audit.commit||"—";
  $("#sourceAuditScope").innerHTML=(audit.scope_completed||[]).map(x=>'<div class="mini-tile">'+esc(x)+'</div>').join("");
- const inv=audit.repository_inventory||{};
+ const auditInventory=audit.repository_inventory||{};
  $("#sourceAuditInventory").innerHTML=[
-  ["ورودی‌های درخت مخزن",inv.tree_entries],["Migrationها",inv.migration_files],["مدل‌های PHP",inv.php_model_files],
-  ["فایل‌های Blade",inv.blade_files],["خطوط web.php",inv.web_route_lines],["Routeهای نام‌گذاری‌شده",inv.named_route_calls]
+  ["ورودی‌های درخت مخزن",auditInventory.tree_entries],["Migrationها",auditInventory.migration_files],["مدل‌های PHP",auditInventory.php_model_files],
+  ["فایل‌های Blade",auditInventory.blade_files],["خطوط web.php",auditInventory.web_route_lines],["Routeهای نام‌گذاری‌شده",auditInventory.named_route_calls]
  ].map(x=>'<div class="stat"><small>'+esc(x[0])+'</small><strong>'+esc(x[1]??"—")+'</strong></div>').join("");
  $("#sourceAuditFeatures").innerHTML=(audit.confirmed_implemented_areas||[]).map(x=>'<article class="list-row"><p>'+esc(x)+'</p></article>').join("");
  $("#sourceAuditRisks").innerHTML=(audit.confirmed_gaps_and_risks||[]).map(x=>row({title:x.id+" · "+x.title,detail:x.detail,state:x.severity==="high"?"incomplete":x.status==="awaiting_product_decision"?"planned":"partial"})).join("");
