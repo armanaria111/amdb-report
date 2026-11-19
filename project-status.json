@@ -458,7 +458,17 @@
       "PR34 در main است و قیدهای CHECK محدوده امتیاز را اضافه کرده؛ Migration اجرا نشده است. تعداد جدول‌های فعلی و وضعیت migrate:status محلی در این نوبت بازشماری/بررسی نشدند و عمداً نامشخص باقی ماندند.",
       "ممیزی مجدد DB-010 و DB-012 تا DB-019 روی آخرین main انجام شد؛ DB-011 و DB-014 اصلاح‌شده‌اند، DB-016 تا DB-019 کنترل نرم‌افزاری یا قفل تراکنشی دارند اما محدودیت دیتابیسی/lifecycle باز است، و DB-013/DB-015 به‌عنوان ساختارهای legacy بدون route/controller فعال شناسایی شدند.",
       "PR35 با موفقیت ادغام شد: CHECK جلوگیری از self-merge و FK مرکب برای هم‌عنوان بودن نقد والد/پاسخ؛ merge commit a9cf3ab84381163abf9158e4eb3a8af7efc31c2c. Migration اجرا نشده و تست‌ها به مرحله نهایی موکول شده‌اند.",
-      "خطای Render در Composer package:discover بررسی شد؛ فایل config/view.php در مخزن وجود نداشت و پوشه storage/framework/views بعد از composer install ساخته می‌شد. PR40 با merge commit ee75ef79a8f69a491eade8c8a3a6c3a5b0d109ec فایل پیکربندی View را اضافه و پوشه‌های لازم را پیش از اجرای Composer ایجاد کرد. هیچ تست، Migration یا Seeder اجرا نشد."
+      "خطای Render در Composer package:discover بررسی شد؛ فایل config/view.php در مخزن وجود نداشت و پوشه storage/framework/views بعد از composer install ساخته می‌شد. PR40 با merge commit ee75ef79a8f69a491eade8c8a3a6c3a5b0d109ec فایل پیکربندی View را اضافه و پوشه‌های لازم را پیش از اجرای Composer ایجاد کرد. هیچ تست، Migration یا Seeder اجرا نشد.",
+      "در 2026-11-19 پیش از اجرای Migrationهای جدید، از دیتابیس محلی amdbl نسخه پشتیبان SQL تهیه شد: C:\\laragon\\www\\amdb\\backups\\amdbl-before-migrations-2026-11-19_18-14-02.sql؛ اندازه 86,361 بایت، شامل 51 دستور CREATE TABLE و 26 دستور INSERT. صحت Restore این نسخه پشتیبان هنوز آزمایش نشده است.",
+      "هشت Migration افزایشی روی دیتابیس محلی اجرا شدند و موفق بودند؛ وضعیت migrate:status پس از اجرا Pending=0 و Batch=15 گزارش شد. Migrationها: 2026_11_17_210000_create_submission_request_events_table، 2026_11_17_210001_add_created_record_references_to_submission_requests، 2026_11_17_210002_add_unique_artist_credit_identity، 2026_11_18_100000_create_artist_profession_change_request_tables، 2026_11_18_110000_create_company_catalog_tables، 2026_11_18_120000_create_country_translations_table، 2026_11_18_130000_add_rating_range_check_constraints و 2026_11_18_140000_add_review_parent_and_artist_merge_integrity_constraints.",
+      "اجرای کل PHPUnit در وضعیت ثبت‌شده: 43 تست Passed، 4 تست Risky و 191 assertion. هر چهار تست Risky متعلق به CompanyCatalogTest هستند؛ تست‌های مربوط به نمایش آثار منتشرشده شرکت، مخفی‌کردن آثار با content type غیرفعال، ترجمه کشور در locale جاری و نام غیرلاتین شرکت با fallback slug.",
+      "اجرای محدود CompanyCatalogTest: 8 تست، 4 Passed و 4 Risky با 29 assertion. هشدار مشترک PHPUnit: Test code or tested code did not close its own output buffers.",
+      "برای ریشه‌یابی هشدار، instrumentation موقت در tests/Feature/CompanyCatalogTest.php اضافه شد. قبل از درخواست HTTP سطح بافر 1 و بلافاصله پس از $this->get() سطح 2 مشاهده شد؛ بافر اضافی بافر پیش‌فرض PHP در level=1 است و دقیقاً یک بایت newline با HEX برابر 0a در خود دارد. این مشاهده وجود یک بافر باز اضافی را ثابت می‌کند، اما هنوز منشأ ایجاد آن را مشخص نمی‌کند.",
+      "بررسی‌های read-only انجام‌شده: PhpEngine و CompilerEngine لاراول، HttpKernelBrowser سیمفونی، چرخه handle/terminate در Laravel HTTP Kernel، ثبت Error Renderer، تنظیمات phpunit.xml، Debugbar، مسیرهای Whoops، Viewهای Blade و middlewareهای برنامه. PhpEngine بافر رندر را با ob_get_clean می‌بندد؛ HttpKernelBrowser بافر sendContent را در finally می‌بندد؛ مرحله terminate پس از آن اجرا می‌شود. علت نهایی هنوز اثبات نشده است.",
+      "در phpunit.xml محیط testing و DEBUGBAR_ENABLED=false تنظیم شده است؛ APP_DEBUG در phpunit.xml تنظیم نشده و مقدار پیش‌فرض config/app.php برابر false است. Debugbar و مسیر renderer سفارشی Whoops در وضعیت عادی این تست‌ها علت محتمل شناخته نشدند.",
+      "جستجوی APIهای ob_start/ob_end/ob_get در app، bootstrap، routes و config موردی از ایجاد بافر در کد برنامه پیدا نکرد. middlewareهای موجود نیز در جستجوی فعلی متد terminate یا عملیات مستقیم بافر نشان ندادند.",
+      "فایل‌های vendor و کد برنامه برای رفع هشدار تغییر داده نشدند؛ هنوز هیچ بافر اضافه‌ای به‌صورت دستی بسته نشده و هشدار پنهان نشده است. علت اصلی نشت بافر همچنان باز است.",
+      "وضعیت بعدی تشخیص: بررسی callbackهای Application::terminating، متدهای terminate middleware و سپس اندازه‌گیری جداگانه سطح بافر در مراحل handle، sendContent و terminate. آخرین فرمان تشخیصی read-only به کاربر داده شده و خروجی آن هنوز دریافت نشده است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1751,254 +1761,85 @@
     }
   },
   "current_work": {
-    "stage": "آماده‌سازی و راه‌اندازی دیتابیس آزمایشی AMDB بدون نیاز به Shell در Render Free",
-    "status": "pr40_merged_render_redeploy_pending",
+    "stage": "ریشه‌یابی چهار تست Risky در CompanyCatalogTest به‌علت باقی‌ماندن output buffer",
+    "status": "diagnosis_in_progress_root_cause_not_yet_confirmed",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "latest_main_commit": "ee75ef79a8f69a491eade8c8a3a6c3a5b0d109ec",
-    "merged_pull_requests": [
-      {
-        "number": 8,
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/8",
-        "merge_commit": "e0f503ea32824232c6ece8b06bbf1197f39f84e2",
-        "status": "merged"
+    "report_repository": "https://github.com/armanaria111/amdb-report",
+    "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
+    "database": "amdbl",
+    "backup": {
+      "path": "C:\\laragon\\www\\amdb\\backups\\amdbl-before-migrations-2026-11-19_18-14-02.sql",
+      "bytes": 86361,
+      "create_table_statements": 51,
+      "insert_statements": 26,
+      "restore_tested": false
+    },
+    "migrations": {
+      "batch": 15,
+      "pending": 0,
+      "executed_successfully": [
+        "2026_11_17_210000_create_submission_request_events_table",
+        "2026_11_17_210001_add_created_record_references_to_submission_requests",
+        "2026_11_17_210002_add_unique_artist_credit_identity",
+        "2026_11_18_100000_create_artist_profession_change_request_tables",
+        "2026_11_18_110000_create_company_catalog_tables",
+        "2026_11_18_120000_create_country_translations_table",
+        "2026_11_18_130000_add_rating_range_check_constraints",
+        "2026_11_18_140000_add_review_parent_and_artist_merge_integrity_constraints"
+      ]
+    },
+    "tests": {
+      "full_suite": {
+        "passed": 43,
+        "risky": 4,
+        "assertions": 191
       },
-      {
-        "number": 10,
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/10",
-        "merge_commit": "1c823df9eec360a0ebbec36a624239dba8703beb",
-        "status": "merged"
+      "company_catalog": {
+        "tests": 8,
+        "passed": 4,
+        "risky": 4,
+        "assertions": 29
       },
-      {
-        "number": 11,
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/11",
-        "merge_commit": "d2cf4ce3bdbfca90eb5b9243450385a82197a163",
-        "status": "merged"
-      },
-      {
-        "number": 12,
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/12",
-        "merge_commit": "b901e79af2b4d8a0e8f88710cbf7b4a8815a0bd3",
-        "status": "merged"
-      },
-      {
-        "number": 14,
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/14",
-        "merge_commit": "3d3002dd26d12ab9bc1b42e80743e9225b37df23",
-        "status": "merged"
-      },
-      {
-        "number": 15,
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/15",
-        "merge_commit": "46cb61737572b1b247f4d9436f70f370ca20d471",
-        "status": "merged"
-      },
-      {
-        "number": 17,
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/17",
-        "merge_commit": "ebcde1cda601b32ed40956de55b2ee6972cc9e9d",
-        "status": "merged"
-      },
-      {
-        "number": 18,
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/18",
-        "merge_commit": "7b8f7350274054097c6e52ac214525bbda3af3af",
-        "status": "merged"
-      },
-      {
-        "number": 19,
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/19",
-        "merge_commit": "df39ca19d86cdddf7ee650f131437f66e18722a6",
-        "status": "merged"
-      },
-      {
-        "number": 20,
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/20",
-        "merge_commit": "5a34ef8d8c68eab3e144abe4f1c7a9d270e97648",
-        "status": "merged"
-      },
-      {
-        "number": 22,
-        "title": "Localize artist profile and user professional request feedback",
-        "merge_commit": "3fe24a037ea6bf06c474833d14df4c83429d25aa",
-        "changed_files": 9,
-        "additions": 75,
-        "deletions": 21,
-        "status": "merged",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/22",
-        "tests_executed": false
-      },
-      {
-        "number": 23,
-        "title": "Localize admin artist, import, role, title and user feedback",
-        "merge_commit": "32eae57fce472bb3b034487a81c8dc607b07342f",
-        "changed_files": 8,
-        "additions": 118,
-        "deletions": 31,
-        "status": "merged",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/23",
-        "tests_executed": false
-      },
-      {
-        "number": 24,
-        "title": "Localize professional request moderation and role management views",
-        "merge_commit": "d1f714c93c94d601306b3f991950359e164a5de2",
-        "changed_files": 10,
-        "additions": 285,
-        "deletions": 82,
-        "status": "merged",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/24",
-        "tests_executed": false
-      },
-      {
-        "number": 25,
-        "title": "Localize artist administration and WordPress import views",
-        "merge_commit": "8ce4f4473c1cd6da1aa93345e94a97498cc59bb8",
-        "changed_files": 11,
-        "additions": 276,
-        "deletions": 77,
-        "status": "merged",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/25",
-        "tests_executed": false
-      },
-      {
-        "number": 26,
-        "title": "Localize title administration views in three languages",
-        "merge_commit": "1123b8d11352b7f41b2df1643a19bcf0d06a2a6d",
-        "changed_files": 8,
-        "additions": 218,
-        "deletions": 56,
-        "status": "merged",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/26",
-        "tests_executed": false
-      },
-      {
-        "number": 27,
-        "title": "Localize admin user and role management views",
-        "merge_commit": "8e3bf570d541cbfca79e51d815cab85ba03fb496",
-        "changed_files": 9,
-        "additions": 311,
-        "deletions": 72,
-        "status": "merged",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/27",
-        "tests_executed": false
-      },
-      {
-        "number": 28,
-        "title": "Localize admin site settings and legacy artist claims",
-        "merge_commit": "419c2678996adc69b7dfff887a73fc842d60013a",
-        "changed_files": 8,
-        "additions": 137,
-        "deletions": 99,
-        "status": "merged",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/28",
-        "tests_executed": false
-      },
-      {
-        "number": 29,
-        "title": "Localize authentication and user professional workflows",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/29",
-        "merge_commit": "9d62e832e297c16e7a31a03b9d93ae3593896849",
-        "status": "merged",
-        "tests_executed": false
-      },
-      {
-        "number": 30,
-        "title": "Serve professional evidence through owner-authorized downloads",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/30",
-        "merge_commit": "8e1c6c795b5becfd742be6e9453c7708dc6fab83",
-        "status": "merged",
-        "tests_executed": false
-      },
-      {
-        "number": 31,
-        "title": "Move role dashboard translations into locale files",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/31",
-        "merge_commit": "970b0e3ad6877460dc4a1634cabc1bdd983fd98b",
-        "status": "merged",
-        "tests_executed": false
-      },
-      {
-        "number": 32,
-        "title": "Move public artist and movie catalog copy into locale files",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/32",
-        "merge_commit": "48e4d2eecf29d53738c71a6c2931261952cf9e32",
-        "status": "merged",
-        "tests_executed": false
-      },
-      {
-        "number": 33,
-        "title": "Fix site settings locale PHP syntax and messages",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/33",
-        "merge_commit": "3db6963f80e6a46d5e96ac469b59c3d3dea35de0",
-        "status": "merged",
-        "tests_executed": false
-      },
-      {
-        "number": 34,
-        "title": "Enforce rating ranges with preflighted database checks",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/34",
-        "merge_commit": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
-        "status": "merged",
-        "tests_executed": false,
-        "migrations_executed": false
-      },
-      {
-        "number": 35,
-        "title": "Enforce review-parent and artist-merge integrity",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/35",
-        "merge_commit": "a9cf3ab84381163abf9158e4eb3a8af7efc31c2c",
-        "status": "merged",
-        "tests_executed": false,
-        "migrations_executed": false
-      },
-      {
-        "number": 36,
-        "title": "Add portable Render staging deployment",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/36",
-        "merge_commit": "25776d72d2f950d1db2a01ea17214801352d42a8",
-        "status": "merged",
-        "tests_executed": false,
-        "migrations_executed": false
-      },
-      {
-        "number": 37,
-        "title": "Add safe GitHub Actions workflow for staging migrations",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/37",
-        "merge_commit": "0a9759736772cf1669834cbed1b0db7988d8f9d3",
-        "status": "merged",
-        "tests_executed": false,
-        "migrations_executed": false
-      },
-      {
-        "number": 38,
-        "title": "Remove unnecessary key secret from staging migrations",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/38",
-        "merge_commit": "a15cafe1f3c216e50f561d05ad7609ca8066770f",
-        "status": "merged",
-        "tests_executed": false,
-        "migrations_executed": false
-      },
-      {
-        "number": 39,
-        "title": "Fix PHP 8.5 OPcache Docker build",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/39",
-        "merge_commit": "7769a17ec8acecb63806ca850a49e3f2bde54a02",
-        "status": "merged",
-        "tests_executed": false,
-        "migrations_executed": false
-      },
-      {
-        "number": 40,
-        "title": "Fix Render build: prepare Laravel view cache before Composer discovery",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/40",
-        "merge_commit": "ee75ef79a8f69a491eade8c8a3a6c3a5b0d109ec",
-        "status": "merged",
-        "tests_executed": false,
-        "migrations_executed": false
-      }
-    ],
-    "next_step": "Render باید اکنون از commit ee75ef79a8f69a491eade8c8a3a6c3a5b0d109ec دوباره deploy شود. نتیجه کامل Build/Deploy را بررسی کن و لاگ را ثبت کن؛ تا پیش از تأیید اجرای برنامه، Migration و Seeder اجرا نشوند. تست‌ها طبق درخواست کاربر برای مرحله نهایی باقی بمانند.",
-    "operational_runbook": "docs/operational-runbook-private-evidence-2026-11-18.md"
+      "warning": "Test code or tested code did not close its own output buffers",
+      "risky_test_names": [
+        "public company profile shows its published titles",
+        "company profile hides published titles with inactive content types",
+        "company profile displays country translation for the current locale",
+        "non latin company name can use internal fallback slug and public co id"
+      ]
+    },
+    "diagnostic": {
+      "before_request_ob_level": 1,
+      "after_get_ob_level": 2,
+      "leaked_buffer_level": 1,
+      "leaked_buffer_content_hex": "0a",
+      "leaked_buffer_content": "\\n",
+      "root_cause_confirmed": false,
+      "inspected": [
+        "Laravel PhpEngine and CompilerEngine",
+        "Symfony HttpKernelBrowser response capture",
+        "Laravel HTTP Kernel handle/terminate lifecycle",
+        "FoundationServiceProvider error renderer registration",
+        "phpunit.xml and Debugbar testing configuration",
+        "Whoops exception handling",
+        "company Blade views and layouts",
+        "application middleware and output-buffer API usage"
+      ],
+      "findings": [
+        "Blade PhpEngine closes its render buffer with ob_get_clean().",
+        "Symfony HttpKernelBrowser closes its sendContent buffer in finally, then calls kernel terminate().",
+        "Debugbar is disabled in testing; APP_DEBUG is not set in phpunit.xml and config/app.php defaults it to false.",
+        "No direct output-buffer creation API was found in app/bootstrap/routes/config during the searches performed."
+      ],
+      "temporary_test_instrumentation": "tests/Feature/CompanyCatalogTest.php has temporary diagnostic logging around the first company profile request; remove after diagnosis.",
+      "next_step": "Inspect Application terminating callbacks and terminate middleware; then isolate buffer level across handle, sendContent and terminate."
+    },
+    "constraints": [
+      "Do not fix by forcibly closing an unknown buffer or suppressing PHPUnit's risky warning.",
+      "Do not edit vendor files.",
+      "Do not perform destructive database operations.",
+      "Do not commit, push or deploy until root cause is fixed and tests/diff are reviewed."
+    ]
   },
   "application_audit": {
     "audit_date": "2026-11-18",
