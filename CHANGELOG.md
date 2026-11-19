@@ -422,3 +422,11 @@
 - PR40 با merge commit `ee75ef79a8f69a491eade8c8a3a6c3a5b0d109ec` در main ادغام شد.
 - Render باید از commit جدید دوباره Build/Deploy شود؛ موفقیت Build هنوز تأیید نشده است.
 - هیچ تست، Migration یا Seeder اجرا نشد؛ دیتابیس‌ها تغییری نکردند.
+
+
+## 2026-11-19 — رفع صفحه سفید Render به‌علت خروجی ناخواسته در bootstrap (PR #41)
+- لاگ runtime سرویس نشان داد پاسخ‌های HTTP با `Cannot modify header information - headers already sent` شکست می‌خورند و منبع خروجی ناخواسته `bootstrap/app.php:1` است.
+- بررسی Base64 فایل تأیید کرد یک newline پیش از `<?php` وجود دارد؛ همان یک newline حذف شد و هیچ منطق برنامه تغییر نکرد.
+- PR41 با merge commit `4d1120c6ed499c0b52a3846a2408335ec74c26d8` ادغام شد.
+- Render باید از commit جدید redeploy شود؛ رفع صفحه سفید هنوز پس از redeploy تأیید نشده است.
+- هیچ تست، Migration، Seeder یا عملیات دیتابیس اجرا نشد.
