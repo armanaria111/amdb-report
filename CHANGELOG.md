@@ -430,3 +430,11 @@
 - PR41 با merge commit `4d1120c6ed499c0b52a3846a2408335ec74c26d8` ادغام شد.
 - Render باید از commit جدید redeploy شود؛ رفع صفحه سفید هنوز پس از redeploy تأیید نشده است.
 - هیچ تست، Migration، Seeder یا عملیات دیتابیس اجرا نشد.
+
+
+## 2026-11-19 — رفع BOM ابتدای routes/web.php و تشخیص خطای اتصال MySQL در Render (PR #42)
+- لاگ redeploy روی commit `4d1120c6ed499c0b52a3846a2408335ec74c26d8` نشان داد `routes/web.php` نیز مانند فایل قبلی با UTF-8 BOM و newline پیش از `<?php` آغاز می‌شود؛ این خروجی ناخواسته باعث `headers already sent` می‌شد.
+- PR42 فقط BOM و whitespace پیش از تگ PHP را حذف کرد و با merge commit `32bfbd9a3c4f1a3160486ca8514f39518dcfed58` در main ادغام شد.
+- همان لاگ خطای مستقل اتصال به Enzonic MySQL را نیز نشان داد: `PDO::connect(): Error while reading greeting packet` و `SQLSTATE[HY000] [2006] MySQL server has gone away` هنگام اجرای `Schema::hasTable('site_settings')` در middleware زبان.
+- پیکربندی TLS فعلی با نمونه رسمی PDO در مستندات Enzonic مطابقت دارد؛ اتصال runtime هنوز تأیید نشده و وضعیت دیتابیس باید در پنل Enzonic / SQL Editor بررسی شود.
+- Render باید از commit جدید redeploy شود؛ رفع صفحه سفید هنوز تأیید نشده است. هیچ Migration، Seeder یا تستی اجرا نشد.
