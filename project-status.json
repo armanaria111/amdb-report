@@ -11,7 +11,7 @@
     "database": "MySQL",
     "development_environment": "Windows 10 + Laragon 8",
     "local_path": "C:\\laragon\\www\\amdb",
-    "last_verified": "2026-11-18",
+    "last_verified": "2026-11-19",
     "overall_progress": null,
     "progress_note": "درصد پیشرفت کلی تعیین نشده است؛ اعداد ممیزی ساختار دیتابیس، درصد تکمیل محصول نیستند.",
     "database_name": "amdbl",
@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "7769a17ec8acecb63806ca850a49e3f2bde54a02",
+    "latest_main_commit": "ee75ef79a8f69a491eade8c8a3a6c3a5b0d109ec",
     "latest_main_commit_verified_on": "2026-11-19"
   },
   "languages": [
@@ -144,7 +144,7 @@
     ],
     "known_tables_note": "این فهرست نمونه‌ای از جدول‌های ثبت‌شده قبلی است و فهرست کامل schema فعلی نیست. شمارش جدول‌های فعلی تا بازشماری همه Migrationها عمداً نامشخص مانده است.",
     "current_source_snapshot": {
-      "commit": "25776d72d2f950d1db2a01ea17214801352d42a8",
+      "commit": "ee75ef79a8f69a491eade8c8a3a6c3a5b0d109ec",
       "migration_files": 30,
       "application_migration_files": 27,
       "framework_migration_files": 3,
@@ -153,8 +153,8 @@
       "translation_php_files": 63,
       "named_route_calls": 103,
       "audit_type": "read-only GitHub tree, dependency lockfiles, CSS, Blade layout and route inventory",
-      "latest_main_commit": "25776d72d2f950d1db2a01ea17214801352d42a8",
-      "note": "آمار فایل‌های برنامه از Git tree شاخه main پس از ادغام PR36 به‌روزرسانی شد؛ ۶ فایل زیرساخت استقرار اضافه شده‌اند و تعداد Migrationها (۳۰)، مدل‌ها (۴۰)، Bladeها (۵۰) و ترجمه‌ها (۶۳) تغییر نکرده است. وضعیت اجرای Migrationها روی دیتابیس محلی بررسی نشده است.",
+      "latest_main_commit": "ee75ef79a8f69a491eade8c8a3a6c3a5b0d109ec",
+      "note": "آمار فایل‌های برنامه از Git tree شاخه main پس از ادغام PR36 به‌روزرسانی شد؛ ۶ فایل زیرساخت استقرار اضافه شده‌اند و تعداد Migrationها (۳۰)، مدل‌ها (۴۰)، Bladeها (۵۰) و ترجمه‌ها (۶۳) تغییر نکرده است. وضعیت اجرای Migrationها روی دیتابیس محلی بررسی نشده است. PR40 نیز فقط Dockerfile و config/view.php را برای رفع خطای Composer package:discover اصلاح کرد؛ شمارش فایل‌های دامنه و دیتابیس بازشماری نشده است.",
       "tree_entries": 564
     },
     "current_findings": [
@@ -313,7 +313,7 @@
     "detail": "شناسه‌های ar هنرمند و co شرکت در URLهای عمومی استفاده می‌شوند؛ شناسه am برای اثر در ساختار موجود است اما مسیر عمومی اثر همچنان بر slug استوار است. تست runtime انجام نشده است."
   },
   "latest_development": {
-    "date": "2026-11-18",
+    "date": "2026-11-19",
     "verified": [
       "مرحله اول ممیزی read-only سورس اصلی در commit a56e92080a227b9e4c531c9edf2e55a02e6946ab انجام شد.",
       "ساختار مخزن: ۴۶۰ ورودی در درخت، ۲۲ migration، ۳۴ فایل مدل PHP، ۳۷ فایل Blade، ۷۳ خط Route در web.php و ۷۱ فراخوانی name ثبت شد.",
@@ -457,7 +457,8 @@
       "موجودی فعلی Git tree: ۵۵۵ ورودی، ۲۹ Migration، ۴۰ مدل، ۵۰ فایل Blade، ۶۳ فایل ترجمه PHP، ۱۰۳ Route نام‌گذاری‌شده، ۸۸ فایل CSS فونت‌آوسام و ۳۸ فایل WOFF2.",
       "PR34 در main است و قیدهای CHECK محدوده امتیاز را اضافه کرده؛ Migration اجرا نشده است. تعداد جدول‌های فعلی و وضعیت migrate:status محلی در این نوبت بازشماری/بررسی نشدند و عمداً نامشخص باقی ماندند.",
       "ممیزی مجدد DB-010 و DB-012 تا DB-019 روی آخرین main انجام شد؛ DB-011 و DB-014 اصلاح‌شده‌اند، DB-016 تا DB-019 کنترل نرم‌افزاری یا قفل تراکنشی دارند اما محدودیت دیتابیسی/lifecycle باز است، و DB-013/DB-015 به‌عنوان ساختارهای legacy بدون route/controller فعال شناسایی شدند.",
-      "PR35 با موفقیت ادغام شد: CHECK جلوگیری از self-merge و FK مرکب برای هم‌عنوان بودن نقد والد/پاسخ؛ merge commit a9cf3ab84381163abf9158e4eb3a8af7efc31c2c. Migration اجرا نشده و تست‌ها به مرحله نهایی موکول شده‌اند."
+      "PR35 با موفقیت ادغام شد: CHECK جلوگیری از self-merge و FK مرکب برای هم‌عنوان بودن نقد والد/پاسخ؛ merge commit a9cf3ab84381163abf9158e4eb3a8af7efc31c2c. Migration اجرا نشده و تست‌ها به مرحله نهایی موکول شده‌اند.",
+      "خطای Render در Composer package:discover بررسی شد؛ فایل config/view.php در مخزن وجود نداشت و پوشه storage/framework/views بعد از composer install ساخته می‌شد. PR40 با merge commit ee75ef79a8f69a491eade8c8a3a6c3a5b0d109ec فایل پیکربندی View را اضافه و پوشه‌های لازم را پیش از اجرای Composer ایجاد کرد. هیچ تست، Migration یا Seeder اجرا نشد."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1751,9 +1752,9 @@
   },
   "current_work": {
     "stage": "آماده‌سازی و راه‌اندازی دیتابیس آزمایشی AMDB بدون نیاز به Shell در Render Free",
-    "status": "pr37_merged_manual_github_actions_staging_migrations_ready",
+    "status": "pr40_merged_render_redeploy_pending",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "latest_main_commit": "a15cafe1f3c216e50f561d05ad7609ca8066770f",
+    "latest_main_commit": "ee75ef79a8f69a491eade8c8a3a6c3a5b0d109ec",
     "merged_pull_requests": [
       {
         "number": 8,
@@ -1976,9 +1977,27 @@
         "status": "merged",
         "tests_executed": false,
         "migrations_executed": false
+      },
+      {
+        "number": 39,
+        "title": "Fix PHP 8.5 OPcache Docker build",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/39",
+        "merge_commit": "7769a17ec8acecb63806ca850a49e3f2bde54a02",
+        "status": "merged",
+        "tests_executed": false,
+        "migrations_executed": false
+      },
+      {
+        "number": 40,
+        "title": "Fix Render build: prepare Laravel view cache before Composer discovery",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/40",
+        "merge_commit": "ee75ef79a8f69a491eade8c8a3a6c3a5b0d109ec",
+        "status": "merged",
+        "tests_executed": false,
+        "migrations_executed": false
       }
     ],
-    "next_step": "از موبایل، در GitHub repository Settings → Secrets and variables → Actions فقط Secret با نام AMDB_STAGING_DB_URL را ثبت کن؛ سپس Actions → Prepare staging database را با تأیید صریح دیتابیس آزمایشی اجرا کن. APP_KEY برای اجرای Migration لازم نیست؛ برای اجرای وب‌سایت روی Render بعداً APP_KEY مستقل staging در Render تنظیم خواهد شد. پس از موفقیت Migrationها، Render Blueprint را ایجاد کن. Seeder و تست‌ها هنوز اجرا نشده‌اند.",
+    "next_step": "Render باید اکنون از commit ee75ef79a8f69a491eade8c8a3a6c3a5b0d109ec دوباره deploy شود. نتیجه کامل Build/Deploy را بررسی کن و لاگ را ثبت کن؛ تا پیش از تأیید اجرای برنامه، Migration و Seeder اجرا نشوند. تست‌ها طبق درخواست کاربر برای مرحله نهایی باقی بمانند.",
     "operational_runbook": "docs/operational-runbook-private-evidence-2026-11-18.md"
   },
   "application_audit": {
@@ -3108,12 +3127,12 @@
     ]
   },
   "deployment_staging": {
-    "status": "php85_opcache_docker_build_fix_merged_pending_render_redeploy",
+    "status": "composer_view_cache_build_fix_merged_pending_render_redeploy",
     "application_host": "Render Free Web Service (Docker)",
     "database_host": "Enzonic Managed MySQL 8.4 Free",
     "application_branch": "main",
     "pull_request": 36,
-    "source_commit": "7769a17ec8acecb63806ca850a49e3f2bde54a02",
+    "source_commit": "ee75ef79a8f69a491eade8c8a3a6c3a5b0d109ec",
     "files": [
       "Dockerfile",
       ".dockerignore",
@@ -3126,13 +3145,15 @@
     "tests_executed": false,
     "docker_build_executed": false,
     "deployment_live": false,
-    "note": "برای Render Free که Shell/SSH ندارد، Migrationها از GitHub Actions با workflow_dispatch اجرا می‌شوند. فقط Secret با نام AMDB_STAGING_DB_URL لازم است؛ APP_KEY برای Migration لازم نیست و فقط هنگام اجرای وب‌سایت در Render تنظیم می‌شود. هیچ Seeder یا Migrationی هنوز اجرا نشده است. اصلاح خطای build مربوط به OPcache در PHP 8.5 از طریق PR39 با merge commit 7769a17ec8acecb63806ca850a49e3f2bde54a02 ادغام شد؛ OPcache در PHP 8.5 داخلی است و از docker-php-ext-install حذف و از INI پیکربندی شد. Build مجدد Render هنوز انجام/تأیید نشده است.",
+    "note": "برای Render Free که Shell/SSH ندارد، Migrationها از GitHub Actions با workflow_dispatch اجرا می‌شوند. فقط Secret با نام AMDB_STAGING_DB_URL لازم است؛ APP_KEY برای Migration لازم نیست و فقط هنگام اجرای وب‌سایت در Render تنظیم می‌شود. هیچ Seeder یا Migrationی هنوز اجرا نشده است. اصلاح خطای build مربوط به OPcache در PHP 8.5 از طریق PR39 با merge commit 7769a17ec8acecb63806ca850a49e3f2bde54a02 ادغام شد؛ OPcache در PHP 8.5 داخلی است و از docker-php-ext-install حذف و از INI پیکربندی شد. Build مجدد Render هنوز انجام/تأیید نشده است. خطای بعدی Build در Composer package:discover به‌علت نبود config/view.php و ساخته‌نشدن storage/framework/views پیش از Composer شناسایی شد. PR40 با merge commit ee75ef79a8f69a491eade8c8a3a6c3a5b0d109ec فایل config/view.php را اضافه کرد و پوشه‌های Laravel را پیش از composer install ساخت. Build مجدد Render هنوز تأیید نشده است.",
     "database_migration_runner": "GitHub Actions workflow_dispatch",
     "migration_workflow": ".github/workflows/prepare-staging-database.yml",
     "migration_pr": 38,
     "migration_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/38",
     "migrations_executed": false,
     "docker_build_fix_pr": 39,
-    "docker_build_fix_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/39"
+    "docker_build_fix_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/39",
+    "composer_view_cache_fix_pr": 40,
+    "composer_view_cache_fix_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/40"
   }
 }
