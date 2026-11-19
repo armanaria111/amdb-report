@@ -406,3 +406,11 @@
 - Confirmed the company catalog migration, models, controllers and public routes are already present in the current source `main`; the old company-catalog branch is 66 commits behind and 241 commits ahead, so it must not be merged directly.
 - Confirmed the old Stage 4 security branch is 154 commits behind current `main`; role privilege guards and the private professional-evidence migration command are already present in current source.
 - This was a focused source reconciliation, not a full audit. No tests, migrations, seeders, database commands, or local file operations were run.
+
+
+## 2026-11-19 — رفع خطای Docker build در PHP 8.5 (PR #39)
+- خطای Render در مرحله `docker-php-ext-install` بررسی شد؛ علت، تلاش برای نصب `opcache` به‌عنوان افزونه shared در PHP 8.5 بود، در حالی که OPcache در PHP 8.5 به‌صورت داخلی کامپایل شده است.
+- `opcache` از فهرست `docker-php-ext-install` حذف شد و تنظیمات آن از طریق فایل INI اعمال می‌شود.
+- PR39 با merge commit `7769a17ec8acecb63806ca850a49e3f2bde54a02` در main ادغام شد.
+- Render باید از commit جدید دوباره deploy شود؛ Docker build هنوز تأیید نشده است.
+- هیچ Migration، Seeder یا تستی اجرا نشد؛ دیتابیس‌ها تغییری نکردند.
