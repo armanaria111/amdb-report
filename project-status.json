@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "32bfbd9a3c4f1a3160486ca8514f39518dcfed58",
+    "latest_main_commit": "de0a813a69730d0282455e6c91633156dac3657c",
     "latest_main_commit_verified_on": "2026-11-19"
   },
   "languages": [
@@ -468,7 +468,11 @@
       "در phpunit.xml محیط testing و DEBUGBAR_ENABLED=false تنظیم شده است؛ APP_DEBUG در phpunit.xml تنظیم نشده و مقدار پیش‌فرض config/app.php برابر false است. Debugbar و مسیر renderer سفارشی Whoops در وضعیت عادی این تست‌ها علت محتمل شناخته نشدند.",
       "جستجوی APIهای ob_start/ob_end/ob_get در app، bootstrap، routes و config موردی از ایجاد بافر در کد برنامه پیدا نکرد. middlewareهای موجود نیز در جستجوی فعلی متد terminate یا عملیات مستقیم بافر نشان ندادند.",
       "فایل‌های vendor و کد برنامه برای رفع هشدار تغییر داده نشدند؛ هنوز هیچ بافر اضافه‌ای به‌صورت دستی بسته نشده و هشدار پنهان نشده است. علت اصلی نشت بافر همچنان باز است.",
-      "وضعیت بعدی تشخیص: بررسی callbackهای Application::terminating، متدهای terminate middleware و سپس اندازه‌گیری جداگانه سطح بافر در مراحل handle، sendContent و terminate. آخرین فرمان تشخیصی read-only به کاربر داده شده و خروجی آن هنوز دریافت نشده است."
+      "وضعیت بعدی تشخیص: بررسی callbackهای Application::terminating، متدهای terminate middleware و سپس اندازه‌گیری جداگانه سطح بافر در مراحل handle، sendContent و terminate. آخرین فرمان تشخیصی read-only به کاربر داده شده و خروجی آن هنوز دریافت نشده است.",
+      "PR43 با merge commit 0349e32 علت بافر خروجی اضافه در صفحه شرکت را اصلاح کرد: meta_description اکنون fallback غیرتهی دارد و کد تشخیصی موقت تست حذف شد؛ تست‌ها پس از اصلاح دوباره اجرا نشده‌اند.",
+      "PR45 با merge commit 4f345ad صفحه اصلی را از CSS گرید .amdb-hero صفحه جزئیات فیلم جدا کرد تا Hero و جستجو تمام‌عرض/مرکزی باقی بمانند. PR44 قدیمی به‌علت شاخه پایه نامناسب بسته و با PR45 تمیز جایگزین شد.",
+      "PR46 با merge commit faf1025 زیرساخت artist_subscriptions و artist_subscription_payments، مدل‌های Eloquent و محدودسازی نمایش اطلاعات تکمیلی هنرمند پس از پایان اشتراک را اضافه کرد. پروفایل‌های بدون سابقه اشتراک برای سازگاری عقب‌رو بدون تغییر عمومی می‌مانند.",
+      "PR47 با merge commit de0a813 پنل مدیریت اشتراک هنرمند را در مسیر admin.artists.subscriptions.index، ثبت سوابق و پرداخت‌های دستی، لغو اشتراک و ترجمه‌های en/fa-AF/ps اضافه کرد. درگاه پرداخت و قیمت‌گذاری نهایی هنوز پیاده‌سازی نشده‌اند."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -547,8 +551,8 @@
     },
     {
       "title": "سیستم اشتراک و محدودیت نمایش اطلاعات هنرمند",
-      "state": "incomplete",
-      "detail": "سیستم اشتراک/پرداخت در سورس تأیید نشد و وضعیت اشتراک در منطق نمایش عمومی اطلاعات هنرمند بررسی نمی‌شود."
+      "state": "implemented_unverified",
+      "detail": "PR46 و PR47 در main ادغام شدند: جداول سوابق اشتراک و پرداخت، مدل‌ها، کنترل زمان‌محور دسترسی، محدودسازی اطلاعات تکمیلی پروفایل پس از پایان/لغو اشتراک و پنل مدیر برای ایجاد/لغو اشتراک و ثبت دستی پرداخت. پروفایل‌های بدون سابقه اشتراک برای سازگاری عقب‌رو همچنان عمومی می‌مانند. درگاه پرداخت، قیمت/پلن‌های نهایی و گردش‌کار تمدید توسط هنرمند هنوز طراحی نشده‌اند؛ تست runtime و اجرای Migration باقی است."
     },
     {
       "title": "امنیت واگذاری نقش مدیر",
@@ -883,6 +887,22 @@
     {
       "date": "2026-11-18",
       "text": "PR34 برای اعمال قیدهای CHECK محدوده امتیاز داخلی و امتیاز خارجی با preflight داده‌های نامعتبر در main ادغام شد. آخرین commit: 8b939a4325a9017ffc06678032e5f23b80e9fc94. هیچ تست یا Migration اجرا نشد و دیتابیس محلی تغییر نکرد."
+    },
+    {
+      "date": "2026-11-19",
+      "text": "PR43 (0349e32) بافر اضافی صفحه شرکت را با fallback غیرتهی meta_description رفع کرد؛ تست‌ها هنوز دوباره اجرا نشده‌اند."
+    },
+    {
+      "date": "2026-11-19",
+      "text": "PR45 (4f345ad) اصلاح چیدمان Hero و جستجوی صفحه اصلی را پس از جایگزینی شاخه قدیمی PR44 در main ادغام کرد."
+    },
+    {
+      "date": "2026-11-19",
+      "text": "PR46 (faf1025) زیرساخت اشتراک هنرمندان، تاریخچه پرداخت و محدودسازی اطلاعات تکمیلی پروفایل پس از پایان اشتراک را اضافه کرد؛ پروفایل‌های بدون سابقه اشتراک برای سازگاری عقب‌رو عمومی باقی می‌مانند."
+    },
+    {
+      "date": "2026-11-19",
+      "text": "PR47 (de0a813) پنل مدیریت اشتراک، ثبت دستی پرداخت، تاریخچه و لغو اشتراک را با ترجمه سه‌زبانه اضافه کرد. درگاه پرداخت، پلن‌ها/قیمت‌گذاری و تست runtime هنوز باقی‌اند."
     }
   ],
   "architecture": {
@@ -1049,6 +1069,11 @@
       "name": "پیشنهاد ثبت عوامل",
       "state": "implemented_unverified",
       "detail": "PR شماره ۵ در main ادغام شده است؛ پیشنهاد عوامل توسط حساب متصل به پروفایل فعال، انتخاب حرفه تأییدشده و جلوگیری از تکرار credit اضافه شده. Migrationها اجرا نشده‌اند."
+    },
+    {
+      "name": "سیستم اشتراک هنرمندان و تاریخچه پرداخت",
+      "state": "implemented_unverified",
+      "detail": "PR46/47 در main ادغام شدند: مدل اشتراک، دفترکل پرداخت، کنترل انقضا و پنل مدیر برای ثبت/لغو اشتراک و پرداخت دستی. درگاه پرداخت، قیمت و مدت پلن نهایی، درخواست تمدید از پنل هنرمند، اجرای Migration و تست runtime باقی است."
     }
   ],
   "roadmap": [
@@ -1761,8 +1786,8 @@
     }
   },
   "current_work": {
-    "stage": "ریشه‌یابی چهار تست Risky در CompanyCatalogTest به‌علت باقی‌ماندن output buffer",
-    "status": "diagnosis_in_progress_root_cause_not_yet_confirmed",
+    "stage": "توسعه سیستم اشتراک هنرمندان و مدیریت پرداخت",
+    "status": "subscription_foundation_and_admin_workflow_merged_runtime_unverified",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -1814,7 +1839,7 @@
       "leaked_buffer_level": 1,
       "leaked_buffer_content_hex": "0a",
       "leaked_buffer_content": "\\n",
-      "root_cause_confirmed": false,
+      "root_cause_confirmed": true,
       "inspected": [
         "Laravel PhpEngine and CompilerEngine",
         "Symfony HttpKernelBrowser response capture",
@@ -1831,15 +1856,49 @@
         "Debugbar is disabled in testing; APP_DEBUG is not set in phpunit.xml and config/app.php defaults it to false.",
         "No direct output-buffer creation API was found in app/bootstrap/routes/config during the searches performed."
       ],
-      "temporary_test_instrumentation": "tests/Feature/CompanyCatalogTest.php has temporary diagnostic logging around the first company profile request; remove after diagnosis.",
-      "next_step": "Inspect Application terminating callbacks and terminate middleware; then isolate buffer level across handle, sendContent and terminate."
+      "temporary_test_instrumentation": "در PR43 حذف شد؛ نتیجه رفع هشدار Risky هنوز با اجرای مجدد PHPUnit تأیید نشده است.",
+      "next_step": "اجرای مجدد CompanyCatalogTest و کل PHPUnit فقط در مرحله نهایی تست، طبق درخواست کاربر.",
+      "root_cause": "صفحه شرکت برای meta_description مقدار null ارسال می‌کرد؛ Blade startSection با مقدار null یک output buffer باز می‌کرد. PR43 مقدار غیرتهی با fallback ترجمه‌شده قرار داد و instrumentation موقت را حذف کرد. تست‌ها پس از اصلاح دوباره اجرا نشده‌اند."
     },
     "constraints": [
       "Do not fix by forcibly closing an unknown buffer or suppressing PHPUnit's risky warning.",
       "Do not edit vendor files.",
       "Do not perform destructive database operations.",
       "Do not commit, push or deploy until root cause is fixed and tests/diff are reviewed."
-    ]
+    ],
+    "last_completed_prs": [
+      {
+        "number": 43,
+        "title": "Fix company profile output buffer leak",
+        "merge_commit": "0349e32ddbd6f3e3b5b3c9c0cd8da486bfbe5e28",
+        "status": "merged"
+      },
+      {
+        "number": 45,
+        "title": "Fix homepage hero and search alignment",
+        "merge_commit": "4f345ad6b77936c9ffdbcf13c0fb7710884aa558",
+        "status": "merged"
+      },
+      {
+        "number": 46,
+        "title": "Add artist subscriptions and public profile access controls",
+        "merge_commit": "faf1025468da1384afabe71297b04d29b1c4c9df",
+        "status": "merged"
+      },
+      {
+        "number": 47,
+        "title": "Add admin workflow for artist subscriptions and payments",
+        "merge_commit": "de0a813a69730d0282455e6c91633156dac3657c",
+        "status": "merged"
+      }
+    ],
+    "subscription_migration": "database/migrations/2026_11_19_200000_create_artist_subscription_tables.php",
+    "subscription_migration_status": "در سورس main ادغام شده؛ اجرای آن روی دیتابیس محلی/استیجینگ انجام نشده است.",
+    "subscription_admin_route": "admin.artists.subscriptions.index",
+    "subscription_access_rule": "پروفایل‌های بدون سابقه اشتراک برای سازگاری قبلی عمومی می‌مانند؛ پس از ایجاد سابقه اشتراک، نمایش زندگی‌نامه، جزئیات شخصی، تماس و شبکه‌های اجتماعی نیازمند اشتراک فعال است.",
+    "tests_executed": false,
+    "seeders_executed": false,
+    "database_modified_by_subscription_work": false
   },
   "application_audit": {
     "audit_date": "2026-11-18",
@@ -2513,7 +2572,11 @@
     "DB-017 و DB-018: تصمیم درباره رفتار حذف/قطع اتصال artist_user پیش از افزودن FK مرکب برای pair هنرمند/کاربر.",
     "DB-019: افزودن/ارزیابی قید جلوگیری از درخواست حرفه تکراری و پوشش هم‌زمانی store/resubmit/moderation در تست نهایی.",
     "DB-016: قید مرکب پاسخ نقد به همان عنوان در PR35 اضافه شد؛ اجرای Migration پس از backup و تست نهایی باقی است.",
-    "DB-015: جلوگیری از self-merge در PR35 اضافه شد؛ سیاست جلوگیری از merge تکراری دقیق در صورت ایجاد workflow فعال باقی است."
+    "DB-015: جلوگیری از self-merge در PR35 اضافه شد؛ سیاست جلوگیری از merge تکراری دقیق در صورت ایجاد workflow فعال باقی است.",
+    "همگام‌سازی main جدید روی سیستم محلی و بررسی صفحه اصلی، صفحه عمومی شرکت و پنل مدیریت اشتراک.",
+    "اجرای Migration جدید artist_subscriptions فقط پس از تأیید backup موجود و بررسی وضعیت دیتابیس؛ هیچ Migration در این مرحله اجرا نشده است.",
+    "تکمیل سیاست محصول برای پلن‌ها، مدت اشتراک، قیمت، ارزها و درگاه/روش پرداخت؛ سپس افزودن درخواست تمدید از پنل هنرمند.",
+    "اجرای مجدد CompanyCatalogTest و کل PHPUnit در مرحله نهایی؛ تست‌ها در این نوبت اجرا نشده‌اند."
   ],
   "post_pr21_localization": {
     "date": "2026-11-18",
