@@ -438,3 +438,16 @@
 - همان لاگ خطای مستقل اتصال به Enzonic MySQL را نیز نشان داد: `PDO::connect(): Error while reading greeting packet` و `SQLSTATE[HY000] [2006] MySQL server has gone away` هنگام اجرای `Schema::hasTable('site_settings')` در middleware زبان.
 - پیکربندی TLS فعلی با نمونه رسمی PDO در مستندات Enzonic مطابقت دارد؛ اتصال runtime هنوز تأیید نشده و وضعیت دیتابیس باید در پنل Enzonic / SQL Editor بررسی شود.
 - Render باید از commit جدید redeploy شود؛ رفع صفحه سفید هنوز تأیید نشده است. هیچ Migration، Seeder یا تستی اجرا نشد.
+
+## 2026-11-19 — اجرای Migrationهای محلی و ریشه‌یابی تست‌های Risky کاتالوگ شرکت
+- پیش از Migrationها از دیتابیس محلی `amdbl` نسخه پشتیبان SQL تهیه شد: `C:\laragon\www\amdb\backups\amdbl-before-migrations-2026-11-19_18-14-02.sql`؛ حجم 86,361 بایت، 51 دستور `CREATE TABLE` و 26 دستور `INSERT`. بازیابی نسخه پشتیبان هنوز آزمایش نشده است.
+- هشت Migration افزایشی با موفقیت اجرا شدند؛ `migrate:status` پس از اجرا `Pending=0` و `Batch=15` نشان داد. نام هر هشت Migration در `project-status.json` ثبت شده است.
+- نتیجه ثبت‌شده کل PHPUnit: 43 Passed، چهار Risky و 191 assertion. چهار مورد Risky همگی در `CompanyCatalogTest` هستند؛ اجرای محدود این کلاس 8 تست، 4 Passed، 4 Risky و 29 assertion گزارش کرد.
+- چهار تست درگیر: نمایش آثار منتشرشده شرکت؛ پنهان‌کردن آثار با content type غیرفعال؛ نمایش ترجمه کشور بر اساس locale؛ و نام غیرلاتین شرکت با fallback slug و شناسه عمومی co.
+- هشدار PHPUnit: `Test code or tested code did not close its own output buffers`. instrumentation موقت نشان داد سطح بافر قبل از `$this->get()` برابر 1 و پس از آن برابر 2 است؛ بافر اضافه در level=1 دقیقاً یک newline (`0a`) دارد.
+- Laravel `PhpEngine` بافر رندر را با `ob_get_clean()` می‌بندد و Symfony `HttpKernelBrowser` بافر `sendContent` را در `finally` می‌بندد؛ پس از آن `kernel->terminate()` اجرا می‌شود. بنابراین چرخه terminate هنوز یکی از مسیرهای مورد بررسی است، نه علت قطعی.
+- `APP_ENV=testing` و `DEBUGBAR_ENABLED=false` در `phpunit.xml` تنظیم شده‌اند؛ `APP_DEBUG` در آن فایل تنظیم نشده و مقدار پیش‌فرض config برابر false است. بررسی فعلی Debugbar و Whoops را علت محتمل نشان نمی‌دهد.
+- جستجو در `app`، `bootstrap`، `routes` و `config` برای APIهای output buffer مورد مستقیم ایجاد بافر پیدا نکرد. بررسی‌های read-only شامل Blade، middlewareها، Laravel Kernel، Symfony Browser، Error Renderer و Whoops انجام شد.
+- هنوز علت ریشه‌ای بافر باز مشخص نشده است. هیچ بافر ناشناخته‌ای به‌صورت دستی بسته یا هشدار PHPUnit پنهان نشده؛ فایل‌های `vendor` و منطق محصول نیز برای این تشخیص تغییر نکرده‌اند.
+- instrumentation موقت در `tests/Feature/CompanyCatalogTest.php` باقی است و پس از تشخیص باید حذف شود. گام بعدی: بررسی `Application::terminating` و متدهای `terminate` middleware، سپس اندازه‌گیری مجزای بافر در مراحل `handle`، `sendContent` و `terminate`.
+- تا این نقطه commit، push یا deploy برای این بررسی انجام نشده است.
