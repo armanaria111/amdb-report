@@ -19,8 +19,8 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "a15cafe1f3c216e50f561d05ad7609ca8066770f",
-    "latest_main_commit_verified_on": "2026-11-18"
+    "latest_main_commit": "7769a17ec8acecb63806ca850a49e3f2bde54a02",
+    "latest_main_commit_verified_on": "2026-11-19"
   },
   "languages": [
     {
@@ -3108,12 +3108,12 @@
     ]
   },
   "deployment_staging": {
-    "status": "deployment_files_and_manual_migration_workflow_merged_not_yet_deployed",
+    "status": "php85_opcache_docker_build_fix_merged_pending_render_redeploy",
     "application_host": "Render Free Web Service (Docker)",
     "database_host": "Enzonic Managed MySQL 8.4 Free",
     "application_branch": "main",
     "pull_request": 36,
-    "source_commit": "a15cafe1f3c216e50f561d05ad7609ca8066770f",
+    "source_commit": "7769a17ec8acecb63806ca850a49e3f2bde54a02",
     "files": [
       "Dockerfile",
       ".dockerignore",
@@ -3126,11 +3126,13 @@
     "tests_executed": false,
     "docker_build_executed": false,
     "deployment_live": false,
-    "note": "برای Render Free که Shell/SSH ندارد، Migrationها از GitHub Actions با workflow_dispatch اجرا می‌شوند. فقط Secret با نام AMDB_STAGING_DB_URL لازم است؛ APP_KEY برای Migration لازم نیست و فقط هنگام اجرای وب‌سایت در Render تنظیم می‌شود. هیچ Seeder یا Migrationی هنوز اجرا نشده است.",
+    "note": "برای Render Free که Shell/SSH ندارد، Migrationها از GitHub Actions با workflow_dispatch اجرا می‌شوند. فقط Secret با نام AMDB_STAGING_DB_URL لازم است؛ APP_KEY برای Migration لازم نیست و فقط هنگام اجرای وب‌سایت در Render تنظیم می‌شود. هیچ Seeder یا Migrationی هنوز اجرا نشده است. اصلاح خطای build مربوط به OPcache در PHP 8.5 از طریق PR39 با merge commit 7769a17ec8acecb63806ca850a49e3f2bde54a02 ادغام شد؛ OPcache در PHP 8.5 داخلی است و از docker-php-ext-install حذف و از INI پیکربندی شد. Build مجدد Render هنوز انجام/تأیید نشده است.",
     "database_migration_runner": "GitHub Actions workflow_dispatch",
     "migration_workflow": ".github/workflows/prepare-staging-database.yml",
     "migration_pr": 38,
     "migration_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/38",
-    "migrations_executed": false
+    "migrations_executed": false,
+    "docker_build_fix_pr": 39,
+    "docker_build_fix_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/39"
   }
 }
