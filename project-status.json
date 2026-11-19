@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "ee75ef79a8f69a491eade8c8a3a6c3a5b0d109ec",
+    "latest_main_commit": "4d1120c6ed499c0b52a3846a2408335ec74c26d8",
     "latest_main_commit_verified_on": "2026-11-19"
   },
   "languages": [
@@ -3127,12 +3127,12 @@
     ]
   },
   "deployment_staging": {
-    "status": "composer_view_cache_build_fix_merged_pending_render_redeploy",
+    "status": "bootstrap_output_fix_merged_pending_render_redeploy",
     "application_host": "Render Free Web Service (Docker)",
     "database_host": "Enzonic Managed MySQL 8.4 Free",
     "application_branch": "main",
-    "pull_request": 36,
-    "source_commit": "ee75ef79a8f69a491eade8c8a3a6c3a5b0d109ec",
+    "pull_request": 41,
+    "source_commit": "4d1120c6ed499c0b52a3846a2408335ec74c26d8",
     "files": [
       "Dockerfile",
       ".dockerignore",
@@ -3145,7 +3145,7 @@
     "tests_executed": false,
     "docker_build_executed": false,
     "deployment_live": false,
-    "note": "برای Render Free که Shell/SSH ندارد، Migrationها از GitHub Actions با workflow_dispatch اجرا می‌شوند. فقط Secret با نام AMDB_STAGING_DB_URL لازم است؛ APP_KEY برای Migration لازم نیست و فقط هنگام اجرای وب‌سایت در Render تنظیم می‌شود. هیچ Seeder یا Migrationی هنوز اجرا نشده است. اصلاح خطای build مربوط به OPcache در PHP 8.5 از طریق PR39 با merge commit 7769a17ec8acecb63806ca850a49e3f2bde54a02 ادغام شد؛ OPcache در PHP 8.5 داخلی است و از docker-php-ext-install حذف و از INI پیکربندی شد. Build مجدد Render هنوز انجام/تأیید نشده است. خطای بعدی Build در Composer package:discover به‌علت نبود config/view.php و ساخته‌نشدن storage/framework/views پیش از Composer شناسایی شد. PR40 با merge commit ee75ef79a8f69a491eade8c8a3a6c3a5b0d109ec فایل config/view.php را اضافه کرد و پوشه‌های Laravel را پیش از composer install ساخت. Build مجدد Render هنوز تأیید نشده است.",
+    "note": "برای Render Free که Shell/SSH ندارد، Migrationها از GitHub Actions با workflow_dispatch اجرا می‌شوند. فقط Secret با نام AMDB_STAGING_DB_URL لازم است؛ APP_KEY برای Migration لازم نیست و فقط هنگام اجرای وب‌سایت در Render تنظیم می‌شود. هیچ Seeder یا Migrationی هنوز اجرا نشده است. اصلاح خطای build مربوط به OPcache در PHP 8.5 از طریق PR39 با merge commit 7769a17ec8acecb63806ca850a49e3f2bde54a02 ادغام شد؛ OPcache در PHP 8.5 داخلی است و از docker-php-ext-install حذف و از INI پیکربندی شد. Build مجدد Render هنوز انجام/تأیید نشده است. خطای بعدی Build در Composer package:discover به‌علت نبود config/view.php و ساخته‌نشدن storage/framework/views پیش از Composer شناسایی شد. PR40 با merge commit ee75ef79a8f69a491eade8c8a3a6c3a5b0d109ec فایل config/view.php را اضافه کرد و پوشه‌های Laravel را پیش از composer install ساخت. Build مجدد Render هنوز تأیید نشده است. لاگ اجرای سایت پس از PR40 نشان داد درخواست‌ها به Laravel می‌رسند اما پاسخ HTTP به‌علت `Cannot modify header information - headers already sent` با خروجی ناخواسته از خط ۱ `bootstrap/app.php` شکست می‌خورد. فایل با بررسی Base64 مشخصاً یک newline پیش از `<?php` داشت. PR41 فقط همین newline ابتدایی را حذف کرد و با merge commit 4d1120c6ed499c0b52a3846a2408335ec74c26d8 ادغام شد. Render باید از commit جدید redeploy شود؛ رفع خطای صفحه سفید هنوز پس از redeploy تأیید نشده است.",
     "database_migration_runner": "GitHub Actions workflow_dispatch",
     "migration_workflow": ".github/workflows/prepare-staging-database.yml",
     "migration_pr": 38,
@@ -3154,6 +3154,8 @@
     "docker_build_fix_pr": 39,
     "docker_build_fix_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/39",
     "composer_view_cache_fix_pr": 40,
-    "composer_view_cache_fix_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/40"
+    "composer_view_cache_fix_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/40",
+    "bootstrap_output_fix_pr": 41,
+    "bootstrap_output_fix_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/41"
   }
 }
