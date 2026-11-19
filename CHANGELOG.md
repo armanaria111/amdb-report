@@ -414,3 +414,11 @@
 - PR39 با merge commit `7769a17ec8acecb63806ca850a49e3f2bde54a02` در main ادغام شد.
 - Render باید از commit جدید دوباره deploy شود؛ Docker build هنوز تأیید نشده است.
 - هیچ Migration، Seeder یا تستی اجرا نشد؛ دیتابیس‌ها تغییری نکردند.
+
+
+## 2026-11-19 — رفع خطای Laravel package discovery در Render (PR #40)
+- علت خطای `Please provide a valid cache path` مشخص شد: فایل `config/view.php` در مخزن وجود نداشت و پوشه‌های runtime از جمله `storage/framework/views` فقط پس از اجرای `composer install` ساخته می‌شدند؛ در نتیجه `artisan package:discover` در Composer post-autoload-dump شکست می‌خورد.
+- PR40 فایل استاندارد پیکربندی View را اضافه کرد و ایجاد پوشه‌های storage/bootstrap را به قبل از اجرای Composer منتقل کرد.
+- PR40 با merge commit `ee75ef79a8f69a491eade8c8a3a6c3a5b0d109ec` در main ادغام شد.
+- Render باید از commit جدید دوباره Build/Deploy شود؛ موفقیت Build هنوز تأیید نشده است.
+- هیچ تست، Migration یا Seeder اجرا نشد؛ دیتابیس‌ها تغییری نکردند.
