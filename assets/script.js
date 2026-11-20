@@ -35,6 +35,7 @@ function render(d){
  $("#migrationGroups").innerHTML='<div class="mini-tile"><b>Migrationهای موجود در سورس</b><span>'+esc(cur.source_inventory?.migration_files??"—")+' فایل؛ تعداد اجراشده در دیتابیس نامشخص است</span></div><div class="mini-tile"><b>وضعیت دیتابیس زنده</b><span>بررسی نشده؛ تعداد جدول و migrate:status تأیید نشده‌اند</span></div>';
  $("#tableList").innerHTML=(a.known_tables||[]).map(x=>'<div class="table-chip"><code>'+esc(x.name)+'</code><span>'+esc(x.area)+'</span></div>').join("");
  $("#tableNote").textContent=a.known_tables_note||"";
+ $("#databaseFindings").innerHTML=(a.current_findings||[]).map(x=>row({title:x.id+" · "+x.severity,detail:x.summary+"\nاقدام پیشنهادی: "+x.remediation,state:"needs_review"})).join("");
  renderFeatures();
  $("#roadmapList").innerHTML=(d.roadmap||[]).map((x,i)=>'<article class="phase"><div class="phase-head"><span class="phase-num">'+String(i+1).padStart(2,"0")+'</span><div><h3>'+esc(x.phase)+'</h3>'+status(x.state)+'</div></div><ul>'+((x.items||[]).map(t=>'<li>'+esc(t)+'</li>').join(""))+'</ul></article>').join("");
  $("#decisionList").innerHTML=(d.decisions||[]).map(x=>'<div class="decision">'+esc(x)+'</div>').join("");
