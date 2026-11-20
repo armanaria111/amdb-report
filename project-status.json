@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "b1debc61f4c78996ea8b05569e3dd1527154da1a",
+    "source_commit_audited": "5df9f267a64b8388a28f954cf4ac8ca471a98db5",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "b1debc61f4c78996ea8b05569e3dd1527154da1a",
+    "latest_main_commit": "5df9f267a64b8388a28f954cf4ac8ca471a98db5",
     "latest_main_commit_verified_on": "2026-11-20"
   },
   "languages": [
@@ -457,7 +457,11 @@
       "PR83 با merge commit b1debc61f4c78996ea8b05569e3dd1527154da1a ادغام شد: ممیزی وابستگی‌ها، ثبت فعالیت منتخب کاتالوگ با Spatie Activitylog، sitemap روزانه با Spatie Sitemap و رعایت SEO indexing، نمودار پرداخت Chart.js با تفکیک ارز و یکپارچه‌سازی آیکون‌های Font Awesome در داشبورد مدیریت.",
       "معماری ترجمه رابطه‌ای و گردش‌کار اختصاصی رسانه عمداً حفظ شدند؛ Spatie Translatable و MediaLibrary در وضعیت فعلی جایگزین مناسبی نیستند. Scout و Livewire نیز بدون نیاز واقعی و انتخاب زیرساخت فعال نشدند.",
       "یک route تکراری moderation رسانه حذف شد، لینک قدیمی slug در داشبورد هنرمند به public_id تغییر کرد و metadata/README پروژه با هویت AMDB هماهنگ شد.",
-      "Migration activity_log هنوز اجرا نشده است. تست‌ها، Vite build و بررسی runtime اجرا نشده‌اند و در مرحله نهایی باقی هستند."
+      "Migration activity_log هنوز اجرا نشده است. تست‌ها، Vite build و بررسی runtime اجرا نشده‌اند و در مرحله نهایی باقی هستند.",
+      "PR84 با موفقیت ادغام شد: زیرساخت مدیریت ماژول‌های داخلی AMDB، فهرست مرکزی چهار ماژول، فعال/غیرفعال‌سازی از پنل مدیریت، ذخیره وضعیت در کلید plugins.enabled جدول موجود site_settings، کنترل Routeها و بخش‌های مرتبط و ترجمه مستقل en/fa-AF/ps اضافه شد.",
+      "برای PR84 هیچ Migration یا جدول جدیدی ایجاد نشد؛ غیرفعال‌سازی داده‌های موجود را حذف نمی‌کند. نصب/اجرای افزونه ثالث یا بسته ZIP عمداً در این نسخه پشتیبانی نمی‌شود.",
+      "شش تست Feature برای Plugin Management به سورس اضافه شد؛ PHPUnit، Vite build، مرورگر و runtime اجرا/تأیید نشدند.",
+      "آخرین main commit پس از PR84: 5df9f267a64b8388a28f954cf4ac8ca471a98db5."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -798,6 +802,10 @@
     {
       "date": "2026-11-20",
       "text": "گزارش پروژه بازسازی شد: یک مرجع واحد برای وضعیت فعلی و آمار سورس، جداسازی ممیزی‌های تاریخی، اصلاح نقشه راه اخبار/جشنواره‌ها/API/رسانه/اعلان‌ها/SEO، ثبت دقیق محدودیت‌های عدم اجرای تست و عدم تطبیق دیتابیس."
+    },
+    {
+      "date": "2026-11-20",
+      "text": "PR84 با merge commit 5df9f267a64b8388a28f954cf4ac8ca471a98db5 ادغام شد: مدیریت ماژول‌های داخلی AMDB در /admin/plugins، کاتالوگ چهار ماژول اخبار/جشنواره‌ها/امتیاز و نقد/اشتراک هنرمندان، ذخیره وضعیت در site_settings، کنترل مسیرها و رابط سه‌زبانه اضافه شد. هیچ Migration یا جدول جدیدی لازم نیست و داده‌ها با غیرفعال‌سازی حفظ می‌شوند. نصب افزونه ثالث پشتیبانی نمی‌شود. شش تست Feature اضافه شده اما اجرا نشده‌اند."
     }
   ],
   "architecture": {
@@ -1009,6 +1017,11 @@
       "name": "گزارش‌های آماری داشبورد مدیریت",
       "state": "implemented_unverified",
       "detail": "Chart.js برای تعداد پرداخت‌ها با تفکیک ارز و وضعیت به داشبورد مدیریت افزوده شده؛ نمایش مرورگری و داده واقعی تست نشده است."
+    },
+    {
+      "name": "مدیریت افزونه‌ها و ماژول‌های داخلی",
+      "state": "implemented_unverified",
+      "detail": "PR84 در main ادغام شد: فهرست ماژول‌های داخلی اخبار، جشنواره‌ها، امتیاز/نقد و اشتراک هنرمندان، فعال/غیرفعال‌سازی از پنل مدیر، ذخیره وضعیت در site_settings، کنترل مسیرهای متصل و رابط سه‌زبانه. داده‌ها حذف نمی‌شوند؛ تست‌ها اجرا نشده‌اند. نصب افزونه‌های مستقل/ثالث هنوز پشتیبانی نمی‌شود."
     }
   ],
   "roadmap": [
@@ -1020,7 +1033,8 @@
         "زبان‌های en، fa-AF و ps و جهت RTL",
         "RBAC و درخواست احراز حرفه‌ای",
         "شناسه‌های پایدار am، ar و co",
-        "SEO، تنظیمات عمومی و صفحات اطلاعات سایت"
+        "SEO، تنظیمات عمومی و صفحات اطلاعات سایت",
+        "مدیریت فعال/غیرفعال‌سازی ماژول‌های داخلی — PR84؛ نصب افزونه‌های مستقل و بازارچه هنوز در نقشه راه است."
       ]
     },
     {
@@ -1187,6 +1201,11 @@
       "date": "2026-11-20",
       "title": "بازسازی گزارش یکپارچه و اصلاح مبنای آمار",
       "detail": "موجودی سورس main در commit b1debc61 بازشماری شد: ۷۶۵ ورودی Git tree، ۴۷ Migration، ۶۲ Model، ۸۲ Blade، ۱۲۳ فایل ترجمه، ۱۹ فایل تست، ۴۷ Controller، ۲۰۴ فراخوانی نام‌گذاری Route. آمار تاریخی از آمار جاری جدا شد؛ نقشه راه با قابلیت‌های ادغام‌شده به‌روزرسانی شد. وضعیت دیتابیس زنده و اجرای تست‌ها همچنان تأیید نشده است."
+    },
+    {
+      "date": "2026-11-20",
+      "title": "ادغام PR84 — مدیریت افزونه‌ها و ماژول‌های داخلی AMDB",
+      "detail": "زیرساخت مدیریت ماژول‌های داخلی در مخزن اصلی ادغام شد. مدیر از /admin/plugins می‌تواند اخبار، جشنواره‌ها، امتیاز/نقد و اشتراک هنرمندان را فعال یا غیرفعال کند. وضعیت در site_settings ذخیره می‌شود؛ Migration جدید و حذف داده نداریم. رابط انگلیسی/دری/پشتو و شش تست Feature اضافه شده‌اند. نصب افزونه ثالث، بسته ZIP و اجرای کد پویا در این نسخه وجود ندارد؛ تست، build و runtime اجرا نشده‌اند."
     }
   ],
   "source_code_audit": {
@@ -3784,24 +3803,24 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "b1debc61f4c78996ea8b05569e3dd1527154da1a",
+    "source_commit": "5df9f267a64b8388a28f954cf4ac8ca471a98db5",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-20",
       "branch": "main",
-      "commit": "b1debc61f4c78996ea8b05569e3dd1527154da1a",
-      "audit_type": "GitHub recursive tree inventory + composer.lock/package.json + routes/web.php static inspection",
-      "tree_entries": 765,
+      "commit": "5df9f267a64b8388a28f954cf4ac8ca471a98db5",
+      "audit_type": "GitHub recursive tree inventory + static source review after PR84",
+      "tree_entries": 776,
       "migration_files": 47,
       "eloquent_model_files": 62,
-      "blade_files": 82,
-      "translation_php_files": 123,
-      "test_php_files": 19,
-      "controller_php_files": 47,
+      "blade_files": 83,
+      "translation_php_files": 126,
+      "test_php_files": 20,
+      "controller_php_files": 48,
       "service_php_files": 2,
-      "web_route_lines": 903,
-      "named_route_calls": 204,
-      "route_declarations": 214,
+      "web_route_lines": 917,
+      "named_route_calls": 206,
+      "route_declarations": 216,
       "locales": [
         "en",
         "fa-AF",
@@ -3816,13 +3835,13 @@
       "verified_at": "2026-11-20T18:33:38Z"
     },
     "feature_summary": {
-      "implemented_unverified": 30,
+      "implemented_unverified": 31,
       "partial": 4,
       "needs_review": 0,
       "planned": 1,
       "blocked": 0
     },
-    "feature_count": 35,
+    "feature_count": 36,
     "implementation_status": "کدهای ادغام‌شده در سورس؛ runtime و QA نهایی هنوز تأیید نشده‌اند مگر جایی که صریحاً ثبت شده باشد.",
     "database_runtime": {
       "status": "not_verified",
@@ -3831,7 +3850,7 @@
       "reason": "این snapshot فقط سورس GitHub را بررسی کرده است؛ هیچ اتصال زنده‌ای به دیتابیس محلی یا عملیاتی انجام نشده است."
     },
     "quality": {
-      "tests_in_repository": 19,
+      "tests_in_repository": 20,
       "tests_executed": false,
       "test_result": null,
       "vite_build_executed": false,
@@ -3841,23 +3860,24 @@
       "notes": [
         "وجود فایل تست به معنی اجرای تست نیست؛ نتیجه PHPUnit در این snapshot ثبت نشده است.",
         "Build فرانت‌اند، بررسی مرورگری و smoke test عملیاتی در این نوبت اجرا نشده‌اند.",
-        "Migrationهای موجود در سورس به معنی اجرا شدن آن‌ها روی دیتابیس نیستند."
+        "Migrationهای موجود در سورس به معنی اجرا شدن آن‌ها روی دیتابیس نیستند.",
+        "PR84 شش سناریوی Feature Test برای فهرست افزونه‌ها، فعال/غیرفعال‌سازی، حفظ پیش‌فرض فعال، جلوگیری از افزونه ناشناخته و محدودیت دسترسی اضافه کرد؛ PHPUnit هنوز اجرا نشده است."
       ]
     },
     "release": {
-      "latest_merged_pr": 83,
-      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/83",
-      "latest_source_commit": "b1debc61f4c78996ea8b05569e3dd1527154da1a",
+      "latest_merged_pr": 84,
+      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/84",
+      "latest_source_commit": "5df9f267a64b8388a28f954cf4ac8ca471a98db5",
       "source_branch": "main",
-      "verified_at": "2026-11-20T18:33:38Z"
+      "verified_at": "2026-11-20"
     },
-    "note": "مرجع واحد آمار فعلی این بخش است. تاریخ و commit مبنا برای همه شمارش‌های سورس درج شده؛ آمار تاریخی فقط در archive و تاریخچه نگهداری می‌شود. وضعیت دیتابیس زنده و اجرای QA در این snapshot تأیید نشده است.",
+    "note": "مرجع واحد آمار فعلی این بخش است. آخرین مبنای سورس commit 5df9f267a64b8388a28f954cf4ac8ca471a98db5 پس از ادغام PR84 است؛ آمار دیتابیس زنده و اجرای QA همچنان تأیید نشده است.",
     "panels": [
       {
         "id": "admin",
         "name": "پنل مدیریت",
         "status": "implemented_unverified",
-        "detail": "مدیریت کاتالوگ آثار، هنرمندان و شرکت‌ها، اخبار، جشنواره‌ها، رسانه، اشتراک، moderation، تنظیمات، گزارش‌های مالی و فعالیت‌ها در سورس main موجود است؛ تکمیل QA همه مسیرها و کنترل مجوزها باقی است."
+        "detail": "مدیریت کاتالوگ آثار، هنرمندان و شرکت‌ها، اخبار، جشنواره‌ها، رسانه، اشتراک، moderation، تنظیمات، گزارش‌های مالی/فعالیت و مدیریت ماژول‌های داخلی در سورس main موجود است؛ تکمیل QA همه مسیرها و کنترل مجوزها باقی است."
       },
       {
         "id": "user",
@@ -3883,6 +3903,44 @@
         "تست‌های امنیتی و مالکیت/مجوزها روی commit جاری اجرا نشده‌اند."
       ],
       "note": "این وضعیت ترکیبی از ممیزی ایستای تاریخی و وضعیت PRهای اصلاحی است؛ تأیید امنیت عملیاتی یا runtime محسوب نمی‌شود."
+    },
+    "plugins": {
+      "status": "implemented_unverified",
+      "merged_pr": 84,
+      "source_commit": "5df9f267a64b8388a28f954cf4ac8ca471a98db5",
+      "admin_route": "/admin/plugins",
+      "storage": "کلید plugins.enabled در جدول موجود site_settings؛ بدون Migration یا جدول جدید",
+      "modules": [
+        {
+          "slug": "news",
+          "name": "اخبار",
+          "default_enabled": true
+        },
+        {
+          "slug": "festivals",
+          "name": "جشنواره‌ها و جوایز",
+          "default_enabled": true
+        },
+        {
+          "slug": "ratings",
+          "name": "امتیازدهی و نقد و بررسی",
+          "default_enabled": true
+        },
+        {
+          "slug": "artist_subscriptions",
+          "name": "اشتراک هنرمندان",
+          "default_enabled": true
+        }
+      ],
+      "behavior": "مدیریت فعال/غیرفعال‌سازی ماژول‌های داخلی، کنترل Routeهای متصل، پنهان‌سازی لینک‌های اخبار/جشنواره‌ها و بخش امتیاز/نقد در صفحه اثر؛ داده‌ها هنگام غیرفعال‌سازی حفظ می‌شوند.",
+      "limitations": [
+        "نصب/بارگذاری افزونه ثالث یا بسته ZIP پشتیبانی نمی‌شود؛ اجرای کد پویا عمداً وجود ندارد.",
+        "صفحه تنظیمات اختصاصی هر افزونه، نسخه‌بندی، به‌روزرسانی، dependency resolution و lifecycle hooks در مراحل بعدی است."
+      ],
+      "tests_added": "tests/Feature/Admin/PluginManagementTest.php",
+      "tests_executed": false,
+      "migrations_required": false,
+      "runtime_verified": false
     }
   },
   "report_methodology": {
