@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "5df9f267a64b8388a28f954cf4ac8ca471a98db5",
+    "source_commit_audited": "8eb5ac4411f87f6ecd6ad7892d20500e8b9feaab",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "5df9f267a64b8388a28f954cf4ac8ca471a98db5",
+    "latest_main_commit": "8eb5ac4411f87f6ecd6ad7892d20500e8b9feaab",
     "latest_main_commit_verified_on": "2026-11-20"
   },
   "languages": [
@@ -465,7 +465,12 @@
       "PR85 در main ادغام شد: تاریخچه پرداخت هنرمند اکنون روش پرداخت و شماره پیگیری را کنار مبلغ، وضعیت، تاریخ و لینک رسید نمایش می‌دهد؛ جزئیات فقط برای مالک پروفایل بارگذاری و نمایش داده می‌شوند.",
       "فونت‌های مستقل برای انگلیسی (Inter)، دری (Vazirmatn) و پشتو (Noto Sans Arabic) در CSS بر اساس lang صفحه تنظیم شدند و کنترل‌های فرم از فونت زبان پیروی می‌کنند.",
       "شش تست Feature جدید برای نمایش جزئیات پرداخت فقط برای مالک، دانلود رسید خصوصی، و هدایت داشبورد برای کاربر/هنرمند/مدیر/مهمان اضافه شد؛ تست‌ها هنوز اجرا نشده‌اند.",
-      "آخرین main commit پس از PR85: ca51c7c4ddd6b2a028bfb3e90d1e19ea55265e99."
+      "آخرین main commit پس از PR85: ca51c7c4ddd6b2a028bfb3e90d1e19ea55265e99.",
+      "PR90 در main ادغام شد: composer.json و composer.lock همگام شدند، Livewire به ^4.4 محدود شد، Migration تکراری ترجمه فصل/قسمت به no-op امن تبدیل شد، constraint مالکیت ProfileMedia به روش سازگار با MySQL و مدل تغییر کرد، و سازگاری کامل کد و schema با Spatie Activitylog v5 اصلاح شد.",
+      "چند خطای Blade که با lint خودکار شناسایی شدند در layout، فرم آثار، فصل/قسمت، شرکت و مدیریت رسانه اصلاح شدند؛ تمام Bladeهای کامپایل‌شده در CI از php -l عبور کردند.",
+      "CI نهایی run 44813275840 موفق شد: Composer validation، نصب PHP dependencies، Vite production build، Blade compile/lint و PHPUnit با 97 تست موفق و 396 assertion.",
+      "این تست‌ها روی SQLite موقت CI اجرا شدند؛ هیچ دیتابیس MySQL زنده کاربر یا محیط production/staging تغییر داده نشد.",
+      "آخرین main commit پس از PR90: 8eb5ac4411f87f6ecd6ad7892d20500e8b9feaab."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -814,6 +819,10 @@
     {
       "date": "2026-11-20",
       "text": "PR85 با merge commit ca51c7c4ddd6b2a028bfb3e90d1e19ea55265e99 ادغام شد: تاریخچه پرداخت پنل هنرمند جزئیات روش و شماره پیگیری را نمایش می‌دهد؛ کنترل مالکیت اطلاعات و رسید خصوصی با تست‌های جدید پوشش داده شد؛ فونت‌های مستقل en/fa-AF/ps تنظیم شدند؛ تست مسیرهای داشبورد بر اساس نقش افزوده شد. هیچ Migration یا تغییر دیتابیسی انجام نشد. درگاه آنلاین هنوز نیازمند انتخاب ارائه‌دهنده است."
+    },
+    {
+      "date": "2026-11-20",
+      "text": "PR90 در main ادغام شد: همگام‌سازی Composer و محدودکردن Livewire، اصلاح Migrationهای تکراری/ناسازگار، ارتقای imports و schema به Spatie Activitylog v5، رفع خطاهای Blade و اصلاح تست‌های URL canonical. CI کامل موفق: Composer validation، Vite build، Blade compile/lint و 97 تست PHPUnit با 396 assertion روی SQLite موقت. هیچ دیتابیس زنده‌ای دستکاری نشد."
     }
   ],
   "architecture": {
@@ -1035,6 +1044,11 @@
       "name": "بازارچه و نصب افزونه‌های مستقل",
       "state": "planned",
       "detail": "نصب/حذف افزونه‌های ثالث، بسته‌های امضاشده، بررسی سازگاری و چرخه به‌روزرسانی هنوز طراحی و پیاده‌سازی نشده؛ اجرای کد PHP ناشناس بدون مدل امنیتی تأییدشده مجاز نیست."
+    },
+    {
+      "name": "CI خودکار برای تست PHP و Build فرانت‌اند",
+      "state": "implemented_unverified",
+      "detail": "PR87/PR90: GitHub Actions برای Composer validation، نصب وابستگی‌ها، compile و lint همه Bladeها، اجرای PHPUnit روی SQLite موقت و Vite production build. آخرین run 44813275840 موفق با 97 تست و 396 assertion. بررسی مرورگری و تست MySQL/staging جداگانه باقی است."
     }
   ],
   "roadmap": [
@@ -1099,9 +1113,9 @@
       "items": [
         "API عمومی فقط‌خواندنی v1 — PR73؛ پیاده‌سازی‌شده در سورس",
         "SEO، Open Graph، شبکه‌های اجتماعی و صفحات عمومی در سورس",
-        "فونت‌های مستقل انگلیسی (Inter)، دری (Vazirmatn) و پشتو (Noto Sans Arabic) در PR85 تنظیم شدند؛ مرورگر تأیید نشده",
-        "بررسی backup و migrate:status پیش از هر Migration در محیط هدف",
-        "اجرای PHPUnit، build، بررسی مرورگری و smoke test استقرار"
+        "فونت‌های مستقل انگلیسی (Inter)، دری (Vazirmatn) و پشتو (Noto Sans Arabic) تنظیم شده‌اند؛ مرورگر تأیید نشده",
+        "GitHub Actions برای Composer، Blade compile/lint، PHPUnit و Vite Build اضافه شد؛ 97 تست در CI موفق",
+        "اجرای کنترل‌شده backup و migrate:status روی دیتابیس MySQL هدف، بررسی مرورگری و smoke test دامنه staging/production باقی است"
       ]
     }
   ],
@@ -1225,6 +1239,11 @@
       "date": "2026-11-20",
       "title": "ادغام PR85 — تکمیل تاریخچه پرداخت و بررسی پنل‌ها",
       "detail": "روش پرداخت و شماره پیگیری به تاریخچه پرداخت هنرمند افزوده شد؛ اطلاعات فقط برای مالک پروفایل نمایش داده می‌شوند و دانلود رسید خصوصی به مالک محدود است. فونت‌های مستقل انگلیسی، دری و پشتو اعمال شدند. شش تست Feature برای تاریخچه/مالکیت رسید و هدایت داشبورد بر اساس نقش اضافه شد. PHPUnit و runtime اجرا نشده‌اند. درگاه پرداخت آنلاین جداگانه و وابسته به ارائه‌دهنده است."
+    },
+    {
+      "date": "2026-11-20",
+      "title": "ادغام PR90 — رفع خطاهای CI و تکمیل QA خودکار",
+      "detail": "ناسازگاری Composer، migrationهای تکراری و schema، API نسخه 5 Activitylog، و چند خطای Blade اصلاح شدند. workflow CI به Composer validation، Vite build، Blade compile/lint و PHPUnit مجهز شد. اجرای نهایی 97 تست و 396 assertion را با موفقیت گذراند. اجرای MySQL محلی، مرورگر و smoke test دامنه همچنان جداگانه لازم‌اند."
     }
   ],
   "source_code_audit": {
@@ -3822,15 +3841,15 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "ca51c7c4ddd6b2a028bfb3e90d1e19ea55265e99",
+    "source_commit": "8eb5ac4411f87f6ecd6ad7892d20500e8b9feaab",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-20",
       "branch": "main",
-      "commit": "ca51c7c4ddd6b2a028bfb3e90d1e19ea55265e99",
-      "audit_type": "GitHub recursive tree inventory + static source review after PR85",
-      "tree_entries": 778,
-      "migration_files": 47,
+      "commit": "8eb5ac4411f87f6ecd6ad7892d20500e8b9feaab",
+      "audit_type": "GitHub recursive tree inventory + CI validation after PR90",
+      "tree_entries": 781,
+      "migration_files": 48,
       "eloquent_model_files": 62,
       "blade_files": 83,
       "translation_php_files": 126,
@@ -3847,21 +3866,20 @@
       ],
       "truncated": false,
       "limitations": [
-        "این اعداد شمارش فایل‌ها و فراخوانی‌های سورس در commit مشخص هستند؛ تعداد جدول‌های واقعی دیتابیس یا Migrationهای اجراشده را نشان نمی‌دهند.",
-        "تست‌های موجود در مخزن شمرده شده‌اند اما اجرا نشده‌اند.",
-        "هیچ اتصال زنده‌ای به دیتابیس محلی یا محیط عملیاتی برای این snapshot انجام نشده است.",
-        "تغییرات PR85 شمار فایل‌های تست را به 22 رساند؛ این فقط شمار فایل‌ها است و اجرای موفق تست‌ها را ثابت نمی‌کند."
+        "این اعداد شمار فایل‌ها و فراخوانی‌های سورس در commit مشخص هستند؛ تعداد جدول‌های واقعی دیتابیس یا Migrationهای اجراشده در محیط عملیاتی را نشان نمی‌دهند.",
+        "تست‌ها و Migrationها در دیتابیس موقت SQLite در CI اجرا شدند؛ این نتیجه جایگزین اجرای کنترل‌شده روی MySQL محلی یا staging نیست.",
+        "بررسی مرورگری و smoke test روی دامنه staging/production انجام نشده است."
       ],
       "verified_at": "2026-11-20"
     },
     "feature_summary": {
-      "implemented_unverified": 36,
+      "implemented_unverified": 37,
       "partial": 0,
       "needs_review": 0,
       "planned": 1,
       "blocked": 0
     },
-    "feature_count": 37,
+    "feature_count": 38,
     "implementation_status": "کدهای ادغام‌شده در سورس؛ runtime و QA نهایی هنوز تأیید نشده‌اند مگر جایی که صریحاً ثبت شده باشد.",
     "database_runtime": {
       "status": "not_verified",
@@ -3871,28 +3889,31 @@
     },
     "quality": {
       "tests_in_repository": 22,
-      "tests_executed": false,
-      "test_result": null,
-      "vite_build_executed": false,
+      "tests_executed": true,
+      "test_result": "97 passed (396 assertions), PHP 8.5, SQLite in-memory, GitHub Actions run 44813275840",
+      "vite_build_executed": true,
       "browser_verified": false,
       "production_smoke_test": false,
       "migrations_executed_in_this_audit": false,
       "notes": [
-        "وجود فایل تست به معنی اجرای تست نیست؛ نتیجه PHPUnit در این snapshot ثبت نشده است.",
-        "Build فرانت‌اند، بررسی مرورگری و smoke test عملیاتی در این نوبت اجرا نشده‌اند.",
-        "Migrationهای موجود در سورس به معنی اجرا شدن آن‌ها روی دیتابیس نیستند.",
-        "PR84 هفت سناریوی Feature Test برای فهرست افزونه‌ها، فعال/غیرفعال‌سازی، حفظ پیش‌فرض فعال، جلوگیری از افزونه ناشناخته و محدودیت دسترسی اضافه کرد؛ PHPUnit هنوز اجرا نشده است.",
-        "PR85 در main ادغام شد: تاریخچه پرداخت هنرمند اکنون روش پرداخت و شماره پیگیری را نمایش می‌دهد؛ شش تست Feature برای تاریخچه/مالکیت رسید و هدایت داشبورد بر اساس نقش اضافه شد. PHPUnit اجرا نشده است."
-      ]
+        "۹۷ تست PHPUnit با ۳۹۶ assertion در GitHub Actions و دیتابیس موقت SQLite موفق شدند؛ این اجرا شامل اجرای Migrationها روی محیط موقت CI است، نه دیتابیس زنده کاربر.",
+        "Vite production build با Node 22 موفق شد.",
+        "تمام فایل‌های Blade با php -l پس از view:cache بررسی و بدون خطای نحوی تأیید شدند.",
+        "Composer validate --strict و نصب وابستگی‌ها موفق شدند.",
+        "بررسی مرورگری، smoke test روی staging/production و اتصال به دیتابیس MySQL کاربر انجام نشده است.",
+        "در PR90 چند ناسازگاری واقعی کشف و اصلاح شد: constraint نامعتبر Blueprint، namespace و API قدیمی Spatie Activitylog، ستون‌های جدید Activitylog v5، Migration تکراری ترجمه فصل/قسمت و Blade directives پیچیده."
+      ],
+      "ci_migrations_executed": true,
+      "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840"
     },
     "release": {
-      "latest_merged_pr": 85,
-      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/85",
-      "latest_source_commit": "ca51c7c4ddd6b2a028bfb3e90d1e19ea55265e99",
+      "latest_merged_pr": 90,
+      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/90",
+      "latest_source_commit": "8eb5ac4411f87f6ecd6ad7892d20500e8b9feaab",
       "source_branch": "main",
       "verified_at": "2026-11-20"
     },
-    "note": "مرجع واحد آمار فعلی این بخش است. آخرین مبنای سورس commit ca51c7c4ddd6b2a028bfb3e90d1e19ea55265e99 پس از ادغام PR85 است؛ دیتابیس زنده، PHPUnit، build و QA مرورگری هنوز تأیید نشده‌اند.",
+    "note": "آخرین مبنای سورس commit 8eb5ac4411f87f6ecd6ad7892d20500e8b9feaab پس از ادغام PR90 است. CI شامل Composer validation، build، compile/lint همه Bladeها و ۹۷ تست موفق روی SQLite موقت است؛ دیتابیس MySQL کاربر و مرورگر/دامنه عملیاتی هنوز تأیید نشده‌اند.",
     "panels": [
       {
         "id": "admin",
@@ -3910,7 +3931,7 @@
         "id": "artist",
         "name": "پنل هنرمند و عوامل",
         "status": "implemented_unverified",
-        "detail": "پروفایل، چند حرفه، گالری رسانه، پیشنهاد اثر/عوامل، اشتراک، اعلان‌ها و تاریخچه پرداخت با جزئیات روش/شماره پیگیری در سورس main هستند؛ کنترل مالکیت رسید و تست مسیر داشبورد اضافه شده، QA کامل runtime باقی است."
+        "detail": "پروفایل، چند حرفه، گالری رسانه، پیشنهاد اثر/عوامل، اشتراک، اعلان‌ها و تاریخچه پرداخت با روش/شماره پیگیری در سورس main هستند؛ تست مالکیت رسید و مسیر داشبورد بر اساس نقش اجرا و موفق شده‌اند. کل suite شامل ۹۷ تست در CI موفق است؛ مرورگر/Runtime روی دامنه هنوز بررسی نشده است."
       }
     ],
     "security": {
@@ -3959,9 +3980,10 @@
         "صفحه تنظیمات اختصاصی هر افزونه، نسخه‌بندی، به‌روزرسانی، dependency resolution و lifecycle hooks در مراحل بعدی است."
       ],
       "tests_added": "tests/Feature/Admin/PluginManagementTest.php (7 test methods)",
-      "tests_executed": false,
+      "tests_executed": true,
       "migrations_required": false,
-      "runtime_verified": false
+      "runtime_verified": false,
+      "tests_result": "Included in full CI suite: 97 passed, 396 assertions"
     }
   },
   "report_methodology": {
