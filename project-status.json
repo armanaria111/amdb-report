@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "f8820dfa84f9fba9a46f6c5ba028a72e06b324ed",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "754cebcdbed546adf1ccbb36d0f3eac4ae9c4a07",
+    "latest_main_commit": "e17740fd48d42ec83835fa413213da06d4cecafd",
     "latest_main_commit_verified_on": "2026-11-20"
   },
   "languages": [
@@ -513,7 +513,9 @@
       "PR70 با merge commit 08f0b274e425ef98b8c28566b69afce2ceaad45a در main ادغام شد: گردش‌کار ارسال خبر توسط کاربران، فرم سه‌زبانه، پیگیری درخواست، درخواست اصلاح و صف بررسی تحریریه؛ تأیید مدیر فقط پیش‌نویس خبر ایجاد می‌کند و انتشار همچنان نیازمند مجوز news.publish است. Migration، تست، Seeder، build و مرورگر اجرا نشده‌اند.",
       "PR80 با merge commit 754cebcdbed546adf1ccbb36d0f3eac4ae9c4a07 ادغام شد: واردسازی امن CSV کریدیت عوامل با قالب دانلودی، پیش‌نمایش، اعتبارسنجی شناسه‌های AMDB، شناسه WordPress هنرمند و profession slug، تشخیص تکرار، تراکنش مستقل هر ردیف و رابط en/fa-AF/ps اضافه شد. هیچ Migration یا تغییر دیتابیس لازم نیست.",
       "اتصال مستقیم شناسه WordPress اثر هنوز عمداً انجام نشده است؛ ساختار واقعی export و روابط cast/crew منبع WordPress در دسترس نیست و تطبیق بر اساس نام انجام نمی‌شود. واردساز CSV در این مرحله title_public_id می‌خواهد.",
-      "تست، build و بررسی مرورگری PR80 اجرا نشده‌اند و در فهرست کنترل‌های مرحله نهایی باقی مانده‌اند."
+      "تست، build و بررسی مرورگری PR80 اجرا نشده‌اند و در فهرست کنترل‌های مرحله نهایی باقی مانده‌اند.",
+      "PR81 با merge commit e17740fd48d42ec83835fa413213da06d4cecafd ادغام شد: صفحات عمومی فیلم و سریال اکنون با شناسه عمومی am باز می‌شوند؛ URLهای قدیمی slug با redirect دائمی 301 حفظ شده‌اند و لینک‌های کاتالوگ، جستجو و پیشنهاد زنده به public_id تغییر کرده‌اند.",
+      "تگ canonical عمومی اضافه شد و صفحه جزئیات اثر canonical مبتنی بر public_id دارد. تست‌های Feature مرتبط به‌روزرسانی/افزوده شدند اما اجرا نشدند."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -577,8 +579,8 @@
     },
     {
       "title": "استفاده از شناسه عمومی در URLها",
-      "state": "partially_implemented_unverified",
-      "detail": "هنرمند با ar و شرکت با co در URL عمومی استفاده می‌شوند؛ آثار همچنان از slug در Route عمومی استفاده می‌کنند. تست runtime اجرا نشده است."
+      "state": "implemented_unverified",
+      "detail": "PR81 در main ادغام شد: مسیر عمومی آثار با public_id از نوع am کار می‌کند، URLهای slug قدیمی با 301 به شناسه پایدار هدایت می‌شوند و لینک‌های کاتالوگ/جستجو/پیشنهاد زنده از شناسه عمومی استفاده می‌کنند. runtime و SEO هنوز در مرحله نهایی بررسی می‌شوند."
     },
     {
       "title": "جداول و مدل‌های قدیمی Claim",
@@ -1855,8 +1857,8 @@
     }
   },
   "current_work": {
-    "stage": "واردسازی امن کریدیت عوامل آثار از CSV و آماده‌سازی اتصال WordPress",
-    "status": "title_credit_csv_import_merged_runtime_unverified",
+    "stage": "یکپارچه‌سازی شناسه عمومی آثار در URL و تکمیل واردسازی کریدیت‌ها",
+    "status": "title_public_id_urls_merged_runtime_unverified",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -2151,6 +2153,12 @@
         "title": "Add safe CSV import for movie and series credits",
         "merge_commit": "754cebcdbed546adf1ccbb36d0f3eac4ae9c4a07",
         "status": "merged"
+      },
+      {
+        "number": 81,
+        "title": "Use stable AMDB public IDs in title URLs",
+        "merge_commit": "e17740fd48d42ec83835fa413213da06d4cecafd",
+        "status": "merged"
       }
     ],
     "subscription_migration": "database/migrations/2026_11_19_200000_create_artist_subscription_tables.php",
@@ -2177,7 +2185,7 @@
     },
     "subscription_request_plan_migration": "database/migrations/2026_11_20_110000_add_plan_to_artist_subscription_requests.php",
     "subscription_request_plan_migration_status": "در main ادغام شده؛ اجرا نشده است.",
-    "latest_source_commit": "754cebcdbed546adf1ccbb36d0f3eac4ae9c4a07",
+    "latest_source_commit": "e17740fd48d42ec83835fa413213da06d4cecafd",
     "source_migrations_not_run_in_this_change": [
       "2026_11_20_140000_create_news_tables.php",
       "2026_11_20_150000_create_season_episode_translation_tables.php",
@@ -2944,7 +2952,8 @@
     "PR78: بررسی ترجمه متن اعلان‌ها و جایگزینی placeholderهای note/subject/artist/profession در en/fa-AF/ps و نمایش صحیح در مرکز اعلان‌ها.",
     "PR79: تست Feature و بررسی runtime برای اعلان نتیجه احراز حرفه‌ای، اعلان تأیید/رد رسانه پروفایل و دسترسی مالک در مرحله نهایی.",
     "PR79: بررسی syntax و رندر Admin/ProfileMediaController پس از حذف متد moderate تکراری در مرحله نهایی.",
-    "PR80: اجرای تست Feature و بررسی runtime واردسازی CSV کریدیت‌ها، شامل شناسه‌های متعارض هنرمند، شناسه‌های ناموجود، حرفه غیرفعال، تکرار در فایل/دیتابیس، فایل بیش از ۵۰۰۰ ردیف و حفظ کریدیت‌های قبلی در مرحله نهایی."
+    "PR80: اجرای تست Feature و بررسی runtime واردسازی CSV کریدیت‌ها، شامل شناسه‌های متعارض هنرمند، شناسه‌های ناموجود، حرفه غیرفعال، تکرار در فایل/دیتابیس، فایل بیش از ۵۰۰۰ ردیف و حفظ کریدیت‌های قبلی در مرحله نهایی.",
+    "PR81: اجرای تست Feature و بررسی runtime مسیر جدید /titles/{public_id}، redirect 301 از slug قدیمی، canonical metadata و لینک‌های کاتالوگ/جستجو در مرحله نهایی."
   ],
   "post_pr21_localization": {
     "date": "2026-11-18",
@@ -4130,5 +4139,23 @@
     "runtime_verified": false,
     "mapping_boundary": "شناسه WordPress اثر هنوز در AMDB نگاشت نشده است. واردساز عمداً title_public_id می‌خواهد و هیچ تطبیق خودکار بر اساس نام انجام نمی‌دهد. اتصال مستقیم export وردپرس cast/crew پس از دریافت ساختار واقعی جدول‌ها، فیلدها و رابطه‌ها تکمیل می‌شود.",
     "note": "هر ردیف در تراکنش مستقل ثبت می‌شود؛ رکوردهای تکراری رد می‌شوند و هیچ کریدیت موجودی بازنویسی یا حذف نمی‌شود."
+  },
+  "title_public_id_urls": {
+    "date": "2026-11-20",
+    "status": "merged_runtime_unverified",
+    "pull_request": 81,
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/81",
+    "merge_commit": "e17740fd48d42ec83835fa413213da06d4cecafd",
+    "features": [
+      "صفحات عمومی فیلم و سریال با شناسه پایدار AMDB مانند am0000123 باز می‌شوند",
+      "لینک‌های فهرست فیلم/سریال، نتایج جستجو و پیشنهاد زنده از public_id استفاده می‌کنند",
+      "URLهای قدیمی مبتنی بر slug حفظ شده و پس از کنترل انتشار اثر و فعال بودن نوع محتوا با HTTP 301 به URL شناسه عمومی هدایت می‌شوند",
+      "تگ canonical در layout عمومی اضافه شده و صفحه اثر canonical مبتنی بر public_id دریافت می‌کند",
+      "تست موجود گالری به URL جدید تغییر کرده و تست redirect قدیمی افزوده شده است"
+    ],
+    "schema_changes": false,
+    "migrations_required": false,
+    "tests_executed": false,
+    "runtime_verified": false
   }
 }
