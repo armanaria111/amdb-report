@@ -482,7 +482,10 @@
       "لینک پس از تأیید درخواست، صفحه صدور اشتراک مدیر را با plan_id انتخاب‌شده باز می‌کند و پلن در فرم صدور از پیش انتخاب می‌شود؛ Migration plan_id برای درخواست nullable است تا درخواست‌های قدیمی قابل پردازش بمانند.",
       "آخرین main commit پس از PR51: 6ddd01c8277a85d3fd3350f6e568ba37379c2e98. هیچ Migration، Seeder، تست، اجرای برنامه یا تغییر دیتابیس انجام نشد.",
       "PR48 قدیمی به‌دلیل پایه‌گذاری روی main پیش از PR49–51 بسته شد؛ همان اصلاح تک‌خطی با شاخه جدید مبتنی بر main جاری در PR52 اعمال و ادغام شد.",
-      "PR52 با merge commit 662e453 فایل lang/ps/artists.php را از نظر syntax با حذف ویرگول اضافی اصلاح کرد؛ آخرین main commit: 662e4533ce8ae6c94deb17ef4e92634065f736a4."
+      "PR52 با merge commit 662e453 فایل lang/ps/artists.php را از نظر syntax با حذف ویرگول اضافی اصلاح کرد؛ آخرین main commit: 662e4533ce8ae6c94deb17ef4e92634065f736a4.",
+      "PR53 با merge commit 4f167511 تاریخچه اشتراک و پرداخت هنرمند را در داشبورد مالک پروفایل اضافه کرد؛ فیلدهای حساس و یادداشت مدیر نمایش داده نمی‌شوند.",
+      "PR54 با merge commit 4a158c5 امکان بارگذاری خصوصی رسید پرداخت در پنل مدیر و دانلود مالک‌محور از داشبورد هنرمند را اضافه کرد؛ از ستون receipt_path موجود استفاده شده و Migration جدیدی لازم نیست.",
+      "آخرین main commit پس از PR54: 4a158c5b033db55c3db4efec6013dc601d4ded63؛ هیچ Migration، Seeder، PHPUnit یا اجرای برنامه انجام نشد."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1816,8 +1819,8 @@
     }
   },
   "current_work": {
-    "stage": "تکمیل چرخه اشتراک هنرمندان، درخواست تمدید و مدیریت پلن‌ها",
-    "status": "subscription_requests_and_multilingual_plan_catalog_merged_runtime_unverified",
+    "stage": "تکمیل چرخه اشتراک هنرمندان، تاریخچه پرداخت و رسیدهای خصوصی",
+    "status": "artist_subscription_history_and_private_receipts_merged_runtime_unverified",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -1944,6 +1947,18 @@
         "title": "Fix malformed Pashto artist translations",
         "merge_commit": "662e4533ce8ae6c94deb17ef4e92634065f736a4",
         "status": "merged"
+      },
+      {
+        "number": 53,
+        "title": "Show subscription and payment history in artist dashboard",
+        "merge_commit": "4f1675112619163870f75ded2431580fe4228652",
+        "status": "merged"
+      },
+      {
+        "number": 54,
+        "title": "Add private payment receipt upload and owner-only downloads",
+        "merge_commit": "4a158c5b033db55c3db4efec6013dc601d4ded63",
+        "status": "merged"
       }
     ],
     "subscription_migration": "database/migrations/2026_11_19_200000_create_artist_subscription_tables.php",
@@ -1965,10 +1980,11 @@
       "admin_review": "مدیر پلن انتخاب‌شده، مدت، قیمت و ارز را می‌بیند؛ پس از تأیید، لینک صدور اشتراک با همان پلن از پیش انتخاب‌شده باز می‌شود. تأیید به‌تنهایی دسترسی را فعال نمی‌کند.",
       "plans": "مدیر پلن‌ها را با کد یکتا، مدت روز، مبلغ، ارز، ترتیب نمایش و ترجمه‌های en/fa-AF/ps مدیریت می‌کند.",
       "issuance": "صدور اشتراک فقط از پلن فعال ممکن است؛ تاریخ پایان از مدت پلن محاسبه و نام/کد/قیمت/ارز پلن هنگام صدور در سابقه اشتراک snapshot می‌شود.",
-      "payment": "پرداخت فعلاً به‌صورت دستی در پنل مدیر ثبت می‌شود؛ درگاه آنلاین وجود ندارد."
+      "payment": "پرداخت دستی در پنل مدیر؛ رسید PDF/تصویر روی disk خصوصی local ذخیره می‌شود و فقط مالک پروفایل هنرمند می‌تواند آن را از داشبورد دریافت کند. درگاه آنلاین هنوز وجود ندارد."
     },
     "subscription_request_plan_migration": "database/migrations/2026_11_20_110000_add_plan_to_artist_subscription_requests.php",
-    "subscription_request_plan_migration_status": "در main ادغام شده؛ اجرا نشده است."
+    "subscription_request_plan_migration_status": "در main ادغام شده؛ اجرا نشده است.",
+    "latest_source_commit": "4a158c5b033db55c3db4efec6013dc601d4ded63"
   },
   "application_audit": {
     "audit_date": "2026-11-18",
@@ -3170,9 +3186,48 @@
     "browser_rendering_verified": false,
     "local_database_modified": false,
     "next_actions": [
-      "پیاده‌سازی مسیر احراز هویت‌شده و مالک‌محور برای مشاهده/دانلود رسید پرداخت، پس از بازبینی دقیق storage disk و مسیرهای موجود.",
-      "تکمیل نمایش روش پرداخت در تاریخچه در صورت نیاز محصولی.",
-      "اجرای تست‌های PHPUnit، بررسی Blade و مشاهده مرورگر پس از در دسترس شدن محیط اجرا."
+      "نمایش روش پرداخت و وضعیت رسید در تاریخچه، در صورت نیاز محصولی.",
+      "طراحی داشبورد مالی مدیریت و گزارش جمع پرداخت‌ها بر اساس بازه زمانی، ارز و وضعیت.",
+      "طراحی اعلان نزدیک‌شدن تاریخ انقضا و درخواست تمدید؛ پس از تعیین کانال اعلان.",
+      "اجرای تست‌های Feature و بررسی دانلود مجاز/غیرمجاز، فایل ناموجود و شکست ذخیره‌سازی پس از در دسترس شدن محیط اجرا."
     ]
+  },
+  "private_artist_payment_receipts": {
+    "date": "2026-11-20",
+    "status": "implemented_merged_static_review_not_runtime_tested",
+    "pull_request": 54,
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/54",
+    "merge_commit": "4a158c5b033db55c3db4efec6013dc601d4ded63",
+    "source_commit": "4a158c5b033db55c3db4efec6013dc601d4ded63",
+    "files": [
+      "app/Http/Controllers/Admin/ArtistSubscriptionController.php",
+      "app/Http/Controllers/ArtistSubscriptionPaymentController.php",
+      "app/Http/Controllers/ArtistController.php",
+      "resources/views/admin/artists/subscriptions/index.blade.php",
+      "resources/views/dashboards/artist.blade.php",
+      "routes/web.php",
+      "lang/en/admin-subscriptions.php",
+      "lang/fa-AF/admin-subscriptions.php",
+      "lang/ps/admin-subscriptions.php",
+      "lang/en/subscription-requests.php",
+      "lang/fa-AF/subscription-requests.php",
+      "lang/ps/subscription-requests.php"
+    ],
+    "behavior": [
+      "مدیر هنگام ثبت پرداخت می‌تواند رسید PDF/JPG/JPEG/PNG/WEBP حداکثر ۵ مگابایت بارگذاری کند؛ وجود مبلغ پرداخت در صورت بارگذاری رسید اجباری است.",
+      "فایل در disk خصوصی local و مسیر artist-payment-receipts/{artist_id} ذخیره می‌شود؛ URL عمومی یا storage symlink ایجاد نمی‌شود.",
+      "مسیر خصوصی در ستون موجود artist_subscription_payments.receipt_path ذخیره می‌شود؛ Migration جدیدی لازم نیست.",
+      "در صورت شکست ذخیره فایل، ثبت اشتراک ادامه پیدا نمی‌کند؛ در صورت شکست transaction نیز فایل بارگذاری‌شده پاک‌سازی می‌شود.",
+      "دانلود فقط با احراز هویت و مالکیت همان پروفایل هنرمند مجاز است؛ برای سایر کاربران پاسخ 404 صادر می‌شود.",
+      "دانلود فقط از مسیر مورد انتظار همان هنرمند و disk خصوصی local انجام می‌شود؛ لینک دریافت در تاریخچه داشبورد هنرمند نمایش داده می‌شود.",
+      "برچسب‌ها و پیام‌ها برای en، fa-AF و ps ترجمه شدند."
+    ],
+    "security_review": "مسیر فایل، metadata، شماره تراکنش و اطلاعات داخلی مدیر در URL یا داشبورد افشا نمی‌شوند. کنترل مالکیت روی رابطه artist_user با is_owner انجام می‌شود.",
+    "tests_executed": false,
+    "migrations_executed": false,
+    "seeders_executed": false,
+    "browser_rendering_verified": false,
+    "local_database_modified": false,
+    "note": "فقط بازبینی ایستای سورس و Patch انجام شد؛ هیچ تست، runtime یا دانلود واقعی فایل اجرا نشده است."
   }
 }
