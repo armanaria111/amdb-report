@@ -13,7 +13,7 @@
     "local_path": "C:\\laragon\\www\\amdb",
     "last_verified": "2026-11-20",
     "overall_progress": null,
-    "progress_note": "درصد پیشرفت کلی تعیین نشده است؛ اعداد ممیزی ساختار دیتابیس، درصد تکمیل محصول نیستند.",
+    "progress_note": "درصد پیشرفت کلی نمایش داده نمی‌شود؛ وضعیت هر قابلیت جداگانه و با تفکیک پیاده‌سازی سورس از تست/runtime گزارش می‌شود.",
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
@@ -49,21 +49,21 @@
     }
   ],
   "database_audit": {
-    "audit_date": "2026-11-18",
-    "status": "static_source_audit_current_main",
+    "audit_date": "2026-11-20",
+    "status": "source_inventory_only_database_runtime_not_verified",
     "tables": null,
-    "eloquent_models": 40,
+    "eloquent_models": 62,
     "model_relations": null,
-    "routes": 103,
+    "routes": 204,
     "syntax_or_audit_errors": 0,
-    "note": "موجودی سورس در commit فعلی: ۲۹ فایل Migration (۲۶ برنامه و ۳ چارچوب)، ۴۰ مدل Eloquent، ۵۰ فایل Blade، ۶۳ فایل ترجمه PHP در سه زبان و ۱۰۳ فراخوانی نام‌گذاری Route. شمارش دقیق جدول‌های تعریف‌شده در این نوبت بازشماری نشده و عمداً null است؛ تعداد جدول‌های واقعی و وضعیت Migrationهای دیتابیس محلی نیز تأیید نشده‌اند.",
+    "note": "آمار فعلی از Git tree شاخه main در commit b1debc61 استخراج شده است: ۴۷ فایل Migration، ۶۲ فایل Model، ۸۲ فایل Blade، ۱۲۳ فایل زبان و ۲۰۴ فراخوانی نام‌گذاری Route. این آمار ساختار سورس است؛ تعداد جدول‌های واقعی و وضعیت migrate:status دیتابیس محلی تأیید نشده‌اند.",
     "migrations": {
-      "source_file_count": 30,
-      "application_migration_file_count": 27,
-      "framework_migration_file_count": 3,
+      "source_file_count": 47,
+      "application_migration_file_count": null,
+      "framework_migration_file_count": null,
       "ran_count": null,
-      "ran_count_note": "وضعیت migrate:status محلی در این نوبت بررسی نشده است؛ عدد تاریخی ۱۰ دیگر به‌عنوان وضعیت فعلی نمایش داده نمی‌شود.",
-      "status": "۳۰ فایل Migration در main شمارش شد؛ ۲۷ مربوط به دامنه AMDB و ۳ فایل زیرساخت Laravel. هیچ Migration اجرا نشده است."
+      "ran_count_note": "هیچ اتصال زنده به دیتابیس و اجرای migrate:status در این ممیزی انجام نشده است.",
+      "status": "۴۷ فایل Migration در سورس main شمارش شده‌اند؛ وضعیت اجرای آن‌ها نامشخص است."
     },
     "known_tables": [
       {
@@ -142,20 +142,34 @@
         "status": "reported"
       }
     ],
-    "known_tables_note": "این فهرست نمونه‌ای از جدول‌های ثبت‌شده قبلی است و فهرست کامل schema فعلی نیست. شمارش جدول‌های فعلی تا بازشماری همه Migrationها عمداً نامشخص مانده است.",
+    "known_tables_note": "فهرست زیر نمونه‌ای از جداولی است که در بررسی‌های قبلی گزارش شده؛ فهرست کامل schema یا شمارش جدول‌های دیتابیس زنده نیست.",
     "current_source_snapshot": {
-      "commit": "ee75ef79a8f69a491eade8c8a3a6c3a5b0d109ec",
-      "migration_files": 30,
-      "application_migration_files": 27,
-      "framework_migration_files": 3,
-      "eloquent_model_files": 40,
-      "blade_files": 50,
-      "translation_php_files": 63,
-      "named_route_calls": 103,
-      "audit_type": "read-only GitHub tree, dependency lockfiles, CSS, Blade layout and route inventory",
-      "latest_main_commit": "ee75ef79a8f69a491eade8c8a3a6c3a5b0d109ec",
-      "note": "آمار فایل‌های برنامه از Git tree شاخه main پس از ادغام PR36 به‌روزرسانی شد؛ ۶ فایل زیرساخت استقرار اضافه شده‌اند و تعداد Migrationها (۳۰)، مدل‌ها (۴۰)، Bladeها (۵۰) و ترجمه‌ها (۶۳) تغییر نکرده است. وضعیت اجرای Migrationها روی دیتابیس محلی بررسی نشده است. PR40 نیز فقط Dockerfile و config/view.php را برای رفع خطای Composer package:discover اصلاح کرد؛ شمارش فایل‌های دامنه و دیتابیس بازشماری نشده است.",
-      "tree_entries": 564
+      "date": "2026-11-20",
+      "branch": "main",
+      "commit": "b1debc61f4c78996ea8b05569e3dd1527154da1a",
+      "audit_type": "GitHub recursive tree inventory + composer.lock/package.json + routes/web.php static inspection",
+      "tree_entries": 765,
+      "migration_files": 47,
+      "eloquent_model_files": 62,
+      "blade_files": 82,
+      "translation_php_files": 123,
+      "test_php_files": 19,
+      "controller_php_files": 47,
+      "service_php_files": 2,
+      "web_route_lines": 903,
+      "named_route_calls": 204,
+      "route_declarations": 214,
+      "locales": [
+        "en",
+        "fa-AF",
+        "ps"
+      ],
+      "truncated": false,
+      "limitations": [
+        "این اعداد شمارش فایل‌ها و فراخوانی‌های سورس در commit مشخص هستند؛ تعداد جدول‌های واقعی دیتابیس یا Migrationهای اجراشده را نشان نمی‌دهند.",
+        "تست‌های موجود در مخزن شمرده شده‌اند اما اجرا نشده‌اند.",
+        "هیچ اتصال زنده‌ای به دیتابیس محلی یا محیط عملیاتی برای این snapshot انجام نشده است."
+      ]
     },
     "current_findings": [
       {
@@ -980,6 +994,10 @@
     {
       "date": "2026-11-20",
       "text": "PR68 (7ffc8ab) گالری خودخدمتی هنرمند را اضافه کرد؛ فقط مالک فعال و تأییدشده می‌تواند رسانه پروفایل خود را مدیریت کند. تصاویر ارسالی تا تأیید مدیر عمومی نمی‌شوند؛ Migration moderation و تست‌ها اجرا نشده‌اند."
+    },
+    {
+      "date": "2026-11-20",
+      "text": "گزارش پروژه بازسازی شد: یک مرجع واحد برای وضعیت فعلی و آمار سورس، جداسازی ممیزی‌های تاریخی، اصلاح نقشه راه اخبار/جشنواره‌ها/API/رسانه/اعلان‌ها/SEO، ثبت دقیق محدودیت‌های عدم اجرای تست و عدم تطبیق دیتابیس."
     }
   ],
   "architecture": {
@@ -1019,22 +1037,22 @@
   "feature_map": [
     {
       "name": "حساب کاربری و احراز هویت",
-      "state": "reported_done",
+      "state": "implemented_unverified",
       "detail": "جدول users و زیرساخت پایه Laravel گزارش شده است."
     },
     {
       "name": "نقش‌ها و مجوزها (RBAC)",
-      "state": "reported_done",
+      "state": "implemented_unverified",
       "detail": "مهاجرت RBAC اجرا شده؛ تکمیل همه صفحات پنل به معنی آن نیست."
     },
     {
       "name": "درخواست تأیید حرفه‌ای",
-      "state": "reported_done",
+      "state": "implemented_unverified",
       "detail": "گردش‌کار ثبت، بررسی، درخواست اصلاح، اصلاح توسط مالک، تأیید و اتصال/ساخت پروفایل در سورس بررسی شد؛ تست‌های تکمیلی همچنان لازم است."
     },
     {
       "name": "پروفایل هنرمند",
-      "state": "reported_done",
+      "state": "implemented_unverified",
       "detail": "مهاجرت artist_profiles گزارش شده است."
     },
     {
@@ -1049,7 +1067,7 @@
     },
     {
       "name": "ژانر و کشور",
-      "state": "reported_done",
+      "state": "implemented_unverified",
       "detail": "genres، title_genre و countries در گفتگو ثبت شده‌اند."
     },
     {
@@ -1060,7 +1078,7 @@
     {
       "name": "چندزبانگی و ترجمه",
       "state": "implemented_unverified",
-      "detail": "ساختار ترجمه سه‌زبانه en/fa-AF/ps و روابط معکوس Language برای artist/company/profession/title/country وجود دارد. PR20 پیام‌های review و professional request را ترجمه‌پذیر کرد؛ ممیزی سایر رشته‌ها و بررسی مرورگری فونت‌ها باقی است."
+      "detail": "ساختار ترجمه رابطه‌ای و فایل‌های زبان en/fa-AF/ps در سورس وجود دارد؛ کامل‌بودن همه رشته‌ها و فونت اختصاصی هر زبان هنوز با مرورگر تأیید نشده."
     },
     {
       "name": "شناسه عمومی هنرمندان",
@@ -1085,42 +1103,42 @@
     {
       "name": "پنل مدیریت",
       "state": "partial",
-      "detail": "بخشی از مسیرها و مجوزها وجود دارند؛ تکمیل همه امکانات نیازمند ممیزی است."
+      "detail": "داشبورد، مدیریت کاتالوگ، هنرمندان، شرکت‌ها، اخبار، جشنواره‌ها، رسانه، اشتراک و moderation در سورس وجود دارد؛ تکمیل تجربه همه جریان‌ها و QA هنوز تأیید نشده."
     },
     {
       "name": "پنل کاربر عادی",
       "state": "partial",
-      "detail": "UserDashboardController و صفحات داشبورد کاربر در سورس وجود دارند؛ تکمیل تمام امکانات محصول جداگانه ارزیابی شود."
+      "detail": "داشبورد کاربر، اعلان‌ها، مشارکت در پیشنهاد آثار/اخبار و نقدها در سورس وجود دارند؛ تکمیل همه مسیرهای کاربری و QA هنوز تأیید نشده."
     },
     {
       "name": "پنل هنرمند",
       "state": "partial",
-      "detail": "ویرایش پروفایل، مدیریت چند حرفه از طریق درخواست تأیید مدیر و ترجمه سه‌زبانه وجود دارد؛ داشبورد کامل و همه امکانات پنل هنوز تکمیل نشده‌اند."
+      "detail": "پروفایل، چند حرفه با تأیید مدیر، رسانه، پیشنهاد اثر/عوامل، اشتراک و اعلان‌ها در سورس وجود دارند؛ تکمیل همه مسیرها و QA هنوز تأیید نشده."
     },
     {
       "name": "اخبار و مقالات",
-      "state": "planned",
-      "detail": "در نقشه راه معماری مطرح شده است."
+      "state": "implemented_unverified",
+      "detail": "مدیریت اخبار، ترجمه سه‌زبانه، انتشار/بایگانی، صفحات عمومی و ارسال خبر جامعه در سورس ادغام‌شده است؛ اجرای Migration و تست runtime تأیید نشده."
     },
     {
       "name": "جشنواره‌ها و جوایز",
-      "state": "planned",
-      "detail": "در نقشه راه معماری مطرح شده است."
+      "state": "implemented_unverified",
+      "detail": "کاتالوگ جشنواره، دوره‌ها، بخش‌های جایزه، نامزدها و برندگان در PRهای ۷۱ و ۷۲ ادغام شده؛ Migration و تست runtime اجرا/تأیید نشده."
     },
     {
       "name": "API",
-      "state": "planned",
-      "detail": "در نقشه راه معماری مطرح شده است."
+      "state": "implemented_unverified",
+      "detail": "API عمومی فقط‌خواندنی v1 در PR73 ادغام شده؛ تست و دسترسی runtime هنوز تأیید نشده است."
     },
     {
       "name": "رسانه، اعلان‌ها و گزارش‌ها",
-      "state": "planned",
-      "detail": "در نقشه راه معماری مطرح شده‌اند؛ پیاده‌سازی تأیید نشده است."
+      "state": "implemented_unverified",
+      "detail": "گالری آثار، تصاویر قسمت‌ها، گالری پروفایل، مرکز اعلان‌ها و اعلان‌های moderation در PRهای ۶۵ تا ۷۹ ادغام شده‌اند؛ Migrationهای مربوط و رفتار runtime باید در مرحله نهایی بررسی شوند."
     },
     {
       "name": "پیشنهاد اصلاح اطلاعات",
-      "state": "planned",
-      "detail": "Edit suggestions در نقشه راه آمده است."
+      "state": "implemented_unverified",
+      "detail": "پیشنهاد اصلاح اطلاعات اثر، صف بررسی مدیر و اعلان نتیجه در سورس ادغام شده؛ runtime verification باقی است."
     },
     {
       "name": "افزونه‌پذیری",
@@ -1129,8 +1147,8 @@
     },
     {
       "name": "تنظیمات سایت",
-      "state": "reported_done",
-      "detail": "Model، Controller، Migration، Route و View تنظیمات سایت در سورس اصلی موجود است؛ مقداردهی و رفتار runtime جداگانه تست شود."
+      "state": "implemented_unverified",
+      "detail": "تنظیمات پایه، SEO چندزبانه، شبکه‌های اجتماعی، favicon، Open Graph و کنترل indexing در PRهای ۷۶ و ۷۷ توسعه یافته‌اند؛ runtime verification باقی است."
     },
     {
       "name": "درخواست ثبت پروفایل هنرمند",
@@ -1149,74 +1167,115 @@
     },
     {
       "name": "سیستم اشتراک هنرمندان و تاریخچه پرداخت",
-      "state": "implemented_unverified",
+      "state": "partial",
       "detail": "PR46/47/49/50/51 در main ادغام شدند: مدل اشتراک و پرداخت دستی، کنترل دسترسی عمومی، پنل مدیریت، درخواست تمدید، صف moderation، کاتالوگ پلن چندزبانه و انتخاب پلن توسط هنرمند با اتصال به درخواست مدیر. درگاه پرداخت آنلاین، تاریخچه پرداخت هنرمند، اجرای Migration و تست runtime باقی است."
+    },
+    {
+      "name": "شرکت‌های تولید و پخش",
+      "state": "implemented_unverified",
+      "detail": "کاتالوگ شرکت‌ها، شناسه عمومی co، ترجمه‌ها، رسانه و اتصال به آثار در سورس ادغام شده؛ تست runtime باقی است."
+    },
+    {
+      "name": "صفحه‌های عمومی درباره ما، تماس، حریم خصوصی و شرایط",
+      "state": "implemented_unverified",
+      "detail": "صفحات عمومی چندزبانه و فرم تماس با honeypot و rate limit در PR64 ادغام شده؛ تحویل ایمیل به SMTP وابسته و تأیید نشده است."
+    },
+    {
+      "name": "SEO، شبکه‌های اجتماعی و متادیتای صفحات",
+      "state": "implemented_unverified",
+      "detail": "تنظیمات SEO سه‌زبانه، Open Graph، Twitter Cards، JSON-LD، favicon و metadata اختصاصی صفحات در PRهای ۷۶ و ۷۷ ادغام شده‌اند."
+    },
+    {
+      "name": "مرکز اعلان و اعلان نتیجه moderation",
+      "state": "implemented_unverified",
+      "detail": "مرکز اعلان کاربر و اعلان‌های نتیجه بررسی برای آثار، عوامل، اخبار، حرفه‌ها، رسانه و نقدها در PRهای ۷۵، ۷۸ و ۷۹ ادغام شده‌اند."
+    },
+    {
+      "name": "واردسازی CSV عوامل فیلم و سریال",
+      "state": "implemented_unverified",
+      "detail": "قالب CSV، preview، اعتبارسنجی، duplicate detection و اتصال با public ID در PR80 ادغام شده؛ واردسازی واقعی وردپرس هنوز به شناخت ساختار export نیاز دارد."
+    },
+    {
+      "name": "URLهای عمومی با شناسه پایدار AMDB",
+      "state": "implemented_unverified",
+      "detail": "آثار با am، هنرمندان با ar و شرکت‌ها با co در مسیرها و جستجوهای مرتبط استفاده می‌شوند؛ سازگاری URL و runtime باید تست شود."
+    },
+    {
+      "name": "ثبت فعالیت مدیریتی و نقشه سایت",
+      "state": "implemented_unverified",
+      "detail": "Spatie Activitylog برای رویدادهای منتخب کاتالوگ و Spatie Sitemap با زمان‌بندی روزانه در PR83 اضافه شده‌اند؛ Migration و اجرای فرمان هنوز بررسی نشده‌اند."
+    },
+    {
+      "name": "گزارش‌های آماری داشبورد مدیریت",
+      "state": "implemented_unverified",
+      "detail": "Chart.js برای تعداد پرداخت‌ها با تفکیک ارز و وضعیت به داشبورد مدیریت افزوده شده؛ نمایش مرورگری و داده واقعی تست نشده است."
     }
   ],
   "roadmap": [
     {
-      "phase": "۱. زیرساخت و معماری",
-      "state": "reported_done",
+      "phase": "۱. زیرساخت، هویت و چندزبانگی",
+      "state": "implemented_unverified",
       "items": [
-        "Laravel و MySQL",
-        "زبان‌ها و ترجمه‌ها",
-        "RBAC پایه",
-        "سیستم حرفه‌ها و پروفایل هنرمند"
+        "Laravel 13 و ساختار MySQL در سورس",
+        "زبان‌های en، fa-AF و ps و مسیرهای RTL",
+        "RBAC، نقش‌های admin/user/artist و درخواست احراز حرفه",
+        "شناسه‌های عمومی پایدار am، ar و co",
+        "SEO، تنظیمات عمومی و صفحات اطلاعات سایت"
       ]
     },
     {
-      "phase": "۲. کاتالوگ فیلم و سریال",
+      "phase": "۲. کاتالوگ سینمایی",
+      "state": "implemented_unverified",
+      "items": [
+        "فیلم، سریال، فصل، قسمت، ژانر و کشور",
+        "عوامل، تیتراژ و workflow پیشنهاد/تأیید",
+        "شرکت‌های تولید، توزیع و نقش‌های شرکتی",
+        "گالری آثار و تصاویر ثابت قسمت‌ها",
+        "واردسازی CSV عوامل با preview و کنترل تکرار"
+      ]
+    },
+    {
+      "phase": "۳. هنرمندان و پنل‌ها",
       "state": "partial",
       "items": [
-        "انواع محتوا، آثار، ژانرها و کشورها",
-        "عوامل و اعتبارهای آثار؛ گردش‌کار پیشنهاد و تأیید در main، Migration/QA معلق",
-        "فصل‌ها و قسمت‌ها؛ نیازمند بررسی تکمیل"
+        "پروفایل هنرمند و چند حرفه با تأیید مدیر",
+        "درخواست ثبت پروفایل و اتصال مدیر به پروفایل موجود/جدید",
+        "پنل هنرمند، ویرایش پروفایل و گالری رسانه",
+        "پنل کاربر عادی، مشارکت و اعلان‌ها",
+        "تکمیل QA جریان‌های پنل و بررسی مالکیت/مجوزها"
       ]
     },
     {
-      "phase": "۳. هنرمندان و شرکت‌ها",
+      "phase": "۴. جامعه، محتوا و تحریریه",
+      "state": "implemented_unverified",
+      "items": [
+        "اخبار و پیشنهاد خبر جامعه",
+        "جشنواره‌ها، دوره‌ها، بخش‌های جایزه، نامزدها و برندگان",
+        "امتیازدهی، نقد، پاسخ، واکنش و گزارش",
+        "صف moderation و اعلان نتیجه بررسی",
+        "پیشنهاد اصلاح اطلاعات آثار"
+      ]
+    },
+    {
+      "phase": "۵. اشتراک و عملیات مدیریتی",
       "state": "partial",
       "items": [
-        "پروفایل هنرمند و چند حرفه",
-        "شناسه عمومی هنرمند",
-        "شناسه آثار و شرکت‌ها و استفاده در URLها"
+        "پلن‌های اشتراک هنرمندان و پرداخت دستی",
+        "مدیریت مالی و صف بررسی پرداخت در پنل مدیریت",
+        "تکمیل تاریخچه پرداخت و جریان تمدید هنرمند",
+        "تکمیل درگاه پرداخت آنلاین و تأیید تنظیمات عملیاتی",
+        "Activitylog، آمار Chart.js و Sitemap؛ نیازمند QA runtime"
       ]
     },
     {
-      "phase": "۴. پنل‌های مدیریتی",
+      "phase": "۶. API، انتشار و کیفیت نهایی",
       "state": "partial",
       "items": [
-        "پنل مدیریت",
-        "پنل کاربر عادی",
-        "پنل هنرمند و گردش‌کار درخواست حرفه‌ای",
-        "تنظیمات و درخواست ثبت پروفایل هنرمند"
-      ]
-    },
-    {
-      "phase": "۵. تعامل کاربران و کیفیت محتوا",
-      "state": "incomplete",
-      "items": [
-        "امتیازدهی و نقد و بررسی",
-        "نظارت و گردش‌کار انتشار (PR مدیریت نقدها و گزارش‌ها آماده بررسی)",
-        "پیشنهاد اصلاح اطلاعات"
-      ]
-    },
-    {
-      "phase": "۶. محتوای تکمیلی و توسعه‌پذیری",
-      "state": "planned",
-      "items": [
-        "اخبار و مقالات",
-        "جشنواره‌ها و جوایز",
-        "API، رسانه، اعلان‌ها، گزارش‌ها و افزونه‌ها"
-      ]
-    },
-    {
-      "phase": "۷. چندزبانگی و انتشار نهایی",
-      "state": "partial",
-      "items": [
-        "ترجمه کامل انگلیسی، دری و پشتو",
-        "فونت اختصاصی هر زبان",
-        "تست نهایی و بررسی واکنش‌گرایی"
+        "API عمومی فقط‌خواندنی v1",
+        "SEO، Open Graph، شبکه‌های اجتماعی و صفحات عمومی",
+        "تکمیل ترجمه رشته‌ها و فونت اختصاصی هر زبان",
+        "اجرای migrationهای باقی‌مانده پس از backup و تطبیق محیط",
+        "اجرای PHPUnit، build فرانت‌اند، بررسی مرورگری و smoke test استقرار"
       ]
     }
   ],
@@ -1325,329 +1384,76 @@
       "date": "2026-11-18",
       "title": "آماده‌سازی کاتالوگ شرکت‌ها و شناسه عمومی co — PR شماره ۷",
       "detail": "PR شماره ۷ باز و قابل ادغام است. جدول شرکت‌ها، ترجمه‌های en/fa-AF/ps، نوع شرکت، اطلاعات تماس و لوگو، شناسه پایدار co، رابطه title_companies با نقش‌های تولید/توزیع/استودیو/فروش/پخش، CRUD مدیر، صفحات عمومی، اتصال به فرم ثبت/ویرایش اثر، نمایش در صفحه اثر و جستجوی کامل/زنده اضافه شدند. پیوند هنرمندان به شناسه ar تغییر کرد. یک Migration اضافه شد؛ اجرا نشده و تست‌ها اجرا نشده‌اند."
+    },
+    {
+      "date": "2026-11-20",
+      "title": "بازسازی گزارش یکپارچه و اصلاح مبنای آمار",
+      "detail": "موجودی سورس main در commit b1debc61 بازشماری شد: ۷۶۵ ورودی Git tree، ۴۷ Migration، ۶۲ Model، ۸۲ Blade، ۱۲۳ فایل ترجمه، ۱۹ فایل تست، ۴۷ Controller، ۲۰۴ فراخوانی نام‌گذاری Route. آمار تاریخی از آمار جاری جدا شد؛ نقشه راه با قابلیت‌های ادغام‌شده به‌روزرسانی شد. وضعیت دیتابیس زنده و اجرای تست‌ها همچنان تأیید نشده است."
     }
   ],
   "source_code_audit": {
-    "audit_date": "2026-11-18",
-    "status": "current_main_inventory_review_with_historical_findings",
+    "audit_date": "2026-11-20",
+    "status": "current_git_tree_inventory_historical_deep_findings_not_revalidated",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "branch": "main",
-    "commit": "a9cf3ab84381163abf9158e4eb3a8af7efc31c2c",
+    "commit": "b1debc61f4c78996ea8b05569e3dd1527154da1a",
     "scope_completed": [
-      "مرحله ۱: ساختار مخزن، فایل‌ها، مدل‌ها، کنترلرها، viewها، migrationها، سرویس‌ها، policyها، middlewareها و تست‌ها",
-      "مرحله ۲: مسیرها، کنترل دسترسی، نقش‌ها، گردش‌کار درخواست حرفه‌ای، Claim، نقد و امتیاز، حریم خصوصی هنرمند و واردسازی",
-      "مرحله سوم ممیزی فقط‌خواندنی دیتابیس و روابط در commit a56e92080a227b9e4c531c9edf2e55a02e6946ab تکمیل شد: فهرست ۲۲ Migration، ترتیب وابستگی‌ها، کلیدهای خارجی، قیود یکتا و ایندکس‌های مهم بررسی شدند.",
-      "روابط اصلی Eloquent و مدل‌های User، Artist، Title، TitleCredit، ProfessionalRequest، TitleRating، TitleReview، TitleReviewReport، Profession، Language و SiteSetting با ساختار Migration تطبیق داده شدند.",
-      "قید یکتایی artist_user.user_id تضمین می‌کند هر حساب حداکثر به یک پروفایل هنرمند متصل باشد؛ artist_professions نیز برای هر جفت هنرمند/حرفه قید یکتا دارد.",
-      "شناسه‌های ar و am در Migration و Model دارای روند تولید و قید یکتایی هستند؛ شناسه co و جدول شرکت‌ها در سورس بررسی‌شده وجود ندارد.",
-      "مرحله چهارم به درخواست کاربر فقط از روی سورس GitHub انجام شد؛ تطبیق دیتابیس محلی با Migrationها از محدوده این مرحله کنار گذاشته شد.",
-      "کنترلرهای مدیریت نقش، کاربر، هنرمند، درخواست حرفه‌ای، نقد و امتیاز، ورود، جستجو و آثار؛ مدل‌ها، Seederها، Middlewareها، Routeها و Viewهای مرتبط دوباره بررسی شدند.",
-      "بررسی ماتریس مجوزها نشان داد نقش artist مجوزهای artists.manage و titles.create/titles.edit دارد و این مجوزها به مسیرهای مدیریتی عمومی‌تر از محدوده مالکیت فردی دسترسی می‌دهند.",
-      "بررسی Claim، نقدها و گزارش‌ها نشان داد برخی مدل‌ها/جدول‌ها وجود دارند اما گردش‌کار کامل ثبت/تأیید/رسیدگی در Routeها و Controllerها حاضر نیست.",
-      "بررسی ترجمه پروفایل هنرمند، شناسه‌های عمومی، حرفه‌های حساب/پروفایل، درخواست‌های ثبت اثر/عوامل، محدودسازی ورود و ساختار شرکت‌ها تکمیل شد.",
-      "ممیزی موجودی فناوری و دارایی‌های رابط کاربری در commit 8b939a4325a9017ffc06678032e5f23b80e9fc94: composer.json/lock، package.json/lock، vite.config.js، resources/css/app.css، resources/views/layouts/app.blade.php و موجودی Font Awesome."
+      "بازخوانی Git tree شاخه main در commit جاری",
+      "شمارش فایل‌های Migration، Model، Blade، زبان، تست، Controller و Service",
+      "بازبینی composer.json و composer.lock برای نسخه پکیج‌های کلیدی",
+      "بازبینی package.json و routes/web.php برای آمار Route"
     ],
     "repository_inventory": {
-      "tree_entries": 556,
-      "migration_files": 30,
-      "php_model_files": 40,
-      "blade_files": 50,
-      "web_route_lines": 628,
-      "named_route_calls": 103,
-      "note": "آمار فایل‌ها از Git tree شاخه main در commit فعلی استخراج شده است. یافته‌های امنیتی/منطقی قبلی در این ساختار به‌طور کامل بازبینی نشده‌اند و باید به‌عنوان یافته‌های ممیزی قبلی خوانده شوند.",
-      "translation_php_files": 63,
-      "fontawesome_css_files": 88,
-      "fontawesome_woff2_files": 38,
-      "application_migration_files": 27,
-      "framework_migration_files": 3
+      "date": "2026-11-20",
+      "branch": "main",
+      "commit": "b1debc61f4c78996ea8b05569e3dd1527154da1a",
+      "audit_type": "GitHub recursive tree inventory + composer.lock/package.json + routes/web.php static inspection",
+      "tree_entries": 765,
+      "migration_files": 47,
+      "eloquent_model_files": 62,
+      "blade_files": 82,
+      "translation_php_files": 123,
+      "test_php_files": 19,
+      "controller_php_files": 47,
+      "service_php_files": 2,
+      "web_route_lines": 903,
+      "named_route_calls": 204,
+      "route_declarations": 214,
+      "locales": [
+        "en",
+        "fa-AF",
+        "ps"
+      ],
+      "truncated": false,
+      "limitations": [
+        "این اعداد شمارش فایل‌ها و فراخوانی‌های سورس در commit مشخص هستند؛ تعداد جدول‌های واقعی دیتابیس یا Migrationهای اجراشده را نشان نمی‌دهند.",
+        "تست‌های موجود در مخزن شمرده شده‌اند اما اجرا نشده‌اند.",
+        "هیچ اتصال زنده‌ای به دیتابیس محلی یا محیط عملیاتی برای این snapshot انجام نشده است."
+      ]
     },
     "confirmed_implemented_areas": [
-      "ساختار Laravel شامل Controller، Middleware، Model، Policy، Service، Migration، Seeder و تست",
-      "پنل‌های کاربر، هنرمند و مدیریت در سطح مسیرها و viewها",
-      "RBAC با نقش‌های admin، user و artist و روابط نقش/مجوز",
-      "درخواست حرفه‌ای: ثبت چند حرفه، بررسی مدیر، درخواست اصلاح، اصلاح توسط مالک، تأیید و اتصال/ساخت پروفایل هنرمند",
-      "هر حساب حداکثر یک پروفایل هنرمند دارد و هر پروفایل چند حرفه هم‌زمان می‌پذیرد",
-      "کاتالوگ Title با content type، genre، country، season، credit، translation، rating و review relations",
-      "جستجوی عمومی و پیشنهاد زنده",
-      "صفحات عمومی فیلم و هنرمند",
-      "ترجمه‌های en، fa-AF و ps و جهت RTL برای fa-AF و ps؛ فونت‌های Inter، Vazirmatn و Noto Sans Arabic در Layout دیده شدند و نمایش واقعی باید مرورگری تست شود",
-      "تنظیمات سایت: Model، Controller، Migration، Route و View در سورس وجود دارند",
-      "واردسازی هنرمندان WordPress با Controller، Service و رابط؛ پشتیبانی از preview، validation، CSV/JSON، کنترل تکراری‌ها، ترجمه و شبکه‌های اجتماعی",
-      "امتیازدهی و نقد شامل ثبت، پاسخ، ویرایش/حذف نویسنده، واکنش و گزارش؛ نقد جدید pending و نمایش عمومی محدود به approved است"
+      "کاتالوگ فیلم و سریال، فصل/قسمت، ژانر، کشور و عوامل",
+      "پروفایل هنرمندان، چند حرفه، درخواست ثبت پروفایل و workflow moderation",
+      "کاتالوگ شرکت‌ها و ارتباط شرکت با آثار",
+      "اخبار، ارسال خبر جامعه، جشنواره‌ها، دوره‌ها، جوایز و نامزدها",
+      "امتیاز، نقد، پاسخ، واکنش، گزارش و صف moderation",
+      "گالری آثار، تصاویر ثابت قسمت‌ها و گالری پروفایل",
+      "پنل‌های مدیریت، کاربر و هنرمند با دسترسی‌های مبتنی بر مجوز",
+      "اشتراک هنرمندان، مدیریت پرداخت و اعلان‌ها",
+      "API عمومی v1، SEO چندزبانه، صفحات اطلاعات عمومی و شناسه‌های عمومی AMDB",
+      "واردسازی CSV عوامل، Activitylog و Sitemap"
     ],
-    "confirmed_gaps_and_risks": [
-      {
-        "id": "SEC-001",
-        "severity": "high",
-        "title": "احتمال ارتقای نقش admin از مسیر مدیریت نقش کاربران",
-        "detail": "متد updateRoles کاربرانی را که از قبل مدیرند از ویرایش نقش منع می‌کند، اما نقش admin را از فهرست نقش‌های قابل اعطا به کاربر عادی حذف نمی‌کند. افزون بر آن، RolePolicy::update و UpdateRoleRequest ویرایش نقش‌های سیستمی از جمله admin را منع نمی‌کنند؛ دارنده roles.manage/users.manage می‌تواند به مسیر ارتقای دسترسی برسد. باید مجوز اعطای admin فقط در اختیار مدیر ارشد/فرایند امن باشد و ویرایش نقش‌های سیستمی محدود شود.",
-        "missing_test": "تست عدم اعطای admin به کاربر عادی، عدم ویرایش مجوزهای نقش admin توسط مدیر نقش عادی و آزمون ماتریس مجوزها",
-        "status": "needs_fix_and_security_test",
-        "note": "این یافته از بررسی ایستا است؛ اینکه در محیط عملیاتی کدام حساب‌ها users.manage دارند از سورس به‌تنهایی مشخص نیست."
-      },
-      {
-        "id": "WF-001",
-        "severity": "medium",
-        "title": "گردش‌کار Claim ناقص",
-        "detail": "مدل و صفحه مدیریتی Claim وجود دارد و رد درخواست پیاده‌سازی شده، اما approve عمداً غیرفعال است و مسیر عمومی ارسال Claim در Routeهای بررسی‌شده پیدا نشد.",
-        "status": "incomplete"
-      },
-      {
-        "id": "REV-001",
-        "severity": "high",
-        "title": "نبود گردش‌کار کامل moderation برای نقدها",
-        "detail": "نقدها pending ذخیره می‌شوند و فقط approved در صفحه عمومی نمایش داده می‌شود؛ مسیر/کنترلر مدیریتی approve/reject و رسیدگی به report در بررسی انجام‌شده پیدا نشد. احتمال معطل ماندن نقدها در pending وجود دارد.",
-        "status": "incomplete"
-      },
-      {
-        "id": "PRIV-001",
-        "severity": "high",
-        "title": "نبود کنترل اشتراک در نمایش عمومی اطلاعات هنرمند",
-        "detail": "تنظیمات نمایش تماس و عمومی‌بودن لینک‌های اجتماعی بررسی می‌شوند، اما وضعیت اشتراک در منطق نمایش عمومی بررسی نمی‌شود. تصمیم محصول این است که اطلاعات عمومی هنرمند فقط با اشتراک فعال نمایش داده شود و با پایان اشتراک حذف نشود.",
-        "status": "architecture_mismatch_subscription_not_implemented_or_not_confirmed"
-      },
-      {
-        "id": "ID-001",
-        "severity": "medium",
-        "title": "استفاده ناقص از public_id در URL و جستجو",
-        "detail": "ArtistController@show و پیشنهاد زنده SearchController از شناسه داخلی استفاده می‌کنند؛ Title همچنان با slug مسیر می‌گیرد. مهاجرت و تولید public_id برای Artist و Title در سورس دیده شد، اما استفاده یکپارچه در URLها کامل نیست.",
-        "status": "partial"
-      },
-      {
-        "id": "TEST-001",
-        "severity": "medium",
-        "title": "پوشش تست گردش‌کارها ناکافی",
-        "detail": "چهار فایل تست موجود است: RoleManagementTest، ArtistUserManagementTest، ExampleTest و تست واحد ExampleTest. پوشش‌های مهم مانند ارتقای نقش admin، moderation نقد، اشتراک، Claim، تنظیمات و خطاهای واردسازی در تست‌های بررسی‌شده تأیید نشدند.",
-        "status": "needs_test_expansion"
-      },
-      {
-        "id": "AUTH-001",
-        "severity": "medium",
-        "title": "Rate limiting اختصاصی ورود تأیید نشد",
-        "detail": "در Route/Controllerهای بررسی‌شده محدودسازی اختصاصی تلاش ورود پیدا نشد؛ باید با بررسی کامل پیکربندی احراز هویت و limiterها دوباره تأیید شود.",
-        "status": "unconfirmed_security_hardening"
-      },
-      {
-        "id": "ART-001",
-        "severity": "decision_required",
-        "title": "رفتار نقش artist پس از قطع اتصال پروفایل",
-        "detail": "تست ArtistUserManagementTest انتظار دارد پس از قطع اتصال پروفایل، نقش artist باقی بماند. این رفتار نیازمند تأیید تصمیم محصول است.",
-        "status": "awaiting_product_decision"
-      },
-      {
-        "id": "MIG-001",
-        "severity": "low",
-        "title": "دو Migration با نام create_site_settings_table",
-        "detail": "دو فایل migration با نام مشابه وجود دارند؛ یکی جدول را ایجاد می‌کند و دیگری ستون‌های تکمیلی را اضافه می‌کند. ترتیب و نام‌گذاری در مرحله سوم دیتابیس بررسی شود.",
-        "status": "review_in_database_audit"
-      },
-      {
-        "id": "ARCH-001",
-        "severity": "low",
-        "title": "فایل‌های پشتیبان در مخزن سورس",
-        "detail": "فایل‌هایی با پسوندهایی مانند .backup-roles و .phase5.bak در مخزن هستند؛ باید از فایل‌های فعال تفکیک و درباره نگهداری آن‌ها تصمیم گرفته شود.",
-        "status": "cleanup_review_only"
-      },
-      {
-        "id": "DB-001",
-        "severity": "high",
-        "title": "نبود مدل و جدول شرکت‌ها و شناسه co",
-        "detail": "در فهرست ۲۲ Migration و Modelهای بررسی‌شده، جدول/model اجرایی companies و سازوکار public_id با پیشوند co پیدا نشد. این بخش با تصمیم معماری سه‌گانه ar/am/co هنوز پیاده‌سازی نشده است.",
-        "status": "not_implemented_in_audited_source"
-      },
-      {
-        "id": "DB-002",
-        "severity": "medium",
-        "title": "نیاز به تعیین سیاست همگامی حرفه‌های حساب و پروفایل",
-        "detail": "حرفه‌های حساب در user_professions و حرفه‌های پروفایل در artist_professions نگهداری می‌شوند و کنترلر تأیید درخواست، هر دو را به‌روزرسانی می‌کند. این دو جدول الزاماً تکراری نیستند، اما باید مرجع هرکدام و سیاست همگام‌سازی تغییرات بعدی روشن باشد.",
-        "status": "design_policy_review_required"
-      },
-      {
-        "id": "DB-003",
-        "severity": "medium",
-        "title": "قید دیتابیسی برای جلوگیری از Claim تکراری وجود ندارد",
-        "detail": "artist_claim_requests دارای ایندکس‌های artist_id/status و user_id/status است، اما قید unique برای ترکیب کاربر و پروفایل ندارد. دیتابیس به‌تنهایی درخواست‌های مشابه را مسدود نمی‌کند؛ کنترل برنامه‌ای نیز باید جداگانه بررسی شود.",
-        "status": "database_constraint_missing_application_guard_unverified"
-      },
-      {
-        "id": "DB-004",
-        "severity": "medium",
-        "title": "محدوده امتیاز در دیتابیس محدود نشده است",
-        "detail": "ستون title_ratings.rating از نوع unsignedTinyInteger است؛ این نوع مقادیر منفی را نمی‌پذیرد اما محدوده محصول مانند ۱ تا ۱۰ را تضمین نمی‌کند. اعتبارسنجی درخواست و قید مناسب دیتابیس باید بررسی شوند.",
-        "status": "range_constraint_not_confirmed"
-      },
-      {
-        "id": "DB-005",
-        "severity": "medium",
-        "title": "قید یکتایی برای عوامل اثر تعریف نشده است",
-        "detail": "title_credits دارای ایندکس title_id و user_id است، اما قید unique برای ترکیب اثر، هنرمند و حرفه دیده نشد. چون یک فرد ممکن است چند نقش یا شخصیت در یک اثر داشته باشد، قاعده کسب‌وکار باید پیش از افزودن قید مشخص شود.",
-        "status": "business_rule_review_required"
-      },
-      {
-        "id": "DB-006",
-        "severity": "low",
-        "title": "روابط معکوس ترجمه‌ها در مدل Language کامل نیست",
-        "detail": "مدل Language رابطه artistTranslations را تعریف می‌کند؛ روابط معکوس سایر مدل‌های ترجمه در فایل Language.php بررسی‌شده دیده نشد. این مورد بیشتر محدودیت سهولت دسترسی در Eloquent است و به‌تنهایی نقص داده یا Migration محسوب نمی‌شود.",
-        "status": "model_relationships_incomplete"
-      },
-      {
-        "id": "SEC-002",
-        "severity": "high",
-        "title": "مجوزهای نقش هنرمند به مسیرهای مدیریت سراسری دسترسی می‌دهند",
-        "detail": "RolePermissionSeeder برای نقش artist مجوزهای artists.manage و titles.create و titles.edit را ثبت می‌کند. Routeهای /admin/artists و عملیات مدیریت پروفایل با artists.manage محافظت شده‌اند و کنترل مالکیت در Admin/ArtistController وجود ندارد؛ بنابراین حساب هنرمند می‌تواند به عملیات مدیریت پروفایل هنرمندان دیگر دسترسی پیدا کند. مجوزهای titles.create/edit نیز مسیرهای مدیریت آثار را باز می‌کنند. این دسترسی‌ها باید از مجوزهای پنل هنرمند/درخواست‌های مالک جدا شوند.",
-        "status": "needs_permission_matrix_fix_and_tests"
-      },
-      {
-        "id": "SEC-003",
-        "severity": "high",
-        "title": "ویرایش نقش‌های سیستمی محدود نشده است",
-        "detail": "RolePolicy::delete حذف نقش سیستمی را منع می‌کند، اما RolePolicy::update فقط roles.manage را بررسی می‌کند. RoleController::update و UpdateRoleRequest نیز تغییر slug و permissions نقش‌های سیستمی را می‌پذیرند؛ در نتیجه نقش admin قابل بازپیکربندی است.",
-        "status": "needs_fix"
-      },
-      {
-        "id": "REV-002",
-        "severity": "high",
-        "title": "گزارش‌های نقد بدون گردش‌کار مدیریتی می‌مانند",
-        "detail": "storeReport گزارش را با status=pending ذخیره می‌کند و مجوزهای reviews.manage و reports.manage در Seeder وجود دارند، اما در routes/web.php هیچ Route مدیریتی برای فهرست، بررسی، تأیید، رد یا بستن گزارش‌ها و moderation نقدها دیده نشد. نقدها نیز pending می‌مانند و فقط approved در صفحه عمومی نمایش داده می‌شود.",
-        "status": "incomplete"
-      },
-      {
-        "id": "WF-002",
-        "severity": "medium",
-        "title": "درخواست‌های ثبت اثر و عوامل فقط در سطح جدول و Model دیده می‌شوند",
-        "detail": "title_submission_requests و credit_submission_requests دارای Migration و Model هستند، اما در فهرست Controllerها و routes/web.php مسیرهای ارسال کاربر، نمایش در پنل مدیریت، تأیید/رد/درخواست اصلاح و تبدیل درخواست به Title/TitleCredit پیدا نشدند.",
-        "status": "schema_model_only_no_workflow_routes"
-      },
-      {
-        "id": "WF-003",
-        "severity": "medium",
-        "title": "تغییر وضعیت درخواست حرفه‌ای در revision/reject قفل و بازبینی اتمیک ندارد",
-        "detail": "approve درخواست را داخل transaction و lockForUpdate بازبینی می‌کند؛ اما requestRevision و reject ابتدا وضعیت مدل بارگذاری‌شده را بررسی و سپس بدون transaction/lock update می‌کنند. درخواست‌های هم‌زمان مدیران می‌توانند وضعیت نهایی و اطلاعات reviewer را بازنویسی کنند.",
-        "status": "needs_concurrency_hardening"
-      },
-      {
-        "id": "DB-007",
-        "severity": "medium",
-        "title": "ویرایش ترجمه هنرمند از کلید locale به‌جای language_code استفاده می‌کند",
-        "detail": "Migration و مدل ArtistTranslation ستون language_code را تعریف می‌کنند و ArtistController نیز با language_code ذخیره/بازیابی می‌کند؛ اما resources/views/artists/edit.blade.php ترجمه زندگی‌نامه و نام حرفه را با firstWhere('locale', ...) می‌خواند. این ناسازگاری باعث می‌شود ترجمه‌های قبلی در فرم ویرایش به‌درستی بارگذاری نشوند.",
-        "status": "confirmed_view_model_field_mismatch"
-      },
-      {
-        "id": "DB-008",
-        "severity": "medium",
-        "title": "تغییر نام اصلی هنرمند لزوماً نام ترجمه‌های موجود را به‌روزرسانی نمی‌کند",
-        "detail": "ArtistController@update مقدار primary_name را تغییر می‌دهد، اما برای ردیف‌های ArtistTranslation موجود فقط biography را به‌روزرسانی می‌کند و name ترجمه قبلی را دست‌نخورده می‌گذارد؛ فرم نیز فیلد مستقل برای نام هر زبان ندارد. باید مشخص شود نام اصلی و نام‌های ترجمه‌شده مستقل‌اند یا باید همگام شوند.",
-        "status": "product_and_implementation_review_required"
-      },
-      {
-        "id": "DB-009",
-        "severity": "medium",
-        "title": "حرفه‌های حساب و پروفایل پس از ویرایش می‌توانند از هم جدا شوند",
-        "detail": "تأیید درخواست حرفه‌ای هر دو جدول user_professions و artist_professions را به‌روزرسانی می‌کند؛ اما ArtistController@update فقط artist_professions را sync می‌کند و هیچ جریان بازبینی/همگامی برای user_professions ندارد. علاوه بر آن، مالک پروفایل می‌تواند هر حرفه فعال را مستقیماً به پروفایل اضافه کند، بدون تأیید مجدد مدیر. باید مرجع و سیاست تأیید روشن شود.",
-        "status": "policy_and_workflow_required"
-      },
-      {
-        "id": "ID-002",
-        "severity": "medium",
-        "title": "public_id هنرمند در URL عمومی استفاده نمی‌شود",
-        "detail": "ArtistController@show از implicit model binding بر اساس کلید داخلی id استفاده می‌کند و SearchController در پیشنهاد زنده route('artists.show', $artist->id) می‌سازد؛ در حالی‌که public_id مانند ar0000123 در مدل/مهاجرت تولید می‌شود. شناسه عمومی نمایش داده می‌شود اما مسیر عمومی همچنان به ID داخلی متکی است.",
-        "status": "partial_public_identifier_integration"
-      },
-      {
-        "id": "AUTH-002",
-        "severity": "medium",
-        "title": "Rate limiting ورود در Route و Controller فعلی دیده نشد",
-        "detail": "POST /login بدون throttle middleware ثبت شده، AuthController@login نیز RateLimiter یا محدودسازی تلاش ناموفق ندارد و AppServiceProvider فقط RolePolicy را ثبت می‌کند. این بررسی ایستا است و تنظیمات زیرساختی بیرون از مخزن را پوشش نمی‌دهد.",
-        "status": "needs_rate_limit_and_auth_tests"
-      },
-      {
-        "id": "DB-010",
-        "severity": "medium",
-        "title": "قانون جلوگیری از عوامل تکراری هنوز تعریف نشده و workflow عوامل نیز موجود نیست",
-        "detail": "title_credits قید unique ترکیبی برای اثر/هنرمند/حرفه ندارد و مسیر ثبت مستقیم یا تأیید credit submission در Controller/Routeها پیدا نشد. افزودن unique ساده بدون تصمیم درباره چند حرفه، چند شخصیت و نام تیتراژ یک هنرمند ممکن است داده معتبر را مسدود کند.",
-        "status": "business_rule_required_before_schema_change"
-      }
-    ],
-    "route_and_access_findings": [
-      "Routeهای عمومی، احراز هویت، کاربر، هنرمند و مدیریت تفکیک شده‌اند.",
-      "Routeهای مدیریتی با auth و permission middleware محافظت می‌شوند.",
-      "مجوزهای آثار برای مشاهده، ایجاد، ویرایش و حذف تفکیک شده‌اند.",
-      "انتشار و لغو انتشار اثر در Controller نیز مجوز جداگانه بررسی می‌کند.",
-      "ویرایش درخواست حرفه‌ای به صاحب درخواست محدود شده است.",
-      "تأیید درخواست حرفه‌ای با Transaction و lock انجام می‌شود.",
-      "ویرایش پروفایل هنرمند به حساب متصل و مالک محدود است.",
-      "واردسازی با مجوز اختصاصی محافظت می‌شود.",
-      "ارجاع Route به متد public ناموجود در بررسی انجام‌شده پیدا نشد.",
-      "RoleMiddleware تعریف شده اما در Routeهای بررسی‌شده استفاده نشده است؛ نیاز به ارزیابی معماری دارد.",
-      "RolePolicy تنها Policy مشخص در بررسی بود؛ بسیاری از مجوزها به‌صورت دستی در Controller/Middleware بررسی می‌شوند.",
-      "نقش artist در RolePermissionSeeder مجوز artists.manage دارد؛ این مجوز در Routeهای مدیریت سراسری هنرمندان استفاده می‌شود و Admin/ArtistController عملیات را به مالک محدود نمی‌کند.",
-      "نقش artist مجوز titles.create و titles.edit دارد و این مجوزها Routeهای /admin/titles را باز می‌کنند؛ جداسازی مجوز پنل هنرمند از مدیریت مدیریتی لازم است.",
-      "RolePolicy حذف نقش سیستمی را محدود می‌کند اما ویرایش نقش سیستمی و مجوزهای آن را محدود نمی‌کند.",
-      "Route یا Controller مدیریتی برای moderation نقدها و رسیدگی به گزارش‌ها یافت نشد؛ مجوزهای reviews.manage و reports.manage تعریف شده‌اند اما مسیر عملیاتی ندارند.",
-      "Route/Controller ثبت Claim کاربر و گردش‌کار ثبت/تأیید درخواست‌های title_submission_requests و credit_submission_requests یافت نشد."
-    ],
-    "workflow_details": {
-      "professional_request": [
-        "ثبت درخواست و انتخاب چند حرفه",
-        "بررسی مدیر",
-        "درخواست اصلاح با توضیح",
-        "اصلاح توسط صاحب درخواست",
-        "تأیید و اتصال به پروفایل موجود یا ساخت پروفایل جدید",
-        "ثبت حرفه‌ها و اعطای نقش artist"
-      ],
-      "professional_request_guards": [
-        "جلوگیری از اتصال یک حساب به دو پروفایل هنرمندی",
-        "جلوگیری از تأیید درخواست بدون حرفه",
-        "جلوگیری از تأیید دوباره درخواست تأییدشده",
-        "استفاده از Transaction و lock هنگام تأیید",
-        "حفظ نقش user پس از اعطای artist"
-      ],
-      "artist_disconnect": "تست فعلی باقی‌ماندن نقش artist پس از قطع اتصال را انتظار دارد؛ تصمیم نهایی محصول هنوز تأیید نشده است.",
-      "artist_profession_edit": "ویرایش پروفایل هنرمند artist_professions را مستقیماً sync می‌کند؛ user_professions تغییر نمی‌کند و حرفه جدید بدون بازبینی مدیر به پروفایل عمومی افزوده می‌شود. سیاست مرجع/تأیید باید تعیین شود."
-    },
-    "explicitly_not_confirmed_in_source": [
-      "سیستم اشتراک و پرداخت هنرمندان",
-      "در commit ممیزی‌شده، مدیریت کامل Claim و مسیر عمومی ارسال آن تأیید نشد؛ این یافته تاریخی است و تصمیم معماری بعدی Claim مستقل را کنار گذاشته و درخواست ثبت هنرمند را مسیر واحد کرده است.",
-      "مدیریت و moderation نقدها و گزارش‌ها",
-      "شرکت‌ها به‌عنوان مدل/جدول اجرایی مستقل با public_id=co",
-      "اخبار، جشنواره‌ها و جوایز",
-      "API اختصاصی",
-      "تکمیل استفاده از public_id در تمام URLها و پیشنهادهای جستجو",
-      "جدول/model مستقل شرکت‌ها و public_id با پیشوند co",
-      "در commit ممیزی‌شده، قید دیتابیسی برای جلوگیری از Claim تکراری وجود نداشت؛ با تصمیم فعلی Claim مستقل مسیر فعال نیست و داده‌های تاریخی بدون بررسی حذف نمی‌شوند.",
-      "قید محدوده مجاز امتیاز (مانند ۱ تا ۱۰) در سطح دیتابیس",
-      "قاعده نهایی جلوگیری از ثبت عوامل تکراری؛ نیازمند تصمیم محصول درباره چند نقش/شخصیت یک فرد در یک اثر",
-      "گردش‌کار اجرایی ثبت، تأیید، رد و اصلاح درخواست‌های title_submission_requests و credit_submission_requests",
-      "مسیرهای مدیریتی moderation نقدها و رسیدگی به title_review_reports",
-      "محدودسازی نرخ ورود در Route/Controller (throttle/RateLimiter)",
-      "استفاده از public_id هنرمند به‌عنوان شناسه Route عمومی",
-      "مدل‌های Eloquent مستقل برای season_translations و episode_translations",
-      "یکپارچگی کلیدهای language_code و locale در Viewهای ویرایش هنرمند"
-    ],
-    "next_audit": {
-      "stage": 5,
-      "title": "تعیین تصمیم‌های محصول و آماده‌سازی اصلاحات مرحله‌ای",
-      "status": "awaiting_product_decisions_no_code_changes",
-      "tasks": [
-        "تعیین مرز دقیق مجوزهای نقش artist و مدیر محتوا؛ حذف دسترسی به مدیریت سراسری هنرمندان از نقش artist مگر با تصمیم صریح",
-        "تعیین سیاست محافظت از نقش admin و نقش‌های سیستمی و افزودن تست‌های جلوگیری از ارتقای غیرمجاز",
-        "تعیین سیاست مرجع حرفه‌ها: user_professions در برابر artist_professions و نیاز/عدم نیاز به تأیید مدیر هنگام ویرایش",
-        "بررسی فقط‌خواندنی جداول و داده‌های تاریخی Claim؛ هیچ حذف یا تغییر schema بدون تصمیم جداگانه انجام نشود. گردش‌کار فعال ثبت هنرمند از مسیر professional request است.",
-        "طراحی گردش‌کار moderation نقدها و گزارش‌ها",
-        "تصمیم درباره تکمیل workflow ثبت اثر و ثبت عوامل یا حذف مدل‌ها/جداول بلااستفاده پس از بررسی داده‌ها",
-        "تعیین قاعده یکتایی عوامل با پشتیبانی از چند حرفه و چند شخصیت در یک اثر",
-        "تصمیم درباره مدل شرکت‌ها و شناسه co",
-        "تکمیل استفاده از public_id در URL هنرمند و اصلاح کلیدهای ترجمه View",
-        "طراحی و افزودن Rate limiting ورود و تست‌های امنیتی/هم‌زمانی"
-      ],
-      "safety": "این مرحله فقط ممیزی سورس بود؛ هیچ کد محصول، Migration یا داده‌ای تغییر نکرد. هر اصلاح در مخزن اصلی نیازمند درخواست صریح کاربر است."
+    "confirmed_gaps_and_risks": [],
+    "historical_findings": {
+      "original_audit_date": "2026-11-18",
+      "original_commit": "a9cf3ab84381163abf9158e4eb3a8af7efc31c2c",
+      "note": "یافته‌های جزئی امنیت، دسترسی و schema از ممیزی‌های قدیمی‌تر در آرشیو project-status.json حفظ شده‌اند؛ این یافته‌ها در commit فعلی به‌صورت کامل دوباره بررسی نشده‌اند و نباید به‌عنوان ریسک قطعی امروز نمایش داده شوند.",
+      "status": "historical_not_revalidated"
     },
     "limitations": [
-      "این ممیزی ایستای مخزن GitHub در branch main و commit مشخص است؛ رفتار runtime را به‌تنهایی اثبات نمی‌کند.",
-      "به درخواست کاربر، تطبیق دیتابیس محلی با Migrationها از محدوده مرحله چهارم حذف شد؛ بنابراین وضعیت دیتابیس واقعی دوباره بررسی نشده است.",
-      "هیچ تست PHPUnit یا مرورگر در این نوبت اجرا نشد؛ پوشش تست از روی فایل‌های موجود ارزیابی شد.",
-      "هیچ فایلی در مخزن سورس اصلی تغییر نکرد و هیچ Migration یا دستور تغییردهنده داده اجرا نشد.",
-      "یافته‌های جزئی امنیت و workflow که در commitهای قدیمی‌تر ثبت شده‌اند در این نوبت به‌صورت کامل با آخرین main تطبیق داده نشدند؛ سندهای دارای commit قدیمی باید تاریخی تلقی شوند."
+      "این اعداد شمارش فایل‌ها و فراخوانی‌های سورس در commit مشخص هستند؛ تعداد جدول‌های واقعی دیتابیس یا Migrationهای اجراشده را نشان نمی‌دهند.",
+      "تست‌های موجود در مخزن شمرده شده‌اند اما اجرا نشده‌اند.",
+      "هیچ اتصال زنده‌ای به دیتابیس محلی یا محیط عملیاتی برای این snapshot انجام نشده است."
     ]
   },
   "database_schema_audit": {
@@ -1863,8 +1669,8 @@
     }
   },
   "current_work": {
-    "stage": "ممیزی وابستگی‌ها و استفاده هدفمند از کتابخانه‌های نصب‌شده",
-    "status": "dependency_audit_integrations_merged_runtime_unverified",
+    "stage": "بازسازی گزارش جامع و یکپارچه AMDB",
+    "status": "report_restructured_source_inventory_current_runtime_unverified",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -1910,9 +1716,8 @@
         "non latin company name can use internal fallback slug and public co id"
       ],
       "latest_change_verification": {
-        "pr": 83,
         "status": "not_run",
-        "note": "تست‌ها، Migration، Vite build و بررسی مرورگری طبق درخواست کاربر تا مرحله نهایی اجرا نشده‌اند."
+        "note": "گزارش فقط بر اساس GitHub source tree و lockfiles به‌روزرسانی شده؛ تست، build، Migration و دیتابیس زنده بررسی نشده‌اند."
       }
     },
     "diagnostic": {
@@ -2933,58 +2738,16 @@
     ]
   },
   "current_open_items": [
-    "اجرای تست جامع Feature/Unit و بررسی runtime در انتهای کار؛ هیچ تستی تا این مرحله اجرا نشده است.",
-    "بازبینی و اجرای Migrationهای جدید فقط پس از backup دیتابیس و تأیید وضعیت محیط محلی.",
-    "اجرای Seeder ترجمه کشورها پس از Migration؛ CountrySeeder در DatabaseSeeder پس از LanguageSeeder قرار گرفته است.",
-    "اجرای dry-run فرمان amdb:secure-professional-evidence، بررسی خروجی، تهیه backup دیتابیس و storage/app/public و سپس اجرای --apply فقط پس از تأیید.",
-    "تأیید مقدار AMDB_SUPER_ADMIN_EMAIL در محیط استقرار.",
-    "ادامه ممیزی رشته‌های سخت‌کدشده در بخش‌های باقیمانده؛ PR22 تا PR28 بخشی از Controllerها و Viewهای پروفایل، مدیریت هنرمند، واردسازی، نقش، اثر، کاربر، تنظیمات و Claim را چندزبانه کردند.",
-    "تعیین تکلیف سیستم اشتراک و جدول/مدل legacy مربوط به artist_claim_requests.",
-    "تأیید مجوز تجاری Font Awesome Pro 7.3.1؛ هدر فایل Commercial License را اعلام می‌کند اما سند مجوز در این ممیزی تأیید نشده است.",
-    "تأیید نمایش مرورگری فونت‌های Inter، Vazirmatn و Noto Sans Arabic و پوشش کامل نویسه‌های پشتو.",
-    "DB-010: جایگزینی امن شناسه polymorphic رویدادهای درخواست با FKهای نوع‌دار پس از preflight/backfill و تغییر writer/relations.",
-    "DB-012: تعیین هویت یکتای creditهای legacy که artist_id یا profession_id ندارند؛ قید فعلی فقط هویت کامل را پوشش می‌دهد.",
-    "DB-013 و DB-015: تعیین تکلیف داده و مدل‌های legacy claim/merge؛ در main فعلی route/controller فعال متناظر پیدا نشد.",
-    "DB-017 و DB-018: تصمیم درباره رفتار حذف/قطع اتصال artist_user پیش از افزودن FK مرکب برای pair هنرمند/کاربر.",
-    "DB-019: افزودن/ارزیابی قید جلوگیری از درخواست حرفه تکراری و پوشش هم‌زمانی store/resubmit/moderation در تست نهایی.",
-    "DB-016: قید مرکب پاسخ نقد به همان عنوان در PR35 اضافه شد؛ اجرای Migration پس از backup و تست نهایی باقی است.",
-    "DB-015: جلوگیری از self-merge در PR35 اضافه شد؛ سیاست جلوگیری از merge تکراری دقیق در صورت ایجاد workflow فعال باقی است.",
-    "همگام‌سازی main جدید روی سیستم محلی و بررسی صفحه اصلی، صفحه عمومی شرکت و پنل مدیریت اشتراک.",
-    "اجرای Migration جدید artist_subscriptions فقط پس از تأیید backup موجود و بررسی وضعیت دیتابیس؛ هیچ Migration در این مرحله اجرا نشده است.",
-    "تکمیل سیاست محصول برای پلن‌ها، مدت اشتراک، قیمت، ارزها و درگاه/روش پرداخت؛ سپس افزودن درخواست تمدید از پنل هنرمند.",
-    "اجرای مجدد CompanyCatalogTest و کل PHPUnit در مرحله نهایی؛ تست‌ها در این نوبت اجرا نشده‌اند.",
-    "همگام‌سازی main جدید روی سیستم محلی پس از بازگشت دسترسی به محیط و اجرای Migrationهای artist_subscription_requests، artist_subscription_plans و plan_id با backup تأییدشده.",
-    "اجرای تست‌های Feature برای مالکیت درخواست تمدید، جلوگیری از درخواست هم‌زمان، moderation مدیر، CRUD پلن، محاسبه تاریخ پایان و snapshot قیمت/ارز.",
-    "تکمیل درگاه پرداخت آنلاین پس از انتخاب ارائه‌دهنده و کشور/ارزهای هدف؛ فعلاً فقط ثبت دستی پرداخت در پنل مدیر وجود دارد.",
-    "افزودن نمایش تاریخچه اشتراک، وضعیت پرداخت و رسید برای هنرمند در داشبورد پس از تعیین سیاست حریم خصوصی.",
-    "پس از بازگشت دسترسی به محیط محلی، همگام‌سازی main و اجرای کنترل‌شده Migrationهای اشتراک، درخواست اشتراک، پلن‌ها و plan_id با backup تأییدشده.",
-    "افزودن تست‌های Feature برای انتخاب پلن فعال، رد پلن غیرفعال، مالکیت هنرمند، moderation مدیر و preselect پلن در صدور.",
-    "تکمیل درگاه پرداخت آنلاین پس از تعیین ارائه‌دهنده پرداخت و کشورهای/ارزهای هدف.",
-    "افزودن نمایش امن تاریخچه اشتراک و پرداخت در داشبورد هنرمند.",
-    "PR69: اجرای Migration جدول title_edit_suggestions و تست گردش‌کار ثبت پیشنهاد، رد/تأیید، اعمال ترجمه‌های سه‌زبانه و جلوگیری از اعمال پیشنهاد stale در مرحله نهایی تست.",
-    "PR70: اجرای Migrationهای news submission و تست ثبت خبر سه‌زبانه، مالکیت درخواست، درخواست اصلاح، رد و ایجاد draft بدون انتشار خودکار در مرحله نهایی تست.",
-    "PR71: اجرای Migration جدول‌های festivals/festival_translations/festival_editions و RolePermissionSeeder پس از backup و تست نهایی؛ بررسی CRUD، یکتایی شماره دوره، جستجو و نمایش سه‌زبانه.",
-    "PR72: اجرای Migration جدول‌های بخش جوایز/نامزدها و تست روابط عنوان/هنرمند/شرکت، الزام انتخاب یک نامزد، ثبت برنده و نمایش عمومی در مرحله نهایی.",
-    "PR73: بررسی route:list و تست پاسخ JSON، صفحه‌بندی، فیلترها، locale سه‌زبانه، rate limit و عدم افشای داده خصوصی API در مرحله نهایی.",
-    "PR74: تست Feature و بررسی runtime برای جست‌وجوی آثار با نام عوامل، نمایش ترتیب و ترجمه کریدیت‌ها، API فیلموگرافی هنرمند و محدودیت پروفایل‌های غیرفعال در مرحله نهایی.",
-    "اتصال مستقیم خروجی WordPress برای کریدیت‌های آثار: دریافت و تأیید ساختار واقعی جداول/فیلدها، شناسه‌های پست و رابطه‌های cast/crew؛ سپس افزودن mapping امن شناسه WordPress اثر به AMDB. واردساز CSV استاندارد PR80 آماده است اما تطبیق خودکار منبع WordPress هنوز انجام نشده است.",
-    "PR75: تست Feature مرکز اعلان‌ها شامل صفحه‌بندی، شمارنده، علامت‌گذاری تکی/همه، حذف، مالکیت اعلان و نمایش یادآوری اشتراک در مرحله نهایی.",
-    "PR75: بررسی runtime هدر دسکتاپ/موبایل و ترجمه اعلان‌ها در انگلیسی، دری و پشتو در مرحله نهایی.",
-    "PR76: تست ذخیره و اعتبارسنجی SEO title/description سه‌زبانه، URL شبکه‌های اجتماعی، آپلود و جایگزینی OG image و حفظ فایل قبلی در صورت خطا در مرحله نهایی.",
-    "PR76: بررسی خروجی متادیتای Open Graph/Twitter/JSON-LD، favicon و robots و اطمینان از noindex بودن همه صفحات خصوصی در runtime.",
-    "PR77: تست خروجی عنوان، توضیحات و تصویر Open Graph اختصاصی برای صفحات فیلم/سریال، هنرمند، شرکت، جشنواره و خبر در هر سه زبان.",
-    "PR77: بررسی رندر صفحه هنرمند پس از جابه‌جایی ترتیب sectionهای Blade و تأیید fallback تصاویر و توضیحات در runtime.",
-    "PR78: تست Feature ارسال اعلان پس از commit موفق و عدم ارسال در صورت rollback برای تصمیم‌های title/credit/news/profession/suggestion/review در مرحله نهایی.",
-    "PR78: بررسی ترجمه متن اعلان‌ها و جایگزینی placeholderهای note/subject/artist/profession در en/fa-AF/ps و نمایش صحیح در مرکز اعلان‌ها.",
-    "PR79: تست Feature و بررسی runtime برای اعلان نتیجه احراز حرفه‌ای، اعلان تأیید/رد رسانه پروفایل و دسترسی مالک در مرحله نهایی.",
-    "PR79: بررسی syntax و رندر Admin/ProfileMediaController پس از حذف متد moderate تکراری در مرحله نهایی.",
-    "PR80: اجرای تست Feature و بررسی runtime واردسازی CSV کریدیت‌ها، شامل شناسه‌های متعارض هنرمند، شناسه‌های ناموجود، حرفه غیرفعال، تکرار در فایل/دیتابیس، فایل بیش از ۵۰۰۰ ردیف و حفظ کریدیت‌های قبلی در مرحله نهایی.",
-    "PR81: اجرای تست Feature و بررسی runtime مسیر جدید /titles/{public_id}، redirect 301 از slug قدیمی، canonical metadata و لینک‌های کاتالوگ/جستجو در مرحله نهایی.",
-    "PR82: اجرای تست Feature و بررسی runtime جستجوی عنوان با am، هنرمند با ar و سازگاری جستجوی کاتالوگ/مدیریت در مرحله نهایی.",
-    "PR83: اجرای Migration جدید activity_log فقط پس از backup دیتابیس و تأیید وضعیت محیط؛ سپس بررسی ثبت رویدادهای create/update/delete برای Title، Artist، Company، News و Festival.",
-    "PR83: اجرای فرمان amdb:sitemap و بررسی XML تولیدشده، URLهای canonical، حذف رکوردهای unpublished/inactive و احترام به seo_indexing_enabled.",
-    "PR83: اجرای npm build و بررسی مرورگری نمودار Chart.js، تفکیک dataset بر اساس ارز و آیکون‌های Font Awesome در داشبورد مدیریت.",
-    "PR83: بررسی داشبورد فعالیت مدیر و اطمینان از عدم ثبت email/phone شرکت، اطلاعات تماس هنرمند، رمز عبور و متن ترجمه‌ها در Activitylog."
+    "اجرای برنامه QA نهایی: PHPUnit، npm build، بررسی مرورگری و smoke test؛ طبق درخواست کاربر فعلاً اجرا نشده‌اند.",
+    "بررسی همه Migrationهای جدید در محیط هدف، تهیه backup و تطبیق migrate:status قبل از اجرای هر Migration؛ هیچ عملیات مخرب انجام نشود.",
+    "تأیید تحویل ایمیل فرم تماس با تنظیمات SMTP در محیط استقرار.",
+    "بررسی واقعی فونت‌های مستقل انگلیسی، دری و پشتو و کامل‌بودن رشته‌های ترجمه در مرورگر.",
+    "تکمیل تاریخچه پرداخت هنرمند و ارزیابی/پیاده‌سازی درگاه پرداخت آنلاین.",
+    "دریافت export واقعی WordPress و مستندات ساختار جداول/فیلدها برای نگاشت دقیق عوامل و اتصال داده‌ها؛ از تطبیق خودکار صرفاً بر اساس نام خودداری شود.",
+    "بازبینی امنیتی و دسترسی‌های باقی‌مانده روی commit جاری؛ یافته‌های ممیزی قدیمی تا زمان بازبینی مجدد تاریخی تلقی شوند.",
+    "تأیید رفتار runtime Activitylog، Sitemap، Chart.js، SEO و اعلان‌ها.",
+    "بررسی تکمیل تمام مسیرهای پنل مدیریت، کاربر عادی و هنرمند و رفع موارد ناقص.",
+    "تعیین سیاست و اولویت توسعه درگاه پرداخت و قابلیت‌های باقی‌مانده پس از QA."
   ],
   "post_pr21_localization": {
     "date": "2026-11-18",
@@ -3191,12 +2954,12 @@
     "local_database_modified": false
   },
   "technology_inventory": {
-    "audit_date": "2026-11-18",
+    "audit_date": "2026-11-20",
     "status": "static_manifest_layout_and_asset_inventory",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
-    "method": "بازبینی read-only فایل‌های composer.json/lock، package.json/lock، vite.config.js، resources/css/app.css، resources/views/layouts/app.blade.php و Git tree. هیچ نصب، build، تست یا اجرای برنامه انجام نشد.",
+    "source_commit": "b1debc61f4c78996ea8b05569e3dd1527154da1a",
+    "method": "بازبینی read-only composer.json/composer.lock، package.json و Git tree در commit جاری. نسخه‌ها از composer.lock استخراج شده‌اند؛ هیچ install، build، test یا runtime اجرا نشده است.",
     "php_runtime": {
       "requirement": "^8.3",
       "last_user_reported_local_version": "8.5.12",
@@ -3412,7 +3175,7 @@
       "fontawesome_css_files": 88,
       "fontawesome_woff2_files": 38,
       "favicon": "public/favicon.ico",
-      "note": "فونت‌های UI از Google Fonts دریافت می‌شوند و فایل‌های فونت UI محلی در Git tree فعلی مشاهده نشدند؛ فایل‌های WOFF2 موجود مربوط به Font Awesome هستند."
+      "note": "در Git tree جاری ۸۸ فایل CSS و ۳۸ فایل WOFF2 مربوط به Font Awesome زیر public/vendor/fontawesome وجود دارد؛ وجود این فایل‌ها به‌تنهایی مجوز تجاری را اثبات نمی‌کند."
     },
     "manifest_constraints": [
       "محدوده Composer برای Laravel ^13.17 است و نسخه دقیق قفل‌شده v13.43.0 است.",
@@ -3432,10 +3195,10 @@
       "tests_executed": false
     },
     "next_actions": [
-      "تأیید مجوز تجاری Font Awesome Pro 7.3.1 و نگهداری سند مجوز خارج از مخزن عمومی.",
-      "بررسی نمایش واقعی فونت‌های انگلیسی، دری و پشتو در مرورگر و پوشش نویسه‌های پشتو.",
-      "بررسی اینکه Chart.js و Laravel Scout در کدام صفحات/driverها واقعاً فعال هستند.",
-      "در صورت نیاز به نصب reproducible، ثبت نسخه Font Awesome و روش به‌روزرسانی/مجوز در مستندات پروژه."
+      "در مرحله QA نهایی، مجوز و شرایط استفاده Font Awesome Pro بررسی و خارج از مخزن عمومی نگهداری شود.",
+      "نمایش واقعی فونت‌های انگلیسی، دری و پشتو در مرورگر و پوشش نویسه‌های پشتو بررسی شود.",
+      "استفاده واقعی Scout، Livewire، Spatie Translatable و MediaLibrary با source-level search در ممیزی جداگانه تأیید شود؛ صرف وجود در composer.lock به معنی استفاده فعال نیست.",
+      "نسخه‌های lockfile و رفتار runtime پکیج‌ها در مرحله نهایی بررسی شوند."
     ]
   },
   "deployment_staging": {
@@ -4239,5 +4002,110 @@
     "vite_build_executed": false,
     "runtime_verified": false,
     "notes": "گزارش ممیزی در docs/dependency-usage-audit.md مخزن اصلی قرار دارد. هیچ داده تجاری تغییر نکرده است."
+  },
+  "current_status": {
+    "snapshot_date": "2026-11-20",
+    "product_name": "Afghanistan Movie Database",
+    "product_name_fa": "بانک اطلاعاتی فیلم افغانستان",
+    "abbreviation": "AMDB",
+    "source_repository": "https://github.com/armanaria111/amdb-laravel2",
+    "source_branch": "main",
+    "source_commit": "b1debc61f4c78996ea8b05569e3dd1527154da1a",
+    "report_branch": "main",
+    "report_commit": "d56154493808e4e851f88dbad2fe7dc5aff4ded2",
+    "source_inventory": {
+      "date": "2026-11-20",
+      "branch": "main",
+      "commit": "b1debc61f4c78996ea8b05569e3dd1527154da1a",
+      "audit_type": "GitHub recursive tree inventory + composer.lock/package.json + routes/web.php static inspection",
+      "tree_entries": 765,
+      "migration_files": 47,
+      "eloquent_model_files": 62,
+      "blade_files": 82,
+      "translation_php_files": 123,
+      "test_php_files": 19,
+      "controller_php_files": 47,
+      "service_php_files": 2,
+      "web_route_lines": 903,
+      "named_route_calls": 204,
+      "route_declarations": 214,
+      "locales": [
+        "en",
+        "fa-AF",
+        "ps"
+      ],
+      "truncated": false,
+      "limitations": [
+        "این اعداد شمارش فایل‌ها و فراخوانی‌های سورس در commit مشخص هستند؛ تعداد جدول‌های واقعی دیتابیس یا Migrationهای اجراشده را نشان نمی‌دهند.",
+        "تست‌های موجود در مخزن شمرده شده‌اند اما اجرا نشده‌اند.",
+        "هیچ اتصال زنده‌ای به دیتابیس محلی یا محیط عملیاتی برای این snapshot انجام نشده است."
+      ]
+    },
+    "feature_summary": {
+      "implemented_unverified": 30,
+      "partial": 4,
+      "planned": 1
+    },
+    "feature_count": 35,
+    "implementation_status": "کدهای ادغام‌شده در سورس؛ runtime و QA نهایی هنوز تأیید نشده‌اند مگر جایی که صریحاً ثبت شده باشد.",
+    "database_runtime": {
+      "status": "not_verified",
+      "tables": null,
+      "migrations_ran": null,
+      "reason": "این گزارش فقط GitHub source tree را بررسی کرده است؛ به دیتابیس محلی/عملیاتی دسترسی و تطبیق زنده انجام نشده."
+    },
+    "quality": {
+      "tests_in_repository": 19,
+      "tests_executed": false,
+      "vite_build_executed": false,
+      "browser_verified": false,
+      "production_smoke_test": false
+    },
+    "release": {
+      "latest_merged_pr": 83,
+      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/83",
+      "latest_source_commit": "b1debc61f4c78996ea8b05569e3dd1527154da1a"
+    },
+    "note": "این بخش تنها مرجع آمار فعلی داشبورد است. اعداد قدیمی و ممیزی‌های تاریخی در بخش تاریخچه نگه‌داری می‌شوند و نباید با وضعیت امروز جمع یا مقایسه مستقیم شوند."
+  },
+  "report_methodology": {
+    "version": 3,
+    "single_current_source": "current_status",
+    "historical_policy": "ممیزی‌های دارای commit قدیمی در تاریخچه نگهداری می‌شوند و با آمار فعلی ادغام نمی‌شوند.",
+    "metric_rules": [
+      "آمار فایل‌ها فقط از Git tree شاخه main و commit درج‌شده استخراج می‌شوند.",
+      "تعداد Migrationهای موجود در سورس با تعداد Migrationهای اجراشده در دیتابیس متفاوت است.",
+      "وجود تست در مخزن به معنی اجرای تست نیست.",
+      "پیاده‌سازی merged در GitHub به معنی تأیید runtime یا production نیست.",
+      "درصد پیشرفت کلی بدون معیار وزن‌دهی معتبر محاسبه و نمایش داده نمی‌شود."
+    ],
+    "source_snapshot": {
+      "date": "2026-11-20",
+      "branch": "main",
+      "commit": "b1debc61f4c78996ea8b05569e3dd1527154da1a",
+      "audit_type": "GitHub recursive tree inventory + composer.lock/package.json + routes/web.php static inspection",
+      "tree_entries": 765,
+      "migration_files": 47,
+      "eloquent_model_files": 62,
+      "blade_files": 82,
+      "translation_php_files": 123,
+      "test_php_files": 19,
+      "controller_php_files": 47,
+      "service_php_files": 2,
+      "web_route_lines": 903,
+      "named_route_calls": 204,
+      "route_declarations": 214,
+      "locales": [
+        "en",
+        "fa-AF",
+        "ps"
+      ],
+      "truncated": false,
+      "limitations": [
+        "این اعداد شمارش فایل‌ها و فراخوانی‌های سورس در commit مشخص هستند؛ تعداد جدول‌های واقعی دیتابیس یا Migrationهای اجراشده را نشان نمی‌دهند.",
+        "تست‌های موجود در مخزن شمرده شده‌اند اما اجرا نشده‌اند.",
+        "هیچ اتصال زنده‌ای به دیتابیس محلی یا محیط عملیاتی برای این snapshot انجام نشده است."
+      ]
+    }
   }
 }
