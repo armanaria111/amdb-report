@@ -11,7 +11,7 @@
   <a class="side-brand" href="#overview"><span class="logo">AM</span><span><b>AMDB</b><small>PROJECT CONTROL</small></span></a>
   <div class="side-caption">مرکز گزارش پروژه</div>
   <nav>
-    <a href="#overview">نمای کلی</a><a href="#technology">کتابخانه‌ها و فونت‌ها</a><a href="#database">دیتابیس و معماری</a><a href="#modules">ماژول‌ها و امکانات</a><a href="#roadmap">نقشه راه</a><a href="#decisions">تصمیمات معماری</a><a href="#latest">آخرین فعالیت‌ها</a><a href="#issues">موارد باز</a><a href="#history">تاریخچه</a>
+    <a href="#overview">نمای کلی</a><a href="#technology">کتابخانه‌ها و فونت‌ها</a><a href="#database">دیتابیس و معماری</a><a href="#modules">ماژول‌ها و امکانات</a><a href="#roadmap">نقشه راه</a><a href="#decisions">تصمیمات معماری</a><a href="#latest">آخرین فعالیت‌ها</a><a href="#panels">وضعیت پنل‌ها</a><a href="#security">امنیت</a><a href="#quality">تست و QA</a><a href="#issues">موارد باز</a><a href="#history">تاریخچه</a>
   </nav>
   <div class="side-foot">گزارش مستقل پروژه<br><b>بدون تغییر کد اصلی</b></div>
 </aside>
@@ -51,6 +51,11 @@
  <h3 class="subheading">موارد تأییدنشده و اقدامات بعدی</h3><ul id="technologyNotes"></ul>
  <p class="footnote">نسخه‌های دقیق از lockfileها استخراج شده‌اند. این فهرست به معنی اجرای build، تست runtime یا تأیید مجوز تجاری نیست.</p>
 </section>
+<div class="section-heading"><div><span class="eyebrow">APPLICATION PANELS</span><h2 id="panels">وضعیت پنل‌های پروژه</h2></div><span class="section-note">وجود قابلیت در سورس؛ بدون ادعای QA موفق</span></div><section class="panel"><div id="panelStatus" class="feature-grid"></div></section>
+<div class="two-col">
+<section class="panel" id="security"><div class="panel-head"><h2>امنیت و یافته‌های ممیزی</h2><span id="securityStatus" class="tag">—</span></div><p id="securityNote" class="muted"></p><div id="securityItems"></div></section>
+<section class="panel" id="quality"><div class="panel-head"><h2>تست و کنترل کیفیت</h2><span id="qualityStatus" class="tag">—</span></div><div id="qualityGates" class="tile-grid"></div><ul id="qualityNotes"></ul></section>
+</div>
 <div class="section-heading"><div><span class="eyebrow">ROADMAP</span><h2 id="roadmap">نقشه راه توسعه</h2></div><span class="section-note">فازبندی محصول</span></div><section class="roadmap" id="roadmapList"></section>
 <div class="two-col">
 <section class="panel" id="decisions"><div class="panel-head"><h2>تصمیمات معماری</h2><span class="tag">ثابت</span></div><div id="decisionList"></div></section>
