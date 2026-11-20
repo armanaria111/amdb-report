@@ -50,6 +50,9 @@ function render(d){
  $("#qualityGates").innerHTML=gates.map(x=>'<div class="mini-tile"><b>'+esc(x[0])+'</b><span>'+esc(x[1])+'</span></div>').join("");
  $("#qualityNotes").innerHTML=(q.notes||[]).map(x=>'<li>'+esc(x)+'</li>').join("");
  $("#roadmapList").innerHTML=(d.roadmap||[]).map((x,i)=>'<article class="phase"><div class="phase-head"><span class="phase-num">'+String(i+1).padStart(2,"0")+'</span><div><h3>'+esc(x.phase)+'</h3>'+status(x.state)+'</div></div><ul>'+((x.items||[]).map(t=>'<li>'+esc(t)+'</li>').join(""))+'</ul></article>').join("");
+ const rec=d.product_recommendations||{};
+ $("#recommendationsNote").textContent=rec.note||"";
+ $("#recommendationList").innerHTML=(rec.categories||[]).map(x=>'<article class="feature-card"><div class="feature-top"><h3>'+esc(x.name)+'</h3><span class="status planned">'+esc(x.priority)+'</span></div><ul>'+(x.items||[]).map(t=>'<li>'+esc(t)+'</li>').join("")+'</ul></article>').join("");
  $("#decisionList").innerHTML=(d.decisions||[]).map(x=>'<div class="decision">'+esc(x)+'</div>').join("");
  const history=[...(d.development_history||[])].sort((x,y)=>(y.date||"").localeCompare(x.date||""));
  $("#developmentHistory").innerHTML=history.slice(0,8).map(x=>'<article class="history-item"><time>'+esc(x.date)+'</time><b>'+esc(x.title)+'</b><p>'+esc(x.detail)+'</p></article>').join("");
