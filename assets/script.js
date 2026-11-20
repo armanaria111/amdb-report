@@ -35,7 +35,7 @@ function render(d){
  $("#migrationGroups").innerHTML='<div class="mini-tile"><b>Migrationهای موجود در سورس</b><span>'+esc(cur.source_inventory?.migration_files??"—")+' فایل؛ تعداد اجراشده در دیتابیس نامشخص است</span></div><div class="mini-tile"><b>وضعیت دیتابیس زنده</b><span>بررسی نشده؛ تعداد جدول و migrate:status تأیید نشده‌اند</span></div>';
  $("#tableList").innerHTML=(a.known_tables||[]).map(x=>'<div class="table-chip"><code>'+esc(x.name)+'</code><span>'+esc(x.area)+'</span></div>').join("");
  $("#tableNote").textContent=a.known_tables_note||"";
- $("#databaseFindings").innerHTML=(a.current_findings||[]).map(x=>row({title:x.id+" · "+x.severity,detail:x.summary+"\nاقدام پیشنهادی: "+x.remediation,state:"needs_review"})).join("");
+ $("#databaseFindings").innerHTML=(a.current_findings||[]).map(x=>row({title:x.id+" · "+x.severity,detail:x.summary+" — اقدام پیشنهادی: "+x.remediation,state:"needs_review"})).join("");
  renderFeatures();
  $("#roadmapList").innerHTML=(d.roadmap||[]).map((x,i)=>'<article class="phase"><div class="phase-head"><span class="phase-num">'+String(i+1).padStart(2,"0")+'</span><div><h3>'+esc(x.phase)+'</h3>'+status(x.state)+'</div></div><ul>'+((x.items||[]).map(t=>'<li>'+esc(t)+'</li>').join(""))+'</ul></article>').join("");
  $("#decisionList").innerHTML=(d.decisions||[]).map(x=>'<div class="decision">'+esc(x)+'</div>').join("");
@@ -62,7 +62,7 @@ function render(d){
  $("#sourceAuditInventory").innerHTML=rows.map(x=>'<div class="table-chip"><span>'+esc(x[0])+'</span><code>'+esc(x[1]??"—")+'</code></div>').join("");
  $("#sourceAuditFeatures").innerHTML=(audit.confirmed_implemented_areas||[]).map(x=>'<article class="list-row"><p>'+esc(x)+'</p></article>').join("");
  const historical=audit.historical_findings||{};
- $("#sourceAuditRisks").innerHTML='<article class="list-row"><div class="row-title">یافته‌های امنیتی و ساختاری ممیزی قبلی '+status("needs_review")+'</div><p>'+esc(historical.note||"یافته‌های قدیمی تا بازبینی مجدد، تاریخی محسوب می‌شوند.")+'</p><p>Commit ممیزی قبلی: <code>'+esc(historical.original_commit||"—")+'</code></p></article>';
+ $("#sourceAuditRisks").innerHTML='<article class="list-row"><div class="row-title">یافته‌های امنیتی و ساختاری ممیزی قبلی '+status("needs_review")+'</div><p>'+esc(historical.note||"یافته‌های قدیمی تا بازبینی مجدد، تاریخی محسوب می‌شوند.")+'</p><p>Commit ممیزی قبلی: <code>'+esc((historical.original_commits||[]).join("، ")||"—")+'</code></p></article>';
  $("#sourceAuditNext").innerHTML='<article class="list-row"><div class="row-title">مرحله بعدی</div><p>بازبینی عمیق امنیت، مجوزها، workflowها و schema روی commit جاری؛ سپس تطبیق با QA نهایی.</p></article>';
  $("#sourceAuditLimits").innerHTML=(audit.limitations||[]).map(x=>'<li>'+esc(x)+'</li>').join("");
  const tech=d.technology_inventory||{};
