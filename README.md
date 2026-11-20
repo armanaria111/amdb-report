@@ -1,3 +1,24 @@
+# گزارش پروژه بانک اطلاعاتی فیلم افغانستان (AMDB)
+
+**نام انگلیسی:** Afghanistan Movie Database  
+**دامنه:** https://amdb.af  
+**مخزن اصلی کد:** https://github.com/armanaria111/amdb-laravel2
+
+## وضعیت گزارش
+
+داشبورد فقط یک مجموعه آمار فعلی دارد که از `current_status` در `project-status.json` خوانده می‌شود. آمار فنی از وضعیت قابلیت‌ها جداست و گزارش‌های تاریخی با snapshot فعلی جمع یا مخلوط نمی‌شوند.
+
+- [داشبورد زنده پروژه](https://armanaria111.github.io/amdb-report/)
+- [فایل وضعیت فعلی و تاریخچه](project-status.json)
+- [روش‌شناسی آمار و وضعیت‌ها](docs/reporting-methodology.md)
+- [تغییرات گزارش](CHANGELOG.md)
+
+**آخرین snapshot سورس:** شاخه `main` مخزن اصلی، commit `b1debc61f4c78996ea8b05569e3dd1527154da1a` در تاریخ ۲۰۲۶-۱۱-۲۰.
+
+**محدودیت مهم:** آمار فایل‌ها از GitHub استخراج شده‌اند؛ تعداد جدول‌های واقعی و Migrationهای اجراشده در دیتابیس محلی تأیید نشده‌اند. وجود تست‌ها به معنی اجرای آن‌ها نیست. تست، build و runtime verification در این snapshot انجام نشده‌اند.
+
+---
+
 # AMDB — مرکز گزارش و پیگیری پروژه
 
 داشبورد جامع پروژه «بانک اطلاعاتی فیلم افغانستان» (Afghanistan Movie Database).
