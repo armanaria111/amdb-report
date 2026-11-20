@@ -52,18 +52,13 @@
     "audit_date": "2026-11-20",
     "status": "source_inventory_only_database_runtime_not_verified",
     "tables": null,
-    "eloquent_models": 62,
     "model_relations": null,
-    "routes": 204,
     "syntax_or_audit_errors": 0,
     "note": "آمار فعلی از Git tree شاخه main در commit b1debc61 استخراج شده است: ۴۷ فایل Migration، ۶۲ فایل Model، ۸۲ فایل Blade، ۱۲۳ فایل زبان و ۲۰۴ فراخوانی نام‌گذاری Route. این آمار ساختار سورس است؛ تعداد جدول‌های واقعی و وضعیت migrate:status دیتابیس محلی تأیید نشده‌اند.",
     "migrations": {
-      "source_file_count": 47,
-      "application_migration_file_count": null,
-      "framework_migration_file_count": null,
       "ran_count": null,
-      "ran_count_note": "هیچ اتصال زنده به دیتابیس و اجرای migrate:status در این ممیزی انجام نشده است.",
-      "status": "۴۷ فایل Migration در سورس main شمارش شده‌اند؛ وضعیت اجرای آن‌ها نامشخص است."
+      "ran_count_note": "وضعیت migrate:status دیتابیس محلی/عملیاتی در این گزارش بررسی نشده است.",
+      "status": "وضعیت Migrationهای اجراشده نامشخص است؛ فقط تعداد فایل‌های Migration سورس در current_status.source_inventory ثبت می‌شود."
     },
     "known_tables": [
       {
@@ -143,34 +138,6 @@
       }
     ],
     "known_tables_note": "فهرست زیر نمونه‌ای از جداولی است که در بررسی‌های قبلی گزارش شده؛ فهرست کامل schema یا شمارش جدول‌های دیتابیس زنده نیست.",
-    "current_source_snapshot": {
-      "date": "2026-11-20",
-      "branch": "main",
-      "commit": "b1debc61f4c78996ea8b05569e3dd1527154da1a",
-      "audit_type": "GitHub recursive tree inventory + composer.lock/package.json + routes/web.php static inspection",
-      "tree_entries": 765,
-      "migration_files": 47,
-      "eloquent_model_files": 62,
-      "blade_files": 82,
-      "translation_php_files": 123,
-      "test_php_files": 19,
-      "controller_php_files": 47,
-      "service_php_files": 2,
-      "web_route_lines": 903,
-      "named_route_calls": 204,
-      "route_declarations": 214,
-      "locales": [
-        "en",
-        "fa-AF",
-        "ps"
-      ],
-      "truncated": false,
-      "limitations": [
-        "این اعداد شمارش فایل‌ها و فراخوانی‌های سورس در commit مشخص هستند؛ تعداد جدول‌های واقعی دیتابیس یا Migrationهای اجراشده را نشان نمی‌دهند.",
-        "تست‌های موجود در مخزن شمرده شده‌اند اما اجرا نشده‌اند.",
-        "هیچ اتصال زنده‌ای به دیتابیس محلی یا محیط عملیاتی برای این snapshot انجام نشده است."
-      ]
-    },
     "current_findings": [
       {
         "id": "DB-010",
@@ -1403,34 +1370,6 @@
       "بازبینی composer.json و composer.lock برای نسخه پکیج‌های کلیدی",
       "بازبینی package.json و routes/web.php برای آمار Route"
     ],
-    "repository_inventory": {
-      "date": "2026-11-20",
-      "branch": "main",
-      "commit": "b1debc61f4c78996ea8b05569e3dd1527154da1a",
-      "audit_type": "GitHub recursive tree inventory + composer.lock/package.json + routes/web.php static inspection",
-      "tree_entries": 765,
-      "migration_files": 47,
-      "eloquent_model_files": 62,
-      "blade_files": 82,
-      "translation_php_files": 123,
-      "test_php_files": 19,
-      "controller_php_files": 47,
-      "service_php_files": 2,
-      "web_route_lines": 903,
-      "named_route_calls": 204,
-      "route_declarations": 214,
-      "locales": [
-        "en",
-        "fa-AF",
-        "ps"
-      ],
-      "truncated": false,
-      "limitations": [
-        "این اعداد شمارش فایل‌ها و فراخوانی‌های سورس در commit مشخص هستند؛ تعداد جدول‌های واقعی دیتابیس یا Migrationهای اجراشده را نشان نمی‌دهند.",
-        "تست‌های موجود در مخزن شمرده شده‌اند اما اجرا نشده‌اند.",
-        "هیچ اتصال زنده‌ای به دیتابیس محلی یا محیط عملیاتی برای این snapshot انجام نشده است."
-      ]
-    },
     "confirmed_implemented_areas": [
       "کاتالوگ فیلم و سریال، فصل/قسمت، ژانر، کشور و عوامل",
       "پروفایل هنرمندان، چند حرفه، درخواست ثبت پروفایل و workflow moderation",
@@ -1448,7 +1387,11 @@
       "original_audit_date": "2026-11-18",
       "original_commit": "a9cf3ab84381163abf9158e4eb3a8af7efc31c2c",
       "note": "یافته‌های جزئی امنیت، دسترسی و schema از ممیزی‌های قدیمی‌تر در آرشیو project-status.json حفظ شده‌اند؛ این یافته‌ها در commit فعلی به‌صورت کامل دوباره بررسی نشده‌اند و نباید به‌عنوان ریسک قطعی امروز نمایش داده شوند.",
-      "status": "historical_not_revalidated"
+      "status": "historical_not_revalidated",
+      "original_commits": [
+        "a56e92080a227b9e4c531c9edf2e55a02e6946ab",
+        "a9cf3ab84381163abf9158e4eb3a8af7efc31c2c"
+      ]
     },
     "limitations": [
       "این اعداد شمارش فایل‌ها و فراخوانی‌های سورس در commit مشخص هستند؛ تعداد جدول‌های واقعی دیتابیس یا Migrationهای اجراشده را نشان نمی‌دهند.",
@@ -4012,7 +3955,6 @@
     "source_branch": "main",
     "source_commit": "b1debc61f4c78996ea8b05569e3dd1527154da1a",
     "report_branch": "main",
-    "report_commit": "d56154493808e4e851f88dbad2fe7dc5aff4ded2",
     "source_inventory": {
       "date": "2026-11-20",
       "branch": "main",
@@ -4070,7 +4012,7 @@
   },
   "report_methodology": {
     "version": 3,
-    "single_current_source": "current_status",
+    "single_current_source": "current_status.source_inventory",
     "historical_policy": "ممیزی‌های دارای commit قدیمی در تاریخچه نگهداری می‌شوند و با آمار فعلی ادغام نمی‌شوند.",
     "metric_rules": [
       "آمار فایل‌ها فقط از Git tree شاخه main و commit درج‌شده استخراج می‌شوند.",
