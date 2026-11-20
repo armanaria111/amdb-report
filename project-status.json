@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "ffad2af9d9306305e8762835dfed9daf98f69fc2",
+    "source_commit_audited": "7bdb831662d49feb1ec856be3e3c12608bc6a69b",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "ffad2af9d9306305e8762835dfed9daf98f69fc2",
+    "latest_main_commit": "7bdb831662d49feb1ec856be3e3c12608bc6a69b",
     "latest_main_commit_verified_on": "2026-11-20"
   },
   "languages": [
@@ -1852,8 +1852,8 @@
     }
   },
   "current_work": {
-    "stage": "تکمیل یکپارچگی عمومی کریدیت عوامل، جست‌وجوی آثار و فیلموگرافی هنرمندان",
-    "status": "public_credits_integration_merged_runtime_unverified",
+    "stage": "مرکز اعلان‌های یکپارچه کاربر و هنرمند",
+    "status": "notification_center_merged_runtime_unverified",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -2112,6 +2112,12 @@
         "title": "Complete public cast, crew and artist filmography integration",
         "merge_commit": "ffad2af9d9306305e8762835dfed9daf98f69fc2",
         "status": "merged"
+      },
+      {
+        "number": 75,
+        "title": "Add multilingual in-app notification center",
+        "merge_commit": "7bdb831662d49feb1ec856be3e3c12608bc6a69b",
+        "status": "merged"
       }
     ],
     "subscription_migration": "database/migrations/2026_11_19_200000_create_artist_subscription_tables.php",
@@ -2138,7 +2144,7 @@
     },
     "subscription_request_plan_migration": "database/migrations/2026_11_20_110000_add_plan_to_artist_subscription_requests.php",
     "subscription_request_plan_migration_status": "در main ادغام شده؛ اجرا نشده است.",
-    "latest_source_commit": "ffad2af9d9306305e8762835dfed9daf98f69fc2",
+    "latest_source_commit": "7bdb831662d49feb1ec856be3e3c12608bc6a69b",
     "source_migrations_not_run_in_this_change": [
       "2026_11_20_140000_create_news_tables.php",
       "2026_11_20_150000_create_season_episode_translation_tables.php",
@@ -2894,7 +2900,9 @@
     "PR72: اجرای Migration جدول‌های بخش جوایز/نامزدها و تست روابط عنوان/هنرمند/شرکت، الزام انتخاب یک نامزد، ثبت برنده و نمایش عمومی در مرحله نهایی.",
     "PR73: بررسی route:list و تست پاسخ JSON، صفحه‌بندی، فیلترها، locale سه‌زبانه، rate limit و عدم افشای داده خصوصی API در مرحله نهایی.",
     "PR74: تست Feature و بررسی runtime برای جست‌وجوی آثار با نام عوامل، نمایش ترتیب و ترجمه کریدیت‌ها، API فیلموگرافی هنرمند و محدودیت پروفایل‌های غیرفعال در مرحله نهایی.",
-    "طراحی و پیاده‌سازی واردسازی کریدیت‌های آثار از WordPress پس از دریافت/تأیید ساختار واقعی جداول و فیلدهای منبع، شناسه‌های پست و رابطه‌های cast/crew؛ از حدس‌زدن mapping یا اتصال خودکار رکوردهای مبهم خودداری شود."
+    "طراحی و پیاده‌سازی واردسازی کریدیت‌های آثار از WordPress پس از دریافت/تأیید ساختار واقعی جداول و فیلدهای منبع، شناسه‌های پست و رابطه‌های cast/crew؛ از حدس‌زدن mapping یا اتصال خودکار رکوردهای مبهم خودداری شود.",
+    "PR75: تست Feature مرکز اعلان‌ها شامل صفحه‌بندی، شمارنده، علامت‌گذاری تکی/همه، حذف، مالکیت اعلان و نمایش یادآوری اشتراک در مرحله نهایی.",
+    "PR75: بررسی runtime هدر دسکتاپ/موبایل و ترجمه اعلان‌ها در انگلیسی، دری و پشتو در مرحله نهایی."
   ],
   "post_pr21_localization": {
     "date": "2026-11-18",
@@ -3946,5 +3954,25 @@
     "tests_executed": false,
     "runtime_verified": false,
     "note": "از روابط و جدول‌های موجود استفاده شده و داده‌های قبلی بازنویسی نشده‌اند. تست، build و بررسی مرورگری به مرحله نهایی موکول شده‌اند."
+  },
+  "notification_center": {
+    "status": "merged_runtime_unverified",
+    "pull_request": 75,
+    "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/75",
+    "merge_commit": "7bdb831662d49feb1ec856be3e3c12608bc6a69b",
+    "features": [
+      "صفحه یکپارچه اعلان‌ها برای کاربران عادی، هنرمندان و حساب‌های مدیر",
+      "فهرست اعلان‌های حساب واردشده با صفحه‌بندی و شمارش خوانده‌نشده‌ها",
+      "علامت‌گذاری یک اعلان یا همه اعلان‌ها به‌عنوان خوانده‌شده",
+      "حذف اعلان با محدودسازی عملیات به رابطه notifications حساب واردشده",
+      "نمایش جزئیات یادآوری انقضای اشتراک هنرمند به زبان جاری",
+      "نمایش شمارنده اعلان‌های خوانده‌نشده در هدر دسکتاپ و منوی موبایل",
+      "ترجمه انگلیسی، دری و پشتو"
+    ],
+    "schema_changes": false,
+    "migrations_required": false,
+    "tests_executed": false,
+    "runtime_verified": false,
+    "note": "از جدول notifications و قابلیت Notifiable موجود استفاده شده است. مسیر اختصاصی قبلی خواندن اعلان اشتراک حفظ شده است. تست و بررسی runtime برای مرحله نهایی باقی مانده است."
   }
 }
