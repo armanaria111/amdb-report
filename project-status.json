@@ -11,7 +11,7 @@
     "database": "MySQL",
     "development_environment": "Windows 10 + Laragon 8",
     "local_path": "C:\\laragon\\www\\amdb",
-    "last_verified": "2026-11-20",
+    "last_verified": "2026-11-21",
     "overall_progress": null,
     "progress_note": "درصد پیشرفت کلی نمایش داده نمی‌شود؛ وضعیت هر قابلیت، پنل، دیتابیس و QA مستقل است.",
     "database_name": "amdbl",
@@ -19,8 +19,8 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "5df9f267a64b8388a28f954cf4ac8ca471a98db5",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "5df9f267a64b8388a28f954cf4ac8ca471a98db5",
-    "latest_main_commit_verified_on": "2026-11-20"
+    "latest_main_commit": "0b66dd9f971fd609dc1d9b9b7d8ddc418ec0a9da",
+    "latest_main_commit_verified_on": "2026-11-21"
   },
   "languages": [
     {
@@ -249,7 +249,7 @@
     "detail": "شناسه‌های ar هنرمند و co شرکت در URLهای عمومی استفاده می‌شوند؛ شناسه am برای اثر در ساختار موجود است اما مسیر عمومی اثر همچنان بر slug استوار است. تست runtime انجام نشده است."
   },
   "latest_development": {
-    "date": "2026-11-20",
+    "date": "2026-11-21",
     "verified": [
       "مرحله اول ممیزی read-only سورس اصلی در commit a56e92080a227b9e4c531c9edf2e55a02e6946ab انجام شد.",
       "ساختار مخزن: ۴۶۰ ورودی در درخت، ۲۲ migration، ۳۴ فایل مدل PHP، ۳۷ فایل Blade، ۷۳ خط Route در web.php و ۷۱ فراخوانی name ثبت شد.",
@@ -465,7 +465,9 @@
       "PR85 در main ادغام شد: تاریخچه پرداخت هنرمند اکنون روش پرداخت و شماره پیگیری را کنار مبلغ، وضعیت، تاریخ و لینک رسید نمایش می‌دهد؛ جزئیات فقط برای مالک پروفایل بارگذاری و نمایش داده می‌شوند.",
       "فونت‌های مستقل برای انگلیسی (Inter)، دری (Vazirmatn) و پشتو (Noto Sans Arabic) در CSS بر اساس lang صفحه تنظیم شدند و کنترل‌های فرم از فونت زبان پیروی می‌کنند.",
       "شش تست Feature جدید برای نمایش جزئیات پرداخت فقط برای مالک، دانلود رسید خصوصی، و هدایت داشبورد برای کاربر/هنرمند/مدیر/مهمان اضافه شد؛ تست‌ها هنوز اجرا نشده‌اند.",
-      "آخرین main commit پس از PR85: ca51c7c4ddd6b2a028bfb3e90d1e19ea55265e99."
+      "آخرین main commit پس از PR85: ca51c7c4ddd6b2a028bfb3e90d1e19ea55265e99.",
+      "در بررسی 2026-11-21، آخرین commit شاخه main مخزن اصلی 0b66dd9f971fd609dc1d9b9b7d8ddc418ec0a9da شناسایی شد؛ commit با عنوان Add Blade compilation check to CI فقط اجرای php artisan view:cache را به workflow CI اضافه می‌کند. وضعیت موفقیت workflow از این بررسی نتیجه‌گیری نشده است.",
+      "اصلاح syntax پشتو ابتدا در PR48 روی پایه قدیمی ایجاد شده بود؛ طبق تاریخچه main در گزارش، PR48 superseded و PR52 با merge commit 662e453 در main ادغام شده است. بنابراین اصلاح پشتو در وضعیت فعلی به‌عنوان انجام‌شده ثبت می‌شود و PR48 بازِ قبلی مرجع نهایی نیست."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -814,6 +816,10 @@
     {
       "date": "2026-11-20",
       "text": "PR85 با merge commit ca51c7c4ddd6b2a028bfb3e90d1e19ea55265e99 ادغام شد: تاریخچه پرداخت پنل هنرمند جزئیات روش و شماره پیگیری را نمایش می‌دهد؛ کنترل مالکیت اطلاعات و رسید خصوصی با تست‌های جدید پوشش داده شد؛ فونت‌های مستقل en/fa-AF/ps تنظیم شدند؛ تست مسیرهای داشبورد بر اساس نقش افزوده شد. هیچ Migration یا تغییر دیتابیسی انجام نشد. درگاه آنلاین هنوز نیازمند انتخاب ارائه‌دهنده است."
+    },
+    {
+      "date": "2026-11-21",
+      "text": "گزارش با آخرین commit واقعی main یعنی 0b66dd9f971fd609dc1d9b9b7d8ddc418ec0a9da همگام شد. این commit کامپایل Blade را به CI اضافه می‌کند؛ موفقیت CI ادعا نشده است. اصلاح syntax پشتو از طریق PR52 در main موجود است؛ PR48 قدیمی superseded بوده است. آمار source_inventory همچنان به snapshot قبلی ca51c7c متصل است و در این به‌روزرسانی دوباره شمارش نشده است."
     }
   ],
   "architecture": {
@@ -3822,7 +3828,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "ca51c7c4ddd6b2a028bfb3e90d1e19ea55265e99",
+    "source_commit": "0b66dd9f971fd609dc1d9b9b7d8ddc418ec0a9da",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-20",
@@ -3888,11 +3894,11 @@
     "release": {
       "latest_merged_pr": 85,
       "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/85",
-      "latest_source_commit": "ca51c7c4ddd6b2a028bfb3e90d1e19ea55265e99",
+      "latest_source_commit": "0b66dd9f971fd609dc1d9b9b7d8ddc418ec0a9da",
       "source_branch": "main",
-      "verified_at": "2026-11-20"
+      "verified_at": "2026-11-21"
     },
-    "note": "مرجع واحد آمار فعلی این بخش است. آخرین مبنای سورس commit ca51c7c4ddd6b2a028bfb3e90d1e19ea55265e99 پس از ادغام PR85 است؛ دیتابیس زنده، PHPUnit، build و QA مرورگری هنوز تأیید نشده‌اند.",
+    "note": "آخرین commit شاخه main برابر 0b66dd9f971fd609dc1d9b9b7d8ddc418ec0a9da است؛ این commit فقط مرحله کامپایل Blade را به CI اضافه می‌کند و نتیجه اجرای CI در این گزارش ادعا نمی‌شود. آخرین PR قابلیت‌محور ادغام‌شده همچنان PR85 است. snapshot آماری source_inventory مربوط به commit قبلی ca51c7c است و در این نوبت شمارش مجدد نشده؛ دیتابیس زنده، PHPUnit، build و QA مرورگری تأیید نشده‌اند.",
     "panels": [
       {
         "id": "admin",
