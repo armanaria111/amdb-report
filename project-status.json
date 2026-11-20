@@ -4237,6 +4237,12 @@
       "برای فعال‌سازی باید پذیرنده، Merchant ID و endpointهای مناسب sandbox/production تنظیم شوند.",
       "پرداخت خودکار ارز دیجیتال هنوز پیاده‌سازی نشده؛ انتخاب شبکه و آدرس کیف پول دریافت‌کننده لازم است.",
       "روش بانکی فعلی همچنان به ثبت و تأیید مدیر متکی است."
-    ]
+    ],
+    "pull_request": {
+      "number": 91,
+      "url": "https://github.com/armanaria111/amdb-laravel2/pull/91",
+      "state": "open",
+      "draft": true
+    }
   }
 }
