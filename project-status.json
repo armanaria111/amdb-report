@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "bba67f755ed60ae8dce54e9c2433f9e657eb8767",
+    "source_commit_audited": "f8820dfa84f9fba9a46f6c5ba028a72e06b324ed",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "bba67f755ed60ae8dce54e9c2433f9e657eb8767",
+    "latest_main_commit": "f8820dfa84f9fba9a46f6c5ba028a72e06b324ed",
     "latest_main_commit_verified_on": "2026-11-20"
   },
   "languages": [
@@ -1852,8 +1852,8 @@
     }
   },
   "current_work": {
-    "stage": "اعلان نتیجه بررسی درخواست‌های کاربران و هنرمندان",
-    "status": "moderation_result_notifications_merged_runtime_unverified",
+    "stage": "تکمیل اعلان‌های گردش کار هنرمند و رفع خطای کنترل رسانه پروفایل",
+    "status": "artist_workflow_notifications_merged_runtime_unverified",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -2136,6 +2136,12 @@
         "title": "Notify contributors about moderation decisions",
         "merge_commit": "bba67f755ed60ae8dce54e9c2433f9e657eb8767",
         "status": "merged"
+      },
+      {
+        "number": 79,
+        "title": "Notify artists about profile media and professional verification decisions",
+        "merge_commit": "f8820dfa84f9fba9a46f6c5ba028a72e06b324ed",
+        "status": "merged"
       }
     ],
     "subscription_migration": "database/migrations/2026_11_19_200000_create_artist_subscription_tables.php",
@@ -2162,7 +2168,7 @@
     },
     "subscription_request_plan_migration": "database/migrations/2026_11_20_110000_add_plan_to_artist_subscription_requests.php",
     "subscription_request_plan_migration_status": "در main ادغام شده؛ اجرا نشده است.",
-    "latest_source_commit": "bba67f755ed60ae8dce54e9c2433f9e657eb8767",
+    "latest_source_commit": "f8820dfa84f9fba9a46f6c5ba028a72e06b324ed",
     "source_migrations_not_run_in_this_change": [
       "2026_11_20_140000_create_news_tables.php",
       "2026_11_20_150000_create_season_episode_translation_tables.php",
@@ -2926,7 +2932,9 @@
     "PR77: تست خروجی عنوان، توضیحات و تصویر Open Graph اختصاصی برای صفحات فیلم/سریال، هنرمند، شرکت، جشنواره و خبر در هر سه زبان.",
     "PR77: بررسی رندر صفحه هنرمند پس از جابه‌جایی ترتیب sectionهای Blade و تأیید fallback تصاویر و توضیحات در runtime.",
     "PR78: تست Feature ارسال اعلان پس از commit موفق و عدم ارسال در صورت rollback برای تصمیم‌های title/credit/news/profession/suggestion/review در مرحله نهایی.",
-    "PR78: بررسی ترجمه متن اعلان‌ها و جایگزینی placeholderهای note/subject/artist/profession در en/fa-AF/ps و نمایش صحیح در مرکز اعلان‌ها."
+    "PR78: بررسی ترجمه متن اعلان‌ها و جایگزینی placeholderهای note/subject/artist/profession در en/fa-AF/ps و نمایش صحیح در مرکز اعلان‌ها.",
+    "PR79: تست Feature و بررسی runtime برای اعلان نتیجه احراز حرفه‌ای، اعلان تأیید/رد رسانه پروفایل و دسترسی مالک در مرحله نهایی.",
+    "PR79: بررسی syntax و رندر Admin/ProfileMediaController پس از حذف متد moderate تکراری در مرحله نهایی."
   ],
   "post_pr21_localization": {
     "date": "2026-11-18",
@@ -4072,5 +4080,23 @@
     "tests_executed": false,
     "runtime_verified": false,
     "note": "پیام‌ها در زمان نمایش با زبان فعلی کاربر ترجمه می‌شوند و یادداشت مدیر در صورت وجود همراه اعلان نمایش داده می‌شود. تأیید خبر ارسالی به معنی انتشار عمومی نیست؛ خبر به‌صورت draft ساخته می‌شود."
+  },
+  "artist_workflow_notifications": {
+    "status": "merged_runtime_unverified",
+    "pull_request": 79,
+    "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/79",
+    "merge_commit": "f8820dfa84f9fba9a46f6c5ba028a72e06b324ed",
+    "features": [
+      "اعلان به مالک پروفایل هنرمند هنگام تأیید یا رد تصویر/رسانه گالری",
+      "اعلان تأیید درخواست احراز حرفه‌ای و اتصال پروفایل هنرمند به حساب",
+      "اعلان درخواست اصلاح یا رد درخواست احراز حرفه‌ای همراه یادداشت مدیر",
+      "ترجمه انگلیسی، دری و پشتو",
+      "حذف تعریف تکراری متد moderate در Admin/ProfileMediaController"
+    ],
+    "schema_changes": false,
+    "migrations_required": false,
+    "tests_executed": false,
+    "runtime_verified": false,
+    "note": "اعلان رسانه فقط به مالک/مالکان هنرمند متصل ارسال می‌شود و رسانه شرکت اعلان هنرمندی ایجاد نمی‌کند. متد تکراری حذف شد؛ در این مرحله فقط بازبینی ایستا انجام شد."
   }
 }
