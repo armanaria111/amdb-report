@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "fa35d9c199be4885eb225fafef65c48a978bbc73",
+    "latest_main_commit": "3891131d17ceaa1981139c671c92da7f57908cb0",
     "latest_main_commit_verified_on": "2026-11-20"
   },
   "languages": [
@@ -1840,8 +1840,8 @@
     }
   },
   "current_work": {
-    "stage": "گالری رسانه‌ای چندزبانه آثار",
-    "status": "title_media_gallery_merged_runtime_unverified",
+    "stage": "اتصال تصاویر ثابت به قسمت‌های سریال",
+    "status": "episode_media_stills_merged_runtime_unverified",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -2046,6 +2046,12 @@
         "title": "Add multilingual media galleries to film and series pages",
         "merge_commit": "fa35d9c199be4885eb225fafef65c48a978bbc73",
         "status": "merged"
+      },
+      {
+        "number": 66,
+        "title": "Add episode-specific still images to series galleries",
+        "merge_commit": "3891131d17ceaa1981139c671c92da7f57908cb0",
+        "status": "merged"
       }
     ],
     "subscription_migration": "database/migrations/2026_11_19_200000_create_artist_subscription_tables.php",
@@ -2072,12 +2078,12 @@
     },
     "subscription_request_plan_migration": "database/migrations/2026_11_20_110000_add_plan_to_artist_subscription_requests.php",
     "subscription_request_plan_migration_status": "در main ادغام شده؛ اجرا نشده است.",
-    "latest_source_commit": "fa35d9c199be4885eb225fafef65c48a978bbc73",
+    "latest_source_commit": "3891131d17ceaa1981139c671c92da7f57908cb0",
     "source_migrations_not_run_in_this_change": [
       "2026_11_20_140000_create_news_tables.php",
       "2026_11_20_150000_create_season_episode_translation_tables.php"
     ],
-    "runtime_verification_note": "PR59 تا PR65 در سورس main ادغام شده‌اند. PR65 گالری رسانه‌ای آثار را با دسته‌های پوستر، پس‌زمینه، گالری و تصاویر پشت‌صحنه، ترجمه توضیحات و متن جایگزین در سه زبان، مدیریت فایل و نمایش عمومی اضافه کرد. برای فعال‌سازی باید migration جدید اجرا شود، RolePermissionSeeder برای افزودن titles.media.manage اجرا شود و storage:link در صورت نبود لینک عمومی ایجاد شود. تست‌های PR60 تا PR65، migrationهای اخبار/فصل‌وقسمت/گالری رسانه، Seeder مجوزها، build و بررسی مرورگری اجرا نشده‌اند؛ هیچ دیتابیسی در این مرحله تغییر نکرده است.",
+    "runtime_verification_note": "PR59 تا PR66 در سورس main ادغام شده‌اند. گالری رسانه‌ای آثار در PR65 و اتصال تصاویر ثابت به قسمت‌های سریال در PR66 اضافه شده‌اند. برای فعال‌سازی هر دو قابلیت باید migrationهای 2026_11_20_160000 و 2026_11_20_170000 اجرا شوند؛ برای مجوز مدیریت گالری نیز RolePermissionSeeder اجرا شود و در صورت نبود لینک عمومی storage:link ساخته شود. تست‌های PR60 تا PR66، migrationهای اخبار/فصل‌وقسمت/رسانه، Seeder مجوزها، build و بررسی مرورگری اجرا نشده‌اند؛ هیچ دیتابیسی در این مرحله تغییر نکرده است.",
     "genre_management": {
       "status": "merged_runtime_unverified",
       "permissions": [
@@ -2127,10 +2133,11 @@
       "tests_added": "tests/Feature/AdminCountryAndContentTypeManagementTest.php",
       "tests": "پنج تست Feature برای کد کشور و ترجمه، محافظت از وابستگی‌ها، ترجمه نوع محتوا، ثابت ماندن شناسه‌های movie/series، وابستگی آثار soft-deleted و نمایش ترجمه در صفحه عمومی؛ هنوز اجرا نشده است."
     },
-    "pull_request": 65,
-    "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/65",
+    "pull_request": 66,
+    "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/66",
     "source_migrations_not_run": [
-      "2026_11_20_160000_create_title_media_tables.php"
+      "2026_11_20_160000_create_title_media_tables.php",
+      "2026_11_20_170000_add_episode_reference_to_title_media.php"
     ]
   },
   "application_audit": {
@@ -3623,5 +3630,29 @@
       "php artisan db:seed --class=RolePermissionSeeder --force",
       "php artisan storage:link (اگر لینک public/storage وجود ندارد)"
     ]
+  },
+  "episode_media_stills": {
+    "date": "2026-11-20",
+    "status": "merged_runtime_unverified",
+    "pull_request": 66,
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/66",
+    "merge_commit": "3891131d17ceaa1981139c671c92da7f57908cb0",
+    "migration": "database/migrations/2026_11_20_170000_add_episode_reference_to_title_media.php",
+    "features": [
+      "اتصال اختیاری رکورد رسانه به یک قسمت مشخص سریال",
+      "انتخاب فصل و قسمت از فرم مدیریت گالری",
+      "اجبار دسته still برای تصاویر اختصاصی قسمت",
+      "اعتبارسنجی تعلق قسمت انتخاب‌شده به همان اثر و جلوگیری از اتصال قسمت اثر دیگر",
+      "نمایش تصاویر ثابت زیر همان قسمت در صفحه عمومی سریال",
+      "جلوگیری از نمایش دوباره تصاویر قسمت‌ها در گالری عمومی کل سریال",
+      "در صورت حذف قسمت، حفظ تصویر به‌عنوان رسانه عمومی اثر با null شدن episode_id",
+      "ترجمه caption و alt text به en، fa-AF و ps"
+    ],
+    "tests_added": "tests/Feature/EpisodeMediaStillsTest.php",
+    "test_cases": 3,
+    "tests_executed": false,
+    "migration_executed": false,
+    "browser_rendering_verified": false,
+    "local_database_modified": false
   }
 }
