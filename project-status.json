@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "8b939a4325a9017ffc06678032e5f23b80e9fc94",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "6ddd01c8277a85d3fd3350f6e568ba37379c2e98",
+    "latest_main_commit": "662e4533ce8ae6c94deb17ef4e92634065f736a4",
     "latest_main_commit_verified_on": "2026-11-20"
   },
   "languages": [
@@ -480,7 +480,9 @@
       "هیچ Migration، Seeder، تست PHPUnit، اجرای برنامه یا تغییر دیتابیس در این مرحله انجام نشد؛ به دلیل عدم دسترسی کاربر به محیط محلی، همه تغییرات فقط در سورس GitHub انجام شدند.",
       "PR51 با merge commit 6ddd01c انتخاب پلن فعال را هنگام درخواست اشتراک/تمدید هنرمند اضافه کرد؛ درخواست به plan_id متصل است و مدیر نام/مدت/قیمت/ارز پلن را در صف بررسی می‌بیند.",
       "لینک پس از تأیید درخواست، صفحه صدور اشتراک مدیر را با plan_id انتخاب‌شده باز می‌کند و پلن در فرم صدور از پیش انتخاب می‌شود؛ Migration plan_id برای درخواست nullable است تا درخواست‌های قدیمی قابل پردازش بمانند.",
-      "آخرین main commit پس از PR51: 6ddd01c8277a85d3fd3350f6e568ba37379c2e98. هیچ Migration، Seeder، تست، اجرای برنامه یا تغییر دیتابیس انجام نشد."
+      "آخرین main commit پس از PR51: 6ddd01c8277a85d3fd3350f6e568ba37379c2e98. هیچ Migration، Seeder، تست، اجرای برنامه یا تغییر دیتابیس انجام نشد.",
+      "PR48 قدیمی به‌دلیل پایه‌گذاری روی main پیش از PR49–51 بسته شد؛ همان اصلاح تک‌خطی با شاخه جدید مبتنی بر main جاری در PR52 اعمال و ادغام شد.",
+      "PR52 با merge commit 662e453 فایل lang/ps/artists.php را از نظر syntax با حذف ویرگول اضافی اصلاح کرد؛ آخرین main commit: 662e4533ce8ae6c94deb17ef4e92634065f736a4."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -927,6 +929,10 @@
     {
       "date": "2026-11-20",
       "text": "PR51 (6ddd01c) انتخاب پلن فعال توسط هنرمند هنگام ثبت درخواست تمدید را اضافه کرد؛ مدیر مشخصات پلن را در صف می‌بیند و پس از تأیید، همان پلن در فرم صدور از پیش انتخاب می‌شود. Migration جدید اجرا نشده است."
+    },
+    {
+      "date": "2026-11-20",
+      "text": "PR52 (662e453) اصلاح خطای syntax فایل ترجمه پشتو lang/ps/artists.php را روی main جاری ادغام کرد؛ PR48 قدیمی به‌عنوان نسخه superseded بسته شد."
     }
   ],
   "architecture": {
@@ -1931,6 +1937,12 @@
         "number": 51,
         "title": "Let artists select a subscription plan when requesting renewal",
         "merge_commit": "6ddd01c8277a85d3fd3350f6e568ba37379c2e98",
+        "status": "merged"
+      },
+      {
+        "number": 52,
+        "title": "Fix malformed Pashto artist translations",
+        "merge_commit": "662e4533ce8ae6c94deb17ef4e92634065f736a4",
         "status": "merged"
       }
     ],
