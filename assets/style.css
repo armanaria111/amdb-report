@@ -20,3 +20,9 @@
 #statusDisclaimer{margin:-25px 0 28px}
 @media(max-width:900px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){#sourceAuditInventory{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Panel, security and QA sections */
+#panelStatus{grid-template-columns:repeat(3,minmax(0,1fr))}
+#qualityGates{grid-template-columns:repeat(2,minmax(0,1fr))}
+#qualityNotes{color:var(--muted);font-size:11px;line-height:1.9;padding-inline-start:22px}
+@media(max-width:900px){#panelStatus{grid-template-columns:1fr}#qualityGates{grid-template-columns:1fr}}
