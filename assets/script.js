@@ -32,7 +32,7 @@ function render(d){
  $("#statusDisclaimer").textContent="آخرین سورس بررسی‌شده: "+(cur.source_commit||"—")+" · اعداد بالا وضعیت پیاده‌سازی در مخزن‌اند، نه درصد پیشرفت یا تأیید عملکرد واقعی.";
  $("#auditDate").textContent="Snapshot سورس: "+(cur.snapshot_date||a.audit_date||"—");
  $("#auditNote").textContent=a.note||"";
- $("#migrationGroups").innerHTML='<div class="mini-tile"><b>Migrationهای موجود در سورس</b><span>'+esc(cur.source_inventory?.migration_files??"—")+' فایل؛ تعداد اجراشده در دیتابیس نامشخص است</span></div><div class="mini-tile"><b>وضعیت دیتابیس زنده</b><span>بررسی نشده؛ تعداد جدول و migrate:status تأیید نشده‌اند</span></div>';
+ $("#migrationGroups").innerHTML='<div class="mini-tile"><b>وضعیت دیتابیس زنده</b><span>بررسی نشده؛ تعداد جدول‌های واقعی و Migrationهای اجراشده تأیید نشده‌اند. شمار فایل‌های Migration فقط یک‌بار در موجودی فنی سورس نمایش داده می‌شود.</span></div>';
  $("#tableList").innerHTML=(a.known_tables||[]).map(x=>'<div class="table-chip"><code>'+esc(x.name)+'</code><span>'+esc(x.area)+'</span></div>').join("");
  $("#tableNote").textContent=a.known_tables_note||"";
  $("#databaseFindings").innerHTML=(a.current_findings||[]).map(x=>row({title:x.id+" · "+x.severity,detail:x.summary+" — اقدام پیشنهادی: "+x.remediation,state:"needs_review"})).join("");
