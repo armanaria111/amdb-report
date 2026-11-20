@@ -3141,5 +3141,38 @@
     "bootstrap_output_fix_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/41",
     "routes_web_bom_fix_pr": 42,
     "routes_web_bom_fix_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/42"
+  },
+  "artist_subscription_history": {
+    "date": "2026-11-20",
+    "status": "implemented_merged_static_review_not_runtime_tested",
+    "pull_request": 53,
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/53",
+    "merge_commit": "4f1675112619163870f75ded2431580fe4228652",
+    "source_commit": "4f1675112619163870f75ded2431580fe4228652",
+    "files": [
+      "app/Http/Controllers/ArtistController.php",
+      "resources/views/dashboards/artist.blade.php",
+      "lang/en/subscription-requests.php",
+      "lang/fa-AF/subscription-requests.php",
+      "lang/ps/subscription-requests.php"
+    ],
+    "features": [
+      "نمایش تاریخچه اشتراک‌های متعلق به پروفایل هنرمند در داشبورد مالک؛ شامل نام snapshot پلن، وضعیت، بازه اعتبار و مبلغ.",
+      "نمایش پرداخت‌های مرتبط شامل مبلغ، ارز، وضعیت و زمان پرداخت/ثبت.",
+      "تاریخچه و درخواست‌های اشتراک فقط برای پروفایل‌هایی بارگذاری می‌شود که حساب جاری مالک آن‌هاست؛ پروفایل‌های مرتبط غیرمالک داده تاریخچه دریافت نمی‌کنند.",
+      "فقط ستون‌های نمایشی امن انتخاب می‌شوند؛ شماره تراکنش، مسیر فایل رسید، metadata پرداخت و یادداشت مدیر در داشبورد هنرمند نمایش داده نمی‌شوند.",
+      "ترجمه‌های انگلیسی، دری و پشتو اضافه شدند."
+    ],
+    "static_review": "Patch و ساختار تغییرات بازبینی شد؛ migration یا schema جدیدی اضافه نشده و داده موجود تغییر نمی‌کند. مسیر امن دانلود رسید در این PR پیاده نشده است؛ receipt_path عمداً افشا نشده است.",
+    "tests_executed": false,
+    "migrations_executed": false,
+    "seeders_executed": false,
+    "browser_rendering_verified": false,
+    "local_database_modified": false,
+    "next_actions": [
+      "پیاده‌سازی مسیر احراز هویت‌شده و مالک‌محور برای مشاهده/دانلود رسید پرداخت، پس از بازبینی دقیق storage disk و مسیرهای موجود.",
+      "تکمیل نمایش روش پرداخت در تاریخچه در صورت نیاز محصولی.",
+      "اجرای تست‌های PHPUnit، بررسی Blade و مشاهده مرورگر پس از در دسترس شدن محیط اجرا."
+    ]
   }
 }
