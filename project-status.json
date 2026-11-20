@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "d454c205628da2f841075654cb8be91c5c32ed56",
+    "source_commit_audited": "a064981893bbf317ef9530e4f4d90cf86ba10bbb",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "d454c205628da2f841075654cb8be91c5c32ed56",
+    "latest_main_commit": "a064981893bbf317ef9530e4f4d90cf86ba10bbb",
     "latest_main_commit_verified_on": "2026-11-20"
   },
   "languages": [
@@ -1852,8 +1852,8 @@
     }
   },
   "current_work": {
-    "stage": "تکمیل تنظیمات سئو، اشتراک‌گذاری اجتماعی و هویت عمومی سایت",
-    "status": "seo_social_settings_merged_runtime_unverified",
+    "stage": "افزودن متادیتای اختصاصی و تصویر اشتراک‌گذاری به صفحات عمومی کاتالوگ",
+    "status": "page_specific_seo_metadata_merged_runtime_unverified",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -2124,6 +2124,12 @@
         "title": "Add multilingual SEO and social profile site settings",
         "merge_commit": "d454c205628da2f841075654cb8be91c5c32ed56",
         "status": "merged"
+      },
+      {
+        "number": 77,
+        "title": "Add page-specific SEO metadata to public catalogs",
+        "merge_commit": "a064981893bbf317ef9530e4f4d90cf86ba10bbb",
+        "status": "merged"
       }
     ],
     "subscription_migration": "database/migrations/2026_11_19_200000_create_artist_subscription_tables.php",
@@ -2150,7 +2156,7 @@
     },
     "subscription_request_plan_migration": "database/migrations/2026_11_20_110000_add_plan_to_artist_subscription_requests.php",
     "subscription_request_plan_migration_status": "در main ادغام شده؛ اجرا نشده است.",
-    "latest_source_commit": "d454c205628da2f841075654cb8be91c5c32ed56",
+    "latest_source_commit": "a064981893bbf317ef9530e4f4d90cf86ba10bbb",
     "source_migrations_not_run_in_this_change": [
       "2026_11_20_140000_create_news_tables.php",
       "2026_11_20_150000_create_season_episode_translation_tables.php",
@@ -2910,7 +2916,9 @@
     "PR75: تست Feature مرکز اعلان‌ها شامل صفحه‌بندی، شمارنده، علامت‌گذاری تکی/همه، حذف، مالکیت اعلان و نمایش یادآوری اشتراک در مرحله نهایی.",
     "PR75: بررسی runtime هدر دسکتاپ/موبایل و ترجمه اعلان‌ها در انگلیسی، دری و پشتو در مرحله نهایی.",
     "PR76: تست ذخیره و اعتبارسنجی SEO title/description سه‌زبانه، URL شبکه‌های اجتماعی، آپلود و جایگزینی OG image و حفظ فایل قبلی در صورت خطا در مرحله نهایی.",
-    "PR76: بررسی خروجی متادیتای Open Graph/Twitter/JSON-LD، favicon و robots و اطمینان از noindex بودن همه صفحات خصوصی در runtime."
+    "PR76: بررسی خروجی متادیتای Open Graph/Twitter/JSON-LD، favicon و robots و اطمینان از noindex بودن همه صفحات خصوصی در runtime.",
+    "PR77: تست خروجی عنوان، توضیحات و تصویر Open Graph اختصاصی برای صفحات فیلم/سریال، هنرمند، شرکت، جشنواره و خبر در هر سه زبان.",
+    "PR77: بررسی رندر صفحه هنرمند پس از جابه‌جایی ترتیب sectionهای Blade و تأیید fallback تصاویر و توضیحات در runtime."
   ],
   "post_pr21_localization": {
     "date": "2026-11-18",
@@ -4003,5 +4011,33 @@
     "tests_executed": false,
     "runtime_verified": false,
     "note": "از کلید/مقدار جدول site_settings استفاده شده است. هیچ Migration جدیدی نیاز نیست. تست، build و بررسی مرورگری به مرحله نهایی موکول شده‌اند."
+  },
+  "page_specific_seo": {
+    "status": "merged_runtime_unverified",
+    "pull_request": 77,
+    "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/77",
+    "merge_commit": "a064981893bbf317ef9530e4f4d90cf86ba10bbb",
+    "pages": [
+      "movies and series",
+      "artists",
+      "companies",
+      "festivals",
+      "news"
+    ],
+    "features": [
+      "عنوان و توضیحات متناسب با زبان جاری برای صفحات جزئیات آثار",
+      "استفاده از synopsis اثر برای توضیحات متادیتا و پوستر به‌عنوان تصویر اشتراک‌گذاری",
+      "استفاده از biography هنرمند و عکس پروفایل در متادیتا",
+      "استفاده از توضیحات شرکت و لوگو در متادیتا",
+      "استفاده از توضیحات جشنواره در متادیتا",
+      "استفاده از excerpt/body خبر و تصویر کاور در متادیتا",
+      "پشتیبانی layout مشترک از تصویر Open Graph اختصاصی صفحه با fallback به تصویر سراسری",
+      "حذف پسوند تکراری AMDB از عنوان متادیتای صفحات شرکت و جشنواره"
+    ],
+    "schema_changes": false,
+    "migrations_required": false,
+    "tests_executed": false,
+    "runtime_verified": false,
+    "note": "فقط Viewها و layout تغییر کرده‌اند؛ تست build و بررسی اشتراک‌گذاری واقعی در مرورگر به مرحله نهایی موکول شده است."
   }
 }
