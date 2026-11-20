@@ -32,7 +32,7 @@ function render(d){
  $("#statusDisclaimer").textContent="آخرین سورس بررسی‌شده: "+(cur.source_commit||"—")+" · اعداد بالا وضعیت پیاده‌سازی در مخزن‌اند، نه درصد پیشرفت یا تأیید عملکرد واقعی.";
  $("#auditDate").textContent="Snapshot سورس: "+(cur.snapshot_date||a.audit_date||"—");
  $("#auditNote").textContent=a.note||"";
- $("#migrationGroups").innerHTML='<div class="mini-tile"><b>Migrationهای موجود در سورس</b><span>'+esc(a.migrations?.source_file_count??"—")+' فایل؛ تعداد اجراشده در دیتابیس نامشخص است</span></div><div class="mini-tile"><b>وضعیت دیتابیس زنده</b><span>بررسی نشده؛ تعداد جدول و migrate:status تأیید نشده‌اند</span></div>';
+ $("#migrationGroups").innerHTML='<div class="mini-tile"><b>Migrationهای موجود در سورس</b><span>'+esc(cur.source_inventory?.migration_files??"—")+' فایل؛ تعداد اجراشده در دیتابیس نامشخص است</span></div><div class="mini-tile"><b>وضعیت دیتابیس زنده</b><span>بررسی نشده؛ تعداد جدول و migrate:status تأیید نشده‌اند</span></div>';
  $("#tableList").innerHTML=(a.known_tables||[]).map(x=>'<div class="table-chip"><code>'+esc(x.name)+'</code><span>'+esc(x.area)+'</span></div>').join("");
  $("#tableNote").textContent=a.known_tables_note||"";
  renderFeatures();
@@ -50,7 +50,7 @@ function render(d){
  const commitLink=$("#sourceAuditCommitLink");
  if(commitLink)commitLink.href="https://github.com/armanaria111/amdb-laravel2/commit/"+encodeURIComponent(audit.commit||"");
  $("#sourceAuditScope").innerHTML=(audit.scope_completed||[]).map(x=>'<div class="mini-tile">'+esc(x)+'</div>').join("");
- const inv=audit.repository_inventory||{};
+ const inv=cur.source_inventory||{};
  const rows=[
  ["ورودی‌های Git tree",inv.tree_entries],["فایل Migration",inv.migration_files],
  ["فایل Model",inv.eloquent_model_files],["فایل Blade",inv.blade_files],
