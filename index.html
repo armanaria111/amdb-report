@@ -16,28 +16,27 @@
   <div class="side-foot">گزارش مستقل پروژه<br><b>بدون تغییر کد اصلی</b></div>
 </aside>
 <main class="main">
-<header class="topbar"><div><div class="eyebrow">AFGHANISTAN MOVIE DATABASE</div><h1 id="projectTitle">بانک اطلاعاتی فیلم افغانستان</h1><p id="projectSub">AMDB · گزارش جامع توسعه</p></div><div class="top-actions"><a class="button secondary" href="https://github.com/armanaria111/amdb-report" target="_blank" rel="noopener">مخزن گزارش ↗</a><a class="button secondary" href="https://amdb.af" target="_blank" rel="noopener">وب‌سایت ↗</a><button class="button primary" id="refresh">تازه‌سازی ↻</button></div></header>
-<section id="overview" class="hero"><div class="hero-copy"><span class="tag">PROJECT STATUS · LIVE JSON</span><h2>نمای کامل وضعیت توسعه AMDB</h2><p>این داشبورد نیازمندی‌ها، تصمیمات، ممیزی دیتابیس، قابلیت‌های اجراشده و کارهای باقی‌مانده را از فایل وضعیت پروژه می‌خواند.</p><div class="hero-meta"><span id="framework">Laravel —</span><span id="databaseName">MySQL —</span><span id="lastUpdated">آخرین بازبینی —</span></div></div><div class="hero-mark">AMDB<span>AFGHANISTAN</span></div></section>
+<header class="topbar"><div><div class="eyebrow">AFGHANISTAN MOVIE DATABASE</div><h1 id="projectTitle">بانک اطلاعاتی فیلم افغانستان</h1><p id="projectSub">AMDB · گزارش جامع توسعه</p></div><div class="top-actions"><a class="button secondary" href="./docs/reporting-methodology.md" target="_blank" rel="noopener">روش‌شناسی گزارش ↗</a><a class="button secondary" href="https://github.com/armanaria111/amdb-report" target="_blank" rel="noopener">مخزن گزارش ↗</a><a class="button secondary" href="https://amdb.af" target="_blank" rel="noopener">وب‌سایت ↗</a><button class="button primary" id="refresh">تازه‌سازی ↻</button></div></header>
+<section id="overview" class="hero"><div class="hero-copy"><span class="tag">PROJECT STATUS · LIVE JSON</span><h2>نمای کامل وضعیت توسعه AMDB</h2><p>این داشبورد یک مرجع واحد برای وضعیت فعلی AMDB است؛ آمار سورس، وضعیت دیتابیس، پیاده‌سازی قابلیت‌ها و QA از یکدیگر تفکیک شده‌اند.</p><div class="hero-meta"><span id="framework">Laravel —</span><span id="databaseName">MySQL —</span><span id="lastUpdated">آخرین بازبینی —</span></div></div><div class="hero-mark">AMDB<span>AFGHANISTAN</span></div></section>
 <section class="stats" id="stats">
- <article class="stat"><small>جداول گزارش‌شده</small><strong id="tables">—</strong><span>ممیزی دیتابیس</span></article>
- <article class="stat"><small>مدل‌های Eloquent</small><strong id="models">—</strong><span>ساختار Laravel</span></article>
- <article class="stat"><small>روابط مدل‌ها</small><strong id="relations">—</strong><span>ارتباطات مدل</span></article>
- <article class="stat"><small>مسیرهای گزارش‌شده</small><strong id="routes">—</strong><span>Route audit</span></article>
- <article class="stat"><small>Migration اجراشده</small><strong id="migrations">—</strong><span>وضعیت Ran</span></article>
- <article class="stat"><small>موارد نقشه راه</small><strong id="featureCount">—</strong><span>ماژول‌ها و قابلیت‌ها</span></article>
+ <article class="stat"><small>کل قابلیت‌های ثبت‌شده</small><strong id="featureCount">—</strong><span>فهرست واحد امکانات AMDB</span></article>
+ <article class="stat"><small>پیاده‌سازی‌شده در سورس</small><strong id="implementedCount">—</strong><span>ادغام‌شده؛ runtime تأییدنشده</span></article>
+ <article class="stat"><small>نیازمند تکمیل</small><strong id="partialCount">—</strong><span>قابلیت‌های نیمه‌کامل</span></article>
+ <article class="stat"><small>برنامه‌ریزی‌شده</small><strong id="plannedCount">—</strong><span>هنوز پیاده‌سازی نشده</span></article>
 </section>
+<p class="footnote" id="statusDisclaimer">آمار قابلیت‌ها وضعیت سورس را نشان می‌دهد، نه درصد تکمیل یا سلامت runtime.</p>
 <div class="section-heading"><div><span class="eyebrow">DATABASE AUDIT</span><h2 id="database">دیتابیس و معماری فنی</h2></div><span class="section-note" id="auditDate">—</span></div>
-<section class="panel"><div class="panel-head"><h3>خلاصه ممیزی دیتابیس</h3><span class="tag">گزارش گفتگو</span></div><p id="auditNote" class="muted"></p><div id="migrationGroups" class="tile-grid"></div><h3 class="subheading">جداول شناخته‌شده در گفتگو</h3><div id="tableList" class="table-grid"></div><p id="tableNote" class="footnote"></p></section>
+<section class="panel"><div class="panel-head"><h3>خلاصه ممیزی دیتابیس</h3><span class="tag">وضعیت سورس و دیتابیس جداگانه</span></div><p id="auditNote" class="muted"></p><div id="migrationGroups" class="tile-grid"></div><h3 class="subheading">جداول شناخته‌شده در گفتگو</h3><div id="tableList" class="table-grid"></div><p id="tableNote" class="footnote"></p><h3 class="subheading">یافته‌های دیتابیسی از ممیزی قبلی (نیازمند بازبینی مجدد)</h3><div id="databaseFindings"></div></section>
 <div class="section-heading"><div><span class="eyebrow">PRODUCT CAPABILITIES</span><h2 id="modules">ماژول‌ها و امکانات پروژه</h2></div><span class="section-note">وضعیت هر قابلیت به‌صورت مستقل</span></div>
-<section class="panel"><div class="filterbar" id="featureFilters"><button class="filter active" data-filter="all">همه</button><button class="filter" data-filter="reported_done">انجام‌شده</button><button class="filter" data-filter="partial">نیمه‌کامل</button><button class="filter" data-filter="incomplete">ناقص</button><button class="filter" data-filter="planned">برنامه‌ریزی‌شده</button></div><div id="featureList" class="feature-grid"></div></section>
+<section class="panel"><div class="filterbar" id="featureFilters"><button class="filter active" data-filter="all">همه</button><button class="filter" data-filter="implemented_unverified">پیاده‌سازی‌شده در سورس</button><button class="filter" data-filter="partial">نیمه‌کامل</button><button class="filter" data-filter="needs_review">نیازمند بازبینی</button><button class="filter" data-filter="planned">برنامه‌ریزی‌شده</button></div><div id="featureList" class="feature-grid"></div></section>
 <div class="section-heading"><div><span class="eyebrow">SOURCE CODE AUDIT</span><h2 id="sourceAuditHeading">نتایج ممیزی سورس اصلی Laravel</h2></div><span class="section-note" id="sourceAuditStatus">در حال بارگذاری…</span></div>
 <section class="panel">
- <div class="panel-head"><h3>نسخه بررسی‌شده سورس اصلی</h3><a href="https://github.com/armanaria111/amdb-laravel2/commit/a56e92080a227b9e4c531c9edf2e55a02e6946ab" target="_blank" rel="noopener">مشاهده Commit ↗</a></div>
+ <div class="panel-head"><h3>نسخه بررسی‌شده سورس اصلی</h3><a id="sourceAuditCommitLink" href="https://github.com/armanaria111/amdb-laravel2" target="_blank" rel="noopener">مشاهده Commit ↗</a></div>
  <p class="footnote"><code id="sourceAuditCommit">—</code></p>
  <h3 class="subheading">دامنه ممیزی انجام‌شده</h3><div id="sourceAuditScope" class="tile-grid"></div>
- <h3 class="subheading">آمار ساختار مخزن</h3><div id="sourceAuditInventory" class="stats"></div>
+ <h3 class="subheading">موجودی فنی سورس در همان commit</h3><div id="sourceAuditInventory" class="table-grid"></div>
  <h3 class="subheading">قابلیت‌های تأییدشده در سورس</h3><div id="sourceAuditFeatures" class="feature-grid"></div>
- <h3 class="subheading">اختلاف‌ها، ریسک‌ها و موارد ناقص</h3><div id="sourceAuditRisks"></div>
+ <h3 class="subheading">وضعیت یافته‌های ممیزی قبلی</h3><div id="sourceAuditRisks"></div>
  <h3 class="subheading">مرحله بعدی ممیزی</h3><div id="sourceAuditNext"></div>
  <h3 class="subheading">محدودیت‌های بررسی</h3><ul id="sourceAuditLimits"></ul>
 </section>
@@ -49,19 +48,18 @@
  <h3 class="subheading">JavaScript، CSS و ابزار Build</h3><div id="technologyFrontend" class="tech-grid"></div>
  <h3 class="subheading">کتابخانه آیکون</h3><div id="technologyIcons" class="tech-card"></div>
  <h3 class="subheading">فونت‌های زبان‌ها و تنظیمات Build</h3><div id="technologyFonts" class="tech-grid"></div>
- <h3 class="subheading">آمار فایل‌ها و دارایی‌ها</h3><div id="technologyCounts" class="stats"></div>
  <h3 class="subheading">موارد تأییدنشده و اقدامات بعدی</h3><ul id="technologyNotes"></ul>
  <p class="footnote">نسخه‌های دقیق از lockfileها استخراج شده‌اند. این فهرست به معنی اجرای build، تست runtime یا تأیید مجوز تجاری نیست.</p>
 </section>
 <div class="section-heading"><div><span class="eyebrow">ROADMAP</span><h2 id="roadmap">نقشه راه توسعه</h2></div><span class="section-note">فازبندی محصول</span></div><section class="roadmap" id="roadmapList"></section>
 <div class="two-col">
 <section class="panel" id="decisions"><div class="panel-head"><h2>تصمیمات معماری</h2><span class="tag">ثابت</span></div><div id="decisionList"></div></section>
-<section class="panel" id="latest"><div class="panel-head"><h2>آخرین فعالیت‌ها و ممیزی‌ها</h2></div><div id="developmentHistory"></div></section>
+<section class="panel" id="latest"><div class="panel-head"><h2>آخرین فعالیت‌ها</h2></div><div id="developmentHistory"></div></section>
 </div>
 <div class="two-col">
 <section class="panel" id="issues"><div class="panel-head"><h2>موارد باز و مشکلات</h2></div><div id="issueList"></div></section>
 <section class="panel"><div class="panel-head"><h2>زبان‌ها و شناسه‌های پایدار</h2></div><div id="languageList" class="language-list"></div><h3 class="subheading">شناسه‌های عمومی</h3><div id="identifierList" class="identifier-grid"></div><p id="identifierNote" class="footnote"></p></section>
 </div>
-<section class="panel" id="history"><div class="panel-head"><h2>تاریخچه تغییرات گزارش</h2></div><div id="changelogList" class="timeline"></div></section>
+<section class="panel" id="history"><div class="panel-head"><h2>تاریخچه تغییرات گزارش (۱۰ مورد اخیر)</h2></div><div id="changelogList" class="timeline"></div></section>
 <footer><span>AMDB · Afghanistan Movie Database</span><span id="connection">در حال دریافت اطلاعات…</span></footer>
 </main></div><script src="./assets/script.js" defer></script></body></html>

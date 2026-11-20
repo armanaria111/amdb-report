@@ -10,3 +10,13 @@
 #technologyNotes{color:var(--muted);line-height:2;padding-inline-start:22px}
 @media(max-width:900px){.tech-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.tech-grid{grid-template-columns:1fr}}
+
+/* Unified current-status dashboard */
+.stats{grid-template-columns:repeat(4,minmax(0,1fr))}
+.status.implemented_unverified{background:#26344b;color:#a9c8ff}
+.status.needs_review{background:#422f22;color:#ffd0a0}
+#sourceAuditInventory{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+#sourceAuditInventory .table-chip{min-width:0}
+#statusDisclaimer{margin:-25px 0 28px}
+@media(max-width:900px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){#sourceAuditInventory{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
