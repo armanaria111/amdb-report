@@ -487,7 +487,10 @@
       "PR54 با merge commit 4a158c5 امکان بارگذاری خصوصی رسید پرداخت در پنل مدیر و دانلود مالک‌محور از داشبورد هنرمند را اضافه کرد؛ از ستون receipt_path موجود استفاده شده و Migration جدیدی لازم نیست.",
       "آخرین main commit پس از PR54: 4a158c5b033db55c3db4efec6013dc601d4ded63؛ هیچ Migration، Seeder، PHPUnit یا اجرای برنامه انجام نشد.",
       "PR55 با merge commit 156524f گزارش مالی اشتراک هنرمندان را به داشبورد مدیریت افزود؛ مبالغ بر اساس ارز و وضعیت پرداخت گروه‌بندی می‌شوند و ارزهای متفاوت با هم جمع نمی‌شوند.",
-      "آخرین main commit پس از PR55: 156524fe5f6174d93eaabce960e3faed2d48020e؛ هیچ Migration، Seeder، تست PHPUnit یا اجرای برنامه انجام نشد."
+      "آخرین main commit پس از PR55: 156524fe5f6174d93eaabce960e3faed2d48020e؛ هیچ Migration، Seeder، تست PHPUnit یا اجرای برنامه انجام نشد.",
+      "PR56 با merge commit 0f6b724 اعلان داخل برنامه برای پایان اشتراک هنرمندان در ۷، ۳ و ۱ روز مانده، جلوگیری از اعلان تکراری، نمایش در داشبورد و علامت‌گذاری خوانده‌شدن را اضافه کرد.",
+      "Migration جدول notifications در main قرار دارد اما هنوز اجرا نشده است؛ زمان‌بند Laravel در routes/console.php ثبت شده، ولی اجرای php artisan schedule:run هر دقیقه توسط هاست هنوز پیکربندی/تأیید نشده است.",
+      "آخرین main commit پس از PR56: 0f6b724a4c62dcfe6d2c26fcc6fdc1f81a388e33؛ هیچ Migration، Seeder، PHPUnit یا اجرای runtime انجام نشد."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1821,8 +1824,8 @@
     }
   },
   "current_work": {
-    "stage": "تکمیل چرخه اشتراک هنرمندان، رسید خصوصی و گزارش مالی مدیریت",
-    "status": "artist_subscription_history_private_receipts_and_finance_summary_merged_runtime_unverified",
+    "stage": "اشتراک هنرمندان، تاریخچه و رسید خصوصی، گزارش مالی و اعلان انقضا",
+    "status": "subscription_finance_and_expiry_notifications_merged_runtime_unverified",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -1967,6 +1970,12 @@
         "title": "Add currency-aware subscription finance summary to admin dashboard",
         "merge_commit": "156524fe5f6174d93eaabce960e3faed2d48020e",
         "status": "merged"
+      },
+      {
+        "number": 56,
+        "title": "Add artist subscription expiry reminders",
+        "merge_commit": "0f6b724a4c62dcfe6d2c26fcc6fdc1f81a388e33",
+        "status": "merged"
       }
     ],
     "subscription_migration": "database/migrations/2026_11_19_200000_create_artist_subscription_tables.php",
@@ -1988,11 +1997,12 @@
       "admin_review": "مدیر پلن انتخاب‌شده، مدت، قیمت و ارز را می‌بیند؛ پس از تأیید، لینک صدور اشتراک با همان پلن از پیش انتخاب‌شده باز می‌شود. تأیید به‌تنهایی دسترسی را فعال نمی‌کند.",
       "plans": "مدیر پلن‌ها را با کد یکتا، مدت روز، مبلغ، ارز، ترتیب نمایش و ترجمه‌های en/fa-AF/ps مدیریت می‌کند.",
       "issuance": "صدور اشتراک فقط از پلن فعال ممکن است؛ تاریخ پایان از مدت پلن محاسبه و نام/کد/قیمت/ارز پلن هنگام صدور در سابقه اشتراک snapshot می‌شود.",
-      "payment": "پرداخت دستی در پنل مدیر؛ رسید PDF/تصویر روی disk خصوصی local ذخیره می‌شود و فقط مالک پروفایل هنرمند می‌تواند آن را از داشبورد دریافت کند. درگاه آنلاین هنوز وجود ندارد."
+      "payment": "پرداخت دستی در پنل مدیر؛ رسید PDF/تصویر روی disk خصوصی local ذخیره می‌شود و فقط مالک پروفایل هنرمند می‌تواند آن را از داشبورد دریافت کند. درگاه آنلاین هنوز وجود ندارد.",
+      "notifications": "اعلان داخل برنامه در ۷، ۳ و ۱ روز مانده به پایان اشتراک، فقط برای مالک پروفایل؛ migration notifications و اجرای زمان‌بند هاست هنوز انجام نشده‌اند."
     },
     "subscription_request_plan_migration": "database/migrations/2026_11_20_110000_add_plan_to_artist_subscription_requests.php",
     "subscription_request_plan_migration_status": "در main ادغام شده؛ اجرا نشده است.",
-    "latest_source_commit": "156524fe5f6174d93eaabce960e3faed2d48020e"
+    "latest_source_commit": "0f6b724a4c62dcfe6d2c26fcc6fdc1f81a388e33"
   },
   "application_audit": {
     "audit_date": "2026-11-18",
@@ -3194,8 +3204,9 @@
     "browser_rendering_verified": false,
     "local_database_modified": false,
     "next_actions": [
-      "طراحی اعلان نزدیک‌شدن تاریخ انقضا و درخواست تمدید، با توجه به کانال اعلان موجود در پروژه.",
-      "بررسی امکان ثبت/ویرایش وضعیت پرداخت پس از ایجاد اشتراک؛ در حال حاضر ثبت پرداخت هنگام صدور اشتراک انجام می‌شود.",
+      "اجرای Migrationهای جدید اشتراک/پلن/درخواست/اعلان روی staging فقط پس از گرفتن و تأیید backup؛ هیچ Migration در این مرحله اجرا نشده است.",
+      "پیکربندی اجرای php artisan schedule:run هر دقیقه روی محیط میزبانی و تأیید اجرای اعلان‌ها.",
+      "طراحی کانال ایمیل/SMS برای اعلان‌ها پس از مشخص‌شدن سرویس‌دهنده و تنظیمات واقعی ارسال.",
       "اجرای تست‌های Feature و بررسی مرورگر/دانلود رسید مجاز و غیرمجاز پس از در دسترس شدن محیط اجرا."
     ]
   },
@@ -3261,6 +3272,45 @@
     "migrations_executed": false,
     "seeders_executed": false,
     "browser_rendering_verified": false,
+    "local_database_modified": false
+  },
+  "artist_subscription_expiry_notifications": {
+    "date": "2026-11-20",
+    "status": "implemented_merged_pending_migration_and_scheduler_configuration",
+    "pull_request": 56,
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/56",
+    "merge_commit": "0f6b724a4c62dcfe6d2c26fcc6fdc1f81a388e33",
+    "source_commit": "0f6b724a4c62dcfe6d2c26fcc6fdc1f81a388e33",
+    "files": [
+      "database/migrations/2026_11_20_130000_create_notifications_table.php",
+      "app/Notifications/ArtistSubscriptionExpiring.php",
+      "app/Console/Commands/NotifyArtistSubscriptionExpirations.php",
+      "app/Http/Controllers/ArtistSubscriptionNotificationController.php",
+      "app/Http/Controllers/ArtistController.php",
+      "resources/views/dashboards/artist.blade.php",
+      "routes/web.php",
+      "routes/console.php",
+      "lang/en/subscription-notifications.php",
+      "lang/fa-AF/subscription-notifications.php",
+      "lang/ps/subscription-notifications.php",
+      "docs/artist-subscription-expiry-notifications.md"
+    ],
+    "behavior": [
+      "دستور روزانه فعال‌بودن اشتراک را بررسی می‌کند و در ۷، ۳ و ۱ روز مانده به پایان، اعلان داخل برنامه برای مالک تأییدشده پروفایل ایجاد می‌کند.",
+      "برای هر کاربر/اشتراک/فاصله زمانی، تکرار اعلان جلوگیری می‌شود؛ قفل تراکنشی روی اشتراک و کاربر برای کاهش race condition اضافه شده است.",
+      "اعلان‌های خوانده‌نشده در داشبورد هنرمند نمایش داده می‌شوند و فقط همان کاربر می‌تواند اعلان خودش را خوانده‌شده کند.",
+      "ترجمه‌های انگلیسی، دری و پشتو اضافه شدند.",
+      "اعلان‌ها فقط در دیتابیس ذخیره می‌شوند؛ ایمیل و SMS ارسال نمی‌شود."
+    ],
+    "migration": "database/migrations/2026_11_20_130000_create_notifications_table.php",
+    "migration_status": "در main ادغام شده ولی هنوز اجرا نشده است؛ داشبورد اعلان‌ها تا اجرای migration قابل استفاده نخواهد بود.",
+    "scheduler": "routes/console.php دستور amdb:notify-artist-subscription-expiry را هر روز ساعت 09:00 در timezone برنامه زمان‌بندی می‌کند.",
+    "scheduler_host_requirement": "میزبانی باید php artisan schedule:run را هر دقیقه اجرا کند. تنظیم Cron/زمان‌بند روی Render یا هاست هنوز انجام/تأیید نشده است.",
+    "tests_executed": false,
+    "migrations_executed": false,
+    "seeders_executed": false,
+    "runtime_verified": false,
+    "scheduler_verified": false,
     "local_database_modified": false
   }
 }
