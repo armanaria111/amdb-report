@@ -37,6 +37,18 @@ function render(d){
  $("#tableNote").textContent=a.known_tables_note||"";
  $("#databaseFindings").innerHTML=(a.current_findings||[]).map(x=>row({title:x.id+" · "+x.severity,detail:x.summary+" — اقدام پیشنهادی: "+x.remediation,state:"needs_review"})).join("");
  renderFeatures();
+
+ const panels=cur.panels||[];
+ $("#panelStatus").innerHTML=panels.map(x=>'<article class="feature-card"><div class="feature-top"><h3>'+esc(x.name)+'</h3>'+status(x.status)+'</div><p>'+esc(x.detail)+'</p></article>').join("");
+ const sec=cur.security||{};
+ $("#securityStatus").textContent=sec.status==="review_required_runtime_pending"?"نیازمند بازبینی و تست":"—";
+ $("#securityNote").textContent=(sec.note||"")+" آخرین ممیزی ایستا: "+(sec.last_static_audit||"—")+" · commit: "+(sec.audited_commit||"—");
+ $("#securityItems").innerHTML=(sec.remaining_items||[]).map((x,i)=>row({title:"پیگیری امنیتی "+(i+1),detail:x,state:"needs_review"})).join("");
+ const q=cur.quality||{};
+ const gates=[["فایل تست PHP موجود",q.tests_in_repository??"—"],["اجرای PHPUnit",q.tests_executed?"اجرا شده":"اجرا نشده"],["نتیجه تست",q.test_result||"ثبت نشده"],["Build فرانت‌اند",q.vite_build_executed?"اجرا شده":"اجرا نشده"],["بررسی مرورگر",q.browser_verified?"تأیید شده":"تأیید نشده"],["Smoke test عملیاتی",q.production_smoke_test?"اجرا شده":"اجرا نشده"],["اجرای Migration در این ممیزی",q.migrations_executed_in_this_audit?"اجرا شده":"اجرا نشده"]];
+ $("#qualityStatus").textContent="QA نهایی تأیید نشده";
+ $("#qualityGates").innerHTML=gates.map(x=>'<div class="mini-tile"><b>'+esc(x[0])+'</b><span>'+esc(x[1])+'</span></div>').join("");
+ $("#qualityNotes").innerHTML=(q.notes||[]).map(x=>'<li>'+esc(x)+'</li>').join("");
  $("#roadmapList").innerHTML=(d.roadmap||[]).map((x,i)=>'<article class="phase"><div class="phase-head"><span class="phase-num">'+String(i+1).padStart(2,"0")+'</span><div><h3>'+esc(x.phase)+'</h3>'+status(x.state)+'</div></div><ul>'+((x.items||[]).map(t=>'<li>'+esc(t)+'</li>').join(""))+'</ul></article>').join("");
  $("#decisionList").innerHTML=(d.decisions||[]).map(x=>'<div class="decision">'+esc(x)+'</div>').join("");
  const history=[...(d.development_history||[])].sort((x,y)=>(y.date||"").localeCompare(x.date||""));
