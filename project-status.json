@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "af0e55071eb3c2473b986bdd0ad3fba46c015ad1",
+    "source_commit_audited": "08f0b274e425ef98b8c28566b69afce2ceaad45a",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "af0e55071eb3c2473b986bdd0ad3fba46c015ad1",
+    "latest_main_commit": "08f0b274e425ef98b8c28566b69afce2ceaad45a",
     "latest_main_commit_verified_on": "2026-11-20"
   },
   "languages": [
@@ -509,7 +509,8 @@
       "ترجمه کشور و نوع محتوا به فرم افزودن/ویرایش اثر، جزئیات مدیریت و صفحات عمومی منتقل شد. PR63 Migration جدید ندارد و پنج Feature Test اضافه کرده که هنوز اجرا نشده‌اند.",
       "PR67 با merge commit 7f18528584520cc11a1e02f11deb910b409f7fa1 ادغام شد: گالری تصاویر هنرمندان و شرکت‌ها با ترجمه en/fa-AF/ps، دسته‌بندی رسانه، مجوز مستقل و نمایش عمومی اضافه شد؛ Migration و Seeder اجرا نشده و تست‌های جدید اجرا نشده‌اند.",
       "PR68 با merge commit 7ffc8ab2ea228147e91455559506a8a076b61e5b ادغام شد: مالک تأییدشده هنرمند گالری خود را مدیریت می‌کند؛ تصاویر ارسالی تا بررسی مدیر در حالت pending و از صفحات عمومی مخفی می‌مانند. Migration moderation و تست‌ها هنوز اجرا نشده‌اند.",
-      "PR69 با merge commit af0e55071eb3c2473b986bdd0ad3fba46c015ad1 در main ادغام شد: پیشنهاد اصلاح فیلدهای اصلی و ترجمه‌های en/fa-AF/ps آثار، ثبت مقدار قبلی برای جلوگیری از اعمال پیشنهاد stale، صف بررسی مدیر و پیگیری پیشنهادهای کاربر. فقط بررسی ایستای سورس انجام شد؛ Migration، تست، Seeder، build و مرورگر اجرا نشده‌اند."
+      "PR69 با merge commit af0e55071eb3c2473b986bdd0ad3fba46c015ad1 در main ادغام شد: پیشنهاد اصلاح فیلدهای اصلی و ترجمه‌های en/fa-AF/ps آثار، ثبت مقدار قبلی برای جلوگیری از اعمال پیشنهاد stale، صف بررسی مدیر و پیگیری پیشنهادهای کاربر. فقط بررسی ایستای سورس انجام شد؛ Migration، تست، Seeder، build و مرورگر اجرا نشده‌اند.",
+      "PR70 با merge commit 08f0b274e425ef98b8c28566b69afce2ceaad45a در main ادغام شد: گردش‌کار ارسال خبر توسط کاربران، فرم سه‌زبانه، پیگیری درخواست، درخواست اصلاح و صف بررسی تحریریه؛ تأیید مدیر فقط پیش‌نویس خبر ایجاد می‌کند و انتشار همچنان نیازمند مجوز news.publish است. Migration، تست، Seeder، build و مرورگر اجرا نشده‌اند."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1851,8 +1852,8 @@
     }
   },
   "current_work": {
-    "stage": "پیشنهاد اصلاح اطلاعات آثار و صف بررسی مدیر",
-    "status": "title_edit_suggestions_merged_runtime_unverified",
+    "stage": "گردش‌کار ارسال خبر توسط کاربران و بررسی تحریریه",
+    "status": "community_news_submissions_merged_runtime_unverified",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -2081,6 +2082,12 @@
         "title": "Add moderated title information correction suggestions",
         "merge_commit": "af0e55071eb3c2473b986bdd0ad3fba46c015ad1",
         "status": "merged"
+      },
+      {
+        "number": 70,
+        "title": "Add moderated community news submission workflow",
+        "merge_commit": "08f0b274e425ef98b8c28566b69afce2ceaad45a",
+        "status": "merged"
       }
     ],
     "subscription_migration": "database/migrations/2026_11_19_200000_create_artist_subscription_tables.php",
@@ -2107,7 +2114,7 @@
     },
     "subscription_request_plan_migration": "database/migrations/2026_11_20_110000_add_plan_to_artist_subscription_requests.php",
     "subscription_request_plan_migration_status": "در main ادغام شده؛ اجرا نشده است.",
-    "latest_source_commit": "af0e55071eb3c2473b986bdd0ad3fba46c015ad1",
+    "latest_source_commit": "08f0b274e425ef98b8c28566b69afce2ceaad45a",
     "source_migrations_not_run_in_this_change": [
       "2026_11_20_140000_create_news_tables.php",
       "2026_11_20_150000_create_season_episode_translation_tables.php",
@@ -2856,7 +2863,8 @@
     "افزودن تست‌های Feature برای انتخاب پلن فعال، رد پلن غیرفعال، مالکیت هنرمند، moderation مدیر و preselect پلن در صدور.",
     "تکمیل درگاه پرداخت آنلاین پس از تعیین ارائه‌دهنده پرداخت و کشورهای/ارزهای هدف.",
     "افزودن نمایش امن تاریخچه اشتراک و پرداخت در داشبورد هنرمند.",
-    "PR69: اجرای Migration جدول title_edit_suggestions و تست گردش‌کار ثبت پیشنهاد، رد/تأیید، اعمال ترجمه‌های سه‌زبانه و جلوگیری از اعمال پیشنهاد stale در مرحله نهایی تست."
+    "PR69: اجرای Migration جدول title_edit_suggestions و تست گردش‌کار ثبت پیشنهاد، رد/تأیید، اعمال ترجمه‌های سه‌زبانه و جلوگیری از اعمال پیشنهاد stale در مرحله نهایی تست.",
+    "PR70: اجرای Migrationهای news submission و تست ثبت خبر سه‌زبانه، مالکیت درخواست، درخواست اصلاح، رد و ایجاد draft بدون انتشار خودکار در مرحله نهایی تست."
   ],
   "post_pr21_localization": {
     "date": "2026-11-18",
@@ -3769,6 +3777,31 @@
     "tests_executed": false,
     "migration_executed": false,
     "permission_seeder_required": false,
+    "browser_rendering_verified": false,
+    "runtime_verified": false
+  },
+  "news_submissions": {
+    "date": "2026-11-20",
+    "status": "merged_runtime_unverified",
+    "pull_request": 70,
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/70",
+    "merge_commit": "08f0b274e425ef98b8c28566b69afce2ceaad45a",
+    "migrations": [
+      "database/migrations/2026_11_20_210000_create_news_submission_tables.php"
+    ],
+    "permissions": "submissions.manage (existing)",
+    "features": [
+      "کاربران واردشده می‌توانند خبر همراه با منبع HTTP/HTTPS ارسال کنند.",
+      "عنوان، خلاصه، متن خبر و metadata سئو برای انگلیسی، دری و پشتو.",
+      "پیگیری وضعیت درخواست توسط ارسال‌کننده.",
+      "امکان ویرایش و ارسال مجدد درخواست‌هایی که تحریریه برای اصلاح بازگردانده است.",
+      "صف بررسی خبرهای ارسالی برای مدیران دارای submissions.manage.",
+      "تأیید خبر یک رکورد draft در ماژول اخبار ایجاد می‌کند و انتشار خودکار انجام نمی‌شود.",
+      "انتشار نهایی همچنان از مسیر news.publish و کنترل‌های موجود مدیریت اخبار انجام می‌شود."
+    ],
+    "tests_added": false,
+    "tests_executed": false,
+    "migrations_executed": false,
     "browser_rendering_verified": false,
     "runtime_verified": false
   }
