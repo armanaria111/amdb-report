@@ -823,6 +823,10 @@
     {
       "date": "2026-11-20",
       "text": "PR90 در main ادغام شد: همگام‌سازی Composer و محدودکردن Livewire، اصلاح Migrationهای تکراری/ناسازگار، ارتقای imports و schema به Spatie Activitylog v5، رفع خطاهای Blade و اصلاح تست‌های URL canonical. CI کامل موفق: Composer validation، Vite build، Blade compile/lint و 97 تست PHPUnit با 396 assertion روی SQLite موقت. هیچ دیتابیس زنده‌ای دستکاری نشد."
+    },
+    {
+      "date": "2026-11-20",
+      "text": "شفاف‌سازی نقشه راه: درگاه پرداخت آنلاین به‌عنوان قابلیت برنامه‌ریزی‌شده مستقل از پرداخت دستی ثبت شد؛ اجرای آن پس از تعیین ارائه‌دهنده رسمی و دریافت کلیدهای پذیرنده انجام می‌شود. بازارچه افزونه‌های مستقل نیز برنامه‌ریزی‌شده باقی است."
     }
   ],
   "architecture": {
@@ -1049,6 +1053,11 @@
       "name": "CI خودکار برای تست PHP و Build فرانت‌اند",
       "state": "implemented_unverified",
       "detail": "PR87/PR90: GitHub Actions برای Composer validation، نصب وابستگی‌ها، compile و lint همه Bladeها، اجرای PHPUnit روی SQLite موقت و Vite production build. آخرین run 44813275840 موفق با 97 تست و 396 assertion. بررسی مرورگری و تست MySQL/staging جداگانه باقی است."
+    },
+    {
+      "name": "درگاه پرداخت آنلاین",
+      "state": "planned",
+      "detail": "پرداخت اینترنتی واقعی به انتخاب ارائه‌دهنده و کشور/حساب قابل پشتیبانی، مستندات رسمی API، حساب پذیرنده و کلیدهای محرمانه نیاز دارد. در حال حاضر پرداخت دستی/رسید و مدیریت تأیید مدیر پیاده‌سازی شده؛ تا تعیین ارائه‌دهنده، درگاه آنلاین نباید به‌صورت ساختگی یا با کلید آزمایشی ادعا شود."
     }
   ],
   "roadmap": [
@@ -3876,10 +3885,10 @@
       "implemented_unverified": 37,
       "partial": 0,
       "needs_review": 0,
-      "planned": 1,
+      "planned": 2,
       "blocked": 0
     },
-    "feature_count": 38,
+    "feature_count": 39,
     "implementation_status": "کدهای ادغام‌شده در سورس؛ runtime و QA نهایی هنوز تأیید نشده‌اند مگر جایی که صریحاً ثبت شده باشد.",
     "database_runtime": {
       "status": "not_verified",
@@ -3913,7 +3922,7 @@
       "source_branch": "main",
       "verified_at": "2026-11-20"
     },
-    "note": "آخرین مبنای سورس commit 8eb5ac4411f87f6ecd6ad7892d20500e8b9feaab پس از ادغام PR90 است. CI شامل Composer validation، build، compile/lint همه Bladeها و ۹۷ تست موفق روی SQLite موقت است؛ دیتابیس MySQL کاربر و مرورگر/دامنه عملیاتی هنوز تأیید نشده‌اند.",
+    "note": "آخرین مبنای سورس commit 8eb5ac4411f87f6ecd6ad7892d20500e8b9feaab پس از ادغام PR90 است. CI شامل Composer validation، build، compile/lint همه Bladeها و ۹۷ تست موفق روی SQLite موقت است؛ دیتابیس MySQL کاربر و مرورگر/دامنه عملیاتی هنوز تأیید نشده‌اند. دو قابلیت وابسته به تصمیم/ارائه‌دهنده همچنان برنامه‌ریزی‌شده‌اند: بازارچه افزونه‌های مستقل و درگاه پرداخت آنلاین.",
     "panels": [
       {
         "id": "admin",
