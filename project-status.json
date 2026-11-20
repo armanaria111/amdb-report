@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "a064981893bbf317ef9530e4f4d90cf86ba10bbb",
+    "source_commit_audited": "bba67f755ed60ae8dce54e9c2433f9e657eb8767",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "a064981893bbf317ef9530e4f4d90cf86ba10bbb",
+    "latest_main_commit": "bba67f755ed60ae8dce54e9c2433f9e657eb8767",
     "latest_main_commit_verified_on": "2026-11-20"
   },
   "languages": [
@@ -1852,8 +1852,8 @@
     }
   },
   "current_work": {
-    "stage": "افزودن متادیتای اختصاصی و تصویر اشتراک‌گذاری به صفحات عمومی کاتالوگ",
-    "status": "page_specific_seo_metadata_merged_runtime_unverified",
+    "stage": "اعلان نتیجه بررسی درخواست‌های کاربران و هنرمندان",
+    "status": "moderation_result_notifications_merged_runtime_unverified",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -2130,6 +2130,12 @@
         "title": "Add page-specific SEO metadata to public catalogs",
         "merge_commit": "a064981893bbf317ef9530e4f4d90cf86ba10bbb",
         "status": "merged"
+      },
+      {
+        "number": 78,
+        "title": "Notify contributors about moderation decisions",
+        "merge_commit": "bba67f755ed60ae8dce54e9c2433f9e657eb8767",
+        "status": "merged"
       }
     ],
     "subscription_migration": "database/migrations/2026_11_19_200000_create_artist_subscription_tables.php",
@@ -2156,7 +2162,7 @@
     },
     "subscription_request_plan_migration": "database/migrations/2026_11_20_110000_add_plan_to_artist_subscription_requests.php",
     "subscription_request_plan_migration_status": "در main ادغام شده؛ اجرا نشده است.",
-    "latest_source_commit": "a064981893bbf317ef9530e4f4d90cf86ba10bbb",
+    "latest_source_commit": "bba67f755ed60ae8dce54e9c2433f9e657eb8767",
     "source_migrations_not_run_in_this_change": [
       "2026_11_20_140000_create_news_tables.php",
       "2026_11_20_150000_create_season_episode_translation_tables.php",
@@ -2918,7 +2924,9 @@
     "PR76: تست ذخیره و اعتبارسنجی SEO title/description سه‌زبانه، URL شبکه‌های اجتماعی، آپلود و جایگزینی OG image و حفظ فایل قبلی در صورت خطا در مرحله نهایی.",
     "PR76: بررسی خروجی متادیتای Open Graph/Twitter/JSON-LD، favicon و robots و اطمینان از noindex بودن همه صفحات خصوصی در runtime.",
     "PR77: تست خروجی عنوان، توضیحات و تصویر Open Graph اختصاصی برای صفحات فیلم/سریال، هنرمند، شرکت، جشنواره و خبر در هر سه زبان.",
-    "PR77: بررسی رندر صفحه هنرمند پس از جابه‌جایی ترتیب sectionهای Blade و تأیید fallback تصاویر و توضیحات در runtime."
+    "PR77: بررسی رندر صفحه هنرمند پس از جابه‌جایی ترتیب sectionهای Blade و تأیید fallback تصاویر و توضیحات در runtime.",
+    "PR78: تست Feature ارسال اعلان پس از commit موفق و عدم ارسال در صورت rollback برای تصمیم‌های title/credit/news/profession/suggestion/review در مرحله نهایی.",
+    "PR78: بررسی ترجمه متن اعلان‌ها و جایگزینی placeholderهای note/subject/artist/profession در en/fa-AF/ps و نمایش صحیح در مرکز اعلان‌ها."
   ],
   "post_pr21_localization": {
     "date": "2026-11-18",
@@ -4039,5 +4047,30 @@
     "tests_executed": false,
     "runtime_verified": false,
     "note": "فقط Viewها و layout تغییر کرده‌اند؛ تست build و بررسی اشتراک‌گذاری واقعی در مرورگر به مرحله نهایی موکول شده است."
+  },
+  "moderation_result_notifications": {
+    "status": "merged_runtime_unverified",
+    "pull_request": 78,
+    "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/78",
+    "merge_commit": "bba67f755ed60ae8dce54e9c2433f9e657eb8767",
+    "events": [
+      "تأیید، درخواست اصلاح یا رد درخواست ثبت فیلم/سریال",
+      "تأیید، درخواست اصلاح یا رد درخواست کریدیت عوامل",
+      "تأیید به‌صورت پیش‌نویس، درخواست اصلاح یا رد خبر ارسالی جامعه",
+      "تأیید، درخواست اصلاح یا رد درخواست افزودن/حذف حرفه هنرمند",
+      "تأیید یا رد پیشنهاد اصلاح اطلاعات اثر",
+      "تأیید یا رد نقد کاربران"
+    ],
+    "locales": [
+      "en",
+      "fa-AF",
+      "ps"
+    ],
+    "delivery": "database notification after successful moderation transaction",
+    "schema_changes": false,
+    "migrations_required": false,
+    "tests_executed": false,
+    "runtime_verified": false,
+    "note": "پیام‌ها در زمان نمایش با زبان فعلی کاربر ترجمه می‌شوند و یادداشت مدیر در صورت وجود همراه اعلان نمایش داده می‌شود. تأیید خبر ارسالی به معنی انتشار عمومی نیست؛ خبر به‌صورت draft ساخته می‌شود."
   }
 }
