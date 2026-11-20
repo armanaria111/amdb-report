@@ -1,3 +1,15 @@
+## 2026-11-20 — ادغام PR90 و موفقیت CI کامل
+
+- PR90 در مخزن اصلی ادغام شد: https://github.com/armanaria111/amdb-laravel2/pull/90
+- Composer هماهنگ شد؛ Livewire از wildcard به `^4.4` تغییر کرد و content hash فایل lock به‌روز شد.
+- Migration تکراری ترجمه فصل/قسمت به no-op امن تبدیل شد؛ Migration سازگار با Activitylog v5 ستون‌های `event` و `attribute_changes` را بدون حذف سوابق قبلی اضافه می‌کند.
+- namespace و API نسخه ۵ Spatie Activitylog اصلاح شد؛ CHECK مالکیت ProfileMedia با MySQL/MariaDB سازگار شد و اعتبارسنجی مدل نیز اضافه شد.
+- خطاهای Blade در layout، فرم آثار، فصل/قسمت، پروفایل شرکت و مدیریت رسانه رفع شدند.
+- CI نهایی: https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840 — Composer validation، Vite build، Blade compile/lint و PHPUnit موفق.
+- نتیجه PHPUnit: **۹۷ تست موفق، ۳۹۶ assertion** در SQLite موقت CI.
+- هیچ دیتابیس MySQL زنده کاربر یا محیط production/staging در این فرایند تغییر داده نشد.
+- آخرین commit مخزن اصلی: `8eb5ac4411f87f6ecd6ad7892d20500e8b9feaab`.
+
 ## 2026-11-20 — ادغام PR85: تکمیل جزئیات تاریخچه پرداخت و پنل‌ها
 
 - PR85 در مخزن اصلی ادغام شد: https://github.com/armanaria111/amdb-laravel2/pull/85
