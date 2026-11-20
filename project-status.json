@@ -485,7 +485,9 @@
       "PR52 با merge commit 662e453 فایل lang/ps/artists.php را از نظر syntax با حذف ویرگول اضافی اصلاح کرد؛ آخرین main commit: 662e4533ce8ae6c94deb17ef4e92634065f736a4.",
       "PR53 با merge commit 4f167511 تاریخچه اشتراک و پرداخت هنرمند را در داشبورد مالک پروفایل اضافه کرد؛ فیلدهای حساس و یادداشت مدیر نمایش داده نمی‌شوند.",
       "PR54 با merge commit 4a158c5 امکان بارگذاری خصوصی رسید پرداخت در پنل مدیر و دانلود مالک‌محور از داشبورد هنرمند را اضافه کرد؛ از ستون receipt_path موجود استفاده شده و Migration جدیدی لازم نیست.",
-      "آخرین main commit پس از PR54: 4a158c5b033db55c3db4efec6013dc601d4ded63؛ هیچ Migration، Seeder، PHPUnit یا اجرای برنامه انجام نشد."
+      "آخرین main commit پس از PR54: 4a158c5b033db55c3db4efec6013dc601d4ded63؛ هیچ Migration، Seeder، PHPUnit یا اجرای برنامه انجام نشد.",
+      "PR55 با merge commit 156524f گزارش مالی اشتراک هنرمندان را به داشبورد مدیریت افزود؛ مبالغ بر اساس ارز و وضعیت پرداخت گروه‌بندی می‌شوند و ارزهای متفاوت با هم جمع نمی‌شوند.",
+      "آخرین main commit پس از PR55: 156524fe5f6174d93eaabce960e3faed2d48020e؛ هیچ Migration، Seeder، تست PHPUnit یا اجرای برنامه انجام نشد."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1819,8 +1821,8 @@
     }
   },
   "current_work": {
-    "stage": "تکمیل چرخه اشتراک هنرمندان، تاریخچه پرداخت و رسیدهای خصوصی",
-    "status": "artist_subscription_history_and_private_receipts_merged_runtime_unverified",
+    "stage": "تکمیل چرخه اشتراک هنرمندان، رسید خصوصی و گزارش مالی مدیریت",
+    "status": "artist_subscription_history_private_receipts_and_finance_summary_merged_runtime_unverified",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -1959,6 +1961,12 @@
         "title": "Add private payment receipt upload and owner-only downloads",
         "merge_commit": "4a158c5b033db55c3db4efec6013dc601d4ded63",
         "status": "merged"
+      },
+      {
+        "number": 55,
+        "title": "Add currency-aware subscription finance summary to admin dashboard",
+        "merge_commit": "156524fe5f6174d93eaabce960e3faed2d48020e",
+        "status": "merged"
       }
     ],
     "subscription_migration": "database/migrations/2026_11_19_200000_create_artist_subscription_tables.php",
@@ -1984,7 +1992,7 @@
     },
     "subscription_request_plan_migration": "database/migrations/2026_11_20_110000_add_plan_to_artist_subscription_requests.php",
     "subscription_request_plan_migration_status": "در main ادغام شده؛ اجرا نشده است.",
-    "latest_source_commit": "4a158c5b033db55c3db4efec6013dc601d4ded63"
+    "latest_source_commit": "156524fe5f6174d93eaabce960e3faed2d48020e"
   },
   "application_audit": {
     "audit_date": "2026-11-18",
@@ -3186,10 +3194,9 @@
     "browser_rendering_verified": false,
     "local_database_modified": false,
     "next_actions": [
-      "نمایش روش پرداخت و وضعیت رسید در تاریخچه، در صورت نیاز محصولی.",
-      "طراحی داشبورد مالی مدیریت و گزارش جمع پرداخت‌ها بر اساس بازه زمانی، ارز و وضعیت.",
-      "طراحی اعلان نزدیک‌شدن تاریخ انقضا و درخواست تمدید؛ پس از تعیین کانال اعلان.",
-      "اجرای تست‌های Feature و بررسی دانلود مجاز/غیرمجاز، فایل ناموجود و شکست ذخیره‌سازی پس از در دسترس شدن محیط اجرا."
+      "طراحی اعلان نزدیک‌شدن تاریخ انقضا و درخواست تمدید، با توجه به کانال اعلان موجود در پروژه.",
+      "بررسی امکان ثبت/ویرایش وضعیت پرداخت پس از ایجاد اشتراک؛ در حال حاضر ثبت پرداخت هنگام صدور اشتراک انجام می‌شود.",
+      "اجرای تست‌های Feature و بررسی مرورگر/دانلود رسید مجاز و غیرمجاز پس از در دسترس شدن محیط اجرا."
     ]
   },
   "private_artist_payment_receipts": {
@@ -3229,5 +3236,31 @@
     "browser_rendering_verified": false,
     "local_database_modified": false,
     "note": "فقط بازبینی ایستای سورس و Patch انجام شد؛ هیچ تست، runtime یا دانلود واقعی فایل اجرا نشده است."
+  },
+  "admin_subscription_finance_summary": {
+    "date": "2026-11-20",
+    "status": "implemented_merged_static_review_not_runtime_tested",
+    "pull_request": 55,
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/55",
+    "merge_commit": "156524fe5f6174d93eaabce960e3faed2d48020e",
+    "source_commit": "156524fe5f6174d93eaabce960e3faed2d48020e",
+    "files": [
+      "app/Http/Controllers/Admin/DashboardController.php",
+      "resources/views/admin/dashboard.blade.php",
+      "lang/en/admin.php",
+      "lang/fa-AF/admin.php",
+      "lang/ps/admin.php"
+    ],
+    "behavior": [
+      "داشبورد مدیریت مجموع رکوردهای پرداخت اشتراک را بر اساس currency و status گروه‌بندی می‌کند.",
+      "برای هر گروه مبلغ ثبت‌شده و تعداد رکوردها نمایش داده می‌شود؛ وضعیت‌های pending، paid، failed و refunded ترجمه شده‌اند.",
+      "ارزها با یکدیگر جمع نمی‌شوند و هیچ تبدیل ارز یا محاسبه درآمد خالص انجام نمی‌شود؛ بنابراین ارقام صرفاً جمع مبالغ ثبت‌شده در هر گروه هستند."
+    ],
+    "static_review": "تطبیق مسیر واقعی view یعنی admin.dashboard، انتقال paymentSummary از Controller، وجود یکتای کلیدهای ترجمه در هر سه زبان بررسی شد.",
+    "tests_executed": false,
+    "migrations_executed": false,
+    "seeders_executed": false,
+    "browser_rendering_verified": false,
+    "local_database_modified": false
   }
 }
