@@ -75,4 +75,5 @@ CI در GitHub Actions با موفقیت اجرا شد: Composer validation، ن
 
 - [PR91 — پرداخت زرین‌پال اشتراک هنرمندان](https://github.com/armanaria111/amdb-laravel2/pull/91): callback hardening و تست‌های Feature اضافه شده‌اند؛ PR باز و draft است.
 - [PR92 — کتابخانه تماشاگر](https://github.com/armanaria111/amdb-laravel2/pull/92): علاقه‌مندی‌ها، تاریخچه و ادامه تماشا، ذخیره progress، پاک‌سازی تاریخچه و ترجمه‌های سه‌زبانه؛ PR باز و draft است.
+- [سند فنی تجربه تماشاگر و پیشنهادها](https://github.com/armanaria111/amdb-laravel2/blob/feature/viewer-experience-foundation/docs/viewer-experience.md)
 - هیچ‌یک از این PRها در main ادغام نشده‌اند. Migration، تست، مرورگر و runtime در این مرحله اجرا نشده‌اند.
