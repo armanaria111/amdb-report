@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "c19a089db360509499617621a0b0ee9064eb8086",
+    "source_commit_audited": "bced37cd23e4fe423967f6253b6cd8f617ce1325",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "c19a089db360509499617621a0b0ee9064eb8086",
+    "latest_main_commit": "bced37cd23e4fe423967f6253b6cd8f617ce1325",
     "latest_main_commit_verified_on": "2026-11-21"
   },
   "languages": [
@@ -528,7 +528,10 @@
       "مرحله FFprobe در main اضافه شد: پس از scan_passed، فایل خصوصی دوباره از نظر اندازه و SHA-256 بررسی و با ffprobe از نظر container، وجود ویدئو، تمام کدک‌ها، مدت، ابعاد و سقف پیکسل اعتبارسنجی می‌شود.",
       "وضعیت probe_passed نیز قرنطینه است و به معنی مجازبودن پخش نیست؛ feature flagهای اسکن و probe به‌صورت پیش‌فرض خاموش هستند.",
       "در PR95 یک تست اولیه به‌جای hash mismatch به‌علت تفاوت اندازه fail شد؛ fixture اصلاح شد تا اندازه ثابت و hash متفاوت باشد. CI نهایی روی commit 6d88f15909390f19c5069bf0d618e554c435edca موفق شد.",
-      "خروجی PHPUnit در CI نهایی PR95: 152 تست موفق و 580 assertion؛ Vite production build نیز موفق شد. این اجرا روی SQLite موقت GitHub Actions بود، نه MySQL محلی/عملیاتی."
+      "خروجی PHPUnit در CI نهایی PR95: 152 تست موفق و 580 assertion؛ Vite production build نیز موفق شد. این اجرا روی SQLite موقت GitHub Actions بود، نه MySQL محلی/عملیاتی.",
+      "PR96 پس از بررسی تغییرات و تأیید CI موفق (run 44877119121) با روش Squash در main ادغام شد؛ merge commit bced37cd23e4fe423967f6253b6cd8f617ce1325.",
+      "کد تبدیل خصوصی HLS تا 720p و صف اختصاصی در main موجود است؛ feature flag به‌صورت پیش‌فرض خاموش است و این ادغام به معنی فعال‌شدن پخش عمومی یا تأیید runtime/MySQL نیست.",
+      "PR91 مربوط به پرداخت زرین‌پال همچنان Draft و ادغام‌نشده باقی ماند؛ به‌دلیل وضعیت غیرقابل ادغام و نیاز به تکمیل/اعتبارسنجی، بدون ادغام نگه داشته شد."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -895,6 +898,10 @@
     {
       "date": "2026-11-20",
       "text": "شفاف‌سازی نقشه راه: درگاه پرداخت آنلاین به‌عنوان قابلیت برنامه‌ریزی‌شده مستقل از پرداخت دستی ثبت شد؛ اجرای آن پس از تعیین ارائه‌دهنده رسمی و دریافت کلیدهای پذیرنده انجام می‌شود. بازارچه افزونه‌های مستقل نیز برنامه‌ریزی‌شده باقی است."
+    },
+    {
+      "date": "2026-11-21",
+      "text": "PR96 تبدیل خصوصی HLS با CI موفق در main ادغام شد؛ merge commit bced37cd23e4fe423967f6253b6cd8f617ce1325. صف FFmpeg، بازبینی checksum، تولید HLS تک‌کیفیت تا 720p و نگهداری بسته در دیسک خصوصی قرنطینه‌شده اضافه شد. Feature flag خاموش است؛ Migration، FFmpeg واقعی و runtime روی MySQL/staging هنوز تأیید نشده‌اند. PR91 پرداخت زرین‌پال همچنان Draft و ادغام‌نشده است."
     }
   ],
   "architecture": {
@@ -4744,7 +4751,7 @@
   },
   "playback_architecture": {
     "title": "مدل داده پیشنهادی برای پخش",
-    "note": "تصمیم‌های محصول و سند معماری مصوب‌اند. بخشی از مرحله ۱ و منابع بیرونی مرحله ۲ در PR92 به‌صورت کد و تست نوشته شده‌اند، اما PR ادغام نشده و هیچ Migration/تستی اجرا نشده است؛ بنابراین این قابلیت‌ها هنوز در main یا production موجود محسوب نمی‌شوند.",
+    "note": "تصمیم‌های محصول و سند معماری مصوب‌اند. PR92 و زیرساخت ذخیره‌سازی خصوصی، اسکن بدافزار، FFprobe و تبدیل خصوصی HLS تا سقف 720p در main ادغام شده‌اند و CI موفق است؛ Migrationها و runtime روی MySQL محلی/staging، نصب واقعی FFmpeg/ClamAV/FFprobe، CDN، signed delivery و entitlement همچنان تأیید نشده‌اند. قابلیت‌ها به‌صورت پیش‌فرض خاموش و خروجی‌ها قرنطینه باقی می‌مانند.",
     "content_modes": [
       "catalog_only",
       "amdb_hosted",
@@ -4772,7 +4779,7 @@
       "فایل اختصاصی AMDB نیازمند حقوق انتشار، ذخیره‌سازی، پردازش ویدئو، CDN و کنترل دسترسی است.",
       "اجاره/خرید باید به entitlement و زمان انقضا متصل باشد؛ مخفی‌کردن دکمه به‌تنهایی کنترل دسترسی نیست."
     ],
-    "status": "partial_implementation_in_open_draft_pr_92_unverified",
+    "status": "partial_implementation_merged_to_main_ci_passed_runtime_mysql_and_production_delivery_unverified",
     "approved_decisions": {
       "hosting": "both",
       "source_selection": "admin_default_user_selectable",
@@ -4859,7 +4866,19 @@
       {
         "id": 7,
         "name": "میزبانی اختصاصی",
-        "deliverable": "storage خصوصی، پردازش صفی، HLS، CDN، زیرنویس و کنترل هزینه"
+        "deliverable": "storage خصوصی، پردازش صفی، HLS، CDN، زیرنویس و کنترل هزینه",
+        "status": "partial_implemented_private_storage_scan_probe_and_single_rendition_hls_merged_runtime_cdn_subtitles_pending",
+        "completed": [
+          "ذخیره‌سازی خصوصی و آپلود قرنطینه‌شده",
+          "اسکن بدافزار اختیاری و probe فنی FFprobe",
+          "تبدیل خصوصی HLS تک‌کیفیت تا 720p با FFmpeg؛ CI موفق"
+        ],
+        "remaining": [
+          "اجرای امن Migrationها روی MySQL پس از backup",
+          "تأیید نصب و اجرای واقعی FFmpeg/ClamAV/FFprobe",
+          "ABR، CDN خصوصی و signed delivery",
+          "زیرنویس، کنترل دسترسی/entitlement و آزمون staging"
+        ]
       },
       {
         "id": 8,
@@ -4907,7 +4926,7 @@
       "branch": "feature/viewer-experience-foundation",
       "pull_request": 92,
       "head_commit": "f42c79d1df155ccb3e4075603a6219a949e1fb17",
-      "status": "merged_to_main_ci_passed_runtime_and_migrations_not_verified",
+      "status": "viewer_playback_foundation_and_private_hls_transcoding_merged_ci_passed_runtime_mysql_and_public_delivery_unverified",
       "completed_in_branch": [
         "مرحله ۱: مدل و Migration مستقل PlaybackSource برای Title و Episode، پنل CRUD مدیر، ثبت وضعیت حقوق، دارنده حقوق/شناسه مجوز، زمان‌بندی، مدل دسترسی و منبع پیش‌فرض یکتا در هر هدف.",
         "مرحله ۲: adapterهای YouTube و Aparat با تبدیل URL معتبر به embed URL سمت سرور؛ allowlist میزبان و مسیر و رد URLهای غیر HTTPS یا نامعتبر.",
@@ -4917,16 +4936,20 @@
         "اتصال player به کتابخانه تماشاگر برای YouTube: بازیابی موقعیت ذخیره‌شده، ارسال progress هر ۱۵ ثانیه و هنگام pause/end برای کاربران واردشده و لینک ادامه تماشا از کتابخانه به صفحه watch. Aparat هنوز progress integration ندارد.",
         "دنبال‌کردن هنرمندان و اعلان‌های درون‌برنامه‌ای انتشار اثر/قسمت اضافه شد: دنبال/لغو دنبال، خاموش‌کردن اعلان هر هنرمند، تنظیم کلی اعلان‌های آثار/قسمت‌ها، ارسال idempotent بعد از commit و command زمان‌بندی‌شده روزانه برای انتشارهای تاریخ‌دار.",
         "PR92 با موفقیت در main ادغام شد؛ commit نهایی f42c79d1df155ccb3e4075603a6219a949e1fb17.",
-        "CI مربوط به سرشاخه نهایی PR92 موفق شد: Vite production build و مجموعه تست‌های Laravel هر دو با conclusion=success."
+        "CI مربوط به سرشاخه نهایی PR92 موفق شد: Vite production build و مجموعه تست‌های Laravel هر دو با conclusion=success.",
+        "PR96 با روش Squash در main ادغام شد؛ merge commit bced37cd23e4fe423967f6253b6cd8f617ce1325. CI run 44877119121 با conclusion=success پایان یافت: AMDB CI.",
+        "مرحله تبدیل خصوصی HLS اضافه شد: FFmpeg worker فقط assetهای probe_passed را می‌پذیرد، اندازه و SHA-256 را دوباره بررسی می‌کند، HLS تک‌کیفیت تا 720p را روی دیسک خصوصی مجاز می‌سازد و metadata بسته را در حالت قرنطینه نگه می‌دارد."
       ],
       "not_implemented_or_unverified": [
         "Migrationهای افزایشی PR92 هنوز روی دیتابیس محلی/عملیاتی اجرا نشده‌اند؛ CI تست‌ها را روی SQLite موقت اجرا کرده است. بررسی MySQL واقعی، backup/rollback و آزمون staging همچنان لازم است.",
         "ad_supported، rent، purchase و subscription در حال حاضر metadata هستند و از صفحه عمومی پخش ارائه نمی‌شوند.",
-        "Hosted playback، storage خصوصی، transcoding، HLS، CDN، زیرنویس و کنترل دسترسی پیاده‌سازی نشده‌اند.",
         "بازیابی خودکار thumbnail رسمی YouTube از metadata/oEmbed و refresh/cache آن هنوز پیاده‌سازی نشده؛ تصویر دستی قسمت فعلاً مسیر اصلی و override قابل اتکا است.",
         "progress فعلی فقط از YouTube IFrame Player API دریافت می‌شود؛ داده ارسالی مرورگر کم‌اعتماد است و نباید برای view-count مالی یا settlement استفاده شود. اتصال Aparat و رویدادهای immutable نشست‌ها باقی است.",
         "اعلان‌ها در این مرحله فقط درون‌برنامه‌ای هستند؛ ایمیل/Push و اعلان تغییرات عمومی پروفایل هنرمند پیاده‌سازی نشده‌اند.",
-        "CI موفق، جایگزین آزمون مرورگر، runtime و پذیرش staging نیست؛ هیچ‌یک در محیط واقعی کاربر اجرا نشده‌اند."
+        "CI موفق، جایگزین آزمون مرورگر، runtime و پذیرش staging نیست؛ هیچ‌یک در محیط واقعی کاربر اجرا نشده‌اند.",
+        "اجرای Migrationهای hosted playback روی MySQL محلی/staging، backup/rollback و تست runtime هنوز انجام نشده است.",
+        "FFmpeg واقعی، ClamAV و FFprobe باید روی worker ایزوله نصب و از نظر نسخه، timeout، منابع و امنیت عملیاتی تأیید شوند.",
+        "ABR/master playlist، CDN خصوصی، signed playback delivery، entitlement، پرداخت مصرف‌کننده، زیرنویس و player عمومی هنوز پیاده‌سازی نشده‌اند."
       ],
       "rollout": "ماژول playback در PluginCatalog با default_enabled=false ثبت شده است. فعال‌سازی عمومی تا تکمیل حقوق، entitlement، سیاست provider، تست staging و پذیرش صریح انتشار انجام نمی‌شود.",
       "mergeable_state": "merged",
@@ -4934,7 +4957,31 @@
       "ahead_by": 0,
       "changed_files": 81,
       "additions": 4173,
-      "deletions": 27
+      "deletions": 27,
+      "hosted_transcoding": {
+        "pull_request": 96,
+        "branch": "feature/hosted-media-transcoding-hls",
+        "head_commit": "b1a03a0750c283e9ca9cde77705790cdc8cec998",
+        "merge_commit": "bced37cd23e4fe423967f6253b6cd8f617ce1325",
+        "merged_on": "2026-11-21",
+        "status": "merged_to_main_ci_passed_runtime_and_migrations_not_verified",
+        "ci": {
+          "run": 175,
+          "conclusion": "success",
+          "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44877119121"
+        },
+        "scope": [
+          "FFmpeg worker فقط برای assetهای probe_passed",
+          "بازبینی مجدد byte count و SHA-256 پیش از تبدیل",
+          "تولید HLS VOD تک‌کیفیت تا سقف 1280x720 و ذخیره در دیسک خصوصی مجاز",
+          "اعتبارسنجی playlist و segmentها و ثبت metadata بسته قرنطینه‌شده",
+          "صف مستقل و dispatcher زمان‌بندی‌شده؛ AMDB_TRANSCODING_ENABLED پیش‌فرض false"
+        ],
+        "limitations": [
+          "ABR/master playlist، CDN، signed playback delivery، entitlement، billing و player عمومی در این PR وجود ندارد.",
+          "Migration و اجرای FFmpeg واقعی روی MySQL محلی یا staging انجام نشده است."
+        ]
+      }
     }
   },
   "audience_creator_experience": {
@@ -5038,8 +5085,10 @@
       "title": "Add private hosted-media HLS transcoding pipeline",
       "head_commit": "b1a03a0750c283e9ca9cde77705790cdc8cec998",
       "base_commit": "c19a089db360509499617621a0b0ee9064eb8086",
-      "status": "open_ci_queued",
-      "scope": "FFmpeg تک‌کیفیت HLS تا سقف 720p، بسته خصوصی قرنطینه‌شده، صف مستقل و dispatcher زمان‌بندی‌شده؛ بدون پخش عمومی، CDN یا entitlement. CI run 175 در صف است."
+      "status": "merged_to_main_ci_passed_runtime_and_migrations_not_verified",
+      "scope": "FFmpeg تک‌کیفیت HLS تا سقف 720p، بسته خصوصی قرنطینه‌شده، صف مستقل و dispatcher زمان‌بندی‌شده؛ بدون پخش عمومی، CDN یا entitlement. CI run 175 در صف است. PR96 ادغام شد؛ CI run 175 موفق است. Migration و FFmpeg واقعی هنوز روی MySQL/staging آزمایش نشده‌اند.",
+      "merge_commit": "bced37cd23e4fe423967f6253b6cd8f617ce1325",
+      "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44877119121"
     }
   ]
 }
