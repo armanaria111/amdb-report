@@ -509,7 +509,10 @@
       "PR شماره ۹۲ پس از اصلاح سه تست و اجرای مجدد CI با موفقیت تأیید شد؛ run شماره 44872002080 هر دو job مربوط به Vite production build و Laravel tests را با conclusion=success به پایان رساند.",
       "PR92 از حالت Draft خارج و با روش Squash در main ادغام شد؛ merge commit نهایی f42c79d1df155ccb3e4075603a6219a949e1fb17 است.",
       "تغییرات ادغام‌شده شامل کتابخانه تماشاگر، تاریخچه/ادامه تماشا، علاقه‌مندی‌ها، پیشنهاد ترکیبی و تنظیم حریم خصوصی شخصی‌سازی، دنبال‌کردن هنرمندان و اعلان‌های درون‌برنامه‌ای، زیرساخت منابع پخش و صفحه watch کنترل‌شده است.",
-      "CI روی commit سرشاخه PR یعنی 65aa5737dbb62b69fb6b229b33f503e3c7d04000 موفق شد؛ تست‌های PHPUnit در محیط CI/SQLite اجرا شدند. هیچ Migration روی دیتابیس محلی یا عملیاتی کاربر اجرا نشده و مرورگر/runtime محیط واقعی نیز بررسی نشده است."
+      "CI روی commit سرشاخه PR یعنی 65aa5737dbb62b69fb6b229b33f503e3c7d04000 موفق شد؛ تست‌های PHPUnit در محیط CI/SQLite اجرا شدند. هیچ Migration روی دیتابیس محلی یا عملیاتی کاربر اجرا نشده و مرورگر/runtime محیط واقعی نیز بررسی نشده است.",
+      "PR93 در مخزن اصلی با شاخه feature/private-hosted-media-foundation و وضعیت open/draft ایجاد شد؛ head برابر 620b25c5ddd15a180b541caddbd941d263893cdf و ۵ فایل/۱۲۳ خط افزوده دارد.",
+      "زیرساخت پایه ذخیره‌سازی خصوصی hosted playback اضافه شد: playback_private محلی با serve=false و playback_s3 اختیاری با visibility=private؛ feature flagهای پخش میزبانی‌شده و transcoding خاموش باقی مانده‌اند.",
+      "config/playback.php، متغیرهای .env.example، مستندات rollout و سه تست Feature تنظیمات خصوصی ایجاد شدند. CI برای PR93 هنوز نتیجه نداده؛ هیچ Migration یا دیتابیس اجرا/تغییر داده نشده است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -5006,5 +5009,27 @@
     "feature_status": "این تصمیم‌ها مصوب و در نقشه راه هستند؛ به معنی پیاده‌سازی قابلیت یا فعال‌شدن پرداخت/پخش نیست.",
     "implementation_status": "viewer_library_hybrid_recommendations_artist_follows_and_in_app_release_notifications_merged_to_main_ci_passed; playback_source_and_youtube_progress_foundation_merged; hosted_playback_and_commercial_entitlements_pending"
   },
-  "parallel_work_in_progress": []
+  "parallel_work_in_progress": [
+    {
+      "branch": "feature/private-hosted-media-foundation",
+      "pull_request": 93,
+      "head_commit": "620b25c5ddd15a180b541caddbd941d263893cdf",
+      "status": "open_draft_ci_pending",
+      "scope": "زیرساخت ذخیره‌سازی خصوصی و تنظیمات پایه پخش میزبانی‌شده",
+      "completed": [
+        "دیسک محلی اختصاصی playback_private با visibility خصوصی، serve=false و throw=true اضافه شد.",
+        "دیسک اختیاری playback_s3 برای S3-compatible private bucket با visibility خصوصی و خطاهای قابل مشاهده اضافه شد.",
+        "config/playback.php برای feature flagهای خاموش، دیسک ذخیره‌سازی، محدودیت حجم، MIMEهای مجاز، transcoding و عمر URL امضاشده اضافه شد.",
+        "متغیرهای محیطی مربوط در .env.example مستند شدند.",
+        "سند playback-sources.md با الزامات امنیتی و مراحل staging تکمیل شد.",
+        "سه تست Feature برای پیش‌فرض خاموش، خصوصی بودن دیسک و تنظیمات تحویل اضافه شد."
+      ],
+      "pending": [
+        "CI برای PR93 هنوز اجرا/تأیید نشده است.",
+        "آپلود، multipart/resumable upload، بررسی محتوای واقعی فایل، malware scanning، probing، transcoding worker، HLS packaging، CDN و signed manifest هنوز پیاده‌سازی نشده‌اند.",
+        "ادغام S3 نیازمند bucket خصوصی با public access block و تست integration است.",
+        "هیچ Migration، Seeder یا دیتابیسی اجرا یا تغییر داده نشده است."
+      ]
+    }
+  ]
 }
