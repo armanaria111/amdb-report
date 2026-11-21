@@ -499,14 +499,13 @@
       "سرشاخه PR92 در commit 7f0cb8c50004b94a2bdeea35da7122203cd52a1e است؛ PR open/draft، ۵۳ فایل تغییرکرده، ۲۸۷۳ خط افزوده و ۵ خط حذف دارد. GitHub وضعیت mergeable=true و mergeable_state=clean گزارش کرده است؛ ۱۰۹ commit جلو و صفر عقب از main.",
       "مرحله ۳ پخش در PR92 بخشی از زیرساخت تصویر دستی قسمت را تکمیل کرد: primary still به‌ازای هر Episode جداگانه مدیریت می‌شود، مسیر فایل با episodes.still_path همگام است و صفحه جزئیات اثر تصویر اصلی قسمت را نمایش می‌دهد.",
       "برای رسانه قسمت دو Feature Test جهت استقلال thumbnail بین قسمت‌ها و ارتقای تصویر بعدی پس از حذف primary اضافه شد؛ تست‌ها اجرا نشده‌اند.",
-      "سرشاخه PR92 اکنون c76d4965f3c65c220404d0336ab9b2dfb07dc674 است؛ PR open/draft، GitHub mergeable=true اما mergeable_state=unstable گزارش می‌کند؛ ۵۸ فایل تغییرکرده، ۳۰۵۱ خط افزوده، ۲۲ خط حذف، ۱۲۰ commit جلو و صفر عقب از main.",
       "اتصال پیشرفت تماشا به YouTube IFrame Player API در PR92 اضافه شد: کاربر واردشده موقعیت ذخیره‌شده را برای Title/Episode متناظر بازیابی می‌کند و progress هر ۱۵ ثانیه و هنگام pause/end به endpoint کتابخانه ارسال می‌شود.",
       "کارت ادامه تماشا در کتابخانه، در صورت وجود منبع رایگان مجاز و فعال و روشن‌بودن ماژول، مستقیماً به صفحه watch و قسمت ذخیره‌شده هدایت می‌شود؛ Aparat progress integration هنوز باقی است.",
-      "سرشاخه PR92 اکنون 0c3313ff2586ffb803159dd087723a4327ddb532 است؛ PR open/draft، mergeable=true و mergeable_state=clean؛ ۵۸ فایل تغییرکرده، ۳۲۳۹ خط افزوده، ۲۲ خط حذف، ۱۳۳ commit جلو و صفر عقب از main.",
       "در PR92 دنبال‌کردن/لغو دنبال‌کردن هنرمندان، تنظیم اعلان هر هنرمند، ترجیح سراسری اعلان آثار و قسمت‌ها و پیام‌های سه‌زبانه مرکز اعلان اضافه شد.",
       "اعلان انتشار عنوان و قسمت برای دنبال‌کنندگان هنرمندان فعال با اعتبارسنجی زمان دنبال‌کردن، ترجیحات کاربر، delivery idempotent و callback پس از commit اضافه شد؛ command روزانه برای تاریخ‌های انتشار آینده ثبت شد. کانال فقط in-app است.",
       "تست‌های Feature برای follow/mute/unfollow، ترجیحات کلی، جلوگیری از اعلان تکراری، عدم اعلان retroactive و اعلان قسمت اضافه شدند؛ اجرا نشده‌اند.",
-      "سرشاخه PR92 اکنون 2e2ff6f78595a18232e3c0095d125150c404fc96 است؛ PR open/draft، GitHub mergeable=true اما mergeable_state=unstable گزارش می‌کند؛ ۸۱ فایل تغییرکرده، ۴۱۷۲ خط افزوده، ۲۷ خط حذف، ۱۶۹ commit جلو و صفر عقب از main."
+      "وضعیت فعلی PR92 در زمان آخرین بررسی: head برابر 2e2ff6f78595a18232e3c0095d125150c404fc96؛ open/draft؛ ۸۱ فایل، ۴۱۷۲ افزودن و ۲۷ حذف؛ شاخه ۱۶۹ commit جلو و ۱ commit عقب از main؛ mergeable_state=unstable.",
+      "گزارش مخزن docs به main به‌روزرسانی شده است؛ این به‌روزرسانی به معنی ادغام کد برنامه در main نیست. کد برنامه فقط در شاخه PR92 قرار دارد."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -4890,7 +4889,7 @@
         "دنبال‌کردن هنرمندان و اعلان‌های درون‌برنامه‌ای انتشار اثر/قسمت اضافه شد: دنبال/لغو دنبال، خاموش‌کردن اعلان هر هنرمند، تنظیم کلی اعلان‌های آثار/قسمت‌ها، ارسال idempotent بعد از commit و command زمان‌بندی‌شده روزانه برای انتشارهای تاریخ‌دار."
       ],
       "not_implemented_or_unverified": [
-        "PR92 هنوز open/draft و ادغام‌نشده است؛ کد در main نیست.",
+        "PR92 روی شاخه feature/viewer-experience-foundation باز و draft است؛ تغییرات هنوز در main ادغام نشده‌اند. شاخه در زمان گزارش ۱ commit از main عقب و ۱۶۹ commit جلو است؛ وضعیت mergeability از GitHub برابر unstable بوده و نیازمند همگام‌سازی/بازبینی است.",
         "Migration، تست PHPUnit، مرورگر و runtime اجرا نشده‌اند.",
         "ad_supported، rent، purchase و subscription در حال حاضر metadata هستند و از صفحه عمومی پخش ارائه نمی‌شوند.",
         "Hosted playback، storage خصوصی، transcoding، HLS، CDN، زیرنویس و کنترل دسترسی پیاده‌سازی نشده‌اند.",
@@ -4899,7 +4898,12 @@
         "اعلان‌ها در این مرحله فقط درون‌برنامه‌ای هستند؛ ایمیل/Push و اعلان تغییرات عمومی پروفایل هنرمند پیاده‌سازی نشده‌اند."
       ],
       "rollout": "ماژول playback در PluginCatalog با default_enabled=false ثبت شده است. فعال‌سازی عمومی تا تکمیل حقوق، entitlement، سیاست provider، تست staging و پذیرش صریح انتشار انجام نمی‌شود.",
-      "mergeable_state": "unstable"
+      "mergeable_state": "unstable",
+      "behind_by": 1,
+      "ahead_by": 169,
+      "changed_files": 81,
+      "additions": 4172,
+      "deletions": 27
     }
   },
   "audience_creator_experience": {
