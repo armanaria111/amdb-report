@@ -4513,7 +4513,7 @@
     "head_commit": "ecdc7388ec61e6a2b18dc6e985f2e3585f10cf49",
     "updated_at": "2026-11-21",
     "scope": "تکمیل انتخاب دستی کیفیت HLS در صفحه تماشا و پاک‌سازی ترجمه‌های سه‌زبانه.",
-    "status": "source_implemented_ci_not_yet_observed_latest_commit",
+    "status": "latest_commit_ci_running_vite_passed",
     "details": [
       "PR103 انتخاب Auto و کیفیت‌های موجود را برای پخش HLS مبتنی بر hls.js اضافه می‌کند؛ Auto پیش‌فرض باقی می‌ماند.",
       "کنترل کیفیت در مرورگرهایی که از HLS بومی استفاده می‌کنند نمایش داده نمی‌شود.",
@@ -4521,13 +4521,13 @@
       "بازبینی تکمیلی، گزینه‌های تکراری رزولوشن را ادغام می‌کند و برای هر رزولوشن بالاترین bitrate را انتخاب می‌کند؛ عرض کنترل نیز محدود شد.",
       "CI اجرای قبلی PR103 با شناسه 44912719162 موفق بود: Vite production build و تست‌های Laravel و Blade lint.",
       "Commit تکمیلی 169e2a7d60d24b8a7ba80c8f9d65f65fe93a8c9d پس از اجرای CI قبلی ثبت شد؛ این commit هنوز در CI تأیید نشده است.",
-      "تست Feature برای نمایش برچسب انتخاب کیفیت در هر سه زبان en، fa-AF و ps به HostedPlaybackAdaptiveBitrateTest افزوده شد؛ commit جدید ecdc7388ec61e6a2b18dc6e985f2e3585f10cf49."
+      "تست Feature برای نمایش برچسب انتخاب کیفیت در هر سه زبان en، fa-AF و ps به HostedPlaybackAdaptiveBitrateTest افزوده شد؛ commit جدید ecdc7388ec61e6a2b18dc6e985f2e3585f10cf49.",
+      "CI جدید روی commit ecdc7388ec61e6a2b18dc6e985f2e3585f10cf49 با run شماره 44922222918 آغاز شد؛ job ساخت Vite موفق شده و workflow هنوز در حال اجراست."
     ],
     "remaining": [
-      "بررسی وضعیت CI برای head جدید و رفع هر شکست احتمالی.",
-      "بازبینی mergeability و حل تعارض احتمالی PR103 بدون ادغام اجباری.",
-      "آزمون واقعی انتخاب کیفیت در مرورگرهای دسکتاپ و موبایل و native HLS.",
-      "پس از موفقیت CI و بازبینی نهایی، ادغام PR103 در main."
+      "تکمیل workflow شماره 44922222918 و بررسی jobهای تست Laravel.",
+      "بازبینی نهایی و ادغام PR103 پس از سبزشدن کامل CI.",
+      "آزمون واقعی انتخاب کیفیت در مرورگرهای دسکتاپ و موبایل و native HLS."
     ],
     "pull_request": {
       "number": 103,
@@ -5224,12 +5224,13 @@
       "title": "Add manual adaptive HLS quality selection to the watch player",
       "head_commit": "ecdc7388ec61e6a2b18dc6e985f2e3585f10cf49",
       "base_commit": "148429ac280e3545f2c812de76b41bd96edc0f54",
-      "status": "open_latest_commit_ci_not_yet_observed",
-      "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44912719162",
+      "status": "open_ci_running_vite_build_passed",
+      "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44922222918",
       "scope": "انتخاب Auto/کیفیت‌های موجود برای HLS.js، حذف گزینه‌های تکراری رزولوشن، ترجمه سه‌زبانه و تست Feature برچسب‌ها در en/fa-AF/ps. آزمون واقعی مرورگر هنوز لازم است.",
       "limitations": [
         "انتخاب دستی فقط در HLS.js فعال است؛ native HLS کیفیت را به سیستم‌عامل/مرورگر می‌سپارد.",
-        "Commit آخر ecdc7388ec61e6a2b18dc6e985f2e3585f10cf49؛ اجرای CI برای این head هنوز در دسترس/قابل مشاهده نیست."
+        "CI run 44922222918 در حال اجراست؛ job ساخت Vite موفق شده اما workflow کامل هنوز نهایی نشده است.",
+        "آزمون واقعی مرورگر و دستگاه هنوز انجام نشده است."
       ]
     }
   ]
