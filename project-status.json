@@ -512,7 +512,10 @@
       "CI روی commit سرشاخه PR یعنی 65aa5737dbb62b69fb6b229b33f503e3c7d04000 موفق شد؛ تست‌های PHPUnit در محیط CI/SQLite اجرا شدند. هیچ Migration روی دیتابیس محلی یا عملیاتی کاربر اجرا نشده و مرورگر/runtime محیط واقعی نیز بررسی نشده است.",
       "PR93 در مخزن اصلی با شاخه feature/private-hosted-media-foundation و وضعیت open/draft ایجاد شد؛ head برابر 620b25c5ddd15a180b541caddbd941d263893cdf و ۵ فایل/۱۲۳ خط افزوده دارد.",
       "زیرساخت پایه ذخیره‌سازی خصوصی hosted playback اضافه شد: playback_private محلی با serve=false و playback_s3 اختیاری با visibility=private؛ feature flagهای پخش میزبانی‌شده و transcoding خاموش باقی مانده‌اند.",
-      "config/playback.php، متغیرهای .env.example، مستندات rollout و سه تست Feature تنظیمات خصوصی ایجاد شدند. CI برای PR93 هنوز نتیجه نداده؛ هیچ Migration یا دیتابیس اجرا/تغییر داده نشده است."
+      "config/playback.php، متغیرهای .env.example، مستندات rollout و سه تست Feature تنظیمات خصوصی ایجاد شدند. CI برای PR93 هنوز نتیجه نداده؛ هیچ Migration یا دیتابیس اجرا/تغییر داده نشده است.",
+      "PR93 توسعه یافت: جدول hosted_playback_assets و endpoint مدیریتی دریافت فایل ویدئویی برای منبع hosted در حالت draft اضافه شدند. فایل‌ها با نام تصادفی روی دیسک خصوصی ذخیره و در وضعیت pending_scan قرنطینه می‌شوند؛ MIME با fileinfo، حجم و SHA-256 بررسی/ثبت می‌شود.",
+      "آپلودها با feature flag مستقل AMDB_HOSTED_UPLOADS_ENABLED (پیش‌فرض false)، AMDB_HOSTED_PLAYBACK_ENABLED و permission مدیریتی محدود شده‌اند؛ endpoint دارای throttle است. هیچ فایل قرنطینه‌شده قابل پخش نیست و منبع خودکار فعال نمی‌شود.",
+      "برای حذف منبع/asset پاک‌سازی فایل پس از commit تراکنش اضافه شد؛ تست‌های Feature و ترجمه en/fa-AF/ps به‌روزرسانی شدند. CI روی commit c7e0e08f4b4a31bf0418c9bd1f59d6ed104b0af9 در حال اجراست؛ نتیجه هنوز تأیید نشده است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -5013,22 +5016,24 @@
     {
       "branch": "feature/private-hosted-media-foundation",
       "pull_request": 93,
-      "head_commit": "620b25c5ddd15a180b541caddbd941d263893cdf",
-      "status": "open_draft_ci_pending",
-      "scope": "زیرساخت ذخیره‌سازی خصوصی و تنظیمات پایه پخش میزبانی‌شده",
+      "head_commit": "c7e0e08f4b4a31bf0418c9bd1f59d6ed104b0af9",
+      "status": "open_draft_ci_running",
+      "scope": "زیرساخت ذخیره‌سازی خصوصی و دریافت امن فایل ویدئویی در قرنطینه",
       "completed": [
-        "دیسک محلی اختصاصی playback_private با visibility خصوصی، serve=false و throw=true اضافه شد.",
-        "دیسک اختیاری playback_s3 برای S3-compatible private bucket با visibility خصوصی و خطاهای قابل مشاهده اضافه شد.",
-        "config/playback.php برای feature flagهای خاموش، دیسک ذخیره‌سازی، محدودیت حجم، MIMEهای مجاز، transcoding و عمر URL امضاشده اضافه شد.",
-        "متغیرهای محیطی مربوط در .env.example مستند شدند.",
-        "سند playback-sources.md با الزامات امنیتی و مراحل staging تکمیل شد.",
-        "سه تست Feature برای پیش‌فرض خاموش، خصوصی بودن دیسک و تنظیمات تحویل اضافه شد."
+        "دیسک محلی playback_private با visibility خصوصی، serve=false و throw=true و دیسک اختیاری playback_s3 خصوصی اضافه شد.",
+        "config/playback.php و متغیرهای محیطی مستقل برای hosted playback، upload و transcoding اضافه شدند؛ همه به‌صورت پیش‌فرض خاموش هستند.",
+        "جدول hosted_playback_assets با ارتباط به PlaybackSource، آپلودکننده، disk/path، MIME تشخیص‌داده‌شده، اندازه، SHA-256 و وضعیت pending_scan اضافه شد.",
+        "endpoint مدیریتی آپلود برای منابع hosted در وضعیت draft اضافه شد؛ دسترسی با مجوز titles.playback.manage، feature flag و throttle محدود است.",
+        "نام فایل ذخیره‌سازی UUID است؛ فایل فقط روی دیسک خصوصی نوشته می‌شود؛ MIME با fileinfo سمت سرور بررسی و حجم محدود می‌شود.",
+        "فایل پس از آپلود فقط pending_scan می‌ماند و هرگز خودکار فعال یا قابل پخش نمی‌شود.",
+        "حذف asset و حذف PlaybackSource با پاک‌سازی فایل خصوصی پس از commit تراکنش هماهنگ شدند.",
+        "تست‌های Feature برای خاموش‌بودن پیش‌فرض، رد MIME نامعتبر، امضای MP4، وضعیت قرنطینه و جلوگیری از حذف بین آثار اضافه شدند.",
+        "پیام‌های رابط مرتبط برای انگلیسی، دری و پشتو اضافه شدند."
       ],
       "pending": [
-        "CI برای PR93 هنوز اجرا/تأیید نشده است.",
-        "آپلود، multipart/resumable upload، بررسی محتوای واقعی فایل، malware scanning، probing، transcoding worker، HLS packaging، CDN و signed manifest هنوز پیاده‌سازی نشده‌اند.",
-        "ادغام S3 نیازمند bucket خصوصی با public access block و تست integration است.",
-        "هیچ Migration، Seeder یا دیتابیسی اجرا یا تغییر داده نشده است."
+        "CI برای آخرین commit c7e0e08f4b4a31bf0418c9bd1f59d6ed104b0af9 در حال اجراست و هنوز نتیجه نهایی ندارد.",
+        "صف اسکن بدافزار، worker ایزوله، media probing، محدودیت duration/resolution، transcoding، HLS، CDN و signed delivery هنوز پیاده‌سازی نشده‌اند.",
+        "هیچ Migration در دیتابیس کاربر اجرا نشده؛ Migration جدید فقط به مخزن اضافه شده و باید با backup و بررسی MySQL در staging اعمال شود."
       ]
     }
   ]
