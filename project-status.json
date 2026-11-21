@@ -2879,7 +2879,7 @@
     "بررسی تکمیل تمام مسیرهای پنل مدیریت، کاربر عادی و هنرمند و رفع موارد ناقص.",
     "تعیین سیاست و اولویت توسعه درگاه پرداخت و قابلیت‌های باقی‌مانده پس از QA.",
     "PR104 قرارداد درآمد آثار/دفترکل/تسویه قدیمی و دارای تعارض است و نسخه فعلی درآمد هنرمند را مجاز می‌کند؛ نباید ادغام شود. ابتدا PR105 اثبات حقوق شرکت باید CI و ادغام شود، سپس قرارداد/دفترکل/تسویه فقط برای شرکت دارای مدرک تأییدشده بازنویسی شود: https://github.com/armanaria111/amdb-laravel2/pull/104",
-    "PR105 زیرساخت ثبت و تأیید مدارک حقوق شرکت برای هر اثر است؛ CI run 44924360814 pending و هنوز ادغام نشده: https://github.com/armanaria111/amdb-laravel2/pull/105"
+    "PR105 زیرساخت ثبت و تأیید مدارک حقوق شرکت ادغام شد (d5e96008bf7e0c5d7c712991f40c33e85cf1a05f)؛ CI سرشاخه PR موفق، CI push روی main در حال اجرا؛ آزمون MySQL/staging باقی است."
   ],
   "post_pr21_localization": {
     "date": "2026-11-18",
@@ -4517,7 +4517,7 @@
     "head_commit": "befd0b3dd21b3ef355b08d47158c46e83c08d5aa",
     "updated_at": "2026-11-21",
     "scope": "قرارداد نسخه‌دار درآمد هر اثر، دفترکل رویدادمحور تغییرناپذیر و تسویه فقط برای شرکت دارای حقوق معتبر؛ هرگونه payee، داشبورد درآمد یا درخواست تسویه هنرمند ممنوع است.",
-    "status": "company_rights_evidence_pr105_open_ci_pending_revenue_contract_pr104_blocked",
+    "status": "company_rights_evidence_merged_company_only_revenue_rewrite_next",
     "details": [
       "PR104 شامل ۳۷ فایل، ۵ کنترلر، ۵ مدل، ۵ Migration افزایشی، سرویس RevenueLedgerService، سه فایل ترجمه en/fa-AF/ps و سه مجموعه تست Feature است.",
       "مرز ایمنی: سابقه تماشا منبع درآمد محسوب نمی‌شود؛ ثبت درآمد نیازمند source_type و source_reference است. هیچ پرداخت تماشاگر یا انتقال خودکار وجه فعال نشده است.",
@@ -4527,12 +4527,13 @@
       "بازبینی PR104 نشان داد نسخه فعلی برخلاف تصمیم محصول، Artist را طرف قرارداد/ذی‌نفع دفترکل قرار می‌دهد و برای هنرمند داشبورد و درخواست تسویه دارد؛ این بخش‌ها باید حذف و به Company دارای مجوز معتبر محدود شوند.",
       "در PR104 توضیح معماری اصلاح‌شده ثبت شد؛ PR همچنان draft و دارای تعارض است و هنوز کد اصلاحی در main ادغام نشده است.",
       "PR105 روی شاخه مبتنی بر main ایجاد شد: company_title_rights، بارگذاری مدرک در private local disk، تأیید/رد مدیر، محدودیت قلمرو/اعتبار، immutable review transitions و ترجمه‌های سه‌زبانه.",
-      "PR105 هنوز CI pending است؛ این PR فقط زیربنای اثبات حقوق شرکت است و درآمد شرکت یا تسویه را فعال نمی‌کند."
+      "PR105 هنوز CI pending است؛ این PR فقط زیربنای اثبات حقوق شرکت است و درآمد شرکت یا تسویه را فعال نمی‌کند.",
+      "PR105 با روش Squash ادغام شد؛ merge commit d5e96008bf7e0c5d7c712991f40c33e85cf1a05f. CI روی سرشاخه PR موفق بود: Vite build و Laravel tests/SQLite؛ CI push روی main هنوز در حال اجراست."
     ],
     "remaining": [
-      "دریافت نتیجه CI و رفع خطاهای PR105؛ سپس بازبینی و ادغام حقوق شرکت.",
-      "پیاده‌سازی دسترسی و نمایندگی کاربران شرکت و امکان مدیریت مدارک حقوق از سوی شرکت با تأیید نهایی مدیر.",
-      "انتقال و بازطراحی PR104: قرارداد هر اثر و ledger فقط برای Company دارای CompanyTitleRight تأییدشده و معتبر؛ حذف کامل Artist payee/dashboard/settlement.",
+      "تکمیل و بررسی CI push روی main برای merge commit PR105.",
+      "پیاده‌سازی شرکت‌ها و کاربران نماینده شرکت (owner/finance) برای مدیریت مدارک و داشبورد شرکت؛ تأیید نهایی حقوق در اختیار مدیر باقی بماند.",
+      "بازنویسی PR104 روی main جدید: قرارداد هر اثر، دفترکل و تسویه فقط برای Company دارای CompanyTitleRight تأییدشده و معتبر؛ حذف Artist payee/dashboard/settlement.",
       "تست‌های مثبت شرکت مجاز و منفی هنرمند/شرکت بدون مدرک، منقضی یا خارج از قلمرو.",
       "اجرای CI و بازبینی امنیتی/مالی؛ سپس ادغام. MySQL/staging فقط پس از backup و بدون دست‌کاری دیتابیس کاربر."
     ],
@@ -5253,14 +5254,16 @@
       "title": "Add company title-rights evidence and review workflow",
       "head_commit": "000aaa331f713cf5142d5141cc77fae68c6278e4",
       "base_commit": "bf9e18bbbad3f49dac0b5cc22c80960d246ee8ca",
-      "status": "open_ready_for_review_ci_rerun_pending",
+      "status": "merged_to_main_pr_ci_passed_main_push_ci_pending",
       "scope": "ثبت و بررسی مدارک مالکیت/مجوز شرکت برای هر اثر؛ فقط پیش‌نیاز حقوقی، بدون فعال‌سازی درآمد یا تسویه.",
       "ci": {
-        "run": 223,
-        "id": 44924498391,
-        "status": "in_progress",
+        "pr_run": 44924498391,
+        "pr_conclusion": "success",
+        "main_push_run": 44924601965,
+        "main_push_status": "in_progress",
         "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44924498391"
-      }
+      },
+      "merge_commit": "d5e96008bf7e0c5d7c712991f40c33e85cf1a05f"
     }
   ],
   "company_rights_evidence": {
@@ -5268,7 +5271,7 @@
     "pull_request": 105,
     "branch": "feature/title-revenue-contracts-mainline",
     "head_commit": "000aaa331f713cf5142d5141cc77fae68c6278e4",
-    "status": "implementation_pr_open_ci_rerun_pending",
+    "status": "merged_to_main_pr_ci_passed_main_push_ci_pending_runtime_mysql_unverified",
     "scope": [
       "ثبت مدرک مالکیت/مجوز در سطح شرکت و اثر با نوع حق، شماره مجوز، مدرک خصوصی، قلمرو و بازه اعتبار.",
       "گردش‌کار مدیریت برای ثبت، تأیید/رد و دریافت امن مدرک؛ فایل‌ها روی دیسک private local ذخیره می‌شوند.",
@@ -5277,19 +5280,21 @@
       "ترجمه en، fa-AF و ps و تست‌های Feature اضافه شده‌اند."
     ],
     "limitations": [
-      "PR105 هنوز ادغام نشده و CI اصلاح‌شده در حال اجراست.",
+      "PR105 ادغام شده و CI مربوط به PR (Vite و Laravel tests روی SQLite) موفق است؛ CI اجرای push روی main هنوز در حال اجراست.",
       "فرایند ثبت/مدیریت مدارک فعلاً در پنل مدیریت است؛ پرتال شرکت و مدیریت نمایندگان شرکت مرحله بعد است.",
-      "اتصال این مدرک به قرارداد درآمد و الزام Company-only در دفترکل/تسویه هنوز در PR104 پیاده‌سازی نشده است.",
+      "اتصال این مدرک به قرارداد درآمد و الزام Company-only در دفترکل/تسویه هنوز پیاده‌سازی نشده است.",
       "اجرای Migration و ذخیره‌سازی خصوصی روی MySQL/staging یا محیط واقعی تأیید نشده است."
     ],
     "url": "https://github.com/armanaria111/amdb-laravel2/pull/105",
     "ci": {
-      "previous_run": 44924360814,
-      "previous_result": "failure",
-      "previous_failure": "یک خطای syntax در RuntimeException و یک خطای تست ناشی از refresh نکردن مدل پس از رد update مورد انتظار؛ هر دو اصلاح شدند.",
-      "current_run": 44924498391,
-      "current_result": "in_progress",
-      "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44924498391"
-    }
+      "pr_run": 44924498391,
+      "pr_result": "success",
+      "pr_url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44924498391",
+      "main_push_run": 44924601965,
+      "main_push_result": "in_progress",
+      "main_push_url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44924601965"
+    },
+    "merge_commit": "d5e96008bf7e0c5d7c712991f40c33e85cf1a05f",
+    "merged_on": "2026-11-21"
   }
 }
