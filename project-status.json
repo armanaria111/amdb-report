@@ -4510,21 +4510,23 @@
   "work_in_progress": {
     "branch": "feature/hosted-hls-quality-selector",
     "base_commit": "148429ac280e3545f2c812de76b41bd96edc0f54",
-    "head_commit": "169e2a7d60d24b8a7ba80c8f9d65f65fe93a8c9d",
+    "head_commit": "ecdc7388ec61e6a2b18dc6e985f2e3585f10cf49",
     "updated_at": "2026-11-21",
     "scope": "تکمیل انتخاب دستی کیفیت HLS در صفحه تماشا و پاک‌سازی ترجمه‌های سه‌زبانه.",
-    "status": "source_implemented_ci_previous_head_passed_latest_commit_unverified",
+    "status": "source_implemented_ci_not_yet_observed_latest_commit",
     "details": [
       "PR103 انتخاب Auto و کیفیت‌های موجود را برای پخش HLS مبتنی بر hls.js اضافه می‌کند؛ Auto پیش‌فرض باقی می‌ماند.",
       "کنترل کیفیت در مرورگرهایی که از HLS بومی استفاده می‌کنند نمایش داده نمی‌شود.",
       "ترجمه برچسب کیفیت برای en، fa-AF و ps اضافه و کلید تکراری پیشرفت تماشا حذف شد.",
       "بازبینی تکمیلی، گزینه‌های تکراری رزولوشن را ادغام می‌کند و برای هر رزولوشن بالاترین bitrate را انتخاب می‌کند؛ عرض کنترل نیز محدود شد.",
       "CI اجرای قبلی PR103 با شناسه 44912719162 موفق بود: Vite production build و تست‌های Laravel و Blade lint.",
-      "Commit تکمیلی 169e2a7d60d24b8a7ba80c8f9d65f65fe93a8c9d پس از اجرای CI قبلی ثبت شد؛ این commit هنوز در CI تأیید نشده است."
+      "Commit تکمیلی 169e2a7d60d24b8a7ba80c8f9d65f65fe93a8c9d پس از اجرای CI قبلی ثبت شد؛ این commit هنوز در CI تأیید نشده است.",
+      "تست Feature برای نمایش برچسب انتخاب کیفیت در هر سه زبان en، fa-AF و ps به HostedPlaybackAdaptiveBitrateTest افزوده شد؛ commit جدید ecdc7388ec61e6a2b18dc6e985f2e3585f10cf49."
     ],
     "remaining": [
-      "اجرای مجدد CI روی head جدید PR103 و بررسی نتیجه.",
-      "بررسی واقعی تغییر کیفیت در مرورگرهای دسکتاپ و موبایل و پخش native HLS.",
+      "بررسی وضعیت CI برای head جدید و رفع هر شکست احتمالی.",
+      "بازبینی mergeability و حل تعارض احتمالی PR103 بدون ادغام اجباری.",
+      "آزمون واقعی انتخاب کیفیت در مرورگرهای دسکتاپ و موبایل و native HLS.",
       "پس از موفقیت CI و بازبینی نهایی، ادغام PR103 در main."
     ],
     "pull_request": {
@@ -5220,14 +5222,14 @@
       "branch": "feature/hosted-hls-quality-selector",
       "pull_request": 103,
       "title": "Add manual adaptive HLS quality selection to the watch player",
-      "head_commit": "fa3ab8a29e0b1319772a7101494a57fc943a6ec0",
+      "head_commit": "ecdc7388ec61e6a2b18dc6e985f2e3585f10cf49",
       "base_commit": "148429ac280e3545f2c812de76b41bd96edc0f54",
-      "status": "ready_for_review_ci_running",
+      "status": "open_latest_commit_ci_not_yet_observed",
       "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44912719162",
-      "scope": "انتخاب Auto/360p/480p/720p برای HLS.js بر اساس master playlist؛ انتخاب خودکار پیش‌فرض حفظ می‌شود؛ مرورگرهای native HLS از کنترل کیفیت بومی خود استفاده می‌کنند.",
+      "scope": "انتخاب Auto/کیفیت‌های موجود برای HLS.js، حذف گزینه‌های تکراری رزولوشن، ترجمه سه‌زبانه و تست Feature برچسب‌ها در en/fa-AF/ps. آزمون واقعی مرورگر هنوز لازم است.",
       "limitations": [
         "انتخاب دستی فقط در HLS.js فعال است؛ native HLS کیفیت را به سیستم‌عامل/مرورگر می‌سپارد.",
-        "CI run 44912719162 در حال اجراست؛ آزمون واقعی مرورگر و دستگاه هنوز انجام نشده است."
+        "Commit آخر ecdc7388ec61e6a2b18dc6e985f2e3585f10cf49؛ اجرای CI برای این head هنوز در دسترس/قابل مشاهده نیست."
       ]
     }
   ]
