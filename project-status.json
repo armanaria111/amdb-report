@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "fd744517ac5667363c0a640651e1aad4b76d7750",
+    "source_commit_audited": "2c7653e34a3a4eaf34b0bd50f54fbf1be79de8b4",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "fd744517ac5667363c0a640651e1aad4b76d7750",
+    "latest_main_commit": "2c7653e34a3a4eaf34b0bd50f54fbf1be79de8b4",
     "latest_main_commit_verified_on": "2026-11-21"
   },
   "languages": [
@@ -551,7 +551,11 @@
       "برای حل اختلاف session ID در تست‌های CI، توکن پخش به کوکی first-party، HttpOnly، SameSite=Strict و scoped به asset منتقل شد؛ URL امضاشده بدون کوکی همان مرورگر قابل استفاده نیست. مسیر ایجاد نشست در همان درخواست کوکی را صادر می‌کند. CI run 44910492237 در حال اجراست.",
       "در PR99، URLهای تحویل به HMAC با انقضا و کوکی first-party per-asset متصل شدند؛ Laravel signed middleware حذف شد چون در تست محیط CI با درخواست بعدی 403 می‌داد و HMAC+expiry+HttpOnly cookie کنترل دسترسی را حفظ می‌کند. CI run 44910632210 در حال اجراست.",
       "برای جلوگیری از ناسازگاری کوکی در محیط‌های مختلف، تحویل خصوصی در PR99 به URLهای HMAC bearer با expiry محدود تغییر یافت؛ HMAC فقط با APP_KEY قابل جعل است و هر درخواست وضعیت حقوق/منبع/package را دوباره بررسی می‌کند. این لینک‌ها باید خصوصی تلقی شوند و تا پایان TTL قابل اشتراک هستند. CI run 44910852463 در صف اجراست.",
-      "در PR99، تست stream segment اصلاح شد تا خروجی StreamedResponse را capture کند و ترتیب نرمال‌شده Cache-Control را بررسی کند؛ CI run 44910967815 در حال اجراست."
+      "در PR99، تست stream segment اصلاح شد تا خروجی StreamedResponse را capture کند و ترتیب نرمال‌شده Cache-Control را بررسی کند؛ CI run 44910967815 در حال اجراست.",
+      "PR99 با روش Squash در main ادغام شد؛ merge commit 2c7653e34a3a4eaf34b0bd50f54fbf1be79de8b4. CI run 44910967815 موفق شد: Vite production build و 171 تست Laravel با 646 assertion.",
+      "Endpoint same-origin برای صدور URL HMAC دارای expiry اضافه شد؛ هر manifest و segment با HMAC، انقضا، وضعیت انتشار اثر، حقوق منبع، بازه مجوز، مدل رایگان و approved بودن بسته بررسی می‌شود.",
+      "Playlist قبل از ارسال بازنویسی می‌شود تا فقط segment URLهای داخلی HMAC داشته باشد؛ remote URI، key URI و master playlist رد می‌شوند؛ پاسخ‌ها private/no-store هستند.",
+      "این PR فقط backend تحویل امن را اضافه کرد؛ صفحه عمومی watch هنوز hosted source را به player وصل نمی‌کند و HLS.js/browser playback در مرحله بعد قرار دارد."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -970,6 +974,10 @@
     {
       "date": "2026-11-21",
       "text": "تست‌های PR99 برای خروجی StreamedResponse و ترتیب headerهای Cache-Control اصلاح شدند؛ CI run 44910967815 در حال اجراست."
+    },
+    {
+      "date": "2026-11-21",
+      "text": "PR99 تحویل امن HLS خصوصی با URLهای HMAC دارای انقضا و بازبینی حقوق در هر درخواست با CI موفق ادغام شد؛ merge commit 2c7653e34a3a4eaf34b0bd50f54fbf1be79de8b4. 171 تست و 646 assertion موفق شدند. اتصال به player عمومی مرحله بعد است."
     }
   ],
   "architecture": {
@@ -4077,7 +4085,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "fd744517ac5667363c0a640651e1aad4b76d7750",
+    "source_commit": "2c7653e34a3a4eaf34b0bd50f54fbf1be79de8b4",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-20",
@@ -4143,13 +4151,13 @@
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840"
     },
     "release": {
-      "latest_merged_pr": 98,
-      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/98",
-      "latest_source_commit": "fd744517ac5667363c0a640651e1aad4b76d7750",
+      "latest_merged_pr": 99,
+      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/99",
+      "latest_source_commit": "2c7653e34a3a4eaf34b0bd50f54fbf1be79de8b4",
       "source_branch": "main",
       "verified_at": "2026-11-21"
     },
-    "note": "آخرین commit شاخه main برابر fd744517ac5667363c0a640651e1aad4b76d7750 پس از ادغام PR98 است. PR97 پرداخت زرین‌پال و PR98 گردش‌کار بررسی حقوق HLS خصوصی با CI موفق ادغام شده‌اند. بسته HLS تأییدشده هنوز عمومی یا قابل پخش نیست؛ تحویل manifest/segment امضاشده و کنترل دسترسی تماشاگر مرحله بعد است. دیتابیس MySQL زنده، worker واقعی و QA مرورگری تأیید نشده‌اند.",
+    "note": "آخرین commit main برابر 2c7653e34a3a4eaf34b0bd50f54fbf1be79de8b4 پس از ادغام PR99 است. زیرساخت HLS خصوصی شامل آپلود، scan/probe، transcoding، بررسی حقوق و endpointهای HMAC-expiring برای manifest/segment در سورس وجود دارد. صفحه watch هنوز به player hosted وصل نشده و مرحله بعدی همین اتصال است. تست‌ها روی SQLite موقت CI اجرا شده‌اند؛ MySQL، storage/worker واقعی و مرورگر عملیاتی تأیید نشده‌اند.",
     "panels": [
       {
         "id": "admin",
@@ -5157,21 +5165,6 @@
       "scope": "FFmpeg تک‌کیفیت HLS تا سقف 720p، بسته خصوصی قرنطینه‌شده، صف مستقل و dispatcher زمان‌بندی‌شده؛ بدون پخش عمومی، CDN یا entitlement. CI run 175 در صف است. PR96 ادغام شد؛ CI run 175 موفق است. Migration و FFmpeg واقعی هنوز روی MySQL/staging آزمایش نشده‌اند.",
       "merge_commit": "bced37cd23e4fe423967f6253b6cd8f617ce1325",
       "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44877119121"
-    },
-    {
-      "branch": "feature/hosted-hls-signed-delivery",
-      "pull_request": 99,
-      "title": "Add session-bound signed delivery for private hosted HLS",
-      "head_commit": "16fc250b268ee60fddb43f00adf500154e8136a5",
-      "base_commit": "fd744517ac5667363c0a640651e1aad4b76d7750",
-      "status": "ready_for_review_ci_running_after_stream_test_fix",
-      "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44910967815",
-      "scope": "manifest و segmentهای HLS خصوصی با URLهای HMAC دارای انقضا، بازبینی مجدد حقوق و وضعیت package در هر درخواست، rewrite playlist به URLهای داخلی، no-store و stream خصوصی.",
-      "limitations": [
-        "صفحه عمومی تماشا هنوز hosted source را به player متصل نمی‌کند؛ این PR فقط backend delivery را می‌سازد.",
-        "HLS.js/native player، progress tracking، entitlement، DRM و CDN در مراحل بعد هستند.",
-        "CI در حال اجراست؛ MySQL و storage/worker واقعی بررسی نشده‌اند."
-      ]
     }
   ]
 }
