@@ -502,7 +502,11 @@
       "سرشاخه PR92 اکنون c76d4965f3c65c220404d0336ab9b2dfb07dc674 است؛ PR open/draft، GitHub mergeable=true اما mergeable_state=unstable گزارش می‌کند؛ ۵۸ فایل تغییرکرده، ۳۰۵۱ خط افزوده، ۲۲ خط حذف، ۱۲۰ commit جلو و صفر عقب از main.",
       "اتصال پیشرفت تماشا به YouTube IFrame Player API در PR92 اضافه شد: کاربر واردشده موقعیت ذخیره‌شده را برای Title/Episode متناظر بازیابی می‌کند و progress هر ۱۵ ثانیه و هنگام pause/end به endpoint کتابخانه ارسال می‌شود.",
       "کارت ادامه تماشا در کتابخانه، در صورت وجود منبع رایگان مجاز و فعال و روشن‌بودن ماژول، مستقیماً به صفحه watch و قسمت ذخیره‌شده هدایت می‌شود؛ Aparat progress integration هنوز باقی است.",
-      "سرشاخه PR92 اکنون 0c3313ff2586ffb803159dd087723a4327ddb532 است؛ PR open/draft، mergeable=true و mergeable_state=clean؛ ۵۸ فایل تغییرکرده، ۳۲۳۹ خط افزوده، ۲۲ خط حذف، ۱۳۳ commit جلو و صفر عقب از main."
+      "سرشاخه PR92 اکنون 0c3313ff2586ffb803159dd087723a4327ddb532 است؛ PR open/draft، mergeable=true و mergeable_state=clean؛ ۵۸ فایل تغییرکرده، ۳۲۳۹ خط افزوده، ۲۲ خط حذف، ۱۳۳ commit جلو و صفر عقب از main.",
+      "در PR92 دنبال‌کردن/لغو دنبال‌کردن هنرمندان، تنظیم اعلان هر هنرمند، ترجیح سراسری اعلان آثار و قسمت‌ها و پیام‌های سه‌زبانه مرکز اعلان اضافه شد.",
+      "اعلان انتشار عنوان و قسمت برای دنبال‌کنندگان هنرمندان فعال با اعتبارسنجی زمان دنبال‌کردن، ترجیحات کاربر، delivery idempotent و callback پس از commit اضافه شد؛ command روزانه برای تاریخ‌های انتشار آینده ثبت شد. کانال فقط in-app است.",
+      "تست‌های Feature برای follow/mute/unfollow، ترجیحات کلی، جلوگیری از اعلان تکراری، عدم اعلان retroactive و اعلان قسمت اضافه شدند؛ اجرا نشده‌اند.",
+      "سرشاخه PR92 اکنون 9302385d09dd22a266ebc974d75740ab1c46c7d0 است؛ PR open/draft، mergeable=true و mergeable_state=clean؛ ۸۱ فایل تغییرکرده، ۴۱۶۷ خط افزوده، ۲۷ خط حذف، ۱۶۸ commit جلو و صفر عقب از main."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1176,10 +1180,11 @@
     },
     {
       "phase": "۸. تجربه جامعه و ابزارهای حرفه‌ای",
-      "state": "planned",
+      "state": "implementation_in_progress_unverified_pr_92",
       "items": [
         "زیرساخت اولیه کتابخانه تماشاگر (علاقه‌مندی، تاریخچه، ادامه تماشا و پاک‌سازی تاریخچه) در PR92 به‌صورت draft آماده شده؛ تا ادغام و اعتبارسنجی همچنان در وضعیت در حال توسعه است.",
         "موتور پیشنهاد ترکیبی در PR92 آماده شده: تعاملات صریح مجاز، ژانر/نوع محتوا، امتیاز جامعه و تازگی؛ مهمان/کاربر سرد به fallback عمومی می‌رود و کاربر امکان خاموش‌کردن شخصی‌سازی دارد. PR هنوز draft و ادغام‌نشده است.",
+        "دنبال‌کردن هنرمندان و اعلان انتشار عنوان/قسمت در PR92 به‌صورت draft آماده شده: تنظیم per-artist و global، delivery idempotent، زمان‌بندی انتشارهای آینده و فقط اعلان درون‌برنامه‌ای.",
         "امکانات کامل تماشاگر: تاریخچه تماشا، ادامه تماشا، علاقه‌مندی‌ها/فهرست‌های شخصی و اعلان‌های قابل تنظیم.",
         "سیستم پیشنهاد فیلم ترکیبی (Hybrid): ترجیحات و تعاملات مجاز + ویژگی‌های کاتالوگ + محبوبیت/تازگی به‌عنوان مکمل و fallback؛ با کنترل شخصی‌سازی و حریم خصوصی.",
         "دنبال‌کردن هنرمندان، اعلان‌های قابل تنظیم و پروفایل عمومی مشارکت‌کننده.",
@@ -4873,7 +4878,7 @@
     "implementation_progress": {
       "branch": "feature/viewer-experience-foundation",
       "pull_request": 92,
-      "head_commit": "0c3313ff2586ffb803159dd087723a4327ddb532",
+      "head_commit": "9302385d09dd22a266ebc974d75740ab1c46c7d0",
       "status": "open_draft_unverified",
       "completed_in_branch": [
         "مرحله ۱: مدل و Migration مستقل PlaybackSource برای Title و Episode، پنل CRUD مدیر، ثبت وضعیت حقوق، دارنده حقوق/شناسه مجوز، زمان‌بندی، مدل دسترسی و منبع پیش‌فرض یکتا در هر هدف.",
@@ -4881,16 +4886,17 @@
         "صفحه عمومی تماشا پشت ماژول playback که به‌صورت پیش‌فرض خاموش است؛ فقط اثر منتشرشده و منبع رایگان، فعال، دارای حقوق و مدرک حقوقی معتبر در بازه زمانی مجاز نمایش داده می‌شود.",
         "انتخاب منبع و قسمت توسط تماشاگر؛ iframe ابتدا about:blank است و فقط پس از کلیک صریح کاربر و نمایش هشدار اتصال به سرویس ثالث بارگذاری می‌شود.",
         "مرحله ۳ به‌صورت دستی تکمیل‌تر شد: تصویر اصلی still برای هر Episode مستقل است؛ TitleMediaController انتخاب primary را در محدوده همان Episode نگه می‌دارد و مسیر فایل را با episodes.still_path همگام می‌کند؛ صفحه عمومی تصویر اصلی هر قسمت را نمایش می‌دهد.",
-        "اتصال player به کتابخانه تماشاگر برای YouTube: بازیابی موقعیت ذخیره‌شده، ارسال progress هر ۱۵ ثانیه و هنگام pause/end برای کاربران واردشده و لینک ادامه تماشا از کتابخانه به صفحه watch. Aparat هنوز progress integration ندارد."
+        "اتصال player به کتابخانه تماشاگر برای YouTube: بازیابی موقعیت ذخیره‌شده، ارسال progress هر ۱۵ ثانیه و هنگام pause/end برای کاربران واردشده و لینک ادامه تماشا از کتابخانه به صفحه watch. Aparat هنوز progress integration ندارد.",
+        "دنبال‌کردن هنرمندان و اعلان‌های درون‌برنامه‌ای انتشار اثر/قسمت اضافه شد: دنبال/لغو دنبال، خاموش‌کردن اعلان هر هنرمند، تنظیم کلی اعلان‌های آثار/قسمت‌ها، ارسال idempotent بعد از commit و command زمان‌بندی‌شده روزانه برای انتشارهای تاریخ‌دار."
       ],
       "not_implemented_or_unverified": [
         "PR92 هنوز open/draft و ادغام‌نشده است؛ کد در main نیست.",
         "Migration، تست PHPUnit، مرورگر و runtime اجرا نشده‌اند.",
-        "پخش پیشرفت را به API کتابخانه تماشاگر ارسال نمی‌کند؛ player progress integration باقی است.",
         "ad_supported، rent، purchase و subscription در حال حاضر metadata هستند و از صفحه عمومی پخش ارائه نمی‌شوند.",
         "Hosted playback، storage خصوصی، transcoding، HLS، CDN، زیرنویس و کنترل دسترسی پیاده‌سازی نشده‌اند.",
         "بازیابی خودکار thumbnail رسمی YouTube از metadata/oEmbed و refresh/cache آن هنوز پیاده‌سازی نشده؛ تصویر دستی قسمت فعلاً مسیر اصلی و override قابل اتکا است.",
-        "progress فعلی فقط از YouTube IFrame Player API دریافت می‌شود؛ داده ارسالی مرورگر کم‌اعتماد است و نباید برای view-count مالی یا settlement استفاده شود. اتصال Aparat و رویدادهای immutable نشست‌ها باقی است."
+        "progress فعلی فقط از YouTube IFrame Player API دریافت می‌شود؛ داده ارسالی مرورگر کم‌اعتماد است و نباید برای view-count مالی یا settlement استفاده شود. اتصال Aparat و رویدادهای immutable نشست‌ها باقی است.",
+        "اعلان‌ها در این مرحله فقط درون‌برنامه‌ای هستند؛ ایمیل/Push و اعلان تغییرات عمومی پروفایل هنرمند پیاده‌سازی نشده‌اند."
       ],
       "rollout": "ماژول playback در PluginCatalog با default_enabled=false ثبت شده است. فعال‌سازی عمومی تا تکمیل حقوق، entitlement، سیاست provider، تست staging و پذیرش صریح انتشار انجام نمی‌شود.",
       "mergeable_state": "clean"
@@ -4988,7 +4994,7 @@
       "تطبیق مجوزهای مالکیت اثر و کاربران نماینده با قرارداد"
     ],
     "feature_status": "این تصمیم‌ها مصوب و در نقشه راه هستند؛ به معنی پیاده‌سازی قابلیت یا فعال‌شدن پرداخت/پخش نیست.",
-    "implementation_status": "viewer_library_and_hybrid_recommendation_foundation_in_draft_pr_92; viewer_notification_events_and_streaming_player_incomplete"
+    "implementation_status": "viewer_library_hybrid_recommendations_artist_follows_and_in_app_release_notifications_in_open_draft_pr_92; playback_player_partial_and_unverified"
   },
   "parallel_work_in_progress": [
     {
