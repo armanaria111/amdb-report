@@ -551,7 +551,8 @@
       "Migrationهای hosted_playback_assets و scan/probe metadata فقط به مخزن اضافه شده‌اند؛ روی MySQL کاربر یا staging اجرا نشده‌اند و باید پس از backup و بررسی سازگاری اجرا شوند.",
       "Transcoding با FFmpeg، پروفایل‌های کیفیت، خروجی HLS، کنترل segmentها، CDN خصوصی و signed playback delivery باقی مانده‌اند.",
       "حقوق نشر و قرارداد هر اثر، moderation، entitlement تماشاگر، پرداخت/اجاره/خرید/اشتراک و ledger تقسیم درآمد باید قبل از فعال‌سازی پخش اختصاصی تکمیل شوند.",
-      "هیچ‌یک از hosted playback، upload، malware scan یا media probe در محیط production فعال نشده‌اند؛ feature flagها خاموش باقی مانده‌اند."
+      "هیچ‌یک از hosted playback، upload، malware scan یا media probe در محیط production فعال نشده‌اند؛ feature flagها خاموش باقی مانده‌اند.",
+      "PR96 برای تبدیل خصوصی HLS باز است؛ CI هنوز در حال اجرا/انتظار است. نتیجه ادغام و اجرای Migration روی MySQL هنوز تأیید نشده."
     ]
   },
   "known_issues": [
@@ -5030,5 +5031,15 @@
     "feature_status": "این تصمیم‌ها مصوب و در نقشه راه هستند؛ به معنی پیاده‌سازی قابلیت یا فعال‌شدن پرداخت/پخش نیست.",
     "implementation_status": "viewer_library_hybrid_recommendations_artist_follows_and_in_app_release_notifications_merged_to_main_ci_passed; playback_source_and_youtube_progress_foundation_merged; hosted_playback_and_commercial_entitlements_pending"
   },
-  "parallel_work_in_progress": []
+  "parallel_work_in_progress": [
+    {
+      "branch": "feature/hosted-media-transcoding-hls",
+      "pull_request": 96,
+      "title": "Add private hosted-media HLS transcoding pipeline",
+      "head_commit": "48901007eabdb0cadb34a3a1ee522bf7d1bc231e",
+      "base_commit": "c19a089db360509499617621a0b0ee9064eb8086",
+      "status": "open_ci_pending",
+      "scope": "FFmpeg تک‌کیفیت HLS تا سقف 720p، بسته خصوصی قرنطینه‌شده، صف مستقل و dispatcher زمان‌بندی‌شده؛ بدون پخش عمومی، CDN یا entitlement."
+    }
+  ]
 }
