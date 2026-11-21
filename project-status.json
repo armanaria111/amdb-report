@@ -555,7 +555,8 @@
       "PR99 با روش Squash در main ادغام شد؛ merge commit 2c7653e34a3a4eaf34b0bd50f54fbf1be79de8b4. CI run 44910967815 موفق شد: Vite production build و 171 تست Laravel با 646 assertion.",
       "Endpoint same-origin برای صدور URL HMAC دارای expiry اضافه شد؛ هر manifest و segment با HMAC، انقضا، وضعیت انتشار اثر، حقوق منبع، بازه مجوز، مدل رایگان و approved بودن بسته بررسی می‌شود.",
       "Playlist قبل از ارسال بازنویسی می‌شود تا فقط segment URLهای داخلی HMAC داشته باشد؛ remote URI، key URI و master playlist رد می‌شوند؛ پاسخ‌ها private/no-store هستند.",
-      "این PR فقط backend تحویل امن را اضافه کرد؛ صفحه عمومی watch هنوز hosted source را به player وصل نمی‌کند و HLS.js/browser playback در مرحله بعد قرار دارد."
+      "این PR فقط backend تحویل امن را اضافه کرد؛ صفحه عمومی watch هنوز hosted source را به player وصل نمی‌کند و HLS.js/browser playback در مرحله بعد قرار دارد.",
+      "PR100 برای اتصال hosted HLS به صفحه عمومی watch ساخته شد؛ فقط بسته‌های approved، رایگان و دارای حقوق معتبر نمایش داده می‌شوند؛ player از native HLS یا hls.js v1.7.4 پس از کلیک صریح استفاده می‌کند و progress کاربران واردشده را ذخیره/ادامه می‌دهد. CI run 44911278564 در حال اجراست."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -978,6 +979,10 @@
     {
       "date": "2026-11-21",
       "text": "PR99 تحویل امن HLS خصوصی با URLهای HMAC دارای انقضا و بازبینی حقوق در هر درخواست با CI موفق ادغام شد؛ merge commit 2c7653e34a3a4eaf34b0bd50f54fbf1be79de8b4. 171 تست و 646 assertion موفق شدند. اتصال به player عمومی مرحله بعد است."
+    },
+    {
+      "date": "2026-11-21",
+      "text": "PR100 اتصال صفحه watch به HLS خصوصی را اضافه می‌کند: فیلتر حقوق/بسته approved، player HTML5، HMAC session issuance و progress؛ hls.js v1.7.4 فقط پس از کلیک کاربر از CDN بارگذاری می‌شود. CI run 44911278564 در حال اجراست."
     }
   ],
   "architecture": {
@@ -5165,6 +5170,22 @@
       "scope": "FFmpeg تک‌کیفیت HLS تا سقف 720p، بسته خصوصی قرنطینه‌شده، صف مستقل و dispatcher زمان‌بندی‌شده؛ بدون پخش عمومی، CDN یا entitlement. CI run 175 در صف است. PR96 ادغام شد؛ CI run 175 موفق است. Migration و FFmpeg واقعی هنوز روی MySQL/staging آزمایش نشده‌اند.",
       "merge_commit": "bced37cd23e4fe423967f6253b6cd8f617ce1325",
       "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44877119121"
+    },
+    {
+      "branch": "feature/hosted-hls-watch-player",
+      "pull_request": 100,
+      "title": "Connect approved hosted HLS sources to the public watch player",
+      "head_commit": "20d9cd8ee1f6e8eb21e03108362f2fd9e671de2b",
+      "base_commit": "2c7653e34a3a4eaf34b0bd50f54fbf1be79de8b4",
+      "status": "ready_for_review_ci_running",
+      "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44911278564",
+      "scope": "نمایش فقط hosted packageهای approved و free در صفحه تماشا، player ویدئویی responsive، درخواست URL HMAC پس از کلیک کاربر، native HLS/HLS.js، ذخیره و ادامه progress کاربران واردشده.",
+      "limitations": [
+        "HLS.js از CDN نسخه pin شده 1.7.4 فقط پس از کلیک صریح بارگذاری می‌شود؛ browser QA واقعی هنوز لازم است.",
+        "پخش فعلی تک‌کیفیت 720p است؛ ABR/master playlist، زیرنویس و DRM باقی است.",
+        "مدل‌های پولی تا پیاده‌سازی entitlement مسدودند.",
+        "CI run 44911278564 در حال اجراست؛ MySQL و FFmpeg/storage واقعی تست نشده‌اند."
+      ]
     }
   ]
 }
