@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "eb12658e8e17f36f1f854bbe6d788634366f3b4a",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "eb12658e8e17f36f1f854bbe6d788634366f3b4a",
+    "latest_main_commit": "6a4b39b160078c67178bc262a070f20f5e31eef5",
     "latest_main_commit_verified_on": "2026-11-21"
   },
   "languages": [
@@ -1050,6 +1050,10 @@
     {
       "date": "2026-11-21",
       "text": "PR108 به‌روزرسانی شد: تست Feature اکنون علاوه بر حفظ علاقه‌مندی، حذف رکورد history-only و جداسازی داده حساب‌ها، تلاش برای حذف سابقه متعلق به کاربر دیگر را نیز پوشش می‌دهد. آخرین head: 4588787c457c58084e40044fa13d0d61e698962c. برای این head هنوز workflow run در GitHub Actions قابل مشاهده نیست؛ ادغام انجام نشده است."
+    },
+    {
+      "date": "2026-11-21",
+      "text": "PR108 پس از موفقیت کامل CI ادغام شد (squash merge، commit 6a4b39b160078c67178bc262a070f20f5e31eef5). هر دو job شامل Laravel tests و Vite production build روی head شاخه موفق شدند. CI پس از push به main در حال انتظار است. قابلیت حذف تکی تاریخچه تماشا با حفظ favorite و کنترل مالکیت حساب اکنون در main قرار دارد."
     }
   ],
   "architecture": {
@@ -1564,6 +1568,11 @@
       "date": "2026-11-21",
       "title": "PR108 — کنترل حریم خصوصی تاریخچه تماشای تکی",
       "detail": "قابلیت حذف سابقه تماشای یک اثر به‌صورت مستقل اضافه شد. اگر اثر در علاقه‌مندی‌ها باشد فقط اطلاعات progress پاک می‌شود؛ در غیر این صورت رکورد تاریخچه حذف می‌شود. کنترل دسترسی account-scoped، شناسه عمومی am و rate limit رعایت شده‌اند. ترجمه انگلیسی/دری/پشتو و تست Feature افزوده شده‌اند. PR108 باز است و تا گزارش CI موفق ادغام نشده؛ Migration جدید ندارد."
+    },
+    {
+      "date": "2026-11-21",
+      "title": "ادغام PR108 — کنترل حریم خصوصی تاریخچه تماشای تکی",
+      "detail": "PR108 با CI موفق (Laravel tests و Vite production build) در main ادغام شد. حذف سابقه یک اثر به‌صورت account-scoped، حفظ علاقه‌مندی، ترجمه en/fa-AF/ps و تست مالکیت حساب در سورس main موجود است. CI post-merge هنوز queued است."
     }
   ],
   "source_code_audit": {
@@ -4165,7 +4174,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "eb12658e8e17f36f1f854bbe6d788634366f3b4a",
+    "source_commit": "6a4b39b160078c67178bc262a070f20f5e31eef5",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-21",
@@ -4214,7 +4223,7 @@
     "quality": {
       "tests_in_repository": 22,
       "tests_executed": true,
-      "test_result": "213 tests / 825 assertions; GitHub Actions PR107 CI successful. Main push CI run 44927734593 successful.",
+      "test_result": "PR108 CI successful on head 4588787c457c58084e40044fa13d0d61e698962c: Laravel tests and Vite production build both passed. Post-merge main push CI run 44942105380 is queued.",
       "vite_build_executed": true,
       "browser_verified": false,
       "production_smoke_test": false,
@@ -4230,16 +4239,16 @@
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
       "mysql_runtime_verified": false,
-      "latest_ci_run": 44927734593
+      "latest_ci_run": 44942105380
     },
     "release": {
-      "latest_merged_pr": 107,
-      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/107",
-      "latest_source_commit": "eb12658e8e17f36f1f854bbe6d788634366f3b4a",
+      "latest_merged_pr": 108,
+      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/108",
+      "latest_source_commit": "6a4b39b160078c67178bc262a070f20f5e31eef5",
       "source_branch": "main",
       "verified_at": "2026-11-21",
-      "main_ci_run": 44927734593,
-      "main_ci_conclusion": "success"
+      "main_ci_run": 44942105380,
+      "main_ci_conclusion": "queued"
     },
     "note": "آخرین commit main برابر 148429ac280e3545f2c812de76b41bd96edc0f54 پس از ادغام PR102 است. پخش hosted اکنون HLS تطبیقی با پروفایل‌های 360p/480p/720p بدون upscaling، master playlist خصوصی و تحویل HMAC برای renditionها دارد؛ زیرنویس خصوصی و progress نیز پیاده‌سازی شده‌اند. CI با 184 تست و 700 assertion موفق است؛ FFmpeg واقعی، MySQL، storage و QA مرورگری هنوز تأیید نشده‌اند.",
     "panels": [
@@ -4540,31 +4549,13 @@
     ]
   },
   "work_in_progress": {
-    "branch": "feature/viewer-history-privacy-controls",
-    "base_commit": "eb12658e8e17f36f1f854bbe6d788634366f3b4a",
-    "head_commit": "4588787c457c58084e40044fa13d0d61e698962c",
+    "branch": "main",
     "updated_at": "2026-11-21",
-    "scope": "افزودن کنترل حریم خصوصی برای حذف تکی سابقه تماشای هر اثر بدون حذف علاقه‌مندی.",
-    "status": "pull_request_open_ci_not_triggered_or_not_reported",
-    "pull_request": {
-      "number": 108,
-      "url": "https://github.com/armanaria111/amdb-laravel2/pull/108",
-      "state": "open",
-      "merged": false
-    },
-    "details": [
-      "حذف مستقل سابقه تماشای هر اثر از کتابخانه خصوصی",
-      "در صورت favorite بودن اثر، فقط progress و last_watched_at پاک می‌شود و علاقه‌مندی باقی می‌ماند.",
-      "در غیر این صورت رکورد user_title_states متعلق به همان کاربر حذف می‌شود.",
-      "Route با public_id پایدار am و rate limit؛ scope به حساب واردشده محدود است.",
-      "ترجمه en/fa-AF/ps و تست Feature برای حفظ علاقه‌مندی و جداسازی حساب‌ها.",
-      "تست مالکیت تقویت شد: درخواست حذف برای اثری که متعلق به تاریخچه کاربر دیگر است، نباید رکورد او را تغییر دهد."
-    ],
-    "remaining": [
-      "CI برای commit فعلی هنوز run قابل مشاهده‌ای ندارد؛ ادغام تا دریافت نتیجه معتبر CI متوقف می‌ماند.",
-      "در صورت ادامه نبودن trigger، تست/build باید با workflow_dispatch از رابط GitHub اجرا شود.",
-      "سیاست retention قابل تنظیم برای تاریخچه تماشا در مرحله بعد طراحی شود."
-    ]
+    "status": "pr108_merged_post_merge_ci_queued",
+    "latest_merged_pr": 108,
+    "merged_commit": "6a4b39b160078c67178bc262a070f20f5e31eef5",
+    "pull_request": "https://github.com/armanaria111/amdb-laravel2/pull/108",
+    "next": "Continue configurable viewing-history retention policy; first verify post-merge CI."
   },
   "product_recommendations": {
     "title": "پیشنهادهای توسعه محصول AMDB",
@@ -5392,7 +5383,7 @@
     "branch": "feature/viewer-history-privacy-controls",
     "head_commit": "4588787c457c58084e40044fa13d0d61e698962c",
     "base_commit": "eb12658e8e17f36f1f854bbe6d788634366f3b4a",
-    "status": "pull_request_open_ci_not_triggered_or_not_reported",
+    "status": "merged",
     "scope": [
       "حذف مستقل سابقه تماشای هر اثر از کتابخانه خصوصی",
       "در صورت favorite بودن اثر، فقط progress و last_watched_at پاک می‌شود و علاقه‌مندی باقی می‌ماند.",
@@ -5406,15 +5397,17 @@
     "migration_required": false,
     "validation": {
       "tests_added": 1,
-      "ci_status": "no_workflow_run_reported_for_current_head",
+      "ci_status": "passed_on_pr_head",
       "mysql_runtime": "not_run",
       "browser": "not_run",
-      "coverage": "حفظ علاقه‌مندی، حذف history-only، و جلوگیری از حذف سابقه حساب دیگر"
+      "coverage": "حفظ علاقه‌مندی، حذف history-only، و جلوگیری از حذف سابقه حساب دیگر",
+      "ci_run": 44941453686
     },
     "remaining": [
-      "CI برای commit فعلی هنوز run قابل مشاهده‌ای ندارد؛ ادغام تا دریافت نتیجه معتبر CI متوقف می‌ماند.",
-      "در صورت ادامه نبودن trigger، تست/build باید با workflow_dispatch از رابط GitHub اجرا شود.",
-      "سیاست retention قابل تنظیم برای تاریخچه تماشا در مرحله بعد طراحی شود."
-    ]
+      "بررسی نتیجه CI پس از ادغام روی main",
+      "طراحی و پیاده‌سازی سیاست retention قابل تنظیم برای تاریخچه تماشا"
+    ],
+    "merged_at": "2026-11-21",
+    "merge_commit": "6a4b39b160078c67178bc262a070f20f5e31eef5"
   }
 }
