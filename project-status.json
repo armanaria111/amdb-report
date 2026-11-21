@@ -581,7 +581,9 @@
       "PR107 در commit eb12658e8e17f36f1f854bbe6d788634366f3b4a ادغام شد: قرارداد هر اثر، ledger و تسویه فقط برای شرکت فعال با CompanyTitleRight تأییدشده و معتبر؛ FK واقعی company_id در allocations/settlements؛ بدون artist payee یا مسیر تسویه هنرمند.",
       "CI مربوط به PR107 موفق شد: Vite production build و ۲۱۳ تست Laravel با ۸۲۵ assertion روی SQLite؛ CI push روی main merge commit در زمان ثبت گزارش هنوز در حال اجراست.",
       "PR104 قدیمی که هنرمند را payee می‌کرد، پس از جایگزینی با PR107 به‌صورت closed/superseded بسته شد و merge نشده است.",
-      "Migrationهای حقوق شرکت، نمایندگان شرکت و درآمد به ترتیب 170000 تا 176000 مرتب شده‌اند؛ هیچ Migration روی MySQL محلی یا دیتابیس عملیاتی اجرا نشده است."
+      "Migrationهای حقوق شرکت، نمایندگان شرکت و درآمد به ترتیب 170000 تا 176000 مرتب شده‌اند؛ هیچ Migration روی MySQL محلی یا دیتابیس عملیاتی اجرا نشده است.",
+      "ممیزی inventory شاخه main در commit eb12658e8e17f36f1f854bbe6d788634366f3b4a: 929 ورودی، 68 migration، 74 مدل Eloquent، 94 Blade، 150 فایل ترجمه، 44 فایل تست، 67 controller و 15 service.",
+      "PR107 محدودسازی درآمد به شرکت‌های دارای حقوق معتبر در main ادغام شد؛ CI شاخه و push main موفق است. 213 تست و 825 assertion در CI PR گزارش شده‌اند."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1040,6 +1042,10 @@
     {
       "date": "2026-11-21",
       "text": "در PR103 انتخاب کیفیت HLS بهبود یافت: گزینه‌های تکراری رزولوشن در منوی کیفیت ادغام و بالاترین bitrate هر رزولوشن انتخاب می‌شود؛ عرض کنترل نیز محدود شد. commit: 169e2a7d60d24b8a7ba80c8f9d65f65fe93a8c9d. CI قبلی PR103 با run 44912719162 موفق بود، اما commit تکمیلی پس از آن ثبت شده و هنوز CI مجدد ندارد."
+    },
+    {
+      "date": "2026-11-21",
+      "text": "PR108 برای حذف تکی سابقه تماشا در کتابخانه کاربر ایجاد شد؛ علاقه‌مندی اثر حفظ می‌شود و عملیات به حساب واردشده محدود است. کد، تست Feature، ترجمه‌های en/fa-AF/ps و مستند viewer-experience در شاخه feature/viewer-history-privacy-controls ثبت شده‌اند؛ CI هنوز در حال انتظار/گزارش‌نشده است و PR ادغام نشده."
     }
   ],
   "architecture": {
@@ -1549,6 +1555,11 @@
       "date": "2026-11-20",
       "title": "ادغام PR90 — رفع خطاهای CI و تکمیل QA خودکار",
       "detail": "ناسازگاری Composer، migrationهای تکراری و schema، API نسخه 5 Activitylog، و چند خطای Blade اصلاح شدند. workflow CI به Composer validation، Vite build، Blade compile/lint و PHPUnit مجهز شد. اجرای نهایی 97 تست و 396 assertion را با موفقیت گذراند. اجرای MySQL محلی، مرورگر و smoke test دامنه همچنان جداگانه لازم‌اند."
+    },
+    {
+      "date": "2026-11-21",
+      "title": "PR108 — کنترل حریم خصوصی تاریخچه تماشای تکی",
+      "detail": "قابلیت حذف سابقه تماشای یک اثر به‌صورت مستقل اضافه شد. اگر اثر در علاقه‌مندی‌ها باشد فقط اطلاعات progress پاک می‌شود؛ در غیر این صورت رکورد تاریخچه حذف می‌شود. کنترل دسترسی account-scoped، شناسه عمومی am و rate limit رعایت شده‌اند. ترجمه انگلیسی/دری/پشتو و تست Feature افزوده شده‌اند. PR108 باز است و تا گزارش CI موفق ادغام نشده؛ Migration جدید ندارد."
     }
   ],
   "source_code_audit": {
@@ -4144,30 +4155,27 @@
     "notes": "گزارش ممیزی در docs/dependency-usage-audit.md مخزن اصلی قرار دارد. هیچ داده تجاری تغییر نکرده است."
   },
   "current_status": {
-    "snapshot_date": "2026-11-20",
+    "snapshot_date": "2026-11-21",
     "product_name": "Afghanistan Movie Database",
     "product_name_fa": "بانک اطلاعاتی فیلم افغانستان",
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "148429ac280e3545f2c812de76b41bd96edc0f54",
+    "source_commit": "eb12658e8e17f36f1f854bbe6d788634366f3b4a",
     "report_branch": "main",
     "source_inventory": {
-      "date": "2026-11-20",
+      "date": "2026-11-21",
       "branch": "main",
-      "commit": "8eb5ac4411f87f6ecd6ad7892d20500e8b9feaab",
-      "audit_type": "GitHub recursive tree inventory + CI validation after PR90",
-      "tree_entries": 781,
-      "migration_files": 48,
-      "eloquent_model_files": 62,
-      "blade_files": 83,
-      "translation_php_files": 126,
-      "test_php_files": 22,
-      "controller_php_files": 48,
-      "service_php_files": 2,
-      "web_route_lines": 917,
-      "named_route_calls": 206,
-      "route_declarations": 216,
+      "commit": "eb12658e8e17f36f1f854bbe6d788634366f3b4a",
+      "audit_type": "GitHub recursive tree inventory + latest main CI",
+      "tree_entries": 929,
+      "migration_files": 68,
+      "eloquent_model_files": 74,
+      "blade_files": 94,
+      "translation_php_files": 150,
+      "test_php_files": 44,
+      "controller_php_files": 67,
+      "service_php_files": 15,
       "locales": [
         "en",
         "fa-AF",
@@ -4175,11 +4183,14 @@
       ],
       "truncated": false,
       "limitations": [
-        "این اعداد شمار فایل‌ها و فراخوانی‌های سورس در commit مشخص هستند؛ تعداد جدول‌های واقعی دیتابیس یا Migrationهای اجراشده در محیط عملیاتی را نشان نمی‌دهند.",
-        "تست‌ها و Migrationها در دیتابیس موقت SQLite در CI اجرا شدند؛ این نتیجه جایگزین اجرای کنترل‌شده روی MySQL محلی یا staging نیست.",
-        "بررسی مرورگری و smoke test روی دامنه staging/production انجام نشده است."
+        "این اعداد فایل‌های موجود در Git tree شاخه main هستند و تعداد جدول‌ها یا Migrationهای اجراشده در دیتابیس زنده را نشان نمی‌دهند.",
+        "CI روی محیط موقت GitHub Actions اجرا شده است؛ جایگزین MySQL محلی/staging نیست.",
+        "بررسی مرورگری و smoke test دامنه انجام نشده است."
       ],
-      "verified_at": "2026-11-20"
+      "verified_at": "2026-11-21",
+      "web_route_lines": 1098,
+      "named_route_calls": 271,
+      "route_declarations": 262
     },
     "feature_summary": {
       "implemented_unverified": 37,
@@ -4199,7 +4210,7 @@
     "quality": {
       "tests_in_repository": 22,
       "tests_executed": true,
-      "test_result": "97 passed (396 assertions), PHP 8.5, SQLite in-memory, GitHub Actions run 44813275840",
+      "test_result": "213 tests / 825 assertions; GitHub Actions PR107 CI successful. Main push CI run 44927734593 successful.",
       "vite_build_executed": true,
       "browser_verified": false,
       "production_smoke_test": false,
@@ -4213,14 +4224,18 @@
         "در PR90 چند ناسازگاری واقعی کشف و اصلاح شد: constraint نامعتبر Blueprint، namespace و API قدیمی Spatie Activitylog، ستون‌های جدید Activitylog v5، Migration تکراری ترجمه فصل/قسمت و Blade directives پیچیده."
       ],
       "ci_migrations_executed": true,
-      "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840"
+      "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
+      "mysql_runtime_verified": false,
+      "latest_ci_run": 44927734593
     },
     "release": {
-      "latest_merged_pr": 102,
-      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/102",
-      "latest_source_commit": "148429ac280e3545f2c812de76b41bd96edc0f54",
+      "latest_merged_pr": 107,
+      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/107",
+      "latest_source_commit": "eb12658e8e17f36f1f854bbe6d788634366f3b4a",
       "source_branch": "main",
-      "verified_at": "2026-11-21"
+      "verified_at": "2026-11-21",
+      "main_ci_run": 44927734593,
+      "main_ci_conclusion": "success"
     },
     "note": "آخرین commit main برابر 148429ac280e3545f2c812de76b41bd96edc0f54 پس از ادغام PR102 است. پخش hosted اکنون HLS تطبیقی با پروفایل‌های 360p/480p/720p بدون upscaling، master playlist خصوصی و تحویل HMAC برای renditionها دارد؛ زیرنویس خصوصی و progress نیز پیاده‌سازی شده‌اند. CI با 184 تست و 700 assertion موفق است؛ FFmpeg واقعی، MySQL، storage و QA مرورگری هنوز تأیید نشده‌اند.",
     "panels": [
@@ -4307,21 +4322,18 @@
       "درصد پیشرفت کلی بدون معیار وزن‌دهی معتبر محاسبه و نمایش داده نمی‌شود."
     ],
     "source_snapshot": {
-      "date": "2026-11-20",
+      "date": "2026-11-21",
       "branch": "main",
-      "commit": "b1debc61f4c78996ea8b05569e3dd1527154da1a",
-      "audit_type": "GitHub recursive tree inventory + composer.lock/package.json + routes/web.php static inspection",
-      "tree_entries": 765,
-      "migration_files": 47,
-      "eloquent_model_files": 62,
-      "blade_files": 82,
-      "translation_php_files": 123,
-      "test_php_files": 19,
-      "controller_php_files": 47,
-      "service_php_files": 2,
-      "web_route_lines": 903,
-      "named_route_calls": 204,
-      "route_declarations": 214,
+      "commit": "eb12658e8e17f36f1f854bbe6d788634366f3b4a",
+      "audit_type": "GitHub recursive tree inventory + latest main CI",
+      "tree_entries": 929,
+      "migration_files": 68,
+      "eloquent_model_files": 74,
+      "blade_files": 94,
+      "translation_php_files": 150,
+      "test_php_files": 44,
+      "controller_php_files": 67,
+      "service_php_files": 15,
       "locales": [
         "en",
         "fa-AF",
@@ -4329,10 +4341,14 @@
       ],
       "truncated": false,
       "limitations": [
-        "این اعداد شمارش فایل‌ها و فراخوانی‌های سورس در commit مشخص هستند؛ تعداد جدول‌های واقعی دیتابیس یا Migrationهای اجراشده را نشان نمی‌دهند.",
-        "تست‌های موجود در مخزن شمرده شده‌اند اما اجرا نشده‌اند.",
-        "هیچ اتصال زنده‌ای به دیتابیس محلی یا محیط عملیاتی برای این snapshot انجام نشده است."
-      ]
+        "این اعداد فایل‌های موجود در Git tree شاخه main هستند و تعداد جدول‌ها یا Migrationهای اجراشده در دیتابیس زنده را نشان نمی‌دهند.",
+        "CI روی محیط موقت GitHub Actions اجرا شده است؛ جایگزین MySQL محلی/staging نیست.",
+        "بررسی مرورگری و smoke test دامنه انجام نشده است."
+      ],
+      "verified_at": "2026-11-21",
+      "web_route_lines": 1098,
+      "named_route_calls": 271,
+      "route_declarations": 262
     }
   },
   "historical_archive": {
@@ -4520,38 +4536,30 @@
     ]
   },
   "work_in_progress": {
-    "branch": "feature/company-only-revenue-ledger",
-    "base_commit": "ce09e8c8a4d274fd27d40d619377fdd4a7f5fae8",
-    "head_commit": "eb12658e8e17f36f1f854bbe6d788634366f3b4a",
+    "branch": "feature/viewer-history-privacy-controls",
+    "base_commit": "eb12658e8e17f36f1f854bbe6d788634366f3b4a",
+    "head_commit": "6603b1ab75d7c9a94f920152af343414bd6af667",
     "updated_at": "2026-11-21",
-    "scope": "قرارداد درآمد هر اثر، دفترکل تغییرناپذیر و تسویه فقط برای شرکت فعال دارای مدرک حقوق تأییدشده و معتبر؛ بدون هرگونه درآمد/سهم/تسویه هنرمند.",
-    "status": "company_only_revenue_merged_ci_passed_mysql_staging_unverified",
+    "scope": "افزودن کنترل حریم خصوصی برای حذف تکی سابقه تماشای هر اثر بدون حذف علاقه‌مندی.",
+    "status": "pull_request_open_ci_pending_not_merged",
+    "pull_request": {
+      "number": 108,
+      "url": "https://github.com/armanaria111/amdb-laravel2/pull/108",
+      "state": "open",
+      "merged": false
+    },
     "details": [
-      "PR105 ادغام شد: ثبت و تأیید مدارک حقوق شرکت در سطح اثر، ذخیره خصوصی، قلمرو/اعتبار، تأیید/رد/لغو با audit؛ CI PR و push main موفق.",
-      "PR106 ادغام شد: عضویت نمایندگان شرکت با نقش owner/finance/manager/viewer، داشبورد شرکت و ارسال مدرک توسط owner/manager؛ CI Vite و Laravel tests موفق.",
-      "PR107 بازنویسی company-only مبتنی بر main جدید است: قرارداد فقط با Company فعال و CompanyTitleRight تأییدشده، معتبر برای کل دوره و قلمرو قرارداد.",
-      "در ledger allocations و settlement requests ستون FK واقعی company_id جایگزین payee polymorphic artist/company شده است؛ artist payee fields/routes/dashboard حذف شده‌اند.",
-      "رویداد درآمد در زمان ثبت، وضعیت شرکت، عنوان، مدرک حقوق، تاریخ و قلمرو را دوباره اعتبارسنجی می‌کند؛ reversal با compensating entry و lock شرکت انجام می‌شود.",
-      "درخواست تسویه فقط برای نماینده فعال owner/finance مجاز است؛ مدیر مالی درخواست را بررسی می‌کند و پرداخت فقط با ثبت مرجع دستی audit می‌شود؛ انتقال وجه خودکار وجود ندارد.",
-      "Migrationهای revenue به ترتیب 172000 تا 176000 پس از company_title_rights و company_user قرار گرفتند.",
-      "PR104 قدیمی هنوز باز و دارای تعارض است؛ در آن توضیح داده شد که PR107 جایگزین آن است و پس از CI موفق بسته می‌شود.",
-      "PR107 با روش Squash ادغام شد؛ CI موفق: Vite build و ۲۱۳ تست Laravel/SQLite با ۸۲۵ assertion. PR104 قدیمی به‌عنوان superseded بسته شد.",
-      "CI push روی main برای merge commit PR107 نیز موفق شد: run 44927734593؛ Vite production build و Laravel tests.",
-      "پس از ادغام PR107، CI push روی main نیز موفق شد: run 44927734593؛ Vite production build و Laravel tests هر دو success."
+      "حذف مستقل سابقه تماشای هر اثر از کتابخانه خصوصی",
+      "در صورت favorite بودن اثر، فقط progress و last_watched_at پاک می‌شود و علاقه‌مندی باقی می‌ماند.",
+      "در غیر این صورت رکورد user_title_states متعلق به همان کاربر حذف می‌شود.",
+      "Route با public_id پایدار am و rate limit؛ scope به حساب واردشده محدود است.",
+      "ترجمه en/fa-AF/ps و تست Feature برای حفظ علاقه‌مندی و جداسازی حساب‌ها."
     ],
     "remaining": [
-      "بررسی و اجرای Migrationهای 170000 تا 176000 فقط روی MySQL staging پس از backup و آزمون rollback؛ دیتابیس محلی/عملیاتی کاربر دست‌نخورده مانده است.",
-      "پیکربندی و آزمون private storage روی هاست واقعی، محدودیت دسترسی فایل‌ها و backup مدارک حقوق.",
-      "آزمون هم‌زمانی ledger، reversal و settlement روی MySQL و آزمون مرورگر/دستگاه واقعی.",
-      "اتصال checkout و رویدادهای درآمد واقعی در مرحله جداگانه؛ هیچ پرداخت مصرف‌کننده یا انتقال وجه خودکار در این PR فعال نشده است."
-    ],
-    "pull_request": {
-      "number": 107,
-      "url": "https://github.com/armanaria111/amdb-laravel2/pull/107",
-      "state": "closed",
-      "merged": true,
-      "merge_commit": "eb12658e8e17f36f1f854bbe6d788634366f3b4a"
-    }
+      "دریافت نتیجه CI و رفع خطاهای احتمالی",
+      "بازبینی نهایی و ادغام PR108 پس از CI موفق",
+      "سیاست retention قابل تنظیم برای تاریخچه تماشا در مرحله بعد"
+    ]
   },
   "product_recommendations": {
     "title": "پیشنهادهای توسعه محصول AMDB",
@@ -5371,5 +5379,36 @@
     ],
     "url": "https://github.com/armanaria111/amdb-laravel2/pull/106",
     "merge_commit": "ce09e8c8a4d274fd27d40d619377fdd4a7f5fae8"
+  },
+  "viewer_history_privacy": {
+    "updated_at": "2026-11-21",
+    "pull_request": 108,
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/108",
+    "branch": "feature/viewer-history-privacy-controls",
+    "head_commit": "6603b1ab75d7c9a94f920152af343414bd6af667",
+    "base_commit": "eb12658e8e17f36f1f854bbe6d788634366f3b4a",
+    "status": "pull_request_open_ci_pending_not_merged",
+    "scope": [
+      "حذف مستقل سابقه تماشای هر اثر از کتابخانه خصوصی",
+      "در صورت favorite بودن اثر، فقط progress و last_watched_at پاک می‌شود و علاقه‌مندی باقی می‌ماند.",
+      "در غیر این صورت رکورد user_title_states متعلق به همان کاربر حذف می‌شود.",
+      "Route با public_id پایدار am و rate limit؛ scope به حساب واردشده محدود است.",
+      "ترجمه en/fa-AF/ps و تست Feature برای حفظ علاقه‌مندی و جداسازی حساب‌ها."
+    ],
+    "files_changed": 8,
+    "additions": 100,
+    "deletions": 1,
+    "migration_required": false,
+    "validation": {
+      "tests_added": 1,
+      "ci_status": "pending_not_yet_reported",
+      "mysql_runtime": "not_run",
+      "browser": "not_run"
+    },
+    "remaining": [
+      "دریافت نتیجه CI و رفع خطاهای احتمالی",
+      "بازبینی نهایی و ادغام PR108 پس از CI موفق",
+      "سیاست retention قابل تنظیم برای تاریخچه تماشا در مرحله بعد"
+    ]
   }
 }
