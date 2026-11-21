@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "d05c177043f094b1e66f716ff9c93e96ecc660a9",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "d05c177043f094b1e66f716ff9c93e96ecc660a9",
+    "latest_main_commit": "0c491950a757cd21424226b4fa02762ae3c58fce",
     "latest_main_commit_verified_on": "2026-11-21"
   },
   "languages": [
@@ -1078,6 +1078,10 @@
     {
       "date": "2026-11-21",
       "text": "PR111 برای ناوبری قسمت قبلی/بعدی در صفحه پخش سریال ایجاد شد. ترتیب بر اساس فصل و قسمت، شامل عبور بین فصل‌ها؛ ابتدا/انتها بدون پیوند نامعتبر. سه‌زبانه، همراه تست Feature. CI run 44942719368 در حال اجراست و PR هنوز ادغام نشده است."
+    },
+    {
+      "date": "2026-11-21",
+      "text": "PR111 ادغام شد (commit 0c491950a757cd21424226b4fa02762ae3c58fce). CI پیش از ادغام موفق: 225 تست / 883 assertion، Blade compile/lint و Vite build. CI پس از ادغام run 44942812460 در صف اجراست."
     }
   ],
   "architecture": {
@@ -1613,6 +1617,11 @@
       "date": "2026-11-21",
       "title": "PR111 — ناوبری قسمت‌های سریال",
       "detail": "پیوند قسمت قبلی/بعدی در صفحه تماشا اضافه شد. ترتیب بر اساس فصل و شماره قسمت، ناوبری بین فصل‌ها، حالت مرزی ابتدا/انتها، ترجمه سه‌زبانه و تست Feature. CI در حال اجرا؛ هنوز ادغام نشده."
+    },
+    {
+      "date": "2026-11-21",
+      "title": "ادغام PR111 — ناوبری قسمت‌های سریال",
+      "detail": "ناوبری قسمت قبلی/بعدی با ترتیب فصل و قسمت، عبور بین فصل‌ها، عدم نمایش لینک در ابتدا و انتها، ترجمه سه‌زبانه و تست‌ها ادغام شد. CI قبل از ادغام موفق: 225 تست / 883 assertion؛ CI پس از ادغام در صف است."
     }
   ],
   "source_code_audit": {
@@ -4214,7 +4223,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "8a2f66e548dc230c70f77f1991c6ba7ef628ee3e",
+    "source_commit": "0c491950a757cd21424226b4fa02762ae3c58fce",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-21",
@@ -4263,7 +4272,7 @@
     "quality": {
       "tests_in_repository": 22,
       "tests_executed": true,
-      "test_result": "PR110 CI successful: 217 tests passed / 845 assertions; Laravel tests, Blade compilation/lint and Vite production build passed. Post-merge main push CI run 44942382448 is in progress.",
+      "test_result": "PR111 CI successful: 225 tests passed / 883 assertions; Blade compilation/lint and Vite production build passed. Post-merge main push CI run 44942812460 is queued.",
       "vite_build_executed": true,
       "browser_verified": false,
       "production_smoke_test": false,
@@ -4279,17 +4288,18 @@
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
       "mysql_runtime_verified": false,
-      "latest_ci_run": 44942329152,
-      "main_ci_conclusion": "in_progress"
+      "latest_ci_run": 44942719368,
+      "main_ci_conclusion": "in_progress",
+      "pull_request_ci_conclusion": "success"
     },
     "release": {
-      "latest_merged_pr": 110,
-      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/110",
-      "latest_source_commit": "8a2f66e548dc230c70f77f1991c6ba7ef628ee3e",
+      "latest_merged_pr": 111,
+      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/111",
+      "latest_source_commit": "0c491950a757cd21424226b4fa02762ae3c58fce",
       "source_branch": "main",
       "verified_at": "2026-11-21",
-      "main_ci_run": 44942382448,
-      "main_ci_conclusion": "in_progress",
+      "main_ci_run": 44942812460,
+      "main_ci_conclusion": "queued",
       "main_ci_verified_at": "2026-11-21"
     },
     "note": "آخرین commit main برابر 148429ac280e3545f2c812de76b41bd96edc0f54 پس از ادغام PR102 است. پخش hosted اکنون HLS تطبیقی با پروفایل‌های 360p/480p/720p بدون upscaling، master playlist خصوصی و تحویل HMAC برای renditionها دارد؛ زیرنویس خصوصی و progress نیز پیاده‌سازی شده‌اند. CI با 184 تست و 700 assertion موفق است؛ FFmpeg واقعی، MySQL، storage و QA مرورگری هنوز تأیید نشده‌اند.",
@@ -4591,37 +4601,13 @@
     ]
   },
   "work_in_progress": {
-    "branch": "feature/series-episode-navigation",
+    "branch": "main",
     "updated_at": "2026-11-21",
-    "status": "pull_request_open_ci_running",
-    "latest_merged_pr": 110,
-    "merged_commit": "8a2f66e548dc230c70f77f1991c6ba7ef628ee3e",
-    "pull_request": {
-      "number": 111,
-      "url": "https://github.com/armanaria111/amdb-laravel2/pull/111",
-      "state": "open",
-      "merged": false
-    },
-    "head_commit": "2b4b6d146598938d4e042845e627b0c6e5fb7785",
-    "scope": "ناوبری قسمت قبلی/بعدی در صفحه تماشای سریال، با ترتیب فصل و قسمت و عبور از مرز فصل‌ها.",
-    "details": [
-      "ترتیب قسمت‌ها بر اساس شماره فصل و سپس شماره قسمت محاسبه می‌شود.",
-      "برای نخستین قسمت پیوند قبلی و برای آخرین قسمت پیوند بعدی نمایش داده نمی‌شود.",
-      "پیوندها از مسیر عمومی پخش با شناسه اثر و episode استفاده می‌کنند؛ کنترل تعلق قسمت به اثر در کنترلر باقی است.",
-      "ترجمه‌های انگلیسی، دری و پشتو و تست Feature اضافه شده‌اند.",
-      "پخش خودکار فعال نشده و رضایت صریح برای بارگذاری پلیر بیرونی همچنان برقرار است."
-    ],
-    "validation": {
-      "ci_run": 44942719368,
-      "status": "in_progress",
-      "main_ci_after_pr110": "success",
-      "mysql_runtime": "not_run",
-      "browser": "not_run"
-    },
-    "remaining": [
-      "دریافت نتیجه CI مربوط به PR111",
-      "بازبینی تست‌ها و ادغام فقط در صورت موفقیت کامل"
-    ]
+    "status": "pr111_merged_post_merge_ci_queued",
+    "latest_merged_pr": 111,
+    "merged_commit": "0c491950a757cd21424226b4fa02762ae3c58fce",
+    "pull_request": "https://github.com/armanaria111/amdb-laravel2/pull/111",
+    "next": "Verify post-merge CI, then continue playback integration (Aparat progress capability review and provider-safe playback UX)."
   },
   "product_recommendations": {
     "title": "پیشنهادهای توسعه محصول AMDB",
@@ -5217,10 +5203,11 @@
       }
     },
     "series_episode_navigation": {
-      "status": "implemented_pr_open",
+      "status": "merged",
       "pr": 111,
       "url": "https://github.com/armanaria111/amdb-laravel2/pull/111",
-      "note": "Navigation only; no autoplay, no rights/access bypass, player consent remains required."
+      "merge_commit": "0c491950a757cd21424226b4fa02762ae3c58fce",
+      "note": "Navigation by season and episode sequence, boundary links omitted, cross-season navigation supported. No autoplay or rights/access bypass."
     }
   },
   "audience_creator_experience": {
@@ -5519,7 +5506,7 @@
     "url": "https://github.com/armanaria111/amdb-laravel2/pull/111",
     "branch": "feature/series-episode-navigation",
     "head_commit": "2b4b6d146598938d4e042845e627b0c6e5fb7785",
-    "status": "open_ci_running_not_merged",
+    "status": "merged",
     "behavior": "ترتیب فصل سپس قسمت؛ ناوبری قبلی/بعدی میان فصل‌ها؛ عدم نمایش پیوند در دو انتهای فهرست",
     "locales": [
       "en",
@@ -5531,13 +5518,20 @@
     "deletions": 1,
     "validation": {
       "ci_run": 44942719368,
-      "status": "in_progress",
+      "ci_status": "passed",
+      "tests": "225 passed / 883 assertions",
+      "blade_compile_and_lint": "passed",
+      "vite_production_build": "passed",
+      "post_merge_main_ci_run": 44942812460,
+      "post_merge_main_ci_status": "queued",
       "mysql_runtime": "not_run",
       "browser": "not_run"
     },
     "remaining": [
-      "CI باید کامل موفق شود؛ سپس ادغام.",
-      "تست واقعی در مرورگر/MySQL پس از همگام‌سازی کاربر انجام می‌شود."
-    ]
+      "بررسی نتیجه CI پس از ادغام روی main",
+      "تأیید تجربه واقعی ناوبری در مرورگر پس از همگام‌سازی"
+    ],
+    "merged_at": "2026-11-21",
+    "merge_commit": "0c491950a757cd21424226b4fa02762ae3c58fce"
   }
 }
