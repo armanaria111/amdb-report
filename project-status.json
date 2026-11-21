@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "bced37cd23e4fe423967f6253b6cd8f617ce1325",
+    "source_commit_audited": "599d407186e69fe9bb2c50fadb36d0abdc40279d",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "bced37cd23e4fe423967f6253b6cd8f617ce1325",
+    "latest_main_commit": "599d407186e69fe9bb2c50fadb36d0abdc40279d",
     "latest_main_commit_verified_on": "2026-11-21"
   },
   "languages": [
@@ -535,7 +535,10 @@
       "بازبینی همه PRهای مخزن اصلی انجام شد؛ PRهای 92 تا 96 ادغام‌شده‌اند و تنها PR91 پرداخت زرین‌پال باز بود.",
       "PR91 به‌دلیل عقب‌ماندگی ۱۶ commit از main و شکست CI بسته شد؛ تغییرات آن روی شاخه تازه مبتنی بر main در PR97 بازسازی شد تا تغییرات PR92 تا PR96 از دست نروند.",
       "CI اولیه PR97 خطای import کنترلر را نشان داد؛ import در routes/web.php اصلاح و PR97 برای اجرای مجدد CI آماده بررسی شد. CI جدید run 44908547974 در حال اجراست و هنوز نتیجه نهایی ندارد.",
-      "در PR97 چهار تست callback پرداخت در نظر گرفته شده‌اند: callback لغو غیرقابل اعتماد، تأیید موفق سمت سرور، شکست verify بدون فعال‌سازی و idempotency callback تکراری. فعال‌سازی پرداخت تا عبور CI و آزمون sandbox غیرفعال می‌ماند."
+      "در PR97 چهار تست callback پرداخت در نظر گرفته شده‌اند: callback لغو غیرقابل اعتماد، تأیید موفق سمت سرور، شکست verify بدون فعال‌سازی و idempotency callback تکراری. فعال‌سازی پرداخت تا عبور CI و آزمون sandbox غیرفعال می‌ماند.",
+      "PR97 پرداخت زرین‌پال بر پایه main جاری ادغام شد؛ merge commit 599d407186e69fe9bb2c50fadb36d0abdc40279d. CI run 44908547974 موفق بود: Vite production build و Laravel tests هر دو موفق شدند.",
+      "پرداخت آنلاین اشتراک هنرمند با کنترل مالکیت پروفایل، مبلغ ذخیره‌شده IRR، تأیید server-side، callback غیرقابل اعتماد، idempotency و ترجمه en/fa-AF/ps در main موجود است. قابلیت بدون Merchant ID خاموش است و آزمون sandbox/تراکنش واقعی انجام نشده است.",
+      "PR98 برای بررسی حقوق و بسته HLS خصوصی ایجاد شد: تأیید/رد/لغو با ثبت بازبین و یادداشت، کنترل حقوق و اعتبار فایل playlist/segment، و مسدودسازی مدل‌های پولی تا پیاده‌سازی entitlement. CI run 44909071708 در حال اجراست؛ هنوز ادغام نشده است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -910,6 +913,10 @@
     {
       "date": "2026-11-21",
       "text": "PR91 قدیمی به‌علت diverged بودن از main بسته شد و به‌جای ادغام شاخه قدیمی، پرداخت زرین‌پال روی آخرین main در PR97 بازسازی شد. خطای import کنترلر شناسایی و رفع شد؛ CI run 44908547974 در حال اجراست. PR97 هنوز ادغام نشده است."
+    },
+    {
+      "date": "2026-11-21",
+      "text": "PR97 پرداخت زرین‌پال با CI کامل موفق ادغام شد؛ merge commit 599d407186e69fe9bb2c50fadb36d0abdc40279d. PR98 برای گردش‌کار بررسی حقوق و بسته HLS خصوصی ساخته شد؛ CI run 44909071708 در حال اجراست و تا موفقیت تست‌ها ادغام نخواهد شد."
     }
   ],
   "architecture": {
@@ -4017,7 +4024,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "8eb5ac4411f87f6ecd6ad7892d20500e8b9feaab",
+    "source_commit": "599d407186e69fe9bb2c50fadb36d0abdc40279d",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-20",
@@ -4083,13 +4090,13 @@
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840"
     },
     "release": {
-      "latest_merged_pr": 90,
-      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/90",
-      "latest_source_commit": "8eb5ac4411f87f6ecd6ad7892d20500e8b9feaab",
+      "latest_merged_pr": 97,
+      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/97",
+      "latest_source_commit": "599d407186e69fe9bb2c50fadb36d0abdc40279d",
       "source_branch": "main",
-      "verified_at": "2026-11-20"
+      "verified_at": "2026-11-21"
     },
-    "note": "آخرین مبنای سورس commit 8eb5ac4411f87f6ecd6ad7892d20500e8b9feaab پس از ادغام PR90 است. CI شامل Composer validation، build، compile/lint همه Bladeها و ۹۷ تست موفق روی SQLite موقت است؛ دیتابیس MySQL کاربر و مرورگر/دامنه عملیاتی هنوز تأیید نشده‌اند. دو قابلیت وابسته به تصمیم/ارائه‌دهنده همچنان برنامه‌ریزی‌شده‌اند: بازارچه افزونه‌های مستقل و درگاه پرداخت آنلاین.",
+    "note": "آخرین commit شاخه main برابر 599d407186e69fe9bb2c50fadb36d0abdc40279d پس از ادغام PR97 است. پرداخت زرین‌پال در سورس ادغام شده ولی فعال‌سازی عملیاتی به Merchant ID و آزمون sandbox نیاز دارد. snapshot آماری source_inventory قدیمی است و در این به‌روزرسانی دوباره شمارش نشده؛ دیتابیس MySQL زنده و QA مرورگری تأیید نشده‌اند.",
     "panels": [
       {
         "id": "admin",
@@ -5099,18 +5106,18 @@
       "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44877119121"
     },
     {
-      "branch": "feature/zarinpal-checkout-mainline",
-      "pull_request": 97,
-      "title": "Add ZarinPal artist subscription checkout on current main",
-      "head_commit": "e641a0268dabd366fe0a5af3c684d859caae2949",
-      "base_commit": "bced37cd23e4fe423967f6253b6cd8f617ce1325",
+      "branch": "feature/hosted-playback-package-review",
+      "pull_request": 98,
+      "title": "Add rights-aware review for private hosted HLS packages",
+      "head_commit": "04d01d498527cabc589aead9bf3bbd3a3bff13c9",
+      "base_commit": "599d407186e69fe9bb2c50fadb36d0abdc40279d",
       "status": "ready_for_review_ci_running",
-      "scope": "درگاه زرین‌پال برای اشتراک هنرمند با حفظ پرداخت بانکی دستی، بررسی server-side، مالکیت پروفایل، ثبت Authority، callback غیرقابل اعتماد، idempotency و ترجمه سه‌زبانه؛ چهار تست Feature.",
-      "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44908547974",
+      "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44909071708",
+      "scope": "پنل مدیریت فایل‌های خصوصی، بارگذاری قرنطینه‌ای، تأیید حقوق، بررسی integrity playlist/segments، ثبت reviewer/timestamp/note، رد و لغو تأیید.",
       "limitations": [
-        "CI هنوز در حال اجراست؛ ادغام نشده است.",
-        "بدون merchant ID checkout مخفی/غیرفعال است؛ sandbox و تراکنش واقعی انجام نشده‌اند.",
-        "پرداخت رمزارزی در این PR وجود ندارد و به تصمیم شبکه/آدرس دریافت نیاز دارد."
+        "بسته approved همچنان خصوصی و غیرقابل پخش عمومی است؛ signed manifest/segment delivery در مرحله بعدی است.",
+        "مدل‌های rent/purchase/subscription/ad-supported برای hosted مسدود هستند تا entitlement و billing سمت سرور تکمیل شوند.",
+        "Migration جدید هنوز روی MySQL محلی/staging اجرا نشده و FFmpeg واقعی نیز تأیید نشده است."
       ]
     }
   ]
