@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "eb12658e8e17f36f1f854bbe6d788634366f3b4a",
+    "source_commit_audited": "d05c177043f094b1e66f716ff9c93e96ecc660a9",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "8a2f66e548dc230c70f77f1991c6ba7ef628ee3e",
+    "latest_main_commit": "d05c177043f094b1e66f716ff9c93e96ecc660a9",
     "latest_main_commit_verified_on": "2026-11-21"
   },
   "languages": [
@@ -583,7 +583,15 @@
       "PR104 قدیمی که هنرمند را payee می‌کرد، پس از جایگزینی با PR107 به‌صورت closed/superseded بسته شد و merge نشده است.",
       "Migrationهای حقوق شرکت، نمایندگان شرکت و درآمد به ترتیب 170000 تا 176000 مرتب شده‌اند؛ هیچ Migration روی MySQL محلی یا دیتابیس عملیاتی اجرا نشده است.",
       "ممیزی inventory شاخه main در commit eb12658e8e17f36f1f854bbe6d788634366f3b4a: 929 ورودی، 68 migration، 74 مدل Eloquent، 94 Blade، 150 فایل ترجمه، 44 فایل تست، 67 controller و 15 service.",
-      "PR107 محدودسازی درآمد به شرکت‌های دارای حقوق معتبر در main ادغام شد؛ CI شاخه و push main موفق است. 213 تست و 825 assertion در CI PR گزارش شده‌اند."
+      "PR107 محدودسازی درآمد به شرکت‌های دارای حقوق معتبر در main ادغام شد؛ CI شاخه و push main موفق است. 213 تست و 825 assertion در CI PR گزارش شده‌اند.",
+      "PR109 با روش Squash در main ادغام شد؛ merge commit d05c177043f094b1e66f716ff9c93e96ecc660a9. مرحله ۴ پخش: title_offers، viewer_orders، viewer_order_items و viewer_entitlements به‌صورت Migration افزایشی اضافه شدند.",
+      "مدل‌های رایگان، تبلیغ‌محور، اجاره، خرید و اشتراک مدت‌دار برای هر اثر پشتیبانی می‌شوند؛ مدت اجاره ۱ تا ۷۲۰ ساعت و اشتراک اثر ۱ تا ۳۶۵ روز محدود شده است. اشتراک هنرمند کاملاً جدا باقی مانده است.",
+      "صفحه مدیریت پیشنهادهای اثر به مسیر مدیریت پخش اضافه شد؛ فعال‌سازی پیشنهاد به حقوق معتبر شرکت و برای مدل‌های درآمدی به قرارداد تأییدشده، ارز و قلمرو منطبق وابسته است.",
+      "سفارش در وضعیت pending هیچ حق تماشا ایجاد نمی‌کند؛ تأیید پرداخت از مسیر سرویس trusted، entitlement و رویداد دفترکل شرکت را در یک تراکنش می‌سازد. snapshot قیمت/شرایط سفارش و entitlement محافظت شده‌اند.",
+      "صفحه عمومی تماشا پیشنهادهای فعال را با قیمت، مدت و قلمرو نمایش می‌دهد؛ خرید/اجاره هنوز دکمه checkout یا پرداخت عمومی ندارد. entitlement تبلیغ‌محور تا زمان اتصال سامانه تبلیغات قابل صدور نیست.",
+      "CI سرشاخه PR109 موفق شد: Vite production build و ۲۲۱ تست Laravel با ۸۵۶ assertion روی SQLite؛ CI push روی main نیز موفق شد: run 44942382448 با ۲۲۱ تست و ۸۵۶ assertion.",
+      "PR110 مربوط به نگهداری تاریخچه تماشا نیز ادغام شد؛ merge commit 8a2f66e548dc230c70f77f1991c6ba7ef628ee3e. CI سرشاخه موفق بود: ۲۱۷ تست و ۸۴۵ assertion؛ CI push روی main پس از PR109 نیز با ۲۲۱ تست و ۸۵۶ assertion موفق شد.",
+      "هیچ Migration روی MySQL محلی، staging یا دیتابیس عملیاتی کاربر اجرا نشده است؛ تمام اجرای CI روی SQLite موقت بوده است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1427,17 +1435,17 @@
     },
     {
       "phase": "۱۲. پخش آنلاین و فروش آثار",
-      "state": "implementation_in_progress_unverified_pr_92",
+      "state": "phase4_offers_orders_entitlements_merged_ci_passed_phase5_checkout_pending",
       "items": [
         "تصمیم مصوب: میزبانی ترکیبی AMDB و منابع بیرونی مجاز؛ منبع پیش‌فرض مدیر با امکان انتخاب منبع فعال توسط بیننده؛ همه مدل‌های درآمدی رایگان، تبلیغ‌محور، اجاره، خرید و اشتراک.",
         "مرحله ۰: ممیزی مدل‌های Title/Episode، رسانه، پرداخت، مجوزها، پکیج‌ها و Migrationهای موجود؛ طراحی ERD بدون تکرار.",
-        "مرحله ۱ در PR92 به‌صورت کد آماده شده: PlaybackSource مستقل از title_media، پنل مدیریت منابع اثر/قسمت، ثبت حقوق و مدرک مجوز، زمان‌بندی و منبع پیش‌فرض یکتا؛ PR هنوز ادغام نشده و migration اجرا نشده است.",
-        "بخش پایه مرحله ۲ در PR92 آماده شده: adapterهای امن YouTube/Aparat، allowlist و تولید embed سمت سرور؛ صفحه تماشای عمومی پشت ماژول خاموش پیش‌فرض و محدود به منابع رایگان دارای حقوق و مدرک معتبر، با بارگذاری iframe پس از کلیک کاربر.",
+        "مرحله ۱ در main ادغام شده است: PlaybackSource مستقل از title_media، پنل مدیریت منابع اثر/قسمت، ثبت حقوق و مدرک مجوز، زمان‌بندی و منبع پیش‌فرض یکتا؛ CI موفق.",
+        "مرحله ۲ در main ادغام شده است: adapterهای امن YouTube/Aparat، allowlist و تولید embed سمت سرور؛ صفحه عمومی پشت ماژول خاموش پیش‌فرض و فقط منابع رایگان دارای حقوق معتبر را پخش می‌کند.",
         "مرحله ۱: PlaybackSource مستقل با چند منبع برای هر اثر/قسمت، وضعیت حقوقی/انتشار، منبع پیش‌فرض یکتا و CRUD مدیر.",
-        "مرحله ۳، بخش دستی: primary still مستقل برای هر Episode با همگام‌سازی episodes.still_path و نمایش تصویر قسمت در صفحه عمومی در PR92 آماده شده؛ دریافت/refresh خودکار thumbnail رسمی YouTube هنوز باقی است.",
+        "مرحله ۳ بخش دستی در main ادغام شده است: still مستقل هر Episode با همگام‌سازی episodes.still_path و نمایش در صفحه عمومی؛ دریافت/refresh خودکار thumbnail رسمی YouTube هنوز باقی است.",
         "مرحله ۲: adapter منابع خارجی مجاز مانند YouTube و Aparat، allowlist و embed امن؛ کاربر منبع فعال را انتخاب می‌کند.",
         "مرحله ۳: پوستر اصلی دستی و مستقل Title؛ thumbnail اختصاصی هر Episode با thumbnail رسمی منبع YouTube و override دستی.",
-        "مرحله ۴: Offer/Price، Order، OrderItem و Entitlement برای رایگان، تبلیغ‌محور، اجاره، خرید و اشتراک.",
+        "مرحله ۴ در PR109 ادغام شده است: title_offers، viewer_orders، viewer_order_items و viewer_entitlements برای رایگان، تبلیغ‌محور، اجاره، خرید و اشتراک مدت‌دار؛ مدیریت پیشنهاد در پنل مدیر، snapshotهای immutable و الزام حقوق/قرارداد معتبر شرکت. CI سرشاخه و main موفق.",
         "مرحله ۵: checkout مصرف‌کننده با درگاه مستقل، webhook امن، idempotency، تطبیق مبلغ/ارز و refund؛ جدا از پرداخت اشتراک هنرمند.",
         "مرحله ۶: اتصال مدل تبلیغ‌محور به سامانه تبلیغات با رضایت، برچسب‌گذاری و محدودیت صفحات حساس.",
         "مرحله ۷: پخش اختصاصی با storage خصوصی، transcode صفی، HLS، CDN، زیرنویس و کنترل هزینه.",
@@ -1446,7 +1454,8 @@
         "هیچ مسیر پولی/میزبانی اختصاصی پیش از تکمیل حقوق انتشار، پیکربندی provider و آزمون پذیرش فعال نشود.",
         "پیشرفت تماشا و ادامه تماشا به Title/Episode متصل و مستقل از PlaybackSource باشد؛ علاقه‌مندی و تاریخچه از حق دسترسی (Entitlement) جدا بمانند.",
         "تقسیم درآمد بر مبنای قرارداد معتبر هر اثر؛ snapshot نسخه قرارداد و مبنای محاسبه هنگام ثبت رویداد درآمد/سفارش، گزارش قابل حسابرسی و کنترل refund/chargeback.",
-        "داشبورد مالی شرکت صاحب حقوق و نمایندگان owner/finance به گزارش آمار و درآمد آثار مجاز، قراردادها، کسورات و درخواست تسویه محدود است؛ هنرمندان و عوامل فیلم پنل درآمد یا تسویه ندارند."
+        "داشبورد مالی شرکت صاحب حقوق و نمایندگان owner/finance به گزارش آمار و درآمد آثار مجاز، قراردادها، کسورات و درخواست تسویه محدود است؛ هنرمندان و عوامل فیلم پنل درآمد یا تسویه ندارند.",
+        "پرداخت عمومی مصرف‌کننده، checkout و webhook هنوز فعال نیستند؛ مرحله ۵ باید با adapter مستقل، تطبیق مبلغ/ارز، idempotency و refund انجام شود. درگاه پرداخت اشتراک هنرمند به فروش آثار تعمیم داده نمی‌شود."
       ]
     }
   ],
@@ -2930,10 +2939,10 @@
     "تأیید رفتار runtime Activitylog، Sitemap، Chart.js، SEO و اعلان‌ها.",
     "بررسی تکمیل تمام مسیرهای پنل مدیریت، کاربر عادی و هنرمند و رفع موارد ناقص.",
     "تعیین سیاست و اولویت توسعه درگاه پرداخت و قابلیت‌های باقی‌مانده پس از QA.",
-    "PR104 قدیمی superseded است و نباید ادغام شود؛ بازنویسی company-only در PR107 قرار دارد و CI آن در حال اجراست: https://github.com/armanaria111/amdb-laravel2/pull/107",
-    "PR105 ادغام شد؛ CI سرشاخه و CI push روی main هر دو موفق‌اند (merge d5e96008bf7e0c5d7c712991f40c33e85cf1a05f).",
-    "PR106 دسترسی نمایندگان شرکت و داشبورد/ارسال مدارک حقوق ادغام شد؛ CI موفق است.",
-    "CI PR107 و push روی main هر دو موفق‌اند؛ باقی‌مانده اصلی آزمون MySQL/staging، backup/rollback، private storage و مرورگر است. هیچ Migration روی دیتابیس کاربر اجرا نشده است."
+    "PR109 مرحله ۴ پیشنهادها، سفارش‌ها و entitlement در main ادغام شد؛ CI سرشاخه و main موفق است (۲۲۱ تست / ۸۵۶ assertion). Checkout عمومی هنوز فعال نیست.",
+    "PR110 تنظیم نگهداری تاریخچه تماشا ادغام شد؛ CI سرشاخه و main موفق است. اجرای Migration و scheduler در MySQL staging پس از backup باقی است.",
+    "مرحله بعد پخش: ساخت چارچوب checkout مصرف‌کننده و webhook امن، بدون تعمیم درگاه اشتراک هنرمند؛ تا انتخاب و پیکربندی provider هیچ پرداخت واقعی فعال نمی‌شود.",
+    "اجرای Migrationهای جدید فقط پس از backup، بررسی migrate:status و آزمون MySQL staging؛ هیچ Migration روی دیتابیس محلی یا عملیاتی کاربر اجرا نشده است."
   ],
   "post_pr21_localization": {
     "date": "2026-11-18",
@@ -4575,11 +4584,11 @@
   "work_in_progress": {
     "branch": "main",
     "updated_at": "2026-11-21",
-    "status": "pr110_merged_post_merge_ci_running",
-    "latest_merged_pr": 110,
-    "merged_commit": "8a2f66e548dc230c70f77f1991c6ba7ef628ee3e",
-    "pull_request": "https://github.com/armanaria111/amdb-laravel2/pull/110",
-    "next": "Verify post-merge main CI, then continue with the next viewer/playback integration task."
+    "status": "pr109_merged_main_ci_passed_next_phase5_consumer_checkout",
+    "latest_merged_pr": 109,
+    "merged_commit": "d05c177043f094b1e66f716ff9c93e96ecc660a9",
+    "pull_request": "https://github.com/armanaria111/amdb-laravel2/pull/109",
+    "next": "Begin phase 5 with a provider-neutral consumer checkout/webhook foundation; keep live payments disabled until provider, currencies and staging are approved."
   },
   "product_recommendations": {
     "title": "پیشنهادهای توسعه محصول AMDB",
@@ -4924,7 +4933,7 @@
   },
   "playback_architecture": {
     "title": "مدل داده پیشنهادی برای پخش",
-    "note": "تصمیم‌های محصول و سند معماری مصوب‌اند. PR92 و زیرساخت ذخیره‌سازی خصوصی، اسکن بدافزار، FFprobe و تبدیل خصوصی HLS تا سقف 720p در main ادغام شده‌اند و CI موفق است؛ Migrationها و runtime روی MySQL محلی/staging، نصب واقعی FFmpeg/ClamAV/FFprobe، CDN، signed delivery و entitlement همچنان تأیید نشده‌اند. قابلیت‌ها به‌صورت پیش‌فرض خاموش و خروجی‌ها قرنطینه باقی می‌مانند.",
+    "note": "مرحله‌های پایه منابع پخش، منابع خارجی مجاز، HLS تطبیقی/زیرنویس و مرحله ۴ پیشنهاد/سفارش/entitlement در main ادغام شده‌اند و CI موفق است. Checkout مصرف‌کننده، تبلیغات، اجرای Migrationها و runtime روی MySQL، CDN واقعی و پذیرش staging هنوز انجام نشده‌اند. ماژول playback به‌صورت پیش‌فرض خاموش باقی می‌ماند.",
     "content_modes": [
       "catalog_only",
       "amdb_hosted",
@@ -4987,9 +4996,9 @@
     "proposed_domain_components": [
       "PlaybackSource: هدف Title یا Episode، provider، نوع منبع، source reference، embed URL تولیدشده سمت سرور، status، language، access_model، is_default، sort_order و metadata حقوق انتشار.",
       "HostedMediaAsset: فایل خصوصی، checksum، اندازه، codec، resolution، duration، وضعیت پردازش، نسخه‌های HLS و زیرنویس‌ها؛ با بازاستفاده از مدل رسانه/Spatie موجود پس از ممیزی.",
-      "Offer/Price: مدل دسترسی، مبلغ، ارز، دوره اعتبار و وضعیت عرضه.",
-      "Order و OrderItem: snapshot مبلغ/ارز/قیمت زمان خرید و وضعیت سفارش.",
-      "Entitlement: حق دسترسی با منبع ایجادکننده، زمان شروع/پایان، وضعیت و امکان ابطال.",
+      "Offer/Price در PR109 پیاده‌سازی شد: title_offers با مدل دسترسی، قیمت، ارز، مدت و قلمرو؛ فقط پیشنهاد تأییدشده قابل نمایش است.",
+      "Order و OrderItem در PR109 پیاده‌سازی شدند: snapshot immutable قیمت/ارز/مدت/قلمرو و idempotency key.",
+      "Entitlement در PR109 پیاده‌سازی شد: حق دسترسی کاربر با منبع، زمان شروع/پایان، قلمرو و امکان ابطال audit‌شده.",
       "PlaybackPayment: پرداخت مصرف‌کننده جدا از پرداخت اشتراک هنرمند؛ adapter درگاه مستقل و قابل تعویض."
     ],
     "playback_security": [
@@ -5024,7 +5033,20 @@
       {
         "id": 4,
         "name": "دسترسی و مدل تجاری",
-        "deliverable": "Offer/Price، Order، OrderItem، Entitlement و سیاست رایگان/اجاره/خرید/اشتراک"
+        "deliverable": "Offer/Price، Order، OrderItem، Entitlement و سیاست رایگان/اجاره/خرید/اشتراک",
+        "status": "merged_to_main_ci_passed_mysql_staging_unverified",
+        "completed": [
+          "Offer/Price با پنج مدل رایگان، تبلیغ‌محور، اجاره، خرید و اشتراک مدت‌دار",
+          "Order و OrderItem با snapshot قیمت، ارز، مدت و قلمرو",
+          "Entitlement با زمان شروع/پایان، قلمرو، وضعیت و منبع ایجاد",
+          "پنل مدیر برای ساخت پیش‌نویس، تأیید و تعلیق پیشنهادهای اثر",
+          "کنترل حقوق معتبر شرکت و قرارداد درآمدی هنگام تأیید پیشنهاد و ایجاد سفارش",
+          "ایجاد entitlement و ثبت رویداد دفترکل شرکت فقط پس از تأیید پرداخت از سرویس trusted"
+        ],
+        "remaining": [
+          "checkout و درگاه مصرف‌کننده، webhook امن، تطبیق تراکنش و refund در مرحله ۵",
+          "اتصال تحویل پخش به entitlement با تعیین مطمئن قلمرو تماشاگر و پذیرش staging"
+        ]
       },
       {
         "id": 5,
@@ -5099,7 +5121,7 @@
       "branch": "feature/viewer-experience-foundation",
       "pull_request": 92,
       "head_commit": "f42c79d1df155ccb3e4075603a6219a949e1fb17",
-      "status": "viewer_playback_foundation_and_private_hls_transcoding_merged_ci_passed_runtime_mysql_and_public_delivery_unverified",
+      "status": "playback_sources_private_hls_and_viewer_commerce_phase4_merged_ci_passed_mysql_checkout_and_public_paid_delivery_unverified",
       "completed_in_branch": [
         "مرحله ۱: مدل و Migration مستقل PlaybackSource برای Title و Episode، پنل CRUD مدیر، ثبت وضعیت حقوق، دارنده حقوق/شناسه مجوز، زمان‌بندی، مدل دسترسی و منبع پیش‌فرض یکتا در هر هدف.",
         "مرحله ۲: adapterهای YouTube و Aparat با تبدیل URL معتبر به embed URL سمت سرور؛ allowlist میزبان و مسیر و رد URLهای غیر HTTPS یا نامعتبر.",
@@ -5111,18 +5133,23 @@
         "PR92 با موفقیت در main ادغام شد؛ commit نهایی f42c79d1df155ccb3e4075603a6219a949e1fb17.",
         "CI مربوط به سرشاخه نهایی PR92 موفق شد: Vite production build و مجموعه تست‌های Laravel هر دو با conclusion=success.",
         "PR96 با روش Squash در main ادغام شد؛ merge commit bced37cd23e4fe423967f6253b6cd8f617ce1325. CI run 44877119121 با conclusion=success پایان یافت: AMDB CI.",
-        "مرحله تبدیل خصوصی HLS اضافه شد: FFmpeg worker فقط assetهای probe_passed را می‌پذیرد، اندازه و SHA-256 را دوباره بررسی می‌کند، HLS تک‌کیفیت تا 720p را روی دیسک خصوصی مجاز می‌سازد و metadata بسته را در حالت قرنطینه نگه می‌دارد."
+        "مرحله تبدیل خصوصی HLS اضافه شد: FFmpeg worker فقط assetهای probe_passed را می‌پذیرد، اندازه و SHA-256 را دوباره بررسی می‌کند، HLS تک‌کیفیت تا 720p را روی دیسک خصوصی مجاز می‌سازد و metadata بسته را در حالت قرنطینه نگه می‌دارد.",
+        "PR109 مرحله ۴ Offer/Price، Order/OrderItem و Entitlement را به main افزود؛ مدل‌های رایگان، تبلیغ‌محور، اجاره، خرید و اشتراک مدت‌دار، پنل پیشنهادهای مدیر و نمایش پیشنهادهای فعال در صفحه تماشا.",
+        "سفارش pending دسترسی ایجاد نمی‌کند؛ تأیید پرداخت در سرویس trusted، entitlement و ledger event شرکت را تراکنشی ثبت می‌کند. حقوق و قرارداد شرکت هنگام تأیید پیشنهاد و ایجاد سفارش دوباره اعتبارسنجی می‌شوند.",
+        "PR109 ادغام شد و CI سرشاخه و main موفق است: ۲۲۱ تست Laravel با ۸۵۶ assertion روی SQLite، به‌علاوه Vite build."
       ],
       "not_implemented_or_unverified": [
         "Migrationهای افزایشی PR92 هنوز روی دیتابیس محلی/عملیاتی اجرا نشده‌اند؛ CI تست‌ها را روی SQLite موقت اجرا کرده است. بررسی MySQL واقعی، backup/rollback و آزمون staging همچنان لازم است.",
-        "ad_supported، rent، purchase و subscription در حال حاضر metadata هستند و از صفحه عمومی پخش ارائه نمی‌شوند.",
+        "Checkout و پرداخت مصرف‌کننده، webhook، refund و اتصال entitlement به تحویل پخش هنوز باقی است؛ هیچ پرداخت عمومی فعال نشده است.",
         "بازیابی خودکار thumbnail رسمی YouTube از metadata/oEmbed و refresh/cache آن هنوز پیاده‌سازی نشده؛ تصویر دستی قسمت فعلاً مسیر اصلی و override قابل اتکا است.",
         "progress فعلی فقط از YouTube IFrame Player API دریافت می‌شود؛ داده ارسالی مرورگر کم‌اعتماد است و نباید برای view-count مالی یا settlement استفاده شود. اتصال Aparat و رویدادهای immutable نشست‌ها باقی است.",
         "اعلان‌ها در این مرحله فقط درون‌برنامه‌ای هستند؛ ایمیل/Push و اعلان تغییرات عمومی پروفایل هنرمند پیاده‌سازی نشده‌اند.",
         "CI موفق، جایگزین آزمون مرورگر، runtime و پذیرش staging نیست؛ هیچ‌یک در محیط واقعی کاربر اجرا نشده‌اند.",
         "اجرای Migrationهای hosted playback روی MySQL محلی/staging، backup/rollback و تست runtime هنوز انجام نشده است.",
         "FFmpeg واقعی، ClamAV و FFprobe باید روی worker ایزوله نصب و از نظر نسخه، timeout، منابع و امنیت عملیاتی تأیید شوند.",
-        "ABR/master playlist، CDN خصوصی، signed playback delivery، entitlement، پرداخت مصرف‌کننده، زیرنویس و player عمومی هنوز پیاده‌سازی نشده‌اند."
+        "ABR/master playlist، CDN خصوصی، signed playback delivery، entitlement، پرداخت مصرف‌کننده، زیرنویس و player عمومی هنوز پیاده‌سازی نشده‌اند.",
+        "مهاجرت‌های مرحله ۴ فقط در CI روی SQLite اجرا شده‌اند؛ MySQL staging و backup/rollback تأیید نشده است.",
+        "Ad-supported access عمداً تا زمان اتصال و تأیید تکمیل تبلیغ entitlement نمی‌گیرد؛ checkout و پرداخت واقعی مصرف‌کننده در این مرحله وجود ندارد."
       ],
       "rollout": "ماژول playback در PluginCatalog با default_enabled=false ثبت شده است. فعال‌سازی عمومی تا تکمیل حقوق، entitlement، سیاست provider، تست staging و پذیرش صریح انتشار انجام نمی‌شود.",
       "mergeable_state": "merged",
@@ -5270,77 +5297,45 @@
       "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44877119121"
     },
     {
-      "branch": "feature/title-revenue-contracts",
-      "pull_request": 104,
-      "title": "Add title revenue contracts, immutable ledger and artist settlements",
-      "head_commit": "befd0b3dd21b3ef355b08d47158c46e83c08d5aa",
-      "base_commit": "bf9e18bbbad3f49dac0b5cc22c80960d246ee8ca",
-      "status": "closed_superseded_by_pr107",
-      "ci_run": null,
-      "scope": "قراردادهای نسخه‌دار، دفترکل درآمد و تسویه فقط برای شرکت‌های دارای حقوق معتبر؛ نسخه فعلی به‌اشتباه هنرمندان را payee می‌سازد و باید اصلاح شود.",
-      "limitations": [
-        "شاخه قدیمی نسبت به main واگرا و دارای تعارض است.",
-        "نسخه فعلی Artist را payee/طرف قرارداد و دارنده داشبورد و درخواست تسویه قرار داده و با تصمیم قطعی محصول مغایر است.",
-        "نباید ادغام شود؛ باید فقط Company دارای مدرک حقوق تأییدشده به قرارداد، ledger و settlement متصل شود.",
-        "CI هنوز روی شاخه PR104 اجرا/مشاهده نشده است.",
-        "PR107 بازنویسی company-only مبتنی بر main جدید است؛ PR104 پس از CI موفق PR107 بسته خواهد شد."
-      ],
-      "closed": true,
-      "merged": false
-    },
-    {
-      "branch": "feature/title-revenue-contracts-mainline",
-      "pull_request": 105,
-      "title": "Add company title-rights evidence and review workflow",
-      "head_commit": "000aaa331f713cf5142d5141cc77fae68c6278e4",
-      "base_commit": "bf9e18bbbad3f49dac0b5cc22c80960d246ee8ca",
-      "status": "merged_to_main_ci_passed",
-      "scope": "ثبت و بررسی مدارک مالکیت/مجوز شرکت برای هر اثر؛ فقط پیش‌نیاز حقوقی، بدون فعال‌سازی درآمد یا تسویه.",
-      "ci": {
-        "pr_run": 44924498391,
-        "pr_conclusion": "success",
-        "main_push_run": 44924601965,
-        "main_push_status": "in_progress",
-        "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44924498391"
-      },
-      "merge_commit": "d5e96008bf7e0c5d7c712991f40c33e85cf1a05f"
-    },
-    {
-      "branch": "feature/company-accounts-and-rights-portal",
-      "pull_request": 106,
-      "title": "Add verified company accounts and rights submission portal",
-      "head_commit": "0b4bca8ab18debd60b4dc84577e938b518c0d5f7",
-      "base_commit": "d5e96008bf7e0c5d7c712991f40c33e85cf1a05f",
-      "status": "merged_to_main_ci_passed",
-      "scope": "عضویت و نمایندگی شرکت، نقش‌های owner/finance/manager/viewer، داشبورد شرکت و ارسال مدارک حقوق با تأیید نهایی مدیر.",
-      "ci": {
-        "run": 225,
-        "id": 44924950235,
-        "status": "in_progress",
-        "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44924950235"
-      },
-      "merge_commit": "ce09e8c8a4d274fd27d40d619377fdd4a7f5fae8"
-    },
-    {
-      "branch": "feature/company-only-revenue-ledger",
-      "pull_request": 107,
-      "title": "Restrict revenue contracts, ledger and settlements to rights-holding companies",
-      "head_commit": "e3d57d8d570919f868f04f2652a810261561fcbd",
-      "base_commit": "ce09e8c8a4d274fd27d40d619377fdd4a7f5fae8",
+      "branch": "feature/viewer-offers-orders-entitlements",
+      "pull_request": 109,
+      "title": "Add viewer offers, orders and rights-gated entitlements",
+      "head_commit": "4ef6cd30985cfd3e68a18d9058273f409ec3e4fb",
+      "base_commit": "eb12658e8e17f36f1f854bbe6d788634366f3b4a",
       "status": "merged_to_main_pr_and_main_ci_passed",
-      "scope": "قرارداد/دفترکل/تسویه company-only با مدرک حقوق تأییدشده، معتبر و قلمرو-محدود.",
+      "merge_commit": "d05c177043f094b1e66f716ff9c93e96ecc660a9",
+      "scope": "پیشنهاد و قیمت اثر، سفارش، snapshot immutable و entitlement برای پنج مدل دسترسی؛ فقط با حقوق و قرارداد معتبر شرکت.",
       "ci": {
-        "pr_run": 44927605672,
-        "pr_conclusion": "success",
-        "tests": 213,
-        "assertions": 825,
-        "main_push_run": 44927734593,
-        "main_push_status": "success",
-        "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44927605672",
-        "main_push_conclusion": "success",
-        "main_push_url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44927734593"
+        "pr_run": 44942261458,
+        "pr_result": "success",
+        "tests": 221,
+        "assertions": 856,
+        "main_push_run": 44942382448,
+        "main_push_result": "success",
+        "main_tests": 221,
+        "main_assertions": 856
       },
-      "merge_commit": "eb12658e8e17f36f1f854bbe6d788634366f3b4a"
+      "url": "https://github.com/armanaria111/amdb-laravel2/pull/109"
+    },
+    {
+      "branch": "feature/viewer-history-retention",
+      "pull_request": 110,
+      "title": "Add configurable viewer watch-history retention",
+      "head_commit": "2a848d511038f59fba24fb31d1e6aa54fe96b594",
+      "base_commit": "6a4b39b160078c67178bc262a070f20f5e31eef5",
+      "status": "merged_to_main_pr_and_main_ci_passed",
+      "merge_commit": "8a2f66e548dc230c70f77f1991c6ba7ef628ee3e",
+      "ci": {
+        "pr_run": 44942329152,
+        "pr_result": "success",
+        "tests": 217,
+        "assertions": 845,
+        "main_push_run": 44942382448,
+        "main_push_result": "success",
+        "main_tests": 221,
+        "main_assertions": 856
+      },
+      "url": "https://github.com/armanaria111/amdb-laravel2/pull/110"
     }
   ],
   "company_rights_evidence": {
@@ -5468,13 +5463,13 @@
       "blade_compile_and_lint": "passed",
       "vite_production_build": "passed",
       "post_merge_main_ci_run": 44942382448,
-      "post_merge_main_ci_status": "in_progress",
+      "post_merge_main_ci_status": "passed",
       "mysql_runtime": "not_run",
-      "browser": "not_run"
+      "browser": "not_run",
+      "post_merge_main_ci_tests": "221 passed / 856 assertions"
     },
     "remaining": [
-      "بررسی نتیجه CI پس از ادغام روی main",
-      "اجرای Migration و بررسی scheduler در محیط MySQL محلی/staging پس از همگام‌سازی کاربر"
+      "Migration و scheduler روی MySQL محلی/staging پس از backup و تأیید migrate:status بررسی شود؛ هنوز اجرا نشده است."
     ],
     "merged_at": "2026-11-21",
     "merge_commit": "8a2f66e548dc230c70f77f1991c6ba7ef628ee3e"
