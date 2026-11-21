@@ -499,7 +499,7 @@
       "سرشاخه PR92 در commit 7f0cb8c50004b94a2bdeea35da7122203cd52a1e است؛ PR open/draft، ۵۳ فایل تغییرکرده، ۲۸۷۳ خط افزوده و ۵ خط حذف دارد. GitHub وضعیت mergeable=true و mergeable_state=clean گزارش کرده است؛ ۱۰۹ commit جلو و صفر عقب از main.",
       "مرحله ۳ پخش در PR92 بخشی از زیرساخت تصویر دستی قسمت را تکمیل کرد: primary still به‌ازای هر Episode جداگانه مدیریت می‌شود، مسیر فایل با episodes.still_path همگام است و صفحه جزئیات اثر تصویر اصلی قسمت را نمایش می‌دهد.",
       "برای رسانه قسمت دو Feature Test جهت استقلال thumbnail بین قسمت‌ها و ارتقای تصویر بعدی پس از حذف primary اضافه شد؛ تست‌ها اجرا نشده‌اند.",
-      "سرشاخه PR92 اکنون c76d4965f3c65c220404d0336ab9b2dfb07dc674 است؛ PR open/draft و mergeable=true/clean، با ۵۸ فایل تغییرکرده، ۳۰۵۱ خط افزوده، ۲۲ خط حذف، ۱۲۰ commit جلو و صفر عقب از main."
+      "سرشاخه PR92 اکنون c76d4965f3c65c220404d0336ab9b2dfb07dc674 است؛ PR open/draft، GitHub mergeable=true اما mergeable_state=unstable گزارش می‌کند؛ ۵۸ فایل تغییرکرده، ۳۰۵۱ خط افزوده، ۲۲ خط حذف، ۱۲۰ commit جلو و صفر عقب از main."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -4887,7 +4887,8 @@
         "Hosted playback، storage خصوصی، transcoding، HLS، CDN، زیرنویس و کنترل دسترسی پیاده‌سازی نشده‌اند.",
         "بازیابی خودکار thumbnail رسمی YouTube از metadata/oEmbed و refresh/cache آن هنوز پیاده‌سازی نشده؛ تصویر دستی قسمت فعلاً مسیر اصلی و override قابل اتکا است."
       ],
-      "rollout": "ماژول playback در PluginCatalog با default_enabled=false ثبت شده است. فعال‌سازی عمومی تا تکمیل حقوق، entitlement، سیاست provider، تست staging و پذیرش صریح انتشار انجام نمی‌شود."
+      "rollout": "ماژول playback در PluginCatalog با default_enabled=false ثبت شده است. فعال‌سازی عمومی تا تکمیل حقوق، entitlement، سیاست provider، تست staging و پذیرش صریح انتشار انجام نمی‌شود.",
+      "mergeable_state": "unstable"
     }
   },
   "audience_creator_experience": {
