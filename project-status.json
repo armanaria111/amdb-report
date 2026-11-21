@@ -547,7 +547,8 @@
       "وضعیت approved صرفاً تأیید مدیریتی برای مرحله تحویل امن آینده است؛ هیچ manifest یا segment عمومی ارائه نمی‌شود و مدل‌های اجاره/خرید/اشتراک/تبلیغ‌محور تا پیاده‌سازی entitlement مسدودند.",
       "PR99 برای تحویل امن HLS خصوصی ساخته شد؛ manifest و segment URLها موقت و session-bound هستند و در هر درخواست وضعیت انتشار، حقوق، بازه مجوز، رایگان‌بودن و approved بودن package دوباره بررسی می‌شود. CI run 44909931724 در حال اجراست.",
       "در PR99 علت 404 تست‌ها مشخص شد: ماژول playback در PluginCatalog به‌صورت پیش‌فرض خاموش است. تست‌های تحویل امضاشده اکنون ماژول را با PluginManager فعال می‌کنند؛ CI run 44910061594 در حال اجراست.",
-      "PR99 مسیر ایجاد نشست پخش را اضافه کرد تا URL manifest در همان درخواست/session مرورگر صادر شود؛ تست‌ها نیز اکنون از این endpoint استفاده می‌کنند. CI run 44910272039 در حال اجراست."
+      "PR99 مسیر ایجاد نشست پخش را اضافه کرد تا URL manifest در همان درخواست/session مرورگر صادر شود؛ تست‌ها نیز اکنون از این endpoint استفاده می‌کنند. CI run 44910272039 در حال اجراست.",
+      "برای حل اختلاف session ID در تست‌های CI، توکن پخش به کوکی first-party، HttpOnly، SameSite=Strict و scoped به asset منتقل شد؛ URL امضاشده بدون کوکی همان مرورگر قابل استفاده نیست. مسیر ایجاد نشست در همان درخواست کوکی را صادر می‌کند. CI run 44910492237 در حال اجراست."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -950,6 +951,10 @@
     {
       "date": "2026-11-21",
       "text": "در PR99، مسیر POST ایجاد نشست hosted playback اضافه شد تا لینک امضاشده داخل session فعال صادر شود؛ CI run 44910272039 در حال اجراست."
+    },
+    {
+      "date": "2026-11-21",
+      "text": "در PR99، binding توکن HLS از session ID به کوکی تصادفی per-asset با HttpOnly/SameSite=Strict تغییر کرد تا مرورگر همان کوکی را همراه درخواست manifest/segment بفرستد؛ CI run 44910492237 در حال اجراست."
     }
   ],
   "architecture": {
@@ -5142,10 +5147,10 @@
       "branch": "feature/hosted-hls-signed-delivery",
       "pull_request": 99,
       "title": "Add session-bound signed delivery for private hosted HLS",
-      "head_commit": "3769c2887f100788d54f940a73f9fc927bd1bf10",
+      "head_commit": "2b66d631cbed4a8e41aacc536c5d6c41c0b941a2",
       "base_commit": "fd744517ac5667363c0a640651e1aad4b76d7750",
-      "status": "ready_for_review_ci_running_after_session_endpoint",
-      "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44910272039",
+      "status": "ready_for_review_ci_running_after_cookie_binding",
+      "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44910492237",
       "scope": "manifest و segmentهای HLS خصوصی با URL امضاشده و HMAC متصل به session مرورگر، بازبینی مجدد حقوق و وضعیت package در هر درخواست، rewrite playlist به URLهای داخلی، no-store و stream خصوصی.",
       "limitations": [
         "صفحه عمومی تماشا هنوز hosted source را به player متصل نمی‌کند؛ این PR فقط backend delivery را می‌سازد.",
