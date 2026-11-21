@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "d05c177043f094b1e66f716ff9c93e96ecc660a9",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "0c491950a757cd21424226b4fa02762ae3c58fce",
+    "latest_main_commit": "b158dd585fd745af6dffe6ec21e7b9345eaafcec",
     "latest_main_commit_verified_on": "2026-11-21"
   },
   "languages": [
@@ -1086,6 +1086,10 @@
     {
       "date": "2026-11-21",
       "text": "CI پس از ادغام PR111 روی main موفق شد (run 44942812460). PR112 برای اصلاح Continue Watching منابع hosted ایجاد شد؛ منابع فقط در صورت transcoded asset و approved package و سایر شروط فعلی حقوق/دسترسی نمایش داده می‌شوند. CI run 44942932052 در صف است؛ PR هنوز ادغام نشده."
+    },
+    {
+      "date": "2026-11-21",
+      "text": "PR112 ادغام شد (commit b158dd585fd745af6dffe6ec21e7b9345eaafcec). CI پیش از ادغام موفق: 227 تست / 888 assertion؛ Blade compile/lint و Vite build موفق. CI پس از ادغام run 44943020490 در حال اجراست."
     }
   ],
   "architecture": {
@@ -1631,6 +1635,11 @@
       "date": "2026-11-21",
       "title": "PR112 — اتصال ادامه تماشا به Hosted Playback",
       "detail": "نقص لینک Continue Watching برای hosted playback رفع می‌شود. فقط دارایی transcoded با بسته approved و مجوز معتبر و دسترسی رایگان واجد شرایط است؛ قسمت ذخیره‌شده در لینک حفظ می‌شود. PR باز و CI در صف اجراست."
+    },
+    {
+      "date": "2026-11-21",
+      "title": "ادغام PR112 — ادامه تماشای منابع میزبانی‌شده",
+      "detail": "کتابخانه کاربر اکنون منابع hosted را فقط در صورت transcoded asset و approved HLS package و شرایط معتبر حقوق/دسترسی برای Continue Watching قبول می‌کند. شناسه قسمت حفظ می‌شود و لینک امن پخش باز می‌شود. CI موفق: 227 تست / 888 assertion؛ CI پس از ادغام در حال اجرا."
     }
   ],
   "source_code_audit": {
@@ -4232,7 +4241,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "0c491950a757cd21424226b4fa02762ae3c58fce",
+    "source_commit": "b158dd585fd745af6dffe6ec21e7b9345eaafcec",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-21",
@@ -4281,7 +4290,7 @@
     "quality": {
       "tests_in_repository": 22,
       "tests_executed": true,
-      "test_result": "PR111 CI successful: 225 tests passed / 883 assertions; Blade compilation/lint and Vite production build passed. Post-merge main push CI run 44942812460 is queued.",
+      "test_result": "PR112 CI successful: 227 tests passed / 888 assertions; Blade compilation/lint and Vite production build passed. Post-merge main push CI run 44943020490 is in progress.",
       "vite_build_executed": true,
       "browser_verified": false,
       "production_smoke_test": false,
@@ -4297,18 +4306,18 @@
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
       "mysql_runtime_verified": false,
-      "latest_ci_run": 44942812460,
-      "main_ci_conclusion": "success",
+      "latest_ci_run": 44942932052,
+      "main_ci_conclusion": "in_progress",
       "pull_request_ci_conclusion": "success"
     },
     "release": {
-      "latest_merged_pr": 111,
-      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/111",
-      "latest_source_commit": "0c491950a757cd21424226b4fa02762ae3c58fce",
+      "latest_merged_pr": 112,
+      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/112",
+      "latest_source_commit": "b158dd585fd745af6dffe6ec21e7b9345eaafcec",
       "source_branch": "main",
       "verified_at": "2026-11-21",
-      "main_ci_run": 44942812460,
-      "main_ci_conclusion": "success",
+      "main_ci_run": 44943020490,
+      "main_ci_conclusion": "in_progress",
       "main_ci_verified_at": "2026-11-21"
     },
     "note": "آخرین commit main برابر 148429ac280e3545f2c812de76b41bd96edc0f54 پس از ادغام PR102 است. پخش hosted اکنون HLS تطبیقی با پروفایل‌های 360p/480p/720p بدون upscaling، master playlist خصوصی و تحویل HMAC برای renditionها دارد؛ زیرنویس خصوصی و progress نیز پیاده‌سازی شده‌اند. CI با 184 تست و 700 assertion موفق است؛ FFmpeg واقعی، MySQL، storage و QA مرورگری هنوز تأیید نشده‌اند.",
@@ -4610,39 +4619,13 @@
     ]
   },
   "work_in_progress": {
-    "branch": "fix/continue-watching-hosted-sources",
+    "branch": "main",
     "updated_at": "2026-11-21",
-    "status": "pr112_open_ci_queued",
-    "latest_merged_pr": 111,
-    "merged_commit": "0c491950a757cd21424226b4fa02762ae3c58fce",
-    "pull_request": {
-      "number": 112,
-      "url": "https://github.com/armanaria111/amdb-laravel2/pull/112",
-      "state": "open",
-      "merged": false
-    },
-    "head_commit": "664540065992106adba889bcbed35fd1c4ff923e",
-    "scope": "اصلاح پیوند ادامه تماشا برای منابع میزبانی‌شده دارای بسته HLS تأییدشده.",
-    "details": [
-      "کتابخانه تماشاگر اکنون منابع hosted را فقط در صورت status=transcoded و package status=approved قابل ادامه می‌داند.",
-      "فیلترهای active، rights_status=cleared، مدرک حقوق، access_model=free و بازه اعتبار مجوز حفظ شده‌اند.",
-      "شناسه قسمت ذخیره‌شده در لینک ادامه تماشا حفظ می‌شود.",
-      "هیچ مسیر فایل خصوصی، manifest یا signed URL در صفحه کتابخانه افشا نمی‌شود.",
-      "تست‌های بسته approved و quarantined اضافه شده‌اند."
-    ],
-    "validation": {
-      "ci_run": 44942932052,
-      "status": "queued",
-      "previous_main_ci_run": 44942812460,
-      "previous_main_ci_status": "success",
-      "mysql_runtime": "not_run",
-      "browser": "not_run"
-    },
-    "remaining": [
-      "دریافت نتیجه CI مربوط به PR112",
-      "ادغام فقط پس از موفقیت تمام jobها",
-      "بررسی مرورگر/MySQL پس از همگام‌سازی"
-    ]
+    "status": "pr112_merged_post_merge_ci_running",
+    "latest_merged_pr": 112,
+    "merged_commit": "b158dd585fd745af6dffe6ec21e7b9345eaafcec",
+    "pull_request": "https://github.com/armanaria111/amdb-laravel2/pull/112",
+    "next": "Verify post-merge CI, then continue with player progress integration and provider capabilities."
   },
   "product_recommendations": {
     "title": "پیشنهادهای توسعه محصول AMDB",
@@ -5575,19 +5558,26 @@
     "url": "https://github.com/armanaria111/amdb-laravel2/pull/112",
     "branch": "fix/continue-watching-hosted-sources",
     "head_commit": "664540065992106adba889bcbed35fd1c4ff923e",
-    "status": "open_ci_queued_not_merged",
+    "status": "merged",
     "eligibility": "hosted asset transcoded + HLS package approved + active source + cleared rights evidence + free access + valid availability window",
     "behavior": "resume link retains saved episode ID and points to the existing playback route",
     "privacy": "no private storage path, manifest or signed URL exposed in viewer library",
     "validation": {
       "ci_run": 44942932052,
-      "status": "queued",
+      "ci_status": "passed",
+      "tests": "227 passed / 888 assertions",
+      "blade_compile_and_lint": "passed",
+      "vite_production_build": "passed",
+      "post_merge_main_ci_run": 44943020490,
+      "post_merge_main_ci_status": "in_progress",
       "mysql_runtime": "not_run",
       "browser": "not_run"
     },
     "remaining": [
-      "CI success and merge",
-      "verify end-to-end on configured private storage and browser"
-    ]
+      "بررسی CI پس از ادغام",
+      "تأیید اجرای واقعی در مرورگر با بسته HLS و storage خصوصی"
+    ],
+    "merged_at": "2026-11-21",
+    "merge_commit": "b158dd585fd745af6dffe6ec21e7b9345eaafcec"
   }
 }
