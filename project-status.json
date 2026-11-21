@@ -1046,6 +1046,10 @@
     {
       "date": "2026-11-21",
       "text": "PR108 برای حذف تکی سابقه تماشا در کتابخانه کاربر ایجاد شد؛ علاقه‌مندی اثر حفظ می‌شود و عملیات به حساب واردشده محدود است. کد، تست Feature، ترجمه‌های en/fa-AF/ps و مستند viewer-experience در شاخه feature/viewer-history-privacy-controls ثبت شده‌اند؛ CI هنوز در حال انتظار/گزارش‌نشده است و PR ادغام نشده."
+    },
+    {
+      "date": "2026-11-21",
+      "text": "PR108 به‌روزرسانی شد: تست Feature اکنون علاوه بر حفظ علاقه‌مندی، حذف رکورد history-only و جداسازی داده حساب‌ها، تلاش برای حذف سابقه متعلق به کاربر دیگر را نیز پوشش می‌دهد. آخرین head: 4588787c457c58084e40044fa13d0d61e698962c. برای این head هنوز workflow run در GitHub Actions قابل مشاهده نیست؛ ادغام انجام نشده است."
     }
   ],
   "architecture": {
@@ -4538,10 +4542,10 @@
   "work_in_progress": {
     "branch": "feature/viewer-history-privacy-controls",
     "base_commit": "eb12658e8e17f36f1f854bbe6d788634366f3b4a",
-    "head_commit": "6603b1ab75d7c9a94f920152af343414bd6af667",
+    "head_commit": "4588787c457c58084e40044fa13d0d61e698962c",
     "updated_at": "2026-11-21",
     "scope": "افزودن کنترل حریم خصوصی برای حذف تکی سابقه تماشای هر اثر بدون حذف علاقه‌مندی.",
-    "status": "pull_request_open_ci_pending_not_merged",
+    "status": "pull_request_open_ci_not_triggered_or_not_reported",
     "pull_request": {
       "number": 108,
       "url": "https://github.com/armanaria111/amdb-laravel2/pull/108",
@@ -4553,12 +4557,13 @@
       "در صورت favorite بودن اثر، فقط progress و last_watched_at پاک می‌شود و علاقه‌مندی باقی می‌ماند.",
       "در غیر این صورت رکورد user_title_states متعلق به همان کاربر حذف می‌شود.",
       "Route با public_id پایدار am و rate limit؛ scope به حساب واردشده محدود است.",
-      "ترجمه en/fa-AF/ps و تست Feature برای حفظ علاقه‌مندی و جداسازی حساب‌ها."
+      "ترجمه en/fa-AF/ps و تست Feature برای حفظ علاقه‌مندی و جداسازی حساب‌ها.",
+      "تست مالکیت تقویت شد: درخواست حذف برای اثری که متعلق به تاریخچه کاربر دیگر است، نباید رکورد او را تغییر دهد."
     ],
     "remaining": [
-      "دریافت نتیجه CI و رفع خطاهای احتمالی",
-      "بازبینی نهایی و ادغام PR108 پس از CI موفق",
-      "سیاست retention قابل تنظیم برای تاریخچه تماشا در مرحله بعد"
+      "CI برای commit فعلی هنوز run قابل مشاهده‌ای ندارد؛ ادغام تا دریافت نتیجه معتبر CI متوقف می‌ماند.",
+      "در صورت ادامه نبودن trigger، تست/build باید با workflow_dispatch از رابط GitHub اجرا شود.",
+      "سیاست retention قابل تنظیم برای تاریخچه تماشا در مرحله بعد طراحی شود."
     ]
   },
   "product_recommendations": {
@@ -5385,9 +5390,9 @@
     "pull_request": 108,
     "url": "https://github.com/armanaria111/amdb-laravel2/pull/108",
     "branch": "feature/viewer-history-privacy-controls",
-    "head_commit": "6603b1ab75d7c9a94f920152af343414bd6af667",
+    "head_commit": "4588787c457c58084e40044fa13d0d61e698962c",
     "base_commit": "eb12658e8e17f36f1f854bbe6d788634366f3b4a",
-    "status": "pull_request_open_ci_pending_not_merged",
+    "status": "pull_request_open_ci_not_triggered_or_not_reported",
     "scope": [
       "حذف مستقل سابقه تماشای هر اثر از کتابخانه خصوصی",
       "در صورت favorite بودن اثر، فقط progress و last_watched_at پاک می‌شود و علاقه‌مندی باقی می‌ماند.",
@@ -5396,19 +5401,20 @@
       "ترجمه en/fa-AF/ps و تست Feature برای حفظ علاقه‌مندی و جداسازی حساب‌ها."
     ],
     "files_changed": 8,
-    "additions": 100,
+    "additions": 101,
     "deletions": 1,
     "migration_required": false,
     "validation": {
       "tests_added": 1,
-      "ci_status": "pending_not_yet_reported",
+      "ci_status": "no_workflow_run_reported_for_current_head",
       "mysql_runtime": "not_run",
-      "browser": "not_run"
+      "browser": "not_run",
+      "coverage": "حفظ علاقه‌مندی، حذف history-only، و جلوگیری از حذف سابقه حساب دیگر"
     },
     "remaining": [
-      "دریافت نتیجه CI و رفع خطاهای احتمالی",
-      "بازبینی نهایی و ادغام PR108 پس از CI موفق",
-      "سیاست retention قابل تنظیم برای تاریخچه تماشا در مرحله بعد"
+      "CI برای commit فعلی هنوز run قابل مشاهده‌ای ندارد؛ ادغام تا دریافت نتیجه معتبر CI متوقف می‌ماند.",
+      "در صورت ادامه نبودن trigger، تست/build باید با workflow_dispatch از رابط GitHub اجرا شود.",
+      "سیاست retention قابل تنظیم برای تاریخچه تماشا در مرحله بعد طراحی شود."
     ]
   }
 }
