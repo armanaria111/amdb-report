@@ -233,7 +233,7 @@ PR92 در شاخه feature/viewer-experience-foundation بخشی از مرحله
 ### محدودیت‌های اجرایی فعلی
 - PR92 باز و draft است و در main ادغام نشده؛ این موارد هنوز قابلیت منتشرشده AMDB نیستند.
 - Migration و تست‌ها اجرا نشده‌اند و هیچ runtime/browser verification انجام نشده است.
-- player هنوز progress را به کتابخانه تماشاگر ارسال نمی‌کند.
+- player برای YouTube به endpoint کتابخانه متصل است: بازیابی و ذخیره progress برای کاربر واردشده؛ اتصال Aparat هنوز انجام نشده است.
 - access_modelهای ad_supported، rent، purchase و subscription در صفحه عمومی قابل پخش نیستند؛ هنوز entitlement، checkout، تبلیغات یا ledger ندارند.
 - provider hosted فقط placeholder پیش‌نویس است؛ storage خصوصی، transcoding، HLS، CDN و زیرنویس پیاده‌سازی نشده‌اند.
 - ماژول playback با default_enabled=false ثبت شده و فعال‌سازی عمومی تا پذیرش staging و تأیید حقوق/سیاست provider ممنوع است.
