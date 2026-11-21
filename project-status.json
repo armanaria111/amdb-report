@@ -549,7 +549,8 @@
       "در PR99 علت 404 تست‌ها مشخص شد: ماژول playback در PluginCatalog به‌صورت پیش‌فرض خاموش است. تست‌های تحویل امضاشده اکنون ماژول را با PluginManager فعال می‌کنند؛ CI run 44910061594 در حال اجراست.",
       "PR99 مسیر ایجاد نشست پخش را اضافه کرد تا URL manifest در همان درخواست/session مرورگر صادر شود؛ تست‌ها نیز اکنون از این endpoint استفاده می‌کنند. CI run 44910272039 در حال اجراست.",
       "برای حل اختلاف session ID در تست‌های CI، توکن پخش به کوکی first-party، HttpOnly، SameSite=Strict و scoped به asset منتقل شد؛ URL امضاشده بدون کوکی همان مرورگر قابل استفاده نیست. مسیر ایجاد نشست در همان درخواست کوکی را صادر می‌کند. CI run 44910492237 در حال اجراست.",
-      "در PR99، URLهای تحویل به HMAC با انقضا و کوکی first-party per-asset متصل شدند؛ Laravel signed middleware حذف شد چون در تست محیط CI با درخواست بعدی 403 می‌داد و HMAC+expiry+HttpOnly cookie کنترل دسترسی را حفظ می‌کند. CI run 44910632210 در حال اجراست."
+      "در PR99، URLهای تحویل به HMAC با انقضا و کوکی first-party per-asset متصل شدند؛ Laravel signed middleware حذف شد چون در تست محیط CI با درخواست بعدی 403 می‌داد و HMAC+expiry+HttpOnly cookie کنترل دسترسی را حفظ می‌کند. CI run 44910632210 در حال اجراست.",
+      "برای جلوگیری از ناسازگاری کوکی در محیط‌های مختلف، تحویل خصوصی در PR99 به URLهای HMAC bearer با expiry محدود تغییر یافت؛ HMAC فقط با APP_KEY قابل جعل است و هر درخواست وضعیت حقوق/منبع/package را دوباره بررسی می‌کند. این لینک‌ها باید خصوصی تلقی شوند و تا پایان TTL قابل اشتراک هستند. CI run 44910852463 در صف اجراست."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -960,6 +961,10 @@
     {
       "date": "2026-11-21",
       "text": "در PR99، تحویل HLS به URLهای HMAC-expiring با کوکی HttpOnly per-asset تغییر کرد؛ middleware امضای Laravel حذف شد تا با چرخه cookie مرورگر سازگار باشد. CI run 44910632210 در حال اجراست."
+    },
+    {
+      "date": "2026-11-21",
+      "text": "در PR99، روش تحویل HLS به HMAC bearer URLهای expiring تغییر یافت تا به رفتار cookie/session مرورگر وابسته نباشد؛ حقوق و وضعیت package در هر درخواست دوباره بررسی می‌شوند. CI run 44910852463 در انتظار اجراست."
     }
   ],
   "architecture": {
@@ -5152,10 +5157,10 @@
       "branch": "feature/hosted-hls-signed-delivery",
       "pull_request": 99,
       "title": "Add session-bound signed delivery for private hosted HLS",
-      "head_commit": "9ee5f4d1a292fe88d702e445d539224257749f1c",
+      "head_commit": "fca87590295d825e6145eaf9544f1b1f45026ba6",
       "base_commit": "fd744517ac5667363c0a640651e1aad4b76d7750",
-      "status": "ready_for_review_ci_running_after_hmac_cookie_adjustment",
-      "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44910632210",
+      "status": "ready_for_review_ci_pending",
+      "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44910852463",
       "scope": "manifest و segmentهای HLS خصوصی با URL امضاشده و HMAC متصل به session مرورگر، بازبینی مجدد حقوق و وضعیت package در هر درخواست، rewrite playlist به URLهای داخلی، no-store و stream خصوصی.",
       "limitations": [
         "صفحه عمومی تماشا هنوز hosted source را به player متصل نمی‌کند؛ این PR فقط backend delivery را می‌سازد.",
