@@ -4535,10 +4535,11 @@
       "درخواست تسویه فقط برای نماینده فعال owner/finance مجاز است؛ مدیر مالی درخواست را بررسی می‌کند و پرداخت فقط با ثبت مرجع دستی audit می‌شود؛ انتقال وجه خودکار وجود ندارد.",
       "Migrationهای revenue به ترتیب 172000 تا 176000 پس از company_title_rights و company_user قرار گرفتند.",
       "PR104 قدیمی هنوز باز و دارای تعارض است؛ در آن توضیح داده شد که PR107 جایگزین آن است و پس از CI موفق بسته می‌شود.",
-      "PR107 با روش Squash ادغام شد؛ CI موفق: Vite build و ۲۱۳ تست Laravel/SQLite با ۸۲۵ assertion. PR104 قدیمی به‌عنوان superseded بسته شد."
+      "PR107 با روش Squash ادغام شد؛ CI موفق: Vite build و ۲۱۳ تست Laravel/SQLite با ۸۲۵ assertion. PR104 قدیمی به‌عنوان superseded بسته شد.",
+      "CI push روی main برای merge commit PR107 نیز موفق شد: run 44927734593؛ Vite production build و Laravel tests."
     ],
     "remaining": [
-      "تأیید CI push روی main برای merge commit PR107 (run 44927734593 در زمان ثبت گزارش در حال اجراست).",
+      "CI push روی main برای merge commit PR107 موفق شد (run 44927734593).",
       "بررسی و اجرای Migrationهای 170000 تا 176000 فقط روی MySQL staging پس از backup و آزمون rollback؛ دیتابیس محلی/عملیاتی کاربر دست‌نخورده مانده است.",
       "پیکربندی و آزمون private storage روی هاست واقعی، محدودیت دسترسی فایل‌ها و backup مدارک حقوق.",
       "آزمون هم‌زمانی ledger، reversal و settlement روی MySQL و آزمون مرورگر/دستگاه واقعی.",
@@ -5298,7 +5299,7 @@
       "title": "Restrict revenue contracts, ledger and settlements to rights-holding companies",
       "head_commit": "e3d57d8d570919f868f04f2652a810261561fcbd",
       "base_commit": "ce09e8c8a4d274fd27d40d619377fdd4a7f5fae8",
-      "status": "merged_to_main_pr_ci_passed_main_push_ci_pending",
+      "status": "merged_to_main_pr_and_main_ci_passed",
       "scope": "قرارداد/دفترکل/تسویه company-only با مدرک حقوق تأییدشده، معتبر و قلمرو-محدود.",
       "ci": {
         "pr_run": 44927605672,
@@ -5306,8 +5307,9 @@
         "tests": 213,
         "assertions": 825,
         "main_push_run": 44927734593,
-        "main_push_status": "in_progress",
-        "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44927605672"
+        "main_push_status": "success",
+        "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44927605672",
+        "main_push_conclusion": "success"
       },
       "merge_commit": "eb12658e8e17f36f1f854bbe6d788634366f3b4a"
     }
@@ -5357,10 +5359,10 @@
       "ترجمه‌های en/fa-AF/ps و تست‌های Feature."
     ],
     "ci": {
-      "run": 225,
-      "id": 44924950235,
-      "status": "in_progress",
-      "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44924950235"
+      "pr_run": 44924950235,
+      "pr_result": "success",
+      "main_push_run": 44925050374,
+      "main_push_result": "success"
     },
     "limitations": [
       "PR106 ادغام شده و CI Vite و Laravel tests موفق است.",
