@@ -499,7 +499,10 @@
       "سرشاخه PR92 در commit 7f0cb8c50004b94a2bdeea35da7122203cd52a1e است؛ PR open/draft، ۵۳ فایل تغییرکرده، ۲۸۷۳ خط افزوده و ۵ خط حذف دارد. GitHub وضعیت mergeable=true و mergeable_state=clean گزارش کرده است؛ ۱۰۹ commit جلو و صفر عقب از main.",
       "مرحله ۳ پخش در PR92 بخشی از زیرساخت تصویر دستی قسمت را تکمیل کرد: primary still به‌ازای هر Episode جداگانه مدیریت می‌شود، مسیر فایل با episodes.still_path همگام است و صفحه جزئیات اثر تصویر اصلی قسمت را نمایش می‌دهد.",
       "برای رسانه قسمت دو Feature Test جهت استقلال thumbnail بین قسمت‌ها و ارتقای تصویر بعدی پس از حذف primary اضافه شد؛ تست‌ها اجرا نشده‌اند.",
-      "سرشاخه PR92 اکنون c76d4965f3c65c220404d0336ab9b2dfb07dc674 است؛ PR open/draft، GitHub mergeable=true اما mergeable_state=unstable گزارش می‌کند؛ ۵۸ فایل تغییرکرده، ۳۰۵۱ خط افزوده، ۲۲ خط حذف، ۱۲۰ commit جلو و صفر عقب از main."
+      "سرشاخه PR92 اکنون c76d4965f3c65c220404d0336ab9b2dfb07dc674 است؛ PR open/draft، GitHub mergeable=true اما mergeable_state=unstable گزارش می‌کند؛ ۵۸ فایل تغییرکرده، ۳۰۵۱ خط افزوده، ۲۲ خط حذف، ۱۲۰ commit جلو و صفر عقب از main.",
+      "اتصال پیشرفت تماشا به YouTube IFrame Player API در PR92 اضافه شد: کاربر واردشده موقعیت ذخیره‌شده را برای Title/Episode متناظر بازیابی می‌کند و progress هر ۱۵ ثانیه و هنگام pause/end به endpoint کتابخانه ارسال می‌شود.",
+      "کارت ادامه تماشا در کتابخانه، در صورت وجود منبع رایگان مجاز و فعال و روشن‌بودن ماژول، مستقیماً به صفحه watch و قسمت ذخیره‌شده هدایت می‌شود؛ Aparat progress integration هنوز باقی است.",
+      "سرشاخه PR92 اکنون 0c3313ff2586ffb803159dd087723a4327ddb532 است؛ PR open/draft، mergeable=true و mergeable_state=clean؛ ۵۸ فایل تغییرکرده، ۳۲۳۹ خط افزوده، ۲۲ خط حذف، ۱۳۳ commit جلو و صفر عقب از main."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -4870,14 +4873,15 @@
     "implementation_progress": {
       "branch": "feature/viewer-experience-foundation",
       "pull_request": 92,
-      "head_commit": "c76d4965f3c65c220404d0336ab9b2dfb07dc674",
+      "head_commit": "0c3313ff2586ffb803159dd087723a4327ddb532",
       "status": "open_draft_unverified",
       "completed_in_branch": [
         "مرحله ۱: مدل و Migration مستقل PlaybackSource برای Title و Episode، پنل CRUD مدیر، ثبت وضعیت حقوق، دارنده حقوق/شناسه مجوز، زمان‌بندی، مدل دسترسی و منبع پیش‌فرض یکتا در هر هدف.",
         "مرحله ۲: adapterهای YouTube و Aparat با تبدیل URL معتبر به embed URL سمت سرور؛ allowlist میزبان و مسیر و رد URLهای غیر HTTPS یا نامعتبر.",
         "صفحه عمومی تماشا پشت ماژول playback که به‌صورت پیش‌فرض خاموش است؛ فقط اثر منتشرشده و منبع رایگان، فعال، دارای حقوق و مدرک حقوقی معتبر در بازه زمانی مجاز نمایش داده می‌شود.",
         "انتخاب منبع و قسمت توسط تماشاگر؛ iframe ابتدا about:blank است و فقط پس از کلیک صریح کاربر و نمایش هشدار اتصال به سرویس ثالث بارگذاری می‌شود.",
-        "مرحله ۳ به‌صورت دستی تکمیل‌تر شد: تصویر اصلی still برای هر Episode مستقل است؛ TitleMediaController انتخاب primary را در محدوده همان Episode نگه می‌دارد و مسیر فایل را با episodes.still_path همگام می‌کند؛ صفحه عمومی تصویر اصلی هر قسمت را نمایش می‌دهد."
+        "مرحله ۳ به‌صورت دستی تکمیل‌تر شد: تصویر اصلی still برای هر Episode مستقل است؛ TitleMediaController انتخاب primary را در محدوده همان Episode نگه می‌دارد و مسیر فایل را با episodes.still_path همگام می‌کند؛ صفحه عمومی تصویر اصلی هر قسمت را نمایش می‌دهد.",
+        "اتصال player به کتابخانه تماشاگر برای YouTube: بازیابی موقعیت ذخیره‌شده، ارسال progress هر ۱۵ ثانیه و هنگام pause/end برای کاربران واردشده و لینک ادامه تماشا از کتابخانه به صفحه watch. Aparat هنوز progress integration ندارد."
       ],
       "not_implemented_or_unverified": [
         "PR92 هنوز open/draft و ادغام‌نشده است؛ کد در main نیست.",
@@ -4885,10 +4889,11 @@
         "پخش پیشرفت را به API کتابخانه تماشاگر ارسال نمی‌کند؛ player progress integration باقی است.",
         "ad_supported، rent، purchase و subscription در حال حاضر metadata هستند و از صفحه عمومی پخش ارائه نمی‌شوند.",
         "Hosted playback، storage خصوصی، transcoding، HLS، CDN، زیرنویس و کنترل دسترسی پیاده‌سازی نشده‌اند.",
-        "بازیابی خودکار thumbnail رسمی YouTube از metadata/oEmbed و refresh/cache آن هنوز پیاده‌سازی نشده؛ تصویر دستی قسمت فعلاً مسیر اصلی و override قابل اتکا است."
+        "بازیابی خودکار thumbnail رسمی YouTube از metadata/oEmbed و refresh/cache آن هنوز پیاده‌سازی نشده؛ تصویر دستی قسمت فعلاً مسیر اصلی و override قابل اتکا است.",
+        "progress فعلی فقط از YouTube IFrame Player API دریافت می‌شود؛ داده ارسالی مرورگر کم‌اعتماد است و نباید برای view-count مالی یا settlement استفاده شود. اتصال Aparat و رویدادهای immutable نشست‌ها باقی است."
       ],
       "rollout": "ماژول playback در PluginCatalog با default_enabled=false ثبت شده است. فعال‌سازی عمومی تا تکمیل حقوق، entitlement، سیاست provider، تست staging و پذیرش صریح انتشار انجام نمی‌شود.",
-      "mergeable_state": "unstable"
+      "mergeable_state": "clean"
     }
   },
   "audience_creator_experience": {
