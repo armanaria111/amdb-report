@@ -527,7 +527,8 @@
       "PR95 با موفقیت ادغام شد؛ merge commit برابر c19a089db360509499617621a0b0ee9064eb8086 است. CI run 44874624784 روی سرشاخه نهایی موفق شد: Vite production build و Laravel tests هر دو conclusion=success.",
       "مرحله FFprobe در main اضافه شد: پس از scan_passed، فایل خصوصی دوباره از نظر اندازه و SHA-256 بررسی و با ffprobe از نظر container، وجود ویدئو، تمام کدک‌ها، مدت، ابعاد و سقف پیکسل اعتبارسنجی می‌شود.",
       "وضعیت probe_passed نیز قرنطینه است و به معنی مجازبودن پخش نیست؛ feature flagهای اسکن و probe به‌صورت پیش‌فرض خاموش هستند.",
-      "در PR95 یک تست اولیه به‌جای hash mismatch به‌علت تفاوت اندازه fail شد؛ fixture اصلاح شد تا اندازه ثابت و hash متفاوت باشد. CI نهایی روی commit 6d88f15909390f19c5069bf0d618e554c435edca موفق شد."
+      "در PR95 یک تست اولیه به‌جای hash mismatch به‌علت تفاوت اندازه fail شد؛ fixture اصلاح شد تا اندازه ثابت و hash متفاوت باشد. CI نهایی روی commit 6d88f15909390f19c5069bf0d618e554c435edca موفق شد.",
+      "خروجی PHPUnit در CI نهایی PR95: 152 تست موفق و 580 assertion؛ Vite production build نیز موفق شد. این اجرا روی SQLite موقت GitHub Actions بود، نه MySQL محلی/عملیاتی."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
