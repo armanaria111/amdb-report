@@ -1054,6 +1054,14 @@
     {
       "date": "2026-11-21",
       "text": "PR108 پس از موفقیت کامل CI ادغام شد (squash merge، commit 6a4b39b160078c67178bc262a070f20f5e31eef5). هر دو job شامل Laravel tests و Vite production build روی head شاخه موفق شدند. CI پس از push به main در حال انتظار است. قابلیت حذف تکی تاریخچه تماشا با حفظ favorite و کنترل مالکیت حساب اکنون در main قرار دارد."
+    },
+    {
+      "date": "2026-11-21",
+      "text": "اصلاح وضعیت PR108: این PR در commit 6a4b39b160078c67178bc262a070f20f5e31eef5 در main ادغام شده است. CI پس از ادغام run 44942105380 با نتیجه success تکمیل شد؛ یادداشت قدیمی در انتهای changelog که PR108 را ادغام‌نشده معرفی می‌کرد، منسوخ است."
+    },
+    {
+      "date": "2026-11-21",
+      "text": "PR110 برای نگهداری قابل تنظیم تاریخچه تماشاگر ایجاد شد: NULL پیش‌فرض به معنی نگهداری نامحدود، انتخاب‌های 30/90/180/365 روز، فرمان پاک‌سازی روزانه و حفظ علاقه‌مندی‌ها. رابط سه‌زبانه، migration، command، schedule، مستندات و تست‌های Feature افزوده شده‌اند. CI run 44942329152 برای head 2a848d511038f59fba24fb31d1e6aa54fe96b594 در حال اجراست؛ PR هنوز ادغام نشده است."
     }
   ],
   "architecture": {
@@ -1573,6 +1581,11 @@
       "date": "2026-11-21",
       "title": "ادغام PR108 — کنترل حریم خصوصی تاریخچه تماشای تکی",
       "detail": "PR108 با CI موفق (Laravel tests و Vite production build) در main ادغام شد. حذف سابقه یک اثر به‌صورت account-scoped، حفظ علاقه‌مندی، ترجمه en/fa-AF/ps و تست مالکیت حساب در سورس main موجود است. CI post-merge هنوز queued است."
+    },
+    {
+      "date": "2026-11-21",
+      "title": "PR110 — مدت نگهداری قابل تنظیم تاریخچه تماشا",
+      "detail": "امکان انتخاب نگهداری نامحدود (پیش‌فرض) یا 30، 90، 180 و 365 روز افزوده شد. پاک‌سازی روزانه فقط برای کاربران انتخاب‌کننده فعال می‌شود؛ favorite حفظ می‌شود و فقط پیشرفت تماشا پاک می‌شود. PR110 باز است و CI در حال اجراست."
     }
   ],
   "source_code_audit": {
@@ -4239,7 +4252,8 @@
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
       "mysql_runtime_verified": false,
-      "latest_ci_run": 44942105380
+      "latest_ci_run": 44942105380,
+      "main_ci_conclusion": "success"
     },
     "release": {
       "latest_merged_pr": 108,
@@ -4248,7 +4262,8 @@
       "source_branch": "main",
       "verified_at": "2026-11-21",
       "main_ci_run": 44942105380,
-      "main_ci_conclusion": "queued"
+      "main_ci_conclusion": "success",
+      "main_ci_verified_at": "2026-11-21"
     },
     "note": "آخرین commit main برابر 148429ac280e3545f2c812de76b41bd96edc0f54 پس از ادغام PR102 است. پخش hosted اکنون HLS تطبیقی با پروفایل‌های 360p/480p/720p بدون upscaling، master playlist خصوصی و تحویل HMAC برای renditionها دارد؛ زیرنویس خصوصی و progress نیز پیاده‌سازی شده‌اند. CI با 184 تست و 700 assertion موفق است؛ FFmpeg واقعی، MySQL، storage و QA مرورگری هنوز تأیید نشده‌اند.",
     "panels": [
@@ -4549,13 +4564,37 @@
     ]
   },
   "work_in_progress": {
-    "branch": "main",
+    "branch": "feature/viewer-history-retention",
     "updated_at": "2026-11-21",
-    "status": "pr108_merged_post_merge_ci_queued",
-    "latest_merged_pr": 108,
-    "merged_commit": "6a4b39b160078c67178bc262a070f20f5e31eef5",
-    "pull_request": "https://github.com/armanaria111/amdb-laravel2/pull/108",
-    "next": "Continue configurable viewing-history retention policy; first verify post-merge CI."
+    "status": "pull_request_open_ci_running",
+    "pull_request": {
+      "number": 110,
+      "url": "https://github.com/armanaria111/amdb-laravel2/pull/110",
+      "state": "open",
+      "merged": false
+    },
+    "head_commit": "2a848d511038f59fba24fb31d1e6aa54fe96b594",
+    "base_commit": "6a4b39b160078c67178bc262a070f20f5e31eef5",
+    "scope": "تنظیم اختیاری مدت نگهداری تاریخچه تماشا و پاک‌سازی زمان‌بندی‌شده با حفظ علاقه‌مندی‌ها.",
+    "details": [
+      "پیش‌فرض NULL: نگهداری نامحدود؛ کاربران فعلی بدون انتخاب کاربر در معرض حذف خودکار قرار نمی‌گیرند.",
+      "گزینه‌های 30، 90، 180 و 365 روز.",
+      "Migration افزودن viewer_history_retention_days به users.",
+      "فرمان amdb:prune-viewer-history و زمان‌بندی روزانه 03:45.",
+      "برای اثر favorite فقط progress پاک می‌شود؛ رکورد favorite حفظ می‌شود؛ history-only حذف می‌شود.",
+      "رابط و ترجمه‌های en/fa-AF/ps، اعتبارسنجی و تست‌های Feature اضافه شدند."
+    ],
+    "validation": {
+      "ci_run": 44942329152,
+      "status": "in_progress",
+      "mysql_runtime": "not_run",
+      "browser": "not_run"
+    },
+    "remaining": [
+      "دریافت نتیجه CI مربوط به PR110",
+      "بازبینی نتیجه تست‌ها و ادغام فقط در صورت موفقیت کامل",
+      "پس از ادغام، اجرای migration در محیط محلی/staging و تأیید scheduler در محیط واقعی"
+    ]
   },
   "product_recommendations": {
     "title": "پیشنهادهای توسعه محصول AMDB",
@@ -5409,5 +5448,43 @@
     ],
     "merged_at": "2026-11-21",
     "merge_commit": "6a4b39b160078c67178bc262a070f20f5e31eef5"
+  },
+  "viewer_history_retention": {
+    "updated_at": "2026-11-21",
+    "pull_request": 110,
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/110",
+    "branch": "feature/viewer-history-retention",
+    "head_commit": "2a848d511038f59fba24fb31d1e6aa54fe96b594",
+    "status": "open_ci_running_not_merged",
+    "default": "NULL / نگهداری نامحدود؛ حذف خودکار غیرفعال",
+    "supported_days": [
+      30,
+      90,
+      180,
+      365
+    ],
+    "migration": "2026_11_21_190000_add_viewer_history_retention_days_to_users.php",
+    "command": "amdb:prune-viewer-history",
+    "schedule": "daily at 03:45",
+    "favorite_policy": "فقط داده progress پاک می‌شود و favorite باقی می‌ماند.",
+    "history_only_policy": "رکورد قدیمی تاریخچه حذف می‌شود.",
+    "locales": [
+      "en",
+      "fa-AF",
+      "ps"
+    ],
+    "files_changed": 12,
+    "additions": 258,
+    "deletions": 4,
+    "validation": {
+      "ci_run": 44942329152,
+      "status": "in_progress",
+      "mysql_runtime": "not_run",
+      "browser": "not_run"
+    },
+    "remaining": [
+      "CI را کامل بررسی کن؛ در صورت موفقیت ادغام شود.",
+      "Migration و scheduler فقط پس از ادغام در محیط MySQL/staging بررسی شوند."
+    ]
   }
 }
