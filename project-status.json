@@ -571,7 +571,8 @@
       "PR102 با روش Squash در main ادغام شد؛ merge commit 148429ac280e3545f2c812de76b41bd96edc0f54. CI run 44912455421 موفق بود: Vite production build و 184 تست Laravel با 700 assertion.",
       "FFmpeg اکنون برای منابع دارای کیفیت کافی ladder تطبیقی 360p/480p/720p تولید می‌کند؛ برای منابع کوچک‌تر فقط پروفایل هم‌اندازه منبع می‌سازد و upscale انجام نمی‌دهد.",
       "GOP/keyframe و segment boundaries بین renditionها هم‌تراز می‌شوند؛ master playlist و تمام variant playlistها و segmentها پیش از approval اعتبارسنجی می‌شوند.",
-      "تحویل HLS master، variant manifest و segmentها با HMAC دارای انقضا و کنترل مجدد حقوق انجام می‌شود؛ پکیج‌های legacy تک‌کیفیت نیز برای سازگاری پشتیبانی می‌شوند."
+      "تحویل HLS master، variant manifest و segmentها با HMAC دارای انقضا و کنترل مجدد حقوق انجام می‌شود؛ پکیج‌های legacy تک‌کیفیت نیز برای سازگاری پشتیبانی می‌شوند.",
+      "PR103 انتخاب دستی کیفیت HLS را به player اضافه کرد؛ گزینه Auto پیش‌فرض است و کیفیت‌های موجود از master playlist خوانده می‌شوند. مرورگرهای native HLS از کنترل کیفیت بومی استفاده می‌کنند؛ CI run 44912719162 در حال اجراست."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1022,6 +1023,10 @@
     {
       "date": "2026-11-21",
       "text": "PR102 HLS تطبیقی 360p/480p/720p و تحویل HMAC variantها با CI موفق ادغام شد؛ merge commit 148429ac280e3545f2c812de76b41bd96edc0f54. 184 تست و 700 assertion موفق شدند. FFmpeg واقعی و MySQL عملیاتی هنوز آزمایش نشده‌اند."
+    },
+    {
+      "date": "2026-11-21",
+      "text": "PR103 انتخاب کیفیت Auto/360p/480p/720p را برای hls.js player اضافه می‌کند و ترجمه‌های watch را پاک‌سازی می‌کند؛ CI run 44912719162 در حال اجراست."
     }
   ],
   "architecture": {
@@ -5209,6 +5214,20 @@
       "scope": "FFmpeg تک‌کیفیت HLS تا سقف 720p، بسته خصوصی قرنطینه‌شده، صف مستقل و dispatcher زمان‌بندی‌شده؛ بدون پخش عمومی، CDN یا entitlement. CI run 175 در صف است. PR96 ادغام شد؛ CI run 175 موفق است. Migration و FFmpeg واقعی هنوز روی MySQL/staging آزمایش نشده‌اند.",
       "merge_commit": "bced37cd23e4fe423967f6253b6cd8f617ce1325",
       "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44877119121"
+    },
+    {
+      "branch": "feature/hosted-hls-quality-selector",
+      "pull_request": 103,
+      "title": "Add manual adaptive HLS quality selection to the watch player",
+      "head_commit": "fa3ab8a29e0b1319772a7101494a57fc943a6ec0",
+      "base_commit": "148429ac280e3545f2c812de76b41bd96edc0f54",
+      "status": "ready_for_review_ci_running",
+      "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44912719162",
+      "scope": "انتخاب Auto/360p/480p/720p برای HLS.js بر اساس master playlist؛ انتخاب خودکار پیش‌فرض حفظ می‌شود؛ مرورگرهای native HLS از کنترل کیفیت بومی خود استفاده می‌کنند.",
+      "limitations": [
+        "انتخاب دستی فقط در HLS.js فعال است؛ native HLS کیفیت را به سیستم‌عامل/مرورگر می‌سپارد.",
+        "CI run 44912719162 در حال اجراست؛ آزمون واقعی مرورگر و دستگاه هنوز انجام نشده است."
+      ]
     }
   ]
 }
