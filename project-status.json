@@ -17,10 +17,10 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "8eb5ac4411f87f6ecd6ad7892d20500e8b9feaab",
+    "source_commit_audited": "f42c79d1df155ccb3e4075603a6219a949e1fb17",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "8eb5ac4411f87f6ecd6ad7892d20500e8b9feaab",
-    "latest_main_commit_verified_on": "2026-11-20"
+    "latest_main_commit": "f42c79d1df155ccb3e4075603a6219a949e1fb17",
+    "latest_main_commit_verified_on": "2026-11-21"
   },
   "languages": [
     {
@@ -505,7 +505,11 @@
       "اعلان انتشار عنوان و قسمت برای دنبال‌کنندگان هنرمندان فعال با اعتبارسنجی زمان دنبال‌کردن، ترجیحات کاربر، delivery idempotent و callback پس از commit اضافه شد؛ command روزانه برای تاریخ‌های انتشار آینده ثبت شد. کانال فقط in-app است.",
       "تست‌های Feature برای follow/mute/unfollow، ترجیحات کلی، جلوگیری از اعلان تکراری، عدم اعلان retroactive و اعلان قسمت اضافه شدند؛ اجرا نشده‌اند.",
       "وضعیت فعلی PR92 در زمان آخرین بررسی: head برابر 2e2ff6f78595a18232e3c0095d125150c404fc96؛ open/draft؛ ۸۱ فایل، ۴۱۷۲ افزودن و ۲۷ حذف؛ شاخه ۱۶۹ commit جلو و ۱ commit عقب از main؛ mergeable_state=unstable.",
-      "گزارش مخزن docs به main به‌روزرسانی شده است؛ این به‌روزرسانی به معنی ادغام کد برنامه در main نیست. کد برنامه فقط در شاخه PR92 قرار دارد."
+      "گزارش مخزن docs به main به‌روزرسانی شده است؛ این به‌روزرسانی به معنی ادغام کد برنامه در main نیست. کد برنامه فقط در شاخه PR92 قرار دارد.",
+      "PR شماره ۹۲ پس از اصلاح سه تست و اجرای مجدد CI با موفقیت تأیید شد؛ run شماره 44872002080 هر دو job مربوط به Vite production build و Laravel tests را با conclusion=success به پایان رساند.",
+      "PR92 از حالت Draft خارج و با روش Squash در main ادغام شد؛ merge commit نهایی f42c79d1df155ccb3e4075603a6219a949e1fb17 است.",
+      "تغییرات ادغام‌شده شامل کتابخانه تماشاگر، تاریخچه/ادامه تماشا، علاقه‌مندی‌ها، پیشنهاد ترکیبی و تنظیم حریم خصوصی شخصی‌سازی، دنبال‌کردن هنرمندان و اعلان‌های درون‌برنامه‌ای، زیرساخت منابع پخش و صفحه watch کنترل‌شده است.",
+      "CI روی commit سرشاخه PR یعنی 65aa5737dbb62b69fb6b229b33f503e3c7d04000 موفق شد؛ تست‌های PHPUnit در محیط CI/SQLite اجرا شدند. هیچ Migration روی دیتابیس محلی یا عملیاتی کاربر اجرا نشده و مرورگر/runtime محیط واقعی نیز بررسی نشده است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -4877,8 +4881,8 @@
     "implementation_progress": {
       "branch": "feature/viewer-experience-foundation",
       "pull_request": 92,
-      "head_commit": "2e2ff6f78595a18232e3c0095d125150c404fc96",
-      "status": "open_draft_unverified",
+      "head_commit": "f42c79d1df155ccb3e4075603a6219a949e1fb17",
+      "status": "merged_to_main_ci_passed_runtime_and_migrations_not_verified",
       "completed_in_branch": [
         "مرحله ۱: مدل و Migration مستقل PlaybackSource برای Title و Episode، پنل CRUD مدیر، ثبت وضعیت حقوق، دارنده حقوق/شناسه مجوز، زمان‌بندی، مدل دسترسی و منبع پیش‌فرض یکتا در هر هدف.",
         "مرحله ۲: adapterهای YouTube و Aparat با تبدیل URL معتبر به embed URL سمت سرور؛ allowlist میزبان و مسیر و رد URLهای غیر HTTPS یا نامعتبر.",
@@ -4886,23 +4890,25 @@
         "انتخاب منبع و قسمت توسط تماشاگر؛ iframe ابتدا about:blank است و فقط پس از کلیک صریح کاربر و نمایش هشدار اتصال به سرویس ثالث بارگذاری می‌شود.",
         "مرحله ۳ به‌صورت دستی تکمیل‌تر شد: تصویر اصلی still برای هر Episode مستقل است؛ TitleMediaController انتخاب primary را در محدوده همان Episode نگه می‌دارد و مسیر فایل را با episodes.still_path همگام می‌کند؛ صفحه عمومی تصویر اصلی هر قسمت را نمایش می‌دهد.",
         "اتصال player به کتابخانه تماشاگر برای YouTube: بازیابی موقعیت ذخیره‌شده، ارسال progress هر ۱۵ ثانیه و هنگام pause/end برای کاربران واردشده و لینک ادامه تماشا از کتابخانه به صفحه watch. Aparat هنوز progress integration ندارد.",
-        "دنبال‌کردن هنرمندان و اعلان‌های درون‌برنامه‌ای انتشار اثر/قسمت اضافه شد: دنبال/لغو دنبال، خاموش‌کردن اعلان هر هنرمند، تنظیم کلی اعلان‌های آثار/قسمت‌ها، ارسال idempotent بعد از commit و command زمان‌بندی‌شده روزانه برای انتشارهای تاریخ‌دار."
+        "دنبال‌کردن هنرمندان و اعلان‌های درون‌برنامه‌ای انتشار اثر/قسمت اضافه شد: دنبال/لغو دنبال، خاموش‌کردن اعلان هر هنرمند، تنظیم کلی اعلان‌های آثار/قسمت‌ها، ارسال idempotent بعد از commit و command زمان‌بندی‌شده روزانه برای انتشارهای تاریخ‌دار.",
+        "PR92 با موفقیت در main ادغام شد؛ commit نهایی f42c79d1df155ccb3e4075603a6219a949e1fb17.",
+        "CI مربوط به سرشاخه نهایی PR92 موفق شد: Vite production build و مجموعه تست‌های Laravel هر دو با conclusion=success."
       ],
       "not_implemented_or_unverified": [
-        "PR92 روی شاخه feature/viewer-experience-foundation باز و draft است؛ تغییرات هنوز در main ادغام نشده‌اند. شاخه در زمان گزارش ۱ commit از main عقب و ۱۶۹ commit جلو است؛ وضعیت mergeability از GitHub برابر unstable بوده و نیازمند همگام‌سازی/بازبینی است.",
-        "Migration، تست PHPUnit، مرورگر و runtime اجرا نشده‌اند.",
+        "Migrationهای افزایشی PR92 هنوز روی دیتابیس محلی/عملیاتی اجرا نشده‌اند؛ CI تست‌ها را روی SQLite موقت اجرا کرده است. بررسی MySQL واقعی، backup/rollback و آزمون staging همچنان لازم است.",
         "ad_supported، rent، purchase و subscription در حال حاضر metadata هستند و از صفحه عمومی پخش ارائه نمی‌شوند.",
         "Hosted playback، storage خصوصی، transcoding، HLS، CDN، زیرنویس و کنترل دسترسی پیاده‌سازی نشده‌اند.",
         "بازیابی خودکار thumbnail رسمی YouTube از metadata/oEmbed و refresh/cache آن هنوز پیاده‌سازی نشده؛ تصویر دستی قسمت فعلاً مسیر اصلی و override قابل اتکا است.",
         "progress فعلی فقط از YouTube IFrame Player API دریافت می‌شود؛ داده ارسالی مرورگر کم‌اعتماد است و نباید برای view-count مالی یا settlement استفاده شود. اتصال Aparat و رویدادهای immutable نشست‌ها باقی است.",
-        "اعلان‌ها در این مرحله فقط درون‌برنامه‌ای هستند؛ ایمیل/Push و اعلان تغییرات عمومی پروفایل هنرمند پیاده‌سازی نشده‌اند."
+        "اعلان‌ها در این مرحله فقط درون‌برنامه‌ای هستند؛ ایمیل/Push و اعلان تغییرات عمومی پروفایل هنرمند پیاده‌سازی نشده‌اند.",
+        "CI موفق، جایگزین آزمون مرورگر، runtime و پذیرش staging نیست؛ هیچ‌یک در محیط واقعی کاربر اجرا نشده‌اند."
       ],
       "rollout": "ماژول playback در PluginCatalog با default_enabled=false ثبت شده است. فعال‌سازی عمومی تا تکمیل حقوق، entitlement، سیاست provider، تست staging و پذیرش صریح انتشار انجام نمی‌شود.",
-      "mergeable_state": "unstable",
-      "behind_by": 1,
-      "ahead_by": 169,
+      "mergeable_state": "merged",
+      "behind_by": 0,
+      "ahead_by": 0,
       "changed_files": 81,
-      "additions": 4172,
+      "additions": 4173,
       "deletions": 27
     }
   },
@@ -4998,42 +5004,7 @@
       "تطبیق مجوزهای مالکیت اثر و کاربران نماینده با قرارداد"
     ],
     "feature_status": "این تصمیم‌ها مصوب و در نقشه راه هستند؛ به معنی پیاده‌سازی قابلیت یا فعال‌شدن پرداخت/پخش نیست.",
-    "implementation_status": "viewer_library_hybrid_recommendations_artist_follows_and_in_app_release_notifications_in_open_draft_pr_92; playback_player_partial_and_unverified"
+    "implementation_status": "viewer_library_hybrid_recommendations_artist_follows_and_in_app_release_notifications_merged_to_main_ci_passed; playback_source_and_youtube_progress_foundation_merged; hosted_playback_and_commercial_entitlements_pending"
   },
-  "parallel_work_in_progress": [
-    {
-      "branch": "feature/viewer-experience-foundation",
-      "base_commit": "8eb5ac4411f87f6ecd6ad7892d20500e8b9feaab",
-      "head_commit": "956e0db2429e911a5106b9162b47c92b6f3b7b5d",
-      "updated_at": "2026-11-21",
-      "scope": "کتابخانه تماشاگر و پیشنهاد ترکیبی آثار: علاقه‌مندی، تاریخچه/ادامه تماشا، progress بر اساس Title/Episode، پاک‌سازی تاریخچه، موتور پیشنهاد Hybrid و تنظیم حریم خصوصی شخصی‌سازی.",
-      "status": "source_implemented_unverified_in_draft_pr",
-      "details": [
-        "Migration افزایشی user_title_states برای نگهداری یک وضعیت به‌ازای هر user/title اضافه شد؛ episode_id فقط به قسمت متعلق به همان اثر پذیرفته می‌شود.",
-        "صفحه خصوصی /my-library برای علاقه‌مندی‌ها، تاریخچه و ادامه تماشا اضافه شد؛ آثار منتشرنشده و حذف نرم‌شده در کتابخانه نمایش داده نمی‌شوند.",
-        "کاربر می‌تواند علاقه‌مندی را اضافه/حذف کند و تاریخچه را پاک کند؛ پاک‌سازی تاریخچه رکوردهای علاقه‌مندی را حفظ می‌کند.",
-        "مسیر ذخیره progress به شناسه پایدار am اثر و قسمت متصل است و URL منبع پخش یا Entitlement را نمی‌پذیرد؛ این مسیر مجوز پخش ایجاد نمی‌کند.",
-        "زبان‌های en، fa-AF و ps برای رابط کتابخانه ترجمه شده‌اند.",
-        "شش سناریوی Feature Test برای علاقه‌مندی، جداسازی حساب، اثر منتشرنشده، ذخیره progress، تعلق قسمت به اثر و پاک‌سازی تاریخچه نوشته شدند؛ اجرا نشده‌اند.",
-        "شاخه توسعه با آخرین main همگام شد؛ در مقایسه فعلی ۳۶ commit جلو و صفر commit عقب است و PR92 از نظر mergeability=true گزارش شده است.",
-        "موتور TitleRecommendationService برای ترکیب علاقه‌مندی‌ها و سابقه تماشای ذخیره‌شده، شباهت ژانر/نوع محتوا، میانگین/تعداد امتیازهای جامعه و تازگی اثر اضافه شد.",
-        "پیشنهادهای صفحه اصلی برای مهمان و حساب‌های بدون سابقه به رتبه‌بندی عمومی محبوبیت/تازگی برمی‌گردند؛ کاربر می‌تواند شخصی‌سازی را در کتابخانه خود خاموش کند.",
-        "Migration افزایشی برای personalized_recommendations_enabled در users اضافه شد؛ مقدار پیش‌فرض برای کاربران جدید و قدیمی true است.",
-        "سه Feature Test برای رتبه‌بندی ژانر، fallback عمومی در حالت opt-out و ذخیره تنظیم شخصی‌سازی اضافه شدند؛ در مجموع ۹ تست Feature در PR92 وجود دارد."
-      ],
-      "remaining": [
-        "PR92 باز و draft است و هنوز در main ادغام نشده است.",
-        "دو Migration، PHPUnit، مرورگر و runtime اجرا/تأیید نشده‌اند.",
-        "اتصال progress به پخش‌کننده پس از پیاده‌سازی PlaybackSource/player انجام می‌شود؛ endpoint فعلی entitlement یا مجوز پخش ایجاد نمی‌کند.",
-        "تاریخچه immutable نشست‌ها، حذف تکی رکوردها، retention و تنظیمات/رویدادهای اعلان تماشاگر در مراحل بعدی هستند.",
-        "ارزیابی کیفیت پیشنهادها با داده واقعی، پایش و بهینه‌سازی عملکرد پس از جمع‌آوری رضایت‌مندانه داده لازم است."
-      ],
-      "pull_request": {
-        "number": 92,
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/92",
-        "state": "open",
-        "draft": true
-      }
-    }
-  ]
+  "parallel_work_in_progress": []
 }
