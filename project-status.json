@@ -2887,7 +2887,7 @@
     "PR104 قدیمی superseded است و نباید ادغام شود؛ بازنویسی company-only در PR107 قرار دارد و CI آن در حال اجراست: https://github.com/armanaria111/amdb-laravel2/pull/107",
     "PR105 ادغام شد؛ CI سرشاخه و CI push روی main هر دو موفق‌اند (merge d5e96008bf7e0c5d7c712991f40c33e85cf1a05f).",
     "PR106 دسترسی نمایندگان شرکت و داشبورد/ارسال مدارک حقوق ادغام شد؛ CI موفق است.",
-    "CI push روی main برای merge commit PR107 در حال تکمیل است؛ پس از آن، آزمون MySQL/staging، backup/rollback و پذیرش مرورگر باید انجام شود. هیچ Migration روی دیتابیس کاربر اجرا نشده است."
+    "CI PR107 و push روی main هر دو موفق‌اند؛ باقی‌مانده اصلی آزمون MySQL/staging، backup/rollback، private storage و مرورگر است. هیچ Migration روی دیتابیس کاربر اجرا نشده است."
   ],
   "post_pr21_localization": {
     "date": "2026-11-18",
@@ -4536,10 +4536,10 @@
       "Migrationهای revenue به ترتیب 172000 تا 176000 پس از company_title_rights و company_user قرار گرفتند.",
       "PR104 قدیمی هنوز باز و دارای تعارض است؛ در آن توضیح داده شد که PR107 جایگزین آن است و پس از CI موفق بسته می‌شود.",
       "PR107 با روش Squash ادغام شد؛ CI موفق: Vite build و ۲۱۳ تست Laravel/SQLite با ۸۲۵ assertion. PR104 قدیمی به‌عنوان superseded بسته شد.",
-      "CI push روی main برای merge commit PR107 نیز موفق شد: run 44927734593؛ Vite production build و Laravel tests."
+      "CI push روی main برای merge commit PR107 نیز موفق شد: run 44927734593؛ Vite production build و Laravel tests.",
+      "پس از ادغام PR107، CI push روی main نیز موفق شد: run 44927734593؛ Vite production build و Laravel tests هر دو success."
     ],
     "remaining": [
-      "CI push روی main برای merge commit PR107 موفق شد (run 44927734593).",
       "بررسی و اجرای Migrationهای 170000 تا 176000 فقط روی MySQL staging پس از backup و آزمون rollback؛ دیتابیس محلی/عملیاتی کاربر دست‌نخورده مانده است.",
       "پیکربندی و آزمون private storage روی هاست واقعی، محدودیت دسترسی فایل‌ها و backup مدارک حقوق.",
       "آزمون هم‌زمانی ledger، reversal و settlement روی MySQL و آزمون مرورگر/دستگاه واقعی.",
@@ -5309,7 +5309,8 @@
         "main_push_run": 44927734593,
         "main_push_status": "success",
         "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44927605672",
-        "main_push_conclusion": "success"
+        "main_push_conclusion": "success",
+        "main_push_url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44927734593"
       },
       "merge_commit": "eb12658e8e17f36f1f854bbe6d788634366f3b4a"
     }
