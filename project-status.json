@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "527197dd6137ca378a2bc2a7b43caada87c4802b",
+    "source_commit_audited": "23514d8b971cf2e0885b1818f8f651881bb445fa",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "527197dd6137ca378a2bc2a7b43caada87c4802b",
+    "latest_main_commit": "23514d8b971cf2e0885b1818f8f651881bb445fa",
     "latest_main_commit_verified_on": "2026-11-21"
   },
   "languages": [
@@ -562,7 +562,11 @@
       "صفحه عمومی watch اکنون hosted source را فقط در صورت عنوان منتشرشده، حقوق فعال/clear، بازه مجوز معتبر، مدل رایگان، asset transcoded و package approved فهرست می‌کند.",
       "پخش‌کننده HTML5 به endpoint صدور HMAC URL متصل شد؛ native HLS در مرورگرهای پشتیبانی‌شده و hls.js v1.7.4 در مرورگرهای MSE استفاده می‌شود. کتابخانه hls.js فقط پس از کلیک صریح تماشاگر از jsDelivr بارگذاری می‌شود.",
       "پیشرفت تماشای hosted برای کاربران واردشده هر ۱۵ ثانیه و هنگام pause/end ذخیره می‌شود و resume position از کتابخانه تماشاگر بازیابی می‌گردد. پخش فعلی تک‌کیفیت 720p است.",
-      "PR101 زیرنویس خصوصی WebVTT را اضافه کرد: آپلود و حذف از پنل مدیریت، اعتبارسنجی فایل، مسیر تحویل HMAC با انقضا و افزودن track به player؛ CI run 44911881451 در حال اجراست."
+      "PR101 زیرنویس خصوصی WebVTT را اضافه کرد: آپلود و حذف از پنل مدیریت، اعتبارسنجی فایل، مسیر تحویل HMAC با انقضا و افزودن track به player؛ CI run 44911881451 در حال اجراست.",
+      "PR101 با روش Squash در main ادغام شد؛ merge commit 23514d8b971cf2e0885b1818f8f651881bb445fa. CI run 44911881451 موفق بود: Vite production build و 180 تست Laravel با 682 assertion.",
+      "مدیریت زیرنویس WebVTT خصوصی برای هر hosted asset اضافه شد؛ فایل UTF-8، header WEBVTT، cue timing، حداکثر 4MB و نبود محتوای فعال بررسی می‌شود.",
+      "URL زیرنویس HMAC و دارای انقضا است؛ scope توکن به asset و subtitle ID وابسته است و هر درخواست وضعیت حقوق، package approved، مالکیت asset و storage خصوصی را دوباره بررسی می‌کند.",
+      "پنل مدیریت امکان بارگذاری/حذف زیرنویس، تعیین زبان، label و default track را دارد؛ پخش‌کننده HTML5 trackها را پس از شروع پخش اضافه می‌کند."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1001,6 +1005,10 @@
     {
       "date": "2026-11-21",
       "text": "PR101 مدیریت و تحویل زیرنویس WebVTT خصوصی برای hosted HLS را اضافه می‌کند؛ شامل اعتبارسنجی فایل، HMAC URL مجزا برای هر subtitle و اتصال به player. CI run 44911881451 در حال اجراست."
+    },
+    {
+      "date": "2026-11-21",
+      "text": "PR101 مدیریت و تحویل زیرنویس WebVTT خصوصی با CI موفق ادغام شد؛ merge commit 23514d8b971cf2e0885b1818f8f651881bb445fa. 180 تست و 682 assertion موفق شدند. player اکنون trackهای زیرنویس را از URLهای HMAC خصوصی و دارای انقضا بارگذاری می‌کند."
     }
   ],
   "architecture": {
@@ -4108,7 +4116,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "527197dd6137ca378a2bc2a7b43caada87c4802b",
+    "source_commit": "23514d8b971cf2e0885b1818f8f651881bb445fa",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-20",
@@ -4174,13 +4182,13 @@
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840"
     },
     "release": {
-      "latest_merged_pr": 100,
-      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/100",
-      "latest_source_commit": "527197dd6137ca378a2bc2a7b43caada87c4802b",
+      "latest_merged_pr": 101,
+      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/101",
+      "latest_source_commit": "23514d8b971cf2e0885b1818f8f651881bb445fa",
       "source_branch": "main",
       "verified_at": "2026-11-21"
     },
-    "note": "آخرین commit main برابر 527197dd6137ca378a2bc2a7b43caada87c4802b پس از ادغام PR100 است. صفحه watch اکنون منابع hosted رایگان و approved را با HTML5/HLS.js پخش می‌کند و پیشرفت تماشای کاربران واردشده را ذخیره/ادامه می‌دهد. CI با 176 تست و 663 assertion موفق است؛ آزمون واقعی مرورگر، MySQL، storage و FFmpeg عملیاتی هنوز انجام نشده‌اند.",
+    "note": "آخرین commit main برابر 23514d8b971cf2e0885b1818f8f651881bb445fa پس از ادغام PR101 است. hosted HLS اکنون شامل player، progress و زیرنویس‌های خصوصی WebVTT با URLهای HMAC دارای انقضا است. CI run 44911881451 با 180 تست و 682 assertion موفق شد؛ MySQL، storage/worker واقعی و QA مرورگری هنوز تأیید نشده‌اند.",
     "panels": [
       {
         "id": "admin",
@@ -5188,21 +5196,6 @@
       "scope": "FFmpeg تک‌کیفیت HLS تا سقف 720p، بسته خصوصی قرنطینه‌شده، صف مستقل و dispatcher زمان‌بندی‌شده؛ بدون پخش عمومی، CDN یا entitlement. CI run 175 در صف است. PR96 ادغام شد؛ CI run 175 موفق است. Migration و FFmpeg واقعی هنوز روی MySQL/staging آزمایش نشده‌اند.",
       "merge_commit": "bced37cd23e4fe423967f6253b6cd8f617ce1325",
       "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44877119121"
-    },
-    {
-      "branch": "feature/hosted-hls-subtitles",
-      "pull_request": 101,
-      "title": "Add private WebVTT subtitle management and delivery for hosted playback",
-      "head_commit": "b390e978e2e0bd31a0708734193006e48e7af525",
-      "base_commit": "527197dd6137ca378a2bc2a7b43caada87c4802b",
-      "status": "ready_for_review_ci_running",
-      "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44911881451",
-      "scope": "مدیریت زیرنویس WebVTT خصوصی per asset، اعتبارسنجی UTF-8 و cue timing، زبان/label/default، URLهای HMAC با انقضا، بازبینی حقوق در هر درخواست و اتصال track به player.",
-      "limitations": [
-        "حداکثر 4MB برای هر فایل VTT؛ SRT/ASS هنوز تبدیل خودکار ندارند.",
-        "آزمون مرورگری و خوانایی زیرنویس در دستگاه واقعی انجام نشده است.",
-        "CI run 44911881451 در حال اجراست؛ MySQL و storage واقعی بررسی نشده‌اند."
-      ]
     }
   ]
 }
