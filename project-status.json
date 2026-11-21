@@ -2879,7 +2879,8 @@
     "بررسی تکمیل تمام مسیرهای پنل مدیریت، کاربر عادی و هنرمند و رفع موارد ناقص.",
     "تعیین سیاست و اولویت توسعه درگاه پرداخت و قابلیت‌های باقی‌مانده پس از QA.",
     "PR104 قرارداد درآمد آثار/دفترکل/تسویه قدیمی و دارای تعارض است و نسخه فعلی درآمد هنرمند را مجاز می‌کند؛ نباید ادغام شود. ابتدا PR105 اثبات حقوق شرکت باید CI و ادغام شود، سپس قرارداد/دفترکل/تسویه فقط برای شرکت دارای مدرک تأییدشده بازنویسی شود: https://github.com/armanaria111/amdb-laravel2/pull/104",
-    "PR105 زیرساخت ثبت و تأیید مدارک حقوق شرکت ادغام شد (d5e96008bf7e0c5d7c712991f40c33e85cf1a05f)؛ CI سرشاخه PR موفق، CI push روی main در حال اجرا؛ آزمون MySQL/staging باقی است."
+    "PR105 ادغام شد؛ CI سرشاخه و CI push روی main هر دو موفق‌اند (merge d5e96008bf7e0c5d7c712991f40c33e85cf1a05f).",
+    "PR106 دسترسی نمایندگان شرکت و داشبورد/ارسال مدارک حقوق را اضافه می‌کند؛ CI run 44924950235 در حال اجراست: https://github.com/armanaria111/amdb-laravel2/pull/106"
   ],
   "post_pr21_localization": {
     "date": "2026-11-18",
@@ -4517,7 +4518,7 @@
     "head_commit": "befd0b3dd21b3ef355b08d47158c46e83c08d5aa",
     "updated_at": "2026-11-21",
     "scope": "قرارداد نسخه‌دار درآمد هر اثر، دفترکل رویدادمحور تغییرناپذیر و تسویه فقط برای شرکت دارای حقوق معتبر؛ هرگونه payee، داشبورد درآمد یا درخواست تسویه هنرمند ممنوع است.",
-    "status": "company_rights_evidence_merged_company_only_revenue_rewrite_next",
+    "status": "company_rights_and_representative_portal_pr106_open_ci_pending_company_only_revenue_next",
     "details": [
       "PR104 شامل ۳۷ فایل، ۵ کنترلر، ۵ مدل، ۵ Migration افزایشی، سرویس RevenueLedgerService، سه فایل ترجمه en/fa-AF/ps و سه مجموعه تست Feature است.",
       "مرز ایمنی: سابقه تماشا منبع درآمد محسوب نمی‌شود؛ ثبت درآمد نیازمند source_type و source_reference است. هیچ پرداخت تماشاگر یا انتقال خودکار وجه فعال نشده است.",
@@ -4528,11 +4529,12 @@
       "در PR104 توضیح معماری اصلاح‌شده ثبت شد؛ PR همچنان draft و دارای تعارض است و هنوز کد اصلاحی در main ادغام نشده است.",
       "PR105 روی شاخه مبتنی بر main ایجاد شد: company_title_rights، بارگذاری مدرک در private local disk، تأیید/رد مدیر، محدودیت قلمرو/اعتبار، immutable review transitions و ترجمه‌های سه‌زبانه.",
       "PR105 هنوز CI pending است؛ این PR فقط زیربنای اثبات حقوق شرکت است و درآمد شرکت یا تسویه را فعال نمی‌کند.",
-      "PR105 با روش Squash ادغام شد؛ merge commit d5e96008bf7e0c5d7c712991f40c33e85cf1a05f. CI روی سرشاخه PR موفق بود: Vite build و Laravel tests/SQLite؛ CI push روی main هنوز در حال اجراست."
+      "PR105 با روش Squash ادغام شد؛ merge commit d5e96008bf7e0c5d7c712991f40c33e85cf1a05f. CI روی سرشاخه PR موفق بود: Vite build و Laravel tests/SQLite؛ CI push روی main هنوز در حال اجراست.",
+      "CI اجرای push روی main برای PR105 موفق شد (run 44924601965): Vite build و Laravel tests روی SQLite.",
+      "PR106 روی main شامل عضویت و نقش نمایندگان شرکت، داشبورد شرکت و ارسال امن مدارک حقوق توسط owner/manager است؛ CI run 44924950235 در حال اجراست."
     ],
     "remaining": [
-      "تکمیل و بررسی CI push روی main برای merge commit PR105.",
-      "پیاده‌سازی شرکت‌ها و کاربران نماینده شرکت (owner/finance) برای مدیریت مدارک و داشبورد شرکت؛ تأیید نهایی حقوق در اختیار مدیر باقی بماند.",
+      "دریافت نتیجه CI و رفع خطاهای PR106؛ سپس بازبینی و ادغام.",
       "بازنویسی PR104 روی main جدید: قرارداد هر اثر، دفترکل و تسویه فقط برای Company دارای CompanyTitleRight تأییدشده و معتبر؛ حذف Artist payee/dashboard/settlement.",
       "تست‌های مثبت شرکت مجاز و منفی هنرمند/شرکت بدون مدرک، منقضی یا خارج از قلمرو.",
       "اجرای CI و بازبینی امنیتی/مالی؛ سپس ادغام. MySQL/staging فقط پس از backup و بدون دست‌کاری دیتابیس کاربر."
@@ -5264,6 +5266,21 @@
         "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44924498391"
       },
       "merge_commit": "d5e96008bf7e0c5d7c712991f40c33e85cf1a05f"
+    },
+    {
+      "branch": "feature/company-accounts-and-rights-portal",
+      "pull_request": 106,
+      "title": "Add verified company accounts and rights submission portal",
+      "head_commit": "0b4bca8ab18debd60b4dc84577e938b518c0d5f7",
+      "base_commit": "d5e96008bf7e0c5d7c712991f40c33e85cf1a05f",
+      "status": "open_ready_for_review_ci_pending",
+      "scope": "عضویت و نمایندگی شرکت، نقش‌های owner/finance/manager/viewer، داشبورد شرکت و ارسال مدارک حقوق با تأیید نهایی مدیر.",
+      "ci": {
+        "run": 225,
+        "id": 44924950235,
+        "status": "in_progress",
+        "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44924950235"
+      }
     }
   ],
   "company_rights_evidence": {
@@ -5291,10 +5308,38 @@
       "pr_result": "success",
       "pr_url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44924498391",
       "main_push_run": 44924601965,
-      "main_push_result": "in_progress",
-      "main_push_url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44924601965"
+      "main_push_result": "success",
+      "main_push_url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44924601965",
+      "main_push_completed_on": "2026-11-21"
     },
     "merge_commit": "d5e96008bf7e0c5d7c712991f40c33e85cf1a05f",
     "merged_on": "2026-11-21"
+  },
+  "company_accounts": {
+    "updated_at": "2026-11-21",
+    "pull_request": 106,
+    "branch": "feature/company-accounts-and-rights-portal",
+    "head_commit": "0b4bca8ab18debd60b4dc84577e938b518c0d5f7",
+    "status": "implementation_pr_open_ci_pending",
+    "scope": [
+      "جدول company_user برای عضویت تأییدشده کاربران در شرکت‌ها با نقش owner/finance/manager/viewer و وضعیت active/suspended.",
+      "مدیر می‌تواند نمایندگان شرکت را اضافه، ویرایش، تعلیق یا حذف کند.",
+      "داشبورد شرکت برای نمایندگان فعال.",
+      "فقط owner و manager فعال می‌توانند مدرک حقوق اثر را از داشبورد شرکت ارسال کنند؛ finance/viewer و اعضای تعلیق‌شده رد می‌شوند.",
+      "مدرک ارسالی شرکت روی private local disk ذخیره و در وضعیت pending_review قرار می‌گیرد؛ تأیید/رد نهایی در اختیار مدیر AMDB است.",
+      "ترجمه‌های en/fa-AF/ps و تست‌های Feature."
+    ],
+    "ci": {
+      "run": 225,
+      "id": 44924950235,
+      "status": "in_progress",
+      "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44924950235"
+    },
+    "limitations": [
+      "PR106 هنوز ادغام نشده و CI در حال اجراست.",
+      "این مرحله دسترسی و ارسال مدارک شرکت را می‌سازد؛ درآمد، قرارداد، ledger و تسویه هنوز فعال نشده‌اند.",
+      "اجرای MySQL/staging و تنظیم واقعی private storage هنوز تأیید نشده است."
+    ],
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/106"
   }
 }
