@@ -561,7 +561,8 @@
       "PR100 با روش Squash در main ادغام شد؛ merge commit 527197dd6137ca378a2bc2a7b43caada87c4802b. CI run 44911361615 موفق شد: Vite production build و 176 تست Laravel با 663 assertion.",
       "صفحه عمومی watch اکنون hosted source را فقط در صورت عنوان منتشرشده، حقوق فعال/clear، بازه مجوز معتبر، مدل رایگان، asset transcoded و package approved فهرست می‌کند.",
       "پخش‌کننده HTML5 به endpoint صدور HMAC URL متصل شد؛ native HLS در مرورگرهای پشتیبانی‌شده و hls.js v1.7.4 در مرورگرهای MSE استفاده می‌شود. کتابخانه hls.js فقط پس از کلیک صریح تماشاگر از jsDelivr بارگذاری می‌شود.",
-      "پیشرفت تماشای hosted برای کاربران واردشده هر ۱۵ ثانیه و هنگام pause/end ذخیره می‌شود و resume position از کتابخانه تماشاگر بازیابی می‌گردد. پخش فعلی تک‌کیفیت 720p است."
+      "پیشرفت تماشای hosted برای کاربران واردشده هر ۱۵ ثانیه و هنگام pause/end ذخیره می‌شود و resume position از کتابخانه تماشاگر بازیابی می‌گردد. پخش فعلی تک‌کیفیت 720p است.",
+      "PR101 زیرنویس خصوصی WebVTT را اضافه کرد: آپلود و حذف از پنل مدیریت، اعتبارسنجی فایل، مسیر تحویل HMAC با انقضا و افزودن track به player؛ CI run 44911881451 در حال اجراست."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -996,6 +997,10 @@
     {
       "date": "2026-11-21",
       "text": "PR100 اتصال صفحه watch به hosted HLS را با CI موفق ادغام کرد؛ merge commit 527197dd6137ca378a2bc2a7b43caada87c4802b. 176 تست و 663 assertion موفق شدند. صفحه watch فقط منابع رایگان، حقوق‌دار و packageهای approved را نمایش می‌دهد؛ player HTML5/native HLS/hls.js و progress برای کاربران واردشده فعال شده است."
+    },
+    {
+      "date": "2026-11-21",
+      "text": "PR101 مدیریت و تحویل زیرنویس WebVTT خصوصی برای hosted HLS را اضافه می‌کند؛ شامل اعتبارسنجی فایل، HMAC URL مجزا برای هر subtitle و اتصال به player. CI run 44911881451 در حال اجراست."
     }
   ],
   "architecture": {
@@ -5183,6 +5188,21 @@
       "scope": "FFmpeg تک‌کیفیت HLS تا سقف 720p، بسته خصوصی قرنطینه‌شده، صف مستقل و dispatcher زمان‌بندی‌شده؛ بدون پخش عمومی، CDN یا entitlement. CI run 175 در صف است. PR96 ادغام شد؛ CI run 175 موفق است. Migration و FFmpeg واقعی هنوز روی MySQL/staging آزمایش نشده‌اند.",
       "merge_commit": "bced37cd23e4fe423967f6253b6cd8f617ce1325",
       "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44877119121"
+    },
+    {
+      "branch": "feature/hosted-hls-subtitles",
+      "pull_request": 101,
+      "title": "Add private WebVTT subtitle management and delivery for hosted playback",
+      "head_commit": "b390e978e2e0bd31a0708734193006e48e7af525",
+      "base_commit": "527197dd6137ca378a2bc2a7b43caada87c4802b",
+      "status": "ready_for_review_ci_running",
+      "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44911881451",
+      "scope": "مدیریت زیرنویس WebVTT خصوصی per asset، اعتبارسنجی UTF-8 و cue timing، زبان/label/default، URLهای HMAC با انقضا، بازبینی حقوق در هر درخواست و اتصال track به player.",
+      "limitations": [
+        "حداکثر 4MB برای هر فایل VTT؛ SRT/ASS هنوز تبدیل خودکار ندارند.",
+        "آزمون مرورگری و خوانایی زیرنویس در دستگاه واقعی انجام نشده است.",
+        "CI run 44911881451 در حال اجراست؛ MySQL و storage واقعی بررسی نشده‌اند."
+      ]
     }
   ]
 }
