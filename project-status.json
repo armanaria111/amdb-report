@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "f42c79d1df155ccb3e4075603a6219a949e1fb17",
+    "source_commit_audited": "c19a089db360509499617621a0b0ee9064eb8086",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "f42c79d1df155ccb3e4075603a6219a949e1fb17",
+    "latest_main_commit": "c19a089db360509499617621a0b0ee9064eb8086",
     "latest_main_commit_verified_on": "2026-11-21"
   },
   "languages": [
@@ -523,7 +523,11 @@
       "PR93 با CI موفق ادغام شد؛ merge commit برابر 0f8d46b271858bb96fbb6089b18a970e819fc534 است.",
       "PR94 برای اسکن بدافزار فایل‌های خصوصی ایجاد شد؛ آخرین head df38bc4a9ed316a08fd9022b2d6a100bc53719a4. CI run 44874170465 در حال اجراست؛ Vite موفق و تست‌های Laravel هنوز در حال اجرا هستند.",
       "PR94 با CI موفق ادغام شد؛ merge commit برابر b811644b2a99610ca57f96265e7e7cf0817c8512 است. اسکن ClamAV اختیاری، job صفی، وضعیت‌های scan و فرمان retry به main افزوده شد.",
-      "PR95 برای FFprobe technical probe ایجاد شد؛ آخرین head bff8f2094cf2d1ef9fbbb1485c110a0a2a6a12bc. CI run 44874539490 در حال اجراست؛ Vite موفق و تست‌های Laravel در حال اجرا هستند."
+      "PR95 برای FFprobe technical probe ایجاد شد؛ آخرین head bff8f2094cf2d1ef9fbbb1485c110a0a2a6a12bc. CI run 44874539490 در حال اجراست؛ Vite موفق و تست‌های Laravel در حال اجرا هستند.",
+      "PR95 با موفقیت ادغام شد؛ merge commit برابر c19a089db360509499617621a0b0ee9064eb8086 است. CI run 44874624784 روی سرشاخه نهایی موفق شد: Vite production build و Laravel tests هر دو conclusion=success.",
+      "مرحله FFprobe در main اضافه شد: پس از scan_passed، فایل خصوصی دوباره از نظر اندازه و SHA-256 بررسی و با ffprobe از نظر container، وجود ویدئو، تمام کدک‌ها، مدت، ابعاد و سقف پیکسل اعتبارسنجی می‌شود.",
+      "وضعیت probe_passed نیز قرنطینه است و به معنی مجازبودن پخش نیست؛ feature flagهای اسکن و probe به‌صورت پیش‌فرض خاموش هستند.",
+      "در PR95 یک تست اولیه به‌جای hash mismatch به‌علت تفاوت اندازه fail شد؛ fixture اصلاح شد تا اندازه ثابت و hash متفاوت باشد. CI نهایی روی commit 6d88f15909390f19c5069bf0d618e554c435edca موفق شد."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -541,7 +545,12 @@
       "طراحی سیستم اشتراک و اعمال آن بر نمایش عمومی پروفایل طبق تصمیم محصول",
       "طراحی مدل شرکت‌ها و شناسه co",
       "تعیین قاعده جلوگیری از عوامل تکراری با پشتیبانی از چند حرفه/شخصیت",
-      "افزودن Rate limiting ورود و تست‌های امنیتی و هم‌زمانی"
+      "افزودن Rate limiting ورود و تست‌های امنیتی و هم‌زمانی",
+      "نصب و پیکربندی واقعی ClamAV و FFprobe روی worker ایزوله، به‌روزرسانی امضای ویروس‌ها و محدودیت منابع هنوز در محیط عملیاتی تأیید نشده است.",
+      "Migrationهای hosted_playback_assets و scan/probe metadata فقط به مخزن اضافه شده‌اند؛ روی MySQL کاربر یا staging اجرا نشده‌اند و باید پس از backup و بررسی سازگاری اجرا شوند.",
+      "Transcoding با FFmpeg، پروفایل‌های کیفیت، خروجی HLS، کنترل segmentها، CDN خصوصی و signed playback delivery باقی مانده‌اند.",
+      "حقوق نشر و قرارداد هر اثر، moderation، entitlement تماشاگر، پرداخت/اجاره/خرید/اشتراک و ledger تقسیم درآمد باید قبل از فعال‌سازی پخش اختصاصی تکمیل شوند.",
+      "هیچ‌یک از hosted playback، upload، malware scan یا media probe در محیط production فعال نشده‌اند؛ feature flagها خاموش باقی مانده‌اند."
     ]
   },
   "known_issues": [
@@ -5020,50 +5029,5 @@
     "feature_status": "این تصمیم‌ها مصوب و در نقشه راه هستند؛ به معنی پیاده‌سازی قابلیت یا فعال‌شدن پرداخت/پخش نیست.",
     "implementation_status": "viewer_library_hybrid_recommendations_artist_follows_and_in_app_release_notifications_merged_to_main_ci_passed; playback_source_and_youtube_progress_foundation_merged; hosted_playback_and_commercial_entitlements_pending"
   },
-  "parallel_work_in_progress": [
-    {
-      "branch": "feature/private-hosted-media-foundation",
-      "pull_request": 93,
-      "head_commit": "4f99df330f623f1ce9331e8bfd8c93f3b6864188",
-      "status": "open_draft_ci_running_after_upload_test_fixture_fix",
-      "scope": "زیرساخت ذخیره‌سازی خصوصی و دریافت امن فایل ویدئویی در قرنطینه",
-      "completed": [
-        "دیسک محلی playback_private با visibility خصوصی، serve=false و throw=true و دیسک اختیاری playback_s3 خصوصی اضافه شد.",
-        "config/playback.php و متغیرهای محیطی مستقل برای hosted playback، upload و transcoding اضافه شدند؛ همه به‌صورت پیش‌فرض خاموش هستند.",
-        "جدول hosted_playback_assets با ارتباط به PlaybackSource، آپلودکننده، disk/path، MIME تشخیص‌داده‌شده، اندازه، SHA-256 و وضعیت pending_scan اضافه شد.",
-        "endpoint مدیریتی آپلود برای منابع hosted در وضعیت draft اضافه شد؛ دسترسی با مجوز titles.playback.manage، feature flag و throttle محدود است.",
-        "نام فایل ذخیره‌سازی UUID است؛ فایل فقط روی دیسک خصوصی نوشته می‌شود؛ MIME با fileinfo سمت سرور بررسی و حجم محدود می‌شود.",
-        "فایل پس از آپلود فقط pending_scan می‌ماند و هرگز خودکار فعال یا قابل پخش نمی‌شود.",
-        "حذف asset و حذف PlaybackSource با پاک‌سازی فایل خصوصی پس از commit تراکنش هماهنگ شدند.",
-        "تست‌های Feature برای خاموش‌بودن پیش‌فرض، رد MIME نامعتبر، امضای MP4، وضعیت قرنطینه و جلوگیری از حذف بین آثار اضافه شدند.",
-        "پیام‌های رابط مرتبط برای انگلیسی، دری و پشتو اضافه شدند."
-      ],
-      "pending": [
-        "CI run 44873520832 برای commit فعلی در حال اجراست؛ نتیجه نهایی هنوز اعلام نشده است.",
-        "اسکن بدافزار، worker ایزوله، media probing، محدودیت مدت/وضوح، transcoding، HLS، CDN و signed delivery هنوز پیاده‌سازی نشده‌اند.",
-        "Migration افزایشی به مخزن افزوده شده ولی روی دیتابیس محلی/عملیاتی اجرا نشده است."
-      ]
-    },
-    {
-      "branch": "feature/hosted-media-probing",
-      "pull_request": 95,
-      "head_commit": "bff8f2094cf2d1ef9fbbb1485c110a0a2a6a12bc",
-      "status": "open_ready_ci_running",
-      "scope": "اعتبارسنجی فنی فایل‌های ویدئویی با FFprobe پس از اسکن پاک ClamAV",
-      "completed": [
-        "Job اختیاری FFprobe پس از scan_passed طراحی و به زنجیره اسکن اضافه شد.",
-        "پیش از probe، شیء خصوصی دوباره stream می‌شود و حجم و SHA-256 آن بررسی می‌شود.",
-        "کانتینر، وجود video stream، تمام video/audio codecها، مدت، عرض، ارتفاع و سقف تعداد پیکسل بررسی می‌شوند.",
-        "فقط متادیتای فنی نرمال‌شده ذخیره می‌شود و تگ‌های دلخواه فایل وارد دیتابیس نمی‌شوند.",
-        "صف job یکتا، retry، فرمان dispatch و زمان‌بندی هر پنج دقیقه اضافه شدند.",
-        "حالت probe_passed همچنان قرنطینه است و هیچ منبعی را فعال یا قابل پخش نمی‌کند.",
-        "تست‌های Feature برای probe موفق، محدودیت مدت، نبود video stream، حالت خاموش و تغییر hash اضافه شدند."
-      ],
-      "pending": [
-        "CI run 44874539490: ساخت Vite موفق شده و تست‌های Laravel در حال اجراست.",
-        "نصب FFprobe روی worker واقعی، اجرای MySQL migration و عملیات صف در staging تأیید نشده‌اند.",
-        "Transcoding، HLS، تحویل امضاشده، مجوز تماشاگر و تسویه درآمد مراحل بعدی هستند."
-      ]
-    }
-  ]
+  "parallel_work_in_progress": []
 }
