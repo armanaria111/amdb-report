@@ -531,7 +531,11 @@
       "خروجی PHPUnit در CI نهایی PR95: 152 تست موفق و 580 assertion؛ Vite production build نیز موفق شد. این اجرا روی SQLite موقت GitHub Actions بود، نه MySQL محلی/عملیاتی.",
       "PR96 پس از بررسی تغییرات و تأیید CI موفق (run 44877119121) با روش Squash در main ادغام شد؛ merge commit bced37cd23e4fe423967f6253b6cd8f617ce1325.",
       "کد تبدیل خصوصی HLS تا 720p و صف اختصاصی در main موجود است؛ feature flag به‌صورت پیش‌فرض خاموش است و این ادغام به معنی فعال‌شدن پخش عمومی یا تأیید runtime/MySQL نیست.",
-      "PR91 مربوط به پرداخت زرین‌پال همچنان Draft و ادغام‌نشده باقی ماند؛ به‌دلیل وضعیت غیرقابل ادغام و نیاز به تکمیل/اعتبارسنجی، بدون ادغام نگه داشته شد."
+      "PR91 مربوط به پرداخت زرین‌پال همچنان Draft و ادغام‌نشده باقی ماند؛ به‌دلیل وضعیت غیرقابل ادغام و نیاز به تکمیل/اعتبارسنجی، بدون ادغام نگه داشته شد.",
+      "بازبینی همه PRهای مخزن اصلی انجام شد؛ PRهای 92 تا 96 ادغام‌شده‌اند و تنها PR91 پرداخت زرین‌پال باز بود.",
+      "PR91 به‌دلیل عقب‌ماندگی ۱۶ commit از main و شکست CI بسته شد؛ تغییرات آن روی شاخه تازه مبتنی بر main در PR97 بازسازی شد تا تغییرات PR92 تا PR96 از دست نروند.",
+      "CI اولیه PR97 خطای import کنترلر را نشان داد؛ import در routes/web.php اصلاح و PR97 برای اجرای مجدد CI آماده بررسی شد. CI جدید run 44908547974 در حال اجراست و هنوز نتیجه نهایی ندارد.",
+      "در PR97 چهار تست callback پرداخت در نظر گرفته شده‌اند: callback لغو غیرقابل اعتماد، تأیید موفق سمت سرور، شکست verify بدون فعال‌سازی و idempotency callback تکراری. فعال‌سازی پرداخت تا عبور CI و آزمون sandbox غیرفعال می‌ماند."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -902,6 +906,10 @@
     {
       "date": "2026-11-21",
       "text": "PR96 تبدیل خصوصی HLS با CI موفق در main ادغام شد؛ merge commit bced37cd23e4fe423967f6253b6cd8f617ce1325. صف FFmpeg، بازبینی checksum، تولید HLS تک‌کیفیت تا 720p و نگهداری بسته در دیسک خصوصی قرنطینه‌شده اضافه شد. Feature flag خاموش است؛ Migration، FFmpeg واقعی و runtime روی MySQL/staging هنوز تأیید نشده‌اند. PR91 پرداخت زرین‌پال همچنان Draft و ادغام‌نشده است."
+    },
+    {
+      "date": "2026-11-21",
+      "text": "PR91 قدیمی به‌علت diverged بودن از main بسته شد و به‌جای ادغام شاخه قدیمی، پرداخت زرین‌پال روی آخرین main در PR97 بازسازی شد. خطای import کنترلر شناسایی و رفع شد؛ CI run 44908547974 در حال اجراست. PR97 هنوز ادغام نشده است."
     }
   ],
   "architecture": {
@@ -5089,6 +5097,21 @@
       "scope": "FFmpeg تک‌کیفیت HLS تا سقف 720p، بسته خصوصی قرنطینه‌شده، صف مستقل و dispatcher زمان‌بندی‌شده؛ بدون پخش عمومی، CDN یا entitlement. CI run 175 در صف است. PR96 ادغام شد؛ CI run 175 موفق است. Migration و FFmpeg واقعی هنوز روی MySQL/staging آزمایش نشده‌اند.",
       "merge_commit": "bced37cd23e4fe423967f6253b6cd8f617ce1325",
       "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44877119121"
+    },
+    {
+      "branch": "feature/zarinpal-checkout-mainline",
+      "pull_request": 97,
+      "title": "Add ZarinPal artist subscription checkout on current main",
+      "head_commit": "e641a0268dabd366fe0a5af3c684d859caae2949",
+      "base_commit": "bced37cd23e4fe423967f6253b6cd8f617ce1325",
+      "status": "ready_for_review_ci_running",
+      "scope": "درگاه زرین‌پال برای اشتراک هنرمند با حفظ پرداخت بانکی دستی، بررسی server-side، مالکیت پروفایل، ثبت Authority، callback غیرقابل اعتماد، idempotency و ترجمه سه‌زبانه؛ چهار تست Feature.",
+      "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44908547974",
+      "limitations": [
+        "CI هنوز در حال اجراست؛ ادغام نشده است.",
+        "بدون merchant ID checkout مخفی/غیرفعال است؛ sandbox و تراکنش واقعی انجام نشده‌اند.",
+        "پرداخت رمزارزی در این PR وجود ندارد و به تصمیم شبکه/آدرس دریافت نیاز دارد."
+      ]
     }
   ]
 }
