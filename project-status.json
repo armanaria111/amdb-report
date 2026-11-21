@@ -572,7 +572,9 @@
       "FFmpeg اکنون برای منابع دارای کیفیت کافی ladder تطبیقی 360p/480p/720p تولید می‌کند؛ برای منابع کوچک‌تر فقط پروفایل هم‌اندازه منبع می‌سازد و upscale انجام نمی‌دهد.",
       "GOP/keyframe و segment boundaries بین renditionها هم‌تراز می‌شوند؛ master playlist و تمام variant playlistها و segmentها پیش از approval اعتبارسنجی می‌شوند.",
       "تحویل HLS master، variant manifest و segmentها با HMAC دارای انقضا و کنترل مجدد حقوق انجام می‌شود؛ پکیج‌های legacy تک‌کیفیت نیز برای سازگاری پشتیبانی می‌شوند.",
-      "PR103 انتخاب دستی کیفیت HLS را به player اضافه کرد؛ گزینه Auto پیش‌فرض است و کیفیت‌های موجود از master playlist خوانده می‌شوند. مرورگرهای native HLS از کنترل کیفیت بومی استفاده می‌کنند؛ CI run 44912719162 در حال اجراست."
+      "PR103 انتخاب دستی کیفیت HLS را به player اضافه کرد؛ گزینه Auto پیش‌فرض است و کیفیت‌های موجود از master playlist خوانده می‌شوند. مرورگرهای native HLS از کنترل کیفیت بومی استفاده می‌کنند؛ CI run 44912719162 در حال اجراست.",
+      "PR103 انتخاب کیفیت HLS در main ادغام شد؛ merge commit bf9e18bbbad3f49dac0b5cc22c80960d246ee8ca. CI run 44922222918 روی head نهایی ecdc7388ec61e6a2b18dc6e985f2e3585f10cf49 موفق شد: Vite production build و Laravel tests (PHP 8.5/SQLite)، کامپایل Blade و lint.",
+      "برای قرارداد درآمد آثار، ledger و تسویه صاحبان پروفایل، PR104 با ۳۷ فایل و تست‌های Feature ایجاد شد؛ branch قدیمی آن ۱۳ commit از main عقب و دارای تعارض است، بنابراین ادغام نشده و باید روی mainline بازسازی/حل تعارض شود. هیچ Migration یا دیتابیسی اجرا نشده است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -2875,7 +2877,8 @@
     "بازبینی امنیتی و دسترسی‌های باقی‌مانده روی commit جاری؛ یافته‌های ممیزی قدیمی تا زمان بازبینی مجدد تاریخی تلقی شوند.",
     "تأیید رفتار runtime Activitylog، Sitemap، Chart.js، SEO و اعلان‌ها.",
     "بررسی تکمیل تمام مسیرهای پنل مدیریت، کاربر عادی و هنرمند و رفع موارد ناقص.",
-    "تعیین سیاست و اولویت توسعه درگاه پرداخت و قابلیت‌های باقی‌مانده پس از QA."
+    "تعیین سیاست و اولویت توسعه درگاه پرداخت و قابلیت‌های باقی‌مانده پس از QA.",
+    "PR104 قرارداد درآمد آثار/دفترکل/تسویه باز است اما به‌علت تعارض شاخه قدیمی هنوز CI و ادغام ندارد: https://github.com/armanaria111/amdb-laravel2/pull/104"
   ],
   "post_pr21_localization": {
     "date": "2026-11-18",
@@ -4508,30 +4511,28 @@
     ]
   },
   "work_in_progress": {
-    "branch": "feature/hosted-hls-quality-selector",
-    "base_commit": "148429ac280e3545f2c812de76b41bd96edc0f54",
-    "head_commit": "ecdc7388ec61e6a2b18dc6e985f2e3585f10cf49",
+    "branch": "feature/title-revenue-contracts",
+    "base_commit": "bf9e18bbbad3f49dac0b5cc22c80960d246ee8ca",
+    "head_commit": "befd0b3dd21b3ef355b08d47158c46e83c08d5aa",
     "updated_at": "2026-11-21",
-    "scope": "تکمیل انتخاب دستی کیفیت HLS در صفحه تماشا و پاک‌سازی ترجمه‌های سه‌زبانه.",
-    "status": "latest_commit_ci_running_vite_passed",
+    "scope": "قرارداد نسخه‌دار درآمد هر اثر، دفترکل رویدادمحور تغییرناپذیر، سهم‌بندی، برگشت تراکنش، داشبورد درآمد مالک پروفایل هنرمند و درخواست تسویه با بررسی مالی.",
+    "status": "draft_pr_open_conflicts_ci_pending",
     "details": [
-      "PR103 انتخاب Auto و کیفیت‌های موجود را برای پخش HLS مبتنی بر hls.js اضافه می‌کند؛ Auto پیش‌فرض باقی می‌ماند.",
-      "کنترل کیفیت در مرورگرهایی که از HLS بومی استفاده می‌کنند نمایش داده نمی‌شود.",
-      "ترجمه برچسب کیفیت برای en، fa-AF و ps اضافه و کلید تکراری پیشرفت تماشا حذف شد.",
-      "بازبینی تکمیلی، گزینه‌های تکراری رزولوشن را ادغام می‌کند و برای هر رزولوشن بالاترین bitrate را انتخاب می‌کند؛ عرض کنترل نیز محدود شد.",
-      "CI اجرای قبلی PR103 با شناسه 44912719162 موفق بود: Vite production build و تست‌های Laravel و Blade lint.",
-      "Commit تکمیلی 169e2a7d60d24b8a7ba80c8f9d65f65fe93a8c9d پس از اجرای CI قبلی ثبت شد؛ این commit هنوز در CI تأیید نشده است.",
-      "تست Feature برای نمایش برچسب انتخاب کیفیت در هر سه زبان en، fa-AF و ps به HostedPlaybackAdaptiveBitrateTest افزوده شد؛ commit جدید ecdc7388ec61e6a2b18dc6e985f2e3585f10cf49.",
-      "CI جدید روی commit ecdc7388ec61e6a2b18dc6e985f2e3585f10cf49 با run شماره 44922222918 آغاز شد؛ job ساخت Vite موفق شده و workflow هنوز در حال اجراست."
+      "PR104 شامل ۳۷ فایل، ۵ کنترلر، ۵ مدل، ۵ Migration افزایشی، سرویس RevenueLedgerService، سه فایل ترجمه en/fa-AF/ps و سه مجموعه تست Feature است.",
+      "مرز ایمنی: سابقه تماشا منبع درآمد محسوب نمی‌شود؛ ثبت درآمد نیازمند source_type و source_reference است. هیچ پرداخت تماشاگر یا انتقال خودکار وجه فعال نشده است.",
+      "تسویه فقط با ثبت دستی مرجع پرداخت audit می‌شود و خود AMDB وجهی انتقال نمی‌دهد. سهم‌ها و مبالغ با ارزهای جداگانه نگهداری می‌شوند.",
+      "PR104 به علت قدیمی‌بودن شاخه نسبت به main در وضعیت dirty/mergeable=false است؛ ۱۳ commit عقب‌ماندگی دارد و باید conflict resolution انجام شود.",
+      "CI برای شاخه PR104 هنوز مشاهده نشده؛ Migrationها و تست‌ها اجرا نشده‌اند."
     ],
     "remaining": [
-      "تکمیل workflow شماره 44922222918 و بررسی jobهای تست Laravel.",
-      "بازبینی نهایی و ادغام PR103 پس از سبزشدن کامل CI.",
-      "آزمون واقعی انتخاب کیفیت در مرورگرهای دسکتاپ و موبایل و native HLS."
+      "انتقال تغییرات PR104 به شاخه‌ای مبتنی بر main جاری و حفظ همه تغییرات viewer/playback/subscription.",
+      "بازبینی تراکنش‌ها، قفل‌ها، محاسبات مالی، migrationها و کنترل مالکیت قبل از merge.",
+      "اجرای CI کامل و رفع شکست‌ها؛ سپس بازبینی نهایی و ادغام.",
+      "آزمون MySQL/staging، هم‌زمانی و مرورگر پس از فراهم‌شدن محیط تست؛ بدون اجرای migration روی دیتابیس کاربر در این مرحله."
     ],
     "pull_request": {
-      "number": 103,
-      "url": "https://github.com/armanaria111/amdb-laravel2/pull/103",
+      "number": 104,
+      "url": "https://github.com/armanaria111/amdb-laravel2/pull/104",
       "state": "open",
       "draft": true
     }
@@ -5219,18 +5220,18 @@
       "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44877119121"
     },
     {
-      "branch": "feature/hosted-hls-quality-selector",
-      "pull_request": 103,
-      "title": "Add manual adaptive HLS quality selection to the watch player",
-      "head_commit": "ecdc7388ec61e6a2b18dc6e985f2e3585f10cf49",
-      "base_commit": "148429ac280e3545f2c812de76b41bd96edc0f54",
-      "status": "open_ci_running_vite_build_passed",
-      "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44922222918",
-      "scope": "انتخاب Auto/کیفیت‌های موجود برای HLS.js، حذف گزینه‌های تکراری رزولوشن، ترجمه سه‌زبانه و تست Feature برچسب‌ها در en/fa-AF/ps. آزمون واقعی مرورگر هنوز لازم است.",
+      "branch": "feature/title-revenue-contracts",
+      "pull_request": 104,
+      "title": "Add title revenue contracts, immutable ledger and artist settlements",
+      "head_commit": "befd0b3dd21b3ef355b08d47158c46e83c08d5aa",
+      "base_commit": "bf9e18bbbad3f49dac0b5cc22c80960d246ee8ca",
+      "status": "open_dirty_conflicts_ci_pending",
+      "ci_run": null,
+      "scope": "قراردادهای نسخه‌دار، دفترکل درآمد، سهم‌بندی، برگشت، داشبورد مالک هنرمند و درخواست تسویه.",
       "limitations": [
-        "انتخاب دستی فقط در HLS.js فعال است؛ native HLS کیفیت را به سیستم‌عامل/مرورگر می‌سپارد.",
-        "CI run 44922222918 در حال اجراست؛ job ساخت Vite موفق شده اما workflow کامل هنوز نهایی نشده است.",
-        "آزمون واقعی مرورگر و دستگاه هنوز انجام نشده است."
+        "شاخه ۱۳ commit از main عقب است و GitHub mergeable_state=dirty گزارش می‌کند.",
+        "CI هنوز روی این شاخه اجرا/مشاهده نشده است.",
+        "هیچ Migration یا دیتابیس اجرا نشده؛ تسویه فقط ثبت مرجع پرداخت است و انتقال وجه ندارد."
       ]
     }
   ]
