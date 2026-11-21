@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "23514d8b971cf2e0885b1818f8f651881bb445fa",
+    "source_commit_audited": "148429ac280e3545f2c812de76b41bd96edc0f54",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "23514d8b971cf2e0885b1818f8f651881bb445fa",
+    "latest_main_commit": "148429ac280e3545f2c812de76b41bd96edc0f54",
     "latest_main_commit_verified_on": "2026-11-21"
   },
   "languages": [
@@ -567,7 +567,11 @@
       "مدیریت زیرنویس WebVTT خصوصی برای هر hosted asset اضافه شد؛ فایل UTF-8، header WEBVTT، cue timing، حداکثر 4MB و نبود محتوای فعال بررسی می‌شود.",
       "URL زیرنویس HMAC و دارای انقضا است؛ scope توکن به asset و subtitle ID وابسته است و هر درخواست وضعیت حقوق، package approved، مالکیت asset و storage خصوصی را دوباره بررسی می‌کند.",
       "پنل مدیریت امکان بارگذاری/حذف زیرنویس، تعیین زبان، label و default track را دارد؛ پخش‌کننده HTML5 trackها را پس از شروع پخش اضافه می‌کند.",
-      "PR102 برای HLS تطبیقی ساخته شد: تولید ladder بدون upscaling در 360p/480p/720p، هم‌ترازی keyframe و segment، master playlist و تحویل امن HMAC برای هر rendition؛ CI run 44912455421 در حال اجراست."
+      "PR102 برای HLS تطبیقی ساخته شد: تولید ladder بدون upscaling در 360p/480p/720p، هم‌ترازی keyframe و segment، master playlist و تحویل امن HMAC برای هر rendition؛ CI run 44912455421 در حال اجراست.",
+      "PR102 با روش Squash در main ادغام شد؛ merge commit 148429ac280e3545f2c812de76b41bd96edc0f54. CI run 44912455421 موفق بود: Vite production build و 184 تست Laravel با 700 assertion.",
+      "FFmpeg اکنون برای منابع دارای کیفیت کافی ladder تطبیقی 360p/480p/720p تولید می‌کند؛ برای منابع کوچک‌تر فقط پروفایل هم‌اندازه منبع می‌سازد و upscale انجام نمی‌دهد.",
+      "GOP/keyframe و segment boundaries بین renditionها هم‌تراز می‌شوند؛ master playlist و تمام variant playlistها و segmentها پیش از approval اعتبارسنجی می‌شوند.",
+      "تحویل HLS master، variant manifest و segmentها با HMAC دارای انقضا و کنترل مجدد حقوق انجام می‌شود؛ پکیج‌های legacy تک‌کیفیت نیز برای سازگاری پشتیبانی می‌شوند."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1014,6 +1018,10 @@
     {
       "date": "2026-11-21",
       "text": "PR102 HLS تطبیقی 360p/480p/720p و تحویل امن variantها را پیاده‌سازی می‌کند؛ CI run 44912455421 در حال اجراست. FFmpeg و storage واقعی هنوز روی worker عملیاتی تست نشده‌اند."
+    },
+    {
+      "date": "2026-11-21",
+      "text": "PR102 HLS تطبیقی 360p/480p/720p و تحویل HMAC variantها با CI موفق ادغام شد؛ merge commit 148429ac280e3545f2c812de76b41bd96edc0f54. 184 تست و 700 assertion موفق شدند. FFmpeg واقعی و MySQL عملیاتی هنوز آزمایش نشده‌اند."
     }
   ],
   "architecture": {
@@ -4121,7 +4129,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "23514d8b971cf2e0885b1818f8f651881bb445fa",
+    "source_commit": "148429ac280e3545f2c812de76b41bd96edc0f54",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-20",
@@ -4187,13 +4195,13 @@
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840"
     },
     "release": {
-      "latest_merged_pr": 101,
-      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/101",
-      "latest_source_commit": "23514d8b971cf2e0885b1818f8f651881bb445fa",
+      "latest_merged_pr": 102,
+      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/102",
+      "latest_source_commit": "148429ac280e3545f2c812de76b41bd96edc0f54",
       "source_branch": "main",
       "verified_at": "2026-11-21"
     },
-    "note": "آخرین commit main برابر 23514d8b971cf2e0885b1818f8f651881bb445fa پس از ادغام PR101 است. hosted HLS اکنون شامل player، progress و زیرنویس‌های خصوصی WebVTT با URLهای HMAC دارای انقضا است. CI run 44911881451 با 180 تست و 682 assertion موفق شد؛ MySQL، storage/worker واقعی و QA مرورگری هنوز تأیید نشده‌اند.",
+    "note": "آخرین commit main برابر 148429ac280e3545f2c812de76b41bd96edc0f54 پس از ادغام PR102 است. پخش hosted اکنون HLS تطبیقی با پروفایل‌های 360p/480p/720p بدون upscaling، master playlist خصوصی و تحویل HMAC برای renditionها دارد؛ زیرنویس خصوصی و progress نیز پیاده‌سازی شده‌اند. CI با 184 تست و 700 assertion موفق است؛ FFmpeg واقعی، MySQL، storage و QA مرورگری هنوز تأیید نشده‌اند.",
     "panels": [
       {
         "id": "admin",
@@ -5201,21 +5209,6 @@
       "scope": "FFmpeg تک‌کیفیت HLS تا سقف 720p، بسته خصوصی قرنطینه‌شده، صف مستقل و dispatcher زمان‌بندی‌شده؛ بدون پخش عمومی، CDN یا entitlement. CI run 175 در صف است. PR96 ادغام شد؛ CI run 175 موفق است. Migration و FFmpeg واقعی هنوز روی MySQL/staging آزمایش نشده‌اند.",
       "merge_commit": "bced37cd23e4fe423967f6253b6cd8f617ce1325",
       "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44877119121"
-    },
-    {
-      "branch": "feature/hosted-hls-adaptive-bitrate",
-      "pull_request": 102,
-      "title": "Add adaptive 360p 480p and 720p HLS renditions",
-      "head_commit": "171d09d57c0f795226f4e48faf1cc9b5987fbab7",
-      "base_commit": "23514d8b971cf2e0885b1818f8f651881bb445fa",
-      "status": "ready_for_review_ci_running",
-      "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44912455421",
-      "scope": "تبدیل چندکیفیتی HLS بدون upscaling در پروفایل‌های 360p/480p/720p، هم‌ترازی keyframe/segment، master playlist خصوصی، HMAC برای variant manifest و segment، اعتبارسنجی کامل قبل از approval.",
-      "limitations": [
-        "کیفیت‌ها فعلاً به‌صورت خودکار توسط HLS.js/native HLS انتخاب می‌شوند؛ انتخاب دستی کیفیت در UI باقی است.",
-        "CI run 44912455421 در حال اجراست؛ FFmpeg واقعی، MySQL و storage عملیاتی تست نشده‌اند.",
-        "پکیج‌های legacy تک‌کیفیت برای سازگاری حفظ شده‌اند."
-      ]
     }
   ]
 }
