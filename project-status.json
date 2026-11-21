@@ -566,7 +566,8 @@
       "PR101 با روش Squash در main ادغام شد؛ merge commit 23514d8b971cf2e0885b1818f8f651881bb445fa. CI run 44911881451 موفق بود: Vite production build و 180 تست Laravel با 682 assertion.",
       "مدیریت زیرنویس WebVTT خصوصی برای هر hosted asset اضافه شد؛ فایل UTF-8، header WEBVTT، cue timing، حداکثر 4MB و نبود محتوای فعال بررسی می‌شود.",
       "URL زیرنویس HMAC و دارای انقضا است؛ scope توکن به asset و subtitle ID وابسته است و هر درخواست وضعیت حقوق، package approved، مالکیت asset و storage خصوصی را دوباره بررسی می‌کند.",
-      "پنل مدیریت امکان بارگذاری/حذف زیرنویس، تعیین زبان، label و default track را دارد؛ پخش‌کننده HTML5 trackها را پس از شروع پخش اضافه می‌کند."
+      "پنل مدیریت امکان بارگذاری/حذف زیرنویس، تعیین زبان، label و default track را دارد؛ پخش‌کننده HTML5 trackها را پس از شروع پخش اضافه می‌کند.",
+      "PR102 برای HLS تطبیقی ساخته شد: تولید ladder بدون upscaling در 360p/480p/720p، هم‌ترازی keyframe و segment، master playlist و تحویل امن HMAC برای هر rendition؛ CI run 44912455421 در حال اجراست."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1009,6 +1010,10 @@
     {
       "date": "2026-11-21",
       "text": "PR101 مدیریت و تحویل زیرنویس WebVTT خصوصی با CI موفق ادغام شد؛ merge commit 23514d8b971cf2e0885b1818f8f651881bb445fa. 180 تست و 682 assertion موفق شدند. player اکنون trackهای زیرنویس را از URLهای HMAC خصوصی و دارای انقضا بارگذاری می‌کند."
+    },
+    {
+      "date": "2026-11-21",
+      "text": "PR102 HLS تطبیقی 360p/480p/720p و تحویل امن variantها را پیاده‌سازی می‌کند؛ CI run 44912455421 در حال اجراست. FFmpeg و storage واقعی هنوز روی worker عملیاتی تست نشده‌اند."
     }
   ],
   "architecture": {
@@ -5196,6 +5201,21 @@
       "scope": "FFmpeg تک‌کیفیت HLS تا سقف 720p، بسته خصوصی قرنطینه‌شده، صف مستقل و dispatcher زمان‌بندی‌شده؛ بدون پخش عمومی، CDN یا entitlement. CI run 175 در صف است. PR96 ادغام شد؛ CI run 175 موفق است. Migration و FFmpeg واقعی هنوز روی MySQL/staging آزمایش نشده‌اند.",
       "merge_commit": "bced37cd23e4fe423967f6253b6cd8f617ce1325",
       "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44877119121"
+    },
+    {
+      "branch": "feature/hosted-hls-adaptive-bitrate",
+      "pull_request": 102,
+      "title": "Add adaptive 360p 480p and 720p HLS renditions",
+      "head_commit": "171d09d57c0f795226f4e48faf1cc9b5987fbab7",
+      "base_commit": "23514d8b971cf2e0885b1818f8f651881bb445fa",
+      "status": "ready_for_review_ci_running",
+      "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44912455421",
+      "scope": "تبدیل چندکیفیتی HLS بدون upscaling در پروفایل‌های 360p/480p/720p، هم‌ترازی keyframe/segment، master playlist خصوصی، HMAC برای variant manifest و segment، اعتبارسنجی کامل قبل از approval.",
+      "limitations": [
+        "کیفیت‌ها فعلاً به‌صورت خودکار توسط HLS.js/native HLS انتخاب می‌شوند؛ انتخاب دستی کیفیت در UI باقی است.",
+        "CI run 44912455421 در حال اجراست؛ FFmpeg واقعی، MySQL و storage عملیاتی تست نشده‌اند.",
+        "پکیج‌های legacy تک‌کیفیت برای سازگاری حفظ شده‌اند."
+      ]
     }
   ]
 }
