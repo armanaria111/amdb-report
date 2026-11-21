@@ -5251,15 +5251,15 @@
       "branch": "feature/title-revenue-contracts-mainline",
       "pull_request": 105,
       "title": "Add company title-rights evidence and review workflow",
-      "head_commit": "8a972847dfc421e49a87efa0106542c406adfedf",
+      "head_commit": "000aaa331f713cf5142d5141cc77fae68c6278e4",
       "base_commit": "bf9e18bbbad3f49dac0b5cc22c80960d246ee8ca",
-      "status": "open_ready_for_review_ci_pending",
+      "status": "open_ready_for_review_ci_rerun_pending",
       "scope": "ثبت و بررسی مدارک مالکیت/مجوز شرکت برای هر اثر؛ فقط پیش‌نیاز حقوقی، بدون فعال‌سازی درآمد یا تسویه.",
       "ci": {
-        "run": 222,
-        "id": 44924360814,
-        "status": "pending",
-        "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44924360814"
+        "run": 223,
+        "id": 44924498391,
+        "status": "in_progress",
+        "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44924498391"
       }
     }
   ],
@@ -5267,8 +5267,8 @@
     "updated_at": "2026-11-21",
     "pull_request": 105,
     "branch": "feature/title-revenue-contracts-mainline",
-    "head_commit": "8a972847dfc421e49a87efa0106542c406adfedf",
-    "status": "implementation_pr_open_ci_pending",
+    "head_commit": "000aaa331f713cf5142d5141cc77fae68c6278e4",
+    "status": "implementation_pr_open_ci_rerun_pending",
     "scope": [
       "ثبت مدرک مالکیت/مجوز در سطح شرکت و اثر با نوع حق، شماره مجوز، مدرک خصوصی، قلمرو و بازه اعتبار.",
       "گردش‌کار مدیریت برای ثبت، تأیید/رد و دریافت امن مدرک؛ فایل‌ها روی دیسک private local ذخیره می‌شوند.",
@@ -5277,11 +5277,19 @@
       "ترجمه en، fa-AF و ps و تست‌های Feature اضافه شده‌اند."
     ],
     "limitations": [
-      "PR105 هنوز ادغام نشده و CI run 44924360814 در حال اجراست.",
+      "PR105 هنوز ادغام نشده و CI اصلاح‌شده در حال اجراست.",
       "فرایند ثبت/مدیریت مدارک فعلاً در پنل مدیریت است؛ پرتال شرکت و مدیریت نمایندگان شرکت مرحله بعد است.",
       "اتصال این مدرک به قرارداد درآمد و الزام Company-only در دفترکل/تسویه هنوز در PR104 پیاده‌سازی نشده است.",
       "اجرای Migration و ذخیره‌سازی خصوصی روی MySQL/staging یا محیط واقعی تأیید نشده است."
     ],
-    "url": "https://github.com/armanaria111/amdb-laravel2/pull/105"
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/105",
+    "ci": {
+      "previous_run": 44924360814,
+      "previous_result": "failure",
+      "previous_failure": "یک خطای syntax در RuntimeException و یک خطای تست ناشی از refresh نکردن مدل پس از رد update مورد انتظار؛ هر دو اصلاح شدند.",
+      "current_run": 44924498391,
+      "current_result": "in_progress",
+      "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44924498391"
+    }
   }
 }
