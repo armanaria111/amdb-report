@@ -5036,10 +5036,10 @@
       "branch": "feature/hosted-media-transcoding-hls",
       "pull_request": 96,
       "title": "Add private hosted-media HLS transcoding pipeline",
-      "head_commit": "48901007eabdb0cadb34a3a1ee522bf7d1bc231e",
+      "head_commit": "b1a03a0750c283e9ca9cde77705790cdc8cec998",
       "base_commit": "c19a089db360509499617621a0b0ee9064eb8086",
-      "status": "open_ci_pending",
-      "scope": "FFmpeg تک‌کیفیت HLS تا سقف 720p، بسته خصوصی قرنطینه‌شده، صف مستقل و dispatcher زمان‌بندی‌شده؛ بدون پخش عمومی، CDN یا entitlement."
+      "status": "open_ci_queued",
+      "scope": "FFmpeg تک‌کیفیت HLS تا سقف 720p، بسته خصوصی قرنطینه‌شده، صف مستقل و dispatcher زمان‌بندی‌شده؛ بدون پخش عمومی، CDN یا entitlement. CI run 175 در صف است."
     }
   ]
 }
