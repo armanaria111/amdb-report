@@ -519,7 +519,9 @@
       "در CI اولیه PR93، خطای syntax ناشی از newline literal در config/playback.php شناسایی شد؛ فایل اصلاح و commit جدید e41e061f45a910522cd3c9852c8df8030d10e0bb ایجاد شد.",
       "CI جدید run 44873394764 روی commit اصلاح‌شده شروع شده و هنوز نتیجه نهایی ندارد؛ PR93 همچنان Draft و ادغام‌نشده است.",
       "پس از اجرای ناموفق تست اولیه به‌علت تشخیص MIME نمونه ساختگی، تست مسیر ذخیره‌سازی با UploadedFile آزمایشی کنترل‌شده اصلاح و پیام خطای MIME نیز برای سه زبان تکمیل شد.",
-      "آخرین سرشاخه PR93 برابر 4f99df330f623f1ce9331e8bfd8c93f3b6864188 است؛ CI run 44873520832 در حال اجراست و تا دریافت نتیجه سبز، ادغام انجام نمی‌شود."
+      "آخرین سرشاخه PR93 برابر 4f99df330f623f1ce9331e8bfd8c93f3b6864188 است؛ CI run 44873520832 در حال اجراست و تا دریافت نتیجه سبز، ادغام انجام نمی‌شود.",
+      "PR93 با CI موفق ادغام شد؛ merge commit برابر 0f8d46b271858bb96fbb6089b18a970e819fc534 است.",
+      "PR94 برای اسکن بدافزار فایل‌های خصوصی ایجاد شد؛ آخرین head df38bc4a9ed316a08fd9022b2d6a100bc53719a4. CI run 44874170465 در حال اجراست؛ Vite موفق و تست‌های Laravel هنوز در حال اجرا هستند."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -5038,6 +5040,29 @@
         "CI run 44873520832 برای commit فعلی در حال اجراست؛ نتیجه نهایی هنوز اعلام نشده است.",
         "اسکن بدافزار، worker ایزوله، media probing، محدودیت مدت/وضوح، transcoding، HLS، CDN و signed delivery هنوز پیاده‌سازی نشده‌اند.",
         "Migration افزایشی به مخزن افزوده شده ولی روی دیتابیس محلی/عملیاتی اجرا نشده است."
+      ]
+    },
+    {
+      "branch": "feature/hosted-media-malware-scan",
+      "pull_request": 94,
+      "head_commit": "df38bc4a9ed316a08fd9022b2d6a100bc53719a4",
+      "status": "open_ready_ci_running",
+      "scope": "اسکن بدافزار فایل‌های ویدئویی خصوصی در صف اختصاصی",
+      "completed": [
+        "سرویس HostedMediaMalwareScanner فایل را با stream از دیسک خصوصی به فایل موقت منتقل می‌کند و پس از پایان/خطا فایل موقت را پاک می‌کند.",
+        "پیش از اجرای ClamAV اندازه واقعی، SHA-256 و MIME واقعی PHP fileinfo بررسی می‌شوند.",
+        "اجرای clamscan با آرایه آرگومان‌ها، بدون shell interpolation و با timeout محدود پیاده‌سازی شد.",
+        "وضعیت‌های pending_scan، scanning، scan_passed، rejected و scan_error و متادیتای تلاش/موتور/جزئیات اسکن اضافه شدند.",
+        "Job یکتا و قابل retry، dispatch بعد از commit، دستور بازیابی صف و زمان‌بندی هر پنج دقیقه اضافه شدند.",
+        "صف playback_database با retry_after=720 از timeout worker=660 بزرگ‌تر است تا job موازی تکراری اجرا نشود.",
+        "تست‌های Feature برای حالت خاموش، اسکن پاک، تشخیص بدافزار، دستکاری hash و خطای scanner اضافه شدند.",
+        "تمام feature flagهای پخش/آپلود/اسکن همچنان پیش‌فرض خاموش هستند."
+      ],
+      "pending": [
+        "CI روی PR94 در حال اجراست؛ Vite موفق شده اما تست‌های Laravel هنوز نتیجه نهایی ندارند.",
+        "ClamAV روی worker واقعی نصب و آزمایش نشده؛ این مرحله صرفاً پیاده‌سازی نرم‌افزاری است.",
+        "MySQL migration و عملیات صف در محیط staging اجرا/تأیید نشده‌اند.",
+        "Media probing، محدودیت مدت/وضوح، transcoding، HLS، CDN، signed delivery، entitlements و revenue settlement هنوز باقی هستند."
       ]
     }
   ]
