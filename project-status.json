@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "eb12658e8e17f36f1f854bbe6d788634366f3b4a",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "6a4b39b160078c67178bc262a070f20f5e31eef5",
+    "latest_main_commit": "8a2f66e548dc230c70f77f1991c6ba7ef628ee3e",
     "latest_main_commit_verified_on": "2026-11-21"
   },
   "languages": [
@@ -1062,6 +1062,10 @@
     {
       "date": "2026-11-21",
       "text": "PR110 برای نگهداری قابل تنظیم تاریخچه تماشاگر ایجاد شد: NULL پیش‌فرض به معنی نگهداری نامحدود، انتخاب‌های 30/90/180/365 روز، فرمان پاک‌سازی روزانه و حفظ علاقه‌مندی‌ها. رابط سه‌زبانه، migration، command، schedule، مستندات و تست‌های Feature افزوده شده‌اند. CI run 44942329152 برای head 2a848d511038f59fba24fb31d1e6aa54fe96b594 در حال اجراست؛ PR هنوز ادغام نشده است."
+    },
+    {
+      "date": "2026-11-21",
+      "text": "PR110 ادغام شد (squash commit 8a2f66e548dc230c70f77f1991c6ba7ef628ee3e). CI پیش از ادغام موفق بود: 217 تست و 845 assertion؛ Blade compile/lint و Vite production build نیز موفق شدند. CI پس از push به main با run 44942382448 در حال اجراست. Migration و scheduler در MySQL محلی/staging هنوز اجرا/تأیید نشده‌اند."
     }
   ],
   "architecture": {
@@ -1586,6 +1590,11 @@
       "date": "2026-11-21",
       "title": "PR110 — مدت نگهداری قابل تنظیم تاریخچه تماشا",
       "detail": "امکان انتخاب نگهداری نامحدود (پیش‌فرض) یا 30، 90، 180 و 365 روز افزوده شد. پاک‌سازی روزانه فقط برای کاربران انتخاب‌کننده فعال می‌شود؛ favorite حفظ می‌شود و فقط پیشرفت تماشا پاک می‌شود. PR110 باز است و CI در حال اجراست."
+    },
+    {
+      "date": "2026-11-21",
+      "title": "ادغام PR110 — نگهداری قابل تنظیم تاریخچه تماشا",
+      "detail": "PR110 در main ادغام شد. کاربران می‌توانند نگهداری نامحدود (پیش‌فرض) یا 30/90/180/365 روز را انتخاب کنند. فرمان روزانه فقط تاریخچه منقضی کاربران انتخاب‌کننده را پاک می‌کند و favorite را حفظ می‌کند. CI موفق: 217 تست / 845 assertion و Vite build؛ CI پس از ادغام در حال اجراست."
     }
   ],
   "source_code_audit": {
@@ -4187,7 +4196,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "6a4b39b160078c67178bc262a070f20f5e31eef5",
+    "source_commit": "8a2f66e548dc230c70f77f1991c6ba7ef628ee3e",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-21",
@@ -4236,7 +4245,7 @@
     "quality": {
       "tests_in_repository": 22,
       "tests_executed": true,
-      "test_result": "PR108 CI successful on head 4588787c457c58084e40044fa13d0d61e698962c: Laravel tests and Vite production build both passed. Post-merge main push CI run 44942105380 is queued.",
+      "test_result": "PR110 CI successful: 217 tests passed / 845 assertions; Laravel tests, Blade compilation/lint and Vite production build passed. Post-merge main push CI run 44942382448 is in progress.",
       "vite_build_executed": true,
       "browser_verified": false,
       "production_smoke_test": false,
@@ -4252,17 +4261,17 @@
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
       "mysql_runtime_verified": false,
-      "latest_ci_run": 44942105380,
-      "main_ci_conclusion": "success"
+      "latest_ci_run": 44942329152,
+      "main_ci_conclusion": "in_progress"
     },
     "release": {
-      "latest_merged_pr": 108,
-      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/108",
-      "latest_source_commit": "6a4b39b160078c67178bc262a070f20f5e31eef5",
+      "latest_merged_pr": 110,
+      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/110",
+      "latest_source_commit": "8a2f66e548dc230c70f77f1991c6ba7ef628ee3e",
       "source_branch": "main",
       "verified_at": "2026-11-21",
-      "main_ci_run": 44942105380,
-      "main_ci_conclusion": "success",
+      "main_ci_run": 44942382448,
+      "main_ci_conclusion": "in_progress",
       "main_ci_verified_at": "2026-11-21"
     },
     "note": "آخرین commit main برابر 148429ac280e3545f2c812de76b41bd96edc0f54 پس از ادغام PR102 است. پخش hosted اکنون HLS تطبیقی با پروفایل‌های 360p/480p/720p بدون upscaling، master playlist خصوصی و تحویل HMAC برای renditionها دارد؛ زیرنویس خصوصی و progress نیز پیاده‌سازی شده‌اند. CI با 184 تست و 700 assertion موفق است؛ FFmpeg واقعی، MySQL، storage و QA مرورگری هنوز تأیید نشده‌اند.",
@@ -4564,37 +4573,13 @@
     ]
   },
   "work_in_progress": {
-    "branch": "feature/viewer-history-retention",
+    "branch": "main",
     "updated_at": "2026-11-21",
-    "status": "pull_request_open_ci_running",
-    "pull_request": {
-      "number": 110,
-      "url": "https://github.com/armanaria111/amdb-laravel2/pull/110",
-      "state": "open",
-      "merged": false
-    },
-    "head_commit": "2a848d511038f59fba24fb31d1e6aa54fe96b594",
-    "base_commit": "6a4b39b160078c67178bc262a070f20f5e31eef5",
-    "scope": "تنظیم اختیاری مدت نگهداری تاریخچه تماشا و پاک‌سازی زمان‌بندی‌شده با حفظ علاقه‌مندی‌ها.",
-    "details": [
-      "پیش‌فرض NULL: نگهداری نامحدود؛ کاربران فعلی بدون انتخاب کاربر در معرض حذف خودکار قرار نمی‌گیرند.",
-      "گزینه‌های 30، 90، 180 و 365 روز.",
-      "Migration افزودن viewer_history_retention_days به users.",
-      "فرمان amdb:prune-viewer-history و زمان‌بندی روزانه 03:45.",
-      "برای اثر favorite فقط progress پاک می‌شود؛ رکورد favorite حفظ می‌شود؛ history-only حذف می‌شود.",
-      "رابط و ترجمه‌های en/fa-AF/ps، اعتبارسنجی و تست‌های Feature اضافه شدند."
-    ],
-    "validation": {
-      "ci_run": 44942329152,
-      "status": "in_progress",
-      "mysql_runtime": "not_run",
-      "browser": "not_run"
-    },
-    "remaining": [
-      "دریافت نتیجه CI مربوط به PR110",
-      "بازبینی نتیجه تست‌ها و ادغام فقط در صورت موفقیت کامل",
-      "پس از ادغام، اجرای migration در محیط محلی/staging و تأیید scheduler در محیط واقعی"
-    ]
+    "status": "pr110_merged_post_merge_ci_running",
+    "latest_merged_pr": 110,
+    "merged_commit": "8a2f66e548dc230c70f77f1991c6ba7ef628ee3e",
+    "pull_request": "https://github.com/armanaria111/amdb-laravel2/pull/110",
+    "next": "Verify post-merge main CI, then continue with the next viewer/playback integration task."
   },
   "product_recommendations": {
     "title": "پیشنهادهای توسعه محصول AMDB",
@@ -5455,7 +5440,7 @@
     "url": "https://github.com/armanaria111/amdb-laravel2/pull/110",
     "branch": "feature/viewer-history-retention",
     "head_commit": "2a848d511038f59fba24fb31d1e6aa54fe96b594",
-    "status": "open_ci_running_not_merged",
+    "status": "merged",
     "default": "NULL / نگهداری نامحدود؛ حذف خودکار غیرفعال",
     "supported_days": [
       30,
@@ -5478,13 +5463,20 @@
     "deletions": 4,
     "validation": {
       "ci_run": 44942329152,
-      "status": "in_progress",
+      "ci_status": "passed",
+      "tests": "217 passed / 845 assertions",
+      "blade_compile_and_lint": "passed",
+      "vite_production_build": "passed",
+      "post_merge_main_ci_run": 44942382448,
+      "post_merge_main_ci_status": "in_progress",
       "mysql_runtime": "not_run",
       "browser": "not_run"
     },
     "remaining": [
-      "CI را کامل بررسی کن؛ در صورت موفقیت ادغام شود.",
-      "Migration و scheduler فقط پس از ادغام در محیط MySQL/staging بررسی شوند."
-    ]
+      "بررسی نتیجه CI پس از ادغام روی main",
+      "اجرای Migration و بررسی scheduler در محیط MySQL محلی/staging پس از همگام‌سازی کاربر"
+    ],
+    "merged_at": "2026-11-21",
+    "merge_commit": "8a2f66e548dc230c70f77f1991c6ba7ef628ee3e"
   }
 }
