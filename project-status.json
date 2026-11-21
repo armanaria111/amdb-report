@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "d05c177043f094b1e66f716ff9c93e96ecc660a9",
+    "source_commit_audited": "c9b1bf77cd469817c04c7309c06e2e0b80b56635",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "b158dd585fd745af6dffe6ec21e7b9345eaafcec",
+    "latest_main_commit": "c9b1bf77cd469817c04c7309c06e2e0b80b56635",
     "latest_main_commit_verified_on": "2026-11-21"
   },
   "languages": [
@@ -591,7 +591,14 @@
       "صفحه عمومی تماشا پیشنهادهای فعال را با قیمت، مدت و قلمرو نمایش می‌دهد؛ خرید/اجاره هنوز دکمه checkout یا پرداخت عمومی ندارد. entitlement تبلیغ‌محور تا زمان اتصال سامانه تبلیغات قابل صدور نیست.",
       "CI سرشاخه PR109 موفق شد: Vite production build و ۲۲۱ تست Laravel با ۸۵۶ assertion روی SQLite؛ CI push روی main نیز موفق شد: run 44942382448 با ۲۲۱ تست و ۸۵۶ assertion.",
       "PR110 مربوط به نگهداری تاریخچه تماشا نیز ادغام شد؛ merge commit 8a2f66e548dc230c70f77f1991c6ba7ef628ee3e. CI سرشاخه موفق بود: ۲۱۷ تست و ۸۴۵ assertion؛ CI push روی main پس از PR109 نیز با ۲۲۱ تست و ۸۵۶ assertion موفق شد.",
-      "هیچ Migration روی MySQL محلی، staging یا دیتابیس عملیاتی کاربر اجرا نشده است؛ تمام اجرای CI روی SQLite موقت بوده است."
+      "هیچ Migration روی MySQL محلی، staging یا دیتابیس عملیاتی کاربر اجرا نشده است؛ تمام اجرای CI روی SQLite موقت بوده است.",
+      "PR113 مرحله ۵ پایه checkout مصرف‌کننده را به‌صورت provider-neutral در main ادغام کرد؛ merge commit c9b1bf77cd469817c04c7309c06e2e0b80b56635.",
+      "جدول‌های viewer_payment_attempts و viewer_payment_webhook_events با snapshot مبلغ/ارز، idempotency، provider reference، payload hash و یکتایی provider/event ID اضافه شدند.",
+      "قرارداد ConsumerPaymentGateway و registry مستقل ایجاد شد؛ checkout فقط با adapter ثبت‌شده، provider فعال و ارزهای صریحاً مجاز قابل شروع است.",
+      "Route checkout کاربر واردشده با throttle و Idempotency-Key و Route webhook جداگانه API با rate limit اضافه شد؛ webhook فقط پس از تأیید امضای adapter، تطبیق دقیق مبلغ/ارز و event idempotency می‌تواند سفارش را paid کند.",
+      "تأیید پرداخت در یک تراکنش entitlement و ledger شرکت را ایجاد می‌کند؛ redirect مرورگر به‌تنهایی پرداخت را تأیید نمی‌کند. مسیر اشتراک هنرمند/ZarinPal از این سیستم جداست.",
+      "پرداخت مصرف‌کننده عمداً خاموش است: AMDB_CONSUMER_PAYMENTS_ENABLED=false، provider خالی، allowed currencies خالی و هیچ adapter واقعی نصب نشده است؛ بنابراین هیچ پرداخت واقعی قابل انجام نیست.",
+      "CI مربوط به PR113 و push روی main موفق شد: Vite production build و ۲۳۲ تست Laravel با ۹۰۹ assertion روی SQLite. MySQL/staging و sandbox provider هنوز اجرا نشده‌اند."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1455,7 +1462,7 @@
     },
     {
       "phase": "۱۲. پخش آنلاین و فروش آثار",
-      "state": "phase4_offers_orders_entitlements_merged_ci_passed_phase5_checkout_pending",
+      "state": "phase5_provider_neutral_checkout_foundation_merged_ci_passed_live_provider_disabled",
       "items": [
         "تصمیم مصوب: میزبانی ترکیبی AMDB و منابع بیرونی مجاز؛ منبع پیش‌فرض مدیر با امکان انتخاب منبع فعال توسط بیننده؛ همه مدل‌های درآمدی رایگان، تبلیغ‌محور، اجاره، خرید و اشتراک.",
         "مرحله ۰: ممیزی مدل‌های Title/Episode، رسانه، پرداخت، مجوزها، پکیج‌ها و Migrationهای موجود؛ طراحی ERD بدون تکرار.",
@@ -1466,7 +1473,7 @@
         "مرحله ۲: adapter منابع خارجی مجاز مانند YouTube و Aparat، allowlist و embed امن؛ کاربر منبع فعال را انتخاب می‌کند.",
         "مرحله ۳: پوستر اصلی دستی و مستقل Title؛ thumbnail اختصاصی هر Episode با thumbnail رسمی منبع YouTube و override دستی.",
         "مرحله ۴ در PR109 ادغام شده است: title_offers، viewer_orders، viewer_order_items و viewer_entitlements برای رایگان، تبلیغ‌محور، اجاره، خرید و اشتراک مدت‌دار؛ مدیریت پیشنهاد در پنل مدیر، snapshotهای immutable و الزام حقوق/قرارداد معتبر شرکت. CI سرشاخه و main موفق.",
-        "مرحله ۵: checkout مصرف‌کننده با درگاه مستقل، webhook امن، idempotency، تطبیق مبلغ/ارز و refund؛ جدا از پرداخت اشتراک هنرمند.",
+        "مرحله ۵، زیرساخت provider-neutral در PR113 ادغام شد: payment attempts، adapter contract/registry، checkout route و webhook امضاشده با idempotency و تطبیق مبلغ/ارز. انتخاب provider، sandbox، refund و reconciliation باقی است.",
         "مرحله ۶: اتصال مدل تبلیغ‌محور به سامانه تبلیغات با رضایت، برچسب‌گذاری و محدودیت صفحات حساس.",
         "مرحله ۷: پخش اختصاصی با storage خصوصی، transcode صفی، HLS، CDN، زیرنویس و کنترل هزینه.",
         "مرحله ۸: آمار شروع/تکمیل پخش، خطاها، پهنای باند، گزارش حقوق و داشبورد عملیات.",
@@ -1475,7 +1482,8 @@
         "پیشرفت تماشا و ادامه تماشا به Title/Episode متصل و مستقل از PlaybackSource باشد؛ علاقه‌مندی و تاریخچه از حق دسترسی (Entitlement) جدا بمانند.",
         "تقسیم درآمد بر مبنای قرارداد معتبر هر اثر؛ snapshot نسخه قرارداد و مبنای محاسبه هنگام ثبت رویداد درآمد/سفارش، گزارش قابل حسابرسی و کنترل refund/chargeback.",
         "داشبورد مالی شرکت صاحب حقوق و نمایندگان owner/finance به گزارش آمار و درآمد آثار مجاز، قراردادها، کسورات و درخواست تسویه محدود است؛ هنرمندان و عوامل فیلم پنل درآمد یا تسویه ندارند.",
-        "پرداخت عمومی مصرف‌کننده، checkout و webhook هنوز فعال نیستند؛ مرحله ۵ باید با adapter مستقل، تطبیق مبلغ/ارز، idempotency و refund انجام شود. درگاه پرداخت اشتراک هنرمند به فروش آثار تعمیم داده نمی‌شود."
+        "پرداخت عمومی مصرف‌کننده، checkout و webhook هنوز فعال نیستند؛ مرحله ۵ باید با adapter مستقل، تطبیق مبلغ/ارز، idempotency و refund انجام شود. درگاه پرداخت اشتراک هنرمند به فروش آثار تعمیم داده نمی‌شود.",
+        "درگاه مصرف‌کننده فعلاً غیرفعال است؛ provider و ارزهای مجاز انتخاب/پیکربندی نشده‌اند. درگاه ZarinPal اشتراک هنرمند برای خرید آثار استفاده نمی‌شود."
       ]
     }
   ],
@@ -2986,8 +2994,10 @@
     "تعیین سیاست و اولویت توسعه درگاه پرداخت و قابلیت‌های باقی‌مانده پس از QA.",
     "PR109 مرحله ۴ پیشنهادها، سفارش‌ها و entitlement در main ادغام شد؛ CI سرشاخه و main موفق است (۲۲۱ تست / ۸۵۶ assertion). Checkout عمومی هنوز فعال نیست.",
     "PR110 تنظیم نگهداری تاریخچه تماشا ادغام شد؛ CI سرشاخه و main موفق است. اجرای Migration و scheduler در MySQL staging پس از backup باقی است.",
-    "مرحله بعد پخش: ساخت چارچوب checkout مصرف‌کننده و webhook امن، بدون تعمیم درگاه اشتراک هنرمند؛ تا انتخاب و پیکربندی provider هیچ پرداخت واقعی فعال نمی‌شود.",
-    "اجرای Migrationهای جدید فقط پس از backup، بررسی migrate:status و آزمون MySQL staging؛ هیچ Migration روی دیتابیس محلی یا عملیاتی کاربر اجرا نشده است."
+    "اجرای Migrationهای جدید فقط پس از backup، بررسی migrate:status و آزمون MySQL staging؛ هیچ Migration روی دیتابیس محلی یا عملیاتی کاربر اجرا نشده است.",
+    "PR113 زیرساخت provider-neutral checkout و webhook در main ادغام شد؛ CI شاخه و main موفق است (۲۳۲ تست / ۹۰۹ assertion). پرداخت واقعی همچنان خاموش است.",
+    "برای فعال‌سازی پرداخت مصرف‌کننده باید provider، کشورها و ارزها جداگانه انتخاب شوند؛ adapter واقعی، sandbox، refund و reconciliation هنوز باقی‌اند.",
+    "اجرای Migrationهای viewer commerce/payment و history retention فقط پس از backup، بررسی migrate:status و آزمون MySQL staging؛ هیچ Migration روی دیتابیس کاربر اجرا نشده است."
   ],
   "post_pr21_localization": {
     "date": "2026-11-18",
@@ -4630,11 +4640,11 @@
   "work_in_progress": {
     "branch": "main",
     "updated_at": "2026-11-21",
-    "status": "pr112_merged_ci_passed_next_playback_progress_provider_research",
-    "latest_merged_pr": 112,
-    "merged_commit": "b158dd585fd745af6dffe6ec21e7b9345eaafcec",
-    "pull_request": "https://github.com/armanaria111/amdb-laravel2/pull/112",
-    "next": "Continue playback progress work only against documented provider APIs; Aparat public player progress API has not yet been verified."
+    "status": "pr113_merged_main_ci_passed_live_consumer_payments_disabled",
+    "latest_merged_pr": 113,
+    "merged_commit": "c9b1bf77cd469817c04c7309c06e2e0b80b56635",
+    "pull_request": "https://github.com/armanaria111/amdb-laravel2/pull/113",
+    "next": "Select and implement a consumer payment provider only after explicit provider/country/currency approval; keep all live payment flags disabled until sandbox and staging acceptance."
   },
   "product_recommendations": {
     "title": "پیشنهادهای توسعه محصول AMDB",
@@ -4979,7 +4989,7 @@
   },
   "playback_architecture": {
     "title": "مدل داده پیشنهادی برای پخش",
-    "note": "مرحله‌های پایه منابع پخش، منابع خارجی مجاز، HLS تطبیقی/زیرنویس و مرحله ۴ پیشنهاد/سفارش/entitlement در main ادغام شده‌اند و CI موفق است. Checkout مصرف‌کننده، تبلیغات، اجرای Migrationها و runtime روی MySQL، CDN واقعی و پذیرش staging هنوز انجام نشده‌اند. ماژول playback به‌صورت پیش‌فرض خاموش باقی می‌ماند.",
+    "note": "مراحل ۱ تا ۵ زیرساختی در main ادغام شده‌اند و CI موفق است. مرحله ۵ فقط چارچوب provider-neutral دارد؛ provider و ارزها تنظیم نشده‌اند و پرداخت واقعی خاموش است. تبلیغات، MySQL runtime، CDN واقعی و پذیرش staging هنوز انجام نشده‌اند.",
     "content_modes": [
       "catalog_only",
       "amdb_hosted",
@@ -5097,7 +5107,21 @@
       {
         "id": 5,
         "name": "پرداخت مصرف‌کننده",
-        "deliverable": "adapter درگاه منتخب، callback/webhook، reconciliation و refund"
+        "deliverable": "adapter درگاه منتخب، callback/webhook، reconciliation و refund",
+        "status": "provider_neutral_foundation_merged_ci_passed_provider_sandbox_refunds_pending",
+        "completed": [
+          "جداول viewer_payment_attempts و viewer_payment_webhook_events با idempotency و audit",
+          "قرارداد adapter و registry مستقل از درگاه اشتراک هنرمند",
+          "Route checkout واردشده با Idempotency-Key و rate limit",
+          "Route webhook API با rate limit، بررسی امضای adapter، payload hash، deduplication و کنترل مبلغ/ارز",
+          "تکمیل سفارش فقط از webhook تأییدشده؛ اتصال transactional به entitlement و company-only ledger"
+        ],
+        "remaining": [
+          "انتخاب جداگانه ارائه‌دهنده مصرف‌کننده، کشورهای مجاز و ارزها",
+          "پیاده‌سازی adapter واقعی و sandbox؛ signature/key rotation و provider-side idempotency",
+          "refund/chargeback، reconciliation، delayed callback و خطاهای provider",
+          "آزمون MySQL staging، backup/rollback و browser/mobile acceptance"
+        ]
       },
       {
         "id": 6,
@@ -5144,7 +5168,8 @@
       "تعیین ارائه‌دهنده storage، transcoding و CDN و بودجه پهنای باند برای میزبانی اختصاصی.",
       "انتخاب جداگانه درگاه checkout مصرف‌کننده، ارزها، کشورها، مالیات و سیاست refund؛ درگاه زرین‌پال اشتراک هنرمند خودکار به checkout آثار تعمیم داده نشود.",
       "انتخاب شبکه رمزارز از تصمیم All نتیجه نمی‌شود و هنوز نیازمند تصمیم مستقل است.",
-      "تأیید حقوق انتشار، territory، بازه مجوز و سیاست‌های رسمی embed/API هر provider."
+      "تأیید حقوق انتشار، territory، بازه مجوز و سیاست‌های رسمی embed/API هر provider.",
+      "انتخاب جداگانه ارائه‌دهنده پرداخت مصرف‌کننده، کشورها و ارزهای مجاز؛ ZarinPal اشتراک هنرمند نباید بدون تصمیم مستقل به checkout آثار تعمیم یابد."
     ],
     "viewer_and_rights_holder": {
       "viewer_features": [
@@ -5167,7 +5192,7 @@
       "branch": "feature/viewer-experience-foundation",
       "pull_request": 92,
       "head_commit": "f42c79d1df155ccb3e4075603a6219a949e1fb17",
-      "status": "playback_sources_private_hls_and_viewer_commerce_phase4_merged_ci_passed_mysql_checkout_and_public_paid_delivery_unverified",
+      "status": "playback_phase5_provider_neutral_checkout_foundation_merged_ci_passed_live_payments_disabled_mysql_staging_unverified",
       "completed_in_branch": [
         "مرحله ۱: مدل و Migration مستقل PlaybackSource برای Title و Episode، پنل CRUD مدیر، ثبت وضعیت حقوق، دارنده حقوق/شناسه مجوز، زمان‌بندی، مدل دسترسی و منبع پیش‌فرض یکتا در هر هدف.",
         "مرحله ۲: adapterهای YouTube و Aparat با تبدیل URL معتبر به embed URL سمت سرور؛ allowlist میزبان و مسیر و رد URLهای غیر HTTPS یا نامعتبر.",
@@ -5182,11 +5207,14 @@
         "مرحله تبدیل خصوصی HLS اضافه شد: FFmpeg worker فقط assetهای probe_passed را می‌پذیرد، اندازه و SHA-256 را دوباره بررسی می‌کند، HLS تک‌کیفیت تا 720p را روی دیسک خصوصی مجاز می‌سازد و metadata بسته را در حالت قرنطینه نگه می‌دارد.",
         "PR109 مرحله ۴ Offer/Price، Order/OrderItem و Entitlement را به main افزود؛ مدل‌های رایگان، تبلیغ‌محور، اجاره، خرید و اشتراک مدت‌دار، پنل پیشنهادهای مدیر و نمایش پیشنهادهای فعال در صفحه تماشا.",
         "سفارش pending دسترسی ایجاد نمی‌کند؛ تأیید پرداخت در سرویس trusted، entitlement و ledger event شرکت را تراکنشی ثبت می‌کند. حقوق و قرارداد شرکت هنگام تأیید پیشنهاد و ایجاد سفارش دوباره اعتبارسنجی می‌شوند.",
-        "PR109 ادغام شد و CI سرشاخه و main موفق است: ۲۲۱ تست Laravel با ۸۵۶ assertion روی SQLite، به‌علاوه Vite build."
+        "PR109 ادغام شد و CI سرشاخه و main موفق است: ۲۲۱ تست Laravel با ۸۵۶ assertion روی SQLite، به‌علاوه Vite build.",
+        "PR113 مرحله ۵ پایه checkout مصرف‌کننده را افزود: payment attempts، provider registry/adapter contract، route checkout و webhook امن/idempotent.",
+        "تطبیق مبلغ و ارز با snapshot سفارش قبل از markPaid الزامی است؛ webhook تأییدشده entitlement و ledger شرکت را در یک تراکنش ایجاد می‌کند. Redirect مرورگر به‌تنهایی پرداخت را تأیید نمی‌کند.",
+        "PR113 ادغام شد؛ CI شاخه و main موفق: Vite build و ۲۳۲ تست Laravel با ۹۰۹ assertion."
       ],
       "not_implemented_or_unverified": [
         "Migrationهای افزایشی PR92 هنوز روی دیتابیس محلی/عملیاتی اجرا نشده‌اند؛ CI تست‌ها را روی SQLite موقت اجرا کرده است. بررسی MySQL واقعی، backup/rollback و آزمون staging همچنان لازم است.",
-        "Checkout و پرداخت مصرف‌کننده، webhook، refund و اتصال entitlement به تحویل پخش هنوز باقی است؛ هیچ پرداخت عمومی فعال نشده است.",
+        "پیاده‌سازی adapter واقعی provider، sandbox، refund، chargeback، reconciliation و اتصال عملیاتی هنوز باقی است؛ checkout feature flag خاموش است.",
         "بازیابی خودکار thumbnail رسمی YouTube از metadata/oEmbed و refresh/cache آن هنوز پیاده‌سازی نشده؛ تصویر دستی قسمت فعلاً مسیر اصلی و override قابل اتکا است.",
         "progress فعلی فقط از YouTube IFrame Player API دریافت می‌شود؛ داده ارسالی مرورگر کم‌اعتماد است و نباید برای view-count مالی یا settlement استفاده شود. اتصال Aparat و رویدادهای immutable نشست‌ها باقی است.",
         "اعلان‌ها در این مرحله فقط درون‌برنامه‌ای هستند؛ ایمیل/Push و اعلان تغییرات عمومی پروفایل هنرمند پیاده‌سازی نشده‌اند.",
@@ -5195,7 +5223,9 @@
         "FFmpeg واقعی، ClamAV و FFprobe باید روی worker ایزوله نصب و از نظر نسخه، timeout، منابع و امنیت عملیاتی تأیید شوند.",
         "ABR/master playlist، CDN خصوصی، signed playback delivery، entitlement، پرداخت مصرف‌کننده، زیرنویس و player عمومی هنوز پیاده‌سازی نشده‌اند.",
         "مهاجرت‌های مرحله ۴ فقط در CI روی SQLite اجرا شده‌اند؛ MySQL staging و backup/rollback تأیید نشده است.",
-        "Ad-supported access عمداً تا زمان اتصال و تأیید تکمیل تبلیغ entitlement نمی‌گیرد؛ checkout و پرداخت واقعی مصرف‌کننده در این مرحله وجود ندارد."
+        "Ad-supported access عمداً تا زمان اتصال و تأیید تکمیل تبلیغ entitlement نمی‌گیرد؛ checkout و پرداخت واقعی مصرف‌کننده در این مرحله وجود ندارد.",
+        "هیچ provider مصرف‌کننده یا ارز مجازی پیکربندی نشده است؛ AMDB_CONSUMER_PAYMENTS_ENABLED=false و لیست ارزها خالی است.",
+        "Migrationهای viewer payment فقط در CI روی SQLite موقت اجرا شده‌اند؛ MySQL staging و backup/rollback تأیید نشده‌اند."
       ],
       "rollout": "ماژول playback در PluginCatalog با default_enabled=false ثبت شده است. فعال‌سازی عمومی تا تکمیل حقوق، entitlement، سیاست provider، تست staging و پذیرش صریح انتشار انجام نمی‌شود.",
       "mergeable_state": "merged",
@@ -5389,6 +5419,27 @@
         "main_assertions": 856
       },
       "url": "https://github.com/armanaria111/amdb-laravel2/pull/110"
+    },
+    {
+      "branch": "feature/consumer-payment-adapter-mainline",
+      "pull_request": 113,
+      "title": "Add disabled provider-neutral consumer checkout and webhook foundation",
+      "head_commit": "4b3c40a14561b17b26669104511b3ae0104a236f",
+      "base_commit": "b158dd585fd745af6dffe6ec21e7b9345eaafcec",
+      "status": "merged_to_main_pr_and_main_ci_passed_live_payments_disabled",
+      "merge_commit": "c9b1bf77cd469817c04c7309c06e2e0b80b56635",
+      "scope": "payment attempts، adapter registry/contract، checkout و webhook امضاشده؛ provider و ارزها هنوز تنظیم نشده‌اند و پرداخت خاموش است.",
+      "ci": {
+        "pr_run": 44943539391,
+        "pr_result": "success",
+        "tests": 232,
+        "assertions": 909,
+        "main_push_run": 44943651335,
+        "main_push_result": "success",
+        "main_tests": 232,
+        "main_assertions": 909
+      },
+      "url": "https://github.com/armanaria111/amdb-laravel2/pull/113"
     }
   ],
   "company_rights_evidence": {
@@ -5588,5 +5639,45 @@
     ],
     "merged_at": "2026-11-21",
     "merge_commit": "b158dd585fd745af6dffe6ec21e7b9345eaafcec"
+  },
+  "consumer_payments": {
+    "updated_at": "2026-11-21",
+    "pull_request": 113,
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/113",
+    "branch": "feature/consumer-payment-adapter-mainline",
+    "merge_commit": "c9b1bf77cd469817c04c7309c06e2e0b80b56635",
+    "status": "provider_neutral_foundation_merged_ci_passed_live_payments_disabled",
+    "scope": [
+      "payment attempt با snapshot تغییرناپذیر مبلغ/ارز و idempotency",
+      "gateway adapter contract و registry مستقل از اشتراک هنرمند",
+      "checkout route احرازشده و rate-limited؛ webhook API provider-specific و rate-limited",
+      "تأیید webhook فقط پس از بررسی امضا توسط adapter؛ ذخیره payload hash به‌جای payload خام",
+      "تطبیق مبلغ/ارز با snapshot attempt، deduplication رویداد و جلوگیری از replay/event ID reuse",
+      "پس از تأیید پرداخت، fulfillment سفارش، entitlement و company-only ledger در یک تراکنش"
+    ],
+    "safety": {
+      "enabled": false,
+      "provider": null,
+      "allowed_currencies": [],
+      "artist_subscription_gateway_reused": false,
+      "raw_card_data_stored": false,
+      "browser_redirect_can_mark_paid": false
+    },
+    "ci": {
+      "pr_run": 44943539391,
+      "pr_result": "success",
+      "tests": 232,
+      "assertions": 909,
+      "main_push_run": 44943651335,
+      "main_push_result": "success",
+      "main_tests": 232,
+      "main_assertions": 909
+    },
+    "remaining": [
+      "انتخاب provider، کشورها و ارزهای مجاز",
+      "پیاده‌سازی adapter واقعی و اجرای sandbox",
+      "refund، chargeback، reconciliation و key rotation",
+      "آزمون MySQL/staging و browser/mobile acceptance"
+    ]
   }
 }
