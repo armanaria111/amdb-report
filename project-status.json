@@ -517,7 +517,9 @@
       "آپلودها با feature flag مستقل AMDB_HOSTED_UPLOADS_ENABLED (پیش‌فرض false)، AMDB_HOSTED_PLAYBACK_ENABLED و permission مدیریتی محدود شده‌اند؛ endpoint دارای throttle است. هیچ فایل قرنطینه‌شده قابل پخش نیست و منبع خودکار فعال نمی‌شود.",
       "برای حذف منبع/asset پاک‌سازی فایل پس از commit تراکنش اضافه شد؛ تست‌های Feature و ترجمه en/fa-AF/ps به‌روزرسانی شدند. CI روی commit c7e0e08f4b4a31bf0418c9bd1f59d6ed104b0af9 در حال اجراست؛ نتیجه هنوز تأیید نشده است.",
       "در CI اولیه PR93، خطای syntax ناشی از newline literal در config/playback.php شناسایی شد؛ فایل اصلاح و commit جدید e41e061f45a910522cd3c9852c8df8030d10e0bb ایجاد شد.",
-      "CI جدید run 44873394764 روی commit اصلاح‌شده شروع شده و هنوز نتیجه نهایی ندارد؛ PR93 همچنان Draft و ادغام‌نشده است."
+      "CI جدید run 44873394764 روی commit اصلاح‌شده شروع شده و هنوز نتیجه نهایی ندارد؛ PR93 همچنان Draft و ادغام‌نشده است.",
+      "پس از اجرای ناموفق تست اولیه به‌علت تشخیص MIME نمونه ساختگی، تست مسیر ذخیره‌سازی با UploadedFile آزمایشی کنترل‌شده اصلاح و پیام خطای MIME نیز برای سه زبان تکمیل شد.",
+      "آخرین سرشاخه PR93 برابر 4f99df330f623f1ce9331e8bfd8c93f3b6864188 است؛ CI run 44873520832 در حال اجراست و تا دریافت نتیجه سبز، ادغام انجام نمی‌شود."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -5018,8 +5020,8 @@
     {
       "branch": "feature/private-hosted-media-foundation",
       "pull_request": 93,
-      "head_commit": "e41e061f45a910522cd3c9852c8df8030d10e0bb",
-      "status": "open_draft_ci_running_after_config_syntax_fix",
+      "head_commit": "4f99df330f623f1ce9331e8bfd8c93f3b6864188",
+      "status": "open_draft_ci_running_after_upload_test_fixture_fix",
       "scope": "زیرساخت ذخیره‌سازی خصوصی و دریافت امن فایل ویدئویی در قرنطینه",
       "completed": [
         "دیسک محلی playback_private با visibility خصوصی، serve=false و throw=true و دیسک اختیاری playback_s3 خصوصی اضافه شد.",
@@ -5033,9 +5035,9 @@
         "پیام‌های رابط مرتبط برای انگلیسی، دری و پشتو اضافه شدند."
       ],
       "pending": [
-        "CI run 44873394764 برای commit اصلاح‌شده در حال اجراست؛ runهای قبلی به‌دلیل خطای syntax در config/playback.php پیش از نصب کامل وابستگی‌ها متوقف شدند.",
+        "CI run 44873520832 برای commit فعلی در حال اجراست؛ نتیجه نهایی هنوز اعلام نشده است.",
         "اسکن بدافزار، worker ایزوله، media probing، محدودیت مدت/وضوح، transcoding، HLS، CDN و signed delivery هنوز پیاده‌سازی نشده‌اند.",
-        "Migration افزایشی در مخزن ثبت شده ولی روی دیتابیس محلی/عملیاتی اجرا نشده است."
+        "Migration افزایشی به مخزن افزوده شده ولی روی دیتابیس محلی/عملیاتی اجرا نشده است."
       ]
     }
   ]
