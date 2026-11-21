@@ -539,7 +539,8 @@
       "PR97 پرداخت زرین‌پال بر پایه main جاری ادغام شد؛ merge commit 599d407186e69fe9bb2c50fadb36d0abdc40279d. CI run 44908547974 موفق بود: Vite production build و Laravel tests هر دو موفق شدند.",
       "پرداخت آنلاین اشتراک هنرمند با کنترل مالکیت پروفایل، مبلغ ذخیره‌شده IRR، تأیید server-side، callback غیرقابل اعتماد، idempotency و ترجمه en/fa-AF/ps در main موجود است. قابلیت بدون Merchant ID خاموش است و آزمون sandbox/تراکنش واقعی انجام نشده است.",
       "PR98 برای بررسی حقوق و بسته HLS خصوصی ایجاد شد: تأیید/رد/لغو با ثبت بازبین و یادداشت، کنترل حقوق و اعتبار فایل playlist/segment، و مسدودسازی مدل‌های پولی تا پیاده‌سازی entitlement. CI run 44909071708 در حال اجراست؛ هنوز ادغام نشده است.",
-      "در PR98، آزمون قدیمی placeholder منبع hosted با گردش‌کار جدید هماهنگ شد: منبع hosted فقط با ثبت مدرک حقوقی می‌تواند فعال شود؛ اجرای CI مجدد run 44909299568 آغاز شده است."
+      "در PR98، آزمون قدیمی placeholder منبع hosted با گردش‌کار جدید هماهنگ شد: منبع hosted فقط با ثبت مدرک حقوقی می‌تواند فعال شود؛ اجرای CI مجدد run 44909299568 آغاز شده است.",
+      "در PR98 پاک‌سازی بسته‌های HLS خصوصی نیز تکمیل شد: حذف asset یا منبع پس از مجازبودن حذف، فایل اصلی و دایرکتوری بسته را پس از commit پاک می‌کند؛ برچسب میزبانی در سه زبان روشن می‌کند که پخش عمومی همچنان غیرفعال است. CI run 44909421312 در حال اجراست."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -922,6 +923,10 @@
     {
       "date": "2026-11-21",
       "text": "در PR98، تست قدیمی وضعیت hosted source به‌روزرسانی شد تا فعال‌سازی منبع میزبانی‌شده فقط پس از ثبت license_reference را بررسی کند؛ CI run 44909299568 در حال اجراست."
+    },
+    {
+      "date": "2026-11-21",
+      "text": "PR98 تکمیل‌تر شد: پاک‌سازی فایل‌های HLS خصوصی در حذف مجاز asset/source و اصلاح برچسب‌های سه‌زبانه انجام شد؛ CI run 44909421312 در حال اجراست."
     }
   ],
   "architecture": {
@@ -5114,10 +5119,10 @@
       "branch": "feature/hosted-playback-package-review",
       "pull_request": 98,
       "title": "Add rights-aware review for private hosted HLS packages",
-      "head_commit": "3757cc13476479bf92de3ebaa85494b3eee40e",
+      "head_commit": "de5880549d9dc97ac31e6b75b573ebd76b320271",
       "base_commit": "599d407186e69fe9bb2c50fadb36d0abdc40279d",
-      "status": "ready_for_review_ci_running_after_test_adjustment",
-      "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44909299568",
+      "status": "ready_for_review_ci_running_after_private_cleanup_review",
+      "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44909421312",
       "scope": "پنل مدیریت فایل‌های خصوصی، بارگذاری قرنطینه‌ای، تأیید حقوق، بررسی integrity playlist/segments، ثبت reviewer/timestamp/note، رد و لغو تأیید.",
       "limitations": [
         "بسته approved همچنان خصوصی و غیرقابل پخش عمومی است؛ signed manifest/segment delivery در مرحله بعدی است.",
