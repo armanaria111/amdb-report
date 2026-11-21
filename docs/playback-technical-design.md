@@ -228,6 +228,7 @@ PR92 در شاخه feature/viewer-experience-foundation بخشی از مرحله
 - adapterهای YouTube و Aparat که URL canonical را بررسی و embed URL را سمت سرور می‌سازند.
 - صفحه عمومی تماشا با ماژول playback خاموش پیش‌فرض؛ فقط اثر منتشرشده و منبع رایگان فعال با حقوق و مدرک معتبر و زمان معتبر.
 - انتخاب منبع و قسمت؛ iframe تا کلیک صریح کاربر و نمایش هشدار اتصال به سرویس ثالث در about:blank می‌ماند.
+- مرحله ۳ دستی: primary still مستقل برای هر Episode با همگام‌سازی episodes.still_path و نمایش thumbnail قسمت در صفحه عمومی اضافه شده است؛ دریافت/refresh خودکار thumbnail رسمی YouTube هنوز انجام نشده است.
 
 ### محدودیت‌های اجرایی فعلی
 - PR92 باز و draft است و در main ادغام نشده؛ این موارد هنوز قابلیت منتشرشده AMDB نیستند.
