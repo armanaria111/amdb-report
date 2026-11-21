@@ -496,7 +496,10 @@
       "بخش پایه مرحله ۲ در PR92 اضافه شد: adapterهای YouTube و Aparat، allowlist سخت‌گیرانه میزبان/مسیر و تولید embed URL سمت سرور؛ iframe خام یا URL ورودی مدیر مستقیماً render نمی‌شود.",
       "صفحه عمومی watch در PR92 پشت ماژول playback ثبت‌شده با default_enabled=false قرار دارد؛ فقط آثار منتشرشده و منابع رایگان فعال، دارای حقوق و مدرک معتبر و در بازه زمانی فعلی را نمایش می‌دهد. اتصال iframe پس از کلیک صریح بیننده انجام می‌شود.",
       "در PR92 تست‌های Feature/Unit برای CRUD منابع، حقوق، URLها، مالکیت قسمت، منبع پیش‌فرض، محدودیت منبع میزبانی‌شده، resolver عمومی و adapterها نوشته شدند؛ هیچ‌کدام اجرا نشده‌اند.",
-      "سرشاخه PR92 در commit 7f0cb8c50004b94a2bdeea35da7122203cd52a1e است؛ PR open/draft، ۵۳ فایل تغییرکرده، ۲۸۷۳ خط افزوده و ۵ خط حذف دارد. GitHub وضعیت mergeable=true و mergeable_state=clean گزارش کرده است؛ ۱۰۹ commit جلو و صفر عقب از main."
+      "سرشاخه PR92 در commit 7f0cb8c50004b94a2bdeea35da7122203cd52a1e است؛ PR open/draft، ۵۳ فایل تغییرکرده، ۲۸۷۳ خط افزوده و ۵ خط حذف دارد. GitHub وضعیت mergeable=true و mergeable_state=clean گزارش کرده است؛ ۱۰۹ commit جلو و صفر عقب از main.",
+      "مرحله ۳ پخش در PR92 بخشی از زیرساخت تصویر دستی قسمت را تکمیل کرد: primary still به‌ازای هر Episode جداگانه مدیریت می‌شود، مسیر فایل با episodes.still_path همگام است و صفحه جزئیات اثر تصویر اصلی قسمت را نمایش می‌دهد.",
+      "برای رسانه قسمت دو Feature Test جهت استقلال thumbnail بین قسمت‌ها و ارتقای تصویر بعدی پس از حذف primary اضافه شد؛ تست‌ها اجرا نشده‌اند.",
+      "سرشاخه PR92 اکنون c76d4965f3c65c220404d0336ab9b2dfb07dc674 است؛ PR open/draft و mergeable=true/clean، با ۵۸ فایل تغییرکرده، ۳۰۵۱ خط افزوده، ۲۲ خط حذف، ۱۲۰ commit جلو و صفر عقب از main."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1225,6 +1228,7 @@
         "مرحله ۱ در PR92 به‌صورت کد آماده شده: PlaybackSource مستقل از title_media، پنل مدیریت منابع اثر/قسمت، ثبت حقوق و مدرک مجوز، زمان‌بندی و منبع پیش‌فرض یکتا؛ PR هنوز ادغام نشده و migration اجرا نشده است.",
         "بخش پایه مرحله ۲ در PR92 آماده شده: adapterهای امن YouTube/Aparat، allowlist و تولید embed سمت سرور؛ صفحه تماشای عمومی پشت ماژول خاموش پیش‌فرض و محدود به منابع رایگان دارای حقوق و مدرک معتبر، با بارگذاری iframe پس از کلیک کاربر.",
         "مرحله ۱: PlaybackSource مستقل با چند منبع برای هر اثر/قسمت، وضعیت حقوقی/انتشار، منبع پیش‌فرض یکتا و CRUD مدیر.",
+        "مرحله ۳، بخش دستی: primary still مستقل برای هر Episode با همگام‌سازی episodes.still_path و نمایش تصویر قسمت در صفحه عمومی در PR92 آماده شده؛ دریافت/refresh خودکار thumbnail رسمی YouTube هنوز باقی است.",
         "مرحله ۲: adapter منابع خارجی مجاز مانند YouTube و Aparat، allowlist و embed امن؛ کاربر منبع فعال را انتخاب می‌کند.",
         "مرحله ۳: پوستر اصلی دستی و مستقل Title؛ thumbnail اختصاصی هر Episode با thumbnail رسمی منبع YouTube و override دستی.",
         "مرحله ۴: Offer/Price، Order، OrderItem و Entitlement برای رایگان، تبلیغ‌محور، اجاره، خرید و اشتراک.",
@@ -4866,20 +4870,22 @@
     "implementation_progress": {
       "branch": "feature/viewer-experience-foundation",
       "pull_request": 92,
-      "head_commit": "7f0cb8c50004b94a2bdeea35da7122203cd52a1e",
+      "head_commit": "c76d4965f3c65c220404d0336ab9b2dfb07dc674",
       "status": "open_draft_unverified",
       "completed_in_branch": [
         "مرحله ۱: مدل و Migration مستقل PlaybackSource برای Title و Episode، پنل CRUD مدیر، ثبت وضعیت حقوق، دارنده حقوق/شناسه مجوز، زمان‌بندی، مدل دسترسی و منبع پیش‌فرض یکتا در هر هدف.",
         "مرحله ۲: adapterهای YouTube و Aparat با تبدیل URL معتبر به embed URL سمت سرور؛ allowlist میزبان و مسیر و رد URLهای غیر HTTPS یا نامعتبر.",
         "صفحه عمومی تماشا پشت ماژول playback که به‌صورت پیش‌فرض خاموش است؛ فقط اثر منتشرشده و منبع رایگان، فعال، دارای حقوق و مدرک حقوقی معتبر در بازه زمانی مجاز نمایش داده می‌شود.",
-        "انتخاب منبع و قسمت توسط تماشاگر؛ iframe ابتدا about:blank است و فقط پس از کلیک صریح کاربر و نمایش هشدار اتصال به سرویس ثالث بارگذاری می‌شود."
+        "انتخاب منبع و قسمت توسط تماشاگر؛ iframe ابتدا about:blank است و فقط پس از کلیک صریح کاربر و نمایش هشدار اتصال به سرویس ثالث بارگذاری می‌شود.",
+        "مرحله ۳ به‌صورت دستی تکمیل‌تر شد: تصویر اصلی still برای هر Episode مستقل است؛ TitleMediaController انتخاب primary را در محدوده همان Episode نگه می‌دارد و مسیر فایل را با episodes.still_path همگام می‌کند؛ صفحه عمومی تصویر اصلی هر قسمت را نمایش می‌دهد."
       ],
       "not_implemented_or_unverified": [
         "PR92 هنوز open/draft و ادغام‌نشده است؛ کد در main نیست.",
         "Migration، تست PHPUnit، مرورگر و runtime اجرا نشده‌اند.",
         "پخش پیشرفت را به API کتابخانه تماشاگر ارسال نمی‌کند؛ player progress integration باقی است.",
         "ad_supported، rent، purchase و subscription در حال حاضر metadata هستند و از صفحه عمومی پخش ارائه نمی‌شوند.",
-        "Hosted playback، storage خصوصی، transcoding، HLS، CDN، زیرنویس و کنترل دسترسی پیاده‌سازی نشده‌اند."
+        "Hosted playback، storage خصوصی، transcoding، HLS، CDN، زیرنویس و کنترل دسترسی پیاده‌سازی نشده‌اند.",
+        "بازیابی خودکار thumbnail رسمی YouTube از metadata/oEmbed و refresh/cache آن هنوز پیاده‌سازی نشده؛ تصویر دستی قسمت فعلاً مسیر اصلی و override قابل اتکا است."
       ],
       "rollout": "ماژول playback در PluginCatalog با default_enabled=false ثبت شده است. فعال‌سازی عمومی تا تکمیل حقوق، entitlement، سیاست provider، تست staging و پذیرش صریح انتشار انجام نمی‌شود."
     }
