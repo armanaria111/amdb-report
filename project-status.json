@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "2c7653e34a3a4eaf34b0bd50f54fbf1be79de8b4",
+    "source_commit_audited": "527197dd6137ca378a2bc2a7b43caada87c4802b",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "2c7653e34a3a4eaf34b0bd50f54fbf1be79de8b4",
+    "latest_main_commit": "527197dd6137ca378a2bc2a7b43caada87c4802b",
     "latest_main_commit_verified_on": "2026-11-21"
   },
   "languages": [
@@ -557,7 +557,11 @@
       "Playlist قبل از ارسال بازنویسی می‌شود تا فقط segment URLهای داخلی HMAC داشته باشد؛ remote URI، key URI و master playlist رد می‌شوند؛ پاسخ‌ها private/no-store هستند.",
       "این PR فقط backend تحویل امن را اضافه کرد؛ صفحه عمومی watch هنوز hosted source را به player وصل نمی‌کند و HLS.js/browser playback در مرحله بعد قرار دارد.",
       "PR100 برای اتصال hosted HLS به صفحه عمومی watch ساخته شد؛ فقط بسته‌های approved، رایگان و دارای حقوق معتبر نمایش داده می‌شوند؛ player از native HLS یا hls.js v1.7.4 پس از کلیک صریح استفاده می‌کند و progress کاربران واردشده را ذخیره/ادامه می‌دهد. CI run 44911278564 در حال اجراست.",
-      "در PR100 یک assertion تست اصلاح شد تا نبودن عنصر iframe واقعی را بررسی کند، نه شناسه‌ای که در JavaScript به‌صورت رشته ارجاع شده است؛ CI run 44911361615 در حال اجراست."
+      "در PR100 یک assertion تست اصلاح شد تا نبودن عنصر iframe واقعی را بررسی کند، نه شناسه‌ای که در JavaScript به‌صورت رشته ارجاع شده است؛ CI run 44911361615 در حال اجراست.",
+      "PR100 با روش Squash در main ادغام شد؛ merge commit 527197dd6137ca378a2bc2a7b43caada87c4802b. CI run 44911361615 موفق شد: Vite production build و 176 تست Laravel با 663 assertion.",
+      "صفحه عمومی watch اکنون hosted source را فقط در صورت عنوان منتشرشده، حقوق فعال/clear، بازه مجوز معتبر، مدل رایگان، asset transcoded و package approved فهرست می‌کند.",
+      "پخش‌کننده HTML5 به endpoint صدور HMAC URL متصل شد؛ native HLS در مرورگرهای پشتیبانی‌شده و hls.js v1.7.4 در مرورگرهای MSE استفاده می‌شود. کتابخانه hls.js فقط پس از کلیک صریح تماشاگر از jsDelivr بارگذاری می‌شود.",
+      "پیشرفت تماشای hosted برای کاربران واردشده هر ۱۵ ثانیه و هنگام pause/end ذخیره می‌شود و resume position از کتابخانه تماشاگر بازیابی می‌گردد. پخش فعلی تک‌کیفیت 720p است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -988,6 +992,10 @@
     {
       "date": "2026-11-21",
       "text": "تست watch integration در PR100 اصلاح شد تا نبودن iframe واقعی را بررسی کند؛ CI run 44911361615 در حال اجراست."
+    },
+    {
+      "date": "2026-11-21",
+      "text": "PR100 اتصال صفحه watch به hosted HLS را با CI موفق ادغام کرد؛ merge commit 527197dd6137ca378a2bc2a7b43caada87c4802b. 176 تست و 663 assertion موفق شدند. صفحه watch فقط منابع رایگان، حقوق‌دار و packageهای approved را نمایش می‌دهد؛ player HTML5/native HLS/hls.js و progress برای کاربران واردشده فعال شده است."
     }
   ],
   "architecture": {
@@ -4095,7 +4103,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "2c7653e34a3a4eaf34b0bd50f54fbf1be79de8b4",
+    "source_commit": "527197dd6137ca378a2bc2a7b43caada87c4802b",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-20",
@@ -4161,13 +4169,13 @@
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840"
     },
     "release": {
-      "latest_merged_pr": 99,
-      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/99",
-      "latest_source_commit": "2c7653e34a3a4eaf34b0bd50f54fbf1be79de8b4",
+      "latest_merged_pr": 100,
+      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/100",
+      "latest_source_commit": "527197dd6137ca378a2bc2a7b43caada87c4802b",
       "source_branch": "main",
       "verified_at": "2026-11-21"
     },
-    "note": "آخرین commit main برابر 2c7653e34a3a4eaf34b0bd50f54fbf1be79de8b4 پس از ادغام PR99 است. زیرساخت HLS خصوصی شامل آپلود، scan/probe، transcoding، بررسی حقوق و endpointهای HMAC-expiring برای manifest/segment در سورس وجود دارد. صفحه watch هنوز به player hosted وصل نشده و مرحله بعدی همین اتصال است. تست‌ها روی SQLite موقت CI اجرا شده‌اند؛ MySQL، storage/worker واقعی و مرورگر عملیاتی تأیید نشده‌اند.",
+    "note": "آخرین commit main برابر 527197dd6137ca378a2bc2a7b43caada87c4802b پس از ادغام PR100 است. صفحه watch اکنون منابع hosted رایگان و approved را با HTML5/HLS.js پخش می‌کند و پیشرفت تماشای کاربران واردشده را ذخیره/ادامه می‌دهد. CI با 176 تست و 663 assertion موفق است؛ آزمون واقعی مرورگر، MySQL، storage و FFmpeg عملیاتی هنوز انجام نشده‌اند.",
     "panels": [
       {
         "id": "admin",
@@ -5175,22 +5183,6 @@
       "scope": "FFmpeg تک‌کیفیت HLS تا سقف 720p، بسته خصوصی قرنطینه‌شده، صف مستقل و dispatcher زمان‌بندی‌شده؛ بدون پخش عمومی، CDN یا entitlement. CI run 175 در صف است. PR96 ادغام شد؛ CI run 175 موفق است. Migration و FFmpeg واقعی هنوز روی MySQL/staging آزمایش نشده‌اند.",
       "merge_commit": "bced37cd23e4fe423967f6253b6cd8f617ce1325",
       "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44877119121"
-    },
-    {
-      "branch": "feature/hosted-hls-watch-player",
-      "pull_request": 100,
-      "title": "Connect approved hosted HLS sources to the public watch player",
-      "head_commit": "10d2997aaaf82e9bb0980b35f02c475c6e3ed5b2",
-      "base_commit": "2c7653e34a3a4eaf34b0bd50f54fbf1be79de8b4",
-      "status": "ready_for_review_ci_running_after_iframe_assertion_fix",
-      "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44911361615",
-      "scope": "نمایش فقط hosted packageهای approved و free در صفحه تماشا، player ویدئویی responsive، درخواست URL HMAC پس از کلیک کاربر، native HLS/HLS.js، ذخیره و ادامه progress کاربران واردشده.",
-      "limitations": [
-        "HLS.js از CDN نسخه pin شده 1.7.4 فقط پس از کلیک صریح بارگذاری می‌شود؛ browser QA واقعی هنوز لازم است.",
-        "پخش فعلی تک‌کیفیت 720p است؛ ABR/master playlist، زیرنویس و DRM باقی است.",
-        "مدل‌های پولی تا پیاده‌سازی entitlement مسدودند.",
-        "CI run 44911278564 در حال اجراست؛ MySQL و FFmpeg/storage واقعی تست نشده‌اند."
-      ]
     }
   ]
 }
