@@ -506,7 +506,7 @@
       "در PR92 دنبال‌کردن/لغو دنبال‌کردن هنرمندان، تنظیم اعلان هر هنرمند، ترجیح سراسری اعلان آثار و قسمت‌ها و پیام‌های سه‌زبانه مرکز اعلان اضافه شد.",
       "اعلان انتشار عنوان و قسمت برای دنبال‌کنندگان هنرمندان فعال با اعتبارسنجی زمان دنبال‌کردن، ترجیحات کاربر، delivery idempotent و callback پس از commit اضافه شد؛ command روزانه برای تاریخ‌های انتشار آینده ثبت شد. کانال فقط in-app است.",
       "تست‌های Feature برای follow/mute/unfollow، ترجیحات کلی، جلوگیری از اعلان تکراری، عدم اعلان retroactive و اعلان قسمت اضافه شدند؛ اجرا نشده‌اند.",
-      "سرشاخه PR92 اکنون 2e2ff6f78595a18232e3c0095d125150c404fc96 است؛ PR open/draft، mergeable=true و mergeable_state=clean؛ ۸۱ فایل تغییرکرده، ۴۱۷۲ خط افزوده، ۲۷ خط حذف، ۱۶۹ commit جلو و صفر عقب از main."
+      "سرشاخه PR92 اکنون 2e2ff6f78595a18232e3c0095d125150c404fc96 است؛ PR open/draft، GitHub mergeable=true اما mergeable_state=unstable گزارش می‌کند؛ ۸۱ فایل تغییرکرده، ۴۱۷۲ خط افزوده، ۲۷ خط حذف، ۱۶۹ commit جلو و صفر عقب از main."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -4899,7 +4899,7 @@
         "اعلان‌ها در این مرحله فقط درون‌برنامه‌ای هستند؛ ایمیل/Push و اعلان تغییرات عمومی پروفایل هنرمند پیاده‌سازی نشده‌اند."
       ],
       "rollout": "ماژول playback در PluginCatalog با default_enabled=false ثبت شده است. فعال‌سازی عمومی تا تکمیل حقوق، entitlement، سیاست provider، تست staging و پذیرش صریح انتشار انجام نمی‌شود.",
-      "mergeable_state": "clean"
+      "mergeable_state": "unstable"
     }
   },
   "audience_creator_experience": {
