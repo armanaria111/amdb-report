@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "148429ac280e3545f2c812de76b41bd96edc0f54",
+    "source_commit_audited": "eb12658e8e17f36f1f854bbe6d788634366f3b4a",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "148429ac280e3545f2c812de76b41bd96edc0f54",
+    "latest_main_commit": "eb12658e8e17f36f1f854bbe6d788634366f3b4a",
     "latest_main_commit_verified_on": "2026-11-21"
   },
   "languages": [
@@ -230,7 +230,7 @@
     "تقسیم درآمد آثار بر اساس قرارداد ثبت‌شده و تأییدشده برای هر اثر انجام می‌شود؛ سهم‌ها، مبنای محاسبه، هزینه‌ها، دوره تسویه و اصلاحات باید قابل حسابرسی باشند.",
     "نسخه موبایل در دامنه فعلی با طراحی Responsive و سازگار با موبایل/تبلت/دسکتاپ ارائه می‌شود؛ ساخت اپلیکیشن مستقل یا الزام به PWA تصمیم این مرحله نیست.",
     "پیشنهاد فیلم با مدل ترکیبی (Hybrid) از ترجیحات و تعاملات اختیاری کاربر، ویژگی‌های اثر و سیگنال‌های عمومی مانند محبوبیت/تازگی انجام می‌شود؛ کنترل حریم خصوصی و امکان غیرفعال‌سازی شخصی‌سازی لازم است.",
-    "پنل صاحب اثر با دامنه کامل شامل آمار، درآمد، قراردادها، گزارش سهم هر اثر و درخواست/وضعیت تسویه طراحی می‌شود؛ تأیید قرارداد، محاسبه نهایی و پرداخت همچنان تابع کنترل‌های مالی و تأیید مدیر است.",
+    "پنل مالی صاحب اثر در AMDB متعلق به شرکتِ دارای حقوق معتبر و نمایندگان مجاز owner/finance است: آمار، درآمد، قراردادها، گزارش سهم هر اثر و درخواست تسویه. هنرمندان و عوامل فیلم فقط پروفایل حرفه‌ای و اعتبارات آثار دارند و هیچ پنل درآمد، سهم یا تسویه دریافت نمی‌کنند.",
     "درآمدزایی در AMDB فقط برای شرکت‌هایی مجاز است که مالک حقوق اثر یا دارنده مجوز معتبر بهره‌برداری باشند؛ هنرمندان و عوامل فیلم در AMDB ذی‌نفع درآمد، طرف قرارداد درآمدی یا درخواست‌دهنده تسویه نیستند. پروفایل هنرمند صرفاً هویت حرفه‌ای و سوابق آثار/عوامل را نمایش می‌دهد و هیچ حق نشر، مالکیت یا اختیار واگذاری حقوق ایجاد نمی‌کند."
   ],
   "identifier_system": {
@@ -480,7 +480,7 @@
       "آخرین main commit پس از PR90: 8eb5ac4411f87f6ecd6ad7892d20500e8b9feaab.",
       "در 2026-11-21 نقشه راه محصول توسعه یافت: همه پیشنهادهای قابلیت‌های کاتالوگ، جامعه، هنرمندان، مدیریت، درآمدزایی، API و آرشیو تاریخی در بخش product_recommendations ثبت شدند؛ این موارد پیشنهادهای برنامه‌ریزی‌شده‌اند و به معنی پیاده‌سازی در سورس نیستند.",
       "پیشنهادهای تکمیلی برای اعتمادپذیری داده، ثبت منبع، تاریخچه تغییرات، تشخیص تکراری، حریم خصوصی، حقوق نشر، دسترس‌پذیری، پشتیبان‌گیری، پایش و تحلیل صنعت سینما به نقشه راه اضافه شدند.",
-      "مدل درآمدزایی هنرمند ویژه ثبت شد: اطلاعات پایه رایگان، تماس و شبکه اجتماعی پولی طبق مدل فعلی، امکانات حرفه‌ای افزوده، و تفکیک نشان اشتراک از تأیید هویت.",
+      "مدل اشتراک هنرمند ویژه ثبت شد: پلن رایگان/ویژه، امکانات حرفه‌ای و پرداخت اشتراک از سوی هنرمند؛ این مدل به معنی درآمدزایی هنرمند از آثار یا حق نشر نیست.",
       "سامانه تبلیغات مستند شد: Google AdSense، Google Ad Manager برای نیاز پیشرفته، یکتانت و کمپین دستی/مستقیم با جایگاه‌ها و گزارش عملکرد.",
       "نیازمندی پخش و فروش آثار ثبت شد: پخش اختصاصی مجاز، embed منابع خارجی، انتخاب منبع توسط بیننده، چند منبع برای هر قسمت، مدل رایگان/اجاره/خرید/اشتراک، پوستر دستی و thumbnail مستقل قسمت.",
       "در 2026-11-21 تصمیم‌های پخش ثبت شدند: hosting=both، انتخاب منبع admin_default_user_selectable و revenue_models شامل free، ad_supported، rent، purchase و subscription.",
@@ -575,7 +575,13 @@
       "تحویل HLS master، variant manifest و segmentها با HMAC دارای انقضا و کنترل مجدد حقوق انجام می‌شود؛ پکیج‌های legacy تک‌کیفیت نیز برای سازگاری پشتیبانی می‌شوند.",
       "PR103 انتخاب دستی کیفیت HLS را به player اضافه کرد؛ گزینه Auto پیش‌فرض است و کیفیت‌های موجود از master playlist خوانده می‌شوند. مرورگرهای native HLS از کنترل کیفیت بومی استفاده می‌کنند؛ CI run 44912719162 در حال اجراست.",
       "PR103 انتخاب کیفیت HLS در main ادغام شد؛ merge commit bf9e18bbbad3f49dac0b5cc22c80960d246ee8ca. CI run 44922222918 روی head نهایی ecdc7388ec61e6a2b18dc6e985f2e3585f10cf49 موفق شد: Vite production build و Laravel tests (PHP 8.5/SQLite)، کامپایل Blade و lint.",
-      "برای قرارداد درآمد آثار، ledger و تسویه صاحبان پروفایل، PR104 با ۳۷ فایل و تست‌های Feature ایجاد شد؛ branch قدیمی آن ۱۳ commit از main عقب و دارای تعارض است، بنابراین ادغام نشده و باید روی mainline بازسازی/حل تعارض شود. هیچ Migration یا دیتابیسی اجرا نشده است."
+      "PR104 اولیه به دلیل قرار دادن هنرمند به‌عنوان payee کنار گذاشته شد؛ معماری اصلاح‌شده company-only در PR107 پیاده‌سازی و در commit eb12658e8e17f36f1f854bbe6d788634366f3b4a ادغام شد.",
+      "PR105 ادغام شد: مدارک مالکیت/مجوز شرکت برای هر اثر، ذخیره خصوصی، قلمرو و بازه اعتبار، تأیید/رد/لغو مدیر؛ CI سرشاخه PR و push روی main موفق بود.",
+      "PR106 ادغام شد: عضویت و نمایندگی شرکت با نقش‌های owner/finance/manager/viewer، داشبورد شرکت و ارسال مدرک توسط owner/manager؛ CI موفق بود.",
+      "PR107 در commit eb12658e8e17f36f1f854bbe6d788634366f3b4a ادغام شد: قرارداد هر اثر، ledger و تسویه فقط برای شرکت فعال با CompanyTitleRight تأییدشده و معتبر؛ FK واقعی company_id در allocations/settlements؛ بدون artist payee یا مسیر تسویه هنرمند.",
+      "CI مربوط به PR107 موفق شد: Vite production build و ۲۱۳ تست Laravel با ۸۲۵ assertion روی SQLite؛ CI push روی main merge commit در زمان ثبت گزارش هنوز در حال اجراست.",
+      "PR104 قدیمی که هنرمند را payee می‌کرد، پس از جایگزینی با PR107 به‌صورت closed/superseded بسته شد و merge نشده است.",
+      "Migrationهای حقوق شرکت، نمایندگان شرکت و درآمد به ترتیب 170000 تا 176000 مرتب شده‌اند؛ هیچ Migration روی MySQL محلی یا دیتابیس عملیاتی اجرا نشده است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1414,7 +1420,7 @@
         "هیچ مسیر پولی/میزبانی اختصاصی پیش از تکمیل حقوق انتشار، پیکربندی provider و آزمون پذیرش فعال نشود.",
         "پیشرفت تماشا و ادامه تماشا به Title/Episode متصل و مستقل از PlaybackSource باشد؛ علاقه‌مندی و تاریخچه از حق دسترسی (Entitlement) جدا بمانند.",
         "تقسیم درآمد بر مبنای قرارداد معتبر هر اثر؛ snapshot نسخه قرارداد و مبنای محاسبه هنگام ثبت رویداد درآمد/سفارش، گزارش قابل حسابرسی و کنترل refund/chargeback.",
-        "داشبورد صاحب اثر به گزارش مالی و آمار آثار مجاز محدود شود؛ صاحب اثر درخواست تسویه می‌دهد و نقش مالی مجاز آن را بررسی/تأیید می‌کند."
+        "داشبورد مالی شرکت صاحب حقوق و نمایندگان owner/finance به گزارش آمار و درآمد آثار مجاز، قراردادها، کسورات و درخواست تسویه محدود است؛ هنرمندان و عوامل فیلم پنل درآمد یا تسویه ندارند."
       ]
     }
   ],
@@ -2880,8 +2886,8 @@
     "تعیین سیاست و اولویت توسعه درگاه پرداخت و قابلیت‌های باقی‌مانده پس از QA.",
     "PR104 قدیمی superseded است و نباید ادغام شود؛ بازنویسی company-only در PR107 قرار دارد و CI آن در حال اجراست: https://github.com/armanaria111/amdb-laravel2/pull/107",
     "PR105 ادغام شد؛ CI سرشاخه و CI push روی main هر دو موفق‌اند (merge d5e96008bf7e0c5d7c712991f40c33e85cf1a05f).",
-    "PR106 دسترسی نمایندگان شرکت و داشبورد/ارسال مدارک حقوق را اضافه می‌کند؛ CI run 44924950235 در حال اجراست: https://github.com/armanaria111/amdb-laravel2/pull/106",
-    "PR107 قرارداد درآمد، دفترکل و تسویه فقط برای شرکت دارای حقوق معتبر؛ CI run 44927024742 در حال اجراست: https://github.com/armanaria111/amdb-laravel2/pull/107"
+    "PR106 دسترسی نمایندگان شرکت و داشبورد/ارسال مدارک حقوق ادغام شد؛ CI موفق است.",
+    "CI push روی main برای merge commit PR107 در حال تکمیل است؛ پس از آن، آزمون MySQL/staging، backup/rollback و پذیرش مرورگر باید انجام شود. هیچ Migration روی دیتابیس کاربر اجرا نشده است."
   ],
   "post_pr21_localization": {
     "date": "2026-11-18",
@@ -4516,10 +4522,10 @@
   "work_in_progress": {
     "branch": "feature/company-only-revenue-ledger",
     "base_commit": "ce09e8c8a4d274fd27d40d619377fdd4a7f5fae8",
-    "head_commit": "e3d57d8d570919f868f04f2652a810261561fcbd",
+    "head_commit": "eb12658e8e17f36f1f854bbe6d788634366f3b4a",
     "updated_at": "2026-11-21",
     "scope": "قرارداد درآمد هر اثر، دفترکل تغییرناپذیر و تسویه فقط برای شرکت فعال دارای مدرک حقوق تأییدشده و معتبر؛ بدون هرگونه درآمد/سهم/تسویه هنرمند.",
-    "status": "company_only_revenue_pr107_open_ci_pending",
+    "status": "company_only_revenue_merged_ci_passed_mysql_staging_unverified",
     "details": [
       "PR105 ادغام شد: ثبت و تأیید مدارک حقوق شرکت در سطح اثر، ذخیره خصوصی، قلمرو/اعتبار، تأیید/رد/لغو با audit؛ CI PR و push main موفق.",
       "PR106 ادغام شد: عضویت نمایندگان شرکت با نقش owner/finance/manager/viewer، داشبورد شرکت و ارسال مدرک توسط owner/manager؛ CI Vite و Laravel tests موفق.",
@@ -4528,20 +4534,22 @@
       "رویداد درآمد در زمان ثبت، وضعیت شرکت، عنوان، مدرک حقوق، تاریخ و قلمرو را دوباره اعتبارسنجی می‌کند؛ reversal با compensating entry و lock شرکت انجام می‌شود.",
       "درخواست تسویه فقط برای نماینده فعال owner/finance مجاز است؛ مدیر مالی درخواست را بررسی می‌کند و پرداخت فقط با ثبت مرجع دستی audit می‌شود؛ انتقال وجه خودکار وجود ندارد.",
       "Migrationهای revenue به ترتیب 172000 تا 176000 پس از company_title_rights و company_user قرار گرفتند.",
-      "PR104 قدیمی هنوز باز و دارای تعارض است؛ در آن توضیح داده شد که PR107 جایگزین آن است و پس از CI موفق بسته می‌شود."
+      "PR104 قدیمی هنوز باز و دارای تعارض است؛ در آن توضیح داده شد که PR107 جایگزین آن است و پس از CI موفق بسته می‌شود.",
+      "PR107 با روش Squash ادغام شد؛ CI موفق: Vite build و ۲۱۳ تست Laravel/SQLite با ۸۲۵ assertion. PR104 قدیمی به‌عنوان superseded بسته شد."
     ],
     "remaining": [
-      "دریافت نتیجه CI PR107 و رفع خطاهای migration، تست، Blade یا build.",
-      "بازبینی نهایی محاسبات، قفل‌ها، حقوق، قلمرو و دسترسی شرکت قبل از merge.",
-      "ادغام PR107 فقط پس از CI موفق و mergeable بودن.",
-      "بستن PR104 قدیمی پس از جایگزینی کامل آن با PR107.",
-      "آزمون MySQL/staging، concurrency، ذخیره‌سازی private و مرورگر؛ بدون اجرای migration روی دیتابیس کاربر تا زمان backup و تأیید."
+      "تأیید CI push روی main برای merge commit PR107 (run 44927734593 در زمان ثبت گزارش در حال اجراست).",
+      "بررسی و اجرای Migrationهای 170000 تا 176000 فقط روی MySQL staging پس از backup و آزمون rollback؛ دیتابیس محلی/عملیاتی کاربر دست‌نخورده مانده است.",
+      "پیکربندی و آزمون private storage روی هاست واقعی، محدودیت دسترسی فایل‌ها و backup مدارک حقوق.",
+      "آزمون هم‌زمانی ledger، reversal و settlement روی MySQL و آزمون مرورگر/دستگاه واقعی.",
+      "اتصال checkout و رویدادهای درآمد واقعی در مرحله جداگانه؛ هیچ پرداخت مصرف‌کننده یا انتقال وجه خودکار در این PR فعال نشده است."
     ],
     "pull_request": {
       "number": 107,
       "url": "https://github.com/armanaria111/amdb-laravel2/pull/107",
-      "state": "open",
-      "draft": false
+      "state": "closed",
+      "merged": true,
+      "merge_commit": "eb12658e8e17f36f1f854bbe6d788634366f3b4a"
     }
   },
   "product_recommendations": {
@@ -5050,12 +5058,12 @@
       ],
       "progress_identity": "شناسه پایدار Title/Episode؛ مستقل از PlaybackSource و entitlement",
       "revenue_sharing": "per_title_contract",
-      "owner_dashboard": "full_read_only_financial_reporting_with_payout_requests",
+      "owner_dashboard": "full_company_owner_finance_read_only_financial_reporting_with_payout_requests",
       "rules": [
         "ثبت پیشرفت تماشا نباید به URL یا provider وابسته باشد؛ تعویض منبع پخش progress را حفظ کند.",
         "سابقه تماشا یا علاقه‌مندی حق دسترسی ایجاد نمی‌کند؛ entitlement جداگانه enforce می‌شود.",
         "سهم هر ذی‌نفع از قرارداد معتبر همان اثر و snapshot نسخه قرارداد محاسبه می‌شود.",
-        "صاحب اثر فقط گزارش و قراردادهای مجاز خود را می‌بیند و درخواست تسویه می‌دهد؛ تأیید/اجرای پرداخت در اختیار مدیر مالی است."
+        "فقط شرکت صاحب حقوق/دارنده مجوز و نمایندگان فعال owner/finance آن گزارش و قراردادهای مجاز را می‌بینند و درخواست تسویه شرکت را ثبت می‌کنند؛ تأیید/اجرای پرداخت در اختیار مدیر مالی است. هنرمندان و عوامل فیلم ذی‌نفع مالی نیستند."
       ]
     },
     "implementation_progress": {
@@ -5150,7 +5158,7 @@
       ]
     },
     "revenue_sharing": {
-      "basis": "قرارداد اختصاصی هر اثر با شرکت دارای حقوق معتبر؛ هنرمندان payee یا طرف قرارداد درآمدی نیستند.",
+      "basis": "قرارداد اختصاصی هر اثر با Company فعال و CompanyTitleRight تأییدشده و معتبر؛ هنرمند و عوامل فیلم payee یا طرف قرارداد درآمدی نیستند.",
       "required_terms": [
         "شرکت طرف قرارداد و مدارک اثبات مالکیت یا مجوز معتبر بهره‌برداری",
         "دامنه حقوق شرکت: قلمرو، بازه زمانی، مدل‌های مجاز بهره‌برداری و محدودیت‌ها",
@@ -5196,7 +5204,7 @@
     },
     "rights_holder_dashboard": {
       "scope": [
-        "داشبورد کامل شرکت صاحب حقوق/دارنده مجوز برای آثار مجاز و متصل به همان شرکت",
+        "داشبورد کامل شرکت صاحب حقوق/دارنده مجوز و نمایندگان فعال owner/finance برای آثار مجاز همان شرکت",
         "آمار بازدید/شروع/تکمیل پخش با تعریف روشن شاخص‌ها",
         "گزارش تفکیکی هر اثر، هر مدل درآمد و هر دوره",
         "قراردادهای نسخه‌بندی‌شده و وضعیت تأیید حقوق شرکت",
@@ -5204,7 +5212,7 @@
         "درخواست تسویه شرکت، وضعیت بررسی و رسید/تاریخچه پرداخت"
       ],
       "permissions": [
-        "فقط شرکت تأییدشده و کاربران نماینده مجاز آن، آثار و قراردادهای دارای مجوز معتبر را می‌بینند.",
+        "فقط شرکت تأییدشده و نمایندگان فعال owner/finance آن، آثار و قراردادهای دارای مجوز معتبر را می‌بینند.",
         "شرکت مدارک حقوق و قرارداد را ارائه می‌کند؛ تأیید نهایی حقوق و قرارداد توسط نقش مجاز AMDB انجام می‌شود.",
         "اطلاعات مالی شرکت فقط read-only از ledger معتبر خوانده می‌شود؛ ثبت پرداخت و اصلاح مالی در اختیار مدیر مالی است.",
         "پروفایل هنرمند هیچ دسترسی به داشبورد مالی، قرارداد درآمدی، ledger یا تسویه ندارد."
@@ -5217,8 +5225,8 @@
       "تعریف eventهای معتبر و ضدتقلب برای سنجش پخش/درآمد",
       "تفکیک کامل پروفایل/اعتبار هنرمند از دارنده حقوق و نماینده شرکت"
     ],
-    "feature_status": "تصمیم‌های محصول مصوب‌اند؛ شرکت دارای حقوق معتبر دریافت‌کننده درآمد است و هنرمند صرفاً پروفایل حرفه‌ای/اعتبارات دارد. این تصمیم به معنی فعال‌شدن پرداخت نیست.",
-    "implementation_status": "viewer_library_hybrid_recommendations_artist_follows_and_in_app_release_notifications_merged_to_main_ci_passed; playback_source_and_youtube_progress_foundation_merged; hosted_playback_and_commercial_entitlements_pending"
+    "feature_status": "قرارداد، ledger و درخواست تسویه company-only در PR107 ادغام شده‌اند؛ پرداخت خودکار یا checkout مصرف‌کننده فعال نیست. هنرمند صرفاً پروفایل حرفه‌ای/اعتبارات و پلن اشتراک خدماتی دارد.",
+    "implementation_status": "company_rights_evidence_company_accounts_company_only_revenue_merged_ci_passed; mysql_staging_private_storage_and_browser_acceptance_pending"
   },
   "parallel_work_in_progress": [
     {
@@ -5238,7 +5246,7 @@
       "title": "Add title revenue contracts, immutable ledger and artist settlements",
       "head_commit": "befd0b3dd21b3ef355b08d47158c46e83c08d5aa",
       "base_commit": "bf9e18bbbad3f49dac0b5cc22c80960d246ee8ca",
-      "status": "superseded_by_pr107_do_not_merge",
+      "status": "closed_superseded_by_pr107",
       "ci_run": null,
       "scope": "قراردادهای نسخه‌دار، دفترکل درآمد و تسویه فقط برای شرکت‌های دارای حقوق معتبر؛ نسخه فعلی به‌اشتباه هنرمندان را payee می‌سازد و باید اصلاح شود.",
       "limitations": [
@@ -5247,7 +5255,9 @@
         "نباید ادغام شود؛ باید فقط Company دارای مدرک حقوق تأییدشده به قرارداد، ledger و settlement متصل شود.",
         "CI هنوز روی شاخه PR104 اجرا/مشاهده نشده است.",
         "PR107 بازنویسی company-only مبتنی بر main جدید است؛ PR104 پس از CI موفق PR107 بسته خواهد شد."
-      ]
+      ],
+      "closed": true,
+      "merged": false
     },
     {
       "branch": "feature/title-revenue-contracts-mainline",
@@ -5255,7 +5265,7 @@
       "title": "Add company title-rights evidence and review workflow",
       "head_commit": "000aaa331f713cf5142d5141cc77fae68c6278e4",
       "base_commit": "bf9e18bbbad3f49dac0b5cc22c80960d246ee8ca",
-      "status": "merged_to_main_pr_ci_passed_main_push_ci_pending",
+      "status": "merged_to_main_ci_passed",
       "scope": "ثبت و بررسی مدارک مالکیت/مجوز شرکت برای هر اثر؛ فقط پیش‌نیاز حقوقی، بدون فعال‌سازی درآمد یا تسویه.",
       "ci": {
         "pr_run": 44924498391,
@@ -5288,14 +5298,18 @@
       "title": "Restrict revenue contracts, ledger and settlements to rights-holding companies",
       "head_commit": "e3d57d8d570919f868f04f2652a810261561fcbd",
       "base_commit": "ce09e8c8a4d274fd27d40d619377fdd4a7f5fae8",
-      "status": "open_ready_for_review_ci_pending",
+      "status": "merged_to_main_pr_ci_passed_main_push_ci_pending",
       "scope": "قرارداد/دفترکل/تسویه company-only با مدرک حقوق تأییدشده، معتبر و قلمرو-محدود.",
       "ci": {
-        "run": 227,
-        "id": 44927024742,
-        "status": "in_progress",
-        "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44927024742"
-      }
+        "pr_run": 44927605672,
+        "pr_conclusion": "success",
+        "tests": 213,
+        "assertions": 825,
+        "main_push_run": 44927734593,
+        "main_push_status": "in_progress",
+        "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44927605672"
+      },
+      "merge_commit": "eb12658e8e17f36f1f854bbe6d788634366f3b4a"
     }
   ],
   "company_rights_evidence": {
@@ -5303,7 +5317,7 @@
     "pull_request": 105,
     "branch": "feature/title-revenue-contracts-mainline",
     "head_commit": "000aaa331f713cf5142d5141cc77fae68c6278e4",
-    "status": "merged_to_main_pr_ci_passed_main_push_ci_pending_runtime_mysql_unverified",
+    "status": "merged_to_main_pr_ci_and_main_push_ci_passed_mysql_staging_unverified",
     "scope": [
       "ثبت مدرک مالکیت/مجوز در سطح شرکت و اثر با نوع حق، شماره مجوز، مدرک خصوصی، قلمرو و بازه اعتبار.",
       "گردش‌کار مدیریت برای ثبت، تأیید/رد و دریافت امن مدرک؛ فایل‌ها روی دیسک private local ذخیره می‌شوند.",
@@ -5312,10 +5326,8 @@
       "ترجمه en، fa-AF و ps و تست‌های Feature اضافه شده‌اند."
     ],
     "limitations": [
-      "PR105 ادغام شده و CI مربوط به PR (Vite و Laravel tests روی SQLite) موفق است؛ CI اجرای push روی main هنوز در حال اجراست.",
-      "فرایند ثبت/مدیریت مدارک فعلاً در پنل مدیریت است؛ پرتال شرکت و مدیریت نمایندگان شرکت مرحله بعد است.",
-      "اتصال این مدرک به قرارداد درآمد و الزام Company-only در دفترکل/تسویه هنوز پیاده‌سازی نشده است.",
-      "اجرای Migration و ذخیره‌سازی خصوصی روی MySQL/staging یا محیط واقعی تأیید نشده است."
+      "PR105 ادغام شده و CI سرشاخه PR و push روی main موفق است.",
+      "Migration و ذخیره‌سازی خصوصی روی MySQL/staging یا هاست واقعی تأیید نشده است."
     ],
     "url": "https://github.com/armanaria111/amdb-laravel2/pull/105",
     "ci": {
@@ -5335,7 +5347,7 @@
     "pull_request": 106,
     "branch": "feature/company-accounts-and-rights-portal",
     "head_commit": "0b4bca8ab18debd60b4dc84577e938b518c0d5f7",
-    "status": "implementation_pr_open_ci_pending",
+    "status": "merged_to_main_ci_passed_mysql_staging_unverified",
     "scope": [
       "جدول company_user برای عضویت تأییدشده کاربران در شرکت‌ها با نقش owner/finance/manager/viewer و وضعیت active/suspended.",
       "مدیر می‌تواند نمایندگان شرکت را اضافه، ویرایش، تعلیق یا حذف کند.",
@@ -5351,10 +5363,10 @@
       "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44924950235"
     },
     "limitations": [
-      "PR106 هنوز ادغام نشده و CI در حال اجراست.",
-      "این مرحله دسترسی و ارسال مدارک شرکت را می‌سازد؛ درآمد، قرارداد، ledger و تسویه هنوز فعال نشده‌اند.",
-      "اجرای MySQL/staging و تنظیم واقعی private storage هنوز تأیید نشده است."
+      "PR106 ادغام شده و CI Vite و Laravel tests موفق است.",
+      "Migration و رفتار runtime روی MySQL/staging هنوز تأیید نشده است."
     ],
-    "url": "https://github.com/armanaria111/amdb-laravel2/pull/106"
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/106",
+    "merge_commit": "ce09e8c8a4d274fd27d40d619377fdd4a7f5fae8"
   }
 }
