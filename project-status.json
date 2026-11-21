@@ -2878,7 +2878,8 @@
     "تأیید رفتار runtime Activitylog، Sitemap، Chart.js، SEO و اعلان‌ها.",
     "بررسی تکمیل تمام مسیرهای پنل مدیریت، کاربر عادی و هنرمند و رفع موارد ناقص.",
     "تعیین سیاست و اولویت توسعه درگاه پرداخت و قابلیت‌های باقی‌مانده پس از QA.",
-    "PR104 قرارداد درآمد آثار/دفترکل/تسویه باز و دارای تعارض است؛ علاوه بر حل تعارض، باید معماری درآمد فقط برای شرکت‌های دارای حقوق معتبر اعمال شود و هرگونه درآمد/تسویه هنرمند حذف شود: https://github.com/armanaria111/amdb-laravel2/pull/104"
+    "PR104 قرارداد درآمد آثار/دفترکل/تسویه قدیمی و دارای تعارض است و نسخه فعلی درآمد هنرمند را مجاز می‌کند؛ نباید ادغام شود. ابتدا PR105 اثبات حقوق شرکت باید CI و ادغام شود، سپس قرارداد/دفترکل/تسویه فقط برای شرکت دارای مدرک تأییدشده بازنویسی شود: https://github.com/armanaria111/amdb-laravel2/pull/104",
+    "PR105 زیرساخت ثبت و تأیید مدارک حقوق شرکت برای هر اثر است؛ CI run 44924360814 pending و هنوز ادغام نشده: https://github.com/armanaria111/amdb-laravel2/pull/105"
   ],
   "post_pr21_localization": {
     "date": "2026-11-18",
@@ -4516,7 +4517,7 @@
     "head_commit": "befd0b3dd21b3ef355b08d47158c46e83c08d5aa",
     "updated_at": "2026-11-21",
     "scope": "قرارداد نسخه‌دار درآمد هر اثر، دفترکل رویدادمحور تغییرناپذیر و تسویه فقط برای شرکت دارای حقوق معتبر؛ هرگونه payee، داشبورد درآمد یا درخواست تسویه هنرمند ممنوع است.",
-    "status": "draft_pr_open_conflicts_architecture_correction_required_ci_pending",
+    "status": "company_rights_evidence_pr105_open_ci_pending_revenue_contract_pr104_blocked",
     "details": [
       "PR104 شامل ۳۷ فایل، ۵ کنترلر، ۵ مدل، ۵ Migration افزایشی، سرویس RevenueLedgerService، سه فایل ترجمه en/fa-AF/ps و سه مجموعه تست Feature است.",
       "مرز ایمنی: سابقه تماشا منبع درآمد محسوب نمی‌شود؛ ثبت درآمد نیازمند source_type و source_reference است. هیچ پرداخت تماشاگر یا انتقال خودکار وجه فعال نشده است.",
@@ -4524,15 +4525,16 @@
       "PR104 به علت قدیمی‌بودن شاخه نسبت به main در وضعیت dirty/mergeable=false است؛ ۱۳ commit عقب‌ماندگی دارد و باید conflict resolution انجام شود.",
       "CI برای شاخه PR104 هنوز مشاهده نشده؛ Migrationها و تست‌ها اجرا نشده‌اند.",
       "بازبینی PR104 نشان داد نسخه فعلی برخلاف تصمیم محصول، Artist را طرف قرارداد/ذی‌نفع دفترکل قرار می‌دهد و برای هنرمند داشبورد و درخواست تسویه دارد؛ این بخش‌ها باید حذف و به Company دارای مجوز معتبر محدود شوند.",
-      "در PR104 توضیح معماری اصلاح‌شده ثبت شد؛ PR همچنان draft و دارای تعارض است و هنوز کد اصلاحی در main ادغام نشده است."
+      "در PR104 توضیح معماری اصلاح‌شده ثبت شد؛ PR همچنان draft و دارای تعارض است و هنوز کد اصلاحی در main ادغام نشده است.",
+      "PR105 روی شاخه مبتنی بر main ایجاد شد: company_title_rights، بارگذاری مدرک در private local disk، تأیید/رد مدیر، محدودیت قلمرو/اعتبار، immutable review transitions و ترجمه‌های سه‌زبانه.",
+      "PR105 هنوز CI pending است؛ این PR فقط زیربنای اثبات حقوق شرکت است و درآمد شرکت یا تسویه را فعال نمی‌کند."
     ],
     "remaining": [
-      "انتقال تغییرات PR104 به شاخه‌ای مبتنی بر main جاری و حفظ تغییرات viewer/playback/subscription.",
-      "حذف Artist از payee types، contract parties، ledger allocations، balance/dashboard و settlement requests؛ افزودن Company-only validation و احراز مدارک حقوق.",
-      "افزودن تست‌های منفی برای جلوگیری از درآمد/تسویه هنرمند و تست مثبت درآمد/تسویه شرکت تأییدشده.",
-      "بازبینی تراکنش‌ها، قفل‌ها، محاسبات مالی، migrationها و کنترل مالکیت قبل از merge.",
-      "اجرای CI کامل و رفع شکست‌ها؛ سپس بازبینی نهایی و ادغام.",
-      "آزمون MySQL/staging، هم‌زمانی و مرورگر پس از فراهم‌شدن محیط تست؛ بدون اجرای migration روی دیتابیس کاربر در این مرحله."
+      "دریافت نتیجه CI و رفع خطاهای PR105؛ سپس بازبینی و ادغام حقوق شرکت.",
+      "پیاده‌سازی دسترسی و نمایندگی کاربران شرکت و امکان مدیریت مدارک حقوق از سوی شرکت با تأیید نهایی مدیر.",
+      "انتقال و بازطراحی PR104: قرارداد هر اثر و ledger فقط برای Company دارای CompanyTitleRight تأییدشده و معتبر؛ حذف کامل Artist payee/dashboard/settlement.",
+      "تست‌های مثبت شرکت مجاز و منفی هنرمند/شرکت بدون مدرک، منقضی یا خارج از قلمرو.",
+      "اجرای CI و بازبینی امنیتی/مالی؛ سپس ادغام. MySQL/staging فقط پس از backup و بدون دست‌کاری دیتابیس کاربر."
     ],
     "pull_request": {
       "number": 104,
@@ -5235,15 +5237,51 @@
       "title": "Add title revenue contracts, immutable ledger and artist settlements",
       "head_commit": "befd0b3dd21b3ef355b08d47158c46e83c08d5aa",
       "base_commit": "bf9e18bbbad3f49dac0b5cc22c80960d246ee8ca",
-      "status": "open_dirty_architecture_correction_required_ci_pending",
+      "status": "open_dirty_company_only_rewrite_required_ci_pending",
       "ci_run": null,
       "scope": "قراردادهای نسخه‌دار، دفترکل درآمد و تسویه فقط برای شرکت‌های دارای حقوق معتبر؛ نسخه فعلی به‌اشتباه هنرمندان را payee می‌سازد و باید اصلاح شود.",
       "limitations": [
-        "شاخه ۱۳ commit از main عقب است و GitHub mergeable_state=dirty گزارش می‌کند.",
-        "نسخه فعلی Artist را طرف قرارداد/ذی‌نفع ledger و درخواست‌دهنده تسویه می‌داند؛ با تصمیم قطعی محصول مغایر است.",
-        "CI هنوز روی این شاخه اجرا/مشاهده نشده است.",
-        "هیچ Migration یا دیتابیس اجرا نشده؛ تسویه فقط ثبت مرجع پرداخت است و انتقال وجه ندارد."
+        "شاخه قدیمی نسبت به main واگرا و دارای تعارض است.",
+        "نسخه فعلی Artist را payee/طرف قرارداد و دارنده داشبورد و درخواست تسویه قرار داده و با تصمیم قطعی محصول مغایر است.",
+        "نباید ادغام شود؛ باید فقط Company دارای مدرک حقوق تأییدشده به قرارداد، ledger و settlement متصل شود.",
+        "CI هنوز روی شاخه PR104 اجرا/مشاهده نشده است."
       ]
+    },
+    {
+      "branch": "feature/title-revenue-contracts-mainline",
+      "pull_request": 105,
+      "title": "Add company title-rights evidence and review workflow",
+      "head_commit": "8a972847dfc421e49a87efa0106542c406adfedf",
+      "base_commit": "bf9e18bbbad3f49dac0b5cc22c80960d246ee8ca",
+      "status": "open_ready_for_review_ci_pending",
+      "scope": "ثبت و بررسی مدارک مالکیت/مجوز شرکت برای هر اثر؛ فقط پیش‌نیاز حقوقی، بدون فعال‌سازی درآمد یا تسویه.",
+      "ci": {
+        "run": 222,
+        "id": 44924360814,
+        "status": "pending",
+        "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44924360814"
+      }
     }
-  ]
+  ],
+  "company_rights_evidence": {
+    "updated_at": "2026-11-21",
+    "pull_request": 105,
+    "branch": "feature/title-revenue-contracts-mainline",
+    "head_commit": "8a972847dfc421e49a87efa0106542c406adfedf",
+    "status": "implementation_pr_open_ci_pending",
+    "scope": [
+      "ثبت مدرک مالکیت/مجوز در سطح شرکت و اثر با نوع حق، شماره مجوز، مدرک خصوصی، قلمرو و بازه اعتبار.",
+      "گردش‌کار مدیریت برای ثبت، تأیید/رد و دریافت امن مدرک؛ فایل‌ها روی دیسک private local ذخیره می‌شوند.",
+      "سوابق تأییدشده و لغوشده از نظر مفاد حقوقی immutable هستند؛ تغییر مفاد نیازمند رکورد جدید است.",
+      "محدودیت قلمرو و بازه اعتبار در scope مدل لحاظ شده است.",
+      "ترجمه en، fa-AF و ps و تست‌های Feature اضافه شده‌اند."
+    ],
+    "limitations": [
+      "PR105 هنوز ادغام نشده و CI run 44924360814 در حال اجراست.",
+      "فرایند ثبت/مدیریت مدارک فعلاً در پنل مدیریت است؛ پرتال شرکت و مدیریت نمایندگان شرکت مرحله بعد است.",
+      "اتصال این مدرک به قرارداد درآمد و الزام Company-only در دفترکل/تسویه هنوز در PR104 پیاده‌سازی نشده است.",
+      "اجرای Migration و ذخیره‌سازی خصوصی روی MySQL/staging یا محیط واقعی تأیید نشده است."
+    ],
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/105"
+  }
 }
