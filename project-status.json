@@ -544,7 +544,8 @@
       "PR98 با روش Squash در main ادغام شد؛ merge commit fd744517ac5667363c0a640651e1aad4b76d7750. CI run 44909421312 موفق شد: Vite production build و 166 تست Laravel با 624 assertion.",
       "پنل مدیریت اکنون آپلود خصوصی hosted assets و بررسی بسته‌های HLS را نشان می‌دهد؛ approval فقط برای عنوان منتشرشده، منبع فعال و دارای مدرک حقوق، مدل رایگان، asset تبدیل‌شده و playlist/segmentهای موجود مجاز است.",
       "برای hosted packages فیلدهای reviewed_by، reviewed_at و review_note اضافه شد؛ رد و لغو تأیید ثبت می‌شود. حذف فایل/منبع پس از مجازبودن حذف، فایل اصلی و پوشه HLS را پس از commit پاک می‌کند.",
-      "وضعیت approved صرفاً تأیید مدیریتی برای مرحله تحویل امن آینده است؛ هیچ manifest یا segment عمومی ارائه نمی‌شود و مدل‌های اجاره/خرید/اشتراک/تبلیغ‌محور تا پیاده‌سازی entitlement مسدودند."
+      "وضعیت approved صرفاً تأیید مدیریتی برای مرحله تحویل امن آینده است؛ هیچ manifest یا segment عمومی ارائه نمی‌شود و مدل‌های اجاره/خرید/اشتراک/تبلیغ‌محور تا پیاده‌سازی entitlement مسدودند.",
+      "PR99 برای تحویل امن HLS خصوصی ساخته شد؛ manifest و segment URLها موقت و session-bound هستند و در هر درخواست وضعیت انتشار، حقوق، بازه مجوز، رایگان‌بودن و approved بودن package دوباره بررسی می‌شود. CI run 44909931724 در حال اجراست."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -935,6 +936,10 @@
     {
       "date": "2026-11-21",
       "text": "PR98 گردش‌کار بررسی حقوق بسته‌های HLS خصوصی با CI موفق ادغام شد؛ merge commit fd744517ac5667363c0a640651e1aad4b76d7750. 166 تست و 624 assertion در CI موفق شدند. بسته approved هنوز private و غیرقابل پخش عمومی است؛ تحویل امن امضاشده مرحله بعد است."
+    },
+    {
+      "date": "2026-11-21",
+      "text": "PR99 تحویل امن manifest و segmentهای HLS خصوصی را به‌صورت backend-only پیاده‌سازی می‌کند؛ URL امضاشده و متصل به session، بازبینی حقوق در هر درخواست و no-store. CI run 44909931724 در حال اجراست؛ player عمومی هنوز متصل نشده است."
     }
   ],
   "architecture": {
@@ -5122,6 +5127,21 @@
       "scope": "FFmpeg تک‌کیفیت HLS تا سقف 720p، بسته خصوصی قرنطینه‌شده، صف مستقل و dispatcher زمان‌بندی‌شده؛ بدون پخش عمومی، CDN یا entitlement. CI run 175 در صف است. PR96 ادغام شد؛ CI run 175 موفق است. Migration و FFmpeg واقعی هنوز روی MySQL/staging آزمایش نشده‌اند.",
       "merge_commit": "bced37cd23e4fe423967f6253b6cd8f617ce1325",
       "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44877119121"
+    },
+    {
+      "branch": "feature/hosted-hls-signed-delivery",
+      "pull_request": 99,
+      "title": "Add session-bound signed delivery for private hosted HLS",
+      "head_commit": "3b515a8f76ed41cd4e11b7d72b76e9931054974a",
+      "base_commit": "fd744517ac5667363c0a640651e1aad4b76d7750",
+      "status": "ready_for_review_ci_running",
+      "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44909931724",
+      "scope": "manifest و segmentهای HLS خصوصی با URL امضاشده و HMAC متصل به session مرورگر، بازبینی مجدد حقوق و وضعیت package در هر درخواست، rewrite playlist به URLهای داخلی، no-store و stream خصوصی.",
+      "limitations": [
+        "صفحه عمومی تماشا هنوز hosted source را به player متصل نمی‌کند؛ این PR فقط backend delivery را می‌سازد.",
+        "HLS.js/native player، progress tracking، entitlement، DRM و CDN در مراحل بعد هستند.",
+        "CI در حال اجراست؛ MySQL و storage/worker واقعی بررسی نشده‌اند."
+      ]
     }
   ]
 }
