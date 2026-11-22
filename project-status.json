@@ -256,7 +256,7 @@
     "detail": "شناسه‌های ar هنرمند و co شرکت در URLهای عمومی استفاده می‌شوند؛ شناسه am برای اثر در ساختار موجود است اما مسیر عمومی اثر همچنان بر slug استوار است. تست runtime انجام نشده است."
   },
   "latest_development": {
-    "date": "2026-11-21",
+    "date": "2026-11-22",
     "verified": [
       "مرحله اول ممیزی read-only سورس اصلی در commit a56e92080a227b9e4c531c9edf2e55a02e6946ab انجام شد.",
       "ساختار مخزن: ۴۶۰ ورودی در درخت، ۲۲ migration، ۳۴ فایل مدل PHP، ۳۷ فایل Blade، ۷۳ خط Route در web.php و ۷۱ فراخوانی name ثبت شد.",
@@ -598,7 +598,10 @@
       "Route checkout کاربر واردشده با throttle و Idempotency-Key و Route webhook جداگانه API با rate limit اضافه شد؛ webhook فقط پس از تأیید امضای adapter، تطبیق دقیق مبلغ/ارز و event idempotency می‌تواند سفارش را paid کند.",
       "تأیید پرداخت در یک تراکنش entitlement و ledger شرکت را ایجاد می‌کند؛ redirect مرورگر به‌تنهایی پرداخت را تأیید نمی‌کند. مسیر اشتراک هنرمند/ZarinPal از این سیستم جداست.",
       "پرداخت مصرف‌کننده عمداً خاموش است: AMDB_CONSUMER_PAYMENTS_ENABLED=false، provider خالی، allowed currencies خالی و هیچ adapter واقعی نصب نشده است؛ بنابراین هیچ پرداخت واقعی قابل انجام نیست.",
-      "CI مربوط به PR113 و push روی main موفق شد: Vite production build و ۲۳۲ تست Laravel با ۹۰۹ assertion روی SQLite. MySQL/staging و sandbox provider هنوز اجرا نشده‌اند."
+      "CI مربوط به PR113 و push روی main موفق شد: Vite production build و ۲۳۲ تست Laravel با ۹۰۹ assertion روی SQLite. MySQL/staging و sandbox provider هنوز اجرا نشده‌اند.",
+      "PR114 در مخزن اصلی برای هسته مدیریت کمپین‌های تبلیغاتی باز شد؛ ماژول default-off، Migration افزایشی، پنل CRUD مدیر، فیلتر وضعیت/جایگاه، اعتبارسنجی فایل و URL، ترجمه‌های en/fa-AF/ps و تست‌های Feature اضافه شدند.",
+      "PR114 در وضعیت ready for review است؛ تا زمان ثبت این گزارش workflow run و status check برای head نهایی گزارش نشده‌اند. بنابراین تست‌ها صرفاً نوشته شده‌اند و موفقیت CI ادعا نمی‌شود.",
+      "هیچ Migration روی دیتابیس محلی یا staging اجرا نشده و هیچ کمپین/تبلیغی در صفحات عمومی نمایش داده نمی‌شود. انتخاب provider در این PR فقط metadata است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1451,13 +1454,16 @@
     },
     {
       "phase": "۱۱. سامانه تبلیغات",
-      "state": "planned",
+      "state": "implementation_in_progress_pr_114_open_ci_pending",
       "items": [
         "موتور جایگاه و چرخش تبلیغات",
         "Google AdSense و در صورت نیاز Google Ad Manager",
         "یکتانت با کد و شناسه رسمی",
         "مدیریت کمپین دستی، بنر، زمان‌بندی، سقف و تعرفه",
         "گزارش نمایش، کلیک و CTR، رضایت و سیاست تبلیغات"
+      ],
+      "completed": [
+        "هسته مدیریت کمپین در PR114 پیاده‌سازی شده و در انتظار CI و بازبینی است."
       ]
     },
     {
@@ -1913,8 +1919,8 @@
     }
   },
   "current_work": {
-    "stage": "بازسازی گزارش جامع و یکپارچه AMDB",
-    "status": "report_restructured_source_inventory_current_runtime_unverified",
+    "stage": "توسعه سامانه تبلیغات AMDB",
+    "status": "advertising_campaign_admin_foundation_pr114_open_ci_pending",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -2323,7 +2329,12 @@
     "latest_source_commit_verified_on": "2026-11-20",
     "new_migrations_not_executed": [
       "2026_11_20_235900_create_activity_log_table"
-    ]
+    ],
+    "latest_pr": 114,
+    "latest_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/114",
+    "latest_source_base_commit": "c9b1bf77cd469817c04c7309c06e2e0b80b56635",
+    "latest_branch_commit": "34c229ab3a0c0dc2c4588255269d2c070accbd1a",
+    "note": "PR114 باز و آماده بازبینی است. CI هنوز در GitHub برای head فعلی گزارش نشده؛ Migration اجرا نشده و ماژول تبلیغات پیش‌فرض خاموش است."
   },
   "application_audit": {
     "audit_date": "2026-11-18",
@@ -4985,7 +4996,43 @@
       "campaign delivery",
       "slot performance"
     ],
-    "warning": "Google Ads ابزار تبلیغ‌دهنده برای خرید کمپین است؛ درآمد ناشر معمولاً با AdSense و در مقیاس بزرگ‌تر Ad Manager مدیریت می‌شود."
+    "warning": "Google Ads ابزار تبلیغ‌دهنده برای خرید کمپین است؛ درآمد ناشر معمولاً با AdSense و در مقیاس بزرگ‌تر Ad Manager مدیریت می‌شود.",
+    "implementation_progress": {
+      "pull_request": 114,
+      "url": "https://github.com/armanaria111/amdb-laravel2/pull/114",
+      "branch": "feature/advertising-campaign-management",
+      "head_commit": "34c229ab3a0c0dc2c4588255269d2c070accbd1a",
+      "status": "open_ready_for_review_ci_not_yet_reported",
+      "completed": [
+        "ماژول first-party تبلیغات به PluginCatalog افزوده شد و به‌صورت پیش‌فرض خاموش است؛ فعال‌سازی/غیرفعال‌سازی از مدیریت ماژول‌ها انجام می‌شود.",
+        "Migration افزایشی advertising_campaigns برای نام کمپین، تبلیغ‌دهنده، برچسب provider، جایگاه، نوع/محتوای تبلیغ، مسیر تصویر، URL مقصد، زمان‌بندی، اولویت، سقف نمایش/کلیک، شمارنده‌ها و وضعیت اضافه شد.",
+        "پنل مدیر برای فهرست و فیلتر کمپین‌ها، ایجاد، ویرایش، تغییر وضعیت و حذف ساخته شد.",
+        "آپلود تصویر با اعتبارسنجی فرمت و سقف ۵MB و مقصد محدود به HTTP/HTTPS پیاده‌سازی شد.",
+        "فعال‌سازی کمپین ناقص بدون URL مقصد یا محتوای لازم رد می‌شود.",
+        "ترجمه‌های مستقل en، fa-AF و ps و میانبر پنل تبلیغات به صفحه مدیریت ماژول‌ها افزوده شدند.",
+        "تست‌های Feature برای خاموش بودن پیش‌فرض، ایجاد کمپین draft، تغییر وضعیت، مسدود بودن مسیر در حالت خاموش و جلوگیری از دسترسی غیرمدیر اضافه شدند."
+      ],
+      "safeguards": [
+        "هیچ script، pixel یا SDK شخص ثالث اجرا یا تزریق نمی‌شود.",
+        "هیچ داده رفتاری/پروفایل کاربر برای هدف‌گیری تبلیغاتی جمع‌آوری نمی‌شود.",
+        "انتخاب AdSense، Ad Manager و Yektanet در این PR صرفاً metadata است؛ اتصال واقعی provider، اندازه‌گیری نمایش/کلیک و تسویه مالی هنوز وجود ندارد.",
+        "هیچ کمپینی در زمان ایجاد فعال نمی‌شود؛ همه کمپین‌ها draft ساخته می‌شوند.",
+        "ماژول advertising پیش‌فرض خاموش است و تا تکمیل تحویل عمومی، نمایش تبلیغ روی صفحات سایت فعال نیست."
+      ],
+      "remaining": [
+        "اجرای CI و بازبینی نتیجه تست‌ها و اصلاح خطاهای احتمالی.",
+        "اتصال renderer امن به جایگاه‌های صفحات عمومی با feature flag و برچسب روشن «تبلیغ».",
+        "ثبت رویداد نمایش/کلیک با rate limit، deduplication و کنترل تقلب؛ محاسبه CTR.",
+        "تنظیم consent/privacy و سیاست ذخیره‌سازی داده پیش از هر نوع analytics یا provider SDK.",
+        "اتصال providerها فقط پس از تعیین حساب، شناسه جایگاه و پذیرش شرایط هر سرویس.",
+        "MySQL staging، backup/rollback و پذیرش مرورگر/موبایل."
+      ],
+      "migration": "database/migrations/2026_11_22_000001_create_advertising_campaigns_table.php",
+      "migration_executed": false,
+      "public_delivery_enabled": false,
+      "external_provider_connected": false,
+      "tracking_enabled": false
+    }
   },
   "playback_architecture": {
     "title": "مدل داده پیشنهادی برای پخش",
