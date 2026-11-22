@@ -4433,7 +4433,8 @@
         "2026-11-22 main CI run 45049622525 for commit 7f6ffed0614ed0cdf2d06114c8929b3aa1bd1596: SQLite PHPUnit 261 passed / 1020 assertions; MySQL 8.4 PHPUnit 261 passed / 1020 assertions; Vite production build success; all Blade views compiled and compiled PHP lint passed. CI uses temporary GitHub runners and does not verify the user's Laragon database or browser.",
         "Revenue documentation was aligned with the implemented company-only payee model: artists have no direct revenue or copyright royalty entitlement; company settlements require active owner/finance membership.",
         "2026-11-22: RevenueLedgerService contract resolution now filters eligible contract candidates by event territory as well as revenue model, validity window and version. Added Feature test test_event_selects_the_newest_contract_that_covers_its_territory. CI for the latest commit is queued/pending at report update time; no pass is claimed yet.",
-        "2026-11-23: گزارش ماهانه و سالانه دفتر درآمد پلتفرم با تست Feature افزوده شد؛ CI run 45085472936 برای commit efed7eb0c16cd7eb0872ce0a6566a53e02e74976 در حال اجراست و هنوز نتیجه‌ای ثبت نشده."
+        "2026-11-23: گزارش ماهانه و سالانه دفتر درآمد پلتفرم با تست Feature افزوده شد؛ CI run 45085472936 برای commit efed7eb0c16cd7eb0872ce0a6566a53e02e74976 در حال اجراست و هنوز نتیجه‌ای ثبت نشده.",
+        "2026-11-23: در CI مربوط به commit efed7eb0c16cd7eb0872ce0a6566a53e02e74976، PHPUnit روی SQLite، Vite production build و Blade compile/lint موفق شدند؛ job MySQL 8.4 هنوز در مرحله آماده‌سازی کانتینر است."
       ],
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
@@ -6887,7 +6888,7 @@
   "platform_revenue_multicurrency": {
     "updated_at": "2026-11-23",
     "source_commit": "efed7eb0c16cd7eb0872ce0a6566a53e02e74976",
-    "status": "monthly_annual_reports_added_ci_running",
+    "status": "monthly_annual_reports_added_ci_partially_passed",
     "currency_policy": {
       "USD": "google_ads",
       "EUR": "google_ads",
@@ -6912,17 +6913,17 @@
     ],
     "validation": {
       "run_id": 45085472936,
-      "status": "in_progress",
+      "status": "sqlite_success_mysql_pending",
       "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45085472936",
       "tested_commit": "efed7eb0c16cd7eb0872ce0a6566a53e02e74976",
       "latest_test_commit": "efed7eb0c16cd7eb0872ce0a6566a53e02e74976",
       "local_laragon": "not_run",
       "browser_mobile": "not_run",
-      "note": "اجرای CI برای گزارش‌های ماهانه و سالانه در حال انجام است؛ نتیجه موفق یا ناموفق هنوز ثبت نشده.",
-      "sqlite_tests": "pending",
+      "note": "تست‌های PHPUnit روی SQLite، ساخت Vite و کامپایل/lint فایل‌های Blade موفق شده‌اند؛ job MySQL 8.4 هنوز در مرحله آماده‌سازی کانتینر است.",
+      "sqlite_tests": "success",
       "mysql_tests": "pending",
-      "vite_build": "pending",
-      "blade_compile_and_lint": "pending"
+      "vite_build": "success",
+      "blade_compile_and_lint": "success"
     },
     "limitations": [
       "اتصال مستقیم API و پرداخت Google Ads/AdSense یا شبکه تبلیغاتی ایران پیاده‌سازی نشده؛ فعلاً گزارش/رسید درآمد به‌صورت دستی ثبت و سپس تأیید می‌شود.",
