@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "aaba384d50f19eb4f8e74454926d14c82bdb2b5e",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "d6c9050fa62be4a94777a352601888d9f0a440ec",
+    "latest_main_commit": "a1f1fb8e3becc9bcf56dfc101c3e694413b51ba8",
     "latest_main_commit_verified_on": "2026-11-22"
   },
   "languages": [
@@ -5874,7 +5874,7 @@
         "tests": 254,
         "assertions": 983
       },
-      "latest_main_commit": "d6c9050fa62be4a94777a352601888d9f0a440ec",
+      "latest_main_commit": "a1f1fb8e3becc9bcf56dfc101c3e694413b51ba8",
       "dashboard_extensions": {
         "status": "committed_ci_in_progress",
         "commit": "78c9b5d07873c6eb4d74f8764882e51df0765904",
@@ -5894,19 +5894,24 @@
         "runtime_mysql_and_browser": "not_verified"
       },
       "csv_export": {
-        "status": "ci_failed_previous_commit_route_missing",
-        "commit": "f27eb8d57e1c08751315493879e45b7b438a3f4b",
-        "ci": {
+        "status": "route_registered_ci_pending",
+        "commit": "a1f1fb8e3becc9bcf56dfc101c3e694413b51ba8",
+        "completed": [
+          "مسیر admin.advertising.export در گروه مجوزهای مدیریت تبلیغات ثبت شد.",
+          "تست انتساب کمپین به شرکت موجود اضافه شد."
+        ],
+        "previous_ci": {
           "run_id": 45047932612,
-          "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45047932612",
           "status": "failure",
-          "reason": "Route admin.advertising.export was not registered; 255 tests passed and 5 failed on SQLite/MySQL."
+          "reason": "مسیر admin.advertising.export ثبت نشده بود؛ این خطا در commit جدید اصلاح شد."
         },
-        "next_action": "Register the named export route, rerun CI, then update this record."
+        "ci": {
+          "status": "awaiting_new_main_run"
+        }
       }
     },
     "company_assignment": {
-      "status": "committed_ci_pending",
+      "status": "committed_validation_pending_route_fix",
       "commit": "d6c9050fa62be4a94777a352601888d9f0a440ec",
       "migration": "database/migrations/2026_11_22_160000_add_company_to_advertising_campaigns_table.php",
       "changes": [
@@ -5921,10 +5926,7 @@
         "دسترسی گزارش تبلیغ‌دهنده هنوز پیاده‌سازی نشده است."
       ],
       "ci": {
-        "run_id": 45048501490,
-        "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45048501490",
-        "status": "in_progress",
-        "conclusion": null
+        "status": "awaiting_latest_commit_run"
       },
       "runtime_mysql_and_browser": "not_verified"
     }
