@@ -49,7 +49,7 @@ function render(d){
  const q=cur.quality||{};
  const qa=cur.qa_test_matrix||{};
  const qaHost=$("#qaTestMatrix");
- if(qaHost) qaHost.innerHTML=(qa.groups||[]).map(g=>'<article class="feature-card"><div class="feature-top"><h3>'+esc(g.name)+'</h3>'+status(g.state)+'</div><ul>'+(g.items||[]).map(item=>'<li>'+esc(item)+'</li>').join(""))+'</ul></article>').join("");
+ if(qaHost) qaHost.innerHTML=(qa.groups||[]).map(g=>'<article class="feature-card"><div class="feature-top"><h3>'+esc(g.name)+'</h3>'+status(g.state)+'</div><ul>'+(g.items||[]).map(item=>'<li>'+esc(item)+'</li>').join("")+'</ul></article>').join("");
  const gates=[["فایل تست PHP موجود",q.tests_in_repository??"—"],["اجرای PHPUnit",q.tests_executed?"اجرا شده":"اجرا نشده"],["نتیجه تست",q.test_result||"ثبت نشده"],["Build فرانت‌اند",q.vite_build_executed?"اجرا شده":"اجرا نشده"],["بررسی مرورگر",q.browser_verified?"تأیید شده":"تأیید نشده"],["Smoke test عملیاتی",q.production_smoke_test?"اجرا شده":"اجرا نشده"],["اجرای Migration در این ممیزی",q.migrations_executed_in_this_audit?"اجرا شده":"اجرا نشده"]];
  $("#qualityStatus").textContent="QA نهایی تأیید نشده";
  $("#qualityGates").innerHTML=gates.map(x=>'<div class="mini-tile"><b>'+esc(x[0])+'</b><span>'+esc(x[1])+'</span></div>').join("");
