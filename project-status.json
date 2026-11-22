@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "19d497f61e32bc7032169697011cf15d68642ac6",
+    "source_commit_audited": "aaba384d50f19eb4f8e74454926d14c82bdb2b5e",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "19d497f61e32bc7032169697011cf15d68642ac6",
+    "latest_main_commit": "aaba384d50f19eb4f8e74454926d14c82bdb2b5e",
     "latest_main_commit_verified_on": "2026-11-22"
   },
   "languages": [
@@ -4305,8 +4305,8 @@
     "product_name_fa": "بانک اطلاعاتی فیلم افغانستان",
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_branch": "feature/standard-artist-profession-taxonomy",
-    "source_commit": "cd6e26936972f5255beb8059e181ea2f9071f982",
+    "source_branch": "main",
+    "source_commit": "aaba384d50f19eb4f8e74454926d14c82bdb2b5e",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-21",
@@ -4347,10 +4347,20 @@
     "feature_count": 39,
     "implementation_status": "کدهای ادغام‌شده در سورس؛ runtime و QA نهایی هنوز تأیید نشده‌اند مگر جایی که صریحاً ثبت شده باشد.",
     "database_runtime": {
-      "status": "not_verified",
-      "tables": null,
-      "migrations_ran": null,
-      "reason": "این snapshot فقط سورس GitHub را بررسی کرده است؛ هیچ اتصال زنده‌ای به دیتابیس محلی یا عملیاتی انجام نشده است."
+      "status": "partially_verified_local",
+      "environment": "Windows 10 + Laragon 8 + MySQL",
+      "database_name": "amdbl",
+      "migrations_executed_this_session": 43,
+      "pending_migrations_after_run": 0,
+      "seeded": [
+        "ProfessionGroupSeeder"
+      ],
+      "tables_verified": {
+        "profession_groups": true,
+        "companies": true,
+        "title_ratings": true
+      },
+      "scope_note": "فقط سه جدول فوق به‌صورت مستقیم با Schema::hasTable بررسی شده‌اند؛ شمار کل جدول‌ها و وضعیت همه روابط هنوز ممیزی نشده است."
     },
     "quality": {
       "tests_in_repository": 22,
@@ -4364,8 +4374,11 @@
         "PR113 در GitHub Actions با ۲۳۲ تست و ۹۰۹ assertion موفق شد؛ Vite production build نیز موفق بود.",
         "CI پس از ادغام روی main، run 44943651335، موفق گزارش شده است.",
         "این CI روی محیط موقت SQLite است و جایگزین MySQL محلی/staging نیست.",
-        "هیچ Migration روی دیتابیس محلی کاربر اجرا نشده است.",
-        "بررسی مرورگری، smoke test روی staging/production و اتصال به دیتابیس MySQL کاربر انجام نشده است."
+        "در 2026-11-22 کاربر اجرای ۴۳ Migration Pending را روی MySQL محلی با موفقیت گزارش کرد؛ پس از اجرا خروجی migrate:status هیچ Pending نشان نداد.",
+        "ProfessionGroupSeeder روی دیتابیس محلی با موفقیت اجرا شد.",
+        "Schema::hasTable برای profession_groups، companies و title_ratings مقدار true برگرداند؛ این بررسی شمار کل جداول نیست.",
+        "پس از اصلاح namespace مربوط به Spatie Activitylog در News و Festival، trait_exists و class_exists هر سه مقدار true دادند.",
+        "HTTP smoke check محلی با curl برای /artists، /news و /festivals هر سه HTTP 200 برگرداند؛ این بررسی مرورگر یا آزمون کامل مسیرهای صفحه نیست."
       ],
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
@@ -4373,12 +4386,22 @@
       "latest_ci_run": 44990772045,
       "main_ci_conclusion": "success",
       "pull_request_ci_conclusion": "success",
-      "mysql_ci_verified": true
+      "mysql_ci_verified": true,
+      "local_http_smoke": {
+        "checked_at": "2026-11-22",
+        "base_url": "http://127.0.0.1:8000",
+        "pages": {
+          "/artists": 200,
+          "/news": 200,
+          "/festivals": 200
+        },
+        "result": "success"
+      }
     },
     "release": {
       "latest_merged_pr": 122,
       "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/122",
-      "latest_source_commit": "0881fa1d4bc0f380d7a69d543c88f03edae8adea",
+      "latest_source_commit": "aaba384d50f19eb4f8e74454926d14c82bdb2b5e",
       "source_branch": "main",
       "verified_at": "2026-11-22",
       "pr_ci_run": 44990252885,
@@ -4389,7 +4412,7 @@
       "blade_compile": "success",
       "blade_lint": "success",
       "main_push_ci": "not_reported_by_commit_workflow_query",
-      "note": "PR117 با CI موفق ادغام شد؛ اجرای CI روی push شاخه main جداگانه در این گزارش تأیید نشده است. MySQL staging و browser/mobile acceptance هنوز انجام نشده‌اند.",
+      "note": "دو اصلاح import مربوط به Spatie Activitylog در News و Festival مستقیماً در main ثبت شد. PR124 همچنان باز و draft است؛ MySQL staging و پذیرش مرورگر/موبایل هنوز انجام نشده‌اند.",
       "mysql_staging": "pending",
       "browser_mobile_acceptance": "pending",
       "mysql_ci_pr": 122,
@@ -4412,7 +4435,7 @@
       "mysql_tests": 254,
       "mysql_assertions": 983
     },
-    "note": "Draft PR #124 implements normalized profession groups, multilingual profession management and public directory filters. Latest CI run #298: Vite production build passed; SQLite feature/unit tests passed; MySQL job is still installing PHP dependencies. No local Laragon runtime migration or browser test was performed.",
+    "note": "در 2026-11-22، پس از اجرای ۴۳ Migration و ProfessionGroupSeeder در Laragon، سه صفحه /artists، /news و /festivals با HTTP 200 تأیید شدند. اصلاح namespace مدل‌های News و Festival نیز در main ثبت شد. این تأیید محدود محلی است و جایگزین QA کامل مرورگر، تست تمام مسیرها یا staging نیست.",
     "panels": [
       {
         "id": "admin",
