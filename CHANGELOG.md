@@ -930,3 +930,9 @@
 - Added canonical AMDB catalog domain standards in the main Laravel repository. The original WordPress site is treated as a legacy data source, not as the taxonomy or architecture specification.
 - Recorded the separation between artist directory groups, canonical professions, artist-profession assignments and per-title credits; one artist profile may hold multiple simultaneous professions.
 - Recorded normalized, multilingual controlled-vocabulary and safe legacy-import requirements. Runtime schema has not yet been changed by this standards document.
+
+## 2026-11-22 — Standard artist profession taxonomy
+- Opened draft PR #124 in the main Laravel repository for normalized profession groups, localized group labels, profession management, and public artist directory filters.
+- Added a nullable profession-group relation to existing professions and a conservative backfill by known stable profession slugs only; unknown values remain unassigned for manual review.
+- Added English, Dari and Pashto labels and admin screens. Existing artist, title, credit, user and public identifier data are not rewritten.
+- GitHub Actions Vite production build passed. MySQL and SQLite Laravel test jobs were still running at the time of this update; no local Laragon runtime verification was performed.
