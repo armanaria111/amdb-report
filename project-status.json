@@ -4412,7 +4412,7 @@
       "mysql_tests": 254,
       "mysql_assertions": 983
     },
-    "note": "Draft PR #124 implements the first artist-taxonomy slice. The latest CI run (#298) has a successful Vite production build; MySQL and SQLite test jobs are queued at the latest check. No local Laragon runtime verification or production migration has been performed.",
+    "note": "Draft PR #124 implements normalized profession groups, multilingual profession management and public directory filters. Latest CI run #298: Vite production build passed; SQLite feature/unit tests passed; MySQL job is still installing PHP dependencies. No local Laragon runtime migration or browser test was performed.",
     "panels": [
       {
         "id": "admin",
@@ -6032,7 +6032,8 @@
       "review_notes": [
         "PR #124 remains draft and unmerged",
         "latest CI run #298: Vite production build passed",
-        "latest CI run #298: MySQL and SQLite test jobs queued at last check",
+        "latest CI run #298: SQLite feature and unit tests passed",
+        "latest CI run #298: MySQL job is still installing PHP dependencies; MySQL migration and PHPUnit results are pending",
         "no local Laragon/MySQL/browser runtime test was performed"
       ],
       "next_steps": [
