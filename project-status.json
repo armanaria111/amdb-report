@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "a99e5d7c1216d6cef772651fad8fd7a16a1ec477",
+    "source_commit_audited": "5b62590d435783cc7506d16bcff51e67b4ee31cc",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "a99e5d7c1216d6cef772651fad8fd7a16a1ec477",
+    "latest_main_commit": "5b62590d435783cc7506d16bcff51e67b4ee31cc",
     "latest_main_commit_verified_on": "2026-11-22",
     "advertising_note": "پنل تبلیغ‌دهنده و درخواست کمپین شرکت در main موجود است. در حوزه قراردادهای درآمدی، نسخه‌های قبلی برای مدل‌ها/قلمروهای خارج از پوشش قرارداد جدید حفظ می‌شوند؛ قفل‌گذاری Title→Company→Right برای بررسی قرارداد و Title→Right برای تغییر حقوق شرکت اضافه شده است. CI اجرای این commit در حال اجراست."
   },
@@ -6815,13 +6815,19 @@
   },
   "revenue_settlement_safety": {
     "updated_at": "2026-11-22",
-    "source_commit": "a99e5d7c1216d6cef772651fad8fd7a16a1ec477",
+    "source_commit": "5b62590d435783cc7506d16bcff51e67b4ee31cc",
     "changes": [
       "پیش از ثبت reversal، شرکت‌های ذی‌نفع به ترتیب شناسه قفل می‌شوند.",
       "موجودی درآمدی پس از reversal فرضی با مجموع تسویه‌های pending، approved و paid مقایسه می‌شود.",
       "اگر reversal موجودی قابل اتکا را کمتر از مبالغ رزروشده کند، عملیات با LogicException متوقف می‌شود.",
       "تست feature برای جلوگیری از مصرف مبالغ رزروشده اضافه شد."
     ],
-    "validation": "اجرای CI برای commit جدید در حال انجام است؛ نتیجه SQLite، MySQL 8.4 و Vite پس از پایان بررسی می‌شود. تست محلی Laragon انجام نشده است."
+    "validation": "یک خطای نحوی در ارجاع مدل تسویه در CI شناسایی و اصلاح شد؛ اجرای تازه CI برای commit اصلاحی آغاز شده است. نتیجه نهایی پس از پایان سه job اعلام می‌شود.",
+    "latest_run": {
+      "id": 45055728175,
+      "status": "pending",
+      "conclusion": null,
+      "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45055728175"
+    }
   }
 }
