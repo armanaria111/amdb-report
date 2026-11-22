@@ -1939,8 +1939,8 @@
     }
   },
   "current_work": {
-    "stage": "گزارش روزانه عملکرد تبلیغات",
-    "status": "advertising_daily_report_merged_pr119_ci_passed",
+    "stage": "حریم خصوصی و نگهداری داده‌های تبلیغات",
+    "status": "advertising_event_retention_pr120_ci_in_progress",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -2350,11 +2350,11 @@
     "new_migrations_not_executed": [
       "2026_11_20_235900_create_activity_log_table"
     ],
-    "latest_pr": 119,
-    "latest_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/119",
+    "latest_pr": 120,
+    "latest_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/120",
     "latest_source_base_commit": "6ab9ba3308493962ca794e005c7cc0a82b960821",
-    "latest_branch_commit": "0c47c4dcf20a327b4b45c78133851f14ff9231c3",
-    "note": "PR119 گزارش روزانه تبلیغات با موفقیت ادغام شد. CI run 44989781633 موفق: ۲۴۹ تست و ۹۶۹ assertion؛ Vite، Blade compile و lint موفق. MySQL staging و مرورگر/موبایل هنوز تأیید نشده‌اند.",
+    "latest_branch_commit": "badb36377db544e337286fdcc86808d6d38cc53b",
+    "note": "نگهداری رویدادهای خام تبلیغات با پیش‌فرض ۹۰ روز، فرمان پاک‌سازی روزانه با dry-run، حفظ شمارنده‌های تجمیعی و توضیحات حریم خصوصی در en/fa-AF/ps در PR120 اضافه شده؛ CI run 44990001759 در حال اجراست.",
     "latest_main_commit": "123eab60d8eec29aea6ff4de471f41e2924d15d4"
   },
   "application_audit": {
@@ -5030,7 +5030,7 @@
       "url": "https://github.com/armanaria111/amdb-laravel2/pull/114",
       "branch": "feature/advertising-campaign-management",
       "head_commit": "087b44174e4195af383d44cf4658e735b5723658",
-      "status": "daily_reporting_merged_runtime_unverified",
+      "status": "advertising_event_retention_pr120_ci_in_progress",
       "completed": [
         "ماژول first-party تبلیغات به PluginCatalog افزوده شد و به‌صورت پیش‌فرض خاموش است؛ فعال‌سازی/غیرفعال‌سازی از مدیریت ماژول‌ها انجام می‌شود.",
         "Migration افزایشی advertising_campaigns برای نام کمپین، تبلیغ‌دهنده، برچسب provider، جایگاه، نوع/محتوای تبلیغ، مسیر تصویر، URL مقصد، زمان‌بندی، اولویت، سقف نمایش/کلیک، شمارنده‌ها و وضعیت اضافه شد.",
@@ -5165,6 +5165,20 @@
         "ci_conclusion": "success",
         "tests": 249,
         "assertions": 969
+      },
+      "retention": {
+        "pr": 120,
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/120",
+        "branch": "feature/advertising-privacy-retention",
+        "commit": "badb36377db544e337286fdcc86808d6d38cc53b",
+        "default_days": 90,
+        "environment_variable": "AMDB_AD_EVENT_RETENTION_DAYS",
+        "command": "amdb:prune-advertising-events",
+        "dry_run_option": true,
+        "scheduled_daily_at": "03:55",
+        "ci_run_id": 44990001759,
+        "ci_run_number": 277,
+        "ci_status": "in_progress"
       }
     }
   },
