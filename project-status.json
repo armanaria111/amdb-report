@@ -6906,14 +6906,14 @@
       "تست Feature برای فیلترهای ترکیبی و نمایش جزئیات بررسی افزوده شد."
     ],
     "validation": {
-      "run_id": 45084819465,
-      "status": "queued_for_preceding_commit",
-      "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45084819465",
-      "tested_commit": "aa96a56e0125f32a8b0d5f3e2415c15731f36dad",
+      "run_id": 45084864740,
+      "status": "in_progress",
+      "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45084864740",
+      "tested_commit": "a81446566a1c11316ed6bf49d2a7d1d6bd6eb009",
       "latest_test_commit": "a81446566a1c11316ed6bf49d2a7d1d6bd6eb009",
       "local_laragon": "not_run",
       "browser_mobile": "not_run",
-      "note": "CI workflow for the filter implementation was queued on commit aa96a56; a subsequent test-only commit a814465 was pushed. Confirm a workflow run for the latest SHA before treating this increment as validated."
+      "note": "CI دقیقاً روی آخرین commit اجرا شده است؛ Vite build موفق شده و jobهای SQLite/MySQL در حال اجرا هستند."
     },
     "limitations": [
       "اتصال مستقیم API و پرداخت Google Ads/AdSense یا شبکه تبلیغاتی ایران پیاده‌سازی نشده؛ فعلاً گزارش/رسید درآمد به‌صورت دستی ثبت و سپس تأیید می‌شود.",
