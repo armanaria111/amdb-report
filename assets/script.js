@@ -1,13 +1,15 @@
 const DATA_URL="./project-status.json";
 const labels={
- implemented_unverified:"تست/بررسی ثبت‌شده · دامنه محدود",
+ implemented_unverified:"پیاده‌سازی‌شده در سورس · تست‌نشده",
  reported_done:"گزارش‌شده · نیازمند تطبیق",
  reported_audit:"ممیزی‌شده",
  partial:"نیمه‌کامل",
  in_progress:"در حال انجام",
  incomplete:"ناقص",
- needs_review:"نیازمند اجرای مجدد / بررسی",
+ needs_review:"نیازمند بازبینی",
  planned:"برنامه‌ریزی‌شده",
+ qa_passed:"تست اجراشده · موفق",
+ qa_pending:"نیازمند اجرای کاربر",
  blocked:"مسدود"
 };
 const $=s=>document.querySelector(s);
