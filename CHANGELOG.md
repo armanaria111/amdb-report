@@ -837,3 +837,12 @@
 - PR114 پس از رفع دو ایراد مسیر/ثبت ماژول با موفقیت به main ادغام شد؛ merge commit: `1b11f4f91d3a16705b444d3ef52ebb657151996f`.
 - CI نهایی PR114، run 44987272261، موفق شد: ۲۳۸ تست و ۹۲۲ assertion؛ Vite production build، کامپایل Blade و lint Blade نیز موفق بودند.
 - ماژول تبلیغات در main موجود است اما پیش‌فرض خاموش می‌ماند. Migration روی MySQL محلی/staging اجرا نشده؛ نمایش عمومی، tracking، provider واقعی، consent و تسویه مالی هنوز آماده/فعال نیستند.
+
+## 2026-11-22 — تحویل تبلیغات مستقیم و اندازه‌گیری حریم‌خصوصی‌محور (PR #115)
+- PR115 با موفقیت به main ادغام شد؛ merge commit: `6ab9ba3308493962ca794e005c7cc0a82b960821`.
+- جایگاه تبلیغ در صفحه اصلی و کاتالوگ فیلم/سریال اضافه شد؛ هر تبلیغ با برچسب آشکار «Sponsored/تبلیغ/اعلان» نمایش داده می‌شود.
+- فقط کمپین‌های `provider=direct` توسط renderer داخلی نمایش داده می‌شوند؛ برچسب AdSense، Ad Manager یا Yektanet به‌تنهایی هیچ SDK یا اسکریپت ثالثی را اجرا نمی‌کند.
+- endpointهای impression/click با UUID تصادفی، rate limit، بررسی وضعیت/زمان/سقف کمپین، قفل ردیف و ثبت idempotent اضافه شدند.
+- جدول `advertising_events` فقط campaign ID، نوع رویداد، token تصادفی و زمان را نگه می‌دارد؛ user ID، IP، cookie یا داده پروفایل رفتاری ذخیره نمی‌شود.
+- CI PR115، run 44987629190، موفق شد: ۲۴۴ تست و ۹۴۴ assertion؛ Vite build، compile Blade و Blade lint نیز موفق.
+- ماژول تبلیغات همچنان پیش‌فرض خاموش است. Migration رویدادها روی MySQL محلی/staging اجرا نشده؛ اتصال providerهای خارجی، داشبورد CTR و جایگاه‌های باقی‌مانده هنوز در دست توسعه‌اند.
