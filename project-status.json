@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "a81446566a1c11316ed6bf49d2a7d1d6bd6eb009",
+    "source_commit_audited": "efed7eb0c16cd7eb0872ce0a6566a53e02e74976",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "a81446566a1c11316ed6bf49d2a7d1d6bd6eb009",
+    "latest_main_commit": "efed7eb0c16cd7eb0872ce0a6566a53e02e74976",
     "latest_main_commit_verified_on": "2026-11-23",
     "advertising_note": "سامانه کمپین‌های مستقیم و گزارش عملکرد تبلیغات در main موجود است. دفتر درآمد اختصاصی AMDB اکنون جریان‌های Google Ads/AdSense، تبلیغات ایران و تبلیغات مستقیم را با ارزهای محدودشده و مستقل ثبت می‌کند؛ اتصال خودکار شبکه‌های بیرونی هنوز انجام نشده است."
   },
@@ -4338,13 +4338,13 @@
     "notes": "گزارش ممیزی در docs/dependency-usage-audit.md مخزن اصلی قرار دارد. هیچ داده تجاری تغییر نکرده است."
   },
   "current_status": {
-    "snapshot_date": "2026-11-22",
+    "snapshot_date": "2026-11-23",
     "product_name": "Afghanistan Movie Database",
     "product_name_fa": "بانک اطلاعاتی فیلم افغانستان",
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "d9d58ce35cf753fb3684d2819b80cfc2ea690925",
+    "source_commit": "efed7eb0c16cd7eb0872ce0a6566a53e02e74976",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-21",
@@ -4383,7 +4383,7 @@
       "blocked": 0
     },
     "feature_count": 39,
-    "implementation_status": "تغییرات جدید کد ادغام شده‌اند؛ نتیجه CI برای آخرین commit در انتظار است. پذیرش محلی Laragon و مرورگر/موبایل نیز جداگانه باقی است.",
+    "implementation_status": "گزارش‌های ماهانه و سالانه درآمد پلتفرم در main ثبت شده‌اند؛ CI مربوط به commit جاری در حال اجراست. پذیرش محلی Laragon و مرورگر/موبایل جداگانه باقی است.",
     "database_runtime": {
       "status": "partially_verified_local",
       "environment": "Windows 10 + Laragon 8 + MySQL",
@@ -4432,7 +4432,8 @@
         "اجرای محلی کاربر در 2026-11-22: php artisan optimize:clear موفق؛ php artisan test موفق با 13 passed / 38 assertions / 4.09s. git status و git pull با fatal not a git repository و php -l سه فایل ترجمه با Could not open input file مواجه شدند؛ بنابراین مسیر جاری Laravel دارای artisan بوده اما Git root و مسیر فایل‌های ترجمه در آن احراز نشدند. اجرای 13 تست محدود است و suite کامل 256 تست را اثبات نمی‌کند.",
         "2026-11-22 main CI run 45049622525 for commit 7f6ffed0614ed0cdf2d06114c8929b3aa1bd1596: SQLite PHPUnit 261 passed / 1020 assertions; MySQL 8.4 PHPUnit 261 passed / 1020 assertions; Vite production build success; all Blade views compiled and compiled PHP lint passed. CI uses temporary GitHub runners and does not verify the user's Laragon database or browser.",
         "Revenue documentation was aligned with the implemented company-only payee model: artists have no direct revenue or copyright royalty entitlement; company settlements require active owner/finance membership.",
-        "2026-11-22: RevenueLedgerService contract resolution now filters eligible contract candidates by event territory as well as revenue model, validity window and version. Added Feature test test_event_selects_the_newest_contract_that_covers_its_territory. CI for the latest commit is queued/pending at report update time; no pass is claimed yet."
+        "2026-11-22: RevenueLedgerService contract resolution now filters eligible contract candidates by event territory as well as revenue model, validity window and version. Added Feature test test_event_selects_the_newest_contract_that_covers_its_territory. CI for the latest commit is queued/pending at report update time; no pass is claimed yet.",
+        "2026-11-23: گزارش ماهانه و سالانه دفتر درآمد پلتفرم با تست Feature افزوده شد؛ CI run 45085472936 برای commit efed7eb0c16cd7eb0872ce0a6566a53e02e74976 در حال اجراست و هنوز نتیجه‌ای ثبت نشده."
       ],
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
@@ -5056,6 +5057,7 @@
           "name": "تست‌های خودکار ثبت‌شده",
           "state": "qa_passed",
           "items": [
+            "گزارش درآمد پلتفرم: تست جدید برای جمع ماهانه/سالانه به تفکیک چهار ارز و حذف درآمد pending از گزارش اضافه شد؛ CI commit جاری هنوز در حال اجراست.",
             "تغییر جدید: انتخاب قرارداد دفترکل اکنون قلمرو رویداد را هم در فیلتر قراردادهای واجد شرایط اعمال می‌کند؛ تست Feature برای انتخاب درست قرارداد افغانستان/آمریکا اضافه شده است. اجرای CI نسخه جدید هنوز pending است و نتیجه موفق ثبت نشده.",
             "آخرین CI روی main، commit 7f6ffed0614ed0cdf2d06114c8929b3aa1bd1596: SQLite برابر ۲۶۱ تست و ۱۰۲۰ assertion موفق؛ MySQL 8.4 نیز ۲۶۱ تست و ۱۰۲۰ assertion موفق. Vite build، Blade compile و PHP lint خروجی‌های کامپایل‌شده همگی موفق.",
             "PHPUnit محلی: ۲۵۶ موفق، صفر ناموفق، ۹۹۰ assertion؛ یک هشدار deprecation. اجرای مجدد پس از sync لازم است.",
@@ -5106,7 +5108,7 @@
         }
       ]
     },
-    "latest_main_commit": "d9d58ce35cf753fb3684d2819b80cfc2ea690925",
+    "latest_main_commit": "efed7eb0c16cd7eb0872ce0a6566a53e02e74976",
     "source_commit_audited": "",
     "latest_main_commit_verified_on": "2026-11-22"
   },
@@ -6883,9 +6885,9 @@
     ]
   },
   "platform_revenue_multicurrency": {
-    "updated_at": "2026-11-22",
-    "source_commit": "a81446566a1c11316ed6bf49d2a7d1d6bd6eb009",
-    "status": "filters_and_audit_trail_implemented_ci_pending",
+    "updated_at": "2026-11-23",
+    "source_commit": "efed7eb0c16cd7eb0872ce0a6566a53e02e74976",
+    "status": "monthly_annual_reports_added_ci_running",
     "currency_policy": {
       "USD": "google_ads",
       "EUR": "google_ads",
@@ -6903,26 +6905,33 @@
       "نتیجه نهایی CI run 45059397030: همه jobها موفق شدند؛ Vite production build، Blade compile/lint و تست‌های Laravel روی SQLite و MySQL 8.4 پاس شدند.",
       "فهرست درآمد اکنون بر اساس منبع، ارز، وضعیت بررسی و بازه هم‌پوشان دوره درآمد فیلتر می‌شود؛ صفحه‌بندی فیلترها را حفظ می‌کند.",
       "برای هر رکورد، نام ثبت‌کننده و در صورت بررسی، نام بررسی‌کننده و زمان بررسی نمایش داده می‌شود.",
-      "تست Feature برای فیلترهای ترکیبی و نمایش جزئیات بررسی افزوده شد."
+      "تست Feature برای فیلترهای ترکیبی و نمایش جزئیات بررسی افزوده شد.",
+      "گزارش ماهانه برای سال انتخابی و گزارش سالانه تا ۱۰ سال اخیر اضافه شد؛ جمع‌ها فقط از رکوردهای approved ساخته می‌شوند و هر ارز مستقل باقی می‌ماند.",
+      "برای جلوگیری از تقسیم غیرواقعی مبلغ، گزارش ماهانه/سالانه بر اساس ماه و سال آغاز دوره گزارش دسته‌بندی می‌کند و مبلغ بین ماه‌ها سرشکن نمی‌شود.",
+      "تست Feature برای تفکیک ارزها در گزارش ماهانه/سالانه و کنارگذاشتن رکورد pending اضافه شد."
     ],
     "validation": {
-      "run_id": 45084864740,
-      "status": "sqlite_success_mysql_pending",
-      "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45084864740",
-      "tested_commit": "a81446566a1c11316ed6bf49d2a7d1d6bd6eb009",
-      "latest_test_commit": "a81446566a1c11316ed6bf49d2a7d1d6bd6eb009",
+      "run_id": 45085472936,
+      "status": "in_progress",
+      "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45085472936",
+      "tested_commit": "efed7eb0c16cd7eb0872ce0a6566a53e02e74976",
+      "latest_test_commit": "efed7eb0c16cd7eb0872ce0a6566a53e02e74976",
       "local_laragon": "not_run",
       "browser_mobile": "not_run",
-      "note": "Vite build، Blade compile/lint و PHPUnit روی SQLite موفق شده‌اند؛ job مربوط به MySQL 8.4 هنوز در صف/مرحله آماده‌سازی است.",
-      "sqlite_tests": "success",
-      "vite_build": "success",
-      "blade_compile_and_lint": "success",
-      "mysql_tests": "pending"
+      "note": "اجرای CI برای گزارش‌های ماهانه و سالانه در حال انجام است؛ نتیجه موفق یا ناموفق هنوز ثبت نشده.",
+      "sqlite_tests": "pending",
+      "mysql_tests": "pending",
+      "vite_build": "pending",
+      "blade_compile_and_lint": "pending"
     },
     "limitations": [
       "اتصال مستقیم API و پرداخت Google Ads/AdSense یا شبکه تبلیغاتی ایران پیاده‌سازی نشده؛ فعلاً گزارش/رسید درآمد به‌صورت دستی ثبت و سپس تأیید می‌شود.",
-      "تست‌های محلی به درخواست کاربر اجرا نشده‌اند؛ نتیجه CI باید پس از پایان بررسی شود.",
+      "تست‌های محلی Laragon و پذیرش مرورگر/موبایل اجرا نشده‌اند؛ CI برای commit جاری در حال اجراست.",
+      "گزارش‌های ماهانه و سالانه مبلغ را بر اساس تاریخ آغاز دوره ثبت‌شده دسته‌بندی می‌کنند؛ مبلغ دوره‌های چندماهه بین ماه‌ها تقسیم نمی‌شود.",
       "این دفتر درآمد AMDB از دفتر تسویه درآمد شرکت‌ها جداست."
     ]
-  }
+  },
+  "latest_main_commit": "efed7eb0c16cd7eb0872ce0a6566a53e02e74976",
+  "source_commit_audited": "efed7eb0c16cd7eb0872ce0a6566a53e02e74976",
+  "latest_main_commit_verified_on": "2026-11-23"
 }
