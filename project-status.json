@@ -1920,7 +1920,7 @@
   },
   "current_work": {
     "stage": "توسعه سامانه تبلیغات AMDB",
-    "status": "advertising_campaign_admin_foundation_pr114_ci_running",
+    "status": "advertising_campaign_admin_foundation_pr114_route_fix_ci_run_266",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -2333,8 +2333,8 @@
     "latest_pr": 114,
     "latest_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/114",
     "latest_source_base_commit": "c9b1bf77cd469817c04c7309c06e2e0b80b56635",
-    "latest_branch_commit": "34c229ab3a0c0dc2c4588255269d2c070accbd1a",
-    "note": "PR114 باز و آماده بازبینی است. CI run 44987101358: Vite production build و کامپایل/lint Blade موفق؛ PHPUnit هنوز در حال اجرا. Migration اجرا نشده و ماژول تبلیغات پیش‌فرض خاموش است."
+    "latest_branch_commit": "78ff50652a94e79a9304fd8abd5fa13c2923d21f",
+    "note": "CI اولیه ۵ تست تبلیغات را به دلیل نبود Route نام‌گذاری‌شده شکست داد؛ Routeها اصلاح شدند. CI run 44987186393 برای commit اصلاحی در حال اجراست. Migration اجرا نشده و ماژول پیش‌فرض خاموش است."
   },
   "application_audit": {
     "audit_date": "2026-11-18",
@@ -5001,8 +5001,8 @@
       "pull_request": 114,
       "url": "https://github.com/armanaria111/amdb-laravel2/pull/114",
       "branch": "feature/advertising-campaign-management",
-      "head_commit": "34c229ab3a0c0dc2c4588255269d2c070accbd1a",
-      "status": "ci_running_vite_build_and_blade_lint_passed_phpunit_in_progress",
+      "head_commit": "78ff50652a94e79a9304fd8abd5fa13c2923d21f",
+      "status": "route_registration_fix_pushed_ci_run_266_in_progress",
       "completed": [
         "ماژول first-party تبلیغات به PluginCatalog افزوده شد و به‌صورت پیش‌فرض خاموش است؛ فعال‌سازی/غیرفعال‌سازی از مدیریت ماژول‌ها انجام می‌شود.",
         "Migration افزایشی advertising_campaigns برای نام کمپین، تبلیغ‌دهنده، برچسب provider، جایگاه، نوع/محتوای تبلیغ، مسیر تصویر، URL مقصد، زمان‌بندی، اولویت، سقف نمایش/کلیک، شمارنده‌ها و وضعیت اضافه شد.",
@@ -5010,7 +5010,8 @@
         "آپلود تصویر با اعتبارسنجی فرمت و سقف ۵MB و مقصد محدود به HTTP/HTTPS پیاده‌سازی شد.",
         "فعال‌سازی کمپین ناقص بدون URL مقصد یا محتوای لازم رد می‌شود.",
         "ترجمه‌های مستقل en، fa-AF و ps و میانبر پنل تبلیغات به صفحه مدیریت ماژول‌ها افزوده شدند.",
-        "تست‌های Feature برای خاموش بودن پیش‌فرض، ایجاد کمپین draft، تغییر وضعیت، مسدود بودن مسیر در حالت خاموش و جلوگیری از دسترسی غیرمدیر اضافه شدند."
+        "تست‌های Feature برای خاموش بودن پیش‌فرض، ایجاد کمپین draft، تغییر وضعیت، مسدود بودن مسیر در حالت خاموش و جلوگیری از دسترسی غیرمدیر اضافه شدند.",
+        "CI اولیه PR114 یک خطای واقعی را آشکار کرد: مسیرهای نام‌گذاری‌شده admin.advertising ثبت نشده بودند؛ import و گروه Route اصلاح و commit جدید push شد."
       ],
       "safeguards": [
         "هیچ script، pixel یا SDK شخص ثالث اجرا یا تزریق نمی‌شود.",
@@ -5020,7 +5021,7 @@
         "ماژول advertising پیش‌فرض خاموش است و تا تکمیل تحویل عمومی، نمایش تبلیغ روی صفحات سایت فعال نیست."
       ],
       "remaining": [
-        "انتظار نتیجه PHPUnit و رفع خطاهای احتمالی CI.",
+        "انتظار نتیجه CI run 44987186393 و رفع خطاهای احتمالی بعدی.",
         "اتصال renderer امن به جایگاه‌های صفحات عمومی با feature flag و برچسب روشن «تبلیغ».",
         "ثبت رویداد نمایش/کلیک با rate limit، deduplication و کنترل تقلب؛ محاسبه CTR.",
         "تنظیم consent/privacy و سیاست ذخیره‌سازی داده پیش از هر نوع analytics یا provider SDK.",
@@ -5033,13 +5034,12 @@
       "external_provider_connected": false,
       "tracking_enabled": false,
       "ci": {
-        "run_id": 44987101358,
-        "run_number": 265,
-        "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44987101358",
-        "vite_build": "success",
-        "blade_compile": "success",
-        "blade_lint": "success",
-        "phpunit": "in_progress",
+        "run_id": 44987186393,
+        "run_number": 266,
+        "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44987186393",
+        "previous_run_id": 44987101358,
+        "previous_result": "failed_5_advertising_tests_due_to_missing_named_routes",
+        "fix": "registered AdvertisingCampaignController and admin.advertising routes; new CI run started",
         "verified_at": "2026-11-22"
       }
     }
