@@ -11,16 +11,16 @@
     "database": "MySQL",
     "development_environment": "Windows 10 + Laragon 8",
     "local_path": "C:\\laragon\\www\\amdb",
-    "last_verified": "2026-11-22",
+    "last_verified": "2026-11-23",
     "overall_progress": null,
     "progress_note": "درصد پیشرفت کلی نمایش داده نمی‌شود؛ وضعیت هر قابلیت، پنل، دیتابیس و QA مستقل است.",
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "eb073af9984ab69b70dad68fd5bbd1b14250b5c0",
+    "source_commit_audited": "a81446566a1c11316ed6bf49d2a7d1d6bd6eb009",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "eb073af9984ab69b70dad68fd5bbd1b14250b5c0",
-    "latest_main_commit_verified_on": "2026-11-22",
+    "latest_main_commit": "a81446566a1c11316ed6bf49d2a7d1d6bd6eb009",
+    "latest_main_commit_verified_on": "2026-11-23",
     "advertising_note": "سامانه کمپین‌های مستقیم و گزارش عملکرد تبلیغات در main موجود است. دفتر درآمد اختصاصی AMDB اکنون جریان‌های Google Ads/AdSense، تبلیغات ایران و تبلیغات مستقیم را با ارزهای محدودشده و مستقل ثبت می‌کند؛ اتصال خودکار شبکه‌های بیرونی هنوز انجام نشده است."
   },
   "languages": [
@@ -638,7 +638,8 @@
       "در داشبورد درآمد شرکت، محاسبه earned/reserved/available از float به محاسبه integer cents تغییر کرد؛ مقادیر خروجی به رشته اعشاری دقیق تبدیل می‌شوند و شرط نمایش فرم تسویه با available_cents بررسی می‌شود. View نیز مقادیر دقیق را بدون تبدیل دوباره به float نمایش می‌دهد. تست Feature برای نمایش earned=100.00، reserved=0.10 و available=99.90 اضافه شد؛ تست هنوز اجرا نشده است.",
       "دفتر درآمد مستقل پلتفرم AMDB در commit eb073af9984ab69b70dad68fd5bbd1b14250b5c0 افزوده شد: USD/EUR برای Google Ads/AdSense، IRR برای تبلیغات ایران و AFN برای تبلیغات اختصاصی؛ موجودی‌ها جدا، ثبت با مرجع یکتا و تأیید مدیر، بدون تبدیل خودکار. اتصال API بیرونی هنوز انجام نشده و CI run 45059397030 در حال اجراست.",
       "وضعیت میانی CI برای دفتر درآمد چهارارزی: Vite build، Blade compile/lint و PHPUnit روی SQLite موفق؛ Migration و اتصال MySQL 8.4 موفق؛ PHPUnit روی MySQL هنوز در حال اجراست (run 45059397030).",
-      "CI نهایی دفتر درآمد چهارارزی در run 45059397030 با conclusion=success تکمیل شد؛ Vite production build، Blade compile/lint، تست‌های Laravel روی SQLite و تست‌های Laravel روی MySQL 8.4 همگی موفق شدند."
+      "CI نهایی دفتر درآمد چهارارزی در run 45059397030 با conclusion=success تکمیل شد؛ Vite production build، Blade compile/lint، تست‌های Laravel روی SQLite و تست‌های Laravel روی MySQL 8.4 همگی موفق شدند.",
+      "دفتر درآمد پلتفرم با فیلتر منبع/ارز/وضعیت/بازه زمانی و نمایش ثبت‌کننده و بررسی‌کننده توسعه یافت؛ تست Feature مربوط به فیلترها اضافه شد. سورس در a81446566a1c11316ed6bf49d2a7d1d6bd6eb009؛ CI run 45084819465 هنوز queued و مربوط به commit قبلی aa96a56 است؛ نتیجه commit جدید هنوز تأیید نشده."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -664,7 +665,7 @@
       "هیچ‌یک از hosted playback، upload، malware scan یا media probe در محیط production فعال نشده‌اند؛ feature flagها خاموش باقی مانده‌اند.",
       "PR96 برای تبدیل خصوصی HLS باز است؛ CI هنوز در حال اجرا/انتظار است. نتیجه ادغام و اجرای Migration روی MySQL هنوز تأیید نشده."
     ],
-    "summary": "دفتر مستقل درآمد تبلیغاتی AMDB با چهار ارز و محدودیت منبع/ارز پیاده‌سازی شد؛ CI روی SQLite و MySQL 8.4 و build فرانت‌اند موفق است. تست محلی و مرورگر اجرا نشده است."
+    "summary": "دفتر درآمد چهارارزی تکمیل‌تر شد: فیلترهای گزارش و جزئیات ممیزی بررسی اضافه شد؛ CI تغییرات جدید هنوز نیازمند تأیید است."
   },
   "known_issues": [
     {
@@ -6710,7 +6711,7 @@
     ],
     "next_step": "بررسی چند صفحه نمونه هنرمند، سریال و اثر؛ سپس طراحی adapter واردسازی بر اساس فایل export واقعی و ساختار واقعی متادیتا."
   },
-  "last_updated": "2026-11-22",
+  "last_updated": "2026-11-23",
   "architecture_standards": {
     "catalog_domain": {
       "status": "implementation_in_review",
@@ -6883,8 +6884,8 @@
   },
   "platform_revenue_multicurrency": {
     "updated_at": "2026-11-22",
-    "source_commit": "eb073af9984ab69b70dad68fd5bbd1b14250b5c0",
-    "status": "implemented_ci_passed",
+    "source_commit": "a81446566a1c11316ed6bf49d2a7d1d6bd6eb009",
+    "status": "filters_and_audit_trail_implemented_ci_pending",
     "currency_policy": {
       "USD": "google_ads",
       "EUR": "google_ads",
@@ -6899,19 +6900,20 @@
       "جزئیات مبلغ و منبع پس از ثبت غیرقابل ویرایش و حذف هستند؛ کنترل یکتایی مرجع و اعتبارسنجی تطبیق منبع/ارز افزوده شد.",
       "صفحه از داشبورد مدیریت و ترجمه‌های انگلیسی، دری و پشتو در دسترس است.",
       "CI پیگیری‌شده: Vite production build، کامپایل و lint تمام Bladeها، تست‌های کامل SQLite و Migrationهای MySQL 8.4 موفق شدند؛ اجرای تست‌های کامل MySQL هنوز در حال انجام است.",
-      "نتیجه نهایی CI run 45059397030: همه jobها موفق شدند؛ Vite production build، Blade compile/lint و تست‌های Laravel روی SQLite و MySQL 8.4 پاس شدند."
+      "نتیجه نهایی CI run 45059397030: همه jobها موفق شدند؛ Vite production build، Blade compile/lint و تست‌های Laravel روی SQLite و MySQL 8.4 پاس شدند.",
+      "فهرست درآمد اکنون بر اساس منبع، ارز، وضعیت بررسی و بازه هم‌پوشان دوره درآمد فیلتر می‌شود؛ صفحه‌بندی فیلترها را حفظ می‌کند.",
+      "برای هر رکورد، نام ثبت‌کننده و در صورت بررسی، نام بررسی‌کننده و زمان بررسی نمایش داده می‌شود.",
+      "تست Feature برای فیلترهای ترکیبی و نمایش جزئیات بررسی افزوده شد."
     ],
     "validation": {
-      "run_id": 45059397030,
-      "status": "success",
-      "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45059397030",
+      "run_id": 45084819465,
+      "status": "queued_for_preceding_commit",
+      "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45084819465",
+      "tested_commit": "aa96a56e0125f32a8b0d5f3e2415c15731f36dad",
+      "latest_test_commit": "a81446566a1c11316ed6bf49d2a7d1d6bd6eb009",
       "local_laragon": "not_run",
       "browser_mobile": "not_run",
-      "sqlite_tests": "success",
-      "mysql_migrations": "success",
-      "mysql_tests": "success",
-      "vite_build": "success",
-      "blade_compile_and_lint": "success"
+      "note": "CI workflow for the filter implementation was queued on commit aa96a56; a subsequent test-only commit a814465 was pushed. Confirm a workflow run for the latest SHA before treating this increment as validated."
     },
     "limitations": [
       "اتصال مستقیم API و پرداخت Google Ads/AdSense یا شبکه تبلیغاتی ایران پیاده‌سازی نشده؛ فعلاً گزارش/رسید درآمد به‌صورت دستی ثبت و سپس تأیید می‌شود.",
