@@ -4378,7 +4378,11 @@
         "ProfessionGroupSeeder روی دیتابیس محلی با موفقیت اجرا شد.",
         "Schema::hasTable برای profession_groups، companies و title_ratings مقدار true برگرداند؛ این بررسی شمار کل جداول نیست.",
         "پس از اصلاح namespace مربوط به Spatie Activitylog در News و Festival، trait_exists و class_exists هر سه مقدار true دادند.",
-        "HTTP smoke check محلی با curl برای /artists، /news و /festivals هر سه HTTP 200 برگرداند؛ این بررسی مرورگر یا آزمون کامل مسیرهای صفحه نیست."
+        "HTTP smoke check محلی با curl برای /artists، /news و /festivals هر سه HTTP 200 برگرداند؛ این بررسی مرورگر یا آزمون کامل مسیرهای صفحه نیست.",
+        "در 2026-11-22، صفحه اصلی محلی با HTTP 200 و زمان پاسخ 0.580522 ثانیه بررسی شد؛ فایل public/hot وجود نداشت و CSS/JS تولیدشده هر دو HTTP 200 شدند.",
+        "هفت فایل CSS مربوط به Font Awesome نیز در بررسی محلی HTTP 200 برگرداندند؛ نشانگر AMDB و تگ‌های بسته‌شدن header/footer در HTML موجود بودند و کاربر رفع مشکل ظاهری هدر و فوتر را پس از refresh تأیید کرد.",
+        "Vite production build موفق شد اما 661 ثانیه طول کشید؛ plugin laravel:fonts و نبود پکیج اختیاری fontaine هشدار دادند. بهینه‌سازی زمان build هنوز باز است.",
+        "این نوبت هنوز اجرای محلی php artisan test، بررسی همه مسیرها، تست تعاملی مرورگر و QA موبایل را شامل نمی‌شود."
       ],
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
@@ -4396,6 +4400,33 @@
           "/festivals": 200
         },
         "result": "success"
+      },
+      "local_frontend_smoke": {
+        "checked_at": "2026-11-22",
+        "base_url": "http://127.0.0.1:8000",
+        "home_http": 200,
+        "home_response_seconds": 0.580522,
+        "vite_hot_file_present": false,
+        "vite_production_build": "success",
+        "vite_production_build_seconds": 661,
+        "built_assets": {
+          "/build/assets/app-CZAe8eW2.css": {
+            "http": 200,
+            "response_seconds": 0.016596
+          },
+          "/build/assets/app-Dx2rJr1k.js": {
+            "http": 200,
+            "response_seconds": 0.022242
+          }
+        },
+        "fontawesome_assets": "all seven checked CSS files returned HTTP 200",
+        "html_markup": {
+          "amdb_brand_marker": true,
+          "header_close_tag": true,
+          "footer_close_tag": true
+        },
+        "user_visual_confirmation": "کاربر پس از تازه‌سازی سخت‌افزاری مرورگر، رفع مشکل نمایش هدر و فوتر را تأیید کرد.",
+        "scope_note": "این تست، smoke check محلی محدود است؛ تست تعاملی JavaScript، همه صفحات، viewport موبایل و مرورگرهای دیگر انجام نشده‌اند."
       }
     },
     "release": {
@@ -4435,7 +4466,7 @@
       "mysql_tests": 254,
       "mysql_assertions": 983
     },
-    "note": "در 2026-11-22، پس از اجرای ۴۳ Migration و ProfessionGroupSeeder در Laragon، سه صفحه /artists، /news و /festivals با HTTP 200 تأیید شدند. اصلاح namespace مدل‌های News و Festival نیز در main ثبت شد. این تأیید محدود محلی است و جایگزین QA کامل مرورگر، تست تمام مسیرها یا staging نیست.",
+    "note": "در 2026-11-22، پس از اجرای ۴۳ Migration و ProfessionGroupSeeder در Laragon، سه صفحه /artists، /news و /festivals با HTTP 200 تأیید شدند. اصلاح namespace مدل‌های News و Festival نیز در main ثبت شد. این تأیید محدود محلی است و جایگزین QA کامل مرورگر، تست تمام مسیرها یا staging نیست. بررسی بعدی فرانت‌اند: صفحه اصلی HTTP 200، CSS/JS تولیدی HTTP 200، فایل hot غایب و نمایش هدر/فوتر توسط کاربر تأیید شد؛ build با زمان غیرعادی ۱۱ دقیقه و هشدار fontaine نیازمند بهینه‌سازی است.",
     "panels": [
       {
         "id": "admin",
