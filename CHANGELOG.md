@@ -878,3 +878,7 @@
 - ترجمه‌های انگلیسی، دری و پشتو و تست بازه زمانی/محاسبه CTR اضافه شدند.
 - CI برای head فعلی هنوز گزارش نشده است؛ نتیجه تست‌ها تا اجرای workflow تأیید نشده.
 - PR: https://github.com/armanaria111/amdb-laravel2/pull/119
+
+- PR119 گزارش روزانه تبلیغات به main ادغام شد؛ merge commit: `123eab60d8eec29aea6ff4de471f41e2924d15d4`.
+- CI run 44989781633 موفق: ۲۴۹ تست و ۹۶۹ assertion؛ Vite production build، Blade compile و Blade lint موفق.
+- فیلتر بازه زمانی، جدول روزانه impression/click/CTR و مجموع عملکرد بازه در پنل مدیر موجود است.
