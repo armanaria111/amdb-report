@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "aaba384d50f19eb4f8e74454926d14c82bdb2b5e",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "aaba384d50f19eb4f8e74454926d14c82bdb2b5e",
+    "latest_main_commit": "66ddd59fd1fc00f707a82e6ea799e158a368d4ab",
     "latest_main_commit_verified_on": "2026-11-22"
   },
   "languages": [
@@ -4334,7 +4334,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "aaba384d50f19eb4f8e74454926d14c82bdb2b5e",
+    "source_commit": "66ddd59fd1fc00f707a82e6ea799e158a368d4ab",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-21",
@@ -4417,7 +4417,8 @@
         "تکرار تست API در 2026-11-22 با URL encoding مطمئن موفق شد: localeهای en/fa-AF/ps هر سه HTTP 200 و یک رکورد ar0000001 با نام احمدی احمدی برگرداندند؛ جست‌وجوی فارسی احمدی HTTP 200 و یک نتیجه و جست‌وجوی فارسی بدون تطبیق HTTP 200 و صفر نتیجه داشت. در مجموع ۵/۵ سناریو موفق؛ یکسان بودن نام در سه زبان به‌تنهایی نقص ترجمه را ثابت نمی‌کند.",
         "در 2026-11-22، پنج درخواست محلی API کاتالوگ شرکت‌ها، آثار و جشنواره‌ها همگی HTTP 200 و JSON معتبر با data/meta برگرداندند. companies و festivals صفر رکورد؛ titles یک رکورد am0000001 با فیلدهای id, slug, type, title, original_title, synopsis, release_date, runtime_minutes, genres, countries داشت. آزمون فقط smoke test سطح اول است.",
         "بررسی Tinker اثر am0000001: فقط یک ترجمه در language_code=en وجود دارد، اما title آن «سرخ سالی» است؛ original_title و synopsis خالی‌اند. یک title_credit با artist_id=1 و profession_id=7 ثبت است و companyCredits خالی است. این نتیجه نقص داده نمونه را نشان می‌دهد، نه شکست endpoint یا PHPUnit.",
-        "بررسی محلی php -l در 2026-11-22: lang/fa-AF/artists.php بدون خطای نحوی؛ lang/en/artists.php و lang/ps/artists.php هر دو در خط 89 خطای Cannot use empty array elements in arrays دارند. بنابراین اصلاح GitHub هنوز در نسخه محلی این دو فایل تأیید/همگام نشده است؛ optimize:clear نیز به‌علت واردکردن بک‌اسلش انتهایی اجرا نشد."
+        "بررسی محلی php -l در 2026-11-22: lang/fa-AF/artists.php بدون خطای نحوی؛ lang/en/artists.php و lang/ps/artists.php هر دو در خط 89 خطای Cannot use empty array elements in arrays دارند. بنابراین اصلاح GitHub هنوز در نسخه محلی این دو فایل تأیید/همگام نشده است؛ optimize:clear نیز به‌علت واردکردن بک‌اسلش انتهایی اجرا نشد.",
+        "Latest main code commit updated to 66ddd59fd1fc00f707a82e6ea799e158a368d4ab; the earlier local syntax errors in English/Pashto were fixed in GitHub commits, but local sync and php -l remain unverified."
       ],
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
@@ -4625,6 +4626,15 @@
           "lang/ps/artists.php": "failed_line_89"
         },
         "optimize_clear": "not_executed_due_to_trailing_backslash"
+      },
+      "last_local_run": {
+        "checked_at": "2026-11-22",
+        "command": "php artisan test",
+        "passed": 256,
+        "failed": 0,
+        "assertions": 990,
+        "deprecated_warnings": 1,
+        "qualification": "این نتیجه اجرای ثبت‌شده پیش از همگام‌سازی اصلاحات ترجمه است؛ پس از sync باید دوباره اجرا شود."
       }
     },
     "release": {
@@ -5024,7 +5034,59 @@
           "90fb3c04a749a0eed7f632c79e29c1a9c8621419"
         ]
       }
-    ]
+    ],
+    "qa_test_matrix": {
+      "title": "ماتریس تست AMDB",
+      "groups": [
+        {
+          "name": "تست‌های خودکار ثبت‌شده",
+          "state": "implemented_unverified",
+          "items": [
+            "PHPUnit محلی: ۲۵۶ موفق، صفر ناموفق، ۹۹۰ assertion؛ یک هشدار deprecation. اجرای مجدد پس از sync لازم است.",
+            "CI مستقل: تست‌های SQLite و MySQL 8.4 و Vite build موفق گزارش شده‌اند؛ این نتیجه جایگزین تست محلی نیست."
+          ]
+        },
+        {
+          "name": "Migration و دیتابیس محلی",
+          "state": "implemented_unverified",
+          "items": [
+            "۴۳ Migration اجرا شد و در migrate:status هیچ مورد Pending باقی نماند.",
+            "ProfessionGroupSeeder موفق؛ profession_groups، companies و title_ratings با Schema::hasTable موجود تأیید شدند.",
+            "شمار کل جدول‌ها و تمام روابط دیتابیس هنوز ممیزی نشده‌اند."
+          ]
+        },
+        {
+          "name": "صفحات وب و زبان‌ها",
+          "state": "implemented_unverified",
+          "items": [
+            "صفحه اصلی، /artists، /news و /festivals پاسخ HTTP 200 دادند.",
+            "مسیرهای تغییر زبان en، fa-AF و ps هر سه HTTP 200 دادند.",
+            "CSS و JavaScript تولیدشده HTTP 200؛ کاربر رفع مشکل ظاهری هدر و فوتر را تأیید کرد."
+          ]
+        },
+        {
+          "name": "API و جست‌وجو",
+          "state": "implemented_unverified",
+          "items": [
+            "API هنرمندان: ۶ سناریوی قرارداد و شناسه موفق؛ locale و جست‌وجوی URL-encoded: پنج سناریو موفق.",
+            "API آثار: هفت سناریوی شناسه و صفحه‌بندی موفق؛ جزئیات اثر در سه locale HTTP 200.",
+            "API کاتالوگ شرکت‌ها، آثار و جشنواره‌ها: پنج درخواست HTTP 200 با JSON معتبر."
+          ]
+        },
+        {
+          "name": "اقدامات لازم روی سیستم کاربر",
+          "state": "needs_review",
+          "items": [
+            "همگام‌سازی main تا commit 66ddd59 و اجرای php -l روی سه فایل artists.php در en، fa-AF و ps.",
+            "اجرای php artisan optimize:clear و سپس تکرار php artisan test؛ نتیجه قبلی تا زمان اجرای مجدد، سابقه تست موفق است نه تأیید commit جدید.",
+            "تست تعاملی مرورگر: ورود/خروج، دسترسی پنل‌ها و نقش‌ها، درخواست هنرمندی و تأیید مدیر، ثبت/ویرایش اثر، اخبار، جشنواره و شرکت.",
+            "بررسی ترجمه واقعی داده‌ها و تکمیل اطلاعات نمونه am0000001؛ عنوان فعلی با language_code=en ذخیره شده اما مقدار آن دری است و synopsis/original_title خالی‌اند.",
+            "بررسی جست‌وجوی آثار با شناسه عمومی am0000001؛ در تست قبلی صفر نتیجه داشت و semantics آن هنوز تعیین نشده است.",
+            "بررسی responsive در موبایل/تبلت و مسیرهای تعاملی؛ هنوز تأیید مرورگری ثبت نشده است."
+          ]
+        }
+      ]
+    }
   },
   "report_methodology": {
     "version": 3,
