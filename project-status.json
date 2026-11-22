@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "c9b1bf77cd469817c04c7309c06e2e0b80b56635",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "d3ce1d53b324d582a742a25870fe5686910dd9cc",
+    "latest_main_commit": "0881fa1d4bc0f380d7a69d543c88f03edae8adea",
     "latest_main_commit_verified_on": "2026-11-22"
   },
   "languages": [
@@ -628,7 +628,10 @@
       "CI run 44990001759 موفق: ۲۵۲ تست و ۹۷۸ assertion؛ Vite build و Blade compile/lint موفق.",
       "PR121 جایگاه‌های عمومی تبلیغات با commit d3ce1d53b324d582a742a25870fe5686910dd9cc به main ادغام شد.",
       "تمام جایگاه‌های تعریف‌شده تبلیغات عمومی (header، footer، home_hero، home_feed، catalog_list، title_detail، artist_profile و news_detail) به صفحات مربوط متصل شدند؛ صفحه‌های مدیریت از نمایش تبلیغ مستثنا هستند.",
-      "CI run 44990252885 موفق: ۲۵۴ تست و ۹۸۳ assertion؛ Vite build و Blade compile/lint موفق."
+      "CI run 44990252885 موفق: ۲۵۴ تست و ۹۸۳ assertion؛ Vite build و Blade compile/lint موفق.",
+      "PR122 تست یکپارچه MySQL 8.4 را به CI افزود و با commit 0881fa1d4bc0f380d7a69d543c88f03edae8adea به main ادغام شد.",
+      "CI run 44990772045: migration کامل روی MySQL 8.4.13 موفق؛ ۲۵۴ تست و ۹۸۳ assertion روی MySQL و ۲۵۴ تست و ۹۸۳ assertion روی SQLite پاس شدند.",
+      "سه ناسازگاری قدیمی MySQL در migrationهای جشنواره و hosted playback اصلاح شد؛ index و FK کوتاه شدند و طول path از ۱۰۲۴ به ۷۰۰ کاهش یافت."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1946,8 +1949,8 @@
     }
   },
   "current_work": {
-    "stage": "افزودن تست یکپارچه MySQL به CI",
-    "status": "mysql84_ci_pr122_iteration_3_in_progress",
+    "stage": "اعتبارسنجی MySQL و CI",
+    "status": "mysql84_ci_merged_pr122_both_database_suites_passed",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -2361,8 +2364,8 @@
     "latest_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/122",
     "latest_source_base_commit": "6ab9ba3308493962ca794e005c7cc0a82b960821",
     "latest_branch_commit": "bd7bd223d6b608f2e1fa8d8635b4586859d5b0b9",
-    "note": "CI MySQL برای نصب تازه دو ایراد قدیمی migration را آشکار کرد: نام طولانی index و FK در جدول جوایز جشنواره و طول بیش‌ازحد ستون path برای unique index در hosted playback. هر سه مورد اصلاح شده‌اند؛ run 44990772045 در حال اجرای مجدد است.",
-    "latest_main_commit": "d3ce1d53b324d582a742a25870fe5686910dd9cc"
+    "note": "PR122 ادغام شد. CI run 44990772045 موفق: migration تمیز MySQL 8.4، سپس ۲۵۴ تست و ۹۸۳ assertion روی MySQL؛ همچنین ۲۵۴ تست و ۹۸۳ assertion روی SQLite. Vite build و Blade compile/lint موفق. تست محیط واقعی MySQL کاربر و مرورگر/موبایل همچنان جداگانه نیاز است.",
+    "latest_main_commit": "0881fa1d4bc0f380d7a69d543c88f03edae8adea"
   },
   "application_audit": {
     "audit_date": "2026-11-18",
@@ -4299,7 +4302,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "d3ce1d53b324d582a742a25870fe5686910dd9cc",
+    "source_commit": "0881fa1d4bc0f380d7a69d543c88f03edae8adea",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-21",
@@ -4348,7 +4351,7 @@
     "quality": {
       "tests_in_repository": 22,
       "tests_executed": true,
-      "test_result": "PR115 CI موفق: 244 tests passed / 944 assertions؛ Vite production build، کامپایل Blade و lint Blade نیز موفق.",
+      "test_result": "254 passed / 983 assertions on SQLite and 254 passed / 983 assertions on MySQL 8.4.13; clean MySQL migrations succeeded.",
       "vite_build_executed": true,
       "browser_verified": false,
       "production_smoke_test": false,
@@ -4363,14 +4366,15 @@
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
       "mysql_runtime_verified": false,
-      "latest_ci_run": 44987629190,
+      "latest_ci_run": 44990772045,
       "main_ci_conclusion": "success",
-      "pull_request_ci_conclusion": "success"
+      "pull_request_ci_conclusion": "success",
+      "mysql_ci_verified": true
     },
     "release": {
-      "latest_merged_pr": 121,
-      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/121",
-      "latest_source_commit": "d3ce1d53b324d582a742a25870fe5686910dd9cc",
+      "latest_merged_pr": 122,
+      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/122",
+      "latest_source_commit": "0881fa1d4bc0f380d7a69d543c88f03edae8adea",
       "source_branch": "main",
       "verified_at": "2026-11-22",
       "pr_ci_run": 44990252885,
@@ -4393,7 +4397,16 @@
         "festival award category index identifier length",
         "festival award category translations foreign key identifier length",
         "hosted playback asset unique path index byte limit"
-      ]
+      ],
+      "ci_run_id": 44990772045,
+      "ci_run_number": 284,
+      "ci_conclusion": "success",
+      "sqlite_tests": 254,
+      "sqlite_assertions": 983,
+      "mysql_version": "8.4.13",
+      "mysql_migrations": "success",
+      "mysql_tests": 254,
+      "mysql_assertions": 983
     },
     "note": "آخرین commit شاخه main برابر c9b1bf77cd469817c04c7309c06e2e0b80b56635 پس از ادغام PR113 است. موجودی فایل‌های سورس در source_inventory همچنان snapshot قدیمی commit eb12658 است و در این به‌روزرسانی بازشماری نشده؛ آمار runtime دیتابیس و MySQL تأیید نشده‌اند.",
     "panels": [
@@ -5047,7 +5060,7 @@
       "url": "https://github.com/armanaria111/amdb-laravel2/pull/114",
       "branch": "feature/advertising-campaign-management",
       "head_commit": "087b44174e4195af383d44cf4658e735b5723658",
-      "status": "public_placements_complete_ci_passed_runtime_unverified",
+      "status": "mysql84_ci_verified_both_engines_passed_runtime_staging_pending",
       "completed": [
         "ماژول first-party تبلیغات به PluginCatalog افزوده شد و به‌صورت پیش‌فرض خاموش است؛ فعال‌سازی/غیرفعال‌سازی از مدیریت ماژول‌ها انجام می‌شود.",
         "Migration افزایشی advertising_campaigns برای نام کمپین، تبلیغ‌دهنده، برچسب provider، جایگاه، نوع/محتوای تبلیغ، مسیر تصویر، URL مقصد، زمان‌بندی، اولویت، سقف نمایش/کلیک، شمارنده‌ها و وضعیت اضافه شد.",
@@ -5073,8 +5086,9 @@
         "ماژول advertising پیش‌فرض خاموش است و تا تکمیل تحویل عمومی، نمایش تبلیغ روی صفحات سایت فعال نیست."
       ],
       "remaining": [
-        "تست MySQL staging، backup/rollback و پذیرش مرورگر/موبایل.",
+        "تست و پذیرش در MySQL محلی کاربر یا staging و بررسی backup/rollback.",
         "اطمینان از فعال‌بودن Laravel Scheduler در سرور تولید برای پاک‌سازی ۹۰ روزه.",
+        "پذیرش مرورگر/موبایل و بررسی جایگاه‌های تبلیغاتی در صفحات واقعی.",
         "بازبینی حقوقی نهایی متن حریم خصوصی و شرایط فروش کمپین‌ها.",
         "اتصال providerهای خارجی فقط پس از تصمیم تجاری، حساب معتبر و بررسی شرایط سرویس."
       ],
