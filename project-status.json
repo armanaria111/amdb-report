@@ -6834,24 +6834,26 @@
   },
   "revenue_payout_reference_integrity": {
     "updated_at": "2026-11-22",
-    "source_commit": "4e1f17ee7f5cf538ea30a13a91c8bd75181bef5a",
-    "status": "implemented_ci_pending",
+    "source_commit": "63a276a1a8e827ab1f377ab468b7c03dfa9a6a56",
+    "status": "implemented_ci_in_progress",
     "changes": [
       "برای payout_reference یک unique index nullable در دیتابیس اضافه شد تا هر مرجع پرداخت فقط به یک تسویه متصل شود.",
-      "در markPaid اعتبارسنجی یکتایی مرجع پرداخت پیش از ثبت وضعیت paid انجام می‌شود و ورودی trim می‌شود.",
       "تست Feature برای جلوگیری از استفاده مجدد یک مرجع پرداخت در تسویه شرکت دیگر اضافه شد.",
-      "مستند معماری اصلاح شد: مرجع پرداخت صرفاً مدرک حسابرسی است و AMDB پول جابه‌جا نمی‌کند."
+      "مستند معماری اصلاح شد: مرجع پرداخت صرفاً مدرک حسابرسی است و AMDB پول جابه‌جا نمی‌کند.",
+      "در markPaid ورودی payout_reference پیش از unique validation trim می‌شود تا ورودی padded به‌صورت امن به خطای اعتبارسنجی برسد و به خطای unique index تبدیل نشود.",
+      "تست Feature استفاده مجدد از مرجع با فاصله‌های ابتدا/انتها را پوشش می‌دهد."
     ],
     "validation": {
-      "run_id": 45056507885,
+      "run_id": 45058036662,
       "status": "in_progress",
-      "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45056507885",
+      "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45058036662",
       "local_laragon": "not_run",
       "browser_mobile": "not_run"
     },
     "remaining": [
-      "تأیید CI روی SQLite و MySQL 8.4 و Vite.",
-      "بررسی وجود payout_reference تکراری در دیتابیس عملیاتی پیش از اجرای migration؛ migration unique در صورت وجود مقدار تکراری باید متوقف شود تا داده‌ها به‌صورت حسابرسی‌شده اصلاح شوند."
+      "تکمیل CI روی SQLite، MySQL 8.4 و Vite؛ نتیجه هنوز در حال اجراست.",
+      "بررسی وجود payout_reference تکراری در دیتابیس عملیاتی پیش از اجرای migration؛ migration unique در صورت وجود مقدار تکراری باید متوقف شود تا داده‌ها به‌صورت حسابرسی‌شده اصلاح شوند.",
+      "تست محلی Laragon و پذیرش مرورگر/موبایل پس از همگام‌سازی انجام نشده است."
     ]
   }
 }
