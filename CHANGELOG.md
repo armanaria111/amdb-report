@@ -1037,3 +1037,11 @@
 - کلید `artists.public.follow_preferences_saved` در فایل‌های `lang/en/artists.php`، `lang/fa-AF/artists.php` و `lang/ps/artists.php` تعریف شد.
 - متن‌ها: انگلیسی `Notification preferences saved.`؛ دری `تنظیمات اعلان ذخیره شد.`؛ پشتو `د خبرتیاوو تنظیمات خوندي شول.`
 - تغییرات در مخزن اصلی `amdb-laravel2` ثبت شدند. اجرای تست محلی و مشاهده نتیجه در مرورگر هنوز توسط کاربر انجام نشده است.
+
+## 2026-11-22 — افزودن یکپارچه‌سازی Google و Firebase به نقشه راه
+
+- دسته مستقل «یکپارچه‌سازی سرویس‌های گوگل و Firebase» با اولویت P2 به پیشنهادهای توسعه محصول افزوده شد.
+- Firebase Authentication، Cloud Messaging، Analytics و Crashlytics؛ Google Search Console، GA4، Tag Manager، OAuth، AdSense/Ad Manager، reCAPTCHA، Maps/Places، Drive API و گزینه‌های منتخب Google Cloud ثبت شدند.
+- امنیت credentialها، محدودسازی API key، رضایت و حریم خصوصی، quota/هزینه، کنترل اتصال در پنل مدیریت و قطع اتصال به‌عنوان الزامات معماری ثبت شدند.
+- Google Indexing API فقط برای انواع محتوای واجد شرایط طبق سیاست گوگل در نظر گرفته شد؛ نه برای ایندکس عمومی همه صفحات کاتالوگ.
+- قابلیت در feature_map و فاز هشتم roadmap با وضعیت «برنامه‌ریزی‌شده» ثبت شد؛ هیچ اتصال یا پیاده‌سازی واقعی انجام نشده است.
