@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "55cee9ffe662b2698a33db2449ee48596c691d23",
+    "source_commit_audited": "a99e5d7c1216d6cef772651fad8fd7a16a1ec477",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "55cee9ffe662b2698a33db2449ee48596c691d23",
+    "latest_main_commit": "a99e5d7c1216d6cef772651fad8fd7a16a1ec477",
     "latest_main_commit_verified_on": "2026-11-22",
     "advertising_note": "پنل تبلیغ‌دهنده و درخواست کمپین شرکت در main موجود است. در حوزه قراردادهای درآمدی، نسخه‌های قبلی برای مدل‌ها/قلمروهای خارج از پوشش قرارداد جدید حفظ می‌شوند؛ قفل‌گذاری Title→Company→Right برای بررسی قرارداد و Title→Right برای تغییر حقوق شرکت اضافه شده است. CI اجرای این commit در حال اجراست."
   },
@@ -6800,6 +6800,28 @@
       "تأیید قرارداد، شرکت‌ها و حقوق وابسته را با ترتیب شناسه ثابت قفل و مجدداً اعتبارسنجی می‌کند.",
       "تست‌های پوشش ناقص قلمرو و مدل‌های درآمدی مستقل اضافه شده‌اند."
     ],
-    "validation_note": "CI در حال اجراست؛ تا تکمیل SQLite، MySQL 8.4 و Vite هیچ ادعای موفقیت برای این commit ثبت نمی‌شود. تست محلی Laragon و مرورگر انجام نشده است."
+    "validation_note": "CI در حال اجراست؛ تا تکمیل SQLite، MySQL 8.4 و Vite هیچ ادعای موفقیت برای این commit ثبت نمی‌شود. تست محلی Laragon و مرورگر انجام نشده است.",
+    "previous_run": {
+      "id": 45054883908,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "latest_run": {
+      "id": 45055568695,
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45055568695"
+    }
+  },
+  "revenue_settlement_safety": {
+    "updated_at": "2026-11-22",
+    "source_commit": "a99e5d7c1216d6cef772651fad8fd7a16a1ec477",
+    "changes": [
+      "پیش از ثبت reversal، شرکت‌های ذی‌نفع به ترتیب شناسه قفل می‌شوند.",
+      "موجودی درآمدی پس از reversal فرضی با مجموع تسویه‌های pending، approved و paid مقایسه می‌شود.",
+      "اگر reversal موجودی قابل اتکا را کمتر از مبالغ رزروشده کند، عملیات با LogicException متوقف می‌شود.",
+      "تست feature برای جلوگیری از مصرف مبالغ رزروشده اضافه شد."
+    ],
+    "validation": "اجرای CI برای commit جدید در حال انجام است؛ نتیجه SQLite، MySQL 8.4 و Vite پس از پایان بررسی می‌شود. تست محلی Laragon انجام نشده است."
   }
 }
