@@ -4365,11 +4365,11 @@
     "quality": {
       "tests_in_repository": 22,
       "tests_executed": true,
-      "test_result": "254 passed / 983 assertions on SQLite and 254 passed / 983 assertions on MySQL 8.4.13; clean MySQL migrations succeeded.",
+      "test_result": "Local Laragon: 256 passed / 990 assertions, 0 failed, 1 deprecated warning; prior CI: 254 passed / 983 assertions on SQLite and MySQL 8.4.13.",
       "vite_build_executed": true,
       "browser_verified": false,
       "production_smoke_test": false,
-      "migrations_executed_in_this_audit": false,
+      "migrations_executed_in_this_audit": true,
       "notes": [
         "PR113 در GitHub Actions با ۲۳۲ تست و ۹۰۹ assertion موفق شد؛ Vite production build نیز موفق بود.",
         "CI پس از ادغام روی main، run 44943651335، موفق گزارش شده است.",
@@ -4427,6 +4427,63 @@
         },
         "user_visual_confirmation": "کاربر پس از تازه‌سازی سخت‌افزاری مرورگر، رفع مشکل نمایش هدر و فوتر را تأیید کرد.",
         "scope_note": "این تست، smoke check محلی محدود است؛ تست تعاملی JavaScript، همه صفحات، viewport موبایل و مرورگرهای دیگر انجام نشده‌اند."
+      },
+      "local_test_run": {
+        "checked_at": "2026-11-22",
+        "command": "php artisan test",
+        "result": "success",
+        "passed": 256,
+        "failed": 0,
+        "assertions": 990,
+        "deprecated": 1,
+        "deprecated_detail": "TitleCreditImportTemplateTest: fputcsv() called without explicit $escape parameter; test itself passed.",
+        "duration_seconds": 31.72,
+        "scope_note": "اجرای محلی کامل PHPUnit روی دیتابیس/محیط تست پروژه؛ این نتیجه به‌تنهایی تست مرورگر یا پذیرش بصری نیست."
+      },
+      "local_migration_status": {
+        "checked_at": "2026-11-22",
+        "command": "php artisan migrate:status",
+        "result": "all listed migrations Ran; no Pending entries appeared",
+        "pending": 0,
+        "note": "تعداد Migrationهای اجراشده از خروجی به‌صورت مستقل شمرده نشده؛ وضعیت تمام موارد نمایش‌داده‌شده Ran بود."
+      },
+      "local_language_smoke": {
+        "checked_at": "2026-11-22",
+        "endpoints": {
+          "/language/en": 200,
+          "/language/fa-AF": 200,
+          "/language/ps": 200
+        },
+        "result": "success"
+      },
+      "local_public_smoke": {
+        "checked_at": "2026-11-22",
+        "endpoints": {
+          "/": 200,
+          "/artists": 200,
+          "/news": 200,
+          "/festivals": 200
+        },
+        "result": "success"
+      },
+      "route_inventory_check": {
+        "checked_at": "2026-11-22",
+        "command": "php artisan route:list --except-vendor",
+        "result": "success",
+        "checked_areas": [
+          "home",
+          "language",
+          "search",
+          "artists",
+          "movies",
+          "series",
+          "news",
+          "festivals",
+          "dashboard",
+          "admin",
+          "company"
+        ],
+        "note": "Routeهای مرتبط در خروجی وجود داشتند؛ این بررسی جایگزین تست دسترسی/مجوز تک‌تک routeها نیست."
       }
     },
     "release": {
