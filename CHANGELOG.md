@@ -898,3 +898,10 @@
 - PR121 جایگاه‌های عمومی تبلیغات به main ادغام شد؛ merge commit: `d3ce1d53b324d582a742a25870fe5686910dd9cc`.
 - جایگاه‌های header، footer، home_hero، home_feed، catalog_list، title_detail، artist_profile و news_detail به صفحات مربوط متصل شدند؛ پنل‌های مدیریت تبلیغ دریافت نمی‌کنند.
 - CI run 44990252885 موفق: ۲۵۴ تست و ۹۸۳ assertion؛ Vite build، Blade compile و Blade lint موفق.
+
+## 2026-11-22 — تست یکپارچه MySQL 8.4 در CI (PR #122)
+- یک job مستقل MySQL 8.4 و PHP 8.5 به GitHub Actions افزوده شد.
+- پیش از PHPUnit، اتصال و اجرای migration روی دیتابیس خالی MySQL بررسی می‌شود؛ سپس کل تست‌ها روی MySQL اجرا می‌شوند.
+- jobهای SQLite و Vite حفظ شده‌اند.
+- CI run 44990413060 در حال اجراست؛ نتیجه نهایی هنوز تأیید نشده.
+- PR: https://github.com/armanaria111/amdb-laravel2/pull/122
