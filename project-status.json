@@ -1933,8 +1933,8 @@
     }
   },
   "current_work": {
-    "stage": "تکمیل سامانه تبلیغات AMDB",
-    "status": "advertising_delivery_hardening_merged_pr117_ci_passed",
+    "stage": "تکمیل گزارش عملکرد تبلیغات",
+    "status": "advertising_metrics_dashboard_pr118_ci_in_progress",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -2344,11 +2344,11 @@
     "new_migrations_not_executed": [
       "2026_11_20_235900_create_activity_log_table"
     ],
-    "latest_pr": 117,
-    "latest_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/117",
+    "latest_pr": 118,
+    "latest_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/118",
     "latest_source_base_commit": "6ab9ba3308493962ca794e005c7cc0a82b960821",
-    "latest_branch_commit": "ef7b6728d156a8807a92066b7ed6d291f9bc0fde",
-    "note": "PR117 ادغام شد. CI run 44989334177 موفق: ۲۴۷ تست و ۹۵۸ assertion؛ Vite build، Blade compile و lint موفق. Migration اجرا نشده؛ ماژول تبلیغات همچنان default-off و نمایش عمومی تا فعال‌سازی مدیر خاموش است.",
+    "latest_branch_commit": "b46a3839909b7350e2bae31b525ae6084f713482",
+    "note": "داشبورد آمار تبلیغات در PR118 اضافه شده: مجموع کمپین‌ها، کمپین‌های فعال، نمایش، کلیک و CTR کلی/هر کمپین؛ ترجمه en/fa-AF/ps. CI run 44989569903 در حال اجراست.",
     "latest_main_commit": "245797e297a59506af0d6f7720e009c0fd3ac2fb"
   },
   "application_audit": {
@@ -5022,7 +5022,7 @@
       "url": "https://github.com/armanaria111/amdb-laravel2/pull/114",
       "branch": "feature/advertising-campaign-management",
       "head_commit": "087b44174e4195af383d44cf4658e735b5723658",
-      "status": "delivery_hardening_merged_main_ci_passed_runtime_unverified",
+      "status": "advertising_metrics_dashboard_pr118_ci_in_progress",
       "completed": [
         "ماژول first-party تبلیغات به PluginCatalog افزوده شد و به‌صورت پیش‌فرض خاموش است؛ فعال‌سازی/غیرفعال‌سازی از مدیریت ماژول‌ها انجام می‌شود.",
         "Migration افزایشی advertising_campaigns برای نام کمپین، تبلیغ‌دهنده، برچسب provider، جایگاه، نوع/محتوای تبلیغ، مسیر تصویر، URL مقصد، زمان‌بندی، اولویت، سقف نمایش/کلیک، شمارنده‌ها و وضعیت اضافه شد.",
@@ -5111,6 +5111,25 @@
         "vite_build": "success",
         "blade_compile": "success",
         "blade_lint": "success"
+      },
+      "metrics_dashboard": {
+        "pr": 118,
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/118",
+        "branch": "feature/advertising-campaign-hardening",
+        "commit": "b46a3839909b7350e2bae31b525ae6084f713482",
+        "ci_run_id": 44989569903,
+        "ci_run_number": 273,
+        "ci_url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44989569903",
+        "ci_status": "in_progress",
+        "features": [
+          "مجموع کمپین‌ها",
+          "کمپین‌های فعال",
+          "مجموع نمایش",
+          "مجموع کلیک",
+          "CTR کلی",
+          "CTR مجزای هر کمپین"
+        ],
+        "note": "CTR بر پایه درخواست‌های ثبت‌شده برای impression است، نه سنجش viewability."
       }
     }
   },
