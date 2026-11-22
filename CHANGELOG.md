@@ -941,3 +941,4 @@
 - Expanded the profession seed catalog to 40 film-industry disciplines with English, Dari and Pashto labels; seeders now preserve administrator-edited translations, custom group assignments and inactive status on reruns.
 - Added protection against changing referenced profession/group slugs and deactivating a group while it still contains active professions.
 - Updated source tracking to the latest PR #124 head. Latest CI run #298 reports a successful Vite production build; Laravel MySQL and SQLite jobs were queued at the time of this update.
+- CI follow-up for PR #124 (run #298): Vite production build passed and SQLite feature/unit tests passed; MySQL job remained in dependency installation at the last check.
