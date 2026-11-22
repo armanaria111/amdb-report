@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "8ce50571805b38cab2064df9080971eb40d2ea35",
+    "source_commit_audited": "63a276a1a8e827ab1f377ab468b7c03dfa9a6a56",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "8ce50571805b38cab2064df9080971eb40d2ea35",
+    "latest_main_commit": "63a276a1a8e827ab1f377ab468b7c03dfa9a6a56",
     "latest_main_commit_verified_on": "2026-11-22",
     "advertising_note": "پنل تبلیغ‌دهنده و درخواست کمپین شرکت در main موجود است. در قراردادهای درآمدی، نسخه‌های قبلی برای مدل‌ها/قلمروهای خارج از پوشش قرارداد جدید حفظ می‌شوند؛ قفل‌گذاری هم‌زمانی شرکت و حقوق نیز اضافه شده است. CI آخرین تغییرات مالی در حال اجراست."
   },
@@ -633,7 +633,8 @@
       "PR122 تست یکپارچه MySQL 8.4 را به CI افزود و با commit 0881fa1d4bc0f380d7a69d543c88f03edae8adea به main ادغام شد.",
       "CI run 44990772045: migration کامل روی MySQL 8.4.13 موفق؛ ۲۵۴ تست و ۹۸۳ assertion روی MySQL و ۲۵۴ تست و ۹۸۳ assertion روی SQLite پاس شدند.",
       "سه ناسازگاری قدیمی MySQL در migrationهای جشنواره و hosted playback اصلاح شد؛ index و FK کوتاه شدند و طول path از ۱۰۲۴ به ۷۰۰ کاهش یافت.",
-      "در سه فایل ترجمه revenue.php کلید تکراری no_settlement_requests که باعث بازنویسی پیام خالی‌بودن فهرست شرکت با پیام صف مدیریت می‌شد، تفکیک شد؛ کلید مستقل no_admin_settlement_requests برای صف مدیریت در en/fa-AF/ps اضافه و View مدیریت به آن متصل شد. تغییرات در main ثبت شد؛ بنا به درخواست کاربر در این مرحله تست اجرا نشد."
+      "در سه فایل ترجمه revenue.php کلید تکراری no_settlement_requests که باعث بازنویسی پیام خالی‌بودن فهرست شرکت با پیام صف مدیریت می‌شد، تفکیک شد؛ کلید مستقل no_admin_settlement_requests برای صف مدیریت در en/fa-AF/ps اضافه و View مدیریت به آن متصل شد. تغییرات در main ثبت شد؛ بنا به درخواست کاربر در این مرحله تست اجرا نشد.",
+      "در RevenueSettlementController، مرجع پرداخت پیش از اجرای unique validation نرمال‌سازی شد تا ورودی دارای فاصله ابتدا/انتها نتواند از بررسی یکتایی عبور کند و سپس به خطای دیتابیس تبدیل شود. تست موجود تکرار مرجع برای درخواست دوم با فاصله‌های اضافی به‌روزرسانی شد تا این مسیر را پوشش دهد؛ تست اجرا نشد."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
