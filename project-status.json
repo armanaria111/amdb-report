@@ -5977,5 +5977,36 @@
       "برای هر اثر، داده‌های بازیگران و عوامل باید به‌صورت روابط چندگانه با profession و character حفظ شوند."
     ],
     "next_step": "بررسی چند صفحه نمونه هنرمند، سریال و اثر؛ سپس طراحی adapter واردسازی بر اساس فایل export واقعی و ساختار واقعی متادیتا."
+  },
+  "last_updated": "2026-11-22",
+  "architecture_standards": {
+    "catalog_domain": {
+      "status": "standards_documented_initial_audit_required",
+      "source_repository_commit": "19d497f61e32bc7032169697011cf15d68642ac6",
+      "document": "docs/catalog-domain-standards.md",
+      "principles": [
+        "legacy WordPress is data source only, not product or taxonomy specification",
+        "artist directory groups are distinct from canonical professions and per-title credits",
+        "one artist profile supports multiple simultaneous professions",
+        "genres, content types, professions, countries, languages, festival/award/news categories remain separate vocabularies",
+        "localized labels and aliases are not identifiers",
+        "legacy imports require explicit mappings, dry-run, idempotency and auditability",
+        "no destructive schema changes or name-only entity matching"
+      ],
+      "observed_current_schema": {
+        "professions_table": "name, slug, description, is_active",
+        "artist_professions": "many-to-many with is_primary",
+        "title_credits": "profession_id, artist_id/user_id, credited_name, character_name, character_name_key, display_order",
+        "artist_translation": "normalized relation",
+        "profession_translation": "normalized relation"
+      },
+      "known_gaps_to_audit": [
+        "profession groups/categories and taxonomy hierarchy are not yet represented in the inspected Profession model/table",
+        "profession name/description fields and translation relation need consistency review",
+        "current public artist directory filters and admin taxonomy management require end-to-end audit",
+        "full catalog domains (titles, episodes, companies, festivals, awards, news, media, rights) require schema-to-domain review"
+      ],
+      "implementation_rule": "Standards are documented; this commit does not change runtime schema or migrate user data. Next: full inventory and gap matrix, then additive implementation."
+    }
   }
 }
