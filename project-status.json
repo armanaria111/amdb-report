@@ -1929,7 +1929,7 @@
   },
   "current_work": {
     "stage": "تکمیل سامانه تبلیغات AMDB",
-    "status": "direct_advertising_delivery_and_tracking_merged_pr115_ci_passed",
+    "status": "advertising_delivery_hardening_pr117_ci_in_progress",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -2339,11 +2339,11 @@
     "new_migrations_not_executed": [
       "2026_11_20_235900_create_activity_log_table"
     ],
-    "latest_pr": 115,
-    "latest_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/115",
-    "latest_source_base_commit": "1b11f4f91d3a16705b444d3ef52ebb657151996f",
-    "latest_branch_commit": "6f8929b2ea60a26de9d15613373916e693967cfe",
-    "note": "PR115 ادغام شد. CI موفق: ۲۴۴ تست، ۹۴۴ assertion و Vite/Blade موفق. تحویل مستقیم فقط در صورت فعال‌سازی ماژول advertising ممکن است؛ ماژول پیش‌فرض خاموش است. Migration رویدادها روی MySQL محلی/staging اجرا نشده و providerهای خارجی متصل نیستند.",
+    "latest_pr": 117,
+    "latest_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/117",
+    "latest_source_base_commit": "6ab9ba3308493962ca794e005c7cc0a82b960821",
+    "latest_branch_commit": "ef7b6728d156a8807a92066b7ed6d291f9bc0fde",
+    "note": "نسخه اولیه delivery در main وجود داشت؛ PR116 به دلیل شاخه منشعب‌شده از commit قدیمی بسته شد. PR117 از main فعلی ساخته شده و hardening امنیتی را اضافه می‌کند. Vite CI موفق؛ PHPUnit در حال اجرا.",
     "latest_main_commit": "6ab9ba3308493962ca794e005c7cc0a82b960821"
   },
   "application_audit": {
@@ -5040,12 +5040,10 @@
         "ماژول advertising پیش‌فرض خاموش است و تا تکمیل تحویل عمومی، نمایش تبلیغ روی صفحات سایت فعال نیست."
       ],
       "remaining": [
-        "افزودن جایگاه‌های باقی‌مانده در صفحه جزئیات اثر، پروفایل هنرمند، خبر و footer.",
-        "داشبورد گزارش کمپین با CTR و خروجی دوره‌ای؛ با توجه به شمارنده‌های فعلی و رویدادهای idempotent.",
-        "تکمیل سیاست consent/privacy و retention پیش از افزودن هر analytics یا SDK خارجی.",
-        "اتصال providerها فقط پس از تعیین حساب، شناسه جایگاه و پذیرش شرایط هر سرویس.",
-        "تعیین سیاست invoice/receipt، تطبیق پرداخت تبلیغ‌دهندگان و درآمد مستقیم.",
-        "MySQL staging، backup/rollback و پذیرش مرورگر/موبایل."
+        "نتیجه نهایی CI در PR117 و رفع هرگونه خطای PHPUnit/Blade.",
+        "بازبینی MySQL و تراکنش‌های row lock روی محیط staging.",
+        "تست مرورگر و موبایل و بررسی جایگاه‌ها و بارگذاری تصاویر.",
+        "تکمیل سیاست حریم خصوصی و روش گزارش‌دهی نمایش/کلیک پیش از فعال‌سازی عمومی."
       ],
       "migration": "database/migrations/2026_11_22_000001_create_advertising_campaigns_table.php",
       "migration_executed": false,
@@ -5088,7 +5086,26 @@
       "module_default_enabled": false,
       "direct_delivery_implemented": true,
       "tracking_implemented": true,
-      "tracking_enabled_by_default": false
+      "tracking_enabled_by_default": false,
+      "hardening_pr": {
+        "number": 117,
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/117",
+        "branch": "feature/advertising-delivery-hardening",
+        "head_commit": "ef7b6728d156a8807a92066b7ed6d291f9bc0fde",
+        "status": "open_ci_in_progress",
+        "ci_run_id": 44989334177,
+        "ci_run_number": 271,
+        "ci_url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44989334177",
+        "ci_frontend": "success",
+        "ci_backend": "in_progress",
+        "changes": [
+          "امضای URLهای رهگیری با انقضای ۲۴ ساعته",
+          "اتصال هر توکن به کمپین و نوع رویداد و جلوگیری از استفاده مجدد بین impression و click",
+          "تفکیک سقف impression و click تا کلیک همان نمایش در مرز سقف نمایش از دست نرود",
+          "ممانعت از فعال‌سازی کمپین‌های provider خارجی تا زمان اتصال واقعی",
+          "تست‌های جدید برای URL امضاشده، تکرار رویداد، مرز سقف و provider متصل‌نشده"
+        ]
+      }
     }
   },
   "playback_architecture": {
