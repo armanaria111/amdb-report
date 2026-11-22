@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "aaba384d50f19eb4f8e74454926d14c82bdb2b5e",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "78c9b5d07873c6eb4d74f8764882e51df0765904",
+    "latest_main_commit": "f27eb8d57e1c08751315493879e45b7b438a3f4b",
     "latest_main_commit_verified_on": "2026-11-22"
   },
   "languages": [
@@ -1140,7 +1140,8 @@
       "date": "2026-11-22",
       "text": "خروجی Tinker اثر am0000001 بررسی شد: فقط ترجمه en با عنوان دری «سرخ سالی» وجود دارد؛ original_title و synopsis خالی، یک credit هنرمند با profession_id=7 و بدون company credit. بررسی php -l نشان داد فایل fa-AF سالم است اما فایل‌های en و ps در نسخه محلی خط 89 خطای نحوی دارند؛ همگام‌سازی اصلاح GitHub و تکرار lint باقی است."
     },
-    "2026-11-22: داشبورد تبلیغات با مقایسه عملکرد جایگاه‌ها و نمودار روند روزانه نمایش/کلیک گسترش یافت؛ تست Feature و ترجمه‌های en/fa-AF/ps ثبت شدند. CI نسخه جاری هنوز در حال اجراست."
+    "2026-11-22: داشبورد تبلیغات با مقایسه عملکرد جایگاه‌ها و نمودار روند روزانه نمایش/کلیک گسترش یافت؛ تست Feature و ترجمه‌های en/fa-AF/ps ثبت شدند. CI نسخه جاری هنوز در حال اجراست.",
+    "2026-11-22: خروجی CSV فیلترشده داشبورد تبلیغات، محافظت در برابر CSV formula injection، route مجازشده، ترجمه سه‌زبانه و تست Feature اضافه شد؛ CI commit نهایی هنوز تأیید نشده است."
   ],
   "architecture": {
     "identity_and_access": [
@@ -4335,7 +4336,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "78c9b5d07873c6eb4d74f8764882e51df0765904",
+    "source_commit": "f27eb8d57e1c08751315493879e45b7b438a3f4b",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-21",
@@ -5090,7 +5091,7 @@
         }
       ]
     },
-    "latest_main_commit": "78c9b5d07873c6eb4d74f8764882e51df0765904"
+    "latest_main_commit": "f27eb8d57e1c08751315493879e45b7b438a3f4b"
   },
   "report_methodology": {
     "version": 3,
@@ -5873,7 +5874,7 @@
         "tests": 254,
         "assertions": 983
       },
-      "latest_main_commit": "78c9b5d07873c6eb4d74f8764882e51df0765904",
+      "latest_main_commit": "f27eb8d57e1c08751315493879e45b7b438a3f4b",
       "dashboard_extensions": {
         "status": "committed_ci_in_progress",
         "commit": "78c9b5d07873c6eb4d74f8764882e51df0765904",
@@ -5889,6 +5890,26 @@
           "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45047497965",
           "status": "in_progress",
           "conclusion": null
+        },
+        "runtime_mysql_and_browser": "not_verified"
+      },
+      "csv_export": {
+        "status": "committed_ci_pending",
+        "commit": "f27eb8d57e1c08751315493879e45b7b438a3f4b",
+        "commit_url": "https://github.com/armanaria111/amdb-laravel2/commit/f27eb8d57e1c08751315493879e45b7b438a3f4b",
+        "completed": [
+          "خروجی CSV گزارش کمپین‌ها با فیلترهای وضعیت، جایگاه و بازه تاریخ اضافه شد.",
+          "برای هر کمپین تعداد impression و click و CTR همان بازه محاسبه می‌شود؛ کمپین‌های بدون رویداد نیز در خروجی باقی می‌مانند.",
+          "فایل CSV با BOM برای سازگاری بهتر با Excel و escape صریح fputcsv تولید می‌شود.",
+          "مقادیر متنی آغازشونده با نویسه‌های فرمول‌ساز spreadsheet خنثی می‌شوند.",
+          "دسترسی export در همان گروه مجوز مدیریت تبلیغات قرار گرفت و دکمه خروجی فیلترهای جاری را حفظ می‌کند.",
+          "تست Feature برای محدوده فیلترها و محتوای CSV افزوده شد؛ route و assertion استریم در commit اصلاحی تکمیل شدند."
+        ],
+        "ci": {
+          "status": "pending_latest_commit_run",
+          "last_seen_run_id": 45047874023,
+          "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45047874023",
+          "note": "این اجرا متعلق به commit قبلی ab0c17d است، نه commit اصلاحی f27eb8d؛ نتیجه آن برای تأیید نسخه نهایی کافی نیست."
         },
         "runtime_mysql_and_browser": "not_verified"
       }
