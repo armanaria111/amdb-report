@@ -4862,6 +4862,91 @@
       "failed": 0,
       "result": "success",
       "note": "آزمون‌های محلی کاربر در Laravel dev server؛ شناسه معتبر/نامعتبر و مرزهای per_page بررسی شدند."
+    },
+    "local_api_title_details_search": {
+      "checked_at": "2026-11-22",
+      "detail_requests": [
+        {
+          "endpoint": "GET /api/v1/titles/am0000001?locale=en",
+          "http": 200,
+          "fields": [
+            "id",
+            "slug",
+            "type",
+            "title",
+            "original_title",
+            "synopsis",
+            "release_date",
+            "runtime_minutes",
+            "genres",
+            "countries",
+            "credits",
+            "companies"
+          ],
+          "genres_count": 1,
+          "countries_count": 1
+        },
+        {
+          "endpoint": "GET /api/v1/titles/am0000001?locale=fa-AF",
+          "http": 200,
+          "fields": [
+            "id",
+            "slug",
+            "type",
+            "title",
+            "original_title",
+            "synopsis",
+            "release_date",
+            "runtime_minutes",
+            "genres",
+            "countries",
+            "credits",
+            "companies"
+          ],
+          "genres_count": 1,
+          "countries_count": 1
+        },
+        {
+          "endpoint": "GET /api/v1/titles/am0000001?locale=ps",
+          "http": 200,
+          "fields": [
+            "id",
+            "slug",
+            "type",
+            "title",
+            "original_title",
+            "synopsis",
+            "release_date",
+            "runtime_minutes",
+            "genres",
+            "countries",
+            "credits",
+            "companies"
+          ],
+          "genres_count": 1,
+          "countries_count": 1
+        }
+      ],
+      "search_requests": [
+        {
+          "endpoint": "GET /api/v1/titles?q=am0000001",
+          "http": 200,
+          "records": 0,
+          "result": "returned_empty"
+        },
+        {
+          "endpoint": "GET /api/v1/titles?q=ناموجود123",
+          "http": 200,
+          "records": 0,
+          "result": "returned_empty"
+        }
+      ],
+      "notes": [
+        "عنوان نمایش‌داده‌شده در سه locale یکسان بود؛ بدون بررسی رکوردهای ترجمه نمی‌توان نتیجه گرفت ترجمه‌های هر زبان ناقص‌اند.",
+        "جست‌وجوی شناسه عمومی am0000001 صفر نتیجه داشت؛ باید مشخص شود جست‌وجو عمداً عنوان‌محور است یا شناسه عمومی نیز باید قابل جست‌وجو باشد.",
+        "پاسخ جزئیات فیلدهای credits و companies را دارد؛ تعداد/محتوای این آرایه‌ها در خروجی فعلی بررسی نشده است."
+      ],
+      "result": "detail_endpoints_passed_search_semantics_pending"
     }
   },
   "report_methodology": {
