@@ -17,11 +17,11 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "2a7514d50496ac859eea8eb63b8f7cf086ee4f14",
+    "source_commit_audited": "55cee9ffe662b2698a33db2449ee48596c691d23",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "2a7514d50496ac859eea8eb63b8f7cf086ee4f14",
+    "latest_main_commit": "55cee9ffe662b2698a33db2449ee48596c691d23",
     "latest_main_commit_verified_on": "2026-11-22",
-    "advertising_note": "پنل تبلیغ‌دهنده و درخواست کمپین شرکت در main موجود است. CI آخرین تغییرات قبلی در 189beec بررسی و خطای انتخاب قرارداد درآمد بر اساس territory شناسایی و اصلاح شد؛ CI commit جدید هنوز در حال اجراست."
+    "advertising_note": "پنل تبلیغ‌دهنده و درخواست کمپین شرکت در main موجود است. در حوزه قراردادهای درآمدی، نسخه‌های قبلی برای مدل‌ها/قلمروهای خارج از پوشش قرارداد جدید حفظ می‌شوند؛ قفل‌گذاری Title→Company→Right برای بررسی قرارداد و Title→Right برای تغییر حقوق شرکت اضافه شده است. CI اجرای این commit در حال اجراست."
   },
   "languages": [
     {
@@ -6780,17 +6780,26 @@
   },
   "revenue_contract_territory_ci": {
     "updated_at": "2026-11-22",
-    "source_commit": "2a7514d50496ac859eea8eb63b8f7cf086ee4f14",
-    "prior_runs": [
-      45053344196
-    ],
-    "previous_failure": "The contract lookup correctly rejected an event whose territory was not covered, but raised RuntimeException while the domain test expects LogicException; both SQLite and MySQL had the same single failing test.",
-    "fix": "Use LogicException for missing approved contract coverage and explicitly include territory in the domain error message.",
-    "current_run": {
+    "source_commit": "55cee9ffe662b2698a33db2449ee48596c691d23",
+    "previous_successful_run": {
       "id": 45053739297,
-      "status": "in_progress",
-      "conclusion": null
+      "status": "completed",
+      "conclusion": "success"
     },
-    "validation_note": "CI is running. No pass claimed until completed. Local Laragon/MySQL and browser validation remain outstanding."
+    "current_run": {
+      "id": 45054883908,
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45054883908"
+    },
+    "changes": [
+      "تداخل قراردادها فقط در صورت اشتراک مدل درآمدی و قلمرو محاسبه می‌شود.",
+      "تأیید نسخه جدید دیگر قرارداد قبلی را به‌صورت سراسری superseded نمی‌کند؛ نسخه قدیمی برای قلمروها/مدل‌های خارج از پوشش نسخه جدید باقی می‌ماند.",
+      "تعیین قرارداد رویداد با اولویت نسخه جدیدتر در محدوده مدل درآمدی، قلمرو و تاریخ رویداد انجام می‌شود.",
+      "تأیید، رد و لغو حقوق شرکت با قفل ردیف Title قبل از قفل حقوق همگام شده است؛ تأیید حقوق، فعال‌بودن شرکت را نیز زیر قفل بررسی می‌کند.",
+      "تأیید قرارداد، شرکت‌ها و حقوق وابسته را با ترتیب شناسه ثابت قفل و مجدداً اعتبارسنجی می‌کند.",
+      "تست‌های پوشش ناقص قلمرو و مدل‌های درآمدی مستقل اضافه شده‌اند."
+    ],
+    "validation_note": "CI در حال اجراست؛ تا تکمیل SQLite، MySQL 8.4 و Vite هیچ ادعای موفقیت برای این commit ثبت نمی‌شود. تست محلی Laragon و مرورگر انجام نشده است."
   }
 }
