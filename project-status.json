@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "c9b1bf77cd469817c04c7309c06e2e0b80b56635",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "c9b1bf77cd469817c04c7309c06e2e0b80b56635",
+    "latest_main_commit": "1b11f4f91d3a16705b444d3ef52ebb657151996f",
     "latest_main_commit_verified_on": "2026-11-22"
   },
   "languages": [
@@ -601,7 +601,11 @@
       "CI مربوط به PR113 و push روی main موفق شد: Vite production build و ۲۳۲ تست Laravel با ۹۰۹ assertion روی SQLite. MySQL/staging و sandbox provider هنوز اجرا نشده‌اند.",
       "PR114 در مخزن اصلی برای هسته مدیریت کمپین‌های تبلیغاتی باز شد؛ ماژول default-off، Migration افزایشی، پنل CRUD مدیر، فیلتر وضعیت/جایگاه، اعتبارسنجی فایل و URL، ترجمه‌های en/fa-AF/ps و تست‌های Feature اضافه شدند.",
       "PR114 در وضعیت ready for review است؛ تا زمان ثبت این گزارش workflow run و status check برای head نهایی گزارش نشده‌اند. بنابراین تست‌ها صرفاً نوشته شده‌اند و موفقیت CI ادعا نمی‌شود.",
-      "هیچ Migration روی دیتابیس محلی یا staging اجرا نشده و هیچ کمپین/تبلیغی در صفحات عمومی نمایش داده نمی‌شود. انتخاب provider در این PR فقط metadata است."
+      "هیچ Migration روی دیتابیس محلی یا staging اجرا نشده و هیچ کمپین/تبلیغی در صفحات عمومی نمایش داده نمی‌شود. انتخاب provider در این PR فقط metadata است.",
+      "PR114 سامانه تبلیغات با commit ادغام 1b11f4f91d3a16705b444d3ef52ebb657151996f وارد main شد.",
+      "CI PR114 run 44987272261 موفق شد: ۲۳۸ تست و ۹۲۲ assertion؛ Vite production build، کامپایل Blade و lint Blade نیز موفق شدند.",
+      "هسته تبلیغات شامل ماژول default-off، مدیریت کمپین، جایگاه‌ها، فیلتر وضعیت/جایگاه، آپلود تصویر، اعتبارسنجی URL و ترجمه‌های en/fa-AF/ps است.",
+      "Migration تبلیغات هنوز روی MySQL محلی یا staging اجرا نشده؛ نمایش عمومی تبلیغ، tracking، providerهای واقعی، consent و تسویه مالی هنوز فعال/پیاده‌سازی نشده‌اند."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1454,7 +1458,7 @@
     },
     {
       "phase": "۱۱. سامانه تبلیغات",
-      "state": "implementation_in_progress_pr_114_open_ci_pending",
+      "state": "implementation_in_progress_main_merged_ci_passed_runtime_unverified",
       "items": [
         "موتور جایگاه و چرخش تبلیغات",
         "Google AdSense و در صورت نیاز Google Ad Manager",
@@ -1463,7 +1467,7 @@
         "گزارش نمایش، کلیک و CTR، رضایت و سیاست تبلیغات"
       ],
       "completed": [
-        "هسته مدیریت کمپین در PR114 پیاده‌سازی شده و در انتظار CI و بازبینی است."
+        "هسته مدیریت کمپین و پنل مدیر در PR114 به main ادغام شد؛ CI موفق: ۲۳۸ تست و ۹۲۲ assertion."
       ]
     },
     {
@@ -1919,8 +1923,8 @@
     }
   },
   "current_work": {
-    "stage": "توسعه سامانه تبلیغات AMDB",
-    "status": "advertising_campaign_admin_foundation_pr114_route_fix_ci_run_266",
+    "stage": "تکمیل سامانه تبلیغات AMDB",
+    "status": "advertising_campaign_management_foundation_merged_pr114_ci_passed",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -2333,8 +2337,9 @@
     "latest_pr": 114,
     "latest_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/114",
     "latest_source_base_commit": "c9b1bf77cd469817c04c7309c06e2e0b80b56635",
-    "latest_branch_commit": "78ff50652a94e79a9304fd8abd5fa13c2923d21f",
-    "note": "CI اولیه ۵ تست تبلیغات را به دلیل نبود Route نام‌گذاری‌شده شکست داد؛ Routeها اصلاح شدند. CI run 44987186393 برای commit اصلاحی در حال اجراست. Migration اجرا نشده و ماژول پیش‌فرض خاموش است."
+    "latest_branch_commit": "087b44174e4195af383d44cf4658e735b5723658",
+    "note": "PR114 ادغام شد. CI سرشاخه موفق: ۲۳۸ تست، ۹۲۲ assertion و Vite/Blade موفق. Migration روی MySQL محلی/staging اجرا نشده؛ ماژول پیش‌فرض خاموش، تحویل عمومی، tracking و providerهای واقعی متصل نیستند.",
+    "latest_main_commit": "1b11f4f91d3a16705b444d3ef52ebb657151996f"
   },
   "application_audit": {
     "audit_date": "2026-11-18",
@@ -4271,7 +4276,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "c9b1bf77cd469817c04c7309c06e2e0b80b56635",
+    "source_commit": "1b11f4f91d3a16705b444d3ef52ebb657151996f",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-21",
@@ -4320,7 +4325,7 @@
     "quality": {
       "tests_in_repository": 22,
       "tests_executed": true,
-      "test_result": "Latest merged PR113 CI successful: 232 tests passed / 909 assertions; Vite production build passed. Main push CI run 44943651335 also successful.",
+      "test_result": "PR114 CI موفق: 238 tests passed / 922 assertions؛ Vite production build، compile Blade و Blade lint نیز موفق.",
       "vite_build_executed": true,
       "browser_verified": false,
       "production_smoke_test": false,
@@ -4335,20 +4340,25 @@
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
       "mysql_runtime_verified": false,
-      "latest_ci_run": 44943651335,
+      "latest_ci_run": 44987272261,
       "main_ci_conclusion": "success",
       "pull_request_ci_conclusion": "success"
     },
     "release": {
-      "latest_merged_pr": 113,
-      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/113",
-      "latest_source_commit": "c9b1bf77cd469817c04c7309c06e2e0b80b56635",
+      "latest_merged_pr": 114,
+      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/114",
+      "latest_source_commit": "1b11f4f91d3a16705b444d3ef52ebb657151996f",
       "source_branch": "main",
       "verified_at": "2026-11-22",
-      "main_ci_run": 44943651335,
-      "main_ci_conclusion": "success",
-      "main_ci_verified_at": "2026-11-21",
-      "note": "PR113 CI: 232 tests / 909 assertions; Vite build passed. MySQL staging and browser/mobile acceptance remain unverified."
+      "pr_ci_run": 44987272261,
+      "pr_ci_conclusion": "success",
+      "pr_tests": 238,
+      "pr_assertions": 922,
+      "vite_build": "success",
+      "blade_compile": "success",
+      "blade_lint": "success",
+      "main_push_ci": "not_yet_reported",
+      "note": "PR114 با موفقیت ادغام شد. CI مربوط به PR موفق است؛ وضعیت اجرای CI جداگانه روی push شاخه main هنوز در این snapshot گزارش نشده است. MySQL staging و browser/mobile acceptance همچنان تأیید نشده‌اند."
     },
     "note": "آخرین commit شاخه main برابر c9b1bf77cd469817c04c7309c06e2e0b80b56635 پس از ادغام PR113 است. موجودی فایل‌های سورس در source_inventory همچنان snapshot قدیمی commit eb12658 است و در این به‌روزرسانی بازشماری نشده؛ آمار runtime دیتابیس و MySQL تأیید نشده‌اند.",
     "panels": [
@@ -5001,8 +5011,8 @@
       "pull_request": 114,
       "url": "https://github.com/armanaria111/amdb-laravel2/pull/114",
       "branch": "feature/advertising-campaign-management",
-      "head_commit": "78ff50652a94e79a9304fd8abd5fa13c2923d21f",
-      "status": "route_registration_fix_pushed_ci_run_266_in_progress",
+      "head_commit": "087b44174e4195af383d44cf4658e735b5723658",
+      "status": "merged_to_main_pr114_ci_passed_runtime_mysql_unverified",
       "completed": [
         "ماژول first-party تبلیغات به PluginCatalog افزوده شد و به‌صورت پیش‌فرض خاموش است؛ فعال‌سازی/غیرفعال‌سازی از مدیریت ماژول‌ها انجام می‌شود.",
         "Migration افزایشی advertising_campaigns برای نام کمپین، تبلیغ‌دهنده، برچسب provider، جایگاه، نوع/محتوای تبلیغ، مسیر تصویر، URL مقصد، زمان‌بندی، اولویت، سقف نمایش/کلیک، شمارنده‌ها و وضعیت اضافه شد.",
@@ -5021,11 +5031,11 @@
         "ماژول advertising پیش‌فرض خاموش است و تا تکمیل تحویل عمومی، نمایش تبلیغ روی صفحات سایت فعال نیست."
       ],
       "remaining": [
-        "انتظار نتیجه CI run 44987186393 و رفع خطاهای احتمالی بعدی.",
         "اتصال renderer امن به جایگاه‌های صفحات عمومی با feature flag و برچسب روشن «تبلیغ».",
         "ثبت رویداد نمایش/کلیک با rate limit، deduplication و کنترل تقلب؛ محاسبه CTR.",
         "تنظیم consent/privacy و سیاست ذخیره‌سازی داده پیش از هر نوع analytics یا provider SDK.",
         "اتصال providerها فقط پس از تعیین حساب، شناسه جایگاه و پذیرش شرایط هر سرویس.",
+        "تعیین سیاست و جریان مالی تبلیغات مستقیم، invoice/receipt و تطبیق پرداخت‌ها.",
         "MySQL staging، backup/rollback و پذیرش مرورگر/موبایل."
       ],
       "migration": "database/migrations/2026_11_22_000001_create_advertising_campaigns_table.php",
@@ -5034,14 +5044,18 @@
       "external_provider_connected": false,
       "tracking_enabled": false,
       "ci": {
-        "run_id": 44987186393,
-        "run_number": 266,
-        "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44987186393",
-        "previous_run_id": 44987101358,
-        "previous_result": "failed_5_advertising_tests_due_to_missing_named_routes",
-        "fix": "registered AdvertisingCampaignController and admin.advertising routes; new CI run started",
-        "verified_at": "2026-11-22"
-      }
+        "run_id": 44987272261,
+        "run_number": 267,
+        "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44987272261",
+        "conclusion": "success",
+        "tests": 238,
+        "assertions": 922,
+        "vite_build": "success",
+        "blade_compile": "success",
+        "blade_lint": "success"
+      },
+      "merge_commit": "1b11f4f91d3a16705b444d3ef52ebb657151996f",
+      "merged_on": "2026-11-22"
     }
   },
   "playback_architecture": {
