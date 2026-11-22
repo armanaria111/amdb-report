@@ -4305,8 +4305,8 @@
     "product_name_fa": "بانک اطلاعاتی فیلم افغانستان",
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_branch": "main",
-    "source_commit": "0881fa1d4bc0f380d7a69d543c88f03edae8adea",
+    "source_branch": "feature/standard-artist-profession-taxonomy",
+    "source_commit": "9d10d0ed5c752e85dea411cd1e3c931527a09ea6",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-21",
@@ -4412,7 +4412,7 @@
       "mysql_tests": 254,
       "mysql_assertions": 983
     },
-    "note": "آخرین commit شاخه main برابر c9b1bf77cd469817c04c7309c06e2e0b80b56635 پس از ادغام PR113 است. موجودی فایل‌های سورس در source_inventory همچنان snapshot قدیمی commit eb12658 است و در این به‌روزرسانی بازشماری نشده؛ آمار runtime دیتابیس و MySQL تأیید نشده‌اند.",
+    "note": "PR #124 adds the first implementation slice for normalized profession groups, profession management and artist directory filters. Vite build passed; MySQL and SQLite test jobs were running at the last check. PR remains draft/unmerged and no local runtime migration was executed.",
     "panels": [
       {
         "id": "admin",
@@ -5981,8 +5981,8 @@
   "last_updated": "2026-11-22",
   "architecture_standards": {
     "catalog_domain": {
-      "status": "standards_documented_initial_audit_required",
-      "source_repository_commit": "19d497f61e32bc7032169697011cf15d68642ac6",
+      "status": "implementation_in_review",
+      "source_repository_commit": "9d10d0ed5c752e85dea411cd1e3c931527a09ea6",
       "document": "docs/catalog-domain-standards.md",
       "principles": [
         "legacy WordPress is data source only, not product or taxonomy specification",
@@ -6006,7 +6006,37 @@
         "current public artist directory filters and admin taxonomy management require end-to-end audit",
         "full catalog domains (titles, episodes, companies, festivals, awards, news, media, rights) require schema-to-domain review"
       ],
-      "implementation_rule": "Standards are documented; this commit does not change runtime schema or migrate user data. Next: full inventory and gap matrix, then additive implementation."
+      "implementation_rule": "Standards are documented; this commit does not change runtime schema or migrate user data. Next: full inventory and gap matrix, then additive implementation.",
+      "implementation_pull_request": "https://github.com/armanaria111/amdb-laravel2/pull/124",
+      "implementation_branch": "feature/standard-artist-profession-taxonomy",
+      "implementation_head": "9d10d0ed5c752e85dea411cd1e3c931527a09ea6",
+      "implemented_in_pr": [
+        "profession_groups and profession_group_translations normalized tables",
+        "nullable professions.profession_group_id foreign key and active lookup index",
+        "known existing profession slugs mapped to groups; unknown professions left unassigned",
+        "profession group and profession admin CRUD with en/fa-AF/ps labels",
+        "public artist directory filters by profession group and profession",
+        "artist directory search includes profession and profession-group translated names",
+        "feature tests for group and profession filters"
+      ],
+      "safeguards": [
+        "additive schema migration; no artist, title, credit, user or AMDB public identifiers rewritten",
+        "group deletion blocked while professions remain assigned",
+        "profession records are deactivated through status rather than hard-deleted",
+        "taxonomy translation seeder runs after language seeder"
+      ],
+      "review_notes": [
+        "PR is draft and not merged",
+        "Vite production build passed in GitHub Actions",
+        "MySQL and SQLite Laravel test jobs were still running at report update time",
+        "local Laragon/MySQL/browser runtime was not tested"
+      ],
+      "next_steps": [
+        "wait for both Laravel CI jobs; fix failures before marking ready",
+        "add regression coverage for admin profession/group CRUD and locale fallback",
+        "review whether current artist directory and artist profile UI consistently distinguish professions from per-title credits",
+        "continue domain audit for titles/series/episodes, genres, countries/languages, companies/rights, festivals/awards and news taxonomy"
+      ]
     }
   }
 }
