@@ -17,11 +17,11 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "7f6ffed0614ed0cdf2d06114c8929b3aa1bd1596",
+    "source_commit_audited": "",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "7f6ffed0614ed0cdf2d06114c8929b3aa1bd1596",
+    "latest_main_commit": "",
     "latest_main_commit_verified_on": "2026-11-22",
-    "advertising_note": "پنل گزارش تبلیغ‌دهنده و گردش ارسال درخواست کمپین از پنل شرکت در main افزوده شد. دسترسی گزارش و ثبت درخواست فقط برای عضویت فعال owner/finance در شرکت فعال مجاز است؛ درخواست‌ها draft می‌مانند و فعال‌سازی همچنان با مدیریت است. تست‌ها طبق درخواست کاربر به مرحله بعد موکول شده‌اند."
+    "advertising_note": "پنل گزارش تبلیغ‌دهنده و گردش ارسال درخواست کمپین از پنل شرکت در main افزوده شد. دسترسی گزارش و ثبت درخواست فقط برای عضویت فعال owner/finance در شرکت فعال مجاز است؛ درخواست‌ها draft می‌مانند و فعال‌سازی همچنان با مدیریت است. تست‌ها طبق درخواست کاربر به مرحله بعد موکول شده‌اند. آخرین CI روی commit 7f6ffed با موفقیت کامل شد: ۲۶۱ تست و ۱۰۲۰ assertion در SQLite و همین تعداد در MySQL 8.4؛ build فرانت‌اند و Blade compile/lint نیز موفق بودند."
   },
   "languages": [
     {
@@ -4376,7 +4376,7 @@
       "blocked": 0
     },
     "feature_count": 39,
-    "implementation_status": "کدهای ادغام‌شده در سورس؛ runtime و QA نهایی هنوز تأیید نشده‌اند مگر جایی که صریحاً ثبت شده باشد.",
+    "implementation_status": "کدهای ادغام‌شده در سورس؛ آخرین CI خودکار SQLite/MySQL و build/Blade موفق است؛ پذیرش محلی Laragon و مرورگر/موبایل جداگانه باقی است.",
     "database_runtime": {
       "status": "partially_verified_local",
       "environment": "Windows 10 + Laragon 8 + MySQL",
@@ -4396,7 +4396,7 @@
     "quality": {
       "tests_in_repository": 22,
       "tests_executed": true,
-      "test_result": "Local Laragon: 256 passed / 990 assertions, 0 failed, 1 deprecated warning; prior CI: 254 passed / 983 assertions on SQLite and MySQL 8.4.13.",
+      "test_result": "GitHub Actions main commit 7f6ffed0614ed0cdf2d06114c8929b3aa1bd1596: SQLite 261 passed / 1020 assertions; MySQL 8.4 261 passed / 1020 assertions; Vite production build, Blade view cache and compiled-view PHP lint all passed. Local Laragon/browser/mobile acceptance not covered.",
       "vite_build_executed": true,
       "browser_verified": false,
       "production_smoke_test": false,
@@ -4422,12 +4422,13 @@
         "بررسی Tinker اثر am0000001: فقط یک ترجمه در language_code=en وجود دارد، اما title آن «سرخ سالی» است؛ original_title و synopsis خالی‌اند. یک title_credit با artist_id=1 و profession_id=7 ثبت است و companyCredits خالی است. این نتیجه نقص داده نمونه را نشان می‌دهد، نه شکست endpoint یا PHPUnit.",
         "بررسی محلی php -l در 2026-11-22: lang/fa-AF/artists.php بدون خطای نحوی؛ lang/en/artists.php و lang/ps/artists.php هر دو در خط 89 خطای Cannot use empty array elements in arrays دارند. بنابراین اصلاح GitHub هنوز در نسخه محلی این دو فایل تأیید/همگام نشده است؛ optimize:clear نیز به‌علت واردکردن بک‌اسلش انتهایی اجرا نشد.",
         "Latest main code commit updated to 66ddd59fd1fc00f707a82e6ea799e158a368d4ab; the earlier local syntax errors in English/Pashto were fixed in GitHub commits, but local sync and php -l remain unverified.",
-        "اجرای محلی کاربر در 2026-11-22: php artisan optimize:clear موفق؛ php artisan test موفق با 13 passed / 38 assertions / 4.09s. git status و git pull با fatal not a git repository و php -l سه فایل ترجمه با Could not open input file مواجه شدند؛ بنابراین مسیر جاری Laravel دارای artisan بوده اما Git root و مسیر فایل‌های ترجمه در آن احراز نشدند. اجرای 13 تست محدود است و suite کامل 256 تست را اثبات نمی‌کند."
+        "اجرای محلی کاربر در 2026-11-22: php artisan optimize:clear موفق؛ php artisan test موفق با 13 passed / 38 assertions / 4.09s. git status و git pull با fatal not a git repository و php -l سه فایل ترجمه با Could not open input file مواجه شدند؛ بنابراین مسیر جاری Laravel دارای artisan بوده اما Git root و مسیر فایل‌های ترجمه در آن احراز نشدند. اجرای 13 تست محدود است و suite کامل 256 تست را اثبات نمی‌کند.",
+        "2026-11-22 main CI run 45049622525 for commit 7f6ffed0614ed0cdf2d06114c8929b3aa1bd1596: SQLite PHPUnit 261 passed / 1020 assertions; MySQL 8.4 PHPUnit 261 passed / 1020 assertions; Vite production build success; all Blade views compiled and compiled PHP lint passed. CI uses temporary GitHub runners and does not verify the user's Laragon database or browser."
       ],
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
       "mysql_runtime_verified": false,
-      "latest_ci_run": 44990772045,
+      "latest_ci_run": 45049622525,
       "main_ci_conclusion": "success",
       "pull_request_ci_conclusion": "success",
       "mysql_ci_verified": true,
@@ -5046,6 +5047,7 @@
           "name": "تست‌های خودکار ثبت‌شده",
           "state": "qa_passed",
           "items": [
+            "آخرین CI روی main، commit 7f6ffed0614ed0cdf2d06114c8929b3aa1bd1596: SQLite برابر ۲۶۱ تست و ۱۰۲۰ assertion موفق؛ MySQL 8.4 نیز ۲۶۱ تست و ۱۰۲۰ assertion موفق. Vite build، Blade compile و PHP lint خروجی‌های کامپایل‌شده همگی موفق.",
             "PHPUnit محلی: ۲۵۶ موفق، صفر ناموفق، ۹۹۰ assertion؛ یک هشدار deprecation. اجرای مجدد پس از sync لازم است.",
             "CI مستقل: تست‌های SQLite و MySQL 8.4 و Vite build موفق گزارش شده‌اند؛ این نتیجه جایگزین تست محلی نیست.",
             "اجرای واقعی کاربر در 2026-11-22: php artisan test با موفقیت ۱۳ تست و ۳۸ assertion؛ مدت ۴.۰۹ ثانیه. این اجرای محدود در مسیری که artisan در آن پیدا شد انجام شده؛ چون git repository و فایل‌های lang در همان مسیر پیدا نشدند، هنوز نمی‌توان آن را به checkout اصلی main نسبت داد یا جایگزین سابقه ۲۵۶ تست کرد."
@@ -5057,7 +5059,8 @@
           "items": [
             "۴۳ Migration اجرا شد و در migrate:status هیچ مورد Pending باقی نماند.",
             "ProfessionGroupSeeder موفق؛ profession_groups، companies و title_ratings با Schema::hasTable موجود تأیید شدند.",
-            "شمار کل جدول‌ها و تمام روابط دیتابیس هنوز ممیزی نشده‌اند."
+            "شمار کل جدول‌ها و تمام روابط دیتابیس هنوز ممیزی نشده‌اند.",
+            "CI روی MySQL 8.4.13 در GitHub Actions، Migrationها را روی دیتابیس آزمایشی اجرا کرد و مرحله PHPUnit موفق شد؛ این نتیجه جایگزین بررسی دیتابیس محلی Laragon نیست."
           ]
         },
         {
@@ -5087,12 +5090,15 @@
             "تست تعاملی مرورگر: ورود/خروج، دسترسی پنل‌ها و نقش‌ها، درخواست هنرمندی و تأیید مدیر، ثبت/ویرایش اثر، اخبار، جشنواره و شرکت.",
             "بررسی ترجمه واقعی داده‌ها و تکمیل اطلاعات نمونه am0000001؛ عنوان فعلی با language_code=en ذخیره شده اما مقدار آن دری است و synopsis/original_title خالی‌اند.",
             "بررسی جست‌وجوی آثار با شناسه عمومی am0000001؛ در تست قبلی صفر نتیجه داشت و semantics آن هنوز تعیین نشده است.",
-            "بررسی responsive در موبایل/تبلت و مسیرهای تعاملی؛ هنوز تأیید مرورگری ثبت نشده است."
+            "بررسی responsive در موبایل/تبلت و مسیرهای تعاملی؛ هنوز تأیید مرورگری ثبت نشده است.",
+            "آخرین commit main: 7f6ffed0614ed0cdf2d06114c8929b3aa1bd1596؛ اجرای کامل CI با وضعیت success در run 45049622525."
           ]
         }
       ]
     },
-    "latest_main_commit": "f27eb8d57e1c08751315493879e45b7b438a3f4b"
+    "latest_main_commit": "",
+    "source_commit_audited": "",
+    "latest_main_commit_verified_on": "2026-11-22"
   },
   "report_methodology": {
     "version": 3,
