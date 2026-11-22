@@ -4382,7 +4382,8 @@
         "در 2026-11-22، صفحه اصلی محلی با HTTP 200 و زمان پاسخ 0.580522 ثانیه بررسی شد؛ فایل public/hot وجود نداشت و CSS/JS تولیدشده هر دو HTTP 200 شدند.",
         "هفت فایل CSS مربوط به Font Awesome نیز در بررسی محلی HTTP 200 برگرداندند؛ نشانگر AMDB و تگ‌های بسته‌شدن header/footer در HTML موجود بودند و کاربر رفع مشکل ظاهری هدر و فوتر را پس از refresh تأیید کرد.",
         "Vite production build موفق شد اما 661 ثانیه طول کشید؛ plugin laravel:fonts و نبود پکیج اختیاری fontaine هشدار دادند. بهینه‌سازی زمان build هنوز باز است.",
-        "این نوبت هنوز اجرای محلی php artisan test، بررسی همه مسیرها، تست تعاملی مرورگر و QA موبایل را شامل نمی‌شود."
+        "این نوبت هنوز اجرای محلی php artisan test، بررسی همه مسیرها، تست تعاملی مرورگر و QA موبایل را شامل نمی‌شود.",
+        "در 2026-11-22، APIهای /api/v1/artists و /api/v1/festivals در محیط محلی هر دو HTTP 200 و Content-Type: application/json دادند؛ JSON معتبر با کلیدهای data و meta بود. artists یک رکورد با شناسه ar0000001 و festivals صفر رکورد برگرداندند؛ meta صفحه‌بندی در هر دو موجود بود. این فقط اعتبارسنجی ساختار سطح اول پاسخ است."
       ],
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
@@ -4484,6 +4485,37 @@
           "company"
         ],
         "note": "Routeهای مرتبط در خروجی وجود داشتند؛ این بررسی جایگزین تست دسترسی/مجوز تک‌تک routeها نیست."
+      },
+      "local_api_smoke": {
+        "checked_at": "2026-11-22",
+        "base_url": "http://127.0.0.1:8000",
+        "endpoints": {
+          "/api/v1/artists": {
+            "http": 200,
+            "content_type": "application/json",
+            "json_valid": true,
+            "root_keys": [
+              "data",
+              "meta"
+            ],
+            "data_count": 1,
+            "pagination_meta_present": true,
+            "sample_public_id": "ar0000001"
+          },
+          "/api/v1/festivals": {
+            "http": 200,
+            "content_type": "application/json",
+            "json_valid": true,
+            "root_keys": [
+              "data",
+              "meta"
+            ],
+            "data_count": 0,
+            "pagination_meta_present": true
+          }
+        },
+        "result": "success",
+        "scope_note": "HTTP status، Content-Type، parse شدن JSON و ساختار سطح اول پاسخ بررسی شد؛ صحت همه فیلدها، فیلترها، pagination edge cases و مجوزهای API هنوز تست نشده‌اند."
       }
     },
     "release": {
