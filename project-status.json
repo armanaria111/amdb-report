@@ -17,11 +17,11 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "c96f5f23acb131a8b9d0b19712e46478fb2e71ce",
+    "source_commit_audited": "7f6ffed0614ed0cdf2d06114c8929b3aa1bd1596",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "c96f5f23acb131a8b9d0b19712e46478fb2e71ce",
+    "latest_main_commit": "7f6ffed0614ed0cdf2d06114c8929b3aa1bd1596",
     "latest_main_commit_verified_on": "2026-11-22",
-    "advertising_note": "پنل گزارش تبلیغ‌دهنده برای شرکت‌های دارای عضویت فعال owner/finance به main افزوده شد؛ فهرست کمپین‌ها، آمار بازه‌ای و CSV فقط بر اساس company_id شرکت مجاز محدود می‌شوند. تست‌ها طبق درخواست کاربر به مرحله بعد موکول شده‌اند؛ اجرای Runtime و مرورگر نیز هنوز انجام نشده است."
+    "advertising_note": "پنل گزارش تبلیغ‌دهنده و گردش ارسال درخواست کمپین از پنل شرکت در main افزوده شد. دسترسی گزارش و ثبت درخواست فقط برای عضویت فعال owner/finance در شرکت فعال مجاز است؛ درخواست‌ها draft می‌مانند و فعال‌سازی همچنان با مدیریت است. تست‌ها طبق درخواست کاربر به مرحله بعد موکول شده‌اند."
   },
   "languages": [
     {
@@ -5932,19 +5932,20 @@
       "runtime_mysql_and_browser": "not_verified",
       "dashboard": {
         "status": "implemented_in_source_tests_deferred",
-        "commit": "c96f5f23acb131a8b9d0b19712e46478fb2e71ce",
+        "commit": "7f6ffed0614ed0cdf2d06114c8929b3aa1bd1596",
         "completed": [
           "افزودن پنل گزارش تبلیغ‌دهنده در مسیر اختصاصی هر شرکت.",
           "دسترسی فقط برای عضویت فعال شرکت با نقش owner یا finance و شرکت فعال.",
           "محدودسازی تمام فهرست‌ها، آمارها و خروجی CSV با company_id؛ کمپین‌های بدون شرکت در گزارش شرکت‌ها نمایش داده نمی‌شوند.",
           "فیلتر بازه تاریخ، صفحه‌بندی کمپین‌ها و آمار impression/click/CTR.",
-          "افزودن پیوند پنل به داشبورد شرکت و ترجمه مستقل en/fa-AF/ps."
+          "افزودن پیوند پنل به داشبورد شرکت و ترجمه مستقل en/fa-AF/ps.",
+          "نماینده مجاز شرکت می‌تواند درخواست کمپین مستقیم را با تصویر/متن، جایگاه، URL و بازه زمانی ثبت کند؛ کمپین با وضعیت draft ساخته می‌شود و فعال‌سازی فقط در اختیار مدیریت باقی می‌ماند."
         ],
-        "tests": "به درخواست کاربر فعلاً اجرا نمی‌شود و به مرحله بعد موکول شده است.",
+        "tests": "طبق درخواست کاربر فعلاً اجرا نمی‌شود و به مرحله QA بعدی موکول شده است.",
         "runtime_mysql_and_browser": "not_verified"
       }
     },
-    "latest_main_commit": "c96f5f23acb131a8b9d0b19712e46478fb2e71ce",
+    "latest_main_commit": "7f6ffed0614ed0cdf2d06114c8929b3aa1bd1596",
     "remaining": [
       "تکمیل مدیریت/درخواست کمپین توسط نمایندگان مجاز شرکت در صورت نیاز محصولی.",
       "تکمیل تست‌های جداسازی داده بین شرکت‌ها، نقش‌ها و CSV در مرحله QA بعدی."
