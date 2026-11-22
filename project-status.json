@@ -5956,7 +5956,17 @@
       "شناسه WordPress باید از طریق فرم مدیریت اثر یا فرایند کنترل‌شده به رکورد AMDB متصل شود؛ تطبیق خودکار بر اساس نام انجام نمی‌شود.",
       "ساختار واقعی export وردپرس برای adapter مستقیم cast/crew هنوز دریافت نشده است.",
       "آخرین اجرای CI برای head فعلی در صف اجراست؛ تا دریافت نتیجه موفق، PR ادغام نمی‌شود."
-    ]
+    ],
+    "ci": {
+      "run_id": 44994561051,
+      "status": "success"
+    },
+    "branch_sync": {
+      "status": "behind_main_by_1",
+      "ahead_by": 17,
+      "behind_by": 1,
+      "needs_sync_before_merge": true
+    }
   },
   "wordpress_live_site_audit": {
     "date": "2026-11-22",
@@ -6014,7 +6024,7 @@
         "normalized profession_groups and profession_group_translations",
         "nullable professions.profession_group_id foreign key and active lookup index",
         "conservative mapping of known profession slugs; unknown professions remain unassigned",
-        "multilingual seeding for 40 canonical film professions in en, fa-AF and ps",
+        "multilingual seeding for 42 canonical film professions in en, fa-AF and ps",
         "admin CRUD for profession groups and professions",
         "stable slugs protected after professions or catalog relationships use them",
         "public artist directory filters by group and profession",
@@ -6030,18 +6040,26 @@
         "group translations seeded after language rows exist"
       ],
       "review_notes": [
-        "PR #124 remains draft and unmerged",
-        "latest CI run #298: Vite production build passed",
-        "latest CI run #298: SQLite feature and unit tests passed",
-        "latest CI run #298: MySQL job is still installing PHP dependencies; MySQL migration and PHPUnit results are pending",
-        "no local Laragon/MySQL/browser runtime test was performed"
+        "PR #124 remains draft and unmerged; Vite production build, Laravel tests on SQLite, and Laravel tests on MySQL 8.4 all passed in CI run 44996649910.",
+        "ProfessionSeeder contains exactly 42 canonical profession rows across 10 directory groups; the previous report count of 40 was incorrect.",
+        "PR #123 is open, non-draft, and its CI run 44994561051 passed; its branch is 17 commits ahead and 1 commit behind current main, so it needs a fresh mergeability/CI check after synchronization before merge.",
+        "No local Laragon/MySQL/browser runtime test has been performed; this is the remaining required validation before production."
       ],
       "next_steps": [
-        "wait for MySQL and SQLite Laravel CI jobs; resolve any failures before marking PR ready",
-        "add regression tests for admin profession/group CRUD and locale fallback",
-        "review artist profile display and profession-request workflow against grouped taxonomy",
-        "continue domain audit for titles, series/episodes, genres, countries/languages, companies/rights, festivals/awards and news"
-      ]
+        "Review and safely integrate PR #123 and PR #124 in dependency order, ensuring both branches are based on current main and CI remains green.",
+        "On the user's Windows/Laragon environment, back up the database and files before pulling; inspect migrate:status, run additive migrations and seeders, then execute the consolidated local test checklist.",
+        "Verify admin profession/group CRUD permissions, locale fallback and artist directory filters in browser.",
+        "Continue domain audit for titles, series/episodes, genres, countries/languages, companies/rights, festivals/awards and news after local acceptance."
+      ],
+      "implementation_count": 42,
+      "ci": {
+        "run_id": 44996649910,
+        "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44996649910",
+        "status": "success",
+        "vite": "success",
+        "sqlite": "success",
+        "mysql_8_4": "success"
+      }
     }
   }
 }
