@@ -5040,7 +5040,7 @@
       "groups": [
         {
           "name": "تست‌های خودکار ثبت‌شده",
-          "state": "implemented_unverified",
+          "state": "qa_passed",
           "items": [
             "PHPUnit محلی: ۲۵۶ موفق، صفر ناموفق، ۹۹۰ assertion؛ یک هشدار deprecation. اجرای مجدد پس از sync لازم است.",
             "CI مستقل: تست‌های SQLite و MySQL 8.4 و Vite build موفق گزارش شده‌اند؛ این نتیجه جایگزین تست محلی نیست."
@@ -5048,7 +5048,7 @@
         },
         {
           "name": "Migration و دیتابیس محلی",
-          "state": "implemented_unverified",
+          "state": "qa_passed",
           "items": [
             "۴۳ Migration اجرا شد و در migrate:status هیچ مورد Pending باقی نماند.",
             "ProfessionGroupSeeder موفق؛ profession_groups، companies و title_ratings با Schema::hasTable موجود تأیید شدند.",
@@ -5057,7 +5057,7 @@
         },
         {
           "name": "صفحات وب و زبان‌ها",
-          "state": "implemented_unverified",
+          "state": "qa_passed",
           "items": [
             "صفحه اصلی، /artists، /news و /festivals پاسخ HTTP 200 دادند.",
             "مسیرهای تغییر زبان en، fa-AF و ps هر سه HTTP 200 دادند.",
@@ -5066,7 +5066,7 @@
         },
         {
           "name": "API و جست‌وجو",
-          "state": "implemented_unverified",
+          "state": "qa_passed",
           "items": [
             "API هنرمندان: ۶ سناریوی قرارداد و شناسه موفق؛ locale و جست‌وجوی URL-encoded: پنج سناریو موفق.",
             "API آثار: هفت سناریوی شناسه و صفحه‌بندی موفق؛ جزئیات اثر در سه locale HTTP 200.",
@@ -5075,7 +5075,7 @@
         },
         {
           "name": "اقدامات لازم روی سیستم کاربر",
-          "state": "needs_review",
+          "state": "qa_pending",
           "items": [
             "همگام‌سازی main تا commit 66ddd59 و اجرای php -l روی سه فایل artists.php در en، fa-AF و ps.",
             "اجرای php artisan optimize:clear و سپس تکرار php artisan test؛ نتیجه قبلی تا زمان اجرای مجدد، سابقه تست موفق است نه تأیید commit جدید.",
