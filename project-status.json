@@ -1946,8 +1946,8 @@
     }
   },
   "current_work": {
-    "stage": "تکمیل جایگاه‌های عمومی تبلیغات",
-    "status": "advertising_public_placements_merged_pr121_ci_passed",
+    "stage": "افزودن تست یکپارچه MySQL به CI",
+    "status": "mysql84_ci_pr122_in_progress",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -2357,11 +2357,11 @@
     "new_migrations_not_executed": [
       "2026_11_20_235900_create_activity_log_table"
     ],
-    "latest_pr": 121,
-    "latest_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/121",
+    "latest_pr": 122,
+    "latest_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/122",
     "latest_source_base_commit": "6ab9ba3308493962ca794e005c7cc0a82b960821",
-    "latest_branch_commit": "d9a7cf395b24a09188b7175c0ab718567cf48993",
-    "note": "PR121 با موفقیت ادغام شد. جایگاه‌های header/footer، homepage hero، title detail، artist profile و news detail اضافه شدند؛ home feed و catalog هم حفظ شدند. CI موفق: ۲۵۴ تست و ۹۸۳ assertion. MySQL staging و پذیرش مرورگر/موبایل هنوز انجام نشده.",
+    "latest_branch_commit": "9a5b7d9ce330eea5e448cd1b141e34252ec3e176",
+    "note": "یک job جداگانه برای MySQL 8.4 و PHP 8.5 به CI اضافه شده تا migration تمیز و کل تست‌ها روی موتور دیتابیس هدف اجرا شوند؛ SQLite و Vite نیز حفظ شده‌اند. CI run 44990413060 در حال اجراست.",
     "latest_main_commit": "d3ce1d53b324d582a742a25870fe5686910dd9cc"
   },
   "application_audit": {
@@ -4383,7 +4383,12 @@
       "main_push_ci": "not_reported_by_commit_workflow_query",
       "note": "PR117 با CI موفق ادغام شد؛ اجرای CI روی push شاخه main جداگانه در این گزارش تأیید نشده است. MySQL staging و browser/mobile acceptance هنوز انجام نشده‌اند.",
       "mysql_staging": "pending",
-      "browser_mobile_acceptance": "pending"
+      "browser_mobile_acceptance": "pending",
+      "mysql_ci_pr": 122,
+      "mysql_ci_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/122",
+      "mysql_ci_status": "in_progress",
+      "mysql_ci_run_id": 44990413060,
+      "mysql_ci_run_number": 281
     },
     "note": "آخرین commit شاخه main برابر c9b1bf77cd469817c04c7309c06e2e0b80b56635 پس از ادغام PR113 است. موجودی فایل‌های سورس در source_inventory همچنان snapshot قدیمی commit eb12658 است و در این به‌روزرسانی بازشماری نشده؛ آمار runtime دیتابیس و MySQL تأیید نشده‌اند.",
     "panels": [
