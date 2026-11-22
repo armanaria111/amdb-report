@@ -936,3 +936,8 @@
 - Added a nullable profession-group relation to existing professions and a conservative backfill by known stable profession slugs only; unknown values remain unassigned for manual review.
 - Added English, Dari and Pashto labels and admin screens. Existing artist, title, credit, user and public identifier data are not rewritten.
 - GitHub Actions Vite production build passed. MySQL and SQLite Laravel test jobs were still running at the time of this update; no local Laragon runtime verification was performed.
+
+## 2026-11-22 — Artist taxonomy implementation update
+- Expanded the profession seed catalog to 40 film-industry disciplines with English, Dari and Pashto labels; seeders now preserve administrator-edited translations, custom group assignments and inactive status on reruns.
+- Added protection against changing referenced profession/group slugs and deactivating a group while it still contains active professions.
+- Updated source tracking to the latest PR #124 head. Latest CI run #298 reports a successful Vite production build; Laravel MySQL and SQLite jobs were queued at the time of this update.
