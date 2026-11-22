@@ -2368,7 +2368,7 @@
     "latest_main_commit": "0881fa1d4bc0f380d7a69d543c88f03edae8adea",
     "latest_pull_request": 123,
     "branch": "feature/wordpress-title-credit-mapping",
-    "next": "بررسی نتیجه CI و بازبینی PR123؛ سپس دریافت export واقعی WordPress و تکمیل adapter مستقیم عوامل/کریدیت‌ها بدون حدس درباره schema منبع."
+    "next": "انتظار برای CI آخرین head در PR123؛ سپس بازبینی نتیجه و تکمیل adapter مستقیم WordPress cast/crew بر اساس export واقعی و schema تأییدشده."
   },
   "application_audit": {
     "audit_date": "2026-11-18",
@@ -5943,18 +5943,19 @@
     "pull_request": 123,
     "url": "https://github.com/armanaria111/amdb-laravel2/pull/123",
     "branch": "feature/wordpress-title-credit-mapping",
-    "head_commit": "61b4e1086c016376dbcd27ffdb3f28f8bb2a54f5",
+    "head_commit": "cb436e6bfd170baaa06c49959a82f105e1280ce4",
     "changes": [
       "افزودن ستون nullable و unique با نام titles.wordpress_id از طریق Migration افزایشی؛ داده‌های موجود تغییر نمی‌کنند.",
       "افزودن نگاشت شناسه WordPress اثر به مدل Title بدون تغییر شناسه عمومی am.",
       "پشتیبانی واردساز عوامل از title_public_id یا title_wordpress_id؛ اگر هر دو ارائه شوند باید به یک اثر اشاره کنند.",
       "بررسی دوباره تطبیق شناسه‌ها زیر قفل ردیف در زمان ثبت نهایی.",
-      "حفظ سازگاری CSVهای قبلی که title_public_id دارند و به‌روزرسانی راهنمای سه‌زبانه."
+      "حفظ سازگاری CSVهای قبلی که title_public_id دارند و به‌روزرسانی راهنمای سه‌زبانه.",
+      "افزودن فیلد مدیریت شناسه WordPress در فرم ایجاد/ویرایش اثر با اعتبارسنجی یکتایی و امکان جست‌وجوی آثار بر اساس این شناسه."
     ],
     "constraints": [
-      "شناسه WordPress باید از قبل به رکورد AMDB نگاشت شده باشد؛ تطبیق خودکار بر اساس نام انجام نمی‌شود.",
+      "شناسه WordPress باید از طریق فرم مدیریت اثر یا فرایند کنترل‌شده به رکورد AMDB متصل شود؛ تطبیق خودکار بر اساس نام انجام نمی‌شود.",
       "ساختار واقعی export وردپرس برای adapter مستقیم cast/crew هنوز دریافت نشده است.",
-      "CI در حال اجراست؛ تا دریافت نتیجه موفق، PR ادغام نمی‌شود."
+      "آخرین اجرای CI برای head فعلی در صف اجراست؛ تا دریافت نتیجه موفق، PR ادغام نمی‌شود."
     ]
   }
 }
