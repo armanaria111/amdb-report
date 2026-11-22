@@ -4383,7 +4383,8 @@
         "هفت فایل CSS مربوط به Font Awesome نیز در بررسی محلی HTTP 200 برگرداندند؛ نشانگر AMDB و تگ‌های بسته‌شدن header/footer در HTML موجود بودند و کاربر رفع مشکل ظاهری هدر و فوتر را پس از refresh تأیید کرد.",
         "Vite production build موفق شد اما 661 ثانیه طول کشید؛ plugin laravel:fonts و نبود پکیج اختیاری fontaine هشدار دادند. بهینه‌سازی زمان build هنوز باز است.",
         "این نوبت هنوز اجرای محلی php artisan test، بررسی همه مسیرها، تست تعاملی مرورگر و QA موبایل را شامل نمی‌شود.",
-        "در 2026-11-22، APIهای /api/v1/artists و /api/v1/festivals در محیط محلی هر دو HTTP 200 و Content-Type: application/json دادند؛ JSON معتبر با کلیدهای data و meta بود. artists یک رکورد با شناسه ar0000001 و festivals صفر رکورد برگرداندند؛ meta صفحه‌بندی در هر دو موجود بود. این فقط اعتبارسنجی ساختار سطح اول پاسخ است."
+        "در 2026-11-22، APIهای /api/v1/artists و /api/v1/festivals در محیط محلی هر دو HTTP 200 و Content-Type: application/json دادند؛ JSON معتبر با کلیدهای data و meta بود. artists یک رکورد با شناسه ar0000001 و festivals صفر رکورد برگرداندند؛ meta صفحه‌بندی در هر دو موجود بود. این فقط اعتبارسنجی ساختار سطح اول پاسخ است.",
+        "در 2026-11-22، شش تست قرارداد API هنرمندان در محیط محلی همگی مطابق انتظار بودند: per_page=1 پاسخ 200؛ مقادیر 51، 0 و abc پاسخ 422؛ شناسه معتبر ar0000001 پاسخ 200 و شناسه بدقالب ar1 پاسخ 404 داد. این تست محدود است و جایگزین پوشش کامل API نیست."
       ],
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
@@ -4516,6 +4517,52 @@
         },
         "result": "success",
         "scope_note": "HTTP status، Content-Type، parse شدن JSON و ساختار سطح اول پاسخ بررسی شد؛ صحت همه فیلدها، فیلترها، pagination edge cases و مجوزهای API هنوز تست نشده‌اند."
+      },
+      "local_api_contract_smoke": {
+        "checked_at": "2026-11-22",
+        "base_url": "http://127.0.0.1:8000",
+        "tests": [
+          {
+            "case": "GET /api/v1/artists?per_page=1",
+            "expected": 200,
+            "actual": 200,
+            "result": "passed"
+          },
+          {
+            "case": "GET /api/v1/artists?per_page=51",
+            "expected": 422,
+            "actual": 422,
+            "result": "passed"
+          },
+          {
+            "case": "GET /api/v1/artists?per_page=0",
+            "expected": 422,
+            "actual": 422,
+            "result": "passed"
+          },
+          {
+            "case": "GET /api/v1/artists?per_page=abc",
+            "expected": 422,
+            "actual": 422,
+            "result": "passed"
+          },
+          {
+            "case": "GET /api/v1/artists/ar0000001",
+            "expected": 200,
+            "actual": 200,
+            "result": "passed"
+          },
+          {
+            "case": "GET /api/v1/artists/ar1",
+            "expected": 404,
+            "actual": 404,
+            "result": "passed"
+          }
+        ],
+        "passed": 6,
+        "failed": 0,
+        "result": "success",
+        "scope_note": "این بررسی محدود به صفحه‌بندی و قالب شناسه عمومی هنرمند است؛ فیلتر q، زبان‌های API، endpoint جزئیات سایر منابع و کنترل دسترسی هنوز جداگانه آزموده نشده‌اند."
       }
     },
     "release": {
