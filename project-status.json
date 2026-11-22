@@ -17,7 +17,7 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "c9b1bf77cd469817c04c7309c06e2e0b80b56635",
+    "source_commit_audited": "0881fa1d4bc0f380d7a69d543c88f03edae8adea",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "latest_main_commit": "0881fa1d4bc0f380d7a69d543c88f03edae8adea",
     "latest_main_commit_verified_on": "2026-11-22"
@@ -1388,7 +1388,7 @@
         "عوامل، تیتراژ و workflow پیشنهاد/تأیید",
         "شرکت‌های تولید، توزیع و نقش‌های شرکتی",
         "گالری آثار و تصاویر ثابت قسمت‌ها",
-        "واردسازی CSV عوامل با preview و کنترل تکرار"
+        "واردسازی CSV عوامل با preview و کنترل تکرار؛ نگاشت شناسه WordPress اثر در PR123 در انتظار CI است."
       ]
     },
     {
@@ -1949,8 +1949,8 @@
     }
   },
   "current_work": {
-    "stage": "اعتبارسنجی MySQL و CI",
-    "status": "mysql84_ci_merged_pr122_both_database_suites_passed",
+    "stage": "WordPress title/credit source mapping",
+    "status": "pr123_open_ci_pending",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -2350,7 +2350,7 @@
       "tests_added": "tests/Feature/AdminCountryAndContentTypeManagementTest.php",
       "tests": "پنج تست Feature برای کد کشور و ترجمه، محافظت از وابستگی‌ها، ترجمه نوع محتوا، ثابت ماندن شناسه‌های movie/series، وابستگی آثار soft-deleted و نمایش ترجمه در صفحه عمومی؛ هنوز اجرا نشده است."
     },
-    "pull_request": 68,
+    "pull_request": "https://github.com/armanaria111/amdb-laravel2/pull/123",
     "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/68",
     "source_migrations_not_run": [
       "2026_11_20_160000_create_title_media_tables.php",
@@ -2365,7 +2365,10 @@
     "latest_source_base_commit": "6ab9ba3308493962ca794e005c7cc0a82b960821",
     "latest_branch_commit": "bd7bd223d6b608f2e1fa8d8635b4586859d5b0b9",
     "note": "PR122 ادغام شد. CI run 44990772045 موفق: migration تمیز MySQL 8.4، سپس ۲۵۴ تست و ۹۸۳ assertion روی MySQL؛ همچنین ۲۵۴ تست و ۹۸۳ assertion روی SQLite. Vite build و Blade compile/lint موفق. تست محیط واقعی MySQL کاربر و مرورگر/موبایل همچنان جداگانه نیاز است.",
-    "latest_main_commit": "0881fa1d4bc0f380d7a69d543c88f03edae8adea"
+    "latest_main_commit": "0881fa1d4bc0f380d7a69d543c88f03edae8adea",
+    "latest_pull_request": 123,
+    "branch": "feature/wordpress-title-credit-mapping",
+    "next": "بررسی نتیجه CI و بازبینی PR123؛ سپس دریافت export واقعی WordPress و تکمیل adapter مستقیم عوامل/کریدیت‌ها بدون حدس درباره schema منبع."
   },
   "application_audit": {
     "audit_date": "2026-11-18",
@@ -3024,6 +3027,7 @@
     ]
   },
   "current_open_items": [
+    "PR123: نگاشت شناسه WordPress آثار برای واردسازی عوامل در حال بازبینی CI است؛ پس از تأیید CI و ادغام، export واقعی WordPress برای adapter مستقیم cast/crew لازم است.",
     "اجرای برنامه QA نهایی: PHPUnit، npm build، بررسی مرورگری و smoke test؛ طبق درخواست کاربر فعلاً اجرا نشده‌اند.",
     "بررسی همه Migrationهای جدید در محیط هدف، تهیه backup و تطبیق migrate:status قبل از اجرای هر Migration؛ هیچ عملیات مخرب انجام نشود.",
     "تأیید تحویل ایمیل فرم تماس با تنظیمات SMTP در محیط استقرار.",
@@ -5931,6 +5935,26 @@
       "پیاده‌سازی adapter واقعی و اجرای sandbox",
       "refund، chargeback، reconciliation و key rotation",
       "آزمون MySQL/staging و browser/mobile acceptance"
+    ]
+  },
+  "wordpress_title_credit_mapping": {
+    "date": "2026-11-22",
+    "status": "pull_request_open_awaiting_ci",
+    "pull_request": 123,
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/123",
+    "branch": "feature/wordpress-title-credit-mapping",
+    "head_commit": "61b4e1086c016376dbcd27ffdb3f28f8bb2a54f5",
+    "changes": [
+      "افزودن ستون nullable و unique با نام titles.wordpress_id از طریق Migration افزایشی؛ داده‌های موجود تغییر نمی‌کنند.",
+      "افزودن نگاشت شناسه WordPress اثر به مدل Title بدون تغییر شناسه عمومی am.",
+      "پشتیبانی واردساز عوامل از title_public_id یا title_wordpress_id؛ اگر هر دو ارائه شوند باید به یک اثر اشاره کنند.",
+      "بررسی دوباره تطبیق شناسه‌ها زیر قفل ردیف در زمان ثبت نهایی.",
+      "حفظ سازگاری CSVهای قبلی که title_public_id دارند و به‌روزرسانی راهنمای سه‌زبانه."
+    ],
+    "constraints": [
+      "شناسه WordPress باید از قبل به رکورد AMDB نگاشت شده باشد؛ تطبیق خودکار بر اساس نام انجام نمی‌شود.",
+      "ساختار واقعی export وردپرس برای adapter مستقیم cast/crew هنوز دریافت نشده است.",
+      "CI در حال اجراست؛ تا دریافت نتیجه موفق، PR ادغام نمی‌شود."
     ]
   }
 }
