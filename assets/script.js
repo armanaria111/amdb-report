@@ -1,12 +1,12 @@
 const DATA_URL="./project-status.json";
 const labels={
- implemented_unverified:"پیاده‌سازی‌شده در سورس · تست‌نشده",
+ implemented_unverified:"تست/بررسی ثبت‌شده · دامنه محدود",
  reported_done:"گزارش‌شده · نیازمند تطبیق",
  reported_audit:"ممیزی‌شده",
  partial:"نیمه‌کامل",
  in_progress:"در حال انجام",
  incomplete:"ناقص",
- needs_review:"نیازمند بازبینی",
+ needs_review:"نیازمند اجرای مجدد / بررسی",
  planned:"برنامه‌ریزی‌شده",
  blocked:"مسدود"
 };
@@ -45,6 +45,9 @@ function render(d){
  $("#securityNote").textContent=(sec.note||"")+" آخرین ممیزی ایستا: "+(sec.last_static_audit||"—")+" · commit: "+(sec.audited_commit||"—");
  $("#securityItems").innerHTML=(sec.remaining_items||[]).map((x,i)=>row({title:"پیگیری امنیتی "+(i+1),detail:x,state:"needs_review"})).join("");
  const q=cur.quality||{};
+ const qa=cur.qa_test_matrix||{};
+ const qaHost=$("#qaTestMatrix");
+ if(qaHost) qaHost.innerHTML=(qa.groups||[]).map(g=>'<article class="feature-card"><div class="feature-top"><h3>'+esc(g.name)+'</h3>'+status(g.state)+'</div><ul>'+(g.items||[]).map(item=>'<li>'+esc(item)+'</li>').join(""))+'</ul></article>').join("");
  const gates=[["فایل تست PHP موجود",q.tests_in_repository??"—"],["اجرای PHPUnit",q.tests_executed?"اجرا شده":"اجرا نشده"],["نتیجه تست",q.test_result||"ثبت نشده"],["Build فرانت‌اند",q.vite_build_executed?"اجرا شده":"اجرا نشده"],["بررسی مرورگر",q.browser_verified?"تأیید شده":"تأیید نشده"],["Smoke test عملیاتی",q.production_smoke_test?"اجرا شده":"اجرا نشده"],["اجرای Migration در این ممیزی",q.migrations_executed_in_this_audit?"اجرا شده":"اجرا نشده"]];
  $("#qualityStatus").textContent="QA نهایی تأیید نشده";
  $("#qualityGates").innerHTML=gates.map(x=>'<div class="mini-tile"><b>'+esc(x[0])+'</b><span>'+esc(x[1])+'</span></div>').join("");
