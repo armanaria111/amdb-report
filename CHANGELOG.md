@@ -830,3 +830,6 @@
 - هیچ Migration روی MySQL محلی یا staging اجرا نشده؛ provider واقعی، نمایش عمومی، tracking و تسویه مالی هنوز غیرفعال/پیاده‌سازی‌نشده‌اند.
 
 - وضعیت CI برای PR114 به‌روزرسانی شد: run شماره 44987101358 در حال اجراست؛ Vite production build، کامپایل Blade و lint فایل‌های Blade موفق شده‌اند؛ PHPUnit هنوز در حال اجراست. جزئیات: https://github.com/armanaria111/amdb-laravel2/actions/runs/44987101358
+
+- CI اولیه PR114 (run 44987101358) پنج تست تبلیغات را به علت نبودن مسیرهای نام‌گذاری‌شده `admin.advertising.*` شکست داد؛ Vite build و Blade compile/lint موفق بودند و ۲۳۳ تست دیگر پاس شدند. علت بررسی و در `routes/web.php` اصلاح شد؛ commit اصلاحی `78ff50652a94e79a9304fd8abd5fa13c2923d21f` روی شاخه PR قرار گرفت.
+- CI مجدد run 44987186393 برای commit اصلاحی شروع شده و هنوز نتیجه نهایی ندارد. PR تا دریافت نتیجه موفق ادغام نمی‌شود.
