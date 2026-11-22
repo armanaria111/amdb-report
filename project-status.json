@@ -4306,7 +4306,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "feature/standard-artist-profession-taxonomy",
-    "source_commit": "9d10d0ed5c752e85dea411cd1e3c931527a09ea6",
+    "source_commit": "cd6e26936972f5255beb8059e181ea2f9071f982",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-21",
@@ -4412,7 +4412,7 @@
       "mysql_tests": 254,
       "mysql_assertions": 983
     },
-    "note": "PR #124 adds the first implementation slice for normalized profession groups, profession management and artist directory filters. Vite build passed; MySQL and SQLite test jobs were running at the last check. PR remains draft/unmerged and no local runtime migration was executed.",
+    "note": "Draft PR #124 implements the first artist-taxonomy slice. The latest CI run (#298) has a successful Vite production build; MySQL and SQLite test jobs are queued at the latest check. No local Laragon runtime verification or production migration has been performed.",
     "panels": [
       {
         "id": "admin",
@@ -5982,7 +5982,7 @@
   "architecture_standards": {
     "catalog_domain": {
       "status": "implementation_in_review",
-      "source_repository_commit": "9d10d0ed5c752e85dea411cd1e3c931527a09ea6",
+      "source_repository_commit": "cd6e26936972f5255beb8059e181ea2f9071f982",
       "document": "docs/catalog-domain-standards.md",
       "principles": [
         "legacy WordPress is data source only, not product or taxonomy specification",
@@ -6009,33 +6009,37 @@
       "implementation_rule": "Standards are documented; this commit does not change runtime schema or migrate user data. Next: full inventory and gap matrix, then additive implementation.",
       "implementation_pull_request": "https://github.com/armanaria111/amdb-laravel2/pull/124",
       "implementation_branch": "feature/standard-artist-profession-taxonomy",
-      "implementation_head": "9d10d0ed5c752e85dea411cd1e3c931527a09ea6",
+      "implementation_head": "cd6e26936972f5255beb8059e181ea2f9071f982",
       "implemented_in_pr": [
-        "profession_groups and profession_group_translations normalized tables",
+        "normalized profession_groups and profession_group_translations",
         "nullable professions.profession_group_id foreign key and active lookup index",
-        "known existing profession slugs mapped to groups; unknown professions left unassigned",
-        "profession group and profession admin CRUD with en/fa-AF/ps labels",
-        "public artist directory filters by profession group and profession",
+        "conservative mapping of known profession slugs; unknown professions remain unassigned",
+        "multilingual seeding for 40 canonical film professions in en, fa-AF and ps",
+        "admin CRUD for profession groups and professions",
+        "stable slugs protected after professions or catalog relationships use them",
+        "public artist directory filters by group and profession",
         "artist directory search includes profession and profession-group translated names",
-        "feature tests for group and profession filters"
+        "feature tests for profession group and profession filters"
       ],
       "safeguards": [
-        "additive schema migration; no artist, title, credit, user or AMDB public identifiers rewritten",
+        "additive schema migration; no artist, title, credit, user or public ID records deleted or rewritten",
+        "profession and group seeders preserve admin changes and existing inactive states",
         "group deletion blocked while professions remain assigned",
-        "profession records are deactivated through status rather than hard-deleted",
-        "taxonomy translation seeder runs after language seeder"
+        "group deactivation blocked while active professions remain",
+        "profession records are deactivated rather than hard-deleted",
+        "group translations seeded after language rows exist"
       ],
       "review_notes": [
-        "PR is draft and not merged",
-        "Vite production build passed in GitHub Actions",
-        "MySQL and SQLite Laravel test jobs were still running at report update time",
-        "local Laragon/MySQL/browser runtime was not tested"
+        "PR #124 remains draft and unmerged",
+        "latest CI run #298: Vite production build passed",
+        "latest CI run #298: MySQL and SQLite test jobs queued at last check",
+        "no local Laragon/MySQL/browser runtime test was performed"
       ],
       "next_steps": [
-        "wait for both Laravel CI jobs; fix failures before marking ready",
-        "add regression coverage for admin profession/group CRUD and locale fallback",
-        "review whether current artist directory and artist profile UI consistently distinguish professions from per-title credits",
-        "continue domain audit for titles/series/episodes, genres, countries/languages, companies/rights, festivals/awards and news taxonomy"
+        "wait for MySQL and SQLite Laravel CI jobs; resolve any failures before marking PR ready",
+        "add regression tests for admin profession/group CRUD and locale fallback",
+        "review artist profile display and profession-request workflow against grouped taxonomy",
+        "continue domain audit for titles, series/episodes, genres, countries/languages, companies/rights, festivals/awards and news"
       ]
     }
   }
