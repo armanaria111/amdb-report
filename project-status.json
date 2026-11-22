@@ -17,11 +17,11 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "d9d58ce35cf753fb3684d2819b80cfc2ea690925",
+    "source_commit_audited": "189beec8ba2c56efbc7891ad20656e7a016eacc1",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "d9d58ce35cf753fb3684d2819b80cfc2ea690925",
+    "latest_main_commit": "189beec8ba2c56efbc7891ad20656e7a016eacc1",
     "latest_main_commit_verified_on": "2026-11-22",
-    "advertising_note": "پنل گزارش تبلیغ‌دهنده و گردش ارسال درخواست کمپین از پنل شرکت در main افزوده شد. دسترسی گزارش و ثبت درخواست فقط برای عضویت فعال owner/finance در شرکت فعال مجاز است؛ درخواست‌ها draft می‌مانند و فعال‌سازی همچنان با مدیریت است. تست‌ها طبق درخواست کاربر به مرحله بعد موکول شده‌اند. آخرین CI روی commit 7f6ffed با موفقیت کامل شد: ۲۶۱ تست و ۱۰۲۰ assertion در SQLite و همین تعداد در MySQL 8.4؛ build فرانت‌اند و Blade compile/lint نیز موفق بودند."
+    "advertising_note": "پنل تبلیغ‌دهنده و درخواست کمپین شرکت در main موجود است. CI آخرین تغییرات قبلی در 189beec بررسی و خطای انتخاب قرارداد درآمد بر اساس territory شناسایی و اصلاح شد؛ CI commit جدید هنوز در حال اجراست."
   },
   "languages": [
     {
@@ -6777,5 +6777,21 @@
         "mysql_8_4": "success"
       }
     }
+  },
+  "revenue_contract_territory_ci": {
+    "updated_at": "2026-11-22",
+    "source_commit": "189beec8ba2c56efbc7891ad20656e7a016eacc1",
+    "previous_failed_run": 45051498018,
+    "previous_failure": "Undefined variable $territory in RevenueLedgerService::contractFor; SQLite territory test also created duplicate (title_id, version) before updating the version.",
+    "fix": [
+      "Pass the normalized event territory into contractFor so territory filtering uses the event's territory.",
+      "Create the second territory contract with version 2 at insertion time, preserving the unique title/version constraint."
+    ],
+    "current_run": {
+      "id": 45053344196,
+      "status": "in_progress",
+      "conclusion": null
+    },
+    "validation_note": "No passing result is claimed until the latest run completes. Local Laragon/MySQL and browser acceptance remain unverified."
   }
 }
