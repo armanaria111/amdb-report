@@ -6907,13 +6907,17 @@
     ],
     "validation": {
       "run_id": 45084864740,
-      "status": "in_progress",
+      "status": "sqlite_success_mysql_pending",
       "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45084864740",
       "tested_commit": "a81446566a1c11316ed6bf49d2a7d1d6bd6eb009",
       "latest_test_commit": "a81446566a1c11316ed6bf49d2a7d1d6bd6eb009",
       "local_laragon": "not_run",
       "browser_mobile": "not_run",
-      "note": "CI دقیقاً روی آخرین commit اجرا شده است؛ Vite build موفق شده و jobهای SQLite/MySQL در حال اجرا هستند."
+      "note": "Vite build، Blade compile/lint و PHPUnit روی SQLite موفق شده‌اند؛ job مربوط به MySQL 8.4 هنوز در صف/مرحله آماده‌سازی است.",
+      "sqlite_tests": "success",
+      "vite_build": "success",
+      "blade_compile_and_lint": "success",
+      "mysql_tests": "pending"
     },
     "limitations": [
       "اتصال مستقیم API و پرداخت Google Ads/AdSense یا شبکه تبلیغاتی ایران پیاده‌سازی نشده؛ فعلاً گزارش/رسید درآمد به‌صورت دستی ثبت و سپس تأیید می‌شود.",
