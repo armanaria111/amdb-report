@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "c9b1bf77cd469817c04c7309c06e2e0b80b56635",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "70d0a388e91d451196b579d3f66c015f537f4681",
+    "latest_main_commit": "d3ce1d53b324d582a742a25870fe5686910dd9cc",
     "latest_main_commit_verified_on": "2026-11-22"
   },
   "languages": [
@@ -625,7 +625,10 @@
       "PR120 نگهداری رویدادهای تبلیغات و توضیحات حریم خصوصی با commit 70d0a388e91d451196b579d3f66c015f537f4681 به main ادغام شد.",
       "فرمان amdb:prune-advertising-events با retention پیش‌فرض ۹۰ روز، --dry-run و محدوده امن ۱ تا ۳۶۵۰ روز اضافه شد؛ شمارنده‌های تجمیعی کمپین حفظ می‌شوند.",
       "سیاست حریم خصوصی en/fa-AF/ps درباره توکن، نوع رویداد، زمان نگهداری و تفکیک لاگ‌های میزبانی تکمیل شد.",
-      "CI run 44990001759 موفق: ۲۵۲ تست و ۹۷۸ assertion؛ Vite build و Blade compile/lint موفق."
+      "CI run 44990001759 موفق: ۲۵۲ تست و ۹۷۸ assertion؛ Vite build و Blade compile/lint موفق.",
+      "PR121 جایگاه‌های عمومی تبلیغات با commit d3ce1d53b324d582a742a25870fe5686910dd9cc به main ادغام شد.",
+      "تمام جایگاه‌های تعریف‌شده تبلیغات عمومی (header، footer، home_hero، home_feed، catalog_list، title_detail، artist_profile و news_detail) به صفحات مربوط متصل شدند؛ صفحه‌های مدیریت از نمایش تبلیغ مستثنا هستند.",
+      "CI run 44990252885 موفق: ۲۵۴ تست و ۹۸۳ assertion؛ Vite build و Blade compile/lint موفق."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1943,8 +1946,8 @@
     }
   },
   "current_work": {
-    "stage": "حریم خصوصی و نگهداری داده‌های تبلیغات",
-    "status": "advertising_event_retention_merged_pr120_ci_passed",
+    "stage": "تکمیل جایگاه‌های عمومی تبلیغات",
+    "status": "advertising_public_placements_merged_pr121_ci_passed",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -2354,12 +2357,12 @@
     "new_migrations_not_executed": [
       "2026_11_20_235900_create_activity_log_table"
     ],
-    "latest_pr": 120,
-    "latest_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/120",
+    "latest_pr": 121,
+    "latest_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/121",
     "latest_source_base_commit": "6ab9ba3308493962ca794e005c7cc0a82b960821",
-    "latest_branch_commit": "badb36377db544e337286fdcc86808d6d38cc53b",
-    "note": "PR120 با موفقیت ادغام شد. CI run 44990001759 موفق: ۲۵۲ تست و ۹۷۸ assertion؛ Vite و Blade موفق. پاک‌سازی رویداد خام تبلیغات با نگهداری پیش‌فرض ۹۰ روز و متن حریم خصوصی سه‌زبانه اضافه شد. فعال‌سازی scheduler در سرور و تست MySQL/مرورگر هنوز انجام نشده.",
-    "latest_main_commit": "70d0a388e91d451196b579d3f66c015f537f4681"
+    "latest_branch_commit": "d9a7cf395b24a09188b7175c0ab718567cf48993",
+    "note": "PR121 با موفقیت ادغام شد. جایگاه‌های header/footer، homepage hero، title detail، artist profile و news detail اضافه شدند؛ home feed و catalog هم حفظ شدند. CI موفق: ۲۵۴ تست و ۹۸۳ assertion. MySQL staging و پذیرش مرورگر/موبایل هنوز انجام نشده.",
+    "latest_main_commit": "d3ce1d53b324d582a742a25870fe5686910dd9cc"
   },
   "application_audit": {
     "audit_date": "2026-11-18",
@@ -4296,7 +4299,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "70d0a388e91d451196b579d3f66c015f537f4681",
+    "source_commit": "d3ce1d53b324d582a742a25870fe5686910dd9cc",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-21",
@@ -4365,15 +4368,15 @@
       "pull_request_ci_conclusion": "success"
     },
     "release": {
-      "latest_merged_pr": 120,
-      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/120",
-      "latest_source_commit": "70d0a388e91d451196b579d3f66c015f537f4681",
+      "latest_merged_pr": 121,
+      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/121",
+      "latest_source_commit": "d3ce1d53b324d582a742a25870fe5686910dd9cc",
       "source_branch": "main",
       "verified_at": "2026-11-22",
-      "pr_ci_run": 44990001759,
+      "pr_ci_run": 44990252885,
       "pr_ci_conclusion": "success",
-      "pr_tests": 252,
-      "pr_assertions": 978,
+      "pr_tests": 254,
+      "pr_assertions": 983,
       "vite_build": "success",
       "blade_compile": "success",
       "blade_lint": "success",
@@ -5034,7 +5037,7 @@
       "url": "https://github.com/armanaria111/amdb-laravel2/pull/114",
       "branch": "feature/advertising-campaign-management",
       "head_commit": "087b44174e4195af383d44cf4658e735b5723658",
-      "status": "advertising_retention_privacy_disclosures_merged_runtime_unverified",
+      "status": "public_placements_complete_ci_passed_runtime_unverified",
       "completed": [
         "ماژول first-party تبلیغات به PluginCatalog افزوده شد و به‌صورت پیش‌فرض خاموش است؛ فعال‌سازی/غیرفعال‌سازی از مدیریت ماژول‌ها انجام می‌شود.",
         "Migration افزایشی advertising_campaigns برای نام کمپین، تبلیغ‌دهنده، برچسب provider، جایگاه، نوع/محتوای تبلیغ، مسیر تصویر، URL مقصد، زمان‌بندی، اولویت، سقف نمایش/کلیک، شمارنده‌ها و وضعیت اضافه شد.",
@@ -5060,8 +5063,8 @@
         "ماژول advertising پیش‌فرض خاموش است و تا تکمیل تحویل عمومی، نمایش تبلیغ روی صفحات سایت فعال نیست."
       ],
       "remaining": [
-        "اطمینان از فعال‌بودن Laravel Scheduler در سرور تولید؛ در غیر این صورت پاک‌سازی خودکار اجرا نمی‌شود.",
         "تست MySQL staging، backup/rollback و پذیرش مرورگر/موبایل.",
+        "اطمینان از فعال‌بودن Laravel Scheduler در سرور تولید برای پاک‌سازی ۹۰ روزه.",
         "بازبینی حقوقی نهایی متن حریم خصوصی و شرایط فروش کمپین‌ها.",
         "اتصال providerهای خارجی فقط پس از تصمیم تجاری، حساب معتبر و بررسی شرایط سرویس."
       ],
@@ -5189,6 +5192,27 @@
         "ci_conclusion": "success",
         "tests": 252,
         "assertions": 978
+      },
+      "placements": {
+        "status": "all_configured_public_placements_rendered",
+        "pr": 121,
+        "merge_commit": "d3ce1d53b324d582a742a25870fe5686910dd9cc",
+        "merged_on": "2026-11-22",
+        "enabled": [
+          "header",
+          "footer",
+          "home_hero",
+          "home_feed",
+          "catalog_list",
+          "title_detail",
+          "artist_profile",
+          "news_detail"
+        ],
+        "admin_pages_excluded": true,
+        "ci_run_id": 44990252885,
+        "ci_conclusion": "success",
+        "tests": 254,
+        "assertions": 983
       }
     }
   },
