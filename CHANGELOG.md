@@ -960,3 +960,11 @@
 - Added protection against changing referenced profession/group slugs and deactivating a group while it still contains active professions.
 - Updated source tracking to the latest PR #124 head. Latest CI run #298 reports a successful Vite production build; Laravel MySQL and SQLite jobs were queued at the time of this update.
 - CI follow-up for PR #124 (run #298): Vite production build passed and SQLite feature/unit tests passed; MySQL job remained in dependency installation at the last check.
+
+## 2026-11-22 — رفع اختلال بارگذاری فرانت‌اند در محیط محلی
+- فایل stale به نام `public/hot` حذف شد تا Laravel از فایل‌های production ساخته‌شده در `public/build` استفاده کند.
+- `npm run build` و `php artisan optimize:clear` با موفقیت اجرا شدند؛ CSS و JavaScript تولیدشده در بررسی HTTP محلی هر دو پاسخ 200 دادند.
+- صفحه اصلی `/` پاسخ HTTP 200 با زمان حدود 0.58 ثانیه داد؛ هفت فایل CSS مربوط به Font Awesome نیز HTTP 200 شدند.
+- وجود نشانگر AMDB و تگ‌های header/footer در HTML بررسی شد؛ کاربر پس از تازه‌سازی مرورگر، اصلاح نمایش هدر و فوتر را تأیید کرد.
+- build حدود ۱۱ دقیقه طول کشید؛ افزونه `laravel:fonts` نبود پکیج اختیاری `fontaine` را اعلام کرد. بهینه‌سازی زمان build باز است.
+- این بررسی، تأیید کامل مرورگر، تعامل JavaScript، همه صفحات یا موبایل نیست. اجرای محلی `php artisan test` هنوز گزارش نشده است.
