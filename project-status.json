@@ -4811,6 +4811,57 @@
         "فهرست آثار یک رکورد با شناسه عمومی am0000001 برگرداند.",
         "این مرحله صحت ساختار سطح اول، HTTP و تعداد رکوردها را بررسی کرد؛ جزئیات اثر، فیلترها و اعتبارسنجی ورودی هنوز جداگانه نیازمند تست‌اند."
       ]
+    },
+    "local_api_title_validation": {
+      "checked_at": "2026-11-22",
+      "tests": [
+        {
+          "case": "GET /api/v1/titles/am0000001",
+          "expected": 200,
+          "actual": 200,
+          "result": "passed"
+        },
+        {
+          "case": "GET /api/v1/titles/am1",
+          "expected": 404,
+          "actual": 404,
+          "result": "passed"
+        },
+        {
+          "case": "GET /api/v1/titles?per_page=1",
+          "expected": 200,
+          "actual": 200,
+          "result": "passed"
+        },
+        {
+          "case": "GET /api/v1/titles?per_page=51",
+          "expected": 422,
+          "actual": 422,
+          "result": "passed"
+        },
+        {
+          "case": "GET /api/v1/titles?per_page=0",
+          "expected": 422,
+          "actual": 422,
+          "result": "passed"
+        },
+        {
+          "case": "GET /api/v1/titles?per_page=abc",
+          "expected": 422,
+          "actual": 422,
+          "result": "passed"
+        },
+        {
+          "case": "GET /api/v1/companies?per_page=51",
+          "expected": 422,
+          "actual": 422,
+          "result": "passed"
+        }
+      ],
+      "passed": 7,
+      "failed": 0,
+      "result": "success",
+      "note": "آزمون‌های محلی کاربر در Laravel dev server؛ شناسه معتبر/نامعتبر و مرزهای per_page بررسی شدند."
     }
   },
   "report_methodology": {
