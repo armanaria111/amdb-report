@@ -4947,7 +4947,25 @@
         "پاسخ جزئیات فیلدهای credits و companies را دارد؛ تعداد/محتوای این آرایه‌ها در خروجی فعلی بررسی نشده است."
       ],
       "result": "detail_endpoints_passed_search_semantics_pending"
-    }
+    },
+    "localization_fixes": [
+      {
+        "checked_at": "2026-11-22",
+        "scope": "lang/{en,fa-AF,ps}/artists.php",
+        "key": "artists.public.follow_preferences_saved",
+        "translations": {
+          "en": "Notification preferences saved.",
+          "fa-AF": "تنظیمات اعلان ذخیره شد.",
+          "ps": "د خبرتیاوو تنظیمات خوندي شول."
+        },
+        "result": "added_to_all_three_locales",
+        "commits": [
+          "09cf86f2161ec4f653f4081a957ecfc8ec1cf011",
+          "bdbf57f2de844734a970aff6f5b887031b27a72f",
+          "90fb3c04a749a0eed7f632c79e29c1a9c8621419"
+        ]
+      }
+    ]
   },
   "report_methodology": {
     "version": 3,
