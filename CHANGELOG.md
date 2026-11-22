@@ -894,3 +894,7 @@
 - CI run 44990001759 موفق: ۲۵۲ تست و ۹۷۸ assertion؛ Vite build، Blade compile و Blade lint موفق.
 - فرمان پاک‌سازی رویدادهای خام تبلیغات با retention پیش‌فرض ۹۰ روز و حالت dry-run اضافه شد؛ شمارنده‌های تجمیعی کمپین حفظ می‌شوند.
 - متن حریم خصوصی درباره تبلیغات مستقیم و رویدادهای آماری به سه زبان en/fa-AF/ps افزوده شد.
+
+- PR121 جایگاه‌های عمومی تبلیغات به main ادغام شد؛ merge commit: `d3ce1d53b324d582a742a25870fe5686910dd9cc`.
+- جایگاه‌های header، footer، home_hero، home_feed، catalog_list، title_detail، artist_profile و news_detail به صفحات مربوط متصل شدند؛ پنل‌های مدیریت تبلیغ دریافت نمی‌کنند.
+- CI run 44990252885 موفق: ۲۵۴ تست و ۹۸۳ assertion؛ Vite build، Blade compile و Blade lint موفق.
