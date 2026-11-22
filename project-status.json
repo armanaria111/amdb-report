@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "aaba384d50f19eb4f8e74454926d14c82bdb2b5e",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "f27eb8d57e1c08751315493879e45b7b438a3f4b",
+    "latest_main_commit": "d6c9050fa62be4a94777a352601888d9f0a440ec",
     "latest_main_commit_verified_on": "2026-11-22"
   },
   "languages": [
@@ -5874,7 +5874,7 @@
         "tests": 254,
         "assertions": 983
       },
-      "latest_main_commit": "f27eb8d57e1c08751315493879e45b7b438a3f4b",
+      "latest_main_commit": "d6c9050fa62be4a94777a352601888d9f0a440ec",
       "dashboard_extensions": {
         "status": "committed_ci_in_progress",
         "commit": "78c9b5d07873c6eb4d74f8764882e51df0765904",
@@ -5894,25 +5894,39 @@
         "runtime_mysql_and_browser": "not_verified"
       },
       "csv_export": {
-        "status": "committed_ci_pending",
+        "status": "ci_failed_previous_commit_route_missing",
         "commit": "f27eb8d57e1c08751315493879e45b7b438a3f4b",
-        "commit_url": "https://github.com/armanaria111/amdb-laravel2/commit/f27eb8d57e1c08751315493879e45b7b438a3f4b",
-        "completed": [
-          "خروجی CSV گزارش کمپین‌ها با فیلترهای وضعیت، جایگاه و بازه تاریخ اضافه شد.",
-          "برای هر کمپین تعداد impression و click و CTR همان بازه محاسبه می‌شود؛ کمپین‌های بدون رویداد نیز در خروجی باقی می‌مانند.",
-          "فایل CSV با BOM برای سازگاری بهتر با Excel و escape صریح fputcsv تولید می‌شود.",
-          "مقادیر متنی آغازشونده با نویسه‌های فرمول‌ساز spreadsheet خنثی می‌شوند.",
-          "دسترسی export در همان گروه مجوز مدیریت تبلیغات قرار گرفت و دکمه خروجی فیلترهای جاری را حفظ می‌کند.",
-          "تست Feature برای محدوده فیلترها و محتوای CSV افزوده شد؛ route و assertion استریم در commit اصلاحی تکمیل شدند."
-        ],
         "ci": {
-          "status": "pending_latest_commit_run",
-          "last_seen_run_id": 45047874023,
-          "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45047874023",
-          "note": "این اجرا متعلق به commit قبلی ab0c17d است، نه commit اصلاحی f27eb8d؛ نتیجه آن برای تأیید نسخه نهایی کافی نیست."
+          "run_id": 45047932612,
+          "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45047932612",
+          "status": "failure",
+          "reason": "Route admin.advertising.export was not registered; 255 tests passed and 5 failed on SQLite/MySQL."
         },
-        "runtime_mysql_and_browser": "not_verified"
+        "next_action": "Register the named export route, rerun CI, then update this record."
       }
+    },
+    "company_assignment": {
+      "status": "committed_ci_pending",
+      "commit": "d6c9050fa62be4a94777a352601888d9f0a440ec",
+      "migration": "database/migrations/2026_11_22_160000_add_company_to_advertising_campaigns_table.php",
+      "changes": [
+        "افزودن company_id nullable با FK به companies و index وضعیت؛ کمپین‌های قدیمی بدون انتساب باقی می‌مانند.",
+        "افزودن رابطه AdvertisingCampaign::company و فیلد قابل انتساب در فرم مدیریت.",
+        "فقط شرکت‌های فعال برای انتخاب مدیر نمایش داده می‌شوند؛ نام تبلیغ‌دهنده مبنای مجوز یا مالکیت نیست.",
+        "ترجمه فیلد شرکت در en/fa-AF/ps."
+      ],
+      "safeguards": [
+        "هیچ backfill حدسی انجام نمی‌شود.",
+        "حذف شرکت، company_id کمپین را null می‌کند.",
+        "دسترسی گزارش تبلیغ‌دهنده هنوز پیاده‌سازی نشده است."
+      ],
+      "ci": {
+        "run_id": 45048501490,
+        "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45048501490",
+        "status": "in_progress",
+        "conclusion": null
+      },
+      "runtime_mysql_and_browser": "not_verified"
     }
   },
   "playback_architecture": {
