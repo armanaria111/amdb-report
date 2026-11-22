@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "c9b1bf77cd469817c04c7309c06e2e0b80b56635",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "245797e297a59506af0d6f7720e009c0fd3ac2fb",
+    "latest_main_commit": "2078a3a5c027b81694577dc8224d3488fcc77040",
     "latest_main_commit_verified_on": "2026-11-22"
   },
   "languages": [
@@ -615,7 +615,10 @@
       "CI run 44989334177 موفق: ۲۴۷ تست، ۹۵۸ assertion، Vite production build، Blade compile و Blade lint موفق.",
       "URLهای impression/click امضاشده و دارای انقضای ۲۴ ساعته هستند؛ توکن به campaign و event type متصل است و استفاده مجدد cross-type رد می‌شود.",
       "سهمیه impression و click جداگانه کنترل می‌شود؛ کمپین‌های provider خارجی تا اتصال واقعی قابل فعال‌سازی نیستند.",
-      "هیچ migration در MySQL محلی یا staging اجرا نشده و تبلیغات عمومی همچنان به‌صورت پیش‌فرض خاموش است."
+      "هیچ migration در MySQL محلی یا staging اجرا نشده و تبلیغات عمومی همچنان به‌صورت پیش‌فرض خاموش است.",
+      "PR118 داشبورد عملکرد کمپین‌های تبلیغاتی با commit 2078a3a5c027b81694577dc8224d3488fcc77040 به main ادغام شد.",
+      "داشبورد تبلیغات تعداد کل/فعال کمپین‌ها، نمایش‌ها، کلیک‌ها و CTR کلی و نرخ کلیک هر کمپین را نشان می‌دهد؛ ترجمه en/fa-AF/ps اضافه شد.",
+      "CI run 44989569903 موفق: ۲۴۸ تست و ۹۶۳ assertion؛ Vite production build، Blade compile و Blade lint موفق."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1933,8 +1936,8 @@
     }
   },
   "current_work": {
-    "stage": "تکمیل گزارش عملکرد تبلیغات",
-    "status": "advertising_metrics_dashboard_pr118_ci_in_progress",
+    "stage": "گزارش عملکرد تبلیغات",
+    "status": "advertising_metrics_dashboard_merged_pr118_ci_passed",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -2348,8 +2351,8 @@
     "latest_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/118",
     "latest_source_base_commit": "6ab9ba3308493962ca794e005c7cc0a82b960821",
     "latest_branch_commit": "b46a3839909b7350e2bae31b525ae6084f713482",
-    "note": "داشبورد آمار تبلیغات در PR118 اضافه شده: مجموع کمپین‌ها، کمپین‌های فعال، نمایش، کلیک و CTR کلی/هر کمپین؛ ترجمه en/fa-AF/ps. CI run 44989569903 در حال اجراست.",
-    "latest_main_commit": "245797e297a59506af0d6f7720e009c0fd3ac2fb"
+    "note": "PR118 داشبورد عملکرد تبلیغات با موفقیت ادغام شد. CI run 44989569903 موفق: ۲۴۸ تست و ۹۶۳ assertion؛ Vite build، Blade compile و lint موفق. MySQL staging و مرورگر/موبایل هنوز تأیید نشده‌اند.",
+    "latest_main_commit": "2078a3a5c027b81694577dc8224d3488fcc77040"
   },
   "application_audit": {
     "audit_date": "2026-11-18",
@@ -4286,7 +4289,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "245797e297a59506af0d6f7720e009c0fd3ac2fb",
+    "source_commit": "2078a3a5c027b81694577dc8224d3488fcc77040",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-21",
@@ -4355,20 +4358,22 @@
       "pull_request_ci_conclusion": "success"
     },
     "release": {
-      "latest_merged_pr": 117,
-      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/117",
-      "latest_source_commit": "245797e297a59506af0d6f7720e009c0fd3ac2fb",
+      "latest_merged_pr": 118,
+      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/118",
+      "latest_source_commit": "2078a3a5c027b81694577dc8224d3488fcc77040",
       "source_branch": "main",
       "verified_at": "2026-11-22",
-      "pr_ci_run": 44989334177,
+      "pr_ci_run": 44989569903,
       "pr_ci_conclusion": "success",
-      "pr_tests": 247,
-      "pr_assertions": 958,
+      "pr_tests": 248,
+      "pr_assertions": 963,
       "vite_build": "success",
       "blade_compile": "success",
       "blade_lint": "success",
       "main_push_ci": "not_reported_by_commit_workflow_query",
-      "note": "PR117 با CI موفق ادغام شد؛ اجرای CI روی push شاخه main جداگانه در این گزارش تأیید نشده است. MySQL staging و browser/mobile acceptance هنوز انجام نشده‌اند."
+      "note": "PR117 با CI موفق ادغام شد؛ اجرای CI روی push شاخه main جداگانه در این گزارش تأیید نشده است. MySQL staging و browser/mobile acceptance هنوز انجام نشده‌اند.",
+      "mysql_staging": "pending",
+      "browser_mobile_acceptance": "pending"
     },
     "note": "آخرین commit شاخه main برابر c9b1bf77cd469817c04c7309c06e2e0b80b56635 پس از ادغام PR113 است. موجودی فایل‌های سورس در source_inventory همچنان snapshot قدیمی commit eb12658 است و در این به‌روزرسانی بازشماری نشده؛ آمار runtime دیتابیس و MySQL تأیید نشده‌اند.",
     "panels": [
@@ -5022,7 +5027,7 @@
       "url": "https://github.com/armanaria111/amdb-laravel2/pull/114",
       "branch": "feature/advertising-campaign-management",
       "head_commit": "087b44174e4195af383d44cf4658e735b5723658",
-      "status": "advertising_metrics_dashboard_pr118_ci_in_progress",
+      "status": "campaign_management_delivery_hardening_and_metrics_merged_runtime_unverified",
       "completed": [
         "ماژول first-party تبلیغات به PluginCatalog افزوده شد و به‌صورت پیش‌فرض خاموش است؛ فعال‌سازی/غیرفعال‌سازی از مدیریت ماژول‌ها انجام می‌شود.",
         "Migration افزایشی advertising_campaigns برای نام کمپین، تبلیغ‌دهنده، برچسب provider، جایگاه، نوع/محتوای تبلیغ، مسیر تصویر، URL مقصد، زمان‌بندی، اولویت، سقف نمایش/کلیک، شمارنده‌ها و وضعیت اضافه شد.",
@@ -5048,8 +5053,8 @@
         "ماژول advertising پیش‌فرض خاموش است و تا تکمیل تحویل عمومی، نمایش تبلیغ روی صفحات سایت فعال نیست."
       ],
       "remaining": [
-        "افزودن گزارش عملکرد کمپین‌ها شامل CTR و آمار تجمیعی/بازه زمانی در پنل مدیر.",
-        "تکمیل متن و سیاست حریم خصوصی برای تبلیغات مستقیم و تعریف دوره نگهداری رویدادها.",
+        "افزودن فیلتر بازه زمانی و گزارش روزانه/ماهانه نمایش و کلیک.",
+        "تکمیل سیاست حریم خصوصی و تعریف دوره نگهداری رویدادهای تبلیغات.",
         "تست MySQL staging، backup/rollback و پذیرش مرورگر/موبایل.",
         "اتصال providerهای خارجی فقط پس از تصمیم تجاری، حساب معتبر و بررسی شرایط سرویس."
       ],
@@ -5129,7 +5134,13 @@
           "CTR کلی",
           "CTR مجزای هر کمپین"
         ],
-        "note": "CTR بر پایه درخواست‌های ثبت‌شده برای impression است، نه سنجش viewability."
+        "note": "CTR بر پایه درخواست‌های ثبت‌شده برای impression است، نه سنجش viewability.",
+        "status": "merged",
+        "merge_commit": "2078a3a5c027b81694577dc8224d3488fcc77040",
+        "merged_on": "2026-11-22",
+        "ci_conclusion": "success",
+        "tests": 248,
+        "assertions": 963
       }
     }
   },
