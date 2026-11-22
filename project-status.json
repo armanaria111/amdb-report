@@ -17,11 +17,11 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "5c609e8c01ba578ed1fbcdf3a38428f65a21f95f",
+    "source_commit_audited": "c96f5f23acb131a8b9d0b19712e46478fb2e71ce",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "5c609e8c01ba578ed1fbcdf3a38428f65a21f95f",
+    "latest_main_commit": "c96f5f23acb131a8b9d0b19712e46478fb2e71ce",
     "latest_main_commit_verified_on": "2026-11-22",
-    "advertising_note": "مسیر export CSV در گروه صحیح admin.advertising ثبت و در main بازبینی شد؛ اجرای CI commit جاری هنوز در انتظار نتیجه است. پنل گزارش تبلیغ‌دهنده هنوز پیاده‌سازی نشده است."
+    "advertising_note": "پنل گزارش تبلیغ‌دهنده برای شرکت‌های دارای عضویت فعال owner/finance به main افزوده شد؛ فهرست کمپین‌ها، آمار بازه‌ای و CSV فقط بر اساس company_id شرکت مجاز محدود می‌شوند. تست‌ها طبق درخواست کاربر به مرحله بعد موکول شده‌اند؛ اجرای Runtime و مرورگر نیز هنوز انجام نشده است."
   },
   "languages": [
     {
@@ -5912,7 +5912,7 @@
       }
     },
     "company_assignment": {
-      "status": "committed_validation_pending_route_fix",
+      "status": "dashboard_committed_development_only",
       "commit": "d6c9050fa62be4a94777a352601888d9f0a440ec",
       "migration": "database/migrations/2026_11_22_160000_add_company_to_advertising_campaigns_table.php",
       "changes": [
@@ -5929,8 +5929,26 @@
       "ci": {
         "status": "awaiting_latest_commit_run"
       },
-      "runtime_mysql_and_browser": "not_verified"
-    }
+      "runtime_mysql_and_browser": "not_verified",
+      "dashboard": {
+        "status": "implemented_in_source_tests_deferred",
+        "commit": "c96f5f23acb131a8b9d0b19712e46478fb2e71ce",
+        "completed": [
+          "افزودن پنل گزارش تبلیغ‌دهنده در مسیر اختصاصی هر شرکت.",
+          "دسترسی فقط برای عضویت فعال شرکت با نقش owner یا finance و شرکت فعال.",
+          "محدودسازی تمام فهرست‌ها، آمارها و خروجی CSV با company_id؛ کمپین‌های بدون شرکت در گزارش شرکت‌ها نمایش داده نمی‌شوند.",
+          "فیلتر بازه تاریخ، صفحه‌بندی کمپین‌ها و آمار impression/click/CTR.",
+          "افزودن پیوند پنل به داشبورد شرکت و ترجمه مستقل en/fa-AF/ps."
+        ],
+        "tests": "به درخواست کاربر فعلاً اجرا نمی‌شود و به مرحله بعد موکول شده است.",
+        "runtime_mysql_and_browser": "not_verified"
+      }
+    },
+    "latest_main_commit": "c96f5f23acb131a8b9d0b19712e46478fb2e71ce",
+    "remaining": [
+      "تکمیل مدیریت/درخواست کمپین توسط نمایندگان مجاز شرکت در صورت نیاز محصولی.",
+      "تکمیل تست‌های جداسازی داده بین شرکت‌ها، نقش‌ها و CSV در مرحله QA بعدی."
+    ]
   },
   "playback_architecture": {
     "title": "مدل داده پیشنهادی برای پخش",
