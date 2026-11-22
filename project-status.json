@@ -17,10 +17,11 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "aaba384d50f19eb4f8e74454926d14c82bdb2b5e",
+    "source_commit_audited": "5c609e8c01ba578ed1fbcdf3a38428f65a21f95f",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "a1f1fb8e3becc9bcf56dfc101c3e694413b51ba8",
-    "latest_main_commit_verified_on": "2026-11-22"
+    "latest_main_commit": "5c609e8c01ba578ed1fbcdf3a38428f65a21f95f",
+    "latest_main_commit_verified_on": "2026-11-22",
+    "advertising_note": "مسیر export CSV در گروه صحیح admin.advertising ثبت و در main بازبینی شد؛ اجرای CI commit جاری هنوز در انتظار نتیجه است. پنل گزارش تبلیغ‌دهنده هنوز پیاده‌سازی نشده است."
   },
   "languages": [
     {
