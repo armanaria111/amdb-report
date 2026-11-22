@@ -925,3 +925,8 @@
 
 - تکمیل دامنه PR123: شناسه WordPress اثر از فرم ایجاد/ویرایش مدیر قابل ثبت و ویرایش است؛ مقدار با قید unique اعتبارسنجی می‌شود و جست‌وجوی فهرست آثار نیز آن را می‌شناسد. ترجمه‌های مستقل en/fa-AF/ps اضافه شدند.
 - تست واحد قالب CSV به PR افزوده شد. آخرین head: `cb436e6bfd170baaa06c49959a82f105e1280ce4`؛ اجرای CI مربوط به این head در صف است.
+
+## 2026-11-22
+- Added canonical AMDB catalog domain standards in the main Laravel repository. The original WordPress site is treated as a legacy data source, not as the taxonomy or architecture specification.
+- Recorded the separation between artist directory groups, canonical professions, artist-profession assignments and per-title credits; one artist profile may hold multiple simultaneous professions.
+- Recorded normalized, multilingual controlled-vocabulary and safe legacy-import requirements. Runtime schema has not yet been changed by this standards document.
