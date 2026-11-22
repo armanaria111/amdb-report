@@ -1,3 +1,13 @@
+## 2026-11-22 — رفع خطاهای صفحات هنرمندان، اخبار و جشنواره‌ها در Laragon
+
+- کاربر ۴۳ Migration باقی‌مانده را روی دیتابیس MySQL محلی اجرا کرد؛ همه با موفقیت پایان یافتند و پس از اجرا مورد Pending گزارش نشد.
+- `ProfessionGroupSeeder` با موفقیت اجرا شد.
+- وجود جدول‌های `profession_groups`، `companies` و `title_ratings` با `Schema::hasTable` تأیید شد؛ شمار کل جداول در این بررسی اندازه‌گیری نشد.
+- namespace Trait مربوط به Spatie Activitylog در `News.php` و `Festival.php` اصلاح شد؛ بررسی وجود Trait و بارگذاری هر دو مدل موفق بود.
+- درخواست HTTP محلی برای `/artists`، `/news` و `/festivals` هر سه پاسخ HTTP 200 داد.
+- اصلاح دو مدل در مخزن اصلی و وضعیت runtime محدود در `project-status.json` ثبت شد.
+- این نتیجه فقط smoke test محلی سه صفحه است؛ آزمون مرورگر، همه مسیرها، امنیت، و staging هنوز انجام نشده‌اند.
+
 ## 2026-11-22 — تکمیل بررسی اولیه استانداردسازی دسته‌بندی هنرمندان
 
 - CI مربوط به PR124 با موفقیت کامل شد: ساخت Vite، تست‌های Laravel روی SQLite و تست‌های Laravel روی MySQL 8.4.
