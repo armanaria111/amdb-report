@@ -4418,7 +4418,8 @@
         "در 2026-11-22، پنج درخواست محلی API کاتالوگ شرکت‌ها، آثار و جشنواره‌ها همگی HTTP 200 و JSON معتبر با data/meta برگرداندند. companies و festivals صفر رکورد؛ titles یک رکورد am0000001 با فیلدهای id, slug, type, title, original_title, synopsis, release_date, runtime_minutes, genres, countries داشت. آزمون فقط smoke test سطح اول است.",
         "بررسی Tinker اثر am0000001: فقط یک ترجمه در language_code=en وجود دارد، اما title آن «سرخ سالی» است؛ original_title و synopsis خالی‌اند. یک title_credit با artist_id=1 و profession_id=7 ثبت است و companyCredits خالی است. این نتیجه نقص داده نمونه را نشان می‌دهد، نه شکست endpoint یا PHPUnit.",
         "بررسی محلی php -l در 2026-11-22: lang/fa-AF/artists.php بدون خطای نحوی؛ lang/en/artists.php و lang/ps/artists.php هر دو در خط 89 خطای Cannot use empty array elements in arrays دارند. بنابراین اصلاح GitHub هنوز در نسخه محلی این دو فایل تأیید/همگام نشده است؛ optimize:clear نیز به‌علت واردکردن بک‌اسلش انتهایی اجرا نشد.",
-        "Latest main code commit updated to 66ddd59fd1fc00f707a82e6ea799e158a368d4ab; the earlier local syntax errors in English/Pashto were fixed in GitHub commits, but local sync and php -l remain unverified."
+        "Latest main code commit updated to 66ddd59fd1fc00f707a82e6ea799e158a368d4ab; the earlier local syntax errors in English/Pashto were fixed in GitHub commits, but local sync and php -l remain unverified.",
+        "اجرای محلی کاربر در 2026-11-22: php artisan optimize:clear موفق؛ php artisan test موفق با 13 passed / 38 assertions / 4.09s. git status و git pull با fatal not a git repository و php -l سه فایل ترجمه با Could not open input file مواجه شدند؛ بنابراین مسیر جاری Laravel دارای artisan بوده اما Git root و مسیر فایل‌های ترجمه در آن احراز نشدند. اجرای 13 تست محدود است و suite کامل 256 تست را اثبات نمی‌کند."
       ],
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
@@ -5043,7 +5044,8 @@
           "state": "qa_passed",
           "items": [
             "PHPUnit محلی: ۲۵۶ موفق، صفر ناموفق، ۹۹۰ assertion؛ یک هشدار deprecation. اجرای مجدد پس از sync لازم است.",
-            "CI مستقل: تست‌های SQLite و MySQL 8.4 و Vite build موفق گزارش شده‌اند؛ این نتیجه جایگزین تست محلی نیست."
+            "CI مستقل: تست‌های SQLite و MySQL 8.4 و Vite build موفق گزارش شده‌اند؛ این نتیجه جایگزین تست محلی نیست.",
+            "اجرای واقعی کاربر در 2026-11-22: php artisan test با موفقیت ۱۳ تست و ۳۸ assertion؛ مدت ۴.۰۹ ثانیه. این اجرای محدود در مسیری که artisan در آن پیدا شد انجام شده؛ چون git repository و فایل‌های lang در همان مسیر پیدا نشدند، هنوز نمی‌توان آن را به checkout اصلی main نسبت داد یا جایگزین سابقه ۲۵۶ تست کرد."
           ]
         },
         {
