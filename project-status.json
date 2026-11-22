@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "c9b1bf77cd469817c04c7309c06e2e0b80b56635",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "1b11f4f91d3a16705b444d3ef52ebb657151996f",
+    "latest_main_commit": "6ab9ba3308493962ca794e005c7cc0a82b960821",
     "latest_main_commit_verified_on": "2026-11-22"
   },
   "languages": [
@@ -605,7 +605,12 @@
       "PR114 سامانه تبلیغات با commit ادغام 1b11f4f91d3a16705b444d3ef52ebb657151996f وارد main شد.",
       "CI PR114 run 44987272261 موفق شد: ۲۳۸ تست و ۹۲۲ assertion؛ Vite production build، کامپایل Blade و lint Blade نیز موفق شدند.",
       "هسته تبلیغات شامل ماژول default-off، مدیریت کمپین، جایگاه‌ها، فیلتر وضعیت/جایگاه، آپلود تصویر، اعتبارسنجی URL و ترجمه‌های en/fa-AF/ps است.",
-      "Migration تبلیغات هنوز روی MySQL محلی یا staging اجرا نشده؛ نمایش عمومی تبلیغ، tracking، providerهای واقعی، consent و تسویه مالی هنوز فعال/پیاده‌سازی نشده‌اند."
+      "Migration تبلیغات هنوز روی MySQL محلی یا staging اجرا نشده؛ نمایش عمومی تبلیغ، tracking، providerهای واقعی، consent و تسویه مالی هنوز فعال/پیاده‌سازی نشده‌اند.",
+      "PR115 تحویل تبلیغات مستقیم و tracking در commit ادغام 6ab9ba3308493962ca794e005c7cc0a82b960821 وارد main شد.",
+      "CI مربوط به PR115 run 44987629190 موفق شد: ۲۴۴ تست و ۹۴۴ assertion؛ Vite production build، کامپایل Blade و lint Blade نیز موفق شدند.",
+      "جایگاه تبلیغ برچسب آشکار دارد و فقط provider=direct را نمایش می‌دهد؛ impression/click با UUID تصادفی و rate limit ثبت می‌شوند؛ eventها user_id، IP یا cookie ذخیره نمی‌کنند.",
+      "جایگاه‌های صفحه اصلی و فهرست فیلم/سریال متصل شدند. سایر جایگاه‌ها و داشبورد گزارش تبلیغات باقی است.",
+      "ماژول تبلیغات همچنان پیش‌فرض خاموش است؛ فعال‌سازی عمومی در سایت انجام نشده. Migrationهای کمپین و event هنوز روی MySQL محلی یا staging اجرا نشده‌اند."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1458,7 +1463,7 @@
     },
     {
       "phase": "۱۱. سامانه تبلیغات",
-      "state": "implementation_in_progress_main_merged_ci_passed_runtime_unverified",
+      "state": "direct_campaign_management_and_delivery_merged_ci_passed_provider_and_mysql_runtime_pending",
       "items": [
         "موتور جایگاه و چرخش تبلیغات",
         "Google AdSense و در صورت نیاز Google Ad Manager",
@@ -1467,7 +1472,7 @@
         "گزارش نمایش، کلیک و CTR، رضایت و سیاست تبلیغات"
       ],
       "completed": [
-        "هسته مدیریت کمپین و پنل مدیر در PR114 به main ادغام شد؛ CI موفق: ۲۳۸ تست و ۹۲۲ assertion."
+        "PR114 و PR115 در main ادغام شدند: مدیریت کمپین، جایگاه تبلیغ مستقیم، تحویل برچسب‌دار و tracking رویدادهای idempotent. CI آخرین PR موفق: ۲۴۴ تست و ۹۴۴ assertion."
       ]
     },
     {
@@ -1924,7 +1929,7 @@
   },
   "current_work": {
     "stage": "تکمیل سامانه تبلیغات AMDB",
-    "status": "advertising_campaign_management_foundation_merged_pr114_ci_passed",
+    "status": "direct_advertising_delivery_and_tracking_merged_pr115_ci_passed",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -2334,12 +2339,12 @@
     "new_migrations_not_executed": [
       "2026_11_20_235900_create_activity_log_table"
     ],
-    "latest_pr": 114,
-    "latest_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/114",
-    "latest_source_base_commit": "c9b1bf77cd469817c04c7309c06e2e0b80b56635",
-    "latest_branch_commit": "087b44174e4195af383d44cf4658e735b5723658",
-    "note": "PR114 ادغام شد. CI سرشاخه موفق: ۲۳۸ تست، ۹۲۲ assertion و Vite/Blade موفق. Migration روی MySQL محلی/staging اجرا نشده؛ ماژول پیش‌فرض خاموش، تحویل عمومی، tracking و providerهای واقعی متصل نیستند.",
-    "latest_main_commit": "1b11f4f91d3a16705b444d3ef52ebb657151996f"
+    "latest_pr": 115,
+    "latest_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/115",
+    "latest_source_base_commit": "1b11f4f91d3a16705b444d3ef52ebb657151996f",
+    "latest_branch_commit": "6f8929b2ea60a26de9d15613373916e693967cfe",
+    "note": "PR115 ادغام شد. CI موفق: ۲۴۴ تست، ۹۴۴ assertion و Vite/Blade موفق. تحویل مستقیم فقط در صورت فعال‌سازی ماژول advertising ممکن است؛ ماژول پیش‌فرض خاموش است. Migration رویدادها روی MySQL محلی/staging اجرا نشده و providerهای خارجی متصل نیستند.",
+    "latest_main_commit": "6ab9ba3308493962ca794e005c7cc0a82b960821"
   },
   "application_audit": {
     "audit_date": "2026-11-18",
@@ -4276,7 +4281,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "1b11f4f91d3a16705b444d3ef52ebb657151996f",
+    "source_commit": "6ab9ba3308493962ca794e005c7cc0a82b960821",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-21",
@@ -4325,7 +4330,7 @@
     "quality": {
       "tests_in_repository": 22,
       "tests_executed": true,
-      "test_result": "PR114 CI موفق: 238 tests passed / 922 assertions؛ Vite production build، compile Blade و Blade lint نیز موفق.",
+      "test_result": "PR115 CI موفق: 244 tests passed / 944 assertions؛ Vite production build، کامپایل Blade و lint Blade نیز موفق.",
       "vite_build_executed": true,
       "browser_verified": false,
       "production_smoke_test": false,
@@ -4340,25 +4345,25 @@
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
       "mysql_runtime_verified": false,
-      "latest_ci_run": 44987272261,
+      "latest_ci_run": 44987629190,
       "main_ci_conclusion": "success",
       "pull_request_ci_conclusion": "success"
     },
     "release": {
-      "latest_merged_pr": 114,
-      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/114",
-      "latest_source_commit": "1b11f4f91d3a16705b444d3ef52ebb657151996f",
+      "latest_merged_pr": 115,
+      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/115",
+      "latest_source_commit": "6ab9ba3308493962ca794e005c7cc0a82b960821",
       "source_branch": "main",
       "verified_at": "2026-11-22",
-      "pr_ci_run": 44987272261,
+      "pr_ci_run": 44987629190,
       "pr_ci_conclusion": "success",
-      "pr_tests": 238,
-      "pr_assertions": 922,
+      "pr_tests": 244,
+      "pr_assertions": 944,
       "vite_build": "success",
       "blade_compile": "success",
       "blade_lint": "success",
       "main_push_ci": "not_yet_reported",
-      "note": "PR114 با موفقیت ادغام شد. CI مربوط به PR موفق است؛ وضعیت اجرای CI جداگانه روی push شاخه main هنوز در این snapshot گزارش نشده است. MySQL staging و browser/mobile acceptance همچنان تأیید نشده‌اند."
+      "note": "PR115 با موفقیت ادغام شد. CI مربوط به PR موفق است؛ وضعیت اجرای CI جداگانه روی push شاخه main هنوز در این snapshot گزارش نشده است. MySQL staging و browser/mobile acceptance همچنان تأیید نشده‌اند."
     },
     "note": "آخرین commit شاخه main برابر c9b1bf77cd469817c04c7309c06e2e0b80b56635 پس از ادغام PR113 است. موجودی فایل‌های سورس در source_inventory همچنان snapshot قدیمی commit eb12658 است و در این به‌روزرسانی بازشماری نشده؛ آمار runtime دیتابیس و MySQL تأیید نشده‌اند.",
     "panels": [
@@ -5012,7 +5017,7 @@
       "url": "https://github.com/armanaria111/amdb-laravel2/pull/114",
       "branch": "feature/advertising-campaign-management",
       "head_commit": "087b44174e4195af383d44cf4658e735b5723658",
-      "status": "merged_to_main_pr114_ci_passed_runtime_mysql_unverified",
+      "status": "campaign_admin_and_direct_delivery_merged_ci_passed_runtime_mysql_unverified",
       "completed": [
         "ماژول first-party تبلیغات به PluginCatalog افزوده شد و به‌صورت پیش‌فرض خاموش است؛ فعال‌سازی/غیرفعال‌سازی از مدیریت ماژول‌ها انجام می‌شود.",
         "Migration افزایشی advertising_campaigns برای نام کمپین، تبلیغ‌دهنده، برچسب provider، جایگاه، نوع/محتوای تبلیغ، مسیر تصویر، URL مقصد، زمان‌بندی، اولویت، سقف نمایش/کلیک، شمارنده‌ها و وضعیت اضافه شد.",
@@ -5021,7 +5026,11 @@
         "فعال‌سازی کمپین ناقص بدون URL مقصد یا محتوای لازم رد می‌شود.",
         "ترجمه‌های مستقل en، fa-AF و ps و میانبر پنل تبلیغات به صفحه مدیریت ماژول‌ها افزوده شدند.",
         "تست‌های Feature برای خاموش بودن پیش‌فرض، ایجاد کمپین draft، تغییر وضعیت، مسدود بودن مسیر در حالت خاموش و جلوگیری از دسترسی غیرمدیر اضافه شدند.",
-        "CI اولیه PR114 یک خطای واقعی را آشکار کرد: مسیرهای نام‌گذاری‌شده admin.advertising ثبت نشده بودند؛ import و گروه Route اصلاح و commit جدید push شد."
+        "CI اولیه PR114 یک خطای واقعی را آشکار کرد: مسیرهای نام‌گذاری‌شده admin.advertising ثبت نشده بودند؛ import و گروه Route اصلاح و commit جدید push شد.",
+        "PR115 در main ادغام شد: component جایگاه تبلیغ برای صفحه اصلی و فهرست فیلم/سریال، برچسب آشکار Sponsored/تبلیغ/اعلان، و تحویل فقط کمپین‌های مستقیم پیاده‌سازی شد.",
+        "Endpointهای impression و click با UUID تصادفی، rate limit، بررسی وضعیت/زمان/سقف کمپین، قفل ردیف و ثبت idempotent اضافه شدند.",
+        "جدول advertising_events فقط campaign_id، event_type، event_token و created_at ذخیره می‌کند؛ هیچ user_id، IP، cookie یا داده پروفایل رفتاری ذخیره نمی‌شود.",
+        "کمپین‌های provider با برچسب AdSense/Ad Manager/Yektanet از renderer مستقیم کنار گذاشته می‌شوند؛ هیچ SDK یا script ثالث اجرا نمی‌شود."
       ],
       "safeguards": [
         "هیچ script، pixel یا SDK شخص ثالث اجرا یا تزریق نمی‌شود.",
@@ -5031,11 +5040,11 @@
         "ماژول advertising پیش‌فرض خاموش است و تا تکمیل تحویل عمومی، نمایش تبلیغ روی صفحات سایت فعال نیست."
       ],
       "remaining": [
-        "اتصال renderer امن به جایگاه‌های صفحات عمومی با feature flag و برچسب روشن «تبلیغ».",
-        "ثبت رویداد نمایش/کلیک با rate limit، deduplication و کنترل تقلب؛ محاسبه CTR.",
-        "تنظیم consent/privacy و سیاست ذخیره‌سازی داده پیش از هر نوع analytics یا provider SDK.",
+        "افزودن جایگاه‌های باقی‌مانده در صفحه جزئیات اثر، پروفایل هنرمند، خبر و footer.",
+        "داشبورد گزارش کمپین با CTR و خروجی دوره‌ای؛ با توجه به شمارنده‌های فعلی و رویدادهای idempotent.",
+        "تکمیل سیاست consent/privacy و retention پیش از افزودن هر analytics یا SDK خارجی.",
         "اتصال providerها فقط پس از تعیین حساب، شناسه جایگاه و پذیرش شرایط هر سرویس.",
-        "تعیین سیاست و جریان مالی تبلیغات مستقیم، invoice/receipt و تطبیق پرداخت‌ها.",
+        "تعیین سیاست invoice/receipt، تطبیق پرداخت تبلیغ‌دهندگان و درآمد مستقیم.",
         "MySQL staging، backup/rollback و پذیرش مرورگر/موبایل."
       ],
       "migration": "database/migrations/2026_11_22_000001_create_advertising_campaigns_table.php",
@@ -5055,7 +5064,31 @@
         "blade_lint": "success"
       },
       "merge_commit": "1b11f4f91d3a16705b444d3ef52ebb657151996f",
-      "merged_on": "2026-11-22"
+      "merged_on": "2026-11-22",
+      "delivery_pull_request": 115,
+      "delivery_pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/115",
+      "delivery_branch": "feature/advertising-delivery-tracking",
+      "delivery_head_commit": "6f8929b2ea60a26de9d15613373916e693967cfe",
+      "delivery_merge_commit": "6ab9ba3308493962ca794e005c7cc0a82b960821",
+      "delivery_merged_on": "2026-11-22",
+      "delivery_ci": {
+        "run_id": 44987629190,
+        "run_number": 269,
+        "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44987629190",
+        "conclusion": "success",
+        "tests": 244,
+        "assertions": 944,
+        "vite_build": "success",
+        "blade_compile": "success",
+        "blade_lint": "success"
+      },
+      "event_migration": "database/migrations/2026_11_22_000002_create_advertising_events_table.php",
+      "event_migration_executed": false,
+      "public_delivery_available_when_module_enabled": true,
+      "module_default_enabled": false,
+      "direct_delivery_implemented": true,
+      "tracking_implemented": true,
+      "tracking_enabled_by_default": false
     }
   },
   "playback_architecture": {
