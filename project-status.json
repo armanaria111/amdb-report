@@ -11,7 +11,7 @@
     "database": "MySQL",
     "development_environment": "Windows 10 + Laragon 8",
     "local_path": "C:\\laragon\\www\\amdb",
-    "last_verified": "2026-11-21",
+    "last_verified": "2026-11-22",
     "overall_progress": null,
     "progress_note": "درصد پیشرفت کلی نمایش داده نمی‌شود؛ وضعیت هر قابلیت، پنل، دیتابیس و QA مستقل است.",
     "database_name": "amdbl",
@@ -20,7 +20,7 @@
     "source_commit_audited": "c9b1bf77cd469817c04c7309c06e2e0b80b56635",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "latest_main_commit": "c9b1bf77cd469817c04c7309c06e2e0b80b56635",
-    "latest_main_commit_verified_on": "2026-11-21"
+    "latest_main_commit_verified_on": "2026-11-22"
   },
   "languages": [
     {
@@ -4254,13 +4254,13 @@
     "notes": "گزارش ممیزی در docs/dependency-usage-audit.md مخزن اصلی قرار دارد. هیچ داده تجاری تغییر نکرده است."
   },
   "current_status": {
-    "snapshot_date": "2026-11-21",
+    "snapshot_date": "2026-11-22",
     "product_name": "Afghanistan Movie Database",
     "product_name_fa": "بانک اطلاعاتی فیلم افغانستان",
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "b158dd585fd745af6dffe6ec21e7b9345eaafcec",
+    "source_commit": "c9b1bf77cd469817c04c7309c06e2e0b80b56635",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-21",
@@ -4309,37 +4309,37 @@
     "quality": {
       "tests_in_repository": 22,
       "tests_executed": true,
-      "test_result": "PR112 CI successful: 227 tests passed / 888 assertions; Blade compilation/lint and Vite production build passed. Post-merge main push CI run 44943020490 also successful.",
+      "test_result": "Latest merged PR113 CI successful: 232 tests passed / 909 assertions; Vite production build passed. Main push CI run 44943651335 also successful.",
       "vite_build_executed": true,
       "browser_verified": false,
       "production_smoke_test": false,
       "migrations_executed_in_this_audit": false,
       "notes": [
-        "۹۷ تست PHPUnit با ۳۹۶ assertion در GitHub Actions و دیتابیس موقت SQLite موفق شدند؛ این اجرا شامل اجرای Migrationها روی محیط موقت CI است، نه دیتابیس زنده کاربر.",
-        "Vite production build با Node 22 موفق شد.",
-        "تمام فایل‌های Blade با php -l پس از view:cache بررسی و بدون خطای نحوی تأیید شدند.",
-        "Composer validate --strict و نصب وابستگی‌ها موفق شدند.",
-        "بررسی مرورگری، smoke test روی staging/production و اتصال به دیتابیس MySQL کاربر انجام نشده است.",
-        "در PR90 چند ناسازگاری واقعی کشف و اصلاح شد: constraint نامعتبر Blueprint، namespace و API قدیمی Spatie Activitylog، ستون‌های جدید Activitylog v5، Migration تکراری ترجمه فصل/قسمت و Blade directives پیچیده."
+        "PR113 در GitHub Actions با ۲۳۲ تست و ۹۰۹ assertion موفق شد؛ Vite production build نیز موفق بود.",
+        "CI پس از ادغام روی main، run 44943651335، موفق گزارش شده است.",
+        "این CI روی محیط موقت SQLite است و جایگزین MySQL محلی/staging نیست.",
+        "هیچ Migration روی دیتابیس محلی کاربر اجرا نشده است.",
+        "بررسی مرورگری، smoke test روی staging/production و اتصال به دیتابیس MySQL کاربر انجام نشده است."
       ],
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
       "mysql_runtime_verified": false,
-      "latest_ci_run": 44943020490,
+      "latest_ci_run": 44943651335,
       "main_ci_conclusion": "success",
       "pull_request_ci_conclusion": "success"
     },
     "release": {
-      "latest_merged_pr": 112,
-      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/112",
-      "latest_source_commit": "b158dd585fd745af6dffe6ec21e7b9345eaafcec",
+      "latest_merged_pr": 113,
+      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/113",
+      "latest_source_commit": "c9b1bf77cd469817c04c7309c06e2e0b80b56635",
       "source_branch": "main",
-      "verified_at": "2026-11-21",
-      "main_ci_run": 44943020490,
+      "verified_at": "2026-11-22",
+      "main_ci_run": 44943651335,
       "main_ci_conclusion": "success",
-      "main_ci_verified_at": "2026-11-21"
+      "main_ci_verified_at": "2026-11-21",
+      "note": "PR113 CI: 232 tests / 909 assertions; Vite build passed. MySQL staging and browser/mobile acceptance remain unverified."
     },
-    "note": "آخرین commit main برابر 148429ac280e3545f2c812de76b41bd96edc0f54 پس از ادغام PR102 است. پخش hosted اکنون HLS تطبیقی با پروفایل‌های 360p/480p/720p بدون upscaling، master playlist خصوصی و تحویل HMAC برای renditionها دارد؛ زیرنویس خصوصی و progress نیز پیاده‌سازی شده‌اند. CI با 184 تست و 700 assertion موفق است؛ FFmpeg واقعی، MySQL، storage و QA مرورگری هنوز تأیید نشده‌اند.",
+    "note": "آخرین commit شاخه main برابر c9b1bf77cd469817c04c7309c06e2e0b80b56635 پس از ادغام PR113 است. موجودی فایل‌های سورس در source_inventory همچنان snapshot قدیمی commit eb12658 است و در این به‌روزرسانی بازشماری نشده؛ آمار runtime دیتابیس و MySQL تأیید نشده‌اند.",
     "panels": [
       {
         "id": "admin",
