@@ -4385,7 +4385,8 @@
         "این نوبت هنوز اجرای محلی php artisan test، بررسی همه مسیرها، تست تعاملی مرورگر و QA موبایل را شامل نمی‌شود.",
         "در 2026-11-22، APIهای /api/v1/artists و /api/v1/festivals در محیط محلی هر دو HTTP 200 و Content-Type: application/json دادند؛ JSON معتبر با کلیدهای data و meta بود. artists یک رکورد با شناسه ar0000001 و festivals صفر رکورد برگرداندند؛ meta صفحه‌بندی در هر دو موجود بود. این فقط اعتبارسنجی ساختار سطح اول پاسخ است.",
         "در 2026-11-22، شش تست قرارداد API هنرمندان در محیط محلی همگی مطابق انتظار بودند: per_page=1 پاسخ 200؛ مقادیر 51، 0 و abc پاسخ 422؛ شناسه معتبر ar0000001 پاسخ 200 و شناسه بدقالب ar1 پاسخ 404 داد. این تست محدود است و جایگزین پوشش کامل API نیست.",
-        "در 2026-11-22، تست locale و جست‌وجوی API هنرمندان اجرا شد: localeهای en/fa-AF/ps و locale نامعتبر همگی HTTP 200؛ per_page=50 نیز HTTP 200. نام نمونه در هر سه locale یکسان بود و به دلیل نامشخص بودن وجود ترجمه‌های ذخیره‌شده، نقص ترجمه نتیجه‌گیری نشد. دو تست جست‌وجو به علت نمایش query به شکل ???? در PowerShell موقتاً غیرقطعی ثبت شدند و نیاز به تکرار با URL encoding دارند."
+        "در 2026-11-22، تست locale و جست‌وجوی API هنرمندان اجرا شد: localeهای en/fa-AF/ps و locale نامعتبر همگی HTTP 200؛ per_page=50 نیز HTTP 200. نام نمونه در هر سه locale یکسان بود و به دلیل نامشخص بودن وجود ترجمه‌های ذخیره‌شده، نقص ترجمه نتیجه‌گیری نشد. دو تست جست‌وجو به علت نمایش query به شکل ???? در PowerShell موقتاً غیرقطعی ثبت شدند و نیاز به تکرار با URL encoding دارند.",
+        "تکرار تست API در 2026-11-22 با URL encoding مطمئن موفق شد: localeهای en/fa-AF/ps هر سه HTTP 200 و یک رکورد ar0000001 با نام احمدی احمدی برگرداندند؛ جست‌وجوی فارسی احمدی HTTP 200 و یک نتیجه و جست‌وجوی فارسی بدون تطبیق HTTP 200 و صفر نتیجه داشت. در مجموع ۵/۵ سناریو موفق؛ یکسان بودن نام در سه زبان به‌تنهایی نقص ترجمه را ثابت نمی‌کند."
       ],
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
@@ -4683,6 +4684,7 @@
           "case": "GET /api/v1/artists?locale=en",
           "actual": 200,
           "records": 1,
+          "sample_id": "ar0000001",
           "sample_name": "احمدی احمدی",
           "result": "passed"
         },
@@ -4690,6 +4692,7 @@
           "case": "GET /api/v1/artists?locale=fa-AF",
           "actual": 200,
           "records": 1,
+          "sample_id": "ar0000001",
           "sample_name": "احمدی احمدی",
           "result": "passed"
         },
@@ -4697,46 +4700,33 @@
           "case": "GET /api/v1/artists?locale=ps",
           "actual": 200,
           "records": 1,
+          "sample_id": "ar0000001",
           "sample_name": "احمدی احمدی",
           "result": "passed"
         },
         {
-          "case": "GET /api/v1/artists?locale=invalid",
+          "case": "GET /api/v1/artists?q=<URL-encoded Persian احمدی>",
           "actual": 200,
           "records": 1,
-          "sample_name": "احمدی احمدی",
+          "sample_id": "ar0000001",
           "result": "passed"
         },
         {
-          "case": "GET /api/v1/artists?q=<Persian query>",
-          "actual": 200,
-          "records": 1,
-          "result": "provisional_encoding_uncertain"
-        },
-        {
-          "case": "GET /api/v1/artists?q=<nonexistent query>",
+          "case": "GET /api/v1/artists?q=<URL-encoded non-existent Persian query>",
           "actual": 200,
           "records": 0,
-          "result": "provisional_encoding_uncertain"
-        },
-        {
-          "case": "GET /api/v1/artists?per_page=50",
-          "actual": 200,
-          "records": 1,
           "result": "passed"
         }
       ],
       "passed": 5,
-      "provisional": 2,
       "failed": 0,
-      "result": "partial_success",
+      "result": "success",
       "findings": [
-        "هر سه locale و locale نامعتبر پاسخ HTTP 200 دادند؛ locale نامعتبر طبق پیاده‌سازی به en برمی‌گردد.",
-        "نام نمونه در هر سه زبان یکسان و به فارسی بود؛ بدون بررسی ردیف‌های translations نمی‌توان آن را نقص ترجمه API دانست.",
-        "رشته‌های q در خروجی PowerShell به شکل علامت سؤال دیده شدند؛ نتایج جست‌وجو تا اجرای مجدد با URL encoding مطمئن قطعی نیستند.",
-        "per_page=50 بدون خطا پذیرفته شد؛ فقط یک رکورد موجود بود."
+        "هر سه locale مجاز پاسخ HTTP 200 دادند.",
+        "جست‌وجوی فارسی URL-encoded یک هنرمند مورد انتظار را یافت و جست‌وجوی بدون نتیجه آرایه خالی برگرداند.",
+        "نام نمونه در هر سه locale یکسان است؛ این موضوع به‌تنهایی نقص API را ثابت نمی‌کند و وضعیت ترجمه‌های ذخیره‌شده جداگانه باید بررسی شود."
       ],
-      "scope_note": "این مرحله فقط smoke test محلی است و صحت ترجمه‌های ذخیره‌شده یا جست‌وجوی Unicode را قطعی نمی‌کند."
+      "scope_note": "Smoke test محلی endpoint فهرست هنرمندان؛ آزمون ترجمه واقعی داده‌ها و همه endpointها را شامل نمی‌شود."
     }
   },
   "report_methodology": {
