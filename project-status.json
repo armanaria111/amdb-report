@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "189beec8ba2c56efbc7891ad20656e7a016eacc1",
+    "source_commit_audited": "2a7514d50496ac859eea8eb63b8f7cf086ee4f14",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "189beec8ba2c56efbc7891ad20656e7a016eacc1",
+    "latest_main_commit": "2a7514d50496ac859eea8eb63b8f7cf086ee4f14",
     "latest_main_commit_verified_on": "2026-11-22",
     "advertising_note": "پنل تبلیغ‌دهنده و درخواست کمپین شرکت در main موجود است. CI آخرین تغییرات قبلی در 189beec بررسی و خطای انتخاب قرارداد درآمد بر اساس territory شناسایی و اصلاح شد؛ CI commit جدید هنوز در حال اجراست."
   },
@@ -6780,18 +6780,17 @@
   },
   "revenue_contract_territory_ci": {
     "updated_at": "2026-11-22",
-    "source_commit": "189beec8ba2c56efbc7891ad20656e7a016eacc1",
-    "previous_failed_run": 45051498018,
-    "previous_failure": "Undefined variable $territory in RevenueLedgerService::contractFor; SQLite territory test also created duplicate (title_id, version) before updating the version.",
-    "fix": [
-      "Pass the normalized event territory into contractFor so territory filtering uses the event's territory.",
-      "Create the second territory contract with version 2 at insertion time, preserving the unique title/version constraint."
+    "source_commit": "2a7514d50496ac859eea8eb63b8f7cf086ee4f14",
+    "prior_runs": [
+      45053344196
     ],
+    "previous_failure": "The contract lookup correctly rejected an event whose territory was not covered, but raised RuntimeException while the domain test expects LogicException; both SQLite and MySQL had the same single failing test.",
+    "fix": "Use LogicException for missing approved contract coverage and explicitly include territory in the domain error message.",
     "current_run": {
-      "id": 45053344196,
+      "id": 45053739297,
       "status": "in_progress",
       "conclusion": null
     },
-    "validation_note": "No passing result is claimed until the latest run completes. Local Laragon/MySQL and browser acceptance remain unverified."
+    "validation_note": "CI is running. No pass claimed until completed. Local Laragon/MySQL and browser validation remain outstanding."
   }
 }
