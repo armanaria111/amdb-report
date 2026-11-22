@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "",
+    "source_commit_audited": "dd52aec4f1f7311bbf5c5eb71e2429a3bec7b1a9",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "",
+    "latest_main_commit": "dd52aec4f1f7311bbf5c5eb71e2429a3bec7b1a9",
     "latest_main_commit_verified_on": "2026-11-22",
     "advertising_note": "پنل گزارش تبلیغ‌دهنده و گردش ارسال درخواست کمپین از پنل شرکت در main افزوده شد. دسترسی گزارش و ثبت درخواست فقط برای عضویت فعال owner/finance در شرکت فعال مجاز است؛ درخواست‌ها draft می‌مانند و فعال‌سازی همچنان با مدیریت است. تست‌ها طبق درخواست کاربر به مرحله بعد موکول شده‌اند. آخرین CI روی commit 7f6ffed با موفقیت کامل شد: ۲۶۱ تست و ۱۰۲۰ assertion در SQLite و همین تعداد در MySQL 8.4؛ build فرانت‌اند و Blade compile/lint نیز موفق بودند."
   },
@@ -4337,7 +4337,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "f27eb8d57e1c08751315493879e45b7b438a3f4b",
+    "source_commit": "dd52aec4f1f7311bbf5c5eb71e2429a3bec7b1a9",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-21",
@@ -4423,7 +4423,8 @@
         "بررسی محلی php -l در 2026-11-22: lang/fa-AF/artists.php بدون خطای نحوی؛ lang/en/artists.php و lang/ps/artists.php هر دو در خط 89 خطای Cannot use empty array elements in arrays دارند. بنابراین اصلاح GitHub هنوز در نسخه محلی این دو فایل تأیید/همگام نشده است؛ optimize:clear نیز به‌علت واردکردن بک‌اسلش انتهایی اجرا نشد.",
         "Latest main code commit updated to 66ddd59fd1fc00f707a82e6ea799e158a368d4ab; the earlier local syntax errors in English/Pashto were fixed in GitHub commits, but local sync and php -l remain unverified.",
         "اجرای محلی کاربر در 2026-11-22: php artisan optimize:clear موفق؛ php artisan test موفق با 13 passed / 38 assertions / 4.09s. git status و git pull با fatal not a git repository و php -l سه فایل ترجمه با Could not open input file مواجه شدند؛ بنابراین مسیر جاری Laravel دارای artisan بوده اما Git root و مسیر فایل‌های ترجمه در آن احراز نشدند. اجرای 13 تست محدود است و suite کامل 256 تست را اثبات نمی‌کند.",
-        "2026-11-22 main CI run 45049622525 for commit 7f6ffed0614ed0cdf2d06114c8929b3aa1bd1596: SQLite PHPUnit 261 passed / 1020 assertions; MySQL 8.4 PHPUnit 261 passed / 1020 assertions; Vite production build success; all Blade views compiled and compiled PHP lint passed. CI uses temporary GitHub runners and does not verify the user's Laragon database or browser."
+        "2026-11-22 main CI run 45049622525 for commit 7f6ffed0614ed0cdf2d06114c8929b3aa1bd1596: SQLite PHPUnit 261 passed / 1020 assertions; MySQL 8.4 PHPUnit 261 passed / 1020 assertions; Vite production build success; all Blade views compiled and compiled PHP lint passed. CI uses temporary GitHub runners and does not verify the user's Laragon database or browser.",
+        "Revenue documentation was aligned with the implemented company-only payee model: artists have no direct revenue or copyright royalty entitlement; company settlements require active owner/finance membership."
       ],
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
@@ -5096,7 +5097,7 @@
         }
       ]
     },
-    "latest_main_commit": "",
+    "latest_main_commit": "dd52aec4f1f7311bbf5c5eb71e2429a3bec7b1a9",
     "source_commit_audited": "",
     "latest_main_commit_verified_on": "2026-11-22"
   },
