@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "aaba384d50f19eb4f8e74454926d14c82bdb2b5e",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "66ddd59fd1fc00f707a82e6ea799e158a368d4ab",
+    "latest_main_commit": "78c9b5d07873c6eb4d74f8764882e51df0765904",
     "latest_main_commit_verified_on": "2026-11-22"
   },
   "languages": [
@@ -1139,7 +1139,8 @@
     {
       "date": "2026-11-22",
       "text": "خروجی Tinker اثر am0000001 بررسی شد: فقط ترجمه en با عنوان دری «سرخ سالی» وجود دارد؛ original_title و synopsis خالی، یک credit هنرمند با profession_id=7 و بدون company credit. بررسی php -l نشان داد فایل fa-AF سالم است اما فایل‌های en و ps در نسخه محلی خط 89 خطای نحوی دارند؛ همگام‌سازی اصلاح GitHub و تکرار lint باقی است."
-    }
+    },
+    "2026-11-22: داشبورد تبلیغات با مقایسه عملکرد جایگاه‌ها و نمودار روند روزانه نمایش/کلیک گسترش یافت؛ تست Feature و ترجمه‌های en/fa-AF/ps ثبت شدند. CI نسخه جاری هنوز در حال اجراست."
   ],
   "architecture": {
     "identity_and_access": [
@@ -4334,7 +4335,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "66ddd59fd1fc00f707a82e6ea799e158a368d4ab",
+    "source_commit": "78c9b5d07873c6eb4d74f8764882e51df0765904",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-21",
@@ -5088,7 +5089,8 @@
           ]
         }
       ]
-    }
+    },
+    "latest_main_commit": "78c9b5d07873c6eb4d74f8764882e51df0765904"
   },
   "report_methodology": {
     "version": 3,
@@ -5870,6 +5872,25 @@
         "ci_conclusion": "success",
         "tests": 254,
         "assertions": 983
+      },
+      "latest_main_commit": "78c9b5d07873c6eb4d74f8764882e51df0765904",
+      "dashboard_extensions": {
+        "status": "committed_ci_in_progress",
+        "commit": "78c9b5d07873c6eb4d74f8764882e51df0765904",
+        "commit_url": "https://github.com/armanaria111/amdb-laravel2/commit/78c9b5d07873c6eb4d74f8764882e51df0765904",
+        "completed": [
+          "فیلترهای وضعیت و جایگاه در کارت‌های آمار، گزارش روزانه و مقایسه عملکرد جایگاه‌ها یکسان‌سازی شدند.",
+          "جدول مقایسه جایگاه‌ها شامل impression، click و CTR در بازه انتخاب‌شده اضافه شد.",
+          "نمودار روند روزانه impression و click به‌صورت SVG و بدون وابستگی JavaScript اضافه شد.",
+          "ترجمه‌های مستقل نمودار برای en، fa-AF و ps اضافه شد و تست Feature رندر نمودار را بررسی می‌کند."
+        ],
+        "ci": {
+          "run_id": 45047497965,
+          "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45047497965",
+          "status": "in_progress",
+          "conclusion": null
+        },
+        "runtime_mysql_and_browser": "not_verified"
       }
     }
   },
