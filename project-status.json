@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "0881fa1d4bc0f380d7a69d543c88f03edae8adea",
+    "source_commit_audited": "19d497f61e32bc7032169697011cf15d68642ac6",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "0881fa1d4bc0f380d7a69d543c88f03edae8adea",
+    "latest_main_commit": "19d497f61e32bc7032169697011cf15d68642ac6",
     "latest_main_commit_verified_on": "2026-11-22"
   },
   "languages": [
