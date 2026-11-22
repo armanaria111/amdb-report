@@ -4386,7 +4386,8 @@
         "در 2026-11-22، APIهای /api/v1/artists و /api/v1/festivals در محیط محلی هر دو HTTP 200 و Content-Type: application/json دادند؛ JSON معتبر با کلیدهای data و meta بود. artists یک رکورد با شناسه ar0000001 و festivals صفر رکورد برگرداندند؛ meta صفحه‌بندی در هر دو موجود بود. این فقط اعتبارسنجی ساختار سطح اول پاسخ است.",
         "در 2026-11-22، شش تست قرارداد API هنرمندان در محیط محلی همگی مطابق انتظار بودند: per_page=1 پاسخ 200؛ مقادیر 51، 0 و abc پاسخ 422؛ شناسه معتبر ar0000001 پاسخ 200 و شناسه بدقالب ar1 پاسخ 404 داد. این تست محدود است و جایگزین پوشش کامل API نیست.",
         "در 2026-11-22، تست locale و جست‌وجوی API هنرمندان اجرا شد: localeهای en/fa-AF/ps و locale نامعتبر همگی HTTP 200؛ per_page=50 نیز HTTP 200. نام نمونه در هر سه locale یکسان بود و به دلیل نامشخص بودن وجود ترجمه‌های ذخیره‌شده، نقص ترجمه نتیجه‌گیری نشد. دو تست جست‌وجو به علت نمایش query به شکل ???? در PowerShell موقتاً غیرقطعی ثبت شدند و نیاز به تکرار با URL encoding دارند.",
-        "تکرار تست API در 2026-11-22 با URL encoding مطمئن موفق شد: localeهای en/fa-AF/ps هر سه HTTP 200 و یک رکورد ar0000001 با نام احمدی احمدی برگرداندند؛ جست‌وجوی فارسی احمدی HTTP 200 و یک نتیجه و جست‌وجوی فارسی بدون تطبیق HTTP 200 و صفر نتیجه داشت. در مجموع ۵/۵ سناریو موفق؛ یکسان بودن نام در سه زبان به‌تنهایی نقص ترجمه را ثابت نمی‌کند."
+        "تکرار تست API در 2026-11-22 با URL encoding مطمئن موفق شد: localeهای en/fa-AF/ps هر سه HTTP 200 و یک رکورد ar0000001 با نام احمدی احمدی برگرداندند؛ جست‌وجوی فارسی احمدی HTTP 200 و یک نتیجه و جست‌وجوی فارسی بدون تطبیق HTTP 200 و صفر نتیجه داشت. در مجموع ۵/۵ سناریو موفق؛ یکسان بودن نام در سه زبان به‌تنهایی نقص ترجمه را ثابت نمی‌کند.",
+        "در 2026-11-22، پنج درخواست محلی API کاتالوگ شرکت‌ها، آثار و جشنواره‌ها همگی HTTP 200 و JSON معتبر با data/meta برگرداندند. companies و festivals صفر رکورد؛ titles یک رکورد am0000001 با فیلدهای id, slug, type, title, original_title, synopsis, release_date, runtime_minutes, genres, countries داشت. آزمون فقط smoke test سطح اول است."
       ],
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
@@ -4727,6 +4728,89 @@
         "نام نمونه در هر سه locale یکسان است؛ این موضوع به‌تنهایی نقص API را ثابت نمی‌کند و وضعیت ترجمه‌های ذخیره‌شده جداگانه باید بررسی شود."
       ],
       "scope_note": "Smoke test محلی endpoint فهرست هنرمندان؛ آزمون ترجمه واقعی داده‌ها و همه endpointها را شامل نمی‌شود."
+    },
+    "local_api_catalog_smoke": {
+      "checked_at": "2026-11-22",
+      "base_url": "http://127.0.0.1:8000",
+      "tests": [
+        {
+          "endpoint": "GET /api/v1/companies",
+          "http": 200,
+          "content_type": "application/json",
+          "root_keys": [
+            "data",
+            "meta"
+          ],
+          "records": 0,
+          "result": "passed"
+        },
+        {
+          "endpoint": "GET /api/v1/titles",
+          "http": 200,
+          "content_type": "application/json",
+          "root_keys": [
+            "data",
+            "meta"
+          ],
+          "records": 1,
+          "sample_public_id": "am0000001",
+          "record_fields": [
+            "id",
+            "slug",
+            "type",
+            "title",
+            "original_title",
+            "synopsis",
+            "release_date",
+            "runtime_minutes",
+            "genres",
+            "countries"
+          ],
+          "result": "passed"
+        },
+        {
+          "endpoint": "GET /api/v1/festivals?per_page=1",
+          "http": 200,
+          "content_type": "application/json",
+          "root_keys": [
+            "data",
+            "meta"
+          ],
+          "records": 0,
+          "result": "passed"
+        },
+        {
+          "endpoint": "GET /api/v1/companies?per_page=1",
+          "http": 200,
+          "content_type": "application/json",
+          "root_keys": [
+            "data",
+            "meta"
+          ],
+          "records": 0,
+          "result": "passed"
+        },
+        {
+          "endpoint": "GET /api/v1/titles?per_page=1",
+          "http": 200,
+          "content_type": "application/json",
+          "root_keys": [
+            "data",
+            "meta"
+          ],
+          "records": 1,
+          "sample_public_id": "am0000001",
+          "result": "passed"
+        }
+      ],
+      "passed": 5,
+      "failed": 0,
+      "result": "success",
+      "notes": [
+        "فهرست شرکت‌ها و جشنواره‌ها خالی است؛ این موضوع به‌تنهایی خطای API نیست.",
+        "فهرست آثار یک رکورد با شناسه عمومی am0000001 برگرداند.",
+        "این مرحله صحت ساختار سطح اول، HTTP و تعداد رکوردها را بررسی کرد؛ جزئیات اثر، فیلترها و اعتبارسنجی ورودی هنوز جداگانه نیازمند تست‌اند."
+      ]
     }
   },
   "report_methodology": {
