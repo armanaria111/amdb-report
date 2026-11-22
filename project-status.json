@@ -1135,6 +1135,10 @@
     {
       "date": "2026-11-21",
       "text": "CI پس از ادغام PR112 روی main نیز با موفقیت تکمیل شد (run 44943020490). بنابراین PR112 هم CI پیش از ادغام و هم CI پس از ادغام را با موفقیت گذرانده است."
+    },
+    {
+      "date": "2026-11-22",
+      "text": "خروجی Tinker اثر am0000001 بررسی شد: فقط ترجمه en با عنوان دری «سرخ سالی» وجود دارد؛ original_title و synopsis خالی، یک credit هنرمند با profession_id=7 و بدون company credit. بررسی php -l نشان داد فایل fa-AF سالم است اما فایل‌های en و ps در نسخه محلی خط 89 خطای نحوی دارند؛ همگام‌سازی اصلاح GitHub و تکرار lint باقی است."
     }
   ],
   "architecture": {
@@ -1712,6 +1716,11 @@
       "date": "2026-11-21",
       "title": "CI نهایی PR112 موفق",
       "detail": "CI پس از ادغام PR112 روی main (run 44943020490) موفق شد؛ Vite build و تست‌های Laravel در workflow اصلی موفق هستند."
+    },
+    {
+      "date": "2026-11-22",
+      "title": "بررسی داده اثر و خطای نحوی محلی ترجمه‌ها",
+      "detail": "بررسی Tinker اثر am0000001: فقط یک ترجمه در language_code=en وجود دارد، اما title آن «سرخ سالی» است؛ original_title و synopsis خالی‌اند. یک title_credit با artist_id=1 و profession_id=7 ثبت است و companyCredits خالی است. این نتیجه نقص داده نمونه را نشان می‌دهد، نه شکست endpoint یا PHPUnit. بررسی محلی php -l در 2026-11-22: lang/fa-AF/artists.php بدون خطای نحوی؛ lang/en/artists.php و lang/ps/artists.php هر دو در خط 89 خطای Cannot use empty array elements in arrays دارند. بنابراین اصلاح GitHub هنوز در نسخه محلی این دو فایل تأیید/همگام نشده است؛ optimize:clear نیز به‌علت واردکردن بک‌اسلش انتهایی اجرا نشد."
     }
   ],
   "source_code_audit": {
@@ -4406,7 +4415,9 @@
         "در 2026-11-22، شش تست قرارداد API هنرمندان در محیط محلی همگی مطابق انتظار بودند: per_page=1 پاسخ 200؛ مقادیر 51، 0 و abc پاسخ 422؛ شناسه معتبر ar0000001 پاسخ 200 و شناسه بدقالب ar1 پاسخ 404 داد. این تست محدود است و جایگزین پوشش کامل API نیست.",
         "در 2026-11-22، تست locale و جست‌وجوی API هنرمندان اجرا شد: localeهای en/fa-AF/ps و locale نامعتبر همگی HTTP 200؛ per_page=50 نیز HTTP 200. نام نمونه در هر سه locale یکسان بود و به دلیل نامشخص بودن وجود ترجمه‌های ذخیره‌شده، نقص ترجمه نتیجه‌گیری نشد. دو تست جست‌وجو به علت نمایش query به شکل ???? در PowerShell موقتاً غیرقطعی ثبت شدند و نیاز به تکرار با URL encoding دارند.",
         "تکرار تست API در 2026-11-22 با URL encoding مطمئن موفق شد: localeهای en/fa-AF/ps هر سه HTTP 200 و یک رکورد ar0000001 با نام احمدی احمدی برگرداندند؛ جست‌وجوی فارسی احمدی HTTP 200 و یک نتیجه و جست‌وجوی فارسی بدون تطبیق HTTP 200 و صفر نتیجه داشت. در مجموع ۵/۵ سناریو موفق؛ یکسان بودن نام در سه زبان به‌تنهایی نقص ترجمه را ثابت نمی‌کند.",
-        "در 2026-11-22، پنج درخواست محلی API کاتالوگ شرکت‌ها، آثار و جشنواره‌ها همگی HTTP 200 و JSON معتبر با data/meta برگرداندند. companies و festivals صفر رکورد؛ titles یک رکورد am0000001 با فیلدهای id, slug, type, title, original_title, synopsis, release_date, runtime_minutes, genres, countries داشت. آزمون فقط smoke test سطح اول است."
+        "در 2026-11-22، پنج درخواست محلی API کاتالوگ شرکت‌ها، آثار و جشنواره‌ها همگی HTTP 200 و JSON معتبر با data/meta برگرداندند. companies و festivals صفر رکورد؛ titles یک رکورد am0000001 با فیلدهای id, slug, type, title, original_title, synopsis, release_date, runtime_minutes, genres, countries داشت. آزمون فقط smoke test سطح اول است.",
+        "بررسی Tinker اثر am0000001: فقط یک ترجمه در language_code=en وجود دارد، اما title آن «سرخ سالی» است؛ original_title و synopsis خالی‌اند. یک title_credit با artist_id=1 و profession_id=7 ثبت است و companyCredits خالی است. این نتیجه نقص داده نمونه را نشان می‌دهد، نه شکست endpoint یا PHPUnit.",
+        "بررسی محلی php -l در 2026-11-22: lang/fa-AF/artists.php بدون خطای نحوی؛ lang/en/artists.php و lang/ps/artists.php هر دو در خط 89 خطای Cannot use empty array elements in arrays دارند. بنابراین اصلاح GitHub هنوز در نسخه محلی این دو فایل تأیید/همگام نشده است؛ optimize:clear نیز به‌علت واردکردن بک‌اسلش انتهایی اجرا نشد."
       ],
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
@@ -4585,6 +4596,35 @@
         "failed": 0,
         "result": "success",
         "scope_note": "این بررسی محدود به صفحه‌بندی و قالب شناسه عمومی هنرمند است؛ فیلتر q، زبان‌های API، endpoint جزئیات سایر منابع و کنترل دسترسی هنوز جداگانه آزموده نشده‌اند."
+      },
+      "local_title_data_inspection": {
+        "checked_at": "2026-11-22",
+        "public_id": "am0000001",
+        "translations": [
+          {
+            "language_code": "en",
+            "title": "سرخ سالی",
+            "original_title": null,
+            "synopsis": null
+          }
+        ],
+        "credits_count": 1,
+        "credit": {
+          "artist_id": 1,
+          "profession_id": 7,
+          "credited_name": "احمدی احمدی"
+        },
+        "company_credits_count": 0,
+        "result": "sample_data_incomplete_translation_and_company_credit_absent"
+      },
+      "local_translation_syntax_check": {
+        "checked_at": "2026-11-22",
+        "results": {
+          "lang/fa-AF/artists.php": "passed",
+          "lang/en/artists.php": "failed_line_89",
+          "lang/ps/artists.php": "failed_line_89"
+        },
+        "optimize_clear": "not_executed_due_to_trailing_backslash"
       }
     },
     "release": {
