@@ -637,7 +637,8 @@
       "در RevenueSettlementController، مرجع پرداخت پیش از اجرای unique validation نرمال‌سازی شد تا ورودی دارای فاصله ابتدا/انتها نتواند از بررسی یکتایی عبور کند و سپس به خطای دیتابیس تبدیل شود. تست موجود تکرار مرجع برای درخواست دوم با فاصله‌های اضافی به‌روزرسانی شد تا این مسیر را پوشش دهد؛ تست اجرا نشد.",
       "در داشبورد درآمد شرکت، محاسبه earned/reserved/available از float به محاسبه integer cents تغییر کرد؛ مقادیر خروجی به رشته اعشاری دقیق تبدیل می‌شوند و شرط نمایش فرم تسویه با available_cents بررسی می‌شود. View نیز مقادیر دقیق را بدون تبدیل دوباره به float نمایش می‌دهد. تست Feature برای نمایش earned=100.00، reserved=0.10 و available=99.90 اضافه شد؛ تست هنوز اجرا نشده است.",
       "دفتر درآمد مستقل پلتفرم AMDB در commit eb073af9984ab69b70dad68fd5bbd1b14250b5c0 افزوده شد: USD/EUR برای Google Ads/AdSense، IRR برای تبلیغات ایران و AFN برای تبلیغات اختصاصی؛ موجودی‌ها جدا، ثبت با مرجع یکتا و تأیید مدیر، بدون تبدیل خودکار. اتصال API بیرونی هنوز انجام نشده و CI run 45059397030 در حال اجراست.",
-      "وضعیت میانی CI برای دفتر درآمد چهارارزی: Vite build، Blade compile/lint و PHPUnit روی SQLite موفق؛ Migration و اتصال MySQL 8.4 موفق؛ PHPUnit روی MySQL هنوز در حال اجراست (run 45059397030)."
+      "وضعیت میانی CI برای دفتر درآمد چهارارزی: Vite build، Blade compile/lint و PHPUnit روی SQLite موفق؛ Migration و اتصال MySQL 8.4 موفق؛ PHPUnit روی MySQL هنوز در حال اجراست (run 45059397030).",
+      "CI نهایی دفتر درآمد چهارارزی در run 45059397030 با conclusion=success تکمیل شد؛ Vite production build، Blade compile/lint، تست‌های Laravel روی SQLite و تست‌های Laravel روی MySQL 8.4 همگی موفق شدند."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -663,7 +664,7 @@
       "هیچ‌یک از hosted playback، upload، malware scan یا media probe در محیط production فعال نشده‌اند؛ feature flagها خاموش باقی مانده‌اند.",
       "PR96 برای تبدیل خصوصی HLS باز است؛ CI هنوز در حال اجرا/انتظار است. نتیجه ادغام و اجرای Migration روی MySQL هنوز تأیید نشده."
     ],
-    "summary": "دفتر مستقل درآمد تبلیغاتی AMDB با چهار ارز و محدودیت منبع/ارز پیاده‌سازی شد؛ CI در حال اجراست و تست محلی/مرورگر اجرا نشده است."
+    "summary": "دفتر مستقل درآمد تبلیغاتی AMDB با چهار ارز و محدودیت منبع/ارز پیاده‌سازی شد؛ CI روی SQLite و MySQL 8.4 و build فرانت‌اند موفق است. تست محلی و مرورگر اجرا نشده است."
   },
   "known_issues": [
     {
@@ -6883,7 +6884,7 @@
   "platform_revenue_multicurrency": {
     "updated_at": "2026-11-22",
     "source_commit": "eb073af9984ab69b70dad68fd5bbd1b14250b5c0",
-    "status": "implemented_ci_running",
+    "status": "implemented_ci_passed",
     "currency_policy": {
       "USD": "google_ads",
       "EUR": "google_ads",
@@ -6897,17 +6898,18 @@
       "ثبت درآمد با دوره گزارش، مرجع منبع یکتا و یادداشت انجام می‌شود؛ رکورد جدید pending است و فقط پس از تأیید مدیر وارد موجودی تأییدشده می‌شود.",
       "جزئیات مبلغ و منبع پس از ثبت غیرقابل ویرایش و حذف هستند؛ کنترل یکتایی مرجع و اعتبارسنجی تطبیق منبع/ارز افزوده شد.",
       "صفحه از داشبورد مدیریت و ترجمه‌های انگلیسی، دری و پشتو در دسترس است.",
-      "CI پیگیری‌شده: Vite production build، کامپایل و lint تمام Bladeها، تست‌های کامل SQLite و Migrationهای MySQL 8.4 موفق شدند؛ اجرای تست‌های کامل MySQL هنوز در حال انجام است."
+      "CI پیگیری‌شده: Vite production build، کامپایل و lint تمام Bladeها، تست‌های کامل SQLite و Migrationهای MySQL 8.4 موفق شدند؛ اجرای تست‌های کامل MySQL هنوز در حال انجام است.",
+      "نتیجه نهایی CI run 45059397030: همه jobها موفق شدند؛ Vite production build، Blade compile/lint و تست‌های Laravel روی SQLite و MySQL 8.4 پاس شدند."
     ],
     "validation": {
       "run_id": 45059397030,
-      "status": "sqlite_success_mysql_tests_running",
+      "status": "success",
       "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45059397030",
       "local_laragon": "not_run",
       "browser_mobile": "not_run",
       "sqlite_tests": "success",
       "mysql_migrations": "success",
-      "mysql_tests": "in_progress",
+      "mysql_tests": "success",
       "vite_build": "success",
       "blade_compile_and_lint": "success"
     },
