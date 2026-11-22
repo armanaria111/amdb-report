@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "63a276a1a8e827ab1f377ab468b7c03dfa9a6a56",
+    "source_commit_audited": "89aa09900f31a6e4588588923e887c549bc764be",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "63a276a1a8e827ab1f377ab468b7c03dfa9a6a56",
+    "latest_main_commit": "89aa09900f31a6e4588588923e887c549bc764be",
     "latest_main_commit_verified_on": "2026-11-22",
     "advertising_note": "پنل تبلیغ‌دهنده و درخواست کمپین شرکت در main موجود است. در قراردادهای درآمدی، نسخه‌های قبلی برای مدل‌ها/قلمروهای خارج از پوشش قرارداد جدید حفظ می‌شوند؛ قفل‌گذاری هم‌زمانی شرکت و حقوق نیز اضافه شده است. CI آخرین تغییرات مالی در حال اجراست."
   },
@@ -634,7 +634,8 @@
       "CI run 44990772045: migration کامل روی MySQL 8.4.13 موفق؛ ۲۵۴ تست و ۹۸۳ assertion روی MySQL و ۲۵۴ تست و ۹۸۳ assertion روی SQLite پاس شدند.",
       "سه ناسازگاری قدیمی MySQL در migrationهای جشنواره و hosted playback اصلاح شد؛ index و FK کوتاه شدند و طول path از ۱۰۲۴ به ۷۰۰ کاهش یافت.",
       "در سه فایل ترجمه revenue.php کلید تکراری no_settlement_requests که باعث بازنویسی پیام خالی‌بودن فهرست شرکت با پیام صف مدیریت می‌شد، تفکیک شد؛ کلید مستقل no_admin_settlement_requests برای صف مدیریت در en/fa-AF/ps اضافه و View مدیریت به آن متصل شد. تغییرات در main ثبت شد؛ بنا به درخواست کاربر در این مرحله تست اجرا نشد.",
-      "در RevenueSettlementController، مرجع پرداخت پیش از اجرای unique validation نرمال‌سازی شد تا ورودی دارای فاصله ابتدا/انتها نتواند از بررسی یکتایی عبور کند و سپس به خطای دیتابیس تبدیل شود. تست موجود تکرار مرجع برای درخواست دوم با فاصله‌های اضافی به‌روزرسانی شد تا این مسیر را پوشش دهد؛ تست اجرا نشد."
+      "در RevenueSettlementController، مرجع پرداخت پیش از اجرای unique validation نرمال‌سازی شد تا ورودی دارای فاصله ابتدا/انتها نتواند از بررسی یکتایی عبور کند و سپس به خطای دیتابیس تبدیل شود. تست موجود تکرار مرجع برای درخواست دوم با فاصله‌های اضافی به‌روزرسانی شد تا این مسیر را پوشش دهد؛ تست اجرا نشد.",
+      "در داشبورد درآمد شرکت، محاسبه earned/reserved/available از float به محاسبه integer cents تغییر کرد؛ مقادیر خروجی به رشته اعشاری دقیق تبدیل می‌شوند و شرط نمایش فرم تسویه با available_cents بررسی می‌شود. View نیز مقادیر دقیق را بدون تبدیل دوباره به float نمایش می‌دهد. تست Feature برای نمایش earned=100.00، reserved=0.10 و available=99.90 اضافه شد؛ تست هنوز اجرا نشده است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -6854,6 +6855,27 @@
       "تکمیل CI روی SQLite، MySQL 8.4 و Vite؛ نتیجه هنوز در حال اجراست.",
       "بررسی وجود payout_reference تکراری در دیتابیس عملیاتی پیش از اجرای migration؛ migration unique در صورت وجود مقدار تکراری باید متوقف شود تا داده‌ها به‌صورت حسابرسی‌شده اصلاح شوند.",
       "تست محلی Laragon و پذیرش مرورگر/موبایل پس از همگام‌سازی انجام نشده است."
+    ]
+  },
+  "revenue_company_dashboard_precision": {
+    "updated_at": "2026-11-22",
+    "source_commit": "89aa09900f31a6e4588588923e887c549bc764be",
+    "status": "implemented_ci_queued",
+    "changes": [
+      "تجمیع SQL مبالغ به integer cents تبدیل می‌شود و محاسبه موجودی قابل تسویه بدون عملیات float انجام می‌گیرد.",
+      "مبالغ earned، reserved و available به صورت رشته اعشاری دو رقمی به View داده می‌شوند.",
+      "نمایش فرم درخواست تسویه بر اساس available_cents انجام می‌شود."
+    ],
+    "validation": {
+      "run_id": 45058453647,
+      "status": "queued",
+      "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45058453647",
+      "local_laragon": "not_run",
+      "browser_mobile": "not_run"
+    },
+    "remaining": [
+      "نتیجه CI روی SQLite، MySQL 8.4 و Vite بررسی شود.",
+      "پس از همگام‌سازی، تست محلی و نمایش موبایل/مرورگر بررسی شود."
     ]
   }
 }
