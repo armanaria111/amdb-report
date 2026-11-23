@@ -7030,10 +7030,10 @@
       "خلاصه درآمد تبلیغاتی پلتفرم در داشبورد کمپین‌ها به تفکیک منبع/ارز/وضعیت اضافه شده است؛ تست runtime و نمایش مرورگری عمداً به مرحله بعد موکول شده‌اند."
     ],
     "latest_feature_branch": "feature/company-advertising-performance-details",
-    "latest_feature_commit": "82e1560f5d3e9850245be983c0a2d7537e7b7e49",
+    "latest_feature_commit": "befe2aea1772171269e2b3ae60578c0adc0dcb58",
     "latest_feature_base": "44310a66c38109dbf6913577f7f475b3d202f5e4",
     "latest_feature_compare": {
-      "ahead_by": 65,
+      "ahead_by": 66,
       "behind_by": 0,
       "pr_opened": false,
       "tests": "not_run_by_user_instruction",
@@ -7047,9 +7047,9 @@
     "updated_at": "2026-11-23",
     "repository": "https://github.com/armanaria111/amdb-laravel2",
     "branch": "feature/company-advertising-performance-details",
-    "head": "82e1560f5d3e9850245be983c0a2d7537e7b7e49",
+    "head": "befe2aea1772171269e2b3ae60578c0adc0dcb58",
     "base": "44310a66c38109dbf6913577f7f475b3d202f5e4",
-    "compare": "65 commits ahead, 0 behind",
+    "compare": "66 commits ahead, 0 behind",
     "status": "feature_committed_unmerged_tests_and_migrations_deferred",
     "changes": [
       "گزارش عملکرد کمپین شرکت با کنترل عضویت فعال و نقش owner/finance، گزارش روزانه و خروجی CSV",
@@ -7066,7 +7066,8 @@
       "گزارش خلاصه مالی صورتحساب‌های تبلیغاتی در پنل مدیریت به تفکیک چهار ارز AFN، IRR، USD و EUR؛ مجموع صادرشده، دریافت‌شده و مانده هر ارز جداست و هیچ تبدیل یا جمع ترکیبی انجام نمی‌شود.",
       "فیلتر بازه تاریخ صدور به فهرست و خروجی CSV صورتحساب‌ها اضافه شد؛ خلاصه مالی نیز با بازه صدور و شرکت انتخابی هم‌راستا است.",
       "محاسبه خلاصه مالی صورتحساب با integer cents انجام می‌شود تا محاسبات پولی به float وابسته نباشند.",
-      "مسیرهای صورتحساب مدیریت از گروه platform-revenue به گروه advertising منتقل شدند تا نام مسیرها با لینک‌های پنل و مجوزهای ماژول تبلیغات هم‌خوان باشد."
+      "مسیرهای صورتحساب مدیریت از گروه platform-revenue به گروه advertising منتقل شدند تا نام مسیرها با لینک‌های پنل و مجوزهای ماژول تبلیغات هم‌خوان باشد.",
+      "خروجی CSV صورتحساب‌ها نیز همان فیلترهای بازه تاریخ صدور را اعمال می‌کند؛ فیلتر صفحه و فایل خروجی اکنون هم‌راستا هستند."
     ],
     "safeguards": [
       "درآمد تبلیغاتی پلتفرم از صورتحساب‌های شرکت و درآمد قراردادی صاحبان حقوق آثار کاملاً جداست",
@@ -7085,7 +7086,7 @@
   },
   "advertising_invoice_billing": {
     "updated_at": "2026-11-23",
-    "source_commit": "82e1560f5d3e9850245be983c0a2d7537e7b7e49",
+    "source_commit": "befe2aea1772171269e2b3ae60578c0adc0dcb58",
     "status": "invoice_billing_and_currency_summary_committed_tests_deferred",
     "currency_policy": [
       "AFN",
@@ -7106,7 +7107,8 @@
       "خلاصه مالی صورتحساب‌های باطل‌نشده در پنل مدیریت به تفکیک AFN، IRR، USD و EUR اضافه شد؛ برای هر ارز مجموع صادرشده، دریافت‌شده و مانده جداگانه نمایش داده می‌شود.",
       "خلاصه مالی بر اساس بازه تاریخ صدور و شرکت فیلتر می‌شود و محاسبات مبلغ با integer cents انجام می‌شود.",
       "فیلتر تاریخ صدور در صفحه و CSV صورتحساب مدیریت اضافه شد.",
-      "مسیرهای مدیریت صورتحساب به گروه routeهای تبلیغات منتقل شدند تا route nameهای admin.advertising.invoices با لینک‌های View تطبیق داشته باشند."
+      "مسیرهای مدیریت صورتحساب به گروه routeهای تبلیغات منتقل شدند تا route nameهای admin.advertising.invoices با لینک‌های View تطبیق داشته باشند.",
+      "فیلتر تاریخ صدور علاوه بر فهرست، در پرس‌وجوی CSV نیز اعمال می‌شود تا خروجی با فیلترهای انتخاب‌شده در صفحه یکسان باشد."
     ],
     "limitations": [
       "درگاه آنلاین، پرداخت خودکار، مالیات، جریمه دیرکرد، PDF و ارسال ایمیل هنوز پیاده‌سازی نشده‌اند.",
