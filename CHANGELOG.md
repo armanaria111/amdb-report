@@ -1161,3 +1161,6 @@
 
 
 - در CI خروجی CSV، آزمون SQLite مقدار درآمد صفر برگرداند، در حالی که MySQL موفق بود؛ محاسبه درآمد از join رویدادها جدا و به پرس‌وجوی مستقل تجمیعی منتقل شد. اصلاحیه: [35b9db53d21f132fb01aa8c76adfc4e4b144271b](https://github.com/armanaria111/amdb-laravel2/commit/35b9db53d21f132fb01aa8c76adfc4e4b144271b)؛ CI جدید [45096759495](https://github.com/armanaria111/amdb-laravel2/actions/runs/45096759495) در صف اجراست.
+
+
+- برای سازگاری SQLite و MySQL، تجمیع CSV به دریافت ردیف‌های درآمد و جمع‌زدن بر اساس campaign_id در Collection منتقل شد؛ تست جمع مستقیم SQL و وجود رکورد نیز اضافه شد. اصلاحیه: [fd1d85f0facc5e03d9e387314abc18523998755e](https://github.com/armanaria111/amdb-laravel2/commit/fd1d85f0facc5e03d9e387314abc18523998755e)؛ CI [45096910603](https://github.com/armanaria111/amdb-laravel2/actions/runs/45096910603) در انتظار اجراست.
