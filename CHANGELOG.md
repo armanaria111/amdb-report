@@ -1158,3 +1158,6 @@
 - تجمیع درآمد در زیرپرس‌وجوی جداگانه بر اساس کمپین انجام می‌شود تا با تعداد impression/click چندبرابر نشود.
 - تست Feature جداسازی کمپین‌ها و مبالغ تأییدشده/در انتظار تأیید به‌روزرسانی شد.
 - سورس: [03397a592f3bed77aea38251944db791e2172b84](https://github.com/armanaria111/amdb-laravel2/commit/03397a592f3bed77aea38251944db791e2172b84)؛ CI [45096544758](https://github.com/armanaria111/amdb-laravel2/actions/runs/45096544758) در صف اجراست.
+
+
+- در CI خروجی CSV، آزمون SQLite مقدار درآمد صفر برگرداند، در حالی که MySQL موفق بود؛ محاسبه درآمد از join رویدادها جدا و به پرس‌وجوی مستقل تجمیعی منتقل شد. اصلاحیه: [35b9db53d21f132fb01aa8c76adfc4e4b144271b](https://github.com/armanaria111/amdb-laravel2/commit/35b9db53d21f132fb01aa8c76adfc4e4b144271b)؛ CI جدید [45096759495](https://github.com/armanaria111/amdb-laravel2/actions/runs/45096759495) در صف اجراست.
