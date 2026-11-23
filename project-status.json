@@ -679,7 +679,21 @@
       "هیچ‌یک از hosted playback، upload، malware scan یا media probe در محیط production فعال نشده‌اند؛ feature flagها خاموش باقی مانده‌اند.",
       "PR96 برای تبدیل خصوصی HLS باز است؛ CI هنوز در حال اجرا/انتظار است. نتیجه ادغام و اجرای Migration روی MySQL هنوز تأیید نشده."
     ],
-    "summary": "خروجی CSV فیلترپذیر دفتر درآمد پلتفرم با اطلاعات ممیزی تکمیل و CI کامل SQLite/MySQL/Vite/Blade موفق شد. پذیرش محلی/مرورگر باقی است."
+    "summary": "خروجی CSV فیلترپذیر دفتر درآمد پلتفرم با اطلاعات ممیزی تکمیل و CI کامل SQLite/MySQL/Vite/Blade موفق شد. پذیرش محلی/مرورگر باقی است.",
+    "company_advertising_panel": {
+      "date": "2026-11-23",
+      "branch": "feature/company-advertising-performance-details",
+      "commit": "7b903b627b9f7d0391daeda52492507be48581fe",
+      "base": "44310a66c38109dbf6913577f7f475b3d202f5e4",
+      "changes": [
+        "company-scoped campaign detail page with daily impressions/clicks/CTR",
+        "owner/finance authorization and strict campaign-company ownership check",
+        "status and placement filters applied to list, totals and CSV export",
+        "Pashto advertising translation syntax delimiter corrected"
+      ],
+      "tests": "not run by explicit user instruction",
+      "pull_request": "not opened to avoid triggering automated CI while tests are deferred"
+    }
   },
   "known_issues": [
     {
@@ -2001,8 +2015,8 @@
     }
   },
   "current_work": {
-    "stage": "platform revenue multi-currency ledger and campaign revenue reporting",
-    "status": "main_ci_passed_local_qa_deferred",
+    "stage": "company advertising campaign analytics and company-scoped reporting",
+    "status": "feature_branch_committed_tests_deferred_pr_not_opened",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -2415,31 +2429,29 @@
     "latest_pr": 122,
     "latest_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/122",
     "latest_source_base_commit": "6ab9ba3308493962ca794e005c7cc0a82b960821",
-    "latest_branch_commit": "bd7bd223d6b608f2e1fa8d8635b4586859d5b0b9",
+    "latest_branch_commit": "7b903b627b9f7d0391daeda52492507be48581fe",
     "note": "PR122 ادغام شد. CI run 44990772045 موفق: migration تمیز MySQL 8.4، سپس ۲۵۴ تست و ۹۸۳ assertion روی MySQL؛ همچنین ۲۵۴ تست و ۹۸۳ assertion روی SQLite. Vite build و Blade compile/lint موفق. تست محیط واقعی MySQL کاربر و مرورگر/موبایل همچنان جداگانه نیاز است.",
     "latest_main_commit": "0881fa1d4bc0f380d7a69d543c88f03edae8adea",
     "latest_pull_request": 123,
-    "branch": "feature/wordpress-title-credit-mapping",
-    "next": "ادامه توسعه پنل تبلیغ‌دهنده شرکت و کنترل جداسازی اطلاعات شرکت‌ها؛ سپس اتصال واقعی ارائه‌دهندگان تبلیغاتی فقط پس از حساب معتبر، پیکربندی و پذیرش staging.",
+    "branch": "feature/company-advertising-performance-details",
+    "next": "ادامه تکمیل گردش‌کار مالی کمپین‌های تبلیغاتی و سپس ادامه کار WordPress title/credit mapping؛ تست‌ها تا دستور بعدی اجرا نشوند.",
     "source_commit": "44310a66c38109dbf6913577f7f475b3d202f5e4",
     "completed": [
-      "دفتر مستقل درآمد خود پلتفرم با ارزهای USD/EUR برای Google Ads، IRR برای تبلیغات ایران و AFN برای تبلیغات اختصاصی.",
-      "ثبت pending و تأیید مدیریتی؛ فقط approved در موجودی و گزارش‌های ماهانه/سالانه محاسبه می‌شود و ارزها تبدیل یا با هم جمع نمی‌شوند.",
-      "اتصال اختیاری درآمد AFN به کمپین مستقیم، گزارش عملکرد کمپین با تفکیک approved/pending و خروجی CSV.",
-      "دفتر درآمد پلتفرم با فیلترهای ترکیبی و خروجی CSV شامل اطلاعات ممیزی؛ مسیر export در گروه Route صحیح ثبت شده است."
+      "گزارش عملکرد روزانه اختصاصی هر کمپین برای شرکت مالک اضافه شد؛ دسترسی فقط برای owner و finance فعال شرکت مجاز است.",
+      "کنترل مالکیت کمپین در مسیر جزئیات با تطبیق company_id و جلوگیری از دسترسی بین شرکت‌ها انجام می‌شود.",
+      "فیلتر وضعیت و جایگاه به فهرست و خروجی CSV شرکت افزوده شد و فیلترهای تاریخ حفظ شدند.",
+      "لینک گزارش جزئیات به فهرست کمپین‌های شرکت افزوده شد.",
+      "خطای نحوی آرایه ترجمه پشتو در lang/ps/advertising.php اصلاح شد."
     ],
     "validation": {
-      "run_id": 45149841448,
-      "status": "success",
-      "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45149841448",
-      "tested_commit": "44310a66c38109dbf6913577f7f475b3d202f5e4",
-      "sqlite": "success",
-      "mysql_8_4": "success",
-      "vite_build": "success",
-      "blade_compile_and_lint": "success",
-      "local_laragon": "not_run",
-      "browser_mobile": "not_run"
-    }
+      "tests": "deferred_by_user",
+      "phpunit": "not_run",
+      "browser": "not_run",
+      "migrations": "none_added_or_executed",
+      "database": "not_touched",
+      "source_review": "GitHub diff comparison only; no runtime verification claimed"
+    },
+    "base_commit": "44310a66c38109dbf6913577f7f475b3d202f5e4"
   },
   "application_audit": {
     "audit_date": "2026-11-18",
@@ -3114,7 +3126,9 @@
     "اجرای Migrationهای جدید فقط پس از backup، بررسی migrate:status و آزمون MySQL staging؛ هیچ Migration روی دیتابیس محلی یا عملیاتی کاربر اجرا نشده است.",
     "PR113 زیرساخت provider-neutral checkout و webhook در main ادغام شد؛ CI شاخه و main موفق است (۲۳۲ تست / ۹۰۹ assertion). پرداخت واقعی همچنان خاموش است.",
     "برای فعال‌سازی پرداخت مصرف‌کننده باید provider، کشورها و ارزها جداگانه انتخاب شوند؛ adapter واقعی، sandbox، refund و reconciliation هنوز باقی‌اند.",
-    "اجرای Migrationهای viewer commerce/payment و history retention فقط پس از backup، بررسی migrate:status و آزمون MySQL staging؛ هیچ Migration روی دیتابیس کاربر اجرا نشده است."
+    "اجرای Migrationهای viewer commerce/payment و history retention فقط پس از backup، بررسی migrate:status و آزمون MySQL staging؛ هیچ Migration روی دیتابیس کاربر اجرا نشده است.",
+    "تکمیل PR123 نگاشت شناسه WordPress آثار و عوامل؛ تست و CI فعلاً طبق درخواست کاربر اجرا نشوند.",
+    "گردش‌کار هزینه/صورتحساب کمپین‌های تبلیغاتی شرکت‌ها هنوز جدا از دفتر درآمد پلتفرم است و باید با مدل قرارداد و پرداخت دستی/آنلاین هماهنگ طراحی شود؛ هیچ تسویه‌ای خودکار فعال نشود."
   ],
   "post_pr21_localization": {
     "date": "2026-11-18",
