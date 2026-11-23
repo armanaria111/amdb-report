@@ -652,7 +652,8 @@
       "CI نهایی run 45097179130 برای commit 87c0e143a1379d7fb403501700cf0567d90d60bc موفق شد: ۲۷۵ تست و ۱۰۸۲ assertion روی SQLite و ۲۷۵ تست و ۱۰۸۲ assertion روی MySQL 8.4؛ Vite production build، Blade compile و Blade lint نیز موفق شدند.",
       "خروجی CSV کمپین درآمد تأییدشده و در انتظار تأیید AFN را در بازه انتخابی اضافه کرد. یک اختلاف سازگاری SQLite در شرط تاریخ شناسایی و در commit 87c0e143a1379d7fb403501700cf0567d90d60bc اصلاح شد؛ CI run 45097179130 کامل موفق شد.",
       "در commit 328073e4b7e39d0ae5ec97f00cd3df166e78dfd8، خروجی CSV فیلترپذیر برای دفتر درآمد پلتفرم اضافه شد؛ اطلاعات ممیزی، ارز مستقل، کمپین و خنثی‌سازی CSV formula injection پوشش داده شده‌اند. تست Feature خروجی و فیلتر/امنیت متن اضافه شد. CI run 45149590313 در حال اجراست.",
-      "در CI run 45149590313 آزمون SQLite مسیر admin.platform-revenue.export را تعریف‌نشده یافت؛ علت، درج route در گروه profile-media به‌جای گروه platform-revenue بود. در commit 44310a66c38109dbf6913577f7f475b3d202f5e4 مسیر اشتباه حذف و route درست اضافه شد؛ CI run 45149841448 در صف اجراست."
+      "در CI run 45149590313 آزمون SQLite مسیر admin.platform-revenue.export را تعریف‌نشده یافت؛ علت، درج route در گروه profile-media به‌جای گروه platform-revenue بود. در commit 44310a66c38109dbf6913577f7f475b3d202f5e4 مسیر اشتباه حذف و route درست اضافه شد؛ CI run 45149841448 در صف اجراست.",
+      "مسیر خروجی CSV دفتر درآمد در commit 44310a66c38109dbf6913577f7f475b3d202f5e4 به‌درستی در گروه platform-revenue ثبت شد؛ CI run 45149841448 موفق است: SQLite، MySQL 8.4، Vite و Blade همگی موفق."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -678,7 +679,7 @@
       "هیچ‌یک از hosted playback، upload، malware scan یا media probe در محیط production فعال نشده‌اند؛ feature flagها خاموش باقی مانده‌اند.",
       "PR96 برای تبدیل خصوصی HLS باز است؛ CI هنوز در حال اجرا/انتظار است. نتیجه ادغام و اجرای Migration روی MySQL هنوز تأیید نشده."
     ],
-    "summary": "خروجی CSV دفتر درآمد با فیلترها و ممیزی پیاده‌سازی شده؛ اصلاح مسیر route انجام شد و CI نسخه اصلاحی در صف است. پذیرش محلی/مرورگر باقی است."
+    "summary": "خروجی CSV فیلترپذیر دفتر درآمد پلتفرم با اطلاعات ممیزی تکمیل و CI کامل SQLite/MySQL/Vite/Blade موفق شد. پذیرش محلی/مرورگر باقی است."
   },
   "known_issues": [
     {
@@ -4396,7 +4397,7 @@
       "blocked": 0
     },
     "feature_count": 39,
-    "implementation_status": "خروجی CSV دفتر درآمد پلتفرم اضافه شد؛ خطای ثبت مسیر export در گروه route نامرتبط شناسایی و اصلاح شد. CI نسخه اصلاح‌شده در صف اجراست. پذیرش محلی Laragon و مرورگر/موبایل باقی است.",
+    "implementation_status": "خروجی CSV دفتر درآمد پلتفرم اضافه شد؛ مسیر export در گروه صحیح ثبت و CI کامل SQLite/MySQL/Vite موفق شد. پذیرش محلی Laragon و مرورگر/موبایل باقی است.",
     "database_runtime": {
       "status": "partially_verified_local",
       "environment": "Windows 10 + Laragon 8 + MySQL",
@@ -6921,7 +6922,7 @@
   "platform_revenue_multicurrency": {
     "updated_at": "2026-11-23",
     "source_commit": "44310a66c38109dbf6913577f7f475b3d202f5e4",
-    "status": "platform_revenue_csv_route_fix_ci_queued",
+    "status": "platform_revenue_csv_export_ci_passed",
     "currency_policy": {
       "USD": "google_ads",
       "EUR": "google_ads",
@@ -6957,15 +6958,18 @@
     ],
     "validation": {
       "run_id": 45149841448,
-      "status": "queued",
+      "status": "success",
+      "conclusion": "success",
       "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45149841448",
       "tested_commit": "44310a66c38109dbf6913577f7f475b3d202f5e4",
       "latest_test_commit": "44310a66c38109dbf6913577f7f475b3d202f5e4",
-      "previous_run_id": 45149590313,
-      "previous_run_conclusion": "failure_route_not_defined",
+      "sqlite_tests": "success",
+      "mysql_tests": "success",
+      "vite_build": "success",
+      "blade_compile_and_lint": "success",
       "local_laragon": "not_run",
       "browser_mobile": "not_run",
-      "note": "خطای مسیر export که در نسخه قبلی داخل گروه profile-media قرار گرفته بود، از آن گروه حذف و در گروه platform-revenue ثبت شد؛ CI commit اصلاحی در صف اجراست."
+      "note": "پس از اصلاح مسیر route، تمام آزمون‌های SQLite و MySQL 8.4، Vite production build و Blade compile/lint موفق شدند."
     },
     "limitations": [
       "اتصال مستقیم API و پرداخت Google Ads/AdSense یا شبکه تبلیغاتی ایران پیاده‌سازی نشده؛ فعلاً گزارش/رسید درآمد به‌صورت دستی ثبت و سپس تأیید می‌شود.",

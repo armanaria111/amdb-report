@@ -1187,3 +1187,5 @@
 
 
 - اصلاح مسیر CSV دفتر درآمد: route از گروه profile-media حذف و به گروه platform-revenue منتقل شد؛ commit [44310a66c38109dbf6913577f7f475b3d202f5e4](https://github.com/armanaria111/amdb-laravel2/commit/44310a66c38109dbf6913577f7f475b3d202f5e4). CI [45149841448](https://github.com/armanaria111/amdb-laravel2/actions/runs/45149841448) در صف اجراست.
+
+- CI نهایی مسیر خروجی CSV دفتر درآمد در run [45149841448](https://github.com/armanaria111/amdb-laravel2/actions/runs/45149841448) موفق شد: SQLite، MySQL 8.4، Vite production build و Blade compile/lint.
