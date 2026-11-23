@@ -21,7 +21,7 @@
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "latest_main_commit": "87c0e143a1379d7fb403501700cf0567d90d60bc",
     "latest_main_commit_verified_on": "2026-11-23",
-    "advertising_note": "گزارش عملکرد کمپین و خروجی CSV اکنون درآمد مستقیم AFN هر کمپین را با تفکیک تأییدشده و در انتظار تأیید نشان می‌دهند؛ اتصال درآمد به کمپین و محدوده گزارش کنترل می‌شود."
+    "advertising_note": "گزارش عملکرد کمپین و خروجی CSV درآمد مستقیم AFN همان کمپین را با تفکیک تأییدشده و در انتظار تأیید نمایش می‌دهند؛ آزمون SQLite و MySQL 8.4 و build/lint موفق است."
   },
   "languages": [
     {
@@ -648,7 +648,8 @@
       "اصلاح دوم CSV در commit fd1d85f0facc5e03d9e387314abc18523998755e ثبت شد: ردیف‌های درآمد مرتبط با کمپین‌های خروجی خوانده و در حافظه بر اساس campaign_id و وضعیت approved/pending جمع می‌شوند؛ تست جمع SQL مستقیم SQLite نیز اضافه شد. CI run 45096910603 pending است.",
       "در commit eb7146370d0491d31d024abed8afade0b33d6be1، فیلتر تاریخ CSV از whereBetween به whereDate ابتدا/انتهای بازه تغییر کرد؛ تست وجود period_start و جمع مستقیم را نیز بررسی می‌کند. CI run 45097038714 در صف اجراست.",
       "در commit 87c0e143a1379d7fb403501700cf0567d90d60bc، assertDatabaseHas در تست CSV اصلاح شد؛ SQLite مقدار period_start را به صورت datetime ذخیره می‌کند، بنابراین تست دیگر قالب YYYY-MM-DD را تحمیل نمی‌کند. فیلتر whereDate حفظ شده است. CI run 45097179130 در انتظار اجراست.",
-      "CI نهایی run 45097179130 برای commit 87c0e143a1379d7fb403501700cf0567d90d60bc موفق شد: ۲۷۵ تست و ۱۰۸۲ assertion روی SQLite و ۲۷۵ تست و ۱۰۸۲ assertion روی MySQL 8.4؛ Vite production build، Blade compile و Blade lint نیز موفق شدند."
+      "CI نهایی run 45097179130 برای commit 87c0e143a1379d7fb403501700cf0567d90d60bc موفق شد: ۲۷۵ تست و ۱۰۸۲ assertion روی SQLite و ۲۷۵ تست و ۱۰۸۲ assertion روی MySQL 8.4؛ Vite production build، Blade compile و Blade lint نیز موفق شدند.",
+      "خروجی CSV کمپین درآمد تأییدشده و در انتظار تأیید AFN را در بازه انتخابی اضافه کرد. یک اختلاف سازگاری SQLite در شرط تاریخ شناسایی و در commit 87c0e143a1379d7fb403501700cf0567d90d60bc اصلاح شد؛ CI run 45097179130 کامل موفق شد."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -674,7 +675,7 @@
       "هیچ‌یک از hosted playback، upload، malware scan یا media probe در محیط production فعال نشده‌اند؛ feature flagها خاموش باقی مانده‌اند.",
       "PR96 برای تبدیل خصوصی HLS باز است؛ CI هنوز در حال اجرا/انتظار است. نتیجه ادغام و اجرای Migration روی MySQL هنوز تأیید نشده."
     ],
-    "summary": "گزارش عملکرد و خروجی CSV کمپین به درآمد مستقیم AFN متصل شدند؛ CI کامل SQLite/MySQL/Vite/Blade موفق است. پذیرش محلی Laragon و مرورگر/موبایل باقی است."
+    "summary": "گزارش عملکرد کمپین و CSV درآمد مستقیم AFN را با تفکیک approved/pending نمایش می‌دهند؛ CI کامل SQLite/MySQL/Vite/Blade موفق است. پذیرش محلی/مرورگر باقی است."
   },
   "known_issues": [
     {
@@ -4392,7 +4393,7 @@
       "blocked": 0
     },
     "feature_count": 39,
-    "implementation_status": "گزارش عملکرد و خروجی CSV کمپین درآمد مستقیم AFN را با تفکیک approved/pending نمایش می‌دهند؛ CI کامل روی SQLite و MySQL 8.4 موفق است. پذیرش محلی Laragon و مرورگر/موبایل جداگانه باقی است.",
+    "implementation_status": "گزارش عملکرد و خروجی CSV کمپین شامل درآمد مستقیم AFN با تفکیک approved/pending اضافه شده؛ اصلاح سازگاری SQLite انجام و CI کامل موفق شد. پذیرش محلی Laragon و مرورگر/موبایل جداگانه باقی است.",
     "database_runtime": {
       "status": "partially_verified_local",
       "environment": "Windows 10 + Laragon 8 + MySQL",
@@ -5981,7 +5982,7 @@
       "تکمیل تست‌های جداسازی داده بین شرکت‌ها، نقش‌ها و CSV در مرحله QA بعدی."
     ],
     "campaign_revenue_reporting": {
-      "status": "campaign_performance_and_csv_ci_passed",
+      "status": "csv_export_ci_passed",
       "source_commit": "87c0e143a1379d7fb403501700cf0567d90d60bc",
       "features": [
         "نمایش درآمد lifetime و بازه انتخابی برای هر کمپین",
@@ -5995,13 +5996,7 @@
         "run_id": 45097179130,
         "status": "completed",
         "conclusion": "success",
-        "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45097179130",
-        "sqlite_tests": 275,
-        "sqlite_assertions": 1082,
-        "mysql_tests": 275,
-        "mysql_assertions": 1082,
-        "vite_build": "success",
-        "blade_compile_and_lint": "success"
+        "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45097179130"
       }
     }
   },
@@ -6923,7 +6918,7 @@
   "platform_revenue_multicurrency": {
     "updated_at": "2026-11-23",
     "source_commit": "87c0e143a1379d7fb403501700cf0567d90d60bc",
-    "status": "campaign_revenue_and_csv_ci_passed",
+    "status": "campaign_revenue_and_csv_reporting_ci_passed",
     "currency_policy": {
       "USD": "google_ads",
       "EUR": "google_ads",
@@ -6964,16 +6959,12 @@
       "tested_commit": "87c0e143a1379d7fb403501700cf0567d90d60bc",
       "latest_test_commit": "87c0e143a1379d7fb403501700cf0567d90d60bc",
       "sqlite_tests": "success",
-      "sqlite_test_count": 275,
-      "sqlite_assertions": 1082,
       "mysql_tests": "success",
-      "mysql_test_count": 275,
-      "mysql_assertions": 1082,
       "vite_build": "success",
       "blade_compile_and_lint": "success",
       "local_laragon": "not_run",
       "browser_mobile": "not_run",
-      "note": "هر سه job موفق شدند؛ ۲۷۵ تست و ۱۰۸۲ assertion روی SQLite و همین تعداد روی MySQL 8.4، به‌علاوه Vite build و Blade compile/lint. تست محلی Laragon و پذیرش مرورگر/موبایل اجرا نشده‌اند."
+      "note": "پس از اصلاح سازگاری شرط‌های تاریخ در SQLite، تمام آزمون‌های SQLite و MySQL 8.4، Vite production build و Blade compile/lint موفق شدند."
     },
     "limitations": [
       "اتصال مستقیم API و پرداخت Google Ads/AdSense یا شبکه تبلیغاتی ایران پیاده‌سازی نشده؛ فعلاً گزارش/رسید درآمد به‌صورت دستی ثبت و سپس تأیید می‌شود.",

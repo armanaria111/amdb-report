@@ -1173,3 +1173,6 @@
 
 
 - CI نهایی درآمد کمپین و CSV در run [45097179130](https://github.com/armanaria111/amdb-laravel2/actions/runs/45097179130) موفق شد: ۲۷۵ تست و ۱۰۸۲ assertion روی SQLite و MySQL 8.4؛ Vite production build، Blade compile و Blade lint نیز موفق.
+
+
+- اصلاح نهایی CSV در commit [87c0e143a1379d7fb403501700cf0567d90d60bc](https://github.com/armanaria111/amdb-laravel2/commit/87c0e143a1379d7fb403501700cf0567d90d60bc) انجام شد؛ CI run [45097179130](https://github.com/armanaria111/amdb-laravel2/actions/runs/45097179130) موفق است (SQLite، MySQL 8.4، Vite، Blade).
