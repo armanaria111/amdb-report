@@ -1176,3 +1176,11 @@
 
 
 - اصلاح نهایی CSV در commit [87c0e143a1379d7fb403501700cf0567d90d60bc](https://github.com/armanaria111/amdb-laravel2/commit/87c0e143a1379d7fb403501700cf0567d90d60bc) انجام شد؛ CI run [45097179130](https://github.com/armanaria111/amdb-laravel2/actions/runs/45097179130) موفق است (SQLite، MySQL 8.4، Vite، Blade).
+
+
+## 2026-11-23 — خروجی CSV دفتر درآمد پلتفرم
+
+- خروجی CSV دفتر درآمد از فیلترهای منبع، ارز، وضعیت، تاریخ هم‌پوشانی دوره و کمپین پیروی می‌کند.
+- ستون‌های ممیزی شامل ثبت‌کننده، تأییدکننده، زمان بررسی و یادداشت اضافه شدند؛ ارزها مستقل باقی می‌مانند.
+- خروجی به‌صورت chunk تولید می‌شود و متن‌های آغازشونده با فرمول‌های صفحه‌گسترده خنثی می‌شوند.
+- سورس: [328073e4b7e39d0ae5ec97f00cd3df166e78dfd8](https://github.com/armanaria111/amdb-laravel2/commit/328073e4b7e39d0ae5ec97f00cd3df166e78dfd8)؛ CI [45149590313](https://github.com/armanaria111/amdb-laravel2/actions/runs/45149590313) در حال اجراست.
