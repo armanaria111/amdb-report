@@ -1147,3 +1147,6 @@
 - مبالغ تأییدشده و در انتظار تأیید جدا هستند؛ درآمد کمپین دیگر یا منابع/ارزهای دیگر در جمع وارد نمی‌شوند.
 - ترجمه‌های انگلیسی، دری و پشتو و تست Feature برای جداسازی کمپین/وضعیت/بازه اضافه شد.
 - سورس: [1ec6814ae47dacf6d4760439f099612872078c24](https://github.com/armanaria111/amdb-laravel2/commit/1ec6814ae47dacf6d4760439f099612872078c24)؛ CI run [45096199703](https://github.com/armanaria111/amdb-laravel2/actions/runs/45096199703) هنگام ثبت گزارش در صف اجرا بود.
+
+
+- CI گزارش درآمد کمپین در run [45096199703](https://github.com/armanaria111/amdb-laravel2/actions/runs/45096199703) با موفقیت کامل شد: SQLite، MySQL 8.4، Vite production build، Blade compile و Blade lint.
