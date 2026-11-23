@@ -1164,3 +1164,6 @@
 
 
 - برای سازگاری SQLite و MySQL، تجمیع CSV به دریافت ردیف‌های درآمد و جمع‌زدن بر اساس campaign_id در Collection منتقل شد؛ تست جمع مستقیم SQL و وجود رکورد نیز اضافه شد. اصلاحیه: [fd1d85f0facc5e03d9e387314abc18523998755e](https://github.com/armanaria111/amdb-laravel2/commit/fd1d85f0facc5e03d9e387314abc18523998755e)؛ CI [45096910603](https://github.com/armanaria111/amdb-laravel2/actions/runs/45096910603) در انتظار اجراست.
+
+
+- فیلتر تاریخ درآمد CSV به whereDate ابتدا/انتهای بازه تغییر کرد؛ تست نیز period_start را صریحاً بررسی می‌کند. اصلاحیه: [eb7146370d0491d31d024abed8afade0b33d6be1](https://github.com/armanaria111/amdb-laravel2/commit/eb7146370d0491d31d024abed8afade0b33d6be1)؛ CI [45097038714](https://github.com/armanaria111/amdb-laravel2/actions/runs/45097038714) در صف اجراست.
