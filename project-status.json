@@ -665,7 +665,9 @@
       "نمای صورتحساب شرکت اکنون financialSummary را از کنترلر دریافت می‌کند؛ پیش از این، محاسبه انجام می‌شد اما به compact() افزوده نشده بود.",
       "خروجی مستقل CSV خلاصه مالی شرکت اضافه شد و برای هر ارز سه شاخص صدور، دریافت و مانده فعلی را با مبنای محاسبه و بازه مربوط صادر می‌کند.",
       "ترجمه سرستون‌ها و لینک دریافت CSV خلاصه مالی برای en، fa-AF و ps اضافه شد.",
-      "BOM UTF-8 خروجی CSV خلاصه مالی اصلاح شد."
+      "BOM UTF-8 خروجی CSV خلاصه مالی اصلاح شد.",
+      "دسترسی مشاهده صورتحساب و گزارش‌های تبلیغاتی برای نقش‌های فعال owner و finance حفظ شد، اما ارسال/ایجاد کمپین جدید به نقش owner محدود شد.",
+      "این تفکیک در سطح کنترلر نیز اعمال شده است و صرفاً به مخفی‌کردن دکمه در رابط کاربری متکی نیست."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1215,6 +1217,10 @@
     {
       "date": "2026-11-23",
       "text": "اتصال خلاصه مالی چهارارزی به نمای صورتحساب شرکت اصلاح شد و خروجی CSV مستقل خلاصه مالی شرکت با تفکیک تاریخ صدور/دریافت، محدودیت company_id و ترجمه سه‌زبانه اضافه شد. تست و نصب وابستگی‌ها همچنان به مرحله نهایی موکول است."
+    },
+    {
+      "date": "2026-11-23",
+      "text": "مرز دسترسی پنل تبلیغات شرکت دقیق‌تر شد: نقش finance برای مشاهده صورتحساب‌ها و گزارش‌ها باقی می‌ماند، اما ایجاد/ارسال کمپین جدید فقط برای owner مجاز است. تست‌ها طبق درخواست کاربر اجرا نشدند."
     }
   ],
   "architecture": {
@@ -2054,7 +2060,7 @@
   },
   "current_work": {
     "stage": "company advertising invoices and multicurrency financial reporting",
-    "status": "feature_branch_committed_company_financial_summary_view_and_csv_export_tests_installation_and_migrations_deferred",
+    "status": "feature_branch_committed_company_financial_summary_and_owner_finance_permission_split_tests_installation_and_migrations_deferred",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -2472,7 +2478,7 @@
     "latest_main_commit": "0881fa1d4bc0f380d7a69d543c88f03edae8adea",
     "latest_pull_request": 123,
     "branch": "feature/company-advertising-performance-details",
-    "next": "بازبینی مرز دسترسی owner/finance و تکمیل گزارش‌های مالی دوره‌ای؛ تست، نصب و Migration در مرحله نهایی.",
+    "next": "بازبینی عملیات تغییردهنده پنل شرکت و تفکیک owner/finance؛ نصب، تست و Migration تا مرحله نهایی به تعویق افتاده‌اند.",
     "source_commit": "44310a66c38109dbf6913577f7f475b3d202f5e4",
     "completed": [
       "گزارش عملکرد روزانه اختصاصی هر کمپین برای شرکت مالک اضافه شد؛ دسترسی فقط برای owner و finance فعال شرکت مجاز است.",
@@ -7071,8 +7077,8 @@
     "repository": "https://github.com/armanaria111/amdb-laravel2",
     "branch": "feature/company-advertising-performance-details",
     "base": "44310a66c38109dbf6913577f7f475b3d202f5e4",
-    "compare": "119 commits ahead, 0 behind",
-    "status": "feature_committed_company_multicurrency_summary_csv_and_view_binding_pdf_lock_pending_tests_and_migrations_deferred",
+    "compare": "120 commits ahead, 0 behind",
+    "status": "feature_committed_company_invoice_summary_csv_and_owner_finance_permission_separation_tests_deferred",
     "changes": [
       "گزارش عملکرد کمپین شرکت با کنترل عضویت فعال و نقش owner/finance، گزارش روزانه و خروجی CSV",
       "فیلتر کمپین‌های شرکت بر اساس وضعیت و جایگاه",
@@ -7117,7 +7123,8 @@
       "خروجی CSV مستقل خلاصه مالی شرکت اضافه شد؛ صدور، دریافت و مانده برای AFN، IRR، USD و EUR جداگانه صادر می‌شوند.",
       "خروجی CSV خلاصه مالی شرکت از فیلترهای مستقل تاریخ صدور و تاریخ پرداخت استفاده می‌کند و فقط داده‌های همان شرکت را گزارش می‌دهد.",
       "عنوان‌ها و سرستون‌های خروجی مالی در انگلیسی، دری و پشتو ترجمه شدند.",
-      "BOM فایل CSV خلاصه مالی برای UTF-8 اصلاح شد."
+      "BOM فایل CSV خلاصه مالی برای UTF-8 اصلاح شد.",
+      "مجوز دسترسی تبلیغات شرکت تفکیک شد: owner و finance می‌توانند صورتحساب‌ها و گزارش‌های مالی شرکت خود را مشاهده کنند، اما ثبت/ارسال کمپین تبلیغاتی فقط برای owner مجاز است."
     ],
     "safeguards": [
       "درآمد تبلیغاتی پلتفرم از صورتحساب‌های شرکت و درآمد قراردادی صاحبان حقوق آثار کاملاً جداست",
@@ -7138,14 +7145,15 @@
       "مانده فعلی با تمام پرداخت‌های ثبت‌شده محاسبه می‌شود، حتی اگر بازه پرداخت گزارش محدود باشد.",
       "خروجی CSV خلاصه مالی شرکت از مسیر مستقل و متصل به مدل شرکت تولید می‌شود و تمام پرس‌وجوها با company_id همان شرکت محدود هستند.",
       "خلاصه مالی به‌صورت صریح به نمای Blade ارسال می‌شود تا کارت‌های مالی بدون اتکا به متغیر تعریف‌نشده نمایش داده شوند.",
-      "BOM خروجی CSV خلاصه مالی به‌صورت UTF-8 واقعی نوشته می‌شود و مقادیر متنی قبل از CSV در برابر Formula Injection محافظت می‌شوند."
+      "BOM خروجی CSV خلاصه مالی به‌صورت UTF-8 واقعی نوشته می‌شود و مقادیر متنی قبل از CSV در برابر Formula Injection محافظت می‌شوند.",
+      "نقش finance در پنل تبلیغات شرکت فقط دسترسی مشاهده و خروجی‌گرفتن از گزارش‌ها و صورتحساب‌های شرکت خود را دارد؛ ایجاد و ارسال کمپین جدید به owner محدود شده است."
     ],
     "next_steps": [
-      "بازبینی و مستندسازی مرز دسترسی نقش owner و finance برای صورتحساب‌ها و گزارش‌های تبلیغاتی.",
-      "تکمیل گزارش‌های مالی دوره‌ای شرکت با تفکیک تاریخ صدور و دریافت.",
+      "بازبینی سایر عملیات تغییردهنده در پنل شرکت برای تفکیک دقیق owner، finance و نقش‌های صرفاً مشاهده‌گر.",
+      "تکمیل گزارش‌های مالی دوره‌ای شرکت با تفکیک تاریخ صدور و دریافت و بازبینی خروجی‌ها.",
       "تکمیل composer.lock، نصب PDF و اجرای تست‌ها در مرحله نهایی؛ فعلاً هیچ تست، build یا Migration اجرا نشود."
     ],
-    "head_commit": "327b526f7495eec85b8a0bb59db19fc6f4f5158e"
+    "head_commit": "47cb060c93e1a76319fea27a9faed644fd002d9a"
   },
   "advertising_invoice_billing": {
     "updated_at": "2026-11-23",
