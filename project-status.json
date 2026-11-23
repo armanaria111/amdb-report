@@ -683,16 +683,30 @@
     "company_advertising_panel": {
       "date": "2026-11-23",
       "branch": "feature/company-advertising-performance-details",
-      "commit": "7b903b627b9f7d0391daeda52492507be48581fe",
+      "commit": "4c72a7c16e5efa8c266ba4ee1cc47ec3ea83e1cd",
       "base": "44310a66c38109dbf6913577f7f475b3d202f5e4",
       "changes": [
         "company-scoped campaign detail page with daily impressions/clicks/CTR",
         "owner/finance authorization and strict campaign-company ownership check",
         "status and placement filters applied to list, totals and CSV export",
+        "daily performance CSV export",
         "Pashto advertising translation syntax delimiter corrected"
       ],
       "tests": "not run by explicit user instruction",
       "pull_request": "not opened to avoid triggering automated CI while tests are deferred"
+    },
+    "wordpress_title_credit_mapping": {
+      "status": "present_on_main",
+      "merge_commit": "209d99d9c0756653ab11ba563e0bc714061d56c9",
+      "verified_files": [
+        "app/Services/Import/TitleCreditImportService.php",
+        "app/Models/Title.php",
+        "app/Http/Controllers/Admin/TitleController.php",
+        "database/migrations/2026_11_22_120000_add_wordpress_id_to_titles_table.php",
+        "resources/views/admin/titles/_form.blade.php",
+        "resources/views/admin/titles/credits-import.blade.php"
+      ],
+      "note": "شاخه قدیمی PR123 در مقایسه با main فعلی ۸۳ commit عقب است؛ تغییرات مربوطه در main موجودند. تست جدیدی اجرا نشد."
     }
   },
   "known_issues": [
@@ -2429,19 +2443,20 @@
     "latest_pr": 122,
     "latest_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/122",
     "latest_source_base_commit": "6ab9ba3308493962ca794e005c7cc0a82b960821",
-    "latest_branch_commit": "7b903b627b9f7d0391daeda52492507be48581fe",
+    "latest_branch_commit": "4c72a7c16e5efa8c266ba4ee1cc47ec3ea83e1cd",
     "note": "PR122 ادغام شد. CI run 44990772045 موفق: migration تمیز MySQL 8.4، سپس ۲۵۴ تست و ۹۸۳ assertion روی MySQL؛ همچنین ۲۵۴ تست و ۹۸۳ assertion روی SQLite. Vite build و Blade compile/lint موفق. تست محیط واقعی MySQL کاربر و مرورگر/موبایل همچنان جداگانه نیاز است.",
     "latest_main_commit": "0881fa1d4bc0f380d7a69d543c88f03edae8adea",
     "latest_pull_request": 123,
     "branch": "feature/company-advertising-performance-details",
-    "next": "ادامه تکمیل گردش‌کار مالی کمپین‌های تبلیغاتی و سپس ادامه کار WordPress title/credit mapping؛ تست‌ها تا دستور بعدی اجرا نشوند.",
+    "next": "ادامه توسعه سامانه صورتحساب و ثبت پرداخت کمپین‌های مستقیم، با تفکیک دفتر درآمد پلتفرم از درآمد قراردادی شرکت‌های صاحب اثر؛ سپس بررسی باقیمانده‌های انتشار. تست‌ها تا دستور بعدی اجرا نشوند.",
     "source_commit": "44310a66c38109dbf6913577f7f475b3d202f5e4",
     "completed": [
       "گزارش عملکرد روزانه اختصاصی هر کمپین برای شرکت مالک اضافه شد؛ دسترسی فقط برای owner و finance فعال شرکت مجاز است.",
-      "کنترل مالکیت کمپین در مسیر جزئیات با تطبیق company_id و جلوگیری از دسترسی بین شرکت‌ها انجام می‌شود.",
-      "فیلتر وضعیت و جایگاه به فهرست و خروجی CSV شرکت افزوده شد و فیلترهای تاریخ حفظ شدند.",
-      "لینک گزارش جزئیات به فهرست کمپین‌های شرکت افزوده شد.",
-      "خطای نحوی آرایه ترجمه پشتو در lang/ps/advertising.php اصلاح شد."
+      "کنترل مالکیت کمپین در مسیر جزئیات و خروجی با تطبیق company_id انجام می‌شود و دسترسی بین شرکت‌ها مسدود است.",
+      "فیلتر وضعیت، جایگاه و تاریخ در فهرست کمپین‌ها و خروجی CSV شرکت اعمال می‌شود.",
+      "گزارش روزانه هر کمپین شامل نمایش، کلیک و CTR با فیلتر تاریخ اضافه شد.",
+      "خروجی CSV مجزای گزارش روزانه کمپین برای شرکت اضافه شد.",
+      "خطای نحوی آرایه ترجمه پشتو در شاخه توسعه اصلاح شد."
     ],
     "validation": {
       "tests": "deferred_by_user",
@@ -2449,7 +2464,8 @@
       "browser": "not_run",
       "migrations": "none_added_or_executed",
       "database": "not_touched",
-      "source_review": "GitHub diff comparison only; no runtime verification claimed"
+      "ci": "not_triggered; PR intentionally not opened",
+      "source_review": "GitHub compare and source inspection only; runtime behavior remains unverified"
     },
     "base_commit": "44310a66c38109dbf6913577f7f475b3d202f5e4"
   },
@@ -3110,7 +3126,7 @@
     ]
   },
   "current_open_items": [
-    "PR123: نگاشت شناسه WordPress آثار برای واردسازی عوامل در حال بازبینی CI است؛ پس از تأیید CI و ادغام، export واقعی WordPress برای adapter مستقیم cast/crew لازم است.",
+    "نگاشت شناسه WordPress برای آثار و واردسازی عوامل اکنون در main موجود است؛ commit 209d99d9c0756653ab11ba563e0bc714061d56c9 و فایل‌های فعلی main آن را تأیید می‌کنند. شاخه قدیمی feature/wordpress-title-credit-mapping به‌علت ۸۳ commit عقب‌ماندگی نباید جداگانه ادغام شود.",
     "اجرای برنامه QA نهایی: PHPUnit، npm build، بررسی مرورگری و smoke test؛ طبق درخواست کاربر فعلاً اجرا نشده‌اند.",
     "بررسی همه Migrationهای جدید در محیط هدف، تهیه backup و تطبیق migrate:status قبل از اجرای هر Migration؛ هیچ عملیات مخرب انجام نشود.",
     "تأیید تحویل ایمیل فرم تماس با تنظیمات SMTP در محیط استقرار.",
@@ -3127,7 +3143,6 @@
     "PR113 زیرساخت provider-neutral checkout و webhook در main ادغام شد؛ CI شاخه و main موفق است (۲۳۲ تست / ۹۰۹ assertion). پرداخت واقعی همچنان خاموش است.",
     "برای فعال‌سازی پرداخت مصرف‌کننده باید provider، کشورها و ارزها جداگانه انتخاب شوند؛ adapter واقعی، sandbox، refund و reconciliation هنوز باقی‌اند.",
     "اجرای Migrationهای viewer commerce/payment و history retention فقط پس از backup، بررسی migrate:status و آزمون MySQL staging؛ هیچ Migration روی دیتابیس کاربر اجرا نشده است.",
-    "تکمیل PR123 نگاشت شناسه WordPress آثار و عوامل؛ تست و CI فعلاً طبق درخواست کاربر اجرا نشوند.",
     "گردش‌کار هزینه/صورتحساب کمپین‌های تبلیغاتی شرکت‌ها هنوز جدا از دفتر درآمد پلتفرم است و باید با مدل قرارداد و پرداخت دستی/آنلاین هماهنگ طراحی شود؛ هیچ تسویه‌ای خودکار فعال نشود."
   ],
   "post_pr21_localization": {
