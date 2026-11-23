@@ -17,11 +17,11 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "1ec6814ae47dacf6d4760439f099612872078c24",
+    "source_commit_audited": "03397a592f3bed77aea38251944db791e2172b84",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "1ec6814ae47dacf6d4760439f099612872078c24",
+    "latest_main_commit": "03397a592f3bed77aea38251944db791e2172b84",
     "latest_main_commit_verified_on": "2026-11-23",
-    "advertising_note": "گزارش عملکرد کمپین‌ها اکنون درآمد مستقیم AFN متصل به همان کمپین را با تفکیک تأییدشده و در انتظار تأیید نشان می‌دهد؛ مبالغ کمپین‌های دیگر و منابع/ارزهای دیگر وارد جمع نمی‌شوند."
+    "advertising_note": "گزارش عملکرد کمپین و خروجی CSV اکنون درآمد مستقیم AFN هر کمپین را با تفکیک تأییدشده و در انتظار تأیید نشان می‌دهند؛ اتصال درآمد به کمپین و محدوده گزارش کنترل می‌شود."
   },
   "languages": [
     {
@@ -642,7 +642,8 @@
       "دفتر درآمد پلتفرم با فیلتر منبع/ارز/وضعیت/بازه زمانی و نمایش ثبت‌کننده و بررسی‌کننده توسعه یافت؛ تست Feature مربوط به فیلترها اضافه شد. سورس در a81446566a1c11316ed6bf49d2a7d1d6bd6eb009؛ CI run 45084819465 هنوز queued و مربوط به commit قبلی aa96a56 است؛ نتیجه commit جدید هنوز تأیید نشده.",
       "CI run 45095719839 برای اتصال درآمد مستقیم AFN به کمپین‌ها با conclusion=success تکمیل شد؛ SQLite، MySQL 8.4، Vite و Blade موفق شدند.",
       "در commit 1ec6814ae47dacf6d4760439f099612872078c24، گزارش عملکرد کمپین به درآمد مستقیم AFN متصل شد: جمع lifetime و بازه انتخابی با تفکیک approved/pending، محدود به کمپین جاری؛ تست Feature جداسازی کمپین‌ها و وضعیت‌ها اضافه شد. CI run 45096199703 در صف اجراست.",
-      "CI نهایی run 45096199703 برای commit 1ec6814ae47dacf6d4760439f099612872078c24 موفق شد؛ تست‌های SQLite و MySQL 8.4، Vite production build، Blade compile و Blade lint همگی موفق شدند."
+      "CI نهایی run 45096199703 برای commit 1ec6814ae47dacf6d4760439f099612872078c24 موفق شد؛ تست‌های SQLite و MySQL 8.4، Vite production build، Blade compile و Blade lint همگی موفق شدند.",
+      "در commit 03397a592f3bed77aea38251944db791e2172b84، خروجی CSV گزارش تبلیغات به ستون‌های درآمد تأییدشده و در انتظار تأیید AFN مجهز شد؛ تست جداسازی مبالغ کمپین منتخب از کمپین فیلترشده اضافه شد. CI run 45096544758 در صف اجراست."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -668,7 +669,7 @@
       "هیچ‌یک از hosted playback، upload، malware scan یا media probe در محیط production فعال نشده‌اند؛ feature flagها خاموش باقی مانده‌اند.",
       "PR96 برای تبدیل خصوصی HLS باز است؛ CI هنوز در حال اجرا/انتظار است. نتیجه ادغام و اجرای Migration روی MySQL هنوز تأیید نشده."
     ],
-    "summary": "گزارش عملکرد کمپین به درآمد مستقیم AFN متصل شد و CI کامل SQLite/MySQL/Vite/Blade موفق است؛ پذیرش محلی Laragon و مرورگر/موبایل هنوز انجام نشده است."
+    "summary": "گزارش عملکرد کمپین و CSV آن درآمد مستقیم AFN را با تفکیک approved/pending نمایش می‌دهند؛ CI تغییر اخیر در حال اجراست و پذیرش محلی/مرورگر باقی است."
   },
   "known_issues": [
     {
@@ -4347,7 +4348,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "1ec6814ae47dacf6d4760439f099612872078c24",
+    "source_commit": "03397a592f3bed77aea38251944db791e2172b84",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-21",
@@ -4386,7 +4387,7 @@
       "blocked": 0
     },
     "feature_count": 39,
-    "implementation_status": "گزارش عملکرد کمپین شامل درآمد مستقیم AFN با تفکیک approved/pending و بازه انتخابی در main موجود است؛ CI کامل SQLite و MySQL 8.4، Vite و Blade موفق شد. پذیرش محلی Laragon و مرورگر/موبایل جداگانه باقی است.",
+    "implementation_status": "گزارش عملکرد و خروجی CSV کمپین شامل درآمد مستقیم AFN به تفکیک approved/pending اضافه شده؛ CI commit جاری در صف اجراست. پذیرش محلی Laragon و مرورگر/موبایل جداگانه باقی است.",
     "database_runtime": {
       "status": "partially_verified_local",
       "environment": "Windows 10 + Laragon 8 + MySQL",
@@ -5975,20 +5976,20 @@
       "تکمیل تست‌های جداسازی داده بین شرکت‌ها، نقش‌ها و CSV در مرحله QA بعدی."
     ],
     "campaign_revenue_reporting": {
-      "status": "ci_passed",
-      "source_commit": "1ec6814ae47dacf6d4760439f099612872078c24",
+      "status": "csv_export_added_ci_queued",
+      "source_commit": "03397a592f3bed77aea38251944db791e2172b84",
       "features": [
         "نمایش درآمد lifetime و بازه انتخابی برای هر کمپین",
         "تفکیک مبالغ approved و pending",
         "محدودسازی جمع به campaign_id همان کمپین، source=direct_ads و currency=AFN",
         "ترجمه مستقل en، fa-AF و ps",
-        "تست Feature برای تفکیک وضعیت‌ها، فیلتر بازه و جلوگیری از نشت درآمد کمپین دیگر"
+        "تست Feature برای تفکیک وضعیت‌ها، فیلتر بازه و جلوگیری از نشت درآمد کمپین دیگر",
+        "خروجی CSV گزارش کمپین دارای ستون‌های approved AFN و pending AFN در بازه انتخابی است؛ محاسبه درآمد مستقل از join رویدادها انجام می‌شود."
       ],
       "ci": {
-        "run_id": 45096199703,
-        "status": "completed",
-        "conclusion": "success",
-        "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45096199703"
+        "run_id": 45096544758,
+        "status": "queued",
+        "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45096544758"
       }
     }
   },
@@ -6909,8 +6910,8 @@
   },
   "platform_revenue_multicurrency": {
     "updated_at": "2026-11-23",
-    "source_commit": "1ec6814ae47dacf6d4760439f099612872078c24",
-    "status": "campaign_revenue_reporting_ci_passed",
+    "source_commit": "03397a592f3bed77aea38251944db791e2172b84",
+    "status": "campaign_revenue_and_csv_reporting_ci_queued",
     "currency_policy": {
       "USD": "google_ads",
       "EUR": "google_ads",
@@ -6936,22 +6937,18 @@
       "فیلتر رکوردهای درآمد بر اساس کمپین و نمایش نام کمپین در جزئیات اضافه شد؛ رابطه campaign_id با کلید خارجی nullable ثبت می‌شود و با حذف کمپین سابقه درآمد حذف نمی‌شود.",
       "campaign_id پس از ثبت نیز مانند سایر مشخصات اصلی رکورد درآمد immutable است؛ دو تست Feature برای اتصال/فیلتر کمپین و جلوگیری از اتصال اشتباه منبع افزوده شد.",
       "گزارش عملکرد هر کمپین اکنون مجموع درآمد مستقیم AFN را در دو سطح کل دوره و بازه انتخابی نمایش می‌دهد؛ approved و pending جدا هستند و فقط campaign_id همان کمپین، source=direct_ads و currency=AFN محاسبه می‌شود.",
-      "مبالغ pending وارد درآمد تأییدشده نمی‌شوند؛ درآمد کمپین دیگر و درآمد خارج از بازه انتخابی در جمع دوره نمایش داده نمی‌شود. برای بازه گزارش، تاریخ آغاز دوره درآمد (period_start) مبنای فیلتر است."
+      "مبالغ pending وارد درآمد تأییدشده نمی‌شوند؛ درآمد کمپین دیگر و درآمد خارج از بازه انتخابی در جمع دوره نمایش داده نمی‌شود. برای بازه گزارش، تاریخ آغاز دوره درآمد (period_start) مبنای فیلتر است.",
+      "خروجی CSV گزارش کمپین نیز ستون‌های درآمد تأییدشده و در انتظار تأیید AFN را برای بازه انتخابی اضافه می‌کند؛ جمع درآمد در زیرپرس‌وجوی مستقل به تفکیک campaign_id انجام می‌شود تا با تعداد رویدادهای نمایش/کلیک چندبرابر نشود."
     ],
     "validation": {
-      "run_id": 45096199703,
-      "status": "success",
-      "conclusion": "success",
-      "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45096199703",
-      "tested_commit": "1ec6814ae47dacf6d4760439f099612872078c24",
-      "latest_test_commit": "1ec6814ae47dacf6d4760439f099612872078c24",
-      "sqlite_tests": "success",
-      "mysql_tests": "success",
-      "vite_build": "success",
-      "blade_compile_and_lint": "success",
+      "run_id": 45096544758,
+      "status": "queued",
+      "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45096544758",
+      "tested_commit": "03397a592f3bed77aea38251944db791e2172b84",
+      "latest_test_commit": "03397a592f3bed77aea38251944db791e2172b84",
       "local_laragon": "not_run",
       "browser_mobile": "not_run",
-      "note": "تمام jobهای CI موفق شدند: تست‌های Laravel روی SQLite و MySQL 8.4، Vite production build، Blade compile و Blade lint. تست محلی Laragon و پذیرش مرورگر/موبایل اجرا نشده‌اند."
+      "note": "CI commit جدید در صف اجراست؛ نتیجه کامل پس از پایان run ثبت می‌شود."
     },
     "limitations": [
       "اتصال مستقیم API و پرداخت Google Ads/AdSense یا شبکه تبلیغاتی ایران پیاده‌سازی نشده؛ فعلاً گزارش/رسید درآمد به‌صورت دستی ثبت و سپس تأیید می‌شود.",
@@ -6960,7 +6957,7 @@
       "این دفتر درآمد AMDB از دفتر تسویه درآمد شرکت‌ها جداست."
     ]
   },
-  "latest_main_commit": "1ec6814ae47dacf6d4760439f099612872078c24",
-  "source_commit_audited": "1ec6814ae47dacf6d4760439f099612872078c24",
+  "latest_main_commit": "03397a592f3bed77aea38251944db791e2172b84",
+  "source_commit_audited": "03397a592f3bed77aea38251944db791e2172b84",
   "latest_main_commit_verified_on": "2026-11-23"
 }

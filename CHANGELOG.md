@@ -1150,3 +1150,11 @@
 
 
 - CI گزارش درآمد کمپین در run [45096199703](https://github.com/armanaria111/amdb-laravel2/actions/runs/45096199703) با موفقیت کامل شد: SQLite، MySQL 8.4، Vite production build، Blade compile و Blade lint.
+
+
+## 2026-11-23 — درآمد کمپین در خروجی CSV
+
+- خروجی CSV کمپین دو ستون درآمد تأییدشده و در انتظار تأیید AFN را برای بازه انتخابی اضافه کرد.
+- تجمیع درآمد در زیرپرس‌وجوی جداگانه بر اساس کمپین انجام می‌شود تا با تعداد impression/click چندبرابر نشود.
+- تست Feature جداسازی کمپین‌ها و مبالغ تأییدشده/در انتظار تأیید به‌روزرسانی شد.
+- سورس: [03397a592f3bed77aea38251944db791e2172b84](https://github.com/armanaria111/amdb-laravel2/commit/03397a592f3bed77aea38251944db791e2172b84)؛ CI [45096544758](https://github.com/armanaria111/amdb-laravel2/actions/runs/45096544758) در صف اجراست.
