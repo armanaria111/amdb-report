@@ -17,11 +17,11 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "efed7eb0c16cd7eb0872ce0a6566a53e02e74976",
+    "source_commit_audited": "d31e242f460045b969af1c7ff6cf9a076062ce43",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "efed7eb0c16cd7eb0872ce0a6566a53e02e74976",
+    "latest_main_commit": "d31e242f460045b969af1c7ff6cf9a076062ce43",
     "latest_main_commit_verified_on": "2026-11-23",
-    "advertising_note": "سامانه کمپین‌های مستقیم و گزارش عملکرد تبلیغات در main موجود است. دفتر درآمد اختصاصی AMDB اکنون جریان‌های Google Ads/AdSense، تبلیغات ایران و تبلیغات مستقیم را با ارزهای محدودشده و مستقل ثبت می‌کند؛ اتصال خودکار شبکه‌های بیرونی هنوز انجام نشده است."
+    "advertising_note": "سامانه کمپین‌های مستقیم و گزارش عملکرد تبلیغات در main موجود است. درآمد تبلیغات اختصاصی AFN اکنون می‌تواند به کمپین direct مربوط متصل و بر اساس کمپین فیلتر شود؛ اتصال خودکار شبکه‌های بیرونی هنوز انجام نشده است."
   },
   "languages": [
     {
@@ -4344,7 +4344,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "efed7eb0c16cd7eb0872ce0a6566a53e02e74976",
+    "source_commit": "d31e242f460045b969af1c7ff6cf9a076062ce43",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-21",
@@ -4434,7 +4434,8 @@
         "Revenue documentation was aligned with the implemented company-only payee model: artists have no direct revenue or copyright royalty entitlement; company settlements require active owner/finance membership.",
         "2026-11-22: RevenueLedgerService contract resolution now filters eligible contract candidates by event territory as well as revenue model, validity window and version. Added Feature test test_event_selects_the_newest_contract_that_covers_its_territory. CI for the latest commit is queued/pending at report update time; no pass is claimed yet.",
         "2026-11-23: گزارش ماهانه و سالانه دفتر درآمد پلتفرم با تست Feature افزوده شد؛ CI run 45085472936 برای commit efed7eb0c16cd7eb0872ce0a6566a53e02e74976 در حال اجراست و هنوز نتیجه‌ای ثبت نشده.",
-        "2026-11-23: در CI مربوط به commit efed7eb0c16cd7eb0872ce0a6566a53e02e74976، PHPUnit روی SQLite، Vite production build و Blade compile/lint موفق شدند؛ job MySQL 8.4 هنوز در مرحله آماده‌سازی کانتینر است."
+        "2026-11-23: در CI مربوط به commit efed7eb0c16cd7eb0872ce0a6566a53e02e74976، PHPUnit روی SQLite، Vite production build و Blade compile/lint موفق شدند؛ job MySQL 8.4 هنوز در مرحله آماده‌سازی کانتینر است.",
+        "2026-11-23: اتصال درآمد تبلیغات اختصاصی AFN به کمپین direct، فیلتر کمپین و نمایش نام کمپین اضافه شد؛ CI run 45095719839 برای commit d31e242f460045b969af1c7ff6cf9a076062ce43 در حال اجراست."
       ],
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
@@ -6887,8 +6888,8 @@
   },
   "platform_revenue_multicurrency": {
     "updated_at": "2026-11-23",
-    "source_commit": "efed7eb0c16cd7eb0872ce0a6566a53e02e74976",
-    "status": "monthly_annual_reports_added_ci_partially_passed",
+    "source_commit": "d31e242f460045b969af1c7ff6cf9a076062ce43",
+    "status": "direct_campaign_revenue_link_added_ci_running",
     "currency_policy": {
       "USD": "google_ads",
       "EUR": "google_ads",
@@ -6909,21 +6910,24 @@
       "تست Feature برای فیلترهای ترکیبی و نمایش جزئیات بررسی افزوده شد.",
       "گزارش ماهانه برای سال انتخابی و گزارش سالانه تا ۱۰ سال اخیر اضافه شد؛ جمع‌ها فقط از رکوردهای approved ساخته می‌شوند و هر ارز مستقل باقی می‌ماند.",
       "برای جلوگیری از تقسیم غیرواقعی مبلغ، گزارش ماهانه/سالانه بر اساس ماه و سال آغاز دوره گزارش دسته‌بندی می‌کند و مبلغ بین ماه‌ها سرشکن نمی‌شود.",
-      "تست Feature برای تفکیک ارزها در گزارش ماهانه/سالانه و کنارگذاشتن رکورد pending اضافه شد."
+      "تست Feature برای تفکیک ارزها در گزارش ماهانه/سالانه و کنارگذاشتن رکورد pending اضافه شد.",
+      "برای رکوردهای درآمد direct_ads/AFN امکان اتصال اختیاری به کمپین تبلیغاتی provider=direct اضافه شد؛ درآمدهای Google Ads و تبلیغات ایران به کمپین مستقیم متصل نمی‌شوند.",
+      "فیلتر رکوردهای درآمد بر اساس کمپین و نمایش نام کمپین در جزئیات اضافه شد؛ رابطه campaign_id با کلید خارجی nullable ثبت می‌شود و با حذف کمپین سابقه درآمد حذف نمی‌شود.",
+      "campaign_id پس از ثبت نیز مانند سایر مشخصات اصلی رکورد درآمد immutable است؛ دو تست Feature برای اتصال/فیلتر کمپین و جلوگیری از اتصال اشتباه منبع افزوده شد."
     ],
     "validation": {
-      "run_id": 45085472936,
-      "status": "sqlite_success_mysql_pending",
-      "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45085472936",
-      "tested_commit": "efed7eb0c16cd7eb0872ce0a6566a53e02e74976",
-      "latest_test_commit": "efed7eb0c16cd7eb0872ce0a6566a53e02e74976",
+      "run_id": 45095719839,
+      "status": "in_progress",
+      "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45095719839",
+      "tested_commit": "d31e242f460045b969af1c7ff6cf9a076062ce43",
+      "latest_test_commit": "d31e242f460045b969af1c7ff6cf9a076062ce43",
       "local_laragon": "not_run",
       "browser_mobile": "not_run",
-      "note": "تست‌های PHPUnit روی SQLite، ساخت Vite و کامپایل/lint فایل‌های Blade موفق شده‌اند؛ job MySQL 8.4 هنوز در مرحله آماده‌سازی کانتینر است.",
-      "sqlite_tests": "success",
+      "note": "CI برای اتصال درآمد به کمپین در حال اجراست؛ نتیجه jobهای SQLite، MySQL و Vite هنوز نهایی نشده.",
+      "sqlite_tests": "pending",
       "mysql_tests": "pending",
-      "vite_build": "success",
-      "blade_compile_and_lint": "success"
+      "vite_build": "pending",
+      "blade_compile_and_lint": "pending"
     },
     "limitations": [
       "اتصال مستقیم API و پرداخت Google Ads/AdSense یا شبکه تبلیغاتی ایران پیاده‌سازی نشده؛ فعلاً گزارش/رسید درآمد به‌صورت دستی ثبت و سپس تأیید می‌شود.",
