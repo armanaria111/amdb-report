@@ -4435,7 +4435,8 @@
         "2026-11-22: RevenueLedgerService contract resolution now filters eligible contract candidates by event territory as well as revenue model, validity window and version. Added Feature test test_event_selects_the_newest_contract_that_covers_its_territory. CI for the latest commit is queued/pending at report update time; no pass is claimed yet.",
         "2026-11-23: گزارش ماهانه و سالانه دفتر درآمد پلتفرم با تست Feature افزوده شد؛ CI run 45085472936 برای commit efed7eb0c16cd7eb0872ce0a6566a53e02e74976 در حال اجراست و هنوز نتیجه‌ای ثبت نشده.",
         "2026-11-23: در CI مربوط به commit efed7eb0c16cd7eb0872ce0a6566a53e02e74976، PHPUnit روی SQLite، Vite production build و Blade compile/lint موفق شدند؛ job MySQL 8.4 هنوز در مرحله آماده‌سازی کانتینر است.",
-        "2026-11-23: اتصال درآمد تبلیغات اختصاصی AFN به کمپین direct، فیلتر کمپین و نمایش نام کمپین اضافه شد؛ CI run 45095719839 برای commit d31e242f460045b969af1c7ff6cf9a076062ce43 در حال اجراست."
+        "2026-11-23: اتصال درآمد تبلیغات اختصاصی AFN به کمپین direct، فیلتر کمپین و نمایش نام کمپین اضافه شد؛ CI run 45095719839 برای commit d31e242f460045b969af1c7ff6cf9a076062ce43 در حال اجراست.",
+        "به‌روزرسانی CI run 45095719839: PHPUnit روی SQLite و Vite production build موفق شدند؛ job MySQL 8.4 هنوز در حال اجراست."
       ],
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
@@ -6889,7 +6890,7 @@
   "platform_revenue_multicurrency": {
     "updated_at": "2026-11-23",
     "source_commit": "d31e242f460045b969af1c7ff6cf9a076062ce43",
-    "status": "direct_campaign_revenue_link_added_ci_running",
+    "status": "direct_campaign_revenue_link_added_sqlite_success_mysql_running",
     "currency_policy": {
       "USD": "google_ads",
       "EUR": "google_ads",
@@ -6917,17 +6918,17 @@
     ],
     "validation": {
       "run_id": 45095719839,
-      "status": "in_progress",
+      "status": "sqlite_success_mysql_running",
       "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45095719839",
       "tested_commit": "d31e242f460045b969af1c7ff6cf9a076062ce43",
       "latest_test_commit": "d31e242f460045b969af1c7ff6cf9a076062ce43",
       "local_laragon": "not_run",
       "browser_mobile": "not_run",
-      "note": "CI برای اتصال درآمد به کمپین در حال اجراست؛ نتیجه jobهای SQLite، MySQL و Vite هنوز نهایی نشده.",
-      "sqlite_tests": "pending",
-      "mysql_tests": "pending",
-      "vite_build": "pending",
-      "blade_compile_and_lint": "pending"
+      "note": "تست‌های PHPUnit روی SQLite و ساخت Vite موفق شده‌اند؛ MySQL 8.4 هنوز در حال اجراست. کامپایل و lint Blade نیز در jobهای CI انجام می‌شود.",
+      "sqlite_tests": "success",
+      "mysql_tests": "running",
+      "vite_build": "success",
+      "blade_compile_and_lint": "success"
     },
     "limitations": [
       "اتصال مستقیم API و پرداخت Google Ads/AdSense یا شبکه تبلیغاتی ایران پیاده‌سازی نشده؛ فعلاً گزارش/رسید درآمد به‌صورت دستی ثبت و سپس تأیید می‌شود.",
