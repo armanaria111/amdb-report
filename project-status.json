@@ -17,12 +17,12 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "328073e4b7e39d0ae5ec97f00cd3df166e78dfd8",
+    "source_commit_audited": "44310a66c38109dbf6913577f7f475b3d202f5e4",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "328073e4b7e39d0ae5ec97f00cd3df166e78dfd8",
+    "latest_main_commit": "44310a66c38109dbf6913577f7f475b3d202f5e4",
     "latest_main_commit_verified_on": "2026-11-23",
     "advertising_note": "گزارش عملکرد کمپین و خروجی CSV درآمد مستقیم AFN همان کمپین را با تفکیک تأییدشده و در انتظار تأیید نمایش می‌دهند؛ آزمون SQLite و MySQL 8.4 و build/lint موفق است.",
-    "platform_revenue_export": "خروجی CSV فیلترپذیر دفتر درآمد پلتفرم شامل اطلاعات منبع، ارز، مبلغ، دوره، وضعیت، کمپین و ممیزی ثبت/تأیید است؛ خروجی با chunk و محافظت در برابر CSV formula injection تولید می‌شود."
+    "platform_revenue_export": "خروجی CSV فیلترپذیر دفتر درآمد پلتفرم با ستون‌های منبع، ارز، مبلغ، دوره، وضعیت، کمپین و ممیزی ثبت/تأیید؛ مسیر GET export در گروه route صحیح ثبت شده است."
   },
   "languages": [
     {
@@ -651,7 +651,8 @@
       "در commit 87c0e143a1379d7fb403501700cf0567d90d60bc، assertDatabaseHas در تست CSV اصلاح شد؛ SQLite مقدار period_start را به صورت datetime ذخیره می‌کند، بنابراین تست دیگر قالب YYYY-MM-DD را تحمیل نمی‌کند. فیلتر whereDate حفظ شده است. CI run 45097179130 در انتظار اجراست.",
       "CI نهایی run 45097179130 برای commit 87c0e143a1379d7fb403501700cf0567d90d60bc موفق شد: ۲۷۵ تست و ۱۰۸۲ assertion روی SQLite و ۲۷۵ تست و ۱۰۸۲ assertion روی MySQL 8.4؛ Vite production build، Blade compile و Blade lint نیز موفق شدند.",
       "خروجی CSV کمپین درآمد تأییدشده و در انتظار تأیید AFN را در بازه انتخابی اضافه کرد. یک اختلاف سازگاری SQLite در شرط تاریخ شناسایی و در commit 87c0e143a1379d7fb403501700cf0567d90d60bc اصلاح شد؛ CI run 45097179130 کامل موفق شد.",
-      "در commit 328073e4b7e39d0ae5ec97f00cd3df166e78dfd8، خروجی CSV فیلترپذیر برای دفتر درآمد پلتفرم اضافه شد؛ اطلاعات ممیزی، ارز مستقل، کمپین و خنثی‌سازی CSV formula injection پوشش داده شده‌اند. تست Feature خروجی و فیلتر/امنیت متن اضافه شد. CI run 45149590313 در حال اجراست."
+      "در commit 328073e4b7e39d0ae5ec97f00cd3df166e78dfd8، خروجی CSV فیلترپذیر برای دفتر درآمد پلتفرم اضافه شد؛ اطلاعات ممیزی، ارز مستقل، کمپین و خنثی‌سازی CSV formula injection پوشش داده شده‌اند. تست Feature خروجی و فیلتر/امنیت متن اضافه شد. CI run 45149590313 در حال اجراست.",
+      "در CI run 45149590313 آزمون SQLite مسیر admin.platform-revenue.export را تعریف‌نشده یافت؛ علت، درج route در گروه profile-media به‌جای گروه platform-revenue بود. در commit 44310a66c38109dbf6913577f7f475b3d202f5e4 مسیر اشتباه حذف و route درست اضافه شد؛ CI run 45149841448 در صف اجراست."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -677,7 +678,7 @@
       "هیچ‌یک از hosted playback، upload، malware scan یا media probe در محیط production فعال نشده‌اند؛ feature flagها خاموش باقی مانده‌اند.",
       "PR96 برای تبدیل خصوصی HLS باز است؛ CI هنوز در حال اجرا/انتظار است. نتیجه ادغام و اجرای Migration روی MySQL هنوز تأیید نشده."
     ],
-    "summary": "گزارش کمپین و CSV آن درآمد AFN را تفکیک می‌کنند؛ دفتر درآمد پلتفرم نیز CSV فیلترپذیر با اطلاعات ممیزی دارد. CI تغییر اخیر در حال اجراست؛ پذیرش محلی/مرورگر باقی است."
+    "summary": "خروجی CSV دفتر درآمد با فیلترها و ممیزی پیاده‌سازی شده؛ اصلاح مسیر route انجام شد و CI نسخه اصلاحی در صف است. پذیرش محلی/مرورگر باقی است."
   },
   "known_issues": [
     {
@@ -4356,7 +4357,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "328073e4b7e39d0ae5ec97f00cd3df166e78dfd8",
+    "source_commit": "44310a66c38109dbf6913577f7f475b3d202f5e4",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-21",
@@ -4395,7 +4396,7 @@
       "blocked": 0
     },
     "feature_count": 39,
-    "implementation_status": "خروجی CSV فیلترپذیر دفتر درآمد پلتفرم به main اضافه شد؛ CI commit جاری در حال اجراست. پذیرش محلی Laragon و مرورگر/موبایل جداگانه باقی است.",
+    "implementation_status": "خروجی CSV دفتر درآمد پلتفرم اضافه شد؛ خطای ثبت مسیر export در گروه route نامرتبط شناسایی و اصلاح شد. CI نسخه اصلاح‌شده در صف اجراست. پذیرش محلی Laragon و مرورگر/موبایل باقی است.",
     "database_runtime": {
       "status": "partially_verified_local",
       "environment": "Windows 10 + Laragon 8 + MySQL",
@@ -6919,8 +6920,8 @@
   },
   "platform_revenue_multicurrency": {
     "updated_at": "2026-11-23",
-    "source_commit": "328073e4b7e39d0ae5ec97f00cd3df166e78dfd8",
-    "status": "platform_revenue_csv_export_ci_running",
+    "source_commit": "44310a66c38109dbf6913577f7f475b3d202f5e4",
+    "status": "platform_revenue_csv_route_fix_ci_queued",
     "currency_policy": {
       "USD": "google_ads",
       "EUR": "google_ads",
@@ -6955,14 +6956,16 @@
       "دفتر درآمد پلتفرم خروجی CSV بر اساس فیلترهای منبع، ارز، وضعیت، تاریخ هم‌پوشانی دوره و کمپین دارد؛ ستون‌های ثبت‌کننده، تأییدکننده، زمان بررسی و یادداشت نیز درج می‌شوند. خروجی با chunkById و خنثی‌سازی فرمول‌های CSV تولید می‌شود."
     ],
     "validation": {
-      "run_id": 45149590313,
-      "status": "in_progress",
-      "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45149590313",
-      "tested_commit": "328073e4b7e39d0ae5ec97f00cd3df166e78dfd8",
-      "latest_test_commit": "328073e4b7e39d0ae5ec97f00cd3df166e78dfd8",
+      "run_id": 45149841448,
+      "status": "queued",
+      "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45149841448",
+      "tested_commit": "44310a66c38109dbf6913577f7f475b3d202f5e4",
+      "latest_test_commit": "44310a66c38109dbf6913577f7f475b3d202f5e4",
+      "previous_run_id": 45149590313,
+      "previous_run_conclusion": "failure_route_not_defined",
       "local_laragon": "not_run",
       "browser_mobile": "not_run",
-      "note": "CI برای CSV دفتر درآمد در حال اجراست؛ نتیجه SQLite/MySQL/Vite/Blade بعد از پایان ثبت خواهد شد."
+      "note": "خطای مسیر export که در نسخه قبلی داخل گروه profile-media قرار گرفته بود، از آن گروه حذف و در گروه platform-revenue ثبت شد؛ CI commit اصلاحی در صف اجراست."
     },
     "limitations": [
       "اتصال مستقیم API و پرداخت Google Ads/AdSense یا شبکه تبلیغاتی ایران پیاده‌سازی نشده؛ فعلاً گزارش/رسید درآمد به‌صورت دستی ثبت و سپس تأیید می‌شود.",
@@ -6971,7 +6974,7 @@
       "این دفتر درآمد AMDB از دفتر تسویه درآمد شرکت‌ها جداست."
     ]
   },
-  "latest_main_commit": "328073e4b7e39d0ae5ec97f00cd3df166e78dfd8",
-  "source_commit_audited": "328073e4b7e39d0ae5ec97f00cd3df166e78dfd8",
+  "latest_main_commit": "44310a66c38109dbf6913577f7f475b3d202f5e4",
+  "source_commit_audited": "44310a66c38109dbf6913577f7f475b3d202f5e4",
   "latest_main_commit_verified_on": "2026-11-23"
 }
