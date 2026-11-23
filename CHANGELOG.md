@@ -1167,3 +1167,6 @@
 
 
 - فیلتر تاریخ درآمد CSV به whereDate ابتدا/انتهای بازه تغییر کرد؛ تست نیز period_start را صریحاً بررسی می‌کند. اصلاحیه: [eb7146370d0491d31d024abed8afade0b33d6be1](https://github.com/armanaria111/amdb-laravel2/commit/eb7146370d0491d31d024abed8afade0b33d6be1)؛ CI [45097038714](https://github.com/armanaria111/amdb-laravel2/actions/runs/45097038714) در صف اجراست.
+
+
+- fixture تست CSV با قالب datetime واقعی SQLite برای period_start هماهنگ شد؛ فیلتر whereDate حفظ شد. اصلاحیه: [87c0e143a1379d7fb403501700cf0567d90d60bc](https://github.com/armanaria111/amdb-laravel2/commit/87c0e143a1379d7fb403501700cf0567d90d60bc)؛ CI [45097179130](https://github.com/armanaria111/amdb-laravel2/actions/runs/45097179130) در صف اجراست.

@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "eb7146370d0491d31d024abed8afade0b33d6be1",
+    "source_commit_audited": "87c0e143a1379d7fb403501700cf0567d90d60bc",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "eb7146370d0491d31d024abed8afade0b33d6be1",
+    "latest_main_commit": "87c0e143a1379d7fb403501700cf0567d90d60bc",
     "latest_main_commit_verified_on": "2026-11-23",
     "advertising_note": "گزارش عملکرد کمپین و خروجی CSV اکنون درآمد مستقیم AFN هر کمپین را با تفکیک تأییدشده و در انتظار تأیید نشان می‌دهند؛ اتصال درآمد به کمپین و محدوده گزارش کنترل می‌شود."
   },
@@ -646,7 +646,8 @@
       "در commit 03397a592f3bed77aea38251944db791e2172b84، خروجی CSV گزارش تبلیغات به ستون‌های درآمد تأییدشده و در انتظار تأیید AFN مجهز شد؛ تست جداسازی مبالغ کمپین منتخب از کمپین فیلترشده اضافه شد. CI run 45096544758 در صف اجراست.",
       "CI run 45096544758 نشان داد تست CSV روی SQLite مقدار درآمد صفر می‌گیرد، در حالی که job MySQL موفق بود. محاسبه درآمد از join رویدادها جدا و در پرس‌وجوی گروه‌بندی‌شده مستقل قرار گرفت؛ تست نیز assertDatabaseHas اضافه کرد. اصلاحیه در commit 35b9db53d21f132fb01aa8c76adfc4e4b144271b ثبت شد و CI run 45096759495 در صف اجراست.",
       "اصلاح دوم CSV در commit fd1d85f0facc5e03d9e387314abc18523998755e ثبت شد: ردیف‌های درآمد مرتبط با کمپین‌های خروجی خوانده و در حافظه بر اساس campaign_id و وضعیت approved/pending جمع می‌شوند؛ تست جمع SQL مستقیم SQLite نیز اضافه شد. CI run 45096910603 pending است.",
-      "در commit eb7146370d0491d31d024abed8afade0b33d6be1، فیلتر تاریخ CSV از whereBetween به whereDate ابتدا/انتهای بازه تغییر کرد؛ تست وجود period_start و جمع مستقیم را نیز بررسی می‌کند. CI run 45097038714 در صف اجراست."
+      "در commit eb7146370d0491d31d024abed8afade0b33d6be1، فیلتر تاریخ CSV از whereBetween به whereDate ابتدا/انتهای بازه تغییر کرد؛ تست وجود period_start و جمع مستقیم را نیز بررسی می‌کند. CI run 45097038714 در صف اجراست.",
+      "در commit 87c0e143a1379d7fb403501700cf0567d90d60bc، assertDatabaseHas در تست CSV اصلاح شد؛ SQLite مقدار period_start را به صورت datetime ذخیره می‌کند، بنابراین تست دیگر قالب YYYY-MM-DD را تحمیل نمی‌کند. فیلتر whereDate حفظ شده است. CI run 45097179130 در انتظار اجراست."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -672,7 +673,7 @@
       "هیچ‌یک از hosted playback، upload، malware scan یا media probe در محیط production فعال نشده‌اند؛ feature flagها خاموش باقی مانده‌اند.",
       "PR96 برای تبدیل خصوصی HLS باز است؛ CI هنوز در حال اجرا/انتظار است. نتیجه ادغام و اجرای Migration روی MySQL هنوز تأیید نشده."
     ],
-    "summary": "گزارش عملکرد کمپین درآمد AFN را نشان می‌دهد؛ سازگاری فیلتر بازه تاریخ خروجی CSV برای SQLite/MySQL در CI جدید بررسی می‌شود."
+    "summary": "گزارش عملکرد کمپین درآمد AFN را نشان می‌دهد؛ تست CSV اکنون با قالب واقعی تاریخ SQLite هماهنگ شده و CI نهایی در حال اجراست."
   },
   "known_issues": [
     {
@@ -4351,7 +4352,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "eb7146370d0491d31d024abed8afade0b33d6be1",
+    "source_commit": "87c0e143a1379d7fb403501700cf0567d90d60bc",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-21",
@@ -4390,7 +4391,7 @@
       "blocked": 0
     },
     "feature_count": 39,
-    "implementation_status": "خروجی CSV درآمد را جداگانه بر اساس campaign_id جمع می‌کند؛ مقایسه تاریخ دوره با whereDate برای سازگاری SQLite/MySQL اصلاح شده و CI جدید در صف اجراست. پذیرش محلی Laragon و مرورگر/موبایل باقی است.",
+    "implementation_status": "فیلتر تاریخ CSV با whereDate اصلاح شده؛ تست fixture نیز با قالب واقعی datetime ستون period_start هماهنگ شد. CI commit جدید در انتظار اجراست؛ پذیرش محلی Laragon و مرورگر/موبایل باقی است.",
     "database_runtime": {
       "status": "partially_verified_local",
       "environment": "Windows 10 + Laragon 8 + MySQL",
@@ -5979,8 +5980,8 @@
       "تکمیل تست‌های جداسازی داده بین شرکت‌ها، نقش‌ها و CSV در مرحله QA بعدی."
     ],
     "campaign_revenue_reporting": {
-      "status": "csv_export_date_filter_ci_pending",
-      "source_commit": "eb7146370d0491d31d024abed8afade0b33d6be1",
+      "status": "csv_export_datetime_fixture_ci_pending",
+      "source_commit": "87c0e143a1379d7fb403501700cf0567d90d60bc",
       "features": [
         "نمایش درآمد lifetime و بازه انتخابی برای هر کمپین",
         "تفکیک مبالغ approved و pending",
@@ -5990,9 +5991,9 @@
         "خروجی CSV گزارش کمپین دارای ستون‌های approved AFN و pending AFN در بازه انتخابی است؛ محاسبه درآمد مستقل از join رویدادها انجام می‌شود."
       ],
       "ci": {
-        "run_id": 45097038714,
+        "run_id": 45097179130,
         "status": "pending",
-        "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45097038714"
+        "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45097179130"
       }
     }
   },
@@ -6913,8 +6914,8 @@
   },
   "platform_revenue_multicurrency": {
     "updated_at": "2026-11-23",
-    "source_commit": "eb7146370d0491d31d024abed8afade0b33d6be1",
-    "status": "campaign_revenue_csv_date_filter_refined_ci_pending",
+    "source_commit": "87c0e143a1379d7fb403501700cf0567d90d60bc",
+    "status": "campaign_revenue_csv_datetime_fixture_corrected_ci_pending",
     "currency_policy": {
       "USD": "google_ads",
       "EUR": "google_ads",
@@ -6944,22 +6945,23 @@
       "خروجی CSV گزارش کمپین نیز ستون‌های درآمد تأییدشده و در انتظار تأیید AFN را برای بازه انتخابی اضافه می‌کند؛ جمع درآمد در زیرپرس‌وجوی مستقل به تفکیک campaign_id انجام می‌شود تا با تعداد رویدادهای نمایش/کلیک چندبرابر نشود.",
       "اجرای نخست CI برای خروجی CSV یک اختلاف در مقدارهای درآمد در SQLite نشان داد (MySQL همان run موفق بود). تجمیع درآمد از join رویدادهای تبلیغاتی جدا شد و به یک پرس‌وجوی مستقل گروه‌بندی‌شده بر اساس campaign_id منتقل شد؛ تست اکنون وجود رکورد را نیز پیش از بررسی CSV assert می‌کند.",
       "پس از آنکه اصلاح نخست هنوز در SQLite مقدار صفر برگرداند، تست نشان داد رکورد در دیتابیس موجود است و SUM مستقیم SQLite مقدار درست می‌دهد. خواندن ردیف‌های درآمد با whereIn کمپین‌های خروجی انجام و تجمیع approved/pending در Collection بر اساس campaign_id انجام می‌شود؛ تست جمع مستقیم SQL نیز افزوده شد.",
-      "بررسی خطای SQLite مشخص کرد جمع مستقیم رکوردها با شرط whereBetween روی period_start در این سناریو صفر می‌شد؛ فیلتر بازه CSV به دو شرط whereDate برای ابتدا/انتهای بازه تغییر کرد و تست period_start را نیز صریحاً assert می‌کند."
+      "بررسی خطای SQLite مشخص کرد جمع مستقیم رکوردها با شرط whereBetween روی period_start در این سناریو صفر می‌شد؛ فیلتر بازه CSV به دو شرط whereDate برای ابتدا/انتهای بازه تغییر کرد و تست period_start را نیز صریحاً assert می‌کند.",
+      "تست SQLite نشان داد مقدار period_start در fixture به صورت datetime (مانند 2026-11-23 00:00:00) ذخیره می‌شود؛ assertDatabaseHas اصلاح شد تا قالب ثابت date را تحمیل نکند و جمع SQL مستقیم با whereDate همچنان رفتار واقعی را بررسی کند."
     ],
     "validation": {
-      "run_id": 45097038714,
+      "run_id": 45097179130,
       "status": "pending",
-      "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45097038714",
-      "tested_commit": "eb7146370d0491d31d024abed8afade0b33d6be1",
-      "latest_test_commit": "eb7146370d0491d31d024abed8afade0b33d6be1",
+      "url": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45097179130",
+      "tested_commit": "87c0e143a1379d7fb403501700cf0567d90d60bc",
+      "latest_test_commit": "87c0e143a1379d7fb403501700cf0567d90d60bc",
       "previous_run": {
-        "run_id": 45096910603,
-        "conclusion": "sqlite_failure_mysql_pending_at_last_check",
-        "reason": "SQLite test confirmed the revenue row exists but a date-range SUM query returned zero; CSV now uses whereDate boundaries and asserts period_start."
+        "run_id": 45097038714,
+        "conclusion": "sqlite_failure_mysql_cancelled",
+        "reason": "The extra assert expected period_start as YYYY-MM-DD while SQLite stored a datetime string; the whereDate filter itself was retained."
       },
       "local_laragon": "not_run",
       "browser_mobile": "not_run",
-      "note": "CI اصلاحیه جدید در صف اجراست."
+      "note": "CI commit اصلاح fixture در صف اجراست."
     },
     "limitations": [
       "اتصال مستقیم API و پرداخت Google Ads/AdSense یا شبکه تبلیغاتی ایران پیاده‌سازی نشده؛ فعلاً گزارش/رسید درآمد به‌صورت دستی ثبت و سپس تأیید می‌شود.",
@@ -6968,7 +6970,7 @@
       "این دفتر درآمد AMDB از دفتر تسویه درآمد شرکت‌ها جداست."
     ]
   },
-  "latest_main_commit": "eb7146370d0491d31d024abed8afade0b33d6be1",
-  "source_commit_audited": "eb7146370d0491d31d024abed8afade0b33d6be1",
+  "latest_main_commit": "87c0e143a1379d7fb403501700cf0567d90d60bc",
+  "source_commit_audited": "87c0e143a1379d7fb403501700cf0567d90d60bc",
   "latest_main_commit_verified_on": "2026-11-23"
 }
