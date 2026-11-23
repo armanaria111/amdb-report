@@ -21,7 +21,7 @@
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "latest_main_commit": "44310a66c38109dbf6913577f7f475b3d202f5e4",
     "latest_main_commit_verified_on": "2026-11-23",
-    "advertising_note": "گزارش عملکرد کمپین و خروجی CSV درآمد مستقیم AFN همان کمپین را با تفکیک تأییدشده و در انتظار تأیید نمایش می‌دهند؛ آزمون SQLite و MySQL 8.4 و build/lint موفق است.",
+    "advertising_note": "گزارش عملکرد کمپین، خروجی CSV و نمای درآمد پلتفرم اکنون گزارش‌های جداگانه دارند؛ درآمد پلتفرم بر اساس منبع، ارز و وضعیت و بدون تبدیل یا جمع‌زدن ارزهای متفاوت نمایش داده می‌شود. تغییرات شاخه توسعه هنوز تست نشده‌اند.",
     "platform_revenue_export": "خروجی CSV فیلترپذیر دفتر درآمد پلتفرم با ستون‌های منبع، ارز، مبلغ، دوره، وضعیت، کمپین و ممیزی ثبت/تأیید؛ مسیر GET export در گروه route صحیح ثبت شده است."
   },
   "languages": [
@@ -6970,7 +6970,7 @@
   "platform_revenue_multicurrency": {
     "updated_at": "2026-11-23",
     "source_commit": "44310a66c38109dbf6913577f7f475b3d202f5e4",
-    "status": "platform_revenue_csv_export_ci_passed",
+    "status": "multi_currency_ad_revenue_summary_committed_tests_deferred",
     "currency_policy": {
       "USD": "google_ads",
       "EUR": "google_ads",
@@ -7002,7 +7002,10 @@
       "پس از آنکه اصلاح نخست هنوز در SQLite مقدار صفر برگرداند، تست نشان داد رکورد در دیتابیس موجود است و SUM مستقیم SQLite مقدار درست می‌دهد. خواندن ردیف‌های درآمد با whereIn کمپین‌های خروجی انجام و تجمیع approved/pending در Collection بر اساس campaign_id انجام می‌شود؛ تست جمع مستقیم SQL نیز افزوده شد.",
       "بررسی خطای SQLite مشخص کرد جمع مستقیم رکوردها با شرط whereBetween روی period_start در این سناریو صفر می‌شد؛ فیلتر بازه CSV به دو شرط whereDate برای ابتدا/انتهای بازه تغییر کرد و تست period_start را نیز صریحاً assert می‌کند.",
       "تست SQLite نشان داد مقدار period_start در fixture به صورت datetime (مانند 2026-11-23 00:00:00) ذخیره می‌شود؛ assertDatabaseHas اصلاح شد تا قالب ثابت date را تحمیل نکند و جمع SQL مستقیم با whereDate همچنان رفتار واقعی را بررسی کند.",
-      "دفتر درآمد پلتفرم خروجی CSV بر اساس فیلترهای منبع، ارز، وضعیت، تاریخ هم‌پوشانی دوره و کمپین دارد؛ ستون‌های ثبت‌کننده، تأییدکننده، زمان بررسی و یادداشت نیز درج می‌شوند. خروجی با chunkById و خنثی‌سازی فرمول‌های CSV تولید می‌شود."
+      "دفتر درآمد پلتفرم خروجی CSV بر اساس فیلترهای منبع، ارز، وضعیت، تاریخ هم‌پوشانی دوره و کمپین دارد؛ ستون‌های ثبت‌کننده، تأییدکننده، زمان بررسی و یادداشت نیز درج می‌شوند. خروجی با chunkById و خنثی‌سازی فرمول‌های CSV تولید می‌شود.",
+      "در داشبورد مدیریت تبلیغات، خلاصه درآمد ثبت‌شده پلتفرم برای بازه انتخابی به تفکیک source، currency و status اضافه شد؛ تعداد رکوردها و مبلغ هر گروه جدا نمایش داده می‌شوند.",
+      "منبع‌ها از کلیدهای واقعی دفتر درآمد (google_ads، iran_ads و direct_ads) خوانده می‌شوند و ارزها هیچ‌گاه به یک مبلغ واحد تبدیل یا جمع نمی‌شوند.",
+      "نمای جدید فقط گزارش‌خوانی است و رکوردهای immutable دفتر درآمد را تغییر نمی‌دهد؛ منبع، ارز و وضعیت از platform_revenue_entries خوانده می‌شوند."
     ],
     "validation": {
       "run_id": 45149841448,
@@ -7023,10 +7026,42 @@
       "اتصال مستقیم API و پرداخت Google Ads/AdSense یا شبکه تبلیغاتی ایران پیاده‌سازی نشده؛ فعلاً گزارش/رسید درآمد به‌صورت دستی ثبت و سپس تأیید می‌شود.",
       "تست‌های محلی Laragon و پذیرش مرورگر/موبایل اجرا نشده‌اند؛ CI برای commit جاری در حال اجراست.",
       "گزارش‌های ماهانه و سالانه مبلغ را بر اساس تاریخ آغاز دوره ثبت‌شده دسته‌بندی می‌کنند؛ مبلغ دوره‌های چندماهه بین ماه‌ها تقسیم نمی‌شود.",
-      "این دفتر درآمد AMDB از دفتر تسویه درآمد شرکت‌ها جداست."
-    ]
+      "این دفتر درآمد AMDB از دفتر تسویه درآمد شرکت‌ها جداست.",
+      "خلاصه درآمد تبلیغاتی پلتفرم در داشبورد کمپین‌ها به تفکیک منبع/ارز/وضعیت اضافه شده است؛ تست runtime و نمایش مرورگری عمداً به مرحله بعد موکول شده‌اند."
+    ],
+    "latest_feature_branch": "feature/company-advertising-performance-details",
+    "latest_feature_commit": "024f2f145ee2dcd559355555b2c8f3837392956e",
+    "latest_feature_base": "44310a66c38109dbf6913577f7f475b3d202f5e4",
+    "latest_feature_compare": {
+      "ahead_by": 18,
+      "behind_by": 0,
+      "pr_opened": false,
+      "tests": "not_run_by_user_instruction",
+      "database_migrations": "none_added_or_executed"
+    }
   },
   "latest_main_commit": "44310a66c38109dbf6913577f7f475b3d202f5e4",
   "source_commit_audited": "44310a66c38109dbf6913577f7f475b3d202f5e4",
-  "latest_main_commit_verified_on": "2026-11-23"
+  "latest_main_commit_verified_on": "2026-11-23",
+  "current_development": {
+    "updated_at": "2026-11-23",
+    "repository": "https://github.com/armanaria111/amdb-laravel2",
+    "branch": "feature/company-advertising-performance-details",
+    "head": "024f2f145ee2dcd559355555b2c8f3837392956e",
+    "base": "44310a66c38109dbf6913577f7f475b3d202f5e4",
+    "compare": "18 commits ahead, 0 behind",
+    "status": "committed_unmerged_tests_deferred",
+    "changes": [
+      "گزارش عملکرد کمپین شرکت با کنترل مالکیت شرکت و خروجی CSV روزانه",
+      "فیلتر کمپین‌های شرکت بر اساس وضعیت و جایگاه",
+      "گزارش درآمد تبلیغاتی پلتفرم به تفکیک منبع، ارز و وضعیت در پنل مدیریت",
+      "ترجمه‌های en، fa-AF و ps برای گزارش درآمد چندارزی"
+    ],
+    "safety": [
+      "هیچ migration جدیدی اضافه یا اجرا نشده",
+      "داده‌های دیتابیس تغییر نکرده‌اند",
+      "PR باز نشده تا CI ناخواسته اجرا نشود",
+      "هیچ تستی اجرا نشده است"
+    ]
+  }
 }
