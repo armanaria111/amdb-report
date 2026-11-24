@@ -11,9 +11,10 @@
 - [مرجع وضعیت واحد](project-status.json)
 - [روش‌شناسی و تعاریف وضعیت‌ها](docs/reporting-methodology.md)
 - [تاریخچه تغییرات گزارش](CHANGELOG.md)
+- [دفتر شواهد گفتگوها و تست‌های تأییدشده](docs/conversation-and-qa-evidence-2026-11-24.md)
 - [آرشیو README و آمار تاریخی پیشین](docs/README-history-archive-2026-11-20.md)
 
-**آخرین commit ثبت‌شده مخزن کد:** شاخه `main`، commit `e133e1d1244f2560fb9aedb8a53a56cc118c6cd4` در ۲۴ نوامبر ۲۰۲۶. نتیجه ۲۵۶ تست و ۹۹۰ assertion مربوط به QA پیشین است؛ برای تغییرات بعدی از جمله اصلاحات اخیر، اجرای مجدد PHPUnit/CI هنوز انجام نشده است.
+**آخرین commit مشاهده‌شده مخزن کد:** شاخه `main`، commit `2a06f9d9a200c95bf6c206c53d52ef3d56c05968` در ۲۴ نوامبر ۲۰۲۶. ممیزی تفصیلی ثبت‌شده در snapshot تا commit `e133e1d1244f2560fb9aedb8a53a56cc118c6cd4` است. اجرای محلی جدید PHPUnit با ۲۸۲ تست و ۱٬۱۲۰ assertion موفق شد؛ commit دقیق checkout این اجرا در خروجی ثبت نشده است. اعتبارسنجی Activitylog برای پنج مدل نیز ۵/۵ موفق بود. جزئیات در [دفتر شواهد گفتگوها و تست‌ها](docs/conversation-and-qa-evidence-2026-11-24.md) آمده است.
 
 ## قواعد اعتماد به گزارش
 
