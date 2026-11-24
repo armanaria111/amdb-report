@@ -689,7 +689,7 @@
       "شکاف معماری ثبت شد: PlaybackSource و مسیر تحویل Hosted Playback از rights_status/rights_holder/license_reference مستقل استفاده می‌کنند و به رکورد CompanyTitleRight متصل نیستند؛ بنابراین مدرک تأییدشده شرکت هنوز مرجع واحد مجوز پخش نیست.",
       "به‌دلیل نیاز به تصمیم درباره اتصال مجوزهای انحصاری/غیرانحصاری، قلمرو، بازه اعتبار و منابع بیرونی، تغییر حدسی در قواعد حقوقی اعمال نشد؛ اصلاح اتصال مرجع حقوق نشر به پخش به‌عنوان کار باز ثبت شد.",
       "هیچ تست، Build، Migration، Seeder، نصب وابستگی یا عملیات دیتابیس اجرا نشد.",
-      "در 2026-11-24، PR132 برای خروجی PDF چندزبانه گزارش تبلیغات روی شاخه مستقل ایجاد شد؛ کاربر نمایش صحیح PDF آزمایشی Chrome برای دری/پشتو/انگلیسی را تأیید کرد. تست Laravel و CI این PR اجرا نشده و قابلیت هنوز در main ادغام نشده است.",
+      "در 2026-11-24، PR132 برای خروجی PDF چندزبانه گزارش تبلیغات روی شاخه مستقل ایجاد شد؛ تست محلی شاخه با ۲۸۲ تست و ۱٬۱۲۰ assertion موفق، CI شماره 429 روی SQLite و MySQL 8.4 و Vite موفق، route ثبت‌شده و smoke test سرویس Chromium با فایل ۳۵٬۷۱۴ بایتی و امضای %PDF- تأیید شدند. PR هنوز در main ادغام نشده؛ Chromium روی هاست تولید و دانلود واقعی از پنل هنوز بررسی نشده‌اند.",
       "اجرای کامل PHPUnit محلی در APP_ENV=testing و SQLite حافظه‌ای موفق شد: ۲۸۲ تست، ۱٬۱۲۰ assertion، صفر شکست، ۴۰٫۶۷ ثانیه؛ MySQL محلی تغییر نکرد و commit دقیق checkout در خروجی ثبت نشده است.",
       "سازگاری Spatie Activitylog v5.1.5 اصلاح و runtime هر پنج مدل Artist، Company، Festival، News و Title تأیید شد.",
       "تست تراکنشی Activitylog برای پنج مدل موفق شد: رویدادهای created/updated، جزئیات attribute_changes و rollback کامل داده آزمایشی.",
@@ -1282,7 +1282,7 @@
     },
     {
       "date": "2026-11-24",
-      "text": "PR132 در شاخه feature/chromium-advertising-pdf ایجاد شد: خروجی PDF فیلترپذیر گزارش تبلیغات مدیریت با موتور Chromium، آمار روزانه و جایگاه‌ها، درآمد AFN و ترجمه‌های en/fa-AF/ps. کاربر PDF آزمایشی Chrome را از نظر نمایش دری/پشتو/انگلیسی تأیید کرد. PR پیش‌نویس و ادغام‌نشده است؛ تست Laravel، CI و نصب Chromium روی هاست هنوز بررسی نشده‌اند."
+      "text": "PR132 در شاخه feature/chromium-advertising-pdf: خروجی PDF فیلترپذیر گزارش تبلیغات مدیریت با موتور Chromium، آمار روزانه و جایگاه‌ها، درآمد AFN و ترجمه‌های en/fa-AF/ps. تست محلی شاخه ۲۸۲ تست و ۱٬۱۲۰ assertion موفق؛ CI شماره 429 روی SQLite و MySQL 8.4 و Vite موفق؛ route ثبت‌شده و smoke test رندرر با PDF معتبر ۳۵٬۷۱۴ بایتی تأیید شدند. PR هنوز ادغام نشده؛ Chromium روی هاست و دانلود واقعی از پنل بررسی نشده‌اند."
     }
   ],
   "architecture": {
@@ -4595,7 +4595,7 @@
         "2026-11-23: در CI مربوط به commit efed7eb0c16cd7eb0872ce0a6566a53e02e74976، PHPUnit روی SQLite، Vite production build و Blade compile/lint موفق شدند؛ job MySQL 8.4 هنوز در مرحله آماده‌سازی کانتینر است.",
         "2026-11-23: اتصال درآمد تبلیغات اختصاصی AFN به کمپین direct، فیلتر کمپین و نمایش نام کمپین اضافه شد؛ CI run 45095719839 برای commit d31e242f460045b969af1c7ff6cf9a076062ce43 در حال اجراست.",
         "به‌روزرسانی CI run 45095719839: PHPUnit روی SQLite و Vite production build موفق شدند؛ job MySQL 8.4 هنوز در حال اجراست.",
-        "PR132: کاربر تأیید کرد Chrome headless یک PDF آزمایشی با نمایش صحیح دری، پشتو و انگلیسی تولید می‌کند؛ تست‌های Laravel/CI مربوط به پیاده‌سازی PDF اجرا نشده‌اند و Chromium روی هاست تولید بررسی نشده است.",
+        "PR132: تست محلی شاخه ۲۸۲ تست و ۱٬۱۲۰ assertion موفق شد؛ CI شماره 429 برای SQLite، MySQL 8.4 و Vite موفق است. route نام admin.advertising.pdf ثبت شده و سرویس Chromium فایل PDF با حجم ۳۵٬۷۱۴ بایت و امضای %PDF- تولید کرد. نمایش دقیق حروف در PDF تولیدی سرویس و دانلود واقعی از پنل/Chromium هاست تولید هنوز تأیید نشده‌اند.",
         "2026-11-24: اجرای کامل محلی PHPUnit با APP_ENV=testing و SQLite حافظه‌ای موفق شد: ۲۸۲ تست، ۱٬۱۲۰ assertion، صفر شکست، ۴۰٫۶۷ ثانیه؛ MySQL محلی دست‌نخورده ماند. commit دقیق checkout از خروجی ثبت‌شده قابل تعیین نیست.",
         "2026-11-24: سازگاری Spatie Laravel Activitylog v5.1.5 بررسی شد. namespace صحیح LogOptions برابر Spatie\\Activitylog\\Support\\LogOptions است و API قدیمی dontSubmitEmptyLogs با dontLogEmptyChanges جایگزین شده است.",
         "2026-11-24: پنج مدل Artist، Company، Festival، News و Title در runtime تنظیمات Activitylog را با Support\\LogOptions بارگذاری کردند. برای هر پنج مدل رویداد created و updated تأیید شد؛ جزئیات old/attributes در attribute_changes ثبت شدند.",
@@ -4603,7 +4603,7 @@
         "2026-11-24: جدول activity_log و دو migration مربوط به آن در وضعیت Ran تأیید شدند؛ اتصال دیتابیس و Activitylog هر دو mysql بود. هیچ migration جدیدی در این اعتبارسنجی اجرا نشد.",
         "2026-11-24: ساختار واقعی جدول‌های artists، companies، festivals و titles با Schema::getColumnListing بررسی شد؛ ستون‌های public_id و birth_date_source در جداول مربوط موجود بودند.",
         "2026-11-24: کاربر مشکلات ظاهری/نمایشی در صفحه ورود و چند صفحه مدیریت، از جمله مدیریت اخبار و مدیریت فیلم‌ها و سریال‌ها و سایر صفحات مدیریت را گزارش کرد. رفع این موارد با تست مرورگر هنوز تأیید نشده و باید باز بماند.",
-        "2026-11-24: کاربر پیش‌تر تولید PDF آزمایشی با Chrome headless و نمایش متن دری، پشتو و انگلیسی را تأیید کرده بود؛ این تأیید به معنی اجرای تست Laravel/CI یا نصب Chromium روی هاست نیست."
+        "2026-11-24: برای PR132 تست محلی ۲۸۲/۱٬۱۲۰، CI موفق SQLite و MySQL 8.4 و Vite، ثبت route و تولید PDF معتبر توسط سرویس Chromium تأیید شدند؛ این شواهد نصب Chromium روی هاست یا دانلود واقعی از پنل را ثابت نمی‌کنند."
       ],
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
@@ -6746,7 +6746,7 @@
       "status": "open_draft_unmerged_validation_pending",
       "scope": "خروجی PDF فیلترپذیر گزارش تبلیغات مدیریت شامل آمار کمپین، روند روزانه، مقایسه جایگاه‌ها و درآمد تأییدشده/در انتظار AFN؛ موتور Chromium با مسیر قابل تنظیم؛ خروجی سه‌زبانه en/fa-AF/ps و RTL.",
       "url": "https://github.com/armanaria111/amdb-laravel2/pull/132",
-      "validation": "کاربر تأیید کرد PDF آزمایشی Chrome حروف دری، پشتو و انگلیسی را درست نمایش می‌دهد. این فقط smoke test موتور مرورگر است؛ تست Laravel، CI این PR و نصب Chromium روی هاست هنوز تأیید نشده‌اند."
+      "validation": "تست محلی شاخه: ۲۸۲ تست و ۱٬۱۲۰ assertion موفق؛ GitHub Actions run 45428873147 (AMDB CI #429) موفق، شامل PHPUnit روی SQLite و MySQL 8.4 و Vite production build؛ route admin.advertising.pdf ثبت شده و ChromiumPdfRenderer یک PDF معتبر ۳۵٬۷۱۴ بایتی با امضای %PDF- تولید کرد. دانلود واقعی از پنل، نمایش حروف در PDF نهایی و Chromium روی هاست تولید هنوز تأیید نشده‌اند."
     }
   ],
   "company_rights_evidence": {
