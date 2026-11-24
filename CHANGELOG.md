@@ -1,3 +1,15 @@
+## 2026-11-24 — ثبت شواهد گفتگوها و تکمیل اعتبارسنجی Activitylog
+
+- دفتر شواهد گفتگوها و تست‌های تأییدشده در `docs/conversation-and-qa-evidence-2026-11-24.md` ایجاد شد؛ خلاصه گفتگوها به‌جای transcript کامل ثبت شده است.
+- اجرای کامل محلی PHPUnit در `APP_ENV=testing` با SQLite حافظه‌ای موفق شد: ۲۸۲ تست، ۱٬۱۲۰ assertion، صفر شکست، ۴۰٫۶۷ ثانیه. MySQL محلی دست‌نخورده ماند؛ SHA دقیق checkout در خروجی ثبت نشده است.
+- Spatie Laravel Activitylog نسخه ۵.۱.۵ بررسی شد؛ namespace صحیح `Spatie\\Activitylog\\Support\\LogOptions` و متد `dontLogEmptyChanges()` تأیید شدند.
+- مدل‌های Artist، Company، Festival، News و Title در runtime تنظیمات Activitylog را بارگذاری کردند. برای هر پنج مدل رویدادهای created/updated، جزئیات تغییرات و rollback تراکنشی موفق بود؛ نتیجه ۵/۵، صفر شکست.
+- جدول `activity_log` و migrationهای `2026_11_20_235900_create_activity_log_table` و `2026_11_20_235901_add_activitylog_v5_columns` در وضعیت Ran تأیید شدند؛ اتصال دیتابیس و Activitylog هر دو mysql بود.
+- ساختار جدول‌های artists، companies، festivals و titles با Schema خوانده شد؛ هیچ Migration یا عملیات مخرب اجرا نشد.
+- آخرین commit مشاهده‌شده main مخزن کد: `2a06f9d9a200c95bf6c206c53d52ef3d56c05968`. ممیزی تفصیلی گزارش فعلی هنوز تا `e133e1d1244f2560fb9aedb8a53a56cc118c6cd4` است.
+- کاربر مشکلات صفحه ورود و صفحات مدیریت اخبار، فیلم‌ها/سریال‌ها و چند صفحه مدیریت دیگر را گزارش کرد؛ رفع آن‌ها هنوز با تست تعاملی مرورگر تأیید نشده و به‌عنوان کار باز ثبت شد.
+- فقط مخزن گزارش به‌روزرسانی می‌شود؛ مخزن کد و دیتابیس تغییر داده نشدند.
+
 ## 2026-11-23 — اتصال درآمد تبلیغات اختصاصی به کمپین
 
 - رکوردهای درآمد اختصاصی AMDB با ارز AFN می‌توانند به یک کمپین مستقیم (provider=direct) متصل شوند.
