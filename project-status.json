@@ -4490,13 +4490,13 @@
     "notes": "گزارش ممیزی در docs/dependency-usage-audit.md مخزن اصلی قرار دارد. هیچ داده تجاری تغییر نکرده است."
   },
   "current_status": {
-    "snapshot_date": "2026-11-23",
+    "snapshot_date": "2026-11-24",
     "product_name": "Afghanistan Movie Database",
     "product_name_fa": "بانک اطلاعاتی فیلم افغانستان",
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "44310a66c38109dbf6913577f7f475b3d202f5e4",
+    "source_commit": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-21",
@@ -5264,9 +5264,9 @@
         }
       ]
     },
-    "latest_main_commit": "efed7eb0c16cd7eb0872ce0a6566a53e02e74976",
-    "source_commit_audited": "",
-    "latest_main_commit_verified_on": "2026-11-22"
+    "latest_main_commit": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
+    "source_commit_audited": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
+    "latest_main_commit_verified_on": "2026-11-24"
   },
   "report_methodology": {
     "version": 3,
