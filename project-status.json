@@ -4605,7 +4605,8 @@
         "2026-11-24: ساختار واقعی جدول‌های artists، companies، festivals و titles با Schema::getColumnListing بررسی شد؛ ستون‌های public_id و birth_date_source در جداول مربوط موجود بودند.",
         "2026-11-24: کاربر مشکلات ظاهری/نمایشی در صفحه ورود و چند صفحه مدیریت، از جمله مدیریت اخبار و مدیریت فیلم‌ها و سریال‌ها و سایر صفحات مدیریت را گزارش کرد. رفع این موارد با تست مرورگر هنوز تأیید نشده و باید باز بماند.",
         "2026-11-24: برای PR132 تست محلی ۲۸۲/۱٬۱۲۰، CI موفق SQLite و MySQL 8.4 و Vite، ثبت route و تولید PDF معتبر توسط سرویس Chromium تأیید شدند؛ این شواهد نصب Chromium روی هاست یا دانلود واقعی از پنل را ثابت نمی‌کنند.",
-        "2026-11-24: PR132 با commit نهایی c793b06f290f77da225996e68f25a865abcd9e94 به main ادغام شد؛ PR closed/merged است. تست محلی ۲۸۲/۱٬۱۲۰، CI پیش از ادغام run 45428873147 روی SQLite و MySQL 8.4 و Vite موفق، route ثبت‌شده، تولید PDF معتبر توسط Chromium و تأیید بصری کاربر برای متن دری/پشتو و RTL ثبت شد. بررسی دانلود تعاملی پنل و نصب Chromium روی هاست تولید انجام نشده؛ این موارد deployment/runtime follow-up هستند، نه مانع ادغام کد."
+        "2026-11-24: PR132 با commit نهایی c793b06f290f77da225996e68f25a865abcd9e94 به main ادغام شد؛ PR closed/merged است. تست محلی ۲۸۲/۱٬۱۲۰، CI پیش از ادغام run 45428873147 روی SQLite و MySQL 8.4 و Vite موفق، route ثبت‌شده، تولید PDF معتبر توسط Chromium و تأیید بصری کاربر برای متن دری/پشتو و RTL ثبت شد. بررسی دانلود تعاملی پنل و نصب Chromium روی هاست تولید انجام نشده؛ این موارد deployment/runtime follow-up هستند، نه مانع ادغام کد.",
+        "2026-11-24: PR134 برای اصلاح رابط صفحات عمومی اخبار، جزئیات خبر، مدیریت اخبار و فرم ثبت آثار در مخزن اصلی ایجاد شد؛ PR باز و ادغام‌نشده است. شش فایل Blade/CSS تغییر کرده‌اند؛ تست، Vite build و QA مرورگر عمداً اجرا نشده‌اند."
       ],
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
@@ -4861,7 +4862,7 @@
       "mysql_tests": 254,
       "mysql_assertions": 983
     },
-    "note": "در 2026-11-22، پس از اجرای ۴۳ Migration و ProfessionGroupSeeder در Laragon، سه صفحه /artists، /news و /festivals با HTTP 200 تأیید شدند. اصلاح namespace مدل‌های News و Festival نیز در main ثبت شد. این تأیید محدود محلی است و جایگزین QA کامل مرورگر، تست تمام مسیرها یا staging نیست. بررسی بعدی فرانت‌اند: صفحه اصلی HTTP 200، CSS/JS تولیدی HTTP 200، فایل hot غایب و نمایش هدر/فوتر توسط کاربر تأیید شد؛ build با زمان غیرعادی ۱۱ دقیقه و هشدار fontaine نیازمند بهینه‌سازی است. PR132 خروجی PDF چندزبانه گزارش تبلیغات روی شاخه مستقل و به‌صورت draft ثبت شده؛ تأیید PDF آزمایشی Chrome توسط کاربر فقط صحت نمایش حروف را نشان می‌دهد، نه تست Laravel/CI یا سازگاری هاست. آخرین سرشاخه main مخزن کد در 2026-11-24 به commit 2a06f9d9a200c95bf6c206c53d52ef3d56c05968 رسیده است؛ ممیزی تفصیلی ثبت‌شده در این snapshot تا commit e133e1d1244f2560fb9aedb8a53a56cc118c6cd4 است و commit جدیدتر هنوز ممیزی کامل نشده است. PR132 خروجی PDF چندزبانه تبلیغات در 2026-11-24 با commit c793b06f290f77da225996e68f25a865abcd9e94 به main ادغام شد؛ تست محلی و CI پیش از ادغام موفق و نمایش دری/پشتو و RTL توسط کاربر تأیید شد. دانلود تعاملی پنل و Chromium روی هاست تولید هنوز بررسی نشده‌اند.",
+    "note": "در 2026-11-22، پس از اجرای ۴۳ Migration و ProfessionGroupSeeder در Laragon، سه صفحه /artists، /news و /festivals با HTTP 200 تأیید شدند. اصلاح namespace مدل‌های News و Festival نیز در main ثبت شد. این تأیید محدود محلی است و جایگزین QA کامل مرورگر، تست تمام مسیرها یا staging نیست. بررسی بعدی فرانت‌اند: صفحه اصلی HTTP 200، CSS/JS تولیدی HTTP 200، فایل hot غایب و نمایش هدر/فوتر توسط کاربر تأیید شد؛ build با زمان غیرعادی ۱۱ دقیقه و هشدار fontaine نیازمند بهینه‌سازی است. PR132 خروجی PDF چندزبانه گزارش تبلیغات روی شاخه مستقل و به‌صورت draft ثبت شده؛ تأیید PDF آزمایشی Chrome توسط کاربر فقط صحت نمایش حروف را نشان می‌دهد، نه تست Laravel/CI یا سازگاری هاست. آخرین سرشاخه main مخزن کد در 2026-11-24 به commit 2a06f9d9a200c95bf6c206c53d52ef3d56c05968 رسیده است؛ ممیزی تفصیلی ثبت‌شده در این snapshot تا commit e133e1d1244f2560fb9aedb8a53a56cc118c6cd4 است و commit جدیدتر هنوز ممیزی کامل نشده است. PR132 خروجی PDF چندزبانه تبلیغات در 2026-11-24 با commit c793b06f290f77da225996e68f25a865abcd9e94 به main ادغام شد؛ تست محلی و CI پیش از ادغام موفق و نمایش دری/پشتو و RTL توسط کاربر تأیید شد. دانلود تعاملی پنل و Chromium روی هاست تولید هنوز بررسی نشده‌اند. PR134 برای بهبود نمایش اخبار و فرم ثبت آثار باز است و هنوز ادغام نشده؛ QA مرورگر و build/test در مرحله بعد انجام می‌شود.",
     "panels": [
       {
         "id": "admin",
@@ -7707,5 +7708,38 @@
       "Add MySQL concurrency coverage for settlement approval/payment racing ledger approval and reversal."
     ],
     "merge_commit": "75dcdf5f277336a7fedce8c12b64567da8941c39"
+  },
+  "news_and_title_submission_ui": {
+    "date": "2026-11-24",
+    "source_repository": "https://github.com/armanaria111/amdb-laravel2",
+    "status": "open_pull_request_not_merged",
+    "pull_request": 134,
+    "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/134",
+    "branch": "fix/news-and-title-submission-ui",
+    "head_commit": "3a4de5641d4875e34b82068ee06a5bb7894ce4a1",
+    "changed_files": [
+      "resources/views/news/index.blade.php",
+      "resources/views/news/show.blade.php",
+      "resources/views/admin/news/index.blade.php",
+      "resources/views/admin/news/form.blade.php",
+      "resources/views/submissions/title-create.blade.php",
+      "resources/css/app.css"
+    ],
+    "changes": [
+      "صفحه عمومی فهرست اخبار با کارت‌های واکنش‌گرا، تصویر جایگزین برای خبر بدون تصویر، تاریخ محلی و صفحه‌بندی بازطراحی شد.",
+      "صفحه جزئیات خبر با سربرگ، تصویر شاخص، متن خواناتر و خبرهای مرتبط بازطراحی شد.",
+      "فهرست و فرم مدیریت اخبار با جدول واکنش‌گرا، فیلتر، وضعیت‌ها، پیش‌نمایش تصویر و فیلدهای ترجمه en/fa-AF/ps بازطراحی شد.",
+      "فرم ثبت/اصلاح درخواست اثر (فیلم و سریال) به بخش‌های منظم و واکنش‌گرا تقسیم شد؛ نام فیلدها، routeها و قرارداد فعلی کنترلر حفظ شدند.",
+      "CSSها فقط در فایل مرکزی resources/css/app.css افزوده شدند؛ هیچ Migration یا تغییر دیتابیس انجام نشد."
+    ],
+    "safety_scope": "فقط کد برنامه در مخزن اصلی تغییر کرده است؛ هیچ داده‌ای حذف یا بازنشانی نشده و هیچ Migration اجرا نشده است.",
+    "qa": {
+      "tests_run": false,
+      "vite_build_run": false,
+      "browser_visual_qa": false,
+      "reason": "طبق روال فعلی، تست‌ها و بررسی مرورگر به مرحله بعد موکول شده‌اند.",
+      "next": "پس از ادغام و همگام‌سازی نسخه محلی، تست Blade/Vite و بررسی صفحه‌ها در دسکتاپ و موبایل انجام شود."
+    },
+    "qualification": "PR باز است و هنوز در main ادغام نشده؛ تغییرات نباید به‌عنوان قابلیت تأییدشده یا runtime-tested گزارش شوند."
   }
 }
