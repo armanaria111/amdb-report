@@ -1224,3 +1224,6 @@
 - مسیر ویرایش، تغییر provider را بدون کنترل سابقه درآمد متصل می‌پذیرد.
 - این مورد فعلاً یافته ایستای سورس و نیازمند hardening و Feature test است؛ هیچ تغییر کدی در این مرحله انجام نشده است.
 - جزئیات و پیشنهاد اصلاح در [دفتر شواهد](docs/conversation-and-qa-evidence-2026-11-24.md) ثبت شد.
+
+
+- تکمیل اعتبارسنجی PR132: تست محلی شاخه `282 passed (1120 assertions)`؛ GitHub Actions run [45428873147](https://github.com/armanaria111/amdb-laravel2/actions/runs/45428873147) موفق شد (PHPUnit روی SQLite و MySQL 8.4، Vite production build و مراحل Blade)؛ route `admin.advertising.pdf` ثبت است و smoke test مستقیم `ChromiumPdfRenderer` فایل معتبر `%PDF-` با حجم 35,714 بایت تولید کرد. PR هنوز ادغام نشده؛ دانلود واقعی از پنل و پشتیبانی Chromium روی هاست تولید بررسی نشده‌اند.
