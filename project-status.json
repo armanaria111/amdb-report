@@ -7360,28 +7360,30 @@
     "updated_at": "2026-11-24",
     "source_commit": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
     "implementation_branch": "feature/playback-company-rights-binding",
-    "implementation_head": "c01d888e57a78556865e6447dc4512e48e3a1459",
+    "implementation_head": "9afd2f3d8196af9f0fee6685679fa1700622175d",
     "pull_request_status": "draft_open_mergeable_true",
-    "status": "implemented_on_branch_static_review_only_territory_context_and_tests_pending",
+    "status": "implemented_on_branch_static_review_only_trusted_geoip_middleware_pending",
     "changes": [
       "افزودن company_title_right_id به playback_sources با Migration افزایشی و nullable؛ داده‌های قبلی حفظ می‌شوند.",
       "افزودن رابطه Eloquent از PlaybackSource به CompanyTitleRight.",
-      "نمای مدیریت منابع پخش اکنون مدارک تأییدشده، معتبر و متعلق به شرکت فعال برای همان اثر را در فهرست انتخاب نشان می‌دهد.",
-      "ثبت و ویرایش منبع با شناسه مدرک، تطابق اثر، وضعیت approved، بازه اعتبار و فعال بودن شرکت را بررسی می‌کند.",
-      "HostedPlaybackDeliveryService در هر درخواست تحویل، مدرک متصل را دوباره بررسی می‌کند؛ مدرک منقضی، لغوشده، متعلق به اثر دیگر یا شرکت غیرفعال مانع تحویل می‌شود.",
-      "مسیر مجوز مستقل منابع بیرونی با company_title_right_id خالی حفظ شده است.",
-      "رشته‌های ترجمه en، fa-AF و ps برای انتخاب مدرک و خطای اعتبارسنجی اضافه شدند.",
-      "بازبینی diff نشان داد مسیر تحویل هنوز شرط قدیمی rights_holder/license_reference را نیز اعمال می‌کرد؛ اصلاح شد تا مدرک شرکتی متصل به‌تنهایی نیز به‌عنوان مدرک معتبر شناخته شود."
+      "نمای مدیریت منابع پخش مدارک تأییدشده، معتبر و متعلق به شرکت فعال برای همان اثر را نمایش می‌دهد.",
+      "ثبت و ویرایش منبع، تطابق اثر، وضعیت تأیید، بازه اعتبار و فعال بودن شرکت را بررسی می‌کند.",
+      "HostedPlaybackDeliveryService در هر درخواست تحویل، مدرک متصل را دوباره بررسی می‌کند؛ انقضا، لغو، عدم تطابق اثر یا غیرفعال بودن شرکت مانع تحویل می‌شود.",
+      "مدرک شرکتی متصل به‌تنهایی می‌تواند مدرک حقوق برای منبع hosted باشد؛ مسیر مجوز مستقل بیرونی نیز حفظ شده است.",
+      "قلمرو جغرافیایی هنگام تحویل با CompanyTitleRight::approvedFor بررسی می‌شود؛ فقط request attribute سمت سرور به نام viewer_country_code پذیرفته می‌شود و locale یا header خام کلاینت مبنا نیست.",
+      "در نبود context کشور مورداعتماد، مجوزهای محدود به کشور رد می‌شوند و فقط رکورد دارای قلمرو * مجاز است (fail closed).",
+      "تست Feature برای نبود کشور معتبر، کشور خارج از قلمرو و کشور مجاز نوشته شده؛ اجرا نشده است.",
+      "مستندات playback-sources.md درباره مرز fail-closed و نیاز به GeoIP middleware به‌روزرسانی شد."
     ],
     "limitations": [
-      "قلمرو جغرافیایی مدرک هنوز در تحویل پخش enforce نشده؛ سرویس تحویل فعلی context قابل اتکایی برای کشور بیننده دریافت نمی‌کند و نباید locale زبان را به‌جای کشور فرض کرد.",
-      "تست‌های Feature برای pending، revoked، expired، wrong-title، wrong-company و مجوز بیرونی هنوز به این تغییر اضافه/تکمیل نشده‌اند.",
-      "تست‌ها، Build، Migration، Seeder، نصب وابستگی و عملیات دیتابیس اجرا نشده‌اند."
+      "در مخزن فعلی middleware یا سرویس GeoIP مورداعتماد که viewer_country_code را تنظیم کند یافت نشد؛ تا پیاده‌سازی و اعتبارسنجی زنجیره proxy، حقوق محدود به قلمروهای خاص قابل استفاده در hosted delivery نیستند و فقط * مجاز است.",
+      "تست‌های جدید و موجود اجرا نشده‌اند؛ تست‌های تکمیلی برای pending، revoked، expired، wrong-title، wrong-company و مسیر external باید کامل بازبینی شوند.",
+      "Migration، Build، Seeder، نصب وابستگی و عملیات دیتابیس اجرا نشده‌اند."
     ],
     "next_steps": [
-      "افزودن تست‌های Feature برای اعتبارسنجی انتخاب و تحویل مدرک شرکتی.",
-      "طراحی و اتصال منبع معتبر کشور بیننده برای enforce کردن territories بدون اتکا به locale زبان.",
-      "بازبینی diff و CI؛ سپس تصمیم درباره ادغام PR."
+      "پیاده‌سازی GeoIP/country resolver قابل اعتماد با پیکربندی دقیق trusted proxies و تزریق viewer_country_code در middleware؛ هرگز از locale یا header خام استفاده نشود.",
+      "تکمیل تست‌های Feature برای تمام حالات pending/revoked/expired/wrong-title/wrong-company/external و مرزهای قلمرو.",
+      "بازبینی کامل diff و CI؛ سپس تصمیم درباره ادغام PR131."
     ]
   }
 }
