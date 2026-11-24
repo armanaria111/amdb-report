@@ -7360,8 +7360,8 @@
     "updated_at": "2026-11-24",
     "source_commit": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
     "implementation_branch": "feature/playback-company-rights-binding",
-    "implementation_head": "965f2c1e3d4a43199ccfd076e3271fc79d757ecc",
-    "pull_request_status": "draft_pending_creation",
+    "implementation_head": "c01d888e57a78556865e6447dc4512e48e3a1459",
+    "pull_request_status": "draft_open",
     "status": "implemented_on_branch_static_review_only_territory_context_and_tests_pending",
     "changes": [
       "افزودن company_title_right_id به playback_sources با Migration افزایشی و nullable؛ داده‌های قبلی حفظ می‌شوند.",
@@ -7370,7 +7370,8 @@
       "ثبت و ویرایش منبع با شناسه مدرک، تطابق اثر، وضعیت approved، بازه اعتبار و فعال بودن شرکت را بررسی می‌کند.",
       "HostedPlaybackDeliveryService در هر درخواست تحویل، مدرک متصل را دوباره بررسی می‌کند؛ مدرک منقضی، لغوشده، متعلق به اثر دیگر یا شرکت غیرفعال مانع تحویل می‌شود.",
       "مسیر مجوز مستقل منابع بیرونی با company_title_right_id خالی حفظ شده است.",
-      "رشته‌های ترجمه en، fa-AF و ps برای انتخاب مدرک و خطای اعتبارسنجی اضافه شدند."
+      "رشته‌های ترجمه en، fa-AF و ps برای انتخاب مدرک و خطای اعتبارسنجی اضافه شدند.",
+      "بازبینی diff نشان داد مسیر تحویل هنوز شرط قدیمی rights_holder/license_reference را نیز اعمال می‌کرد؛ اصلاح شد تا مدرک شرکتی متصل به‌تنهایی نیز به‌عنوان مدرک معتبر شناخته شود."
     ],
     "limitations": [
       "قلمرو جغرافیایی مدرک هنوز در تحویل پخش enforce نشده؛ سرویس تحویل فعلی context قابل اتکایی برای کشور بیننده دریافت نمی‌کند و نباید locale زبان را به‌جای کشور فرض کرد.",
