@@ -7393,7 +7393,7 @@
   "revenue_decimal_precision_audit": {
     "updated_at": "2026-11-24",
     "branch": "feature/playback-company-rights-binding",
-    "implementation_head": "7a91825ac8dbfb5eef3369f36587729530aff2cf",
+    "implementation_head": "f8bde8c8e477908ee9640ca8e38bebf8ed3475c4",
     "status": "static_review_hardening_added_tests_not_executed",
     "findings": [
       "RevenueLedgerService::toCents previously validated the pre-rounded whole part only. A value at the DECIMAL(14,2) boundary ending in .995 could round up into a thirteenth integer digit and overflow the ledger column.",
@@ -7406,12 +7406,12 @@
     "validation": "No tests, builds, migrations, seeders, dependency installations or database operations were run.",
     "next_steps": [
       "Review all financial input limits against their exact database DECIMAL precision.",
-      "Complete settlement concurrency and reversal coverage, then run the full finance test suite when authorized."
+      "Run the finance and settlement feature tests only during the authorized QA phase."
     ]
   },
   "platform_revenue_review_state_audit": {
     "updated_at": "2026-11-24",
-    "implementation_head": "37f4cd9e0618bea360ec1b5d667698ba3e2c50e7",
+    "implementation_head": "f8bde8c8e477908ee9640ca8e38bebf8ed3475c4",
     "status": "model_guard_and_feature_test_added_static_review_only",
     "controls": [
       "Platform revenue entries now permit only pending -> approved or pending -> rejected transitions.",
@@ -7423,5 +7423,47 @@
       "Feature test authored for missing reviewer data, invalid reversal to pending, and audit-field rewriting; not executed."
     ],
     "validation": "No tests, build, migrations, seeders, dependency installation or database operations were run."
+  },
+  "revenue_settlement_concurrency_audit": {
+    "updated_at": "2026-11-24",
+    "implementation_branch": "feature/playback-company-rights-binding",
+    "implementation_head": "f8bde8c8e477908ee9640ca8e38bebf8ed3475c4",
+    "pull_request": 131,
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/131",
+    "status": "company_balance_locking_reviewed_and_ledger_approval_serialized_static_review_only",
+    "findings": [
+      "Company settlement requests lock the company row before calculating available balance and inserting the pending reservation; admin approval and payout also lock the company row before locking the settlement request.",
+      "Approved, pending and paid settlements remain reserved against earned company allocations. Rejected settlements release their reservation.",
+      "Reversal processing locks all affected company rows in ascending ID order before locking the source ledger entry, checks that the reversal will not reduce earned balances below pending, approved or paid reservations, and uses a unique reversal_of_id constraint for one reversal per source entry.",
+      "A concurrency gap was identified: RevenueLedgerService::approve previously locked only the ledger entry, so an approval could race a settlement balance calculation or reversal.",
+      "RevenueLedgerService::approve now loads the entry's company allocations, locks the affected company rows in ascending ID order, and only then locks and transitions the ledger entry. This matches the company-before-ledger lock order used by reversal and settlement workflows."
+    ],
+    "coverage": [
+      "Added a Feature test for recording reviewer identity and timestamp on ledger approval and rejecting a second approval; not executed.",
+      "Existing tests cover reversal idempotency and preventing reversal from consuming funds reserved for settlement; not executed."
+    ],
+    "safeguards": [
+      "No tests, builds, migrations, seeders, dependency installations or database operations were run.",
+      "The change is committed only to the PR branch; main was not modified.",
+      "The PR remains open and Draft pending QA and review."
+    ],
+    "next_steps": [
+      "During authorized QA, run CompanySettlementRequestTest and RevenueLedgerServiceTest, including database-backed concurrency tests against the production MySQL isolation level.",
+      "Consider a dedicated concurrent integration test for ledger approval racing settlement creation and reversal; static lock-order review is not a substitute for a real concurrency test."
+    ]
+  },
+  "pull_request_131": {
+    "updated_at": "2026-11-24",
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/131",
+    "branch": "feature/playback-company-rights-binding",
+    "head_commit": "f8bde8c8e477908ee9640ca8e38bebf8ed3475c4",
+    "base_branch": "main",
+    "status": "open_draft_unmerged_mergeable",
+    "commits_ahead": 35,
+    "commits_behind": 0,
+    "changed_files": 20,
+    "additions": 514,
+    "deletions": 4,
+    "validation": "Static source review only; tests/build/migrations/seeders/dependency installation/database operations intentionally deferred."
   }
 }
