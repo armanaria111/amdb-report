@@ -7408,5 +7408,20 @@
       "Review all financial input limits against their exact database DECIMAL precision.",
       "Complete settlement concurrency and reversal coverage, then run the full finance test suite when authorized."
     ]
+  },
+  "platform_revenue_review_state_audit": {
+    "updated_at": "2026-11-24",
+    "implementation_head": "37f4cd9e0618bea360ec1b5d667698ba3e2c50e7",
+    "status": "model_guard_and_feature_test_added_static_review_only",
+    "controls": [
+      "Platform revenue entries now permit only pending -> approved or pending -> rejected transitions.",
+      "Approved and rejected records are terminal; later corrections require a separately audited record/workflow rather than rewriting the original decision.",
+      "reviewed_by and reviewed_at are mandatory for decisions and cannot be edited independently after review.",
+      "The existing admin approve/reject controller already supplies reviewer identity and timestamp in the same transition."
+    ],
+    "coverage": [
+      "Feature test authored for missing reviewer data, invalid reversal to pending, and audit-field rewriting; not executed."
+    ],
+    "validation": "No tests, build, migrations, seeders, dependency installation or database operations were run."
   }
 }
