@@ -1235,3 +1235,12 @@
 - حذف کمپین دارای سابقه مالی/آماری و تغییر provider یا شرکت پس از ثبت درآمد مسدود می‌شود؛ چهار Feature test و ترجمه‌های سه‌زبانه اضافه شدند.
 - PHP lint و PHPUnit هنوز در محیط محلی اجرا نشده‌اند؛ PR ادغام نشده است.
 - جزئیات در دفتر شواهد ثبت شد.
+
+
+## 2026-11-24 — ادغام خروجی PDF چندزبانه گزارش تبلیغات (PR132)
+
+- PR [#132](https://github.com/armanaria111/amdb-laravel2/pull/132) با روش Squash در شاخه `main` ادغام شد.
+- Merge commit: `c793b06f290f77da225996e68f25a865abcd9e94`.
+- تست محلی شاخه: ۲۸۲ تست و ۱٬۱۲۰ assertion موفق؛ CI پیش از ادغام [run 45428873147](https://github.com/armanaria111/amdb-laravel2/actions/runs/45428873147) برای SQLite، MySQL 8.4، Vite و مراحل Blade موفق بود.
+- route `admin.advertising.pdf` ثبت شد؛ `ChromiumPdfRenderer` یک PDF معتبر ۳۵٬۷۱۴ بایتی با امضای `%PDF-` تولید کرد و کاربر نمایش صحیح دری/پشتو و RTL را در PDF بررسی کرد.
+- دانلود واقعی از پنل با نشست مرورگر و وجود Chromium روی هاست تولید هنوز تأیید نشده‌اند؛ برای استقرار باید `PDF_CHROME_PATH` تنظیم شود.
