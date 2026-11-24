@@ -673,7 +673,8 @@
       "فایل تست جدید PR125 پس از اصلاح جداکننده‌های namespace دوباره از GitHub خوانده شد؛ ساختار namespace صحیح است. GitHub هنوز هیچ check-run یا status برای head commit گزارش نکرده است.",
       "مرحله بعدی توسعه پنل شرکت: PR126 برای حفظ آخرین مالک فعال شرکت ساخته شد؛ مسیرهای update، destroy و مسیر syncWithoutDetaching در store تحت قفل تراکنشی بررسی و محافظت شدند.",
       "پیام خطای آخرین مالک فعال برای en، fa-AF و ps اضافه شد؛ تست Feature برای جلوگیری از تغییر نقش، تعلیق، حذف و تغییر نقش از مسیر افزودن نماینده اضافه/اصلاح شد.",
-      "PR126 در GitHub بازبینی شد: ۱۲ commit جلوتر و صفر عقب‌تر از main، mergeable=true؛ هیچ تست، Build، Migration یا Seeder اجرا نشده است."
+      "PR126 در GitHub بازبینی شد: ۱۲ commit جلوتر و صفر عقب‌تر از main، mergeable=true؛ هیچ تست، Build، Migration یا Seeder اجرا نشده است.",
+      "PR127 در مخزن اصلی ایجاد شد: وضعیت تسویه شرکت در سطح RevenueSettlementRequest محدود شد؛ فقط pending→approved/rejected و approved→paid مجاز است و وضعیت‌های paid/rejected دیگر قابل بازگشت نیستند. تست Feature برای مسیرهای مجاز و جلوگیری از بازگشایی وضعیت نهایی اضافه شد؛ تست اجرا نشده است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -7097,31 +7098,34 @@
   "current_development": {
     "updated_at": "2026-11-24",
     "repository": "https://github.com/armanaria111/amdb-laravel2",
-    "branch": "fix/company-last-active-owner-protection",
+    "branch": "fix/company-settlement-state-transitions",
     "base": "44310a66c38109dbf6913577f7f475b3d202f5e4",
     "compare": "12 commits ahead, 0 behind",
-    "status": "company_last_active_owner_guard_pr126_open_tests_deferred",
+    "status": "company_settlement_terminal_state_guard_pr127_open_tests_deferred",
     "changes": [
       "PR125: نقش owner و finance برای مشاهده گزارش تبلیغات و CSV حفظ شد؛ ثبت کمپین جدید فقط برای owner فعال مجاز است.",
       "PR126: تغییر نقش، تعلیق یا حذف آخرین مالک فعال شرکت در پنل مدیریت مسدود شد.",
       "PR126: مسیر syncWithoutDetaching نیز بررسی شد تا تغییر نقش از مسیر افزودن نماینده نتواند قید آخرین مالک را دور بزند.",
       "برای جلوگیری از race condition، عملیات افزودن/تغییر/حذف نماینده در تراکنش و با قفل ردیف شرکت انجام می‌شود.",
       "پیام خطای قید آخرین مالک برای انگلیسی، دری و پشتو اضافه شد.",
-      "تست‌های Feature برای حفظ مالک دوم و جلوگیری از demote/suspend/remove/reassign آخرین مالک اضافه/اصلاح شدند."
+      "تست‌های Feature برای حفظ مالک دوم و جلوگیری از demote/suspend/remove/reassign آخرین مالک اضافه/اصلاح شدند.",
+      "PR127: مدل RevenueSettlementRequest اکنون فقط انتقال‌های pending به approved/rejected و approved به paid را می‌پذیرد؛ وضعیت‌های rejected و paid نهایی و غیرقابل بازگشت هستند."
     ],
     "safeguards": [
       "هیچ تست، build، migration، seeder یا عملیات دیتابیس اجرا نشد.",
       "هیچ داده‌ای تغییر نکرد؛ هر دو اصلاح در شاخه‌های مستقل و PRهای باز هستند.",
       "PR125 و PR126 هنوز در main ادغام نشده‌اند.",
-      "برای head هر دو PR، اجرای CI یا تست تأیید نشده است."
+      "برای head هر دو PR، اجرای CI یا تست تأیید نشده است.",
+      "PR127 روی شاخه مستقل ایجاد شده و پس از بازخوانی diff، mergeable=true گزارش شد؛ تست جدید نوشته شده اما اجرا نشده است."
     ],
     "next_steps": [
+      "تکمیل ممیزی حقوق نشر شرکت‌ها و دسترسی اسناد محرمانه؛ سپس بازبینی نهایی گردش‌کار تسویه و ماتریس نقش‌های شرکت.",
       "بازبینی نهایی PR125 و PR126 و ادغام ترتیبی پس از تأیید CI در مرحله‌ای که کاربر اجازه تست دهد.",
       "ادامه ممیزی عملیات تغییردهنده شرکت و جداسازی دقیق owner/finance/manager/viewer.",
       "بازبینی دسترسی درخواست تسویه شرکت و عملیات مرتبط با حقوق نشر.",
       "تکمیل composer.lock و وابستگی PDF در مرحله نصب نهایی؛ فعلاً نصب انجام نشود."
     ],
-    "head_commit": "4a2681646efcdc44b983e1cd4e780d2f6e273631",
+    "head_commit": "125bff13842fc44be7327a657835e15c61f7c7ef",
     "pull_requests": [
       {
         "number": 125,
@@ -7138,6 +7142,14 @@
         "status": "open",
         "mergeable": true,
         "head_commit": "096ef90f21218889f2b68027a24f89508e5acfa2"
+      },
+      {
+        "number": 127,
+        "title": "Prevent reopening finalized company settlements",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/127",
+        "status": "open",
+        "mergeable": true,
+        "head_commit": "125bff13842fc44be7327a657835e15c61f7c7ef"
       }
     ]
   },
@@ -7265,6 +7277,39 @@
     ],
     "next_steps": [
       "پس از اجازه اجرای تست‌ها، CompanyAccountAccessTest و مجموعه Feature مرتبط با شرکت اجرا شود."
+    ]
+  },
+  "revenue_settlement_state_integrity": {
+    "updated_at": "2026-11-24",
+    "status": "implemented_on_branch_pr127_open_tests_deferred",
+    "pull_request": 127,
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/127",
+    "base_commit": "44310a66c38109dbf6913577f7f475b3d202f5e4",
+    "head_commit": "125bff13842fc44be7327a657835e15c61f7c7ef",
+    "allowed_transitions": {
+      "pending": [
+        "approved",
+        "rejected"
+      ],
+      "approved": [
+        "paid"
+      ],
+      "rejected": [],
+      "paid": []
+    },
+    "changes": [
+      "قواعد انتقال وضعیت در event به‌روزرسانی مدل RevenueSettlementRequest اعمال شد تا سایر مسیرهای کد نیز نتوانند وضعیت‌های نهایی را بازگشایی کنند.",
+      "جزئیات اصلی درخواست شامل شرکت، ثبت‌کننده، ارز، مبلغ و یادداشت ثبت‌کننده پس از ثبت غیرقابل تغییر باقی می‌مانند.",
+      "تست Feature برای جلوگیری از بازگشت paid و rejected و تأیید مسیرهای مجاز pending→approved→paid اضافه شد."
+    ],
+    "safeguards": [
+      "هیچ Migration، Seeder، Build، نصب وابستگی یا عملیات دیتابیس اجرا نشد.",
+      "تست‌ها فقط نوشته شدند و اجرا نشده‌اند.",
+      "PR پس از بازخوانی diff در GitHub mergeable=true گزارش شد؛ ادغام انجام نشده است."
+    ],
+    "next_steps": [
+      "اجرای CompanySettlementRequestTest و تست‌های مالی مرتبط در مرحله QA نهایی.",
+      "بازبینی مسیرهای لغو/بازپرداخت احتمالی؛ در صورت نیاز باید به‌جای بازگشایی وضعیت paid، رکورد اصلاحی/معکوس حسابداری مستقل طراحی شود."
     ]
   }
 }
