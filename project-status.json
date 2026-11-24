@@ -679,7 +679,9 @@
       "تست Feature برای دانلود مدرک خصوصی توسط مدیر و منع دسترسی کاربر عادی اضافه شد؛ PR128 پس از بازخوانی diff mergeable=true است اما هیچ تست یا CI اجرا نشده است.",
       "PR125، PR126 و PR127 با روش squash در main ادغام شدند؛ PR129 نیز پس از بازسازی تغییرات PR128 روی main به‌روز، ادغام شد.",
       "PR128 به‌دلیل عقب‌ماندن شاخه از main بسته شد؛ محتوای اصلاحی آن در PR129 بازسازی و ادغام شد. PR129 شامل اصلاح regex محدوده جغرافیایی، ذخیره تراکنشی مدرک خصوصی، پاک‌سازی فایل در شکست ثبت و تست دسترسی دانلود بود.",
-      "main پس از ادغام چهار مجموعه تغییر روی commit c381f1262d6481b49b5e9d30f5101e4887b3edda قرار دارد؛ هیچ تست، Build، Migration، Seeder یا عملیات دیتابیس اجرا نشده است."
+      "main پس از ادغام چهار مجموعه تغییر روی commit c381f1262d6481b49b5e9d30f5101e4887b3edda قرار دارد؛ هیچ تست، Build، Migration، Seeder یا عملیات دیتابیس اجرا نشده است.",
+      "PR130 نیز در main ادغام شد: تجزیه territory در ثبت حقوق نشر اصلاح و تست‌های نقش owner/manager مجاز در برابر finance/viewer/کاربر بدون عضویت اضافه شد.",
+      "آخرین commit شاخه main برابر e133e1d1244f2560fb9aedb8a53a56cc118c6cd4 است؛ تست‌ها و CI هنوز اجرا/تأیید نشده‌اند."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1253,6 +1255,10 @@
     {
       "date": "2026-11-24",
       "text": "طبق دستور کاربر، PR125، PR126 و PR127 در main ادغام شدند. PR128 به‌علت قدیمی‌شدن شاخه پس از این ادغام‌ها بسته شد؛ تغییراتش روی main جدید در PR129 بازسازی و با موفقیت ادغام شد. main اکنون روی c381f1262d6481b49b5e9d30f5101e4887b3edda است. هیچ تست، Build، Migration، Seeder یا عملیات دیتابیس اجرا نشد."
+    },
+    {
+      "date": "2026-11-24",
+      "text": "پس از ادغام PR125/126/127/129، ممیزی مسیر ثبت حقوق نشر شرکت نشان داد الگوی preg_split محدوده جغرافیایی بیش‌ازحد escape شده بود. PR130 آن را اصلاح کرد و تست‌های Feature برای مجازبودن owner/manager فعال و منع finance/viewer/حساب فاقد عضویت اضافه کرد. PR130 در main ادغام شد؛ هیچ تست، Build، Migration، Seeder یا عملیات دیتابیس اجرا نشد."
     }
   ],
   "architecture": {
@@ -7105,16 +7111,16 @@
       "database_migrations": "two_new_migrations_added_not_executed"
     }
   },
-  "latest_main_commit": "c381f1262d6481b49b5e9d30f5101e4887b3edda",
-  "source_commit_audited": "c381f1262d6481b49b5e9d30f5101e4887b3edda",
+  "latest_main_commit": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
+  "source_commit_audited": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
   "latest_main_commit_verified_on": "2026-11-24",
   "current_development": {
     "updated_at": "2026-11-24",
     "repository": "https://github.com/armanaria111/amdb-laravel2",
     "branch": "main",
     "base": "main",
-    "compare": "4 PRs merged; main head c381f1262d6481b49b5e9d30f5101e4887b3edda",
-    "status": "company_advertising_owner_guard_company_last_owner_settlement_terminal_states_and_rights_evidence_hardening_merged_tests_deferred",
+    "compare": "PRهای 125، 126، 127، 129 و 130 ادغام شدند؛ main head e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
+    "status": "company_roles_rights_submission_guard_and_previous_company_finance_hardening_merged_tests_deferred",
     "changes": [
       "PR125 ادغام شد: مشاهده گزارش تبلیغات و CSV برای owner/finance فعال باقی می‌ماند؛ ایجاد کمپین فقط برای owner فعال مجاز است.",
       "PR126 ادغام شد: تغییر نقش، تعلیق یا حذف آخرین مالک فعال شرکت مسدود شد؛ مسیر syncWithoutDetaching نیز تحت پوشش است و عملیات با قفل تراکنشی شرکت انجام می‌شود.",
@@ -7123,22 +7129,23 @@
       "PR129 ادغام شد: regex محدوده جغرافیایی حقوق نشر برای مقادیر AF, AZ اصلاح شد.",
       "PR129: ثبت مدرک حقوق نشر در تراکنش و با قفل شرکت فعال انجام می‌شود؛ در صورت شکست ذخیره رکورد، فایل بارگذاری‌شده پاک‌سازی می‌شود.",
       "PR129: تست Feature دانلود مدرک خصوصی توسط مدیر و منع دسترسی کاربر عادی اضافه شد.",
-      "PR128 به دلیل قدیمی‌شدن شاخه پس از ادغام PRهای قبلی بسته شد؛ همان تغییرات بر مبنای main جدید در PR129 بازسازی و ادغام شدند."
+      "PR128 به دلیل قدیمی‌شدن شاخه پس از ادغام PRهای قبلی بسته شد؛ همان تغییرات بر مبنای main جدید در PR129 بازسازی و ادغام شدند.",
+      "PR130 ادغام شد: تجزیه محدوده جغرافیایی حقوق نشر با regex اعتبارسنجی همسان شد تا AF, AZ درست به دو کد تبدیل شود.",
+      "PR130: تست‌های Feature برای اجازه ثبت مدرک به owner/manager فعال و منع ثبت برای finance/viewer و حساب بدون عضویت شرکت اضافه شد؛ همچنین عدم ایجاد رکورد در درخواست‌های غیرمجاز بررسی می‌شود."
     ],
     "safeguards": [
-      "PRهای 125، 126، 127 و 129 در main ادغام شدند؛ commit نهایی main برابر c381f1262d6481b49b5e9d30f5101e4887b3edda است.",
-      "PR128 بسته شد و تغییرات آن از طریق PR129 بر مبنای main به‌روز، ادغام شدند.",
+      "PR125، PR126، PR127، PR129 و PR130 در main ادغام شدند.",
+      "PR128 به دلیل عقب‌ماندن شاخه بسته شد؛ تغییرات آن در PR129 بازسازی و ادغام شد.",
       "هیچ تست PHPUnit، build، migration، seeder یا عملیات دیتابیس اجرا نشد؛ CI و تست‌ها برای مرحله بعد باقی مانده‌اند.",
       "هیچ داده‌ای در دیتابیس تغییر نکرد."
     ],
     "next_steps": [
-      "ادامه ممیزی دسترسی مدارک حقوق نشر و گردش‌کار ثبت شرکت؛ بررسی اینکه ثبت حق نشر فقط برای شرکت و نماینده فعال مجاز باشد.",
-      "بازبینی چرخه اعتبار حقوق نشر و مصرف scopeهای approvedFor در قراردادها و entitlement پخش.",
-      "بازبینی نهایی گردش‌کار تسویه و ماتریس نقش‌های شرکت.",
-      "ادامه ممیزی عملیات تغییردهنده شرکت و جداسازی دقیق owner/finance/manager/viewer.",
+      "ممیزی کامل حقوق نشر و قراردادهای هر اثر: همپوشانی قلمرو/بازه اعتبار، تعارض مجوزها، و مصرف حق تأییدشده در پخش/درآمد.",
+      "بررسی ایجاد/انتقال/تعلیق شرکت و مالکیت؛ اطمینان از اینکه هر شرکت فعال همیشه حداقل یک owner فعال دارد و چرخه واگذاری اولیه نیز پوشش دارد.",
+      "بازبینی گردش‌کار تسویه شرکت، مرجع پرداخت و ثبت حسابداری معکوس برای برگشت وجه.",
       "تکمیل composer.lock و وابستگی PDF در مرحله نصب نهایی؛ فعلاً نصب انجام نشود."
     ],
-    "head_commit": "c381f1262d6481b49b5e9d30f5101e4887b3edda",
+    "head_commit": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
     "pull_requests": [
       {
         "number": 125,
@@ -7167,6 +7174,13 @@
         "url": "https://github.com/armanaria111/amdb-laravel2/pull/129",
         "status": "merged",
         "merge_commit": "c381f1262d6481b49b5e9d30f5101e4887b3edda"
+      },
+      {
+        "number": 130,
+        "title": "Enforce company roles for rights submissions",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/130",
+        "status": "merged",
+        "merge_commit": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4"
       }
     ]
   },
