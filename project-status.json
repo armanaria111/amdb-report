@@ -7504,13 +7504,16 @@
     "branch": "feature/playback-company-rights-binding",
     "head_commit": "75ef28b49375fa128b3ddddb29c16942e838d0ed",
     "base_branch": "main",
-    "status": "open_draft_unmerged_mergeable",
+    "status": "merged",
     "commits_ahead": 45,
     "commits_behind": 0,
     "changed_files": 24,
     "additions": 887,
     "deletions": 34,
-    "validation": "Static source review only; tests/build/migrations/seeders/dependency installation/database operations intentionally deferred."
+    "validation": "Merged at user request to enable local QA. Tests/build/migrations/seeders/dependency installation/database operations have not been run. Configure and verify trusted proxy CIDRs/header overwrite/origin isolation before enabling territory-restricted hosted playback.",
+    "merged_at": "2026-11-24T15:44:28Z",
+    "merge_commit": "75dcdf5f277336a7fedce8c12b64567da8941c39",
+    "merge_method": "squash"
   },
   "remaining_work_estimate": {
     "updated_at": "2026-11-24",
@@ -7560,7 +7563,7 @@
     "implementation_branch": "feature/playback-company-rights-binding",
     "implementation_head": "75ef28b49375fa128b3ddddb29c16942e838d0ed",
     "pull_request": 131,
-    "status": "model_level_audit_guards_and_feature_coverage_added_static_review_only",
+    "status": "merged_pending_local_qa",
     "controls": [
       "Settlement status transitions remain pending -> approved/rejected and approved -> paid; rejected and paid remain terminal.",
       "Approval now requires reviewed_by and reviewed_at in the same transition.",
@@ -7573,10 +7576,11 @@
       "Added Feature coverage for missing approval audit data and independent review timestamp rewriting.",
       "Added Feature coverage for mandatory rejection note, mandatory payout reference/timestamp, and immutable payout reference."
     ],
-    "validation": "Static source review only. Tests not executed. No build, migration, seeder, dependency installation or database operation was run.",
+    "validation": "Static review only; new and existing tests have not yet been executed.",
     "next_steps": [
       "During authorized QA, run CompanySettlementRequestTest and the broader finance/settlement suite.",
       "Add MySQL concurrency coverage for settlement approval/payment racing ledger approval and reversal."
-    ]
+    ],
+    "merge_commit": "75dcdf5f277336a7fedce8c12b64567da8941c39"
   }
 }
