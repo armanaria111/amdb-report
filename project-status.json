@@ -7411,7 +7411,7 @@
   },
   "platform_revenue_review_state_audit": {
     "updated_at": "2026-11-24",
-    "implementation_head": "f8bde8c8e477908ee9640ca8e38bebf8ed3475c4",
+    "implementation_head": "ecbc763b9f98cc1d8a99c0745e249d59c2a22229",
     "status": "model_guard_and_feature_test_added_static_review_only",
     "controls": [
       "Platform revenue entries now permit only pending -> approved or pending -> rejected transitions.",
@@ -7422,15 +7422,16 @@
     "coverage": [
       "Feature test authored for missing reviewer data, invalid reversal to pending, and audit-field rewriting; not executed."
     ],
-    "validation": "No tests, build, migrations, seeders, dependency installation or database operations were run."
+    "validation": "No tests, build, migrations, seeders, dependency installation or database operations were run.",
+    "static_review_note": "PlatformRevenueEntry exception namespace syntax corrected; tests remain unexecuted."
   },
   "revenue_settlement_concurrency_audit": {
     "updated_at": "2026-11-24",
     "implementation_branch": "feature/playback-company-rights-binding",
-    "implementation_head": "f8bde8c8e477908ee9640ca8e38bebf8ed3475c4",
+    "implementation_head": "ecbc763b9f98cc1d8a99c0745e249d59c2a22229",
     "pull_request": 131,
     "url": "https://github.com/armanaria111/amdb-laravel2/pull/131",
-    "status": "company_balance_locking_reviewed_and_ledger_approval_serialized_static_review_only",
+    "status": "static_review_hardening_added_tests_not_executed",
     "findings": [
       "Company settlement requests lock the company row before calculating available balance and inserting the pending reservation; admin approval and payout also lock the company row before locking the settlement request.",
       "Approved, pending and paid settlements remain reserved against earned company allocations. Rejected settlements release their reservation.",
@@ -7450,20 +7451,44 @@
     "next_steps": [
       "During authorized QA, run CompanySettlementRequestTest and RevenueLedgerServiceTest, including database-backed concurrency tests against the production MySQL isolation level.",
       "Consider a dedicated concurrent integration test for ledger approval racing settlement creation and reversal; static lock-order review is not a substitute for a real concurrency test."
+    ],
+    "additional_findings": [
+      "Static review found four incorrectly escaped LogicException namespace separators in PlatformRevenueEntry.php; all four were corrected to valid PHP namespace separators.",
+      "Changed PHP files in the current PR diff were scanned for the same malformed exception/import pattern; no further matches were found by this targeted scan."
     ]
   },
   "pull_request_131": {
     "updated_at": "2026-11-24",
     "url": "https://github.com/armanaria111/amdb-laravel2/pull/131",
     "branch": "feature/playback-company-rights-binding",
-    "head_commit": "f8bde8c8e477908ee9640ca8e38bebf8ed3475c4",
+    "head_commit": "ecbc763b9f98cc1d8a99c0745e249d59c2a22229",
     "base_branch": "main",
     "status": "open_draft_unmerged_mergeable",
-    "commits_ahead": 35,
+    "commits_ahead": 36,
     "commits_behind": 0,
     "changed_files": 20,
-    "additions": 514,
-    "deletions": 4,
+    "additions": 513,
+    "deletions": 3,
     "validation": "Static source review only; tests/build/migrations/seeders/dependency installation/database operations intentionally deferred."
+  },
+  "remaining_work_estimate": {
+    "updated_at": "2026-11-24",
+    "status": "not_final_project_completion_estimate",
+    "completed_in_current_financial_security_slice": [
+      "Four-source currency validation and separate USD/EUR/IRR/AFN reporting",
+      "Company settlement reservation, payout reference uniqueness and terminal transitions",
+      "Ledger reversal idempotency and reserved-balance protection",
+      "Company-before-ledger lock order for approval/reversal/settlement paths",
+      "Private company-rights evidence storage and admin-only evidence retrieval",
+      "Playback territory resolution based only on trusted proxy configuration"
+    ],
+    "remaining_workstreams": [
+      "Run authorized QA on the actual MySQL environment, including concurrency and regression tests",
+      "Finish the complete four-currency income audit across all revenue entry points, reports and exports",
+      "Complete security review for contracts, rights evidence, settlement approvals, payout audit and role permissions",
+      "Complete production configuration and deployment review for trusted GeoIP proxies, private storage, backups and monitoring",
+      "Final end-to-end review of remaining AMDB modules, multilingual UI and operational readiness"
+    ],
+    "estimate": "The current finance/playback security slice is close to code-review completion, but project-wide completion cannot be stated as a percentage until the remaining modules and deployment configuration are audited. Expect several substantial development/QA stages rather than a single final step."
   }
 }
