@@ -1227,3 +1227,11 @@
 
 
 - تکمیل اعتبارسنجی PR132: تست محلی شاخه `282 passed (1120 assertions)`؛ GitHub Actions run [45428873147](https://github.com/armanaria111/amdb-laravel2/actions/runs/45428873147) موفق شد (PHPUnit روی SQLite و MySQL 8.4، Vite production build و مراحل Blade)؛ route `admin.advertising.pdf` ثبت است و smoke test مستقیم `ChromiumPdfRenderer` فایل معتبر `%PDF-` با حجم 35,714 بایت تولید کرد. PR هنوز ادغام نشده؛ دانلود واقعی از پنل و پشتیبانی Chromium روی هاست تولید بررسی نشده‌اند.
+
+
+### توسعه حفاظت از سابقه کمپین تبلیغاتی — 2026-11-24
+
+- شاخه `hardening/advertising-campaign-history` و Draft PR [#133](https://github.com/armanaria111/amdb-laravel2/pull/133) ایجاد شد.
+- حذف کمپین دارای سابقه مالی/آماری و تغییر provider یا شرکت پس از ثبت درآمد مسدود می‌شود؛ چهار Feature test و ترجمه‌های سه‌زبانه اضافه شدند.
+- PHP lint و PHPUnit هنوز در محیط محلی اجرا نشده‌اند؛ PR ادغام نشده است.
+- جزئیات در دفتر شواهد ثبت شد.
