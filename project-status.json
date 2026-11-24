@@ -11,16 +11,16 @@
     "database": "MySQL",
     "development_environment": "Windows 10 + Laragon 8",
     "local_path": "C:\\laragon\\www\\amdb",
-    "last_verified": "2026-11-23",
+    "last_verified": "2026-11-24",
     "overall_progress": null,
     "progress_note": "درصد پیشرفت کلی نمایش داده نمی‌شود؛ وضعیت هر قابلیت، پنل، دیتابیس و QA مستقل است.",
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "44310a66c38109dbf6913577f7f475b3d202f5e4",
+    "source_commit_audited": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "44310a66c38109dbf6913577f7f475b3d202f5e4",
-    "latest_main_commit_verified_on": "2026-11-23",
+    "latest_main_commit": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
+    "latest_main_commit_verified_on": "2026-11-24",
     "advertising_note": "گزارش عملکرد کمپین، درآمد پلتفرم و صورتحساب تبلیغ‌دهندگان در ماژول‌های جدا هستند؛ صورتحساب و دریافت وجه فقط به‌صورت ثبت دستی رسید بیرونی انجام می‌شود و ارزها مستقل می‌مانند.",
     "platform_revenue_export": "خروجی CSV فیلترپذیر دفتر درآمد پلتفرم با ستون‌های منبع، ارز، مبلغ، دوره، وضعیت، کمپین و ممیزی ثبت/تأیید؛ مسیر GET export در گروه route صحیح ثبت شده است."
   },
@@ -681,7 +681,14 @@
       "PR128 به‌دلیل عقب‌ماندن شاخه از main بسته شد؛ محتوای اصلاحی آن در PR129 بازسازی و ادغام شد. PR129 شامل اصلاح regex محدوده جغرافیایی، ذخیره تراکنشی مدرک خصوصی، پاک‌سازی فایل در شکست ثبت و تست دسترسی دانلود بود.",
       "main پس از ادغام چهار مجموعه تغییر روی commit c381f1262d6481b49b5e9d30f5101e4887b3edda قرار دارد؛ هیچ تست، Build، Migration، Seeder یا عملیات دیتابیس اجرا نشده است.",
       "PR130 نیز در main ادغام شد: تجزیه territory در ثبت حقوق نشر اصلاح و تست‌های نقش owner/manager مجاز در برابر finance/viewer/کاربر بدون عضویت اضافه شد.",
-      "آخرین commit شاخه main برابر e133e1d1244f2560fb9aedb8a53a56cc118c6cd4 است؛ تست‌ها و CI هنوز اجرا/تأیید نشده‌اند."
+      "آخرین commit شاخه main برابر e133e1d1244f2560fb9aedb8a53a56cc118c6cd4 است؛ تست‌ها و CI هنوز اجرا/تأیید نشده‌اند.",
+      "پس از ادغام PR130، شاخه main دوباره بررسی شد؛ commit جاری e133e1d1244f2560fb9aedb8a53a56cc118c6cd4 و تعداد PRهای باز صفر است.",
+      "ممیزی ایستای حقوق نشر/قرارداد/پخش/دفتر درآمد روی main انجام شد: RevenueLedgerService هنگام ثبت رویداد، قرارداد تأییدشده معتبر و مدرک CompanyTitleRight تأییدشده، فعال و معتبر در تاریخ/قلمرو رویداد را کنترل می‌کند.",
+      "CompanyTitleRight::approvedFor وضعیت approved، تاریخ اعتبار و قلمرو را بررسی می‌کند؛ رکوردهای revoked در درآمد جدید انتخاب نمی‌شوند.",
+      "قرارداد درآمدی هنگام submit/approve دوباره اعتبار مدارک طرف‌های قرارداد را کنترل می‌کند و همپوشانی قراردادها را بر اساس مدل درآمد، قلمرو و بازه زمانی مدیریت می‌کند.",
+      "شکاف معماری ثبت شد: PlaybackSource و مسیر تحویل Hosted Playback از rights_status/rights_holder/license_reference مستقل استفاده می‌کنند و به رکورد CompanyTitleRight متصل نیستند؛ بنابراین مدرک تأییدشده شرکت هنوز مرجع واحد مجوز پخش نیست.",
+      "به‌دلیل نیاز به تصمیم درباره اتصال مجوزهای انحصاری/غیرانحصاری، قلمرو، بازه اعتبار و منابع بیرونی، تغییر حدسی در قواعد حقوقی اعمال نشد؛ اصلاح اتصال مرجع حقوق نشر به پخش به‌عنوان کار باز ثبت شد.",
+      "هیچ تست، Build، Migration، Seeder، نصب وابستگی یا عملیات دیتابیس اجرا نشد."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -735,7 +742,13 @@
         "resources/views/admin/titles/credits-import.blade.php"
       ],
       "note": "شاخه قدیمی PR123 در مقایسه با main فعلی ۸۳ commit عقب است؛ تغییرات مربوطه در main موجودند. تست جدیدی اجرا نشد."
-    }
+    },
+    "head_commit": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
+    "next_steps": [
+      "طراحی و پیاده‌سازی اتصال PlaybackSource به CompanyTitleRight با اعتبارسنجی وضعیت، بازه و قلمرو در ثبت/فعال‌سازی منبع و تحویل رسانه؛ حفظ امکان منابع بیرونی با سند مجوز قابل ردیابی.",
+      "بازبینی گردش‌کار ایجاد/واگذاری مالک اولیه شرکت و تکمیل کنترل حداقل یک owner فعال.",
+      "اجرای تست‌ها، Build، Migration و نصب وابستگی‌ها فقط در مرحله نهایی و با اجازه کاربر."
+    ]
   },
   "known_issues": [
     {
@@ -7341,6 +7354,39 @@
     "next_steps": [
       "اجرای CompanySettlementRequestTest و تست‌های مالی مرتبط در مرحله QA نهایی.",
       "بازبینی مسیرهای لغو/بازپرداخت احتمالی؛ در صورت نیاز باید به‌جای بازگشایی وضعیت paid، رکورد اصلاحی/معکوس حسابداری مستقل طراحی شود."
+    ]
+  },
+  "rights_playback_binding_audit": {
+    "updated_at": "2026-11-24",
+    "source_commit": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
+    "status": "static_audit_gap_identified_no_runtime_tests",
+    "revenue_contracts": {
+      "status": "approved_contract_and_company_rights_checked_at_revenue_event",
+      "details": [
+        "RevenueLedgerService resolves an approved/superseded contract by event timestamp, revenue model and territory.",
+        "Each payee must still be an active company and hold an approved CompanyTitleRight covering the event timestamp and territory.",
+        "Expired or revoked company-rights records are excluded from new revenue events."
+      ]
+    },
+    "playback": {
+      "status": "rights_evidence_not_linked_to_company_title_right",
+      "details": [
+        "PlaybackSource stores independent rights_status, rights_holder, license_reference and rights_notes fields.",
+        "HostedPlaybackDeliveryService checks active source status, cleared rights_status, presence of rights-holder/license reference, and source schedule.",
+        "The playback authorization path does not resolve a CompanyTitleRight record or verify its approval, validity window, or territories."
+      ]
+    },
+    "decision": "Do not impose a guessed exclusivity/territory conflict policy. First make the approved rights record traceable from a playback source, then validate it at activation and delivery.",
+    "next_steps": [
+      "Add nullable company_title_right_id to playback_sources via additive migration.",
+      "Require a matching approved right for company-backed playback sources; preserve a separately audited evidence path for externally licensed sources if product policy requires it.",
+      "Validate title/company match, approved status, valid_from/valid_until, and playback territory before activation and each protected delivery.",
+      "Add Feature tests for pending, revoked, expired, wrong-title, wrong-company and out-of-territory rights; defer execution."
+    ],
+    "safeguards": [
+      "No tests or runtime checks executed.",
+      "No migrations or database operations executed.",
+      "No production source code changed during this audit."
     ]
   }
 }
