@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
+    "source_commit_audited": "c793b06f290f77da225996e68f25a865abcd9e94",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
+    "latest_main_commit": "c793b06f290f77da225996e68f25a865abcd9e94",
     "latest_main_commit_verified_on": "2026-11-24",
     "advertising_note": "گزارش عملکرد کمپین، درآمد پلتفرم و صورتحساب تبلیغ‌دهندگان در ماژول‌های جدا هستند؛ صورتحساب و دریافت وجه فقط به‌صورت ثبت دستی رسید بیرونی انجام می‌شود و ارزها مستقل می‌مانند.",
     "platform_revenue_export": "خروجی CSV فیلترپذیر دفتر درآمد پلتفرم با ستون‌های منبع، ارز، مبلغ، دوره، وضعیت، کمپین و ممیزی ثبت/تأیید؛ مسیر GET export در گروه route صحیح ثبت شده است."
@@ -695,7 +695,8 @@
       "تست تراکنشی Activitylog برای پنج مدل موفق شد: رویدادهای created/updated، جزئیات attribute_changes و rollback کامل داده آزمایشی.",
       "جدول activity_log و migrationهای ایجاد جدول و افزودن ستون‌های v5 در MySQL محلی وضعیت Ran داشتند؛ هیچ migration در این مرحله اجرا نشد.",
       "کاربر در گفتگوهای 2026-11-24 مشکلات صفحه ورود و صفحات مدیریت اخبار، فیلم‌ها/سریال‌ها و چند صفحه مدیریت دیگر را گزارش کرد؛ QA تعاملی و رفع قطعی هنوز باز است.",
-      "آخرین commit شاخه main مخزن کد از GitHub برابر 2a06f9d9a200c95bf6c206c53d52ef3d56c05968 مشاهده شد؛ ممیزی تفصیلی فعلی تا e133e1d1244f2560fb9aedb8a53a56cc118c6cd4 است."
+      "آخرین commit شاخه main مخزن کد از GitHub برابر 2a06f9d9a200c95bf6c206c53d52ef3d56c05968 مشاهده شد؛ ممیزی تفصیلی فعلی تا e133e1d1244f2560fb9aedb8a53a56cc118c6cd4 است.",
+      "2026-11-24: PR132 با commit نهایی c793b06f290f77da225996e68f25a865abcd9e94 به main ادغام شد؛ PR closed/merged است. تست محلی ۲۸۲/۱٬۱۲۰، CI پیش از ادغام run 45428873147 روی SQLite و MySQL 8.4 و Vite موفق، route ثبت‌شده، تولید PDF معتبر توسط Chromium و تأیید بصری کاربر برای متن دری/پشتو و RTL ثبت شد. بررسی دانلود تعاملی پنل و نصب Chromium روی هاست تولید انجام نشده؛ این موارد deployment/runtime follow-up هستند، نه مانع ادغام کد."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -721,7 +722,7 @@
       "هیچ‌یک از hosted playback، upload، malware scan یا media probe در محیط production فعال نشده‌اند؛ feature flagها خاموش باقی مانده‌اند.",
       "PR96 برای تبدیل خصوصی HLS باز است؛ CI هنوز در حال اجرا/انتظار است. نتیجه ادغام و اجرای Migration روی MySQL هنوز تأیید نشده."
     ],
-    "summary": "خروجی CSV فیلترپذیر دفتر درآمد پلتفرم با اطلاعات ممیزی تکمیل و CI کامل SQLite/MySQL/Vite/Blade موفق شد. پذیرش محلی/مرورگر باقی است.",
+    "summary": "PR132 خروجی PDF چندزبانه گزارش تبلیغات با Chromium با موفقیت در main ادغام شد؛ PR133 برای حفاظت از سابقه کمپین هنوز در جریان است.",
     "company_advertising_panel": {
       "date": "2026-11-23",
       "branch": "feature/company-advertising-performance-details",
@@ -750,7 +751,7 @@
       ],
       "note": "شاخه قدیمی PR123 در مقایسه با main فعلی ۸۳ commit عقب است؛ تغییرات مربوطه در main موجودند. تست جدیدی اجرا نشد."
     },
-    "head_commit": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
+    "head_commit": "c793b06f290f77da225996e68f25a865abcd9e94",
     "next_steps": [
       "طراحی و پیاده‌سازی اتصال PlaybackSource به CompanyTitleRight با اعتبارسنجی وضعیت، بازه و قلمرو در ثبت/فعال‌سازی منبع و تحویل رسانه؛ حفظ امکان منابع بیرونی با سند مجوز قابل ردیابی.",
       "بازبینی گردش‌کار ایجاد/واگذاری مالک اولیه شرکت و تکمیل کنترل حداقل یک owner فعال.",
@@ -4502,7 +4503,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
+    "source_commit": "c793b06f290f77da225996e68f25a865abcd9e94",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-21",
@@ -4603,7 +4604,8 @@
         "2026-11-24: جدول activity_log و دو migration مربوط به آن در وضعیت Ran تأیید شدند؛ اتصال دیتابیس و Activitylog هر دو mysql بود. هیچ migration جدیدی در این اعتبارسنجی اجرا نشد.",
         "2026-11-24: ساختار واقعی جدول‌های artists، companies، festivals و titles با Schema::getColumnListing بررسی شد؛ ستون‌های public_id و birth_date_source در جداول مربوط موجود بودند.",
         "2026-11-24: کاربر مشکلات ظاهری/نمایشی در صفحه ورود و چند صفحه مدیریت، از جمله مدیریت اخبار و مدیریت فیلم‌ها و سریال‌ها و سایر صفحات مدیریت را گزارش کرد. رفع این موارد با تست مرورگر هنوز تأیید نشده و باید باز بماند.",
-        "2026-11-24: برای PR132 تست محلی ۲۸۲/۱٬۱۲۰، CI موفق SQLite و MySQL 8.4 و Vite، ثبت route و تولید PDF معتبر توسط سرویس Chromium تأیید شدند؛ این شواهد نصب Chromium روی هاست یا دانلود واقعی از پنل را ثابت نمی‌کنند."
+        "2026-11-24: برای PR132 تست محلی ۲۸۲/۱٬۱۲۰، CI موفق SQLite و MySQL 8.4 و Vite، ثبت route و تولید PDF معتبر توسط سرویس Chromium تأیید شدند؛ این شواهد نصب Chromium روی هاست یا دانلود واقعی از پنل را ثابت نمی‌کنند.",
+        "2026-11-24: PR132 با commit نهایی c793b06f290f77da225996e68f25a865abcd9e94 به main ادغام شد؛ PR closed/merged است. تست محلی ۲۸۲/۱٬۱۲۰، CI پیش از ادغام run 45428873147 روی SQLite و MySQL 8.4 و Vite موفق، route ثبت‌شده، تولید PDF معتبر توسط Chromium و تأیید بصری کاربر برای متن دری/پشتو و RTL ثبت شد. بررسی دانلود تعاملی پنل و نصب Chromium روی هاست تولید انجام نشده؛ این موارد deployment/runtime follow-up هستند، نه مانع ادغام کد."
       ],
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
@@ -4859,7 +4861,7 @@
       "mysql_tests": 254,
       "mysql_assertions": 983
     },
-    "note": "در 2026-11-22، پس از اجرای ۴۳ Migration و ProfessionGroupSeeder در Laragon، سه صفحه /artists، /news و /festivals با HTTP 200 تأیید شدند. اصلاح namespace مدل‌های News و Festival نیز در main ثبت شد. این تأیید محدود محلی است و جایگزین QA کامل مرورگر، تست تمام مسیرها یا staging نیست. بررسی بعدی فرانت‌اند: صفحه اصلی HTTP 200، CSS/JS تولیدی HTTP 200، فایل hot غایب و نمایش هدر/فوتر توسط کاربر تأیید شد؛ build با زمان غیرعادی ۱۱ دقیقه و هشدار fontaine نیازمند بهینه‌سازی است. PR132 خروجی PDF چندزبانه گزارش تبلیغات روی شاخه مستقل و به‌صورت draft ثبت شده؛ تأیید PDF آزمایشی Chrome توسط کاربر فقط صحت نمایش حروف را نشان می‌دهد، نه تست Laravel/CI یا سازگاری هاست. آخرین سرشاخه main مخزن کد در 2026-11-24 به commit 2a06f9d9a200c95bf6c206c53d52ef3d56c05968 رسیده است؛ ممیزی تفصیلی ثبت‌شده در این snapshot تا commit e133e1d1244f2560fb9aedb8a53a56cc118c6cd4 است و commit جدیدتر هنوز ممیزی کامل نشده است.",
+    "note": "در 2026-11-22، پس از اجرای ۴۳ Migration و ProfessionGroupSeeder در Laragon، سه صفحه /artists، /news و /festivals با HTTP 200 تأیید شدند. اصلاح namespace مدل‌های News و Festival نیز در main ثبت شد. این تأیید محدود محلی است و جایگزین QA کامل مرورگر، تست تمام مسیرها یا staging نیست. بررسی بعدی فرانت‌اند: صفحه اصلی HTTP 200، CSS/JS تولیدی HTTP 200، فایل hot غایب و نمایش هدر/فوتر توسط کاربر تأیید شد؛ build با زمان غیرعادی ۱۱ دقیقه و هشدار fontaine نیازمند بهینه‌سازی است. PR132 خروجی PDF چندزبانه گزارش تبلیغات روی شاخه مستقل و به‌صورت draft ثبت شده؛ تأیید PDF آزمایشی Chrome توسط کاربر فقط صحت نمایش حروف را نشان می‌دهد، نه تست Laravel/CI یا سازگاری هاست. آخرین سرشاخه main مخزن کد در 2026-11-24 به commit 2a06f9d9a200c95bf6c206c53d52ef3d56c05968 رسیده است؛ ممیزی تفصیلی ثبت‌شده در این snapshot تا commit e133e1d1244f2560fb9aedb8a53a56cc118c6cd4 است و commit جدیدتر هنوز ممیزی کامل نشده است. PR132 خروجی PDF چندزبانه تبلیغات در 2026-11-24 با commit c793b06f290f77da225996e68f25a865abcd9e94 به main ادغام شد؛ تست محلی و CI پیش از ادغام موفق و نمایش دری/پشتو و RTL توسط کاربر تأیید شد. دانلود تعاملی پنل و Chromium روی هاست تولید هنوز بررسی نشده‌اند.",
     "panels": [
       {
         "id": "admin",
@@ -5299,7 +5301,7 @@
         }
       ]
     },
-    "latest_main_commit": "2a06f9d9a200c95bf6c206c53d52ef3d56c05968",
+    "latest_main_commit": "c793b06f290f77da225996e68f25a865abcd9e94",
     "source_commit_audited": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
     "latest_main_commit_verified_on": "2026-11-24",
     "local_activitylog_validation": {
@@ -6209,7 +6211,7 @@
         "branch": "feature/chromium-advertising-pdf",
         "head_commit": "3d9fbde0b4c066d91b9bd0e4866098e2e1b1a753",
         "base_commit": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
-        "status": "open_draft_unmerged_validation_pending",
+        "status": "merged_to_main_premerge_ci_passed_host_runtime_pending",
         "features": [
           "موتور PDF مبتنی بر Chrome/Chromium با Symfony Process و مسیر اجرایی قابل تنظیم از PDF_CHROME_PATH.",
           "خروجی PDF از گزارش فیلترشده کمپین‌های مدیریت، با خلاصه آمار، گزارش روزانه و مقایسه جایگاه‌ها.",
@@ -6217,12 +6219,14 @@
           "نمایش مستقل انگلیسی، دری و پشتو و جهت RTL برای fa-AF و ps.",
           "ساخت HTML موقت محلی و حذف فایل‌های موقت پس از تولید/ارسال PDF."
         ],
-        "user_smoke_test": "تولید PDF آزمایشی Chrome روی محیط کاربر تأیید شد؛ نمایش دری، پشتو و انگلیسی صحیح گزارش شد.",
-        "ci": "not_run",
-        "laravel_tests": "deferred",
+        "user_smoke_test": "کاربر تولید PDF با Chromium و نمایش صحیح متن دری/پشتو و جهت RTL را تأیید کرد.",
+        "ci": "success_premerge_run_45428873147_sqlite_mysql84_vite",
+        "laravel_tests": "282_passed_1120_assertions_local",
         "host_chromium_availability": "not_verified",
-        "merge_commit": null,
-        "migration_required": false
+        "merge_commit": "c793b06f290f77da225996e68f25a865abcd9e94",
+        "migration_required": false,
+        "admin_download_http_test": "route_registered_and_admin_group_verified_full_browser_download_not_tested",
+        "status_note": "کد در main ادغام شده؛ نصب Chromium روی هاست و تست دانلود تعاملی بعد از استقرار باقی است."
       }
     },
     "company_assignment": {
@@ -6743,10 +6747,12 @@
       "title": "Add multilingual Chromium PDF export for advertising reports",
       "head_commit": "3d9fbde0b4c066d91b9bd0e4866098e2e1b1a753",
       "base_commit": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
-      "status": "open_draft_unmerged_validation_pending",
+      "status": "merged_to_main_ci_passed_premerge_runtime_host_pending",
       "scope": "خروجی PDF فیلترپذیر گزارش تبلیغات مدیریت شامل آمار کمپین، روند روزانه، مقایسه جایگاه‌ها و درآمد تأییدشده/در انتظار AFN؛ موتور Chromium با مسیر قابل تنظیم؛ خروجی سه‌زبانه en/fa-AF/ps و RTL.",
       "url": "https://github.com/armanaria111/amdb-laravel2/pull/132",
-      "validation": "تست محلی شاخه: ۲۸۲ تست و ۱٬۱۲۰ assertion موفق؛ GitHub Actions run 45428873147 (AMDB CI #429) موفق، شامل PHPUnit روی SQLite و MySQL 8.4 و Vite production build؛ route admin.advertising.pdf ثبت شده و ChromiumPdfRenderer یک PDF معتبر ۳۵٬۷۱۴ بایتی با امضای %PDF- تولید کرد. دانلود واقعی از پنل، نمایش حروف در PDF نهایی و Chromium روی هاست تولید هنوز تأیید نشده‌اند."
+      "validation": "PR در 2026-11-24 با squash merge به main ادغام شد. تست محلی ۲۸۲/۱٬۱۲۰؛ CI پیش از ادغام run 45428873147 روی SQLite، MySQL 8.4 و Vite موفق؛ route admin.advertising.pdf ثبت؛ سرویس Chromium فایل PDF معتبر ۳۵٬۷۱۴ بایتی تولید کرد؛ کاربر نمایش درست متن دری/پشتو و RTL را تأیید کرد. دانلود واقعی از پنل و نصب Chromium روی هاست تولید هنوز بررسی نشده‌اند.",
+      "merge_commit": "c793b06f290f77da225996e68f25a865abcd9e94",
+      "ci_run": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45428873147"
     }
   ],
   "company_rights_evidence": {
@@ -7281,7 +7287,7 @@
       "database_migrations": "two_new_migrations_added_not_executed"
     }
   },
-  "latest_main_commit": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
+  "latest_main_commit": "c793b06f290f77da225996e68f25a865abcd9e94",
   "source_commit_audited": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
   "latest_main_commit_verified_on": "2026-11-24",
   "current_development": {
