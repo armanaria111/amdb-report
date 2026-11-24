@@ -203,3 +203,27 @@ Migrationهای اولیه کاتالوگ، هنرمند، شرکت و جشنو�
 **وضعیت:** `open_static_review_finding` — این مورد از روی سورس شناسایی شده و هنوز با تست runtime یا مرورگر بازتولید نشده است. هیچ کدی در این مرحله تغییر نکرده است.
 
 **اقدام پیشنهادی:** قبل از حذف کمپین، وجود درآمد وابسته و رویدادهای وابسته بررسی شود؛ کمپین دارای سابقه مالی/آماری باید به‌جای حذف فیزیکی، غیرفعال/آرشیو شود. پس از ثبت درآمد مستقیم، تغییر provider از `direct` به provider دیگر باید ممنوع یا به گردش‌کار مهاجرت حسابرسی‌شده تبدیل شود. تست‌های Feature برای جلوگیری از حذف و تغییر provider پس از ثبت درآمد و حفظ تاریخچه رویدادها اضافه شوند.
+
+
+## 8. اعتبارسنجی PDF چندزبانه گزارش تبلیغات — PR132 (2026-11-24)
+
+### 8.1 تست‌های شاخه و CI
+
+- در worktree مستقل `C:\\laragon\\www\\amdb\\amdb-pdf-validation`، پس از `npm run build`، اجرای کامل PHPUnit موفق شد: **282 passed (1120 assertions)**؛ مدت گزارش‌شده 38.38 ثانیه.
+- GitHub Actions run [45428873147](https://github.com/armanaria111/amdb-laravel2/actions/runs/45428873147)، اجرای AMDB CI شماره 429، با نتیجه `success` تکمیل شد.
+- Jobهای موفق: Vite production build؛ Laravel tests روی PHP 8.5 / SQLite؛ Laravel tests روی PHP 8.5 / MySQL 8.4. مراحل Composer validation، compile و lint تمام Bladeها و PHPUnit نیز موفق بودند.
+- route list در worktree، مسیر `GET|HEAD admin/advertising/pdf` با نام `admin.advertising.pdf` و کنترلر `Admin\\AdvertisingReportPdfController` را نشان داد.
+
+### 8.2 Smoke test مستقیم سرویس Chromium
+
+- `PDF_CHROME_PATH` روی Chrome نصب‌شده در ویندوز تنظیم شد.
+- `App\\Services\\Pdf\\ChromiumPdfRenderer::render()` با HTML آزمایشی فراخوانی شد.
+- نتیجه: `PDF_SIZE: 35714` و `PDF_SIGNATURE: %PDF-`؛ فایل واقعی PDF در مسیر خصوصی موقت `storage/app/private/pdf-temp` ساخته شد.
+- این نتیجه رندر واقعی سرویس Laravel را تأیید می‌کند، نه صرفاً اجرای مستقل Chrome.
+
+### 8.3 محدوده و محدودیت شواهد
+
+- تست کامل محلی و CI موفق‌اند؛ تست ساختار دیتابیس `amdbl` در checkout اصلی نیز پیش‌تر با `ALL CHECKS PASSED` تأیید شده بود.
+- این smoke test محتوای بصری PDF نهایی را با مشاهده انسانی تأیید نکرد؛ رشته‌های فارسی/پشتو در ورودی ترمینال PowerShell به‌صورت `?` دیده شدند، بنابراین کیفیت glyph/RTL در خروجی این اجرای خاص را نباید تأییدشده اعلام کرد.
+- دانلود HTTP از مسیر محافظت‌شده پنل مدیریت، مجوز دسترسی/فیلترهای گزارش در مرورگر و وجود Chrome/Chromium روی هاست تولید هنوز تست نشده‌اند.
+- PR132 همچنان شاخه‌ای و ادغام‌نشده است؛ هیچ تغییری در دیتابیس اصلی یا reset مخرب انجام نشد.
