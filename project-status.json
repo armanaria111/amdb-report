@@ -7411,19 +7411,22 @@
   },
   "platform_revenue_review_state_audit": {
     "updated_at": "2026-11-24",
-    "implementation_head": "ecbc763b9f98cc1d8a99c0745e249d59c2a22229",
-    "status": "model_guard_and_feature_test_added_static_review_only",
+    "implementation_head": "a2a90143fa1a61241cd1a34f826d81ac17f4df3a",
+    "status": "model_guard_and_feature_coverage_added_static_review_only",
     "controls": [
       "Platform revenue entries now permit only pending -> approved or pending -> rejected transitions.",
       "Approved and rejected records are terminal; later corrections require a separately audited record/workflow rather than rewriting the original decision.",
       "reviewed_by and reviewed_at are mandatory for decisions and cannot be edited independently after review.",
-      "The existing admin approve/reject controller already supplies reviewer identity and timestamp in the same transition."
+      "The existing admin approve/reject controller already supplies reviewer identity and timestamp in the same transition.",
+      "PlatformRevenueEntry now enforces the source-to-currency map at the Eloquent creation boundary: google_ads accepts USD/EUR, iran_ads accepts IRR, and direct_ads accepts AFN. This protects non-controller creation paths as well as the admin form.",
+      "Model creation also rejects campaign references for non-direct sources and verifies that any linked campaign uses provider=direct."
     ],
     "coverage": [
-      "Feature test authored for missing reviewer data, invalid reversal to pending, and audit-field rewriting; not executed."
+      "Feature test authored for missing reviewer data, invalid reversal to pending, and audit-field rewriting; not executed.",
+      "Feature tests authored for model-level source/currency mismatch and non-direct campaign linkage; not executed."
     ],
     "validation": "No tests, build, migrations, seeders, dependency installation or database operations were run.",
-    "static_review_note": "PlatformRevenueEntry exception namespace syntax corrected; tests remain unexecuted."
+    "static_review_note": "The new creating guard uses the fully imported LogicException class. Existing source-detail immutability and terminal review-state guards remain in place. Static review only; no runtime validation."
   },
   "revenue_settlement_concurrency_audit": {
     "updated_at": "2026-11-24",
@@ -7461,13 +7464,13 @@
     "updated_at": "2026-11-24",
     "url": "https://github.com/armanaria111/amdb-laravel2/pull/131",
     "branch": "feature/playback-company-rights-binding",
-    "head_commit": "ecbc763b9f98cc1d8a99c0745e249d59c2a22229",
+    "head_commit": "a2a90143fa1a61241cd1a34f826d81ac17f4df3a",
     "base_branch": "main",
     "status": "open_draft_unmerged_mergeable",
-    "commits_ahead": 36,
+    "commits_ahead": 38,
     "commits_behind": 0,
     "changed_files": 20,
-    "additions": 513,
+    "additions": 603,
     "deletions": 3,
     "validation": "Static source review only; tests/build/migrations/seeders/dependency installation/database operations intentionally deferred."
   },
