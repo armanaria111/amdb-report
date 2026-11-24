@@ -7360,7 +7360,7 @@
     "updated_at": "2026-11-24",
     "source_commit": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
     "implementation_branch": "feature/playback-company-rights-binding",
-    "implementation_head": "421b201e030eba93fcda4b98e671caa45e58821d",
+    "implementation_head": "96644026fb0f645e064bef2bb8eb1c75f4c5a4dc",
     "pull_request_status": "draft_open_mergeable_true",
     "status": "implemented_on_branch_static_review_only_trusted_geoip_middleware_pending",
     "changes": [
@@ -7374,17 +7374,20 @@
       "در نبود context کشور مورداعتماد، مجوزهای محدود به کشور رد می‌شوند و فقط رکورد دارای قلمرو * مجاز است (fail closed).",
       "تست Feature برای نبود کشور معتبر، کشور خارج از قلمرو و کشور مجاز نوشته شده؛ اجرا نشده است.",
       "مستندات playback-sources.md درباره مرز fail-closed و نیاز به GeoIP middleware به‌روزرسانی شد.",
-      "تست‌های مدیریت منبع پخش برای پذیرش مدرک شرکتی به‌عنوان تنها مدرک و رد مدرک مربوط به اثر دیگر یا مدرک منقضی اضافه شد؛ اجرا نشده‌اند."
+      "تست‌های مدیریت منبع پخش برای پذیرش مدرک شرکتی به‌عنوان تنها مدرک و رد مدرک مربوط به اثر دیگر یا مدرک منقضی اضافه شد؛ اجرا نشده‌اند.",
+      "Middleware ResolveViewerCountry به web stack اضافه شد؛ فقط وقتی REMOTE_ADDR در CIDRهای صریحاً مورداعتماد باشد، header کشور تنظیم‌شده خوانده می‌شود و viewer_country_code سمت سرور ساخته می‌شود.",
+      "پیکربندی AMDB_GEOIP_TRUSTED_PROXY_CIDRS و AMDB_GEOIP_COUNTRY_HEADER به config/playback.php و .env.example اضافه شد؛ CIDRها به‌صورت پیش‌فرض خالی هستند و هیچ headerی به‌طور پیش‌فرض مورداعتماد نیست.",
+      "تست‌های middleware برای عدم اعتماد به header بدون proxy مجاز، رد peer غیرمجاز، پذیرش کشور معتبر و رد کدهای ناشناخته اضافه شدند؛ اجرا نشده‌اند."
     ],
     "limitations": [
-      "در مخزن فعلی middleware یا سرویس GeoIP مورداعتماد که viewer_country_code را تنظیم کند یافت نشد؛ تا پیاده‌سازی و اعتبارسنجی زنجیره proxy، حقوق محدود به قلمروهای خاص قابل استفاده در hosted delivery نیستند و فقط * مجاز است.",
+      "تطبیق عملی proxy در محیط استقرار هنوز انجام نشده است؛ اپراتور باید CIDR واقعی proxy را نگهداری کند و اطمینان دهد proxy header کشور را خودش overwrite می‌کند و مسیر دسترسی مستقیم به origin بسته است.",
       "تست‌های جدید و موجود اجرا نشده‌اند؛ پوشش تحویل مستقیم برای pending/revoked/expired/wrong-title/wrong-company و مسیر external همچنان باید کامل شود.",
       "Migration، Build، Seeder، نصب وابستگی و عملیات دیتابیس اجرا نشده‌اند."
     ],
     "next_steps": [
-      "پیاده‌سازی GeoIP/country resolver قابل اعتماد با پیکربندی دقیق trusted proxies و تزریق viewer_country_code در middleware؛ هرگز از locale یا header خام استفاده نشود.",
-      "تکمیل تست‌های Feature برای تمام حالات pending/revoked/expired/wrong-title/wrong-company/external و مرزهای قلمرو.",
-      "بازبینی کامل diff و CI؛ سپس تصمیم درباره ادغام PR131."
+      "تعیین و ثبت CIDRهای واقعی proxy و تأیید header-overwrite و عدم bypass origin در محیط استقرار؛ تا آن زمان فقط حقوق * در تحویل hosted مجاز است.",
+      "تکمیل تست‌های تحویل برای pending/revoked/expired/wrong-title/wrong-company/external و بازبینی کامل diff.",
+      "اجرای تست‌ها و CI در زمان مجاز، سپس تصمیم درباره ادغام PR131."
     ]
   }
 }
