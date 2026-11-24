@@ -258,7 +258,7 @@
     "detail": "شناسه‌های ar هنرمند و co شرکت در URLهای عمومی استفاده می‌شوند؛ شناسه am برای اثر در ساختار موجود است اما مسیر عمومی اثر همچنان بر slug استوار است. تست runtime انجام نشده است."
   },
   "latest_development": {
-    "date": "2026-11-23",
+    "date": "2026-11-24",
     "verified": [
       "مرحله اول ممیزی read-only سورس اصلی در commit a56e92080a227b9e4c531c9edf2e55a02e6946ab انجام شد.",
       "ساختار مخزن: ۴۶۰ ورودی در درخت، ۲۲ migration، ۳۴ فایل مدل PHP، ۳۷ فایل Blade، ۷۳ خط Route در web.php و ۷۱ فراخوانی name ثبت شد.",
@@ -667,7 +667,9 @@
       "ترجمه سرستون‌ها و لینک دریافت CSV خلاصه مالی برای en، fa-AF و ps اضافه شد.",
       "BOM UTF-8 خروجی CSV خلاصه مالی اصلاح شد.",
       "دسترسی مشاهده صورتحساب و گزارش‌های تبلیغاتی برای نقش‌های فعال owner و finance حفظ شد، اما ارسال/ایجاد کمپین جدید به نقش owner محدود شد.",
-      "این تفکیک در سطح کنترلر نیز اعمال شده است و صرفاً به مخفی‌کردن دکمه در رابط کاربری متکی نیست."
+      "این تفکیک در سطح کنترلر نیز اعمال شده است و صرفاً به مخفی‌کردن دکمه در رابط کاربری متکی نیست.",
+      "در بازبینی مجوزهای پنل شرکت، مشخص شد متد ثبت کمپین در CompanyAdvertisingDashboardController به اشتباه نقش finance را نیز مجاز می‌کرد؛ این با سیاست ثبت‌شده گزارش درباره owner-only بودن ایجاد کمپین مغایر بود.",
+      "PR125 در مخزن amdb-laravel2 ایجاد شد: مجوز مشاهده گزارش برای owner/finance حفظ و ثبت کمپین به owner محدود شد؛ تست Feature پوششی اضافه شد اما اجرا نشد."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -928,6 +930,10 @@
     }
   ],
   "changelog": [
+    {
+      "date": "2026-11-24",
+      "text": "PR125 در amdb-laravel2 ایجاد شد: اصلاح مجوز تبلیغات شرکت به‌گونه‌ای که owner و finance گزارش‌ها/CSV را مشاهده کنند اما فقط owner کمپین جدید ثبت کند؛ تست Feature پوششی اضافه شد. PR باز و ادغام‌نشده است؛ تست، Build، Migration و Seeder اجرا نشدند."
+    },
     {
       "date": "2026-11-21",
       "text": "پنج تصمیم محصول مصوب ثبت شد: امکانات کامل تماشاگر (تاریخچه، ادامه تماشا، علاقه‌مندی و اعلان)، تقسیم درآمد بر اساس قرارداد هر اثر، طراحی Responsive، پیشنهاد فیلم Hybrid و پنل کامل صاحب اثر. وابستگی‌ها و guardrailها شامل جدایی progress از PlaybackSource/Entitlement، snapshot قرارداد و ledger قابل حسابرسی، privacy controls، جداسازی تبلیغ پولی از رتبه ارگانیک و تأیید تسویه توسط مدیر مالی در نقشه راه و معماری پخش ثبت شدند. فقط مخزن گزارش تغییر کرد؛ هیچ قابلیت Laravel یا پرداخت/پخش runtime پیاده‌سازی نشد."
@@ -7077,12 +7083,12 @@
   "source_commit_audited": "44310a66c38109dbf6913577f7f475b3d202f5e4",
   "latest_main_commit_verified_on": "2026-11-23",
   "current_development": {
-    "updated_at": "2026-11-23",
+    "updated_at": "2026-11-24",
     "repository": "https://github.com/armanaria111/amdb-laravel2",
     "branch": "feature/company-advertising-performance-details",
     "base": "44310a66c38109dbf6913577f7f475b3d202f5e4",
     "compare": "120 commits ahead, 0 behind",
-    "status": "feature_committed_company_invoice_summary_csv_and_owner_finance_permission_separation_tests_deferred",
+    "status": "company_advertising_owner_only_campaign_creation_pr125_open_tests_deferred",
     "changes": [
       "گزارش عملکرد کمپین شرکت با کنترل عضویت فعال و نقش owner/finance، گزارش روزانه و خروجی CSV",
       "فیلتر کمپین‌های شرکت بر اساس وضعیت و جایگاه",
@@ -7154,10 +7160,11 @@
     ],
     "next_steps": [
       "بازبینی سایر عملیات تغییردهنده در پنل شرکت برای تفکیک دقیق owner، finance و نقش‌های صرفاً مشاهده‌گر.",
+      "بازبینی تعارض/قابلیت ادغام PR125 و ادغام فقط پس از اطمینان از حفظ مجوز مشاهده گزارش‌ها برای finance.",
       "تکمیل گزارش‌های مالی دوره‌ای شرکت با تفکیک تاریخ صدور و دریافت و بازبینی خروجی‌ها.",
       "تکمیل composer.lock، نصب PDF و اجرای تست‌ها در مرحله نهایی؛ فعلاً هیچ تست، build یا Migration اجرا نشود."
     ],
-    "head_commit": "47cb060c93e1a76319fea27a9faed644fd002d9a"
+    "head_commit": "c508be894c00f69b4df9679a918176a193b0fa63"
   },
   "advertising_invoice_billing": {
     "updated_at": "2026-11-23",
@@ -7228,6 +7235,31 @@
     "next_steps": [
       "بازبینی نهایی مجوزهای مسیرهای چاپ و PDF مدیریت و شرکت و یکسانی خروجی سند.",
       "تکمیل composer.lock، نصب PDF و اجرای Migration و تست‌ها فقط در مرحله نهایی."
+    ]
+  },
+  "company_advertising_permissions": {
+    "updated_at": "2026-11-24",
+    "status": "owner_only_campaign_creation_implemented_in_pr125_open_tests_deferred",
+    "pull_request": 125,
+    "url": "https://github.com/armanaria111/amdb-laravel2/pull/125",
+    "base_commit": "44310a66c38109dbf6913577f7f475b3d202f5e4",
+    "head_commit": "c508be894c00f69b4df9679a918176a193b0fa63",
+    "policy": [
+      "اعضای فعال owner و finance می‌توانند گزارش عملکرد تبلیغات شرکت و خروجی CSV را مشاهده کنند.",
+      "ثبت کمپین تبلیغاتی جدید فقط برای عضویت فعال owner مجاز است.",
+      "finance در مسیر ثبت کمپین با پاسخ 403 متوقف می‌شود."
+    ],
+    "changes": [
+      "مجوز CompanyAdvertisingDashboardController به حالت مشاهده owner/finance و حالت ایجاد owner-only تفکیک شد.",
+      "تست Feature برای ثبت موفق کمپین توسط owner و منع finance همراه با حفظ دسترسی گزارش اضافه شد."
+    ],
+    "safeguards": [
+      "هیچ Migration، Seeder، Build یا تستی اجرا نشد.",
+      "هیچ داده‌ای تغییر نکرد؛ اصلاح روی شاخه مستقل انجام شد.",
+      "تغییر هنوز در main ادغام نشده است."
+    ],
+    "next_steps": [
+      "بررسی وضعیت mergeability و CI؛ سپس ادغام پس از رفع هر تعارض احتمالی."
     ]
   }
 }
