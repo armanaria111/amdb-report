@@ -689,7 +689,13 @@
       "شکاف معماری ثبت شد: PlaybackSource و مسیر تحویل Hosted Playback از rights_status/rights_holder/license_reference مستقل استفاده می‌کنند و به رکورد CompanyTitleRight متصل نیستند؛ بنابراین مدرک تأییدشده شرکت هنوز مرجع واحد مجوز پخش نیست.",
       "به‌دلیل نیاز به تصمیم درباره اتصال مجوزهای انحصاری/غیرانحصاری، قلمرو، بازه اعتبار و منابع بیرونی، تغییر حدسی در قواعد حقوقی اعمال نشد؛ اصلاح اتصال مرجع حقوق نشر به پخش به‌عنوان کار باز ثبت شد.",
       "هیچ تست، Build، Migration، Seeder، نصب وابستگی یا عملیات دیتابیس اجرا نشد.",
-      "در 2026-11-24، PR132 برای خروجی PDF چندزبانه گزارش تبلیغات روی شاخه مستقل ایجاد شد؛ کاربر نمایش صحیح PDF آزمایشی Chrome برای دری/پشتو/انگلیسی را تأیید کرد. تست Laravel و CI این PR اجرا نشده و قابلیت هنوز در main ادغام نشده است."
+      "در 2026-11-24، PR132 برای خروجی PDF چندزبانه گزارش تبلیغات روی شاخه مستقل ایجاد شد؛ کاربر نمایش صحیح PDF آزمایشی Chrome برای دری/پشتو/انگلیسی را تأیید کرد. تست Laravel و CI این PR اجرا نشده و قابلیت هنوز در main ادغام نشده است.",
+      "اجرای کامل PHPUnit محلی در APP_ENV=testing و SQLite حافظه‌ای موفق شد: ۲۸۲ تست، ۱٬۱۲۰ assertion، صفر شکست، ۴۰٫۶۷ ثانیه؛ MySQL محلی تغییر نکرد و commit دقیق checkout در خروجی ثبت نشده است.",
+      "سازگاری Spatie Activitylog v5.1.5 اصلاح و runtime هر پنج مدل Artist، Company، Festival، News و Title تأیید شد.",
+      "تست تراکنشی Activitylog برای پنج مدل موفق شد: رویدادهای created/updated، جزئیات attribute_changes و rollback کامل داده آزمایشی.",
+      "جدول activity_log و migrationهای ایجاد جدول و افزودن ستون‌های v5 در MySQL محلی وضعیت Ran داشتند؛ هیچ migration در این مرحله اجرا نشد.",
+      "کاربر در گفتگوهای 2026-11-24 مشکلات صفحه ورود و صفحات مدیریت اخبار، فیلم‌ها/سریال‌ها و چند صفحه مدیریت دیگر را گزارش کرد؛ QA تعاملی و رفع قطعی هنوز باز است.",
+      "آخرین commit شاخه main مخزن کد از GitHub برابر 2a06f9d9a200c95bf6c206c53d52ef3d56c05968 مشاهده شد؛ ممیزی تفصیلی فعلی تا e133e1d1244f2560fb9aedb8a53a56cc118c6cd4 است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -4589,7 +4595,15 @@
         "2026-11-23: در CI مربوط به commit efed7eb0c16cd7eb0872ce0a6566a53e02e74976، PHPUnit روی SQLite، Vite production build و Blade compile/lint موفق شدند؛ job MySQL 8.4 هنوز در مرحله آماده‌سازی کانتینر است.",
         "2026-11-23: اتصال درآمد تبلیغات اختصاصی AFN به کمپین direct، فیلتر کمپین و نمایش نام کمپین اضافه شد؛ CI run 45095719839 برای commit d31e242f460045b969af1c7ff6cf9a076062ce43 در حال اجراست.",
         "به‌روزرسانی CI run 45095719839: PHPUnit روی SQLite و Vite production build موفق شدند؛ job MySQL 8.4 هنوز در حال اجراست.",
-        "PR132: کاربر تأیید کرد Chrome headless یک PDF آزمایشی با نمایش صحیح دری، پشتو و انگلیسی تولید می‌کند؛ تست‌های Laravel/CI مربوط به پیاده‌سازی PDF اجرا نشده‌اند و Chromium روی هاست تولید بررسی نشده است."
+        "PR132: کاربر تأیید کرد Chrome headless یک PDF آزمایشی با نمایش صحیح دری، پشتو و انگلیسی تولید می‌کند؛ تست‌های Laravel/CI مربوط به پیاده‌سازی PDF اجرا نشده‌اند و Chromium روی هاست تولید بررسی نشده است.",
+        "2026-11-24: اجرای کامل محلی PHPUnit با APP_ENV=testing و SQLite حافظه‌ای موفق شد: ۲۸۲ تست، ۱٬۱۲۰ assertion، صفر شکست، ۴۰٫۶۷ ثانیه؛ MySQL محلی دست‌نخورده ماند. commit دقیق checkout از خروجی ثبت‌شده قابل تعیین نیست.",
+        "2026-11-24: سازگاری Spatie Laravel Activitylog v5.1.5 بررسی شد. namespace صحیح LogOptions برابر Spatie\\Activitylog\\Support\\LogOptions است و API قدیمی dontSubmitEmptyLogs با dontLogEmptyChanges جایگزین شده است.",
+        "2026-11-24: پنج مدل Artist، Company، Festival، News و Title در runtime تنظیمات Activitylog را با Support\\LogOptions بارگذاری کردند. برای هر پنج مدل رویداد created و updated تأیید شد؛ جزئیات old/attributes در attribute_changes ثبت شدند.",
+        "2026-11-24: آزمایش تراکنشی News و چهار مدل Artist/Company/Festival/Title با rollback انجام شد؛ رکورد مدل و Activitylog آزمایشی پس از rollback باقی نماندند. چهار مدل در اجرای یک‌جای نهایی ۴/۴ PASS گرفتند و News نیز در اجرای مستقل قبلی موفق بود.",
+        "2026-11-24: جدول activity_log و دو migration مربوط به آن در وضعیت Ran تأیید شدند؛ اتصال دیتابیس و Activitylog هر دو mysql بود. هیچ migration جدیدی در این اعتبارسنجی اجرا نشد.",
+        "2026-11-24: ساختار واقعی جدول‌های artists، companies، festivals و titles با Schema::getColumnListing بررسی شد؛ ستون‌های public_id و birth_date_source در جداول مربوط موجود بودند.",
+        "2026-11-24: کاربر مشکلات ظاهری/نمایشی در صفحه ورود و چند صفحه مدیریت، از جمله مدیریت اخبار و مدیریت فیلم‌ها و سریال‌ها و سایر صفحات مدیریت را گزارش کرد. رفع این موارد با تست مرورگر هنوز تأیید نشده و باید باز بماند.",
+        "2026-11-24: کاربر پیش‌تر تولید PDF آزمایشی با Chrome headless و نمایش متن دری، پشتو و انگلیسی را تأیید کرده بود؛ این تأیید به معنی اجرای تست Laravel/CI یا نصب Chromium روی هاست نیست."
       ],
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
@@ -4636,16 +4650,15 @@
         "scope_note": "این تست، smoke check محلی محدود است؛ تست تعاملی JavaScript، همه صفحات، viewport موبایل و مرورگرهای دیگر انجام نشده‌اند."
       },
       "local_test_run": {
-        "checked_at": "2026-11-22",
+        "checked_at": "2026-11-24",
         "command": "php artisan test",
+        "environment": "APP_ENV=testing; DB_CONNECTION=sqlite; DB_DATABASE=:memory:",
         "result": "success",
-        "passed": 256,
+        "passed": 282,
         "failed": 0,
-        "assertions": 990,
-        "deprecated": 1,
-        "deprecated_detail": "TitleCreditImportTemplateTest: fputcsv() called without explicit $escape parameter; test itself passed.",
-        "duration_seconds": 31.72,
-        "scope_note": "اجرای محلی کامل PHPUnit روی دیتابیس/محیط تست پروژه؛ این نتیجه به‌تنهایی تست مرورگر یا پذیرش بصری نیست."
+        "assertions": 1120,
+        "duration_seconds": 40.67,
+        "scope_note": "اجرای کامل PHPUnit در محیط تست SQLite حافظه‌ای؛ دیتابیس MySQL محلی تغییر نکرد. commit دقیق checkout هنگام این اجرا در شواهد گفتگو ثبت نشده است؛ بنابراین نتیجه به commit فعلی main نسبت داده نمی‌شود."
       },
       "local_migration_status": {
         "checked_at": "2026-11-22",
@@ -4799,13 +4812,14 @@
         "optimize_clear": "not_executed_due_to_trailing_backslash"
       },
       "last_local_run": {
-        "checked_at": "2026-11-22",
+        "checked_at": "2026-11-24",
         "command": "php artisan test",
-        "passed": 256,
+        "environment": "APP_ENV=testing; DB_CONNECTION=sqlite; DB_DATABASE=:memory:",
+        "passed": 282,
         "failed": 0,
-        "assertions": 990,
-        "deprecated_warnings": 1,
-        "qualification": "این نتیجه اجرای ثبت‌شده پیش از همگام‌سازی اصلاحات ترجمه است؛ پس از sync باید دوباره اجرا شود."
+        "assertions": 1120,
+        "duration_seconds": 40.67,
+        "qualification": "موفق در checkout محلی؛ commit دقیق checkout در خروجی ثبت نشده و این نتیجه تأیید CI یا main فعلی نیست."
       }
     },
     "release": {
@@ -4845,7 +4859,7 @@
       "mysql_tests": 254,
       "mysql_assertions": 983
     },
-    "note": "در 2026-11-22، پس از اجرای ۴۳ Migration و ProfessionGroupSeeder در Laragon، سه صفحه /artists، /news و /festivals با HTTP 200 تأیید شدند. اصلاح namespace مدل‌های News و Festival نیز در main ثبت شد. این تأیید محدود محلی است و جایگزین QA کامل مرورگر، تست تمام مسیرها یا staging نیست. بررسی بعدی فرانت‌اند: صفحه اصلی HTTP 200، CSS/JS تولیدی HTTP 200، فایل hot غایب و نمایش هدر/فوتر توسط کاربر تأیید شد؛ build با زمان غیرعادی ۱۱ دقیقه و هشدار fontaine نیازمند بهینه‌سازی است. PR132 خروجی PDF چندزبانه گزارش تبلیغات روی شاخه مستقل و به‌صورت draft ثبت شده؛ تأیید PDF آزمایشی Chrome توسط کاربر فقط صحت نمایش حروف را نشان می‌دهد، نه تست Laravel/CI یا سازگاری هاست.",
+    "note": "در 2026-11-22، پس از اجرای ۴۳ Migration و ProfessionGroupSeeder در Laragon، سه صفحه /artists، /news و /festivals با HTTP 200 تأیید شدند. اصلاح namespace مدل‌های News و Festival نیز در main ثبت شد. این تأیید محدود محلی است و جایگزین QA کامل مرورگر، تست تمام مسیرها یا staging نیست. بررسی بعدی فرانت‌اند: صفحه اصلی HTTP 200، CSS/JS تولیدی HTTP 200، فایل hot غایب و نمایش هدر/فوتر توسط کاربر تأیید شد؛ build با زمان غیرعادی ۱۱ دقیقه و هشدار fontaine نیازمند بهینه‌سازی است. PR132 خروجی PDF چندزبانه گزارش تبلیغات روی شاخه مستقل و به‌صورت draft ثبت شده؛ تأیید PDF آزمایشی Chrome توسط کاربر فقط صحت نمایش حروف را نشان می‌دهد، نه تست Laravel/CI یا سازگاری هاست. آخرین سرشاخه main مخزن کد در 2026-11-24 به commit 2a06f9d9a200c95bf6c206c53d52ef3d56c05968 رسیده است؛ ممیزی تفصیلی ثبت‌شده در این snapshot تا commit e133e1d1244f2560fb9aedb8a53a56cc118c6cd4 است و commit جدیدتر هنوز ممیزی کامل نشده است.",
     "panels": [
       {
         "id": "admin",
@@ -5259,14 +5273,119 @@
             "بررسی ترجمه واقعی داده‌ها و تکمیل اطلاعات نمونه am0000001؛ عنوان فعلی با language_code=en ذخیره شده اما مقدار آن دری است و synopsis/original_title خالی‌اند.",
             "بررسی جست‌وجوی آثار با شناسه عمومی am0000001؛ در تست قبلی صفر نتیجه داشت و semantics آن هنوز تعیین نشده است.",
             "بررسی responsive در موبایل/تبلت و مسیرهای تعاملی؛ هنوز تأیید مرورگری ثبت نشده است.",
-            "آخرین commit main: 7f6ffed0614ed0cdf2d06114c8929b3aa1bd1596؛ اجرای کامل CI با وضعیت success در run 45049622525."
+            "آخرین commit main: 7f6ffed0614ed0cdf2d06114c8929b3aa1bd1596؛ اجرای کامل CI با وضعیت success در run 45049622525.",
+            "بررسی تعاملی و اصلاح صفحه ورود و صفحات مدیریت اخبار، فیلم‌ها، سریال‌ها و سایر صفحات مدیریت؛ کاربر در 2026-11-24 ایرادهای نمایشی را گزارش کرده و رفع آن‌ها هنوز با مرورگر تأیید نشده است."
+          ]
+        },
+        {
+          "name": "اعتبارسنجی محلی Spatie Activitylog",
+          "state": "qa_passed",
+          "items": [
+            "نسخه spatie/laravel-activitylog برابر 5.1.5 است؛ namespace کلاس LogOptions و API dontLogEmptyChanges با نسخه ۵ سازگار شدند.",
+            "تنظیمات runtime هر پنج مدل Artist، Company، Festival، News و Title به Spatie\\Activitylog\\Support\\LogOptions بارگذاری شدند.",
+            "News: رویدادهای created و updated و جزئیات old/attributes و rollback تراکنشی تأیید شدند.",
+            "Artist، Company، Festival و Title: هر چهار مدل در اجرای یک‌جای تراکنشی created و updated را ثبت کردند؛ جزئیات attribute_changes موجود بود و rollback داده آزمایشی و logهای آن را برگرداند.",
+            "نتیجه نهایی مدل‌ها: ۵ از ۵ موفق، صفر شکست. اتصال هر دو سرویس mysql و جدول activity_log موجود بود؛ دو migration Activitylog وضعیت Ran داشتند."
+          ]
+        },
+        {
+          "name": "اجرای کامل PHPUnit محلی در 2026-11-24",
+          "state": "qa_passed",
+          "items": [
+            "APP_ENV=testing با DB_CONNECTION=sqlite و DB_DATABASE=:memory: اجرا شد.",
+            "۲۸۲ تست موفق، ۱٬۱۲۰ assertion، صفر شکست، مدت ۴۰٫۶۷ ثانیه.",
+            "این اجرا به MySQL محلی دست نزد؛ commit دقیق checkout در خروجی ثبت نشده است، پس نتیجه به main فعلی یا CI نسبت داده نمی‌شود."
           ]
         }
       ]
     },
-    "latest_main_commit": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
+    "latest_main_commit": "2a06f9d9a200c95bf6c206c53d52ef3d56c05968",
     "source_commit_audited": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
-    "latest_main_commit_verified_on": "2026-11-24"
+    "latest_main_commit_verified_on": "2026-11-24",
+    "local_activitylog_validation": {
+      "checked_at": "2026-11-24",
+      "package": "spatie/laravel-activitylog",
+      "package_version": "5.1.5",
+      "compatibility_fix": {
+        "log_options_class": "Spatie\\Activitylog\\Support\\LogOptions",
+        "old_method": "dontSubmitEmptyLogs",
+        "current_method": "dontLogEmptyChanges",
+        "models_checked": [
+          "Artist",
+          "Company",
+          "Festival",
+          "News",
+          "Title"
+        ],
+        "runtime_options_class_verified": true
+      },
+      "database": {
+        "default_connection": "mysql",
+        "activitylog_connection": "mysql",
+        "table_exists": true,
+        "migrations": [
+          {
+            "migration": "2026_11_20_235900_create_activity_log_table",
+            "status": "Ran"
+          },
+          {
+            "migration": "2026_11_20_235901_add_activitylog_v5_columns",
+            "status": "Ran"
+          }
+        ],
+        "columns_verified": [
+          "id",
+          "log_name",
+          "description",
+          "event",
+          "attribute_changes",
+          "subject_type",
+          "subject_id",
+          "causer_type",
+          "causer_id",
+          "properties",
+          "batch_uuid",
+          "created_at",
+          "updated_at"
+        ]
+      },
+      "models": {
+        "News": {
+          "created_event": "passed",
+          "updated_event": "passed",
+          "old_and_new_attributes": "passed",
+          "rollback_removes_test_model_and_activity": "passed"
+        },
+        "Artist": {
+          "created_event": "passed",
+          "updated_event": "passed",
+          "old_and_new_attributes": "passed",
+          "rollback_removes_test_model_and_activity": "passed"
+        },
+        "Company": {
+          "created_event": "passed",
+          "updated_event": "passed",
+          "old_and_new_attributes": "passed",
+          "rollback_removes_test_model_and_activity": "passed"
+        },
+        "Festival": {
+          "created_event": "passed",
+          "updated_event": "passed",
+          "old_and_new_attributes": "passed",
+          "rollback_removes_test_model_and_activity": "passed"
+        },
+        "Title": {
+          "created_event": "passed",
+          "updated_event": "passed",
+          "old_and_new_attributes": "passed",
+          "rollback_removes_test_model_and_activity": "passed"
+        }
+      },
+      "result": "passed",
+      "passed_models": 5,
+      "failed_models": 0,
+      "scope_note": "این اعتبارسنجی runtime محلی و تراکنشی است؛ تست مرورگر، staging و production را پوشش نمی‌دهد. هیچ migration یا داده واقعی حذف/بازسازی نشد."
+    }
   },
   "report_methodology": {
     "version": 3,
