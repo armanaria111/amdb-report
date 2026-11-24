@@ -252,3 +252,15 @@ Migrationهای اولیه کاتالوگ، هنرمند، شرکت و جشنو�
 - **PHP lint و PHPUnit هنوز روی محیط محلی کاربر اجرا نشده‌اند.** تا دریافت خروجی محلی، این تست‌ها را تأییدشده محسوب نکنید.
 - هیچ Migration، تغییر دیتابیس یا دست‌کاری داده در این PR وجود ندارد.
 - PR به‌صورت Draft باز است و هنوز merge نشده است؛ ابتدا باید lint و تست محلی اجرا و نتیجه بررسی شود.
+
+
+## 9. ادغام PR132 — خروجی PDF چندزبانه گزارش تبلیغات (2026-11-24)
+
+- PR [#132](https://github.com/armanaria111/amdb-laravel2/pull/132) از حالت Draft خارج و با روش Squash در `main` ادغام شد.
+- نتیجه GitHub: `merged=true`؛ merge commit: `c793b06f290f77da225996e68f25a865abcd9e94`.
+- CI پیش از ادغام، run [45428873147](https://github.com/armanaria111/amdb-laravel2/actions/runs/45428873147)، موفق بود: Vite production build، PHPUnit روی PHP 8.5 / SQLite و PHP 8.5 / MySQL 8.4، Composer validation و Blade compile/lint.
+- تست محلی worktree مستقل: `282 passed (1120 assertions)`.
+- route `GET|HEAD admin/advertising/pdf` با نام `admin.advertising.pdf` ثبت بود.
+- smoke test مستقیم `ChromiumPdfRenderer` در Laravel یک فایل PDF واقعی با اندازه ۳۵٬۷۱۴ بایت و امضای `%PDF-` تولید کرد.
+- کاربر پس از اجرای بررسی Unicode HTML entities، نمایش صحیح حروف دری و پشتو و جهت RTL در PDF را تأیید کرد.
+- محدوده باقی‌مانده: تست کامل دانلود HTTP با نشست مدیر در مرورگر انجام نشده؛ وجود Chromium و تنظیم `PDF_CHROME_PATH` روی هاست تولید نیز هنوز بررسی نشده است. این دو مورد به مرحله deployment/runtime تعلق دارند و ادغام کد را متوقف نکردند.
