@@ -688,7 +688,8 @@
       "قرارداد درآمدی هنگام submit/approve دوباره اعتبار مدارک طرف‌های قرارداد را کنترل می‌کند و همپوشانی قراردادها را بر اساس مدل درآمد، قلمرو و بازه زمانی مدیریت می‌کند.",
       "شکاف معماری ثبت شد: PlaybackSource و مسیر تحویل Hosted Playback از rights_status/rights_holder/license_reference مستقل استفاده می‌کنند و به رکورد CompanyTitleRight متصل نیستند؛ بنابراین مدرک تأییدشده شرکت هنوز مرجع واحد مجوز پخش نیست.",
       "به‌دلیل نیاز به تصمیم درباره اتصال مجوزهای انحصاری/غیرانحصاری، قلمرو، بازه اعتبار و منابع بیرونی، تغییر حدسی در قواعد حقوقی اعمال نشد؛ اصلاح اتصال مرجع حقوق نشر به پخش به‌عنوان کار باز ثبت شد.",
-      "هیچ تست، Build، Migration، Seeder، نصب وابستگی یا عملیات دیتابیس اجرا نشد."
+      "هیچ تست، Build، Migration، Seeder، نصب وابستگی یا عملیات دیتابیس اجرا نشد.",
+      "در 2026-11-24، PR132 برای خروجی PDF چندزبانه گزارش تبلیغات روی شاخه مستقل ایجاد شد؛ کاربر نمایش صحیح PDF آزمایشی Chrome برای دری/پشتو/انگلیسی را تأیید کرد. تست Laravel و CI این PR اجرا نشده و قابلیت هنوز در main ادغام نشده است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1272,6 +1273,10 @@
     {
       "date": "2026-11-24",
       "text": "پس از ادغام PR125/126/127/129، ممیزی مسیر ثبت حقوق نشر شرکت نشان داد الگوی preg_split محدوده جغرافیایی بیش‌ازحد escape شده بود. PR130 آن را اصلاح کرد و تست‌های Feature برای مجازبودن owner/manager فعال و منع finance/viewer/حساب فاقد عضویت اضافه کرد. PR130 در main ادغام شد؛ هیچ تست، Build، Migration، Seeder یا عملیات دیتابیس اجرا نشد."
+    },
+    {
+      "date": "2026-11-24",
+      "text": "PR132 در شاخه feature/chromium-advertising-pdf ایجاد شد: خروجی PDF فیلترپذیر گزارش تبلیغات مدیریت با موتور Chromium، آمار روزانه و جایگاه‌ها، درآمد AFN و ترجمه‌های en/fa-AF/ps. کاربر PDF آزمایشی Chrome را از نظر نمایش دری/پشتو/انگلیسی تأیید کرد. PR پیش‌نویس و ادغام‌نشده است؛ تست Laravel، CI و نصب Chromium روی هاست هنوز بررسی نشده‌اند."
     }
   ],
   "architecture": {
@@ -4583,7 +4588,8 @@
         "2026-11-23: گزارش ماهانه و سالانه دفتر درآمد پلتفرم با تست Feature افزوده شد؛ CI run 45085472936 برای commit efed7eb0c16cd7eb0872ce0a6566a53e02e74976 در حال اجراست و هنوز نتیجه‌ای ثبت نشده.",
         "2026-11-23: در CI مربوط به commit efed7eb0c16cd7eb0872ce0a6566a53e02e74976، PHPUnit روی SQLite، Vite production build و Blade compile/lint موفق شدند؛ job MySQL 8.4 هنوز در مرحله آماده‌سازی کانتینر است.",
         "2026-11-23: اتصال درآمد تبلیغات اختصاصی AFN به کمپین direct، فیلتر کمپین و نمایش نام کمپین اضافه شد؛ CI run 45095719839 برای commit d31e242f460045b969af1c7ff6cf9a076062ce43 در حال اجراست.",
-        "به‌روزرسانی CI run 45095719839: PHPUnit روی SQLite و Vite production build موفق شدند؛ job MySQL 8.4 هنوز در حال اجراست."
+        "به‌روزرسانی CI run 45095719839: PHPUnit روی SQLite و Vite production build موفق شدند؛ job MySQL 8.4 هنوز در حال اجراست.",
+        "PR132: کاربر تأیید کرد Chrome headless یک PDF آزمایشی با نمایش صحیح دری، پشتو و انگلیسی تولید می‌کند؛ تست‌های Laravel/CI مربوط به پیاده‌سازی PDF اجرا نشده‌اند و Chromium روی هاست تولید بررسی نشده است."
       ],
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
@@ -4839,7 +4845,7 @@
       "mysql_tests": 254,
       "mysql_assertions": 983
     },
-    "note": "در 2026-11-22، پس از اجرای ۴۳ Migration و ProfessionGroupSeeder در Laragon، سه صفحه /artists، /news و /festivals با HTTP 200 تأیید شدند. اصلاح namespace مدل‌های News و Festival نیز در main ثبت شد. این تأیید محدود محلی است و جایگزین QA کامل مرورگر، تست تمام مسیرها یا staging نیست. بررسی بعدی فرانت‌اند: صفحه اصلی HTTP 200، CSS/JS تولیدی HTTP 200، فایل hot غایب و نمایش هدر/فوتر توسط کاربر تأیید شد؛ build با زمان غیرعادی ۱۱ دقیقه و هشدار fontaine نیازمند بهینه‌سازی است.",
+    "note": "در 2026-11-22، پس از اجرای ۴۳ Migration و ProfessionGroupSeeder در Laragon، سه صفحه /artists، /news و /festivals با HTTP 200 تأیید شدند. اصلاح namespace مدل‌های News و Festival نیز در main ثبت شد. این تأیید محدود محلی است و جایگزین QA کامل مرورگر، تست تمام مسیرها یا staging نیست. بررسی بعدی فرانت‌اند: صفحه اصلی HTTP 200، CSS/JS تولیدی HTTP 200، فایل hot غایب و نمایش هدر/فوتر توسط کاربر تأیید شد؛ build با زمان غیرعادی ۱۱ دقیقه و هشدار fontaine نیازمند بهینه‌سازی است. PR132 خروجی PDF چندزبانه گزارش تبلیغات روی شاخه مستقل و به‌صورت draft ثبت شده؛ تأیید PDF آزمایشی Chrome توسط کاربر فقط صحت نمایش حروف را نشان می‌دهد، نه تست Laravel/CI یا سازگاری هاست.",
     "panels": [
       {
         "id": "admin",
@@ -6077,6 +6083,27 @@
         "ci": {
           "status": "awaiting_new_main_run"
         }
+      },
+      "pdf_export": {
+        "pull_request": 132,
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/132",
+        "branch": "feature/chromium-advertising-pdf",
+        "head_commit": "3d9fbde0b4c066d91b9bd0e4866098e2e1b1a753",
+        "base_commit": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
+        "status": "open_draft_unmerged_validation_pending",
+        "features": [
+          "موتور PDF مبتنی بر Chrome/Chromium با Symfony Process و مسیر اجرایی قابل تنظیم از PDF_CHROME_PATH.",
+          "خروجی PDF از گزارش فیلترشده کمپین‌های مدیریت، با خلاصه آمار، گزارش روزانه و مقایسه جایگاه‌ها.",
+          "گنجاندن درآمد مستقیم AFN تأییدشده و در انتظار تأیید در جدول کمپین‌ها.",
+          "نمایش مستقل انگلیسی، دری و پشتو و جهت RTL برای fa-AF و ps.",
+          "ساخت HTML موقت محلی و حذف فایل‌های موقت پس از تولید/ارسال PDF."
+        ],
+        "user_smoke_test": "تولید PDF آزمایشی Chrome روی محیط کاربر تأیید شد؛ نمایش دری، پشتو و انگلیسی صحیح گزارش شد.",
+        "ci": "not_run",
+        "laravel_tests": "deferred",
+        "host_chromium_availability": "not_verified",
+        "merge_commit": null,
+        "migration_required": false
       }
     },
     "company_assignment": {
@@ -6590,6 +6617,17 @@
         "main_assertions": 909
       },
       "url": "https://github.com/armanaria111/amdb-laravel2/pull/113"
+    },
+    {
+      "branch": "feature/chromium-advertising-pdf",
+      "pull_request": 132,
+      "title": "Add multilingual Chromium PDF export for advertising reports",
+      "head_commit": "3d9fbde0b4c066d91b9bd0e4866098e2e1b1a753",
+      "base_commit": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
+      "status": "open_draft_unmerged_validation_pending",
+      "scope": "خروجی PDF فیلترپذیر گزارش تبلیغات مدیریت شامل آمار کمپین، روند روزانه، مقایسه جایگاه‌ها و درآمد تأییدشده/در انتظار AFN؛ موتور Chromium با مسیر قابل تنظیم؛ خروجی سه‌زبانه en/fa-AF/ps و RTL.",
+      "url": "https://github.com/armanaria111/amdb-laravel2/pull/132",
+      "validation": "کاربر تأیید کرد PDF آزمایشی Chrome حروف دری، پشتو و انگلیسی را درست نمایش می‌دهد. این فقط smoke test موتور مرورگر است؛ تست Laravel، CI این PR و نصب Chromium روی هاست هنوز تأیید نشده‌اند."
     }
   ],
   "company_rights_evidence": {
