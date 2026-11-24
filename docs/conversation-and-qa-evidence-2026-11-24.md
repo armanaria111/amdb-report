@@ -136,3 +136,53 @@ Migrationهای اولیه کاتالوگ، هنرمند، شرکت و جشنو�
 
 **مرجع وضعیت ساختاریافته:** [project-status.json](../project-status.json)  
 **تاریخچه تغییرات گزارش:** [CHANGELOG.md](../CHANGELOG.md)
+
+
+## 6. MySQL محلی — اجرای Migrationهای مالی/تبلیغاتی و حقوق پخش (2026-11-24)
+
+**محیط گزارش‌شده:** Windows + Laragon، اتصال Laravel با درایور `mysql` به دیتابیس `amdbl`.
+
+### 6.1 اجرای Migrationها
+
+پنج Migration زیر روی دیتابیس محلی اجرا شدند و هر پنج مورد در خروجی Artisan با `DONE` و سپس در `migrate:status` با Batch شماره 17 و وضعیت `Ran` تأیید شدند:
+
+1. `2026_11_22_160000_add_company_to_advertising_campaigns_table`
+2. `2026_11_22_190000_add_unique_payout_reference_to_settlements`
+3. `2026_11_22_200000_create_platform_revenue_entries_table`
+4. `2026_11_23_010000_add_campaign_to_platform_revenue_entries_table`
+5. `2026_11_24_120000_add_company_title_right_to_playback_sources`
+
+### 6.2 بررسی ساختار پس از Migration
+
+اسکریپت PHP موقت و فقط‌خواندنی، موارد زیر را تأیید کرد:
+
+- `advertising_campaigns.company_id`: موجود.
+- `revenue_settlement_requests.payout_reference`: موجود.
+- جدول `platform_revenue_entries` و ستون‌های `id`, `source`, `currency`, `amount`, `campaign_id`, `recorded_by`, `reviewed_by`: موجود.
+- `playback_sources.company_title_right_id`: موجود.
+- ایندکس یکتای `revenue_settlement_payout_reference_unique`: موجود و unique.
+- اتصال فعال: `mysql`; نام دیتابیس: `amdbl`.
+- نتیجه اسکریپت: `ALL CHECKS PASSED`.
+
+یک تلاش اولیه برای اجرای بررسی با `php -r` به‌دلیل quoting در PowerShell Parse error داد؛ این خطا مربوط به دستور بررسی بود، نه Migration. بررسی مجدد با فایل PHP موقت بدون BOM با موفقیت انجام شد.
+
+### 6.3 ممیزی کلیدهای خارجی و رکوردهای یتیم
+
+پنج رابطه زیر در `information_schema.KEY_COLUMN_USAGE` وجود کلید خارجی داشتند و شمار رکوردهای یتیم هر رابطه صفر بود:
+
+| رابطه | Foreign key | Orphan records |
+|---|---|---:|
+| advertising_campaigns.company_id → companies.id | موجود | 0 |
+| platform_revenue_entries.campaign_id → advertising_campaigns.id | موجود | 0 |
+| platform_revenue_entries.recorded_by → users.id | موجود | 0 |
+| platform_revenue_entries.reviewed_by → users.id | موجود | 0 |
+| playback_sources.company_title_right_id → company_title_rights.id | موجود | 0 |
+
+**نتیجه:** `ALL RELATION CHECKS PASSED`.
+
+### 6.4 محدوده و محدودیت شواهد
+
+- این نتایج runtime واقعی دیتابیس MySQL محلی کاربر هستند، نه صرفاً بررسی ایستای سورس.
+- هیچ رکوردی برای آزمایش ایجاد، ویرایش یا حذف نشد؛ هیچ جدول/داده‌ای reset یا پاک نشد.
+- این بررسی، صحت وجود schema و FKها و نبود orphan در پنج رابطه مشخص را ثابت می‌کند؛ صحت کامل منطق مالی، هم‌زمانی تراکنش‌ها، مجوزهای دسترسی، رابط کاربری و جریان انتهابه‌انتها را ثابت نمی‌کند.
+- خطای Parse اولیه دستور `php -r` نباید به‌عنوان شکست Migration یا خرابی دیتابیس ثبت شود.
