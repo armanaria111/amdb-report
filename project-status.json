@@ -7360,7 +7360,7 @@
     "updated_at": "2026-11-24",
     "source_commit": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
     "implementation_branch": "feature/playback-company-rights-binding",
-    "implementation_head": "9afd2f3d8196af9f0fee6685679fa1700622175d",
+    "implementation_head": "421b201e030eba93fcda4b98e671caa45e58821d",
     "pull_request_status": "draft_open_mergeable_true",
     "status": "implemented_on_branch_static_review_only_trusted_geoip_middleware_pending",
     "changes": [
@@ -7373,11 +7373,12 @@
       "قلمرو جغرافیایی هنگام تحویل با CompanyTitleRight::approvedFor بررسی می‌شود؛ فقط request attribute سمت سرور به نام viewer_country_code پذیرفته می‌شود و locale یا header خام کلاینت مبنا نیست.",
       "در نبود context کشور مورداعتماد، مجوزهای محدود به کشور رد می‌شوند و فقط رکورد دارای قلمرو * مجاز است (fail closed).",
       "تست Feature برای نبود کشور معتبر، کشور خارج از قلمرو و کشور مجاز نوشته شده؛ اجرا نشده است.",
-      "مستندات playback-sources.md درباره مرز fail-closed و نیاز به GeoIP middleware به‌روزرسانی شد."
+      "مستندات playback-sources.md درباره مرز fail-closed و نیاز به GeoIP middleware به‌روزرسانی شد.",
+      "تست‌های مدیریت منبع پخش برای پذیرش مدرک شرکتی به‌عنوان تنها مدرک و رد مدرک مربوط به اثر دیگر یا مدرک منقضی اضافه شد؛ اجرا نشده‌اند."
     ],
     "limitations": [
       "در مخزن فعلی middleware یا سرویس GeoIP مورداعتماد که viewer_country_code را تنظیم کند یافت نشد؛ تا پیاده‌سازی و اعتبارسنجی زنجیره proxy، حقوق محدود به قلمروهای خاص قابل استفاده در hosted delivery نیستند و فقط * مجاز است.",
-      "تست‌های جدید و موجود اجرا نشده‌اند؛ تست‌های تکمیلی برای pending، revoked، expired، wrong-title، wrong-company و مسیر external باید کامل بازبینی شوند.",
+      "تست‌های جدید و موجود اجرا نشده‌اند؛ پوشش تحویل مستقیم برای pending/revoked/expired/wrong-title/wrong-company و مسیر external همچنان باید کامل شود.",
       "Migration، Build، Seeder، نصب وابستگی و عملیات دیتابیس اجرا نشده‌اند."
     ],
     "next_steps": [
