@@ -7361,7 +7361,7 @@
     "source_commit": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
     "implementation_branch": "feature/playback-company-rights-binding",
     "implementation_head": "c01d888e57a78556865e6447dc4512e48e3a1459",
-    "pull_request_status": "draft_open",
+    "pull_request_status": "draft_open_mergeable_true",
     "status": "implemented_on_branch_static_review_only_territory_context_and_tests_pending",
     "changes": [
       "افزودن company_title_right_id به playback_sources با Migration افزایشی و nullable؛ داده‌های قبلی حفظ می‌شوند.",
