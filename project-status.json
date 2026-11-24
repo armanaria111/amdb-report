@@ -19,7 +19,7 @@
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_commit_audited": "c793b06f290f77da225996e68f25a865abcd9e94",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "c793b06f290f77da225996e68f25a865abcd9e94",
+    "latest_main_commit": "ffa11817c997f4c1f7cda3fd898475152c3503df",
     "latest_main_commit_verified_on": "2026-11-24",
     "advertising_note": "گزارش عملکرد کمپین، درآمد پلتفرم و صورتحساب تبلیغ‌دهندگان در ماژول‌های جدا هستند؛ صورتحساب و دریافت وجه فقط به‌صورت ثبت دستی رسید بیرونی انجام می‌شود و ارزها مستقل می‌مانند.",
     "platform_revenue_export": "خروجی CSV فیلترپذیر دفتر درآمد پلتفرم با ستون‌های منبع، ارز، مبلغ، دوره، وضعیت، کمپین و ممیزی ثبت/تأیید؛ مسیر GET export در گروه route صحیح ثبت شده است."
@@ -5302,7 +5302,7 @@
         }
       ]
     },
-    "latest_main_commit": "c793b06f290f77da225996e68f25a865abcd9e94",
+    "latest_main_commit": "ffa11817c997f4c1f7cda3fd898475152c3503df",
     "source_commit_audited": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
     "latest_main_commit_verified_on": "2026-11-24",
     "local_activitylog_validation": {
@@ -7740,6 +7740,15 @@
       "reason": "طبق روال فعلی، تست‌ها و بررسی مرورگر به مرحله بعد موکول شده‌اند.",
       "next": "پس از ادغام و همگام‌سازی نسخه محلی، تست Blade/Vite و بررسی صفحه‌ها در دسکتاپ و موبایل انجام شود."
     },
-    "qualification": "PR باز است و هنوز در main ادغام نشده؛ تغییرات نباید به‌عنوان قابلیت تأییدشده یا runtime-tested گزارش شوند."
+    "qualification": "PR باز است و هنوز در main ادغام نشده؛ تغییرات نباید به‌عنوان قابلیت تأییدشده یا runtime-tested گزارش شوند.",
+    "branch_sync": {
+      "status": "diverged",
+      "ahead_by": 7,
+      "behind_by": 3,
+      "merge_base": "86421cdda5ccf4e600b5762cb08cbb7b6f3e87b9",
+      "main_head_at_comparison": "ffa11817c997f4c1f7cda3fd898475152c3503df",
+      "overlap_with_main_changes": "none among the six changed paths",
+      "note": "PR is not merged; branch synchronization is required before merge. No merge was attempted."
+    }
   }
 }
