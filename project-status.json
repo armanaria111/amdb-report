@@ -7389,5 +7389,24 @@
       "تکمیل تست‌های تحویل برای pending/revoked/expired/wrong-title/wrong-company/external و بازبینی کامل diff.",
       "اجرای تست‌ها و CI در زمان مجاز، سپس تصمیم درباره ادغام PR131."
     ]
+  },
+  "revenue_decimal_precision_audit": {
+    "updated_at": "2026-11-24",
+    "branch": "feature/playback-company-rights-binding",
+    "implementation_head": "7a91825ac8dbfb5eef3369f36587729530aff2cf",
+    "status": "static_review_hardening_added_tests_not_executed",
+    "findings": [
+      "RevenueLedgerService::toCents previously validated the pre-rounded whole part only. A value at the DECIMAL(14,2) boundary ending in .995 could round up into a thirteenth integer digit and overflow the ledger column.",
+      "The service now validates the rounded cents value against the exact DECIMAL(14,2) maximum before persisting.",
+      "Fixed company contract shares are bounded to the ten-integer-digit range of DECIMAL(14,4), and contract input validation uses the same maximum."
+    ],
+    "coverage": [
+      "Feature test authored for rejecting 999999999999.995 before a ledger write; not executed."
+    ],
+    "validation": "No tests, builds, migrations, seeders, dependency installations or database operations were run.",
+    "next_steps": [
+      "Review all financial input limits against their exact database DECIMAL precision.",
+      "Complete settlement concurrency and reversal coverage, then run the full finance test suite when authorized."
+    ]
   }
 }
