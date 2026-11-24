@@ -7466,12 +7466,12 @@
     "branch": "feature/playback-company-rights-binding",
     "head_commit": "38f17da201ae7b54f16734ced8e4f11917190e35",
     "base_branch": "main",
-    "status": "open_draft_unmerged",
-    "commits_ahead": 38,
+    "status": "open_draft_unmerged_mergeable",
+    "commits_ahead": 43,
     "commits_behind": 0,
-    "changed_files": 20,
-    "additions": 603,
-    "deletions": 3,
+    "changed_files": 22,
+    "additions": 743,
+    "deletions": 22,
     "validation": "Static source review only; tests/build/migrations/seeders/dependency installation/database operations intentionally deferred."
   },
   "remaining_work_estimate": {
