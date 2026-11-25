@@ -7863,7 +7863,8 @@
       "فهرست مدیریت نقش‌ها با جهت RTL/LTR وابسته به زبان، متن‌چین منطقی، عنوان صفحه و بهبود دسترس‌پذیری جدول هماهنگ شد.",
       "کلیدهای فایل ترجمه role-admin در هر سه زبان en، fa-AF و ps از نظر برابری کلیدها بررسی شدند و اختلافی مشاهده نشد.",
       "برابری کلیدهای ترجمه admin، news-admin و title-admin نیز در سه زبان بررسی شد؛ هیچ کلید مفقود یا اضافه‌ای نسبت به انگلیسی مشاهده نشد.",
-      "فرم‌های ایجاد و ویرایش نقش برای دری و پشتو راست‌چین شدند و labelهای نام، شناسه و توضیحات به ورودی‌های متناظر متصل شدند."
+      "فرم‌های ایجاد و ویرایش نقش برای دری و پشتو راست‌چین شدند و labelهای نام، شناسه و توضیحات به ورودی‌های متناظر متصل شدند.",
+      "تطبیق مجوزهای Route با RolePermissionSeeder انجام شد؛ هر ۲۹ مجوز متمایز استفاده‌شده در مسیرهای مدیریت در Seeder تعریف شده‌اند. کنترل درخواست و Policy نیز محدودیت مجوزهای حساس را به مدیر ارشد اختصاصی اعمال می‌کنند."
     ],
     "safety_scope": "فقط رابط کاربری و CSS؛ بدون Migration، تغییر schema، حذف یا تغییر داده‌ها. نام routeها، نام فیلدهای فرم و قرارداد کنترلر حفظ شدند.",
     "dependency": "این PR عمداً بر شاخه PR135 ساخته شده است؛ ابتدا باید PR135 ادغام شود و سپس این PR روی main بازپایه‌گذاری/بررسی شود.",
@@ -7892,7 +7893,7 @@
     "static_review": {
       "checked_at": "2026-11-25",
       "routes": "گروه admin دارای auth و admin.area است؛ داشبورد با admin و مسیرهای دیگر با permission middlewareهای مختص حوزه محافظت می‌شوند.",
-      "authorization": "PermissionMiddleware اکنون پیام فارسی سالم دارد؛ کنترل مجوز همچنان از User::hasPermission و نقش‌های موجود استفاده می‌کند.",
+      "authorization": "Route permission slugs were compared with RolePermissionSeeder: all 29 distinct permission slugs used by admin routes exist in the seeder. StoreRoleRequest and UpdateRoleRequest restrict protected permissions to the designated super administrator; RolePolicy also blocks editing/deleting system or protected roles. This is static source review, not runtime authorization testing.",
       "translation_parity": "کلیدهای lang/{en,fa-AF,ps}/role-admin.php برابرند.",
       "browser": "عدم دسترسی به مرورگر متصل؛ هیچ QA بصری ادعا نمی‌شود.",
       "translation_key_parity": {
@@ -7921,7 +7922,12 @@
           "missing": 0
         }
       },
-      "forms": "فرم‌های ایجاد/ویرایش نقش با dir وابسته به locale و label-for متصل به ورودی‌ها بهبود یافتند."
+      "forms": "فرم‌های ایجاد/ویرایش نقش با dir وابسته به locale و label-for متصل به ورودی‌ها بهبود یافتند.",
+      "route_permission_parity": {
+        "distinct_route_permissions": 29,
+        "missing_from_seeder": [],
+        "result": "passed_static"
+      }
     }
   }
 }
