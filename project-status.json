@@ -7815,7 +7815,7 @@
     "branch": "improve/admin-people-and-auth-ui",
     "base_branch": "improve/admin-title-management-ui",
     "base_pull_request": 135,
-    "head_commit": "e1b266f72c34f507000bae054232ab533f14b6fb",
+    "head_commit": "39fef440b7a654aa38304dd9b63d44aac22a1c33",
     "changed_files": [
       "resources/css/app.css",
       "resources/views/admin/artist-subscription-plans/index.blade.php",
@@ -7827,6 +7827,7 @@
       "resources/views/admin/artists/show.blade.php",
       "resources/views/admin/artists/subscriptions/index.blade.php",
       "resources/views/admin/companies/representatives.blade.php",
+      "resources/views/admin/dashboard.blade.php",
       "resources/views/admin/profession-groups/index.blade.php",
       "resources/views/admin/professional-requests/index.blade.php",
       "resources/views/admin/professional-requests/show.blade.php",
@@ -7850,13 +7851,14 @@
       "مدیریت پلن‌های اشتراک با ناوبری بین درخواست‌ها و پلن‌ها، وضعیت خواناتر و پشتیبانی صریح RTL برای دری و پشتو اصلاح شد.",
       "صفحه صدور اشتراک هنرمند و تاریخچه پرداخت‌ها با پوسته یکپارچه و جهت متن وابسته به زبان هماهنگ شد.",
       "صفحه واردسازی هنرمندان با پنل‌های ساختاریافته، گزارش پیش‌نمایش و نتیجه، استایل بدون inline CSS و جهت RTL/LTR بازطراحی شد.",
-      "استایل‌های واکنش‌گرا و دسترس‌پذیری مشترک برای workflowهای مدیریت اشتراک و واردسازی در CSS مرکزی اضافه شدند."
+      "استایل‌های واکنش‌گرا و دسترس‌پذیری مشترک برای workflowهای مدیریت اشتراک و واردسازی در CSS مرکزی اضافه شدند.",
+      "در داشبورد مدیریت، دسترسی مستقیم به صف درخواست‌های اشتراک و مدیریت پلن‌های اشتراک هنرمندان افزوده شد."
     ],
     "safety_scope": "فقط رابط کاربری و CSS؛ بدون Migration، تغییر schema، حذف یا تغییر داده‌ها. نام routeها، نام فیلدهای فرم و قرارداد کنترلر حفظ شدند.",
     "dependency": "این PR عمداً بر شاخه PR135 ساخته شده است؛ ابتدا باید PR135 ادغام شود و سپس این PR روی main بازپایه‌گذاری/بررسی شود.",
     "branch_sync": {
       "status": "based_on_pr135_head",
-      "ahead_by": 25,
+      "ahead_by": 26,
       "behind_by": 0,
       "base_head_at_comparison": "70452c0847860f61bbcd181ef41800dfc5da32e2"
     },
@@ -7866,6 +7868,6 @@
       "browser_visual_qa": false,
       "reason": "مطابق درخواست کاربر توسعه ادامه یافت و تست‌ها و QA به مرحله بعد موکول شدند."
     },
-    "qualification": "PR #136 باز و ادغام‌نشده است؛ 17 فایل تغییر کرده‌اند، 25 commit جلوتر و بدون عقب‌ماندگی از شاخه پایه PR135. آخرین بررسی mergeable=true بود. تست‌ها، Vite build و QA مرورگر اجرا نشده‌اند."
+    "qualification": "PR #136 باز و ادغام‌نشده است؛ 18 فایل تغییرکرده، 26 commit جلوتر و صفر commit عقب‌تر از شاخه پایه PR135. آخرین snapshot mergeable=false گزارش کرد؛ پیش از ادغام باید وضعیت و علت آن تازه بررسی شود. تست‌ها، Vite build و QA مرورگر اجرا نشده‌اند."
   }
 }
