@@ -7815,34 +7815,44 @@
     "branch": "improve/admin-people-and-auth-ui",
     "base_branch": "improve/admin-title-management-ui",
     "base_pull_request": 135,
-    "head_commit": "7a4fed933fa8437cd70784b600daf80500d7c113",
+    "head_commit": "d0c78b82046a5f06a54ffbeb3657571d4f08ee70",
     "changed_files": [
+      "resources/css/app.css",
+      "resources/views/admin/artists/create.blade.php",
+      "resources/views/admin/artists/edit.blade.php",
       "resources/views/admin/artists/index.blade.php",
+      "resources/views/admin/artists/show.blade.php",
+      "resources/views/admin/profession-groups/index.blade.php",
+      "resources/views/admin/professional-requests/index.blade.php",
+      "resources/views/admin/professional-requests/show.blade.php",
+      "resources/views/admin/professions/index.blade.php",
       "resources/views/admin/users/index.blade.php",
-      "resources/views/auth/login.blade.php",
-      "resources/css/app.css"
+      "resources/views/auth/login.blade.php"
     ],
     "changes": [
-      "فهرست مدیریت هنرمندان با سربرگ، جستجو، برچسب حرفه‌ها، شناسه عمومی در صورت وجود، دسترسی مشاهده/ویرایش و صفحه‌بندی همراه query string بازطراحی شد.",
-      "فهرست مدیریت کاربران با نقش‌ها به‌صورت برچسب، جستجو، جدول واکنش‌گرا و صفحه‌بندی همراه query string بهبود یافت.",
-      "صفحه ورود با labelهای قابل دسترس، autocomplete مناسب، پیام خطای یکپارچه و چیدمان واکنش‌گرا بازطراحی شد.",
-      "استایل‌های جدید فقط در فایل مرکزی resources/css/app.css افزوده شدند."
+      "صفحه ورود با labelهای قابل دسترس، autocomplete مناسب، نمایش خطا و چیدمان واکنش‌گرا بازطراحی شد.",
+      "فهرست مدیریت کاربران با نمایش نقش‌ها، جستجو و صفحه‌بندی حفظ‌کننده query string بهبود یافت؛ مسیرهای مدیریت نقش و اتصال پروفایل هنرمند حفظ شدند.",
+      "فهرست هنرمندان با جستجو، نمایش حرفه‌ها، شناسه عمومی و دسترسی مشاهده/ویرایش بازطراحی شد.",
+      "فرم‌های ایجاد و ویرایش هنرمند با گروه‌بندی فیلدها، انتخاب چند حرفه، وضعیت فعال/تأیید و بازخورد خطا بهبود یافتند.",
+      "صفحه جزئیات هنرمند با وضعیت، حرفه‌ها، حساب‌های متصل و پیوندهای مدیریت مرتبط بازطراحی شد.",
+      "فهرست گروه‌های حرفه و حرفه‌ها با جدول واکنش‌گرا، نشانگر وضعیت، شمارنده استفاده و عملیات واضح بازطراحی شد.",
+      "فهرست درخواست‌های حرفه‌ای و صفحه بررسی آن با وضعیت‌های مشخص، نمایش حرفه‌ها، پیام‌های بازخورد و فرم‌های خواناتر اصلاح شد.",
+      "CSS جدید در فایل مرکزی resources/css/app.css نگهداری شد."
     ],
-    "safety_scope": "بدون Migration، تغییر schema، تغییر داده یا حذف داده؛ routeها و قراردادهای کنترلر حفظ شدند.",
-    "dependency": "این PR عمداً بر شاخه PR135 ساخته شده و پس از ادغام PR135 باید بررسی و ادغام شود.",
+    "safety_scope": "فقط رابط کاربری و CSS؛ بدون Migration، تغییر schema، حذف یا تغییر داده‌ها. نام routeها، نام فیلدهای فرم و قرارداد کنترلر حفظ شدند.",
+    "dependency": "این PR عمداً بر شاخه PR135 ساخته شده است؛ ابتدا باید PR135 ادغام شود و سپس این PR روی main بازپایه‌گذاری/بررسی شود.",
+    "branch_sync": {
+      "status": "based_on_pr135_head",
+      "ahead_by": 16,
+      "behind_by": 0,
+      "base_head_at_comparison": "70452c0847860f61bbcd181ef41800dfc5da32e2"
+    },
     "qa": {
       "tests_run": false,
       "vite_build_run": false,
       "browser_visual_qa": false,
-      "reason": "طبق درخواست فعلی توسعه مقدم است و تست‌ها و QA به مرحله بعد موکول شده‌اند."
+      "reason": "مطابق درخواست کاربر توسعه ادامه یافت و تست‌ها و QA به مرحله بعد موکول شدند."
     },
-    "qualification": "PR #136 باز است و ادغام نشده؛ بر پایه PR #135 است و نباید پیش از ادغام/حل وابستگی PR135 به main ادغام شود.",
-    "commit_count": 6,
-    "branch_sync": {
-      "status": "based_on_pr135_head",
-      "ahead_by": 6,
-      "behind_by": 0,
-      "base_head_at_comparison": "70452c0847860f61bbcd181ef41800dfc5da32e2"
-    }
+    "qualification": "PR #136 باز و mergeable گزارش شده اما هنوز ادغام نشده؛ 11 فایل تغییر کرده‌اند. تست‌ها، Vite build و QA مرورگر اجرا نشده‌اند."
   }
 }
