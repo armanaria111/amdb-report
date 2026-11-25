@@ -7815,17 +7815,19 @@
     "branch": "improve/admin-people-and-auth-ui",
     "base_branch": "improve/admin-title-management-ui",
     "base_pull_request": 135,
-    "head_commit": "d0c78b82046a5f06a54ffbeb3657571d4f08ee70",
+    "head_commit": "136bbadef9bc01195382eecb1bf807b5eac38c30",
     "changed_files": [
       "resources/css/app.css",
       "resources/views/admin/artists/create.blade.php",
       "resources/views/admin/artists/edit.blade.php",
       "resources/views/admin/artists/index.blade.php",
       "resources/views/admin/artists/show.blade.php",
+      "resources/views/admin/companies/representatives.blade.php",
       "resources/views/admin/profession-groups/index.blade.php",
       "resources/views/admin/professional-requests/index.blade.php",
       "resources/views/admin/professional-requests/show.blade.php",
       "resources/views/admin/professions/index.blade.php",
+      "resources/views/admin/profile-media/index.blade.php",
       "resources/views/admin/users/index.blade.php",
       "resources/views/auth/login.blade.php"
     ],
@@ -7837,13 +7839,15 @@
       "صفحه جزئیات هنرمند با وضعیت، حرفه‌ها، حساب‌های متصل و پیوندهای مدیریت مرتبط بازطراحی شد.",
       "فهرست گروه‌های حرفه و حرفه‌ها با جدول واکنش‌گرا، نشانگر وضعیت، شمارنده استفاده و عملیات واضح بازطراحی شد.",
       "فهرست درخواست‌های حرفه‌ای و صفحه بررسی آن با وضعیت‌های مشخص، نمایش حرفه‌ها، پیام‌های بازخورد و فرم‌های خواناتر اصلاح شد.",
-      "CSS جدید در فایل مرکزی resources/css/app.css نگهداری شد."
+      "CSS جدید در فایل مرکزی resources/css/app.css نگهداری شد.",
+      "مدیریت نمایندگان شرکت‌ها با افزودن نماینده، ویرایش نقش/وضعیت، حذف، نمایش خطا و کارت‌های واکنش‌گرا بازطراحی شد.",
+      "مدیریت رسانه پروفایل هنرمند/شرکت با بارگذاری تصویر، متن جایگزین و عنوان چندزبانه، ویرایش فراداده، تأیید/رد و حذف با چیدمان واکنش‌گرا اصلاح شد."
     ],
     "safety_scope": "فقط رابط کاربری و CSS؛ بدون Migration، تغییر schema، حذف یا تغییر داده‌ها. نام routeها، نام فیلدهای فرم و قرارداد کنترلر حفظ شدند.",
     "dependency": "این PR عمداً بر شاخه PR135 ساخته شده است؛ ابتدا باید PR135 ادغام شود و سپس این PR روی main بازپایه‌گذاری/بررسی شود.",
     "branch_sync": {
       "status": "based_on_pr135_head",
-      "ahead_by": 16,
+      "ahead_by": 19,
       "behind_by": 0,
       "base_head_at_comparison": "70452c0847860f61bbcd181ef41800dfc5da32e2"
     },
@@ -7853,6 +7857,6 @@
       "browser_visual_qa": false,
       "reason": "مطابق درخواست کاربر توسعه ادامه یافت و تست‌ها و QA به مرحله بعد موکول شدند."
     },
-    "qualification": "PR #136 باز و mergeable گزارش شده اما هنوز ادغام نشده؛ 11 فایل تغییر کرده‌اند. تست‌ها، Vite build و QA مرورگر اجرا نشده‌اند."
+    "qualification": "PR #136 باز است و هنوز ادغام نشده؛ 13 فایل تغییر کرده‌اند. در آخرین snapshot، mergeable موقتاً false گزارش شد و پس از refresh true شد؛ قبل از ادغام مجدداً بررسی شود. تست‌ها، Vite build و QA مرورگر اجرا نشده‌اند."
   }
 }
