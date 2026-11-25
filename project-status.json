@@ -7868,6 +7868,7 @@
       "browser_visual_qa": false,
       "reason": "مطابق درخواست کاربر توسعه ادامه یافت و تست‌ها و QA به مرحله بعد موکول شدند."
     },
-    "qualification": "PR #136 باز و ادغام‌نشده است؛ 18 فایل تغییرکرده، 26 commit جلوتر و صفر commit عقب‌تر از شاخه پایه PR135. آخرین snapshot mergeable=false گزارش کرد؛ پیش از ادغام باید وضعیت و علت آن تازه بررسی شود. تست‌ها، Vite build و QA مرورگر اجرا نشده‌اند."
+    "qualification": "PR #136 باز و ادغام‌نشده است؛ 18 فایل تغییرکرده، 26 commit جلوتر و صفر commit عقب‌تر از شاخه پایه PR135. mergeability در refreshها بین false و true تغییر کرده و آخرین snapshot true است؛ پیش از ادغام مجدداً بررسی شود. تست‌ها، Vite build و QA مرورگر اجرا نشده‌اند.",
+    "mergeability_observation": "در refresh مورخ 2026-11-25 وضعیت mergeable ابتدا false و در refresh بعدی true گزارش شد؛ هیچ ادغامی انجام نشد."
   }
 }
