@@ -7805,5 +7805,37 @@
       "behind_by": 0,
       "main_head_at_comparison": "ffa11817c997f4c1f7cda3fd898475152c3503df"
     }
+  },
+  "admin_people_auth_ui": {
+    "date": "2026-11-25",
+    "source_repository": "https://github.com/armanaria111/amdb-laravel2",
+    "status": "open_dependent_pull_request_not_merged",
+    "pull_request": 136,
+    "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/136",
+    "branch": "improve/admin-people-and-auth-ui",
+    "base_branch": "improve/admin-title-management-ui",
+    "base_pull_request": 135,
+    "head_commit": "e11e53811349d76b3daa1d54e5d376a4f1019f1f",
+    "changed_files": [
+      "resources/views/admin/artists/index.blade.php",
+      "resources/views/admin/users/index.blade.php",
+      "resources/views/auth/login.blade.php",
+      "resources/css/app.css"
+    ],
+    "changes": [
+      "فهرست مدیریت هنرمندان با سربرگ، جستجو، برچسب حرفه‌ها، شناسه عمومی در صورت وجود، دسترسی مشاهده/ویرایش و صفحه‌بندی همراه query string بازطراحی شد.",
+      "فهرست مدیریت کاربران با نقش‌ها به‌صورت برچسب، جستجو، جدول واکنش‌گرا و صفحه‌بندی همراه query string بهبود یافت.",
+      "صفحه ورود با labelهای قابل دسترس، autocomplete مناسب، پیام خطای یکپارچه و چیدمان واکنش‌گرا بازطراحی شد.",
+      "استایل‌های جدید فقط در فایل مرکزی resources/css/app.css افزوده شدند."
+    ],
+    "safety_scope": "بدون Migration، تغییر schema، تغییر داده یا حذف داده؛ routeها و قراردادهای کنترلر حفظ شدند.",
+    "dependency": "این PR عمداً بر شاخه PR135 ساخته شده و پس از ادغام PR135 باید بررسی و ادغام شود.",
+    "qa": {
+      "tests_run": false,
+      "vite_build_run": false,
+      "browser_visual_qa": false,
+      "reason": "طبق درخواست فعلی توسعه مقدم است و تست‌ها و QA به مرحله بعد موکول شده‌اند."
+    },
+    "qualification": "PR #136 باز است و ادغام نشده؛ بر پایه PR #135 است و نباید پیش از ادغام/حل وابستگی PR135 به main ادغام شود."
   }
 }
