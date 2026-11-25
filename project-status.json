@@ -7859,7 +7859,8 @@
       "بازبینی ایستای مسیرهای مدیریت انجام شد: گروه /admin زیر auth و admin.area است؛ داشبورد با admin و سایر عملیات با مجوزهای اختصاصی route محافظت می‌شوند.",
       "پیام‌های خطای فارسی PermissionMiddleware و RoleMiddleware که به‌صورت نویسه‌های خراب نمایش داده می‌شدند اصلاح شدند.",
       "فهرست مدیریت نقش‌ها با جهت RTL/LTR وابسته به زبان، متن‌چین منطقی، عنوان صفحه و بهبود دسترس‌پذیری جدول هماهنگ شد.",
-      "کلیدهای فایل ترجمه role-admin در هر سه زبان en، fa-AF و ps از نظر برابری کلیدها بررسی شدند و اختلافی مشاهده نشد."
+      "کلیدهای فایل ترجمه role-admin در هر سه زبان en، fa-AF و ps از نظر برابری کلیدها بررسی شدند و اختلافی مشاهده نشد.",
+      "برابری کلیدهای ترجمه admin، news-admin و title-admin نیز در سه زبان بررسی شد؛ هیچ کلید مفقود یا اضافه‌ای نسبت به انگلیسی مشاهده نشد."
     ],
     "safety_scope": "فقط رابط کاربری و CSS؛ بدون Migration، تغییر schema، حذف یا تغییر داده‌ها. نام routeها، نام فیلدهای فرم و قرارداد کنترلر حفظ شدند.",
     "dependency": "این PR عمداً بر شاخه PR135 ساخته شده است؛ ابتدا باید PR135 ادغام شود و سپس این PR روی main بازپایه‌گذاری/بررسی شود.",
@@ -7875,7 +7876,13 @@
       "browser_visual_qa": false,
       "static_route_authorization_review": true,
       "role_admin_translation_key_parity": true,
-      "reason": "بازبینی ایستای مسیرها و مجوزها و برابری کلیدهای ترجمه role-admin انجام شد؛ اتصال مرورگر به زمینه مرورگر متصل نبود و تست/build طبق اولویت فعلی به مرحله QA موکول است."
+      "reason": "بازبینی ایستای مسیرها و مجوزها و برابری کلیدهای ترجمه role-admin انجام شد؛ اتصال مرورگر به زمینه مرورگر متصل نبود و تست/build طبق اولویت فعلی به مرحله QA موکول است.",
+      "translation_groups_checked": [
+        "role-admin",
+        "admin",
+        "news-admin",
+        "title-admin"
+      ]
     },
     "qualification": "PR #136 باز و ادغام‌نشده است. head فعلی 5d13508a1f3746d5d03c1f27476cce679fd76dec و 21 فایل تغییرکرده است. بازبینی ایستای گروه مسیرهای مدیریت و ترجمه role-admin انجام شد؛ ترجمه همه ماژول‌ها، تست، Vite build و QA مرورگر هنوز کامل نشده‌اند. PR به PR135 وابسته است.",
     "mergeability_observation": "در refresh مورخ 2026-11-25 وضعیت mergeable ابتدا false و در refresh بعدی true گزارش شد؛ هیچ ادغامی انجام نشد.",
@@ -7884,7 +7891,33 @@
       "routes": "گروه admin دارای auth و admin.area است؛ داشبورد با admin و مسیرهای دیگر با permission middlewareهای مختص حوزه محافظت می‌شوند.",
       "authorization": "PermissionMiddleware اکنون پیام فارسی سالم دارد؛ کنترل مجوز همچنان از User::hasPermission و نقش‌های موجود استفاده می‌کند.",
       "translation_parity": "کلیدهای lang/{en,fa-AF,ps}/role-admin.php برابرند.",
-      "browser": "عدم دسترسی به مرورگر متصل؛ هیچ QA بصری ادعا نمی‌شود."
+      "browser": "عدم دسترسی به مرورگر متصل؛ هیچ QA بصری ادعا نمی‌شود.",
+      "translation_key_parity": {
+        "role-admin": {
+          "en": 15,
+          "fa_AF": 15,
+          "ps": 15,
+          "missing": 0
+        },
+        "admin": {
+          "en": 28,
+          "fa_AF": 28,
+          "ps": 28,
+          "missing": 0
+        },
+        "news-admin": {
+          "en": 34,
+          "fa_AF": 34,
+          "ps": 34,
+          "missing": 0
+        },
+        "title-admin": {
+          "en": 90,
+          "fa_AF": 90,
+          "ps": 90,
+          "missing": 0
+        }
+      }
     }
   }
 }
