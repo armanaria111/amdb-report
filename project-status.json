@@ -7815,7 +7815,7 @@
     "branch": "improve/admin-people-and-auth-ui",
     "base_branch": "improve/admin-title-management-ui",
     "base_pull_request": 135,
-    "head_commit": "5d13508a1f3746d5d03c1f27476cce679fd76dec",
+    "head_commit": "9cad2770968410954b42b6846ba9d17e15431192",
     "changed_files": [
       "app/Http/Middleware/PermissionMiddleware.php",
       "app/Http/Middleware/RoleMiddleware.php",
@@ -7835,6 +7835,8 @@
       "resources/views/admin/professional-requests/show.blade.php",
       "resources/views/admin/professions/index.blade.php",
       "resources/views/admin/profile-media/index.blade.php",
+      "resources/views/admin/roles/create.blade.php",
+      "resources/views/admin/roles/edit.blade.php",
       "resources/views/admin/roles/index.blade.php",
       "resources/views/admin/users/index.blade.php",
       "resources/views/auth/login.blade.php"
@@ -7860,7 +7862,8 @@
       "پیام‌های خطای فارسی PermissionMiddleware و RoleMiddleware که به‌صورت نویسه‌های خراب نمایش داده می‌شدند اصلاح شدند.",
       "فهرست مدیریت نقش‌ها با جهت RTL/LTR وابسته به زبان، متن‌چین منطقی، عنوان صفحه و بهبود دسترس‌پذیری جدول هماهنگ شد.",
       "کلیدهای فایل ترجمه role-admin در هر سه زبان en، fa-AF و ps از نظر برابری کلیدها بررسی شدند و اختلافی مشاهده نشد.",
-      "برابری کلیدهای ترجمه admin، news-admin و title-admin نیز در سه زبان بررسی شد؛ هیچ کلید مفقود یا اضافه‌ای نسبت به انگلیسی مشاهده نشد."
+      "برابری کلیدهای ترجمه admin، news-admin و title-admin نیز در سه زبان بررسی شد؛ هیچ کلید مفقود یا اضافه‌ای نسبت به انگلیسی مشاهده نشد.",
+      "فرم‌های ایجاد و ویرایش نقش برای دری و پشتو راست‌چین شدند و labelهای نام، شناسه و توضیحات به ورودی‌های متناظر متصل شدند."
     ],
     "safety_scope": "فقط رابط کاربری و CSS؛ بدون Migration، تغییر schema، حذف یا تغییر داده‌ها. نام routeها، نام فیلدهای فرم و قرارداد کنترلر حفظ شدند.",
     "dependency": "این PR عمداً بر شاخه PR135 ساخته شده است؛ ابتدا باید PR135 ادغام شود و سپس این PR روی main بازپایه‌گذاری/بررسی شود.",
@@ -7884,7 +7887,7 @@
         "title-admin"
       ]
     },
-    "qualification": "PR #136 باز و ادغام‌نشده است. head فعلی 5d13508a1f3746d5d03c1f27476cce679fd76dec و 21 فایل تغییرکرده است. بازبینی ایستای گروه مسیرهای مدیریت و ترجمه role-admin انجام شد؛ ترجمه همه ماژول‌ها، تست، Vite build و QA مرورگر هنوز کامل نشده‌اند. PR به PR135 وابسته است.",
+    "qualification": "PR #136 باز و ادغام‌نشده است؛ head فعلی 9cad2770968410954b42b6846ba9d17e15431192، تعداد فایل‌های تغییرکرده 23 و mergeable در آخرین refresh برابر true است. این PR به PR135 وابسته است و باید پس از ادغام PR135 بازپایه‌گذاری/بررسی شود. تست‌ها، Vite build و QA مرورگر اجرا نشده‌اند.",
     "mergeability_observation": "در refresh مورخ 2026-11-25 وضعیت mergeable ابتدا false و در refresh بعدی true گزارش شد؛ هیچ ادغامی انجام نشد.",
     "static_review": {
       "checked_at": "2026-11-25",
@@ -7917,7 +7920,8 @@
           "ps": 90,
           "missing": 0
         }
-      }
+      },
+      "forms": "فرم‌های ایجاد/ویرایش نقش با dir وابسته به locale و label-for متصل به ورودی‌ها بهبود یافتند."
     }
   }
 }
