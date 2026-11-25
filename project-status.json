@@ -4608,7 +4608,8 @@
         "2026-11-24: PR132 با commit نهایی c793b06f290f77da225996e68f25a865abcd9e94 به main ادغام شد؛ PR closed/merged است. تست محلی ۲۸۲/۱٬۱۲۰، CI پیش از ادغام run 45428873147 روی SQLite و MySQL 8.4 و Vite موفق، route ثبت‌شده، تولید PDF معتبر توسط Chromium و تأیید بصری کاربر برای متن دری/پشتو و RTL ثبت شد. بررسی دانلود تعاملی پنل و نصب Chromium روی هاست تولید انجام نشده؛ این موارد deployment/runtime follow-up هستند، نه مانع ادغام کد.",
         "2026-11-24: PR134 برای اصلاح رابط صفحات عمومی اخبار، جزئیات خبر، مدیریت اخبار و فرم ثبت آثار در مخزن اصلی ایجاد شد؛ PR باز و ادغام‌نشده است. شش فایل Blade/CSS تغییر کرده‌اند؛ تست، Vite build و QA مرورگر عمداً اجرا نشده‌اند.",
         "2026-11-25: PR135 برای بازطراحی فهرست، فرم‌های ایجاد/ویرایش و جزئیات مدیریت آثار ایجاد شد. 10 فایل تغییر کرده‌اند؛ PR باز و ادغام‌نشده است. تست‌ها، Vite build و QA مرورگر اجرا نشده‌اند.",
-        "2026-11-25: PR135 پس از بازبینی ایستا به‌روزرسانی شد؛ شاخه 13 commit جلو و 0 commit عقب main است. خطاهای اعتبارسنجی فرم به بالای فرم منتقل شدند."
+        "2026-11-25: PR135 پس از بازبینی ایستا به‌روزرسانی شد؛ شاخه 13 commit جلو و 0 commit عقب main است. خطاهای اعتبارسنجی فرم به بالای فرم منتقل شدند.",
+        "2026-11-25: اصلاحات اخبار و فرم پیشنهاد اثر از PR134 در PR135 ادغام شاخه‌ای شدند؛ PR134 بسته و با PR135 جایگزین شد. PR135 اکنون 15 فایل را شامل می‌شود و 19 commit جلو / صفر عقب main است. هیچ تست یا QA مرورگری اجرا نشده است."
       ],
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
@@ -4864,7 +4865,7 @@
       "mysql_tests": 254,
       "mysql_assertions": 983
     },
-    "note": "در 2026-11-22، پس از اجرای ۴۳ Migration و ProfessionGroupSeeder در Laragon، سه صفحه /artists، /news و /festivals با HTTP 200 تأیید شدند. اصلاح namespace مدل‌های News و Festival نیز در main ثبت شد. این تأیید محدود محلی است و جایگزین QA کامل مرورگر، تست تمام مسیرها یا staging نیست. بررسی بعدی فرانت‌اند: صفحه اصلی HTTP 200، CSS/JS تولیدی HTTP 200، فایل hot غایب و نمایش هدر/فوتر توسط کاربر تأیید شد؛ build با زمان غیرعادی ۱۱ دقیقه و هشدار fontaine نیازمند بهینه‌سازی است. PR132 خروجی PDF چندزبانه گزارش تبلیغات روی شاخه مستقل و به‌صورت draft ثبت شده؛ تأیید PDF آزمایشی Chrome توسط کاربر فقط صحت نمایش حروف را نشان می‌دهد، نه تست Laravel/CI یا سازگاری هاست. آخرین سرشاخه main مخزن کد در 2026-11-24 به commit 2a06f9d9a200c95bf6c206c53d52ef3d56c05968 رسیده است؛ ممیزی تفصیلی ثبت‌شده در این snapshot تا commit e133e1d1244f2560fb9aedb8a53a56cc118c6cd4 است و commit جدیدتر هنوز ممیزی کامل نشده است. PR132 خروجی PDF چندزبانه تبلیغات در 2026-11-24 با commit c793b06f290f77da225996e68f25a865abcd9e94 به main ادغام شد؛ تست محلی و CI پیش از ادغام موفق و نمایش دری/پشتو و RTL توسط کاربر تأیید شد. دانلود تعاملی پنل و Chromium روی هاست تولید هنوز بررسی نشده‌اند. PR134 برای بهبود نمایش اخبار و فرم ثبت آثار باز است و هنوز ادغام نشده؛ QA مرورگر و build/test در مرحله بعد انجام می‌شود. PR135 برای بازطراحی مدیریت آثار در وضعیت open/not merged است؛ تست و QA در مرحله بعد انجام می‌شود.",
+    "note": "در 2026-11-22، پس از اجرای ۴۳ Migration و ProfessionGroupSeeder در Laragon، سه صفحه /artists، /news و /festivals با HTTP 200 تأیید شدند. اصلاح namespace مدل‌های News و Festival نیز در main ثبت شد. این تأیید محدود محلی است و جایگزین QA کامل مرورگر، تست تمام مسیرها یا staging نیست. بررسی بعدی فرانت‌اند: صفحه اصلی HTTP 200، CSS/JS تولیدی HTTP 200، فایل hot غایب و نمایش هدر/فوتر توسط کاربر تأیید شد؛ build با زمان غیرعادی ۱۱ دقیقه و هشدار fontaine نیازمند بهینه‌سازی است. PR132 خروجی PDF چندزبانه گزارش تبلیغات روی شاخه مستقل و به‌صورت draft ثبت شده؛ تأیید PDF آزمایشی Chrome توسط کاربر فقط صحت نمایش حروف را نشان می‌دهد، نه تست Laravel/CI یا سازگاری هاست. آخرین سرشاخه main مخزن کد در 2026-11-24 به commit 2a06f9d9a200c95bf6c206c53d52ef3d56c05968 رسیده است؛ ممیزی تفصیلی ثبت‌شده در این snapshot تا commit e133e1d1244f2560fb9aedb8a53a56cc118c6cd4 است و commit جدیدتر هنوز ممیزی کامل نشده است. PR132 خروجی PDF چندزبانه تبلیغات در 2026-11-24 با commit c793b06f290f77da225996e68f25a865abcd9e94 به main ادغام شد؛ تست محلی و CI پیش از ادغام موفق و نمایش دری/پشتو و RTL توسط کاربر تأیید شد. دانلود تعاملی پنل و Chromium روی هاست تولید هنوز بررسی نشده‌اند. PR134 برای بهبود نمایش اخبار و فرم ثبت آثار باز است و هنوز ادغام نشده؛ QA مرورگر و build/test در مرحله بعد انجام می‌شود. PR135 برای بازطراحی مدیریت آثار در وضعیت open/not merged است؛ تست و QA در مرحله بعد انجام می‌شود. اصلاحات اخبار، پیشنهاد اثر و مدیریت آثار در یک PR واحد (#135) تجمیع شده‌اند؛ PR134 به‌عنوان مورد تکراری بسته شده است.",
     "panels": [
       {
         "id": "admin",
@@ -7760,18 +7761,23 @@
     "pull_request": 135,
     "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/135",
     "branch": "improve/admin-title-management-ui",
-    "head_commit": "ebcd6bb43e2347ecfc81b766b1c46ca93ffb4b90",
+    "head_commit": "70452c0847860f61bbcd181ef41800dfc5da32e2",
     "changed_files": [
       "app/Http/Controllers/Admin/TitleController.php",
-      "resources/views/admin/titles/index.blade.php",
-      "resources/views/admin/titles/create.blade.php",
-      "resources/views/admin/titles/edit.blade.php",
-      "resources/views/admin/titles/_form.blade.php",
-      "resources/views/admin/titles/show.blade.php",
-      "resources/css/app.css",
       "lang/en/title-admin.php",
       "lang/fa-AF/title-admin.php",
-      "lang/ps/title-admin.php"
+      "lang/ps/title-admin.php",
+      "resources/css/app.css",
+      "resources/views/admin/news/form.blade.php",
+      "resources/views/admin/news/index.blade.php",
+      "resources/views/admin/titles/_form.blade.php",
+      "resources/views/admin/titles/create.blade.php",
+      "resources/views/admin/titles/edit.blade.php",
+      "resources/views/admin/titles/index.blade.php",
+      "resources/views/admin/titles/show.blade.php",
+      "resources/views/news/index.blade.php",
+      "resources/views/news/show.blade.php",
+      "resources/views/submissions/title-create.blade.php"
     ],
     "changes": [
       "فهرست مدیریت آثار با پوستر، شناسه عمومی، عنوان ترجمه‌شده، جستجو و فیلتر وضعیت تولید بازطراحی شد.",
@@ -7780,7 +7786,9 @@
       "صفحه جزئیات مدیریت اثر با پوستر، پس‌زمینه، مشخصات، خلاصه، فصل‌ها و قسمت‌ها، شرکت‌ها و عوامل بازطراحی شد.",
       "برچسب‌های جدید در انگلیسی، دری و پشتو اضافه شدند.",
       "ترجمه‌های آثار در فهرست مدیریت eager-load می‌شوند تا query تکراری ترجمه برای هر ردیف ایجاد نشود.",
-      "پیام خطاهای اعتبارسنجی فرم ثبت اثر به بالای فرم منتقل شد تا بعد از خطا سریع‌تر دیده شود."
+      "پیام خطاهای اعتبارسنجی فرم ثبت اثر به بالای فرم منتقل شد تا بعد از خطا سریع‌تر دیده شود.",
+      "اصلاحات صفحه عمومی اخبار، جزئیات خبر، مدیریت اخبار و فرم ارسال پیشنهاد اثر از شاخه PR134 در همین شاخه ادغام شدند تا یک PR واحد برای این مجموعه باقی بماند.",
+      "PR134 به‌عنوان PR جایگزین‌شده بسته شد؛ تمام تغییرات آن در PR135 نگهداری می‌شوند."
     ],
     "safety_scope": "فقط کد برنامه؛ بدون Migration، تغییر schema، حذف داده یا عملیات مخرب.",
     "qa": {
@@ -7790,10 +7798,10 @@
       "reason": "طبق اولویت فعلی توسعه بدون اجرای تست؛ تست و بررسی مرورگر به مرحله بعد موکول شده است.",
       "next": "پس از همگام‌سازی شاخه‌ها، بررسی Blade compilation، route/view integration، Vite build و بررسی ظاهری در دسکتاپ و موبایل انجام شود."
     },
-    "qualification": "PR باز است و هنوز در main ادغام نشده؛ وضعیت mergeable از GitHub در زمان ایجاد false/نامشخص گزارش شد و باید دوباره بررسی شود.",
+    "qualification": "PR #135 باز است و هنوز در main ادغام نشده؛ 15 فایل تغییر کرده‌اند. تست‌ها، Vite build و QA مرورگر اجرا نشده‌اند.",
     "branch_sync": {
       "status": "in_sync_with_main",
-      "ahead_by": 13,
+      "ahead_by": 19,
       "behind_by": 0,
       "main_head_at_comparison": "ffa11817c997f4c1f7cda3fd898475152c3503df"
     }
