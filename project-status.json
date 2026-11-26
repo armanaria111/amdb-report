@@ -4558,7 +4558,7 @@
       "blocked": 0
     },
     "feature_count": 39,
-    "implementation_status": "PRهای #137، #133، #135 و #138 قبلاً ادغام شدند؛ PR #140 تست middleware کشور بیننده را با CI موفق (306 تست/1193 assertion روی SQLite و MySQL 8.4) اضافه کرد و ادغام شد؛ PR #141 سند حاکمیت کیفیت داده/provenance را اضافه کرد و ادغام شد. PR #139 به‌عنوان شاخه قدیمی بسته و تغییرات آن در PR #142 بر مبنای آخرین main بازسازی شد. PR #142 در انتظار CI جدید است. QA مرورگر/موبایل و پذیرش محلی/عملیاتی هنوز انجام نشده‌اند.",
+    "implementation_status": "PR140 و PR141 ادغام شده‌اند. PR142 برای اتمیک‌سازی پیشنهادهای اصلاح عنوان روی آخرین main ساخته شده، آماده بازبینی است و CI کامل آن روی SQLite و MySQL 8.4 با 306 تست و 1193 assertion موفق است؛ تست هم‌زمانی اختصاصی MySQL به‌عنوان hardening بیشتر توصیه می‌شود. QA مرورگر/موبایل و پذیرش محلی/عملیاتی انجام نشده‌اند.",
     "database_runtime": {
       "status": "partially_verified_local",
       "environment": "Windows 10 + Laragon 8 + MySQL",
@@ -4578,7 +4578,7 @@
     "quality": {
       "tests_in_repository": 45,
       "tests_executed": true,
-      "test_result": "GitHub Actions run 45774999431: SQLite 301 passed / 1182 assertions; MySQL 8.4 301 passed / 1182 assertions; Vite production build, Blade view cache and compiled-view PHP lint all passed. Local Laragon/browser/mobile acceptance and production smoke tests were not part of this CI.",
+      "test_result": "PR142 CI run 45777616987: SQLite 306 passed / 1193 assertions; MySQL 8.4 306 passed / 1193 assertions; Vite production build, Blade view cache and compiled-view PHP lint passed. Browser/mobile and local/production acceptance remain pending.",
       "vite_build_executed": true,
       "browser_verified": false,
       "production_smoke_test": false,
@@ -4590,9 +4590,9 @@
         "QA مرورگر، موبایل، Laragon و Production در این مرحله انجام نشده‌اند."
       ],
       "ci_migrations_executed": true,
-      "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45777105589",
+      "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45777616987",
       "mysql_runtime_verified": false,
-      "latest_ci_run": 45777105589,
+      "latest_ci_run": 45777616987,
       "main_ci_conclusion": "success",
       "pull_request_ci_conclusion": "success",
       "mysql_ci_verified": true,
@@ -7277,7 +7277,7 @@
     "repository": "https://github.com/armanaria111/amdb-laravel2",
     "branch": "main",
     "head_commit": "0cce35603bcef6f5d3096fc1d2ca39febe25011f",
-    "status": "pr140_pr141_merged_pr142_open_draft_ci_pending_browser_and_local_acceptance_pending",
+    "status": "pr140_pr141_merged_pr142_ready_ci_passed_browser_and_local_acceptance_pending",
     "merged_pull_requests": [
       {
         "number": 137,
@@ -7324,11 +7324,13 @@
     "open_pull_requests": [
       {
         "number": 142,
-        "status": "open_draft_ci_pending",
+        "status": "open_ready_for_review_ci_passed",
         "head": "3f7025b16b7dbc408a3a3cd5b189d1172ac9a1ad",
+        "ci_run": 45777616987,
+        "tests": "306 passed / 1193 assertions on SQLite and MySQL 8.4; Vite and Blade checks passed",
         "title": "Serialize concurrent title correction suggestions",
         "url": "https://github.com/armanaria111/amdb-laravel2/pull/142",
-        "remaining": "CI on latest main pending; dedicated simultaneous-request MySQL integration test recommended before merge."
+        "remaining": "Dedicated simultaneous-request MySQL integration coverage is recommended before merge."
       }
     ],
     "changes": [
@@ -7344,9 +7346,8 @@
       "هیچ reset یا عملیات مخرب دیتابیس انجام نشده است."
     ],
     "next_steps": [
-      "بررسی نتیجه CI جدید PR142 روی SQLite و MySQL 8.4؛ در صورت شکست، اصلاح و اجرای مجدد.",
-      "افزودن آزمون هم‌زمانی اختصاصی MySQL برای دو درخواست اصلاح یکسان، در صورت امکان در زیرساخت تست فعلی.",
-      "پس از موفقیت CI و بازبینی، ادغام PR142.",
+      "بازبینی PR142 و تصمیم درباره افزودن آزمون هم‌زمانی اختصاصی MySQL؛ CI کامل موجود روی SQLite و MySQL 8.4 موفق است.",
+      "پس از بازبینی نهایی، ادغام PR142.",
       "QA تعاملی مرورگر و موبایل برای صفحات ورود، اخبار، آثار، هنرمندان، کاربران، شرکت‌ها و سه زبان.",
       "پذیرش محلی Laragon و ممیزی schema/Migrationها فقط پس از backup و بدون عملیات مخرب.",
       "پیاده‌سازی source registry، field-level provenance و immutable catalog history طبق docs/catalog-data-quality-governance.md.",
