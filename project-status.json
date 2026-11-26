@@ -4558,7 +4558,7 @@
       "blocked": 0
     },
     "feature_count": 39,
-    "implementation_status": "PR #133 حفاظت سابقه تبلیغات، PR #135 مدیریت اخبار/کاتالوگ آثار و PR #138 مدیریت هنرمندان/کاربران/ورود در main ادغام شدند. CI کامل SQLite و MySQL 8.4 با 301 تست و 1182 assertion موفق، Vite و Blade موفق؛ QA تعاملی مرورگر/موبایل و پذیرش محلی هنوز باقی است.",
+    "implementation_status": "PR #133، #135 و #138 و اصلاح CI در PR #137 در main ادغام شدند. CI روی SQLite و MySQL 8.4 با 301 تست و 1182 assertion موفق است؛ Vite و Blade نیز موفق‌اند. هیچ PR/Issue بازی باقی نمانده؛ QA تعاملی مرورگر/موبایل و پذیرش محلی/عملیاتی هنوز انجام نشده‌اند.",
     "database_runtime": {
       "status": "partially_verified_local",
       "environment": "Windows 10 + Laragon 8 + MySQL",
@@ -4584,53 +4584,11 @@
       "production_smoke_test": false,
       "migrations_executed_in_this_audit": true,
       "notes": [
-        "PR113 در GitHub Actions با ۲۳۲ تست و ۹۰۹ assertion موفق شد؛ Vite production build نیز موفق بود.",
-        "CI پس از ادغام روی main، run 44943651335، موفق گزارش شده است.",
-        "این CI روی محیط موقت SQLite است و جایگزین MySQL محلی/staging نیست.",
-        "در 2026-11-22 کاربر اجرای ۴۳ Migration Pending را روی MySQL محلی با موفقیت گزارش کرد؛ پس از اجرا خروجی migrate:status هیچ Pending نشان نداد.",
-        "ProfessionGroupSeeder روی دیتابیس محلی با موفقیت اجرا شد.",
-        "Schema::hasTable برای profession_groups، companies و title_ratings مقدار true برگرداند؛ این بررسی شمار کل جداول نیست.",
-        "پس از اصلاح namespace مربوط به Spatie Activitylog در News و Festival، trait_exists و class_exists هر سه مقدار true دادند.",
-        "HTTP smoke check محلی با curl برای /artists، /news و /festivals هر سه HTTP 200 برگرداند؛ این بررسی مرورگر یا آزمون کامل مسیرهای صفحه نیست.",
-        "در 2026-11-22، صفحه اصلی محلی با HTTP 200 و زمان پاسخ 0.580522 ثانیه بررسی شد؛ فایل public/hot وجود نداشت و CSS/JS تولیدشده هر دو HTTP 200 شدند.",
-        "هفت فایل CSS مربوط به Font Awesome نیز در بررسی محلی HTTP 200 برگرداندند؛ نشانگر AMDB و تگ‌های بسته‌شدن header/footer در HTML موجود بودند و کاربر رفع مشکل ظاهری هدر و فوتر را پس از refresh تأیید کرد.",
-        "Vite production build موفق شد اما 661 ثانیه طول کشید؛ plugin laravel:fonts و نبود پکیج اختیاری fontaine هشدار دادند. بهینه‌سازی زمان build هنوز باز است.",
-        "این نوبت هنوز اجرای محلی php artisan test، بررسی همه مسیرها، تست تعاملی مرورگر و QA موبایل را شامل نمی‌شود.",
-        "در 2026-11-22، APIهای /api/v1/artists و /api/v1/festivals در محیط محلی هر دو HTTP 200 و Content-Type: application/json دادند؛ JSON معتبر با کلیدهای data و meta بود. artists یک رکورد با شناسه ar0000001 و festivals صفر رکورد برگرداندند؛ meta صفحه‌بندی در هر دو موجود بود. این فقط اعتبارسنجی ساختار سطح اول پاسخ است.",
-        "در 2026-11-22، شش تست قرارداد API هنرمندان در محیط محلی همگی مطابق انتظار بودند: per_page=1 پاسخ 200؛ مقادیر 51، 0 و abc پاسخ 422؛ شناسه معتبر ar0000001 پاسخ 200 و شناسه بدقالب ar1 پاسخ 404 داد. این تست محدود است و جایگزین پوشش کامل API نیست.",
-        "در 2026-11-22، تست locale و جست‌وجوی API هنرمندان اجرا شد: localeهای en/fa-AF/ps و locale نامعتبر همگی HTTP 200؛ per_page=50 نیز HTTP 200. نام نمونه در هر سه locale یکسان بود و به دلیل نامشخص بودن وجود ترجمه‌های ذخیره‌شده، نقص ترجمه نتیجه‌گیری نشد. دو تست جست‌وجو به علت نمایش query به شکل ???? در PowerShell موقتاً غیرقطعی ثبت شدند و نیاز به تکرار با URL encoding دارند.",
-        "تکرار تست API در 2026-11-22 با URL encoding مطمئن موفق شد: localeهای en/fa-AF/ps هر سه HTTP 200 و یک رکورد ar0000001 با نام احمدی احمدی برگرداندند؛ جست‌وجوی فارسی احمدی HTTP 200 و یک نتیجه و جست‌وجوی فارسی بدون تطبیق HTTP 200 و صفر نتیجه داشت. در مجموع ۵/۵ سناریو موفق؛ یکسان بودن نام در سه زبان به‌تنهایی نقص ترجمه را ثابت نمی‌کند.",
-        "در 2026-11-22، پنج درخواست محلی API کاتالوگ شرکت‌ها، آثار و جشنواره‌ها همگی HTTP 200 و JSON معتبر با data/meta برگرداندند. companies و festivals صفر رکورد؛ titles یک رکورد am0000001 با فیلدهای id, slug, type, title, original_title, synopsis, release_date, runtime_minutes, genres, countries داشت. آزمون فقط smoke test سطح اول است.",
-        "بررسی Tinker اثر am0000001: فقط یک ترجمه در language_code=en وجود دارد، اما title آن «سرخ سالی» است؛ original_title و synopsis خالی‌اند. یک title_credit با artist_id=1 و profession_id=7 ثبت است و companyCredits خالی است. این نتیجه نقص داده نمونه را نشان می‌دهد، نه شکست endpoint یا PHPUnit.",
-        "بررسی محلی php -l در 2026-11-22: lang/fa-AF/artists.php بدون خطای نحوی؛ lang/en/artists.php و lang/ps/artists.php هر دو در خط 89 خطای Cannot use empty array elements in arrays دارند. بنابراین اصلاح GitHub هنوز در نسخه محلی این دو فایل تأیید/همگام نشده است؛ optimize:clear نیز به‌علت واردکردن بک‌اسلش انتهایی اجرا نشد.",
-        "Latest main code commit updated to 66ddd59fd1fc00f707a82e6ea799e158a368d4ab; the earlier local syntax errors in English/Pashto were fixed in GitHub commits, but local sync and php -l remain unverified.",
-        "اجرای محلی کاربر در 2026-11-22: php artisan optimize:clear موفق؛ php artisan test موفق با 13 passed / 38 assertions / 4.09s. git status و git pull با fatal not a git repository و php -l سه فایل ترجمه با Could not open input file مواجه شدند؛ بنابراین مسیر جاری Laravel دارای artisan بوده اما Git root و مسیر فایل‌های ترجمه در آن احراز نشدند. اجرای 13 تست محدود است و suite کامل 256 تست را اثبات نمی‌کند.",
-        "2026-11-22 main CI run 45049622525 for commit 7f6ffed0614ed0cdf2d06114c8929b3aa1bd1596: SQLite PHPUnit 261 passed / 1020 assertions; MySQL 8.4 PHPUnit 261 passed / 1020 assertions; Vite production build success; all Blade views compiled and compiled PHP lint passed. CI uses temporary GitHub runners and does not verify the user's Laragon database or browser.",
-        "Revenue documentation was aligned with the implemented company-only payee model: artists have no direct revenue or copyright royalty entitlement; company settlements require active owner/finance membership.",
-        "2026-11-22: RevenueLedgerService contract resolution now filters eligible contract candidates by event territory as well as revenue model, validity window and version. Added Feature test test_event_selects_the_newest_contract_that_covers_its_territory. CI for the latest commit is queued/pending at report update time; no pass is claimed yet.",
-        "2026-11-23: گزارش ماهانه و سالانه دفتر درآمد پلتفرم با تست Feature افزوده شد؛ CI run 45085472936 برای commit efed7eb0c16cd7eb0872ce0a6566a53e02e74976 در حال اجراست و هنوز نتیجه‌ای ثبت نشده.",
-        "2026-11-23: در CI مربوط به commit efed7eb0c16cd7eb0872ce0a6566a53e02e74976، PHPUnit روی SQLite، Vite production build و Blade compile/lint موفق شدند؛ job MySQL 8.4 هنوز در مرحله آماده‌سازی کانتینر است.",
-        "2026-11-23: اتصال درآمد تبلیغات اختصاصی AFN به کمپین direct، فیلتر کمپین و نمایش نام کمپین اضافه شد؛ CI run 45095719839 برای commit d31e242f460045b969af1c7ff6cf9a076062ce43 در حال اجراست.",
-        "به‌روزرسانی CI run 45095719839: PHPUnit روی SQLite و Vite production build موفق شدند؛ job MySQL 8.4 هنوز در حال اجراست.",
-        "PR132: تست محلی شاخه ۲۸۲ تست و ۱٬۱۲۰ assertion موفق شد؛ CI شماره 429 برای SQLite، MySQL 8.4 و Vite موفق است. route نام admin.advertising.pdf ثبت شده و سرویس Chromium فایل PDF با حجم ۳۵٬۷۱۴ بایت و امضای %PDF- تولید کرد. نمایش دقیق حروف در PDF تولیدی سرویس و دانلود واقعی از پنل/Chromium هاست تولید هنوز تأیید نشده‌اند.",
-        "2026-11-24: اجرای کامل محلی PHPUnit با APP_ENV=testing و SQLite حافظه‌ای موفق شد: ۲۸۲ تست، ۱٬۱۲۰ assertion، صفر شکست، ۴۰٫۶۷ ثانیه؛ MySQL محلی دست‌نخورده ماند. commit دقیق checkout از خروجی ثبت‌شده قابل تعیین نیست.",
-        "2026-11-24: سازگاری Spatie Laravel Activitylog v5.1.5 بررسی شد. namespace صحیح LogOptions برابر Spatie\\Activitylog\\Support\\LogOptions است و API قدیمی dontSubmitEmptyLogs با dontLogEmptyChanges جایگزین شده است.",
-        "2026-11-24: پنج مدل Artist، Company، Festival، News و Title در runtime تنظیمات Activitylog را با Support\\LogOptions بارگذاری کردند. برای هر پنج مدل رویداد created و updated تأیید شد؛ جزئیات old/attributes در attribute_changes ثبت شدند.",
-        "2026-11-24: آزمایش تراکنشی News و چهار مدل Artist/Company/Festival/Title با rollback انجام شد؛ رکورد مدل و Activitylog آزمایشی پس از rollback باقی نماندند. چهار مدل در اجرای یک‌جای نهایی ۴/۴ PASS گرفتند و News نیز در اجرای مستقل قبلی موفق بود.",
-        "2026-11-24: جدول activity_log و دو migration مربوط به آن در وضعیت Ran تأیید شدند؛ اتصال دیتابیس و Activitylog هر دو mysql بود. هیچ migration جدیدی در این اعتبارسنجی اجرا نشد.",
-        "2026-11-24: ساختار واقعی جدول‌های artists، companies، festivals و titles با Schema::getColumnListing بررسی شد؛ ستون‌های public_id و birth_date_source در جداول مربوط موجود بودند.",
-        "2026-11-24: کاربر مشکلات ظاهری/نمایشی در صفحه ورود و چند صفحه مدیریت، از جمله مدیریت اخبار و مدیریت فیلم‌ها و سریال‌ها و سایر صفحات مدیریت را گزارش کرد. رفع این موارد با تست مرورگر هنوز تأیید نشده و باید باز بماند.",
-        "2026-11-24: برای PR132 تست محلی ۲۸۲/۱٬۱۲۰، CI موفق SQLite و MySQL 8.4 و Vite، ثبت route و تولید PDF معتبر توسط سرویس Chromium تأیید شدند؛ این شواهد نصب Chromium روی هاست یا دانلود واقعی از پنل را ثابت نمی‌کنند.",
-        "2026-11-24: PR132 با commit نهایی c793b06f290f77da225996e68f25a865abcd9e94 به main ادغام شد؛ PR closed/merged است. تست محلی ۲۸۲/۱٬۱۲۰، CI پیش از ادغام run 45428873147 روی SQLite و MySQL 8.4 و Vite موفق، route ثبت‌شده، تولید PDF معتبر توسط Chromium و تأیید بصری کاربر برای متن دری/پشتو و RTL ثبت شد. بررسی دانلود تعاملی پنل و نصب Chromium روی هاست تولید انجام نشده؛ این موارد deployment/runtime follow-up هستند، نه مانع ادغام کد.",
-        "2026-11-24: PR134 برای اصلاح رابط صفحات عمومی اخبار، جزئیات خبر، مدیریت اخبار و فرم ثبت آثار در مخزن اصلی ایجاد شد؛ PR باز و ادغام‌نشده است. شش فایل Blade/CSS تغییر کرده‌اند؛ تست، Vite build و QA مرورگر عمداً اجرا نشده‌اند.",
-        "2026-11-25: PR135 برای بازطراحی فهرست، فرم‌های ایجاد/ویرایش و جزئیات مدیریت آثار ایجاد شد. 10 فایل تغییر کرده‌اند؛ PR باز و ادغام‌نشده است. تست‌ها، Vite build و QA مرورگر اجرا نشده‌اند.",
-        "2026-11-25: PR135 پس از بازبینی ایستا به‌روزرسانی شد؛ شاخه 13 commit جلو و 0 commit عقب main است. خطاهای اعتبارسنجی فرم به بالای فرم منتقل شدند.",
-        "2026-11-25: اصلاحات اخبار و فرم پیشنهاد اثر از PR134 در PR135 ادغام شاخه‌ای شدند؛ PR134 بسته و با PR135 جایگزین شد. PR135 اکنون 15 فایل را شامل می‌شود و 19 commit جلو / صفر عقب main است. هیچ تست یا QA مرورگری اجرا نشده است.",
-        "2026-11-26: PR137 اصلاح fixtureهای تست برای رعایت گردش‌کار draft → pending_review → approved و audit fields را اضافه کرد؛ CI run 45773735433 روی SQLite و MySQL 8.4 هر دو 297 تست / 1162 assertion موفق، Vite و Blade موفق؛ PR137 در main ادغام شد.",
-        "2026-11-26: PR133 حفاظت تاریخچه مالی/تحلیلی کمپین و قفل attribution پس از ثبت درآمد در main ادغام شد؛ CI run 45774158584 روی SQLite و MySQL 8.4 هر دو 301 تست / 1182 assertion موفق، Vite و Blade موفق.",
-        "2026-11-26: PR135 شامل اصلاحات PR134، رابط اخبار عمومی/مدیریت اخبار، فرم ارسال آثار و مدیریت کاتالوگ فیلم/سریال در main ادغام شد؛ CI run 45774166311 روی SQLite و MySQL 8.4 هر دو 297 تست / 1162 assertion موفق، Vite و Blade موفق.",
-        "2026-11-26: PR138 مدیریت هنرمندان، کاربران، شرکت‌ها، حرفه‌ها، درخواست‌های حرفه‌ای، اشتراک‌ها، نقش‌ها و صفحه ورود را روی main ادغام کرد؛ CI run 45774999431 روی SQLite و MySQL 8.4 هر دو 301 تست / 1182 assertion موفق، Vite و Blade موفق. PR136 به‌دلیل وابستگی قدیمی بسته و با PR138 جایگزین شد.",
-        "2026-11-26: بررسی GitHub نشان داد هیچ Pull Request بازی در مخزن amdb-laravel2 باقی نمانده است. این وضعیت به معنی پایان QA مرورگر/موبایل یا تأیید Production نیست."
+        "آخرین CI ادغام PR #138: SQLite و MySQL 8.4 هر دو 301 passed / 1182 assertions؛ Vite production build، Blade view cache و compiled-view PHP lint موفق.",
+        "CI در runner موقت GitHub اجرا شده و جایگزین QA تعاملی مرورگر، پذیرش محلی Laragon یا smoke test Production نیست.",
+        "در این نوبت مرورگر متصل در دسترس نبود؛ QA بصری و موبایل انجام‌شده تلقی نمی‌شود.",
+        "در 2026-11-22 کاربر اجرای 43 Migration Pending را روی MySQL محلی با موفقیت گزارش کرد و پس از آن Pending صفر گزارش شد؛ این گزارش وضعیت فعلی دیتابیس را مستقلاً بررسی نمی‌کند.",
+        "Schema::hasTable فقط برای چند جدول مشخص گزارش شده است؛ تعداد کل جداول و روابط کامل runtime ممیزی نشده است."
       ],
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
@@ -7319,40 +7277,13 @@
     "updated_at": "2026-11-26",
     "repository": "https://github.com/armanaria111/amdb-laravel2",
     "branch": "main",
-    "base": "main",
-    "compare": "PR #137، #133، #135 و #138 با CI موفق در main ادغام شدند؛ PR #136 به‌عنوان شاخه وابسته قدیمی بسته و با PR #138 جایگزین شد. مخزن اکنون PR باز ندارد.",
-    "status": "pr133_pr135_pr138_merged_main_ci_success_no_open_pull_requests_browser_qa_pending",
-    "changes": [
-      "PR125 ادغام شد: مشاهده گزارش تبلیغات و CSV برای owner/finance فعال باقی می‌ماند؛ ایجاد کمپین فقط برای owner فعال مجاز است.",
-      "PR126 ادغام شد: تغییر نقش، تعلیق یا حذف آخرین مالک فعال شرکت مسدود شد؛ مسیر syncWithoutDetaching نیز تحت پوشش است و عملیات با قفل تراکنشی شرکت انجام می‌شود.",
-      "PR126: پیام خطای آخرین مالک فعال برای en، fa-AF و ps اضافه شد و تست‌های Feature مربوط به حفظ مالک دوم/منع تغییر نقش و تعلیق و حذف نوشته شدند.",
-      "PR127 ادغام شد: انتقال وضعیت تسویه فقط pending→approved/rejected و approved→paid است؛ وضعیت‌های paid و rejected نهایی هستند و اطلاعات اصلی تسویه بعد از ثبت immutable باقی می‌مانند.",
-      "PR129 ادغام شد: regex محدوده جغرافیایی حقوق نشر برای مقادیر AF, AZ اصلاح شد.",
-      "PR129: ثبت مدرک حقوق نشر در تراکنش و با قفل شرکت فعال انجام می‌شود؛ در صورت شکست ذخیره رکورد، فایل بارگذاری‌شده پاک‌سازی می‌شود.",
-      "PR129: تست Feature دانلود مدرک خصوصی توسط مدیر و منع دسترسی کاربر عادی اضافه شد.",
-      "PR128 به دلیل قدیمی‌شدن شاخه پس از ادغام PRهای قبلی بسته شد؛ همان تغییرات بر مبنای main جدید در PR129 بازسازی و ادغام شدند.",
-      "PR130 ادغام شد: تجزیه محدوده جغرافیایی حقوق نشر با regex اعتبارسنجی همسان شد تا AF, AZ درست به دو کد تبدیل شود.",
-      "PR130: تست‌های Feature برای اجازه ثبت مدرک به owner/manager فعال و منع ثبت برای finance/viewer و حساب بدون عضویت شرکت اضافه شد؛ همچنین عدم ایجاد رکورد در درخواست‌های غیرمجاز بررسی می‌شود."
-    ],
-    "safeguards": [
-      "PR125، PR126، PR127، PR129 و PR130 در main ادغام شدند.",
-      "PR128 به دلیل عقب‌ماندن شاخه بسته شد؛ تغییرات آن در PR129 بازسازی و ادغام شد.",
-      "هیچ تست PHPUnit، build، migration، seeder یا عملیات دیتابیس اجرا نشد؛ CI و تست‌ها برای مرحله بعد باقی مانده‌اند.",
-      "هیچ داده‌ای در دیتابیس تغییر نکرد."
-    ],
-    "next_steps": [
-      "ممیزی کامل حقوق نشر و قراردادهای هر اثر: همپوشانی قلمرو/بازه اعتبار، تعارض مجوزها، و مصرف حق تأییدشده در پخش/درآمد.",
-      "بررسی ایجاد/انتقال/تعلیق شرکت و مالکیت؛ اطمینان از اینکه هر شرکت فعال همیشه حداقل یک owner فعال دارد و چرخه واگذاری اولیه نیز پوشش دارد.",
-      "بازبینی گردش‌کار تسویه شرکت، مرجع پرداخت و ثبت حسابداری معکوس برای برگشت وجه.",
-      "تکمیل composer.lock و وابستگی PDF در مرحله نصب نهایی؛ فعلاً نصب انجام نشود."
-    ],
     "head_commit": "d32b7fdea656bdb631027f34bcb13ecdaf8bfffc",
-    "pull_requests": [
+    "status": "all_known_prs_merged_no_open_prs_or_issues_ci_passed_browser_and_local_acceptance_pending",
+    "merged_pull_requests": [
       {
         "number": 137,
         "status": "merged",
         "merge_commit": "ff31db8285e38d14ee84ba70c8475edf0aa895cd",
-        "title": "Fix revenue lifecycle test fixtures and CI validation",
         "ci_run": 45773735433,
         "tests": "297 passed / 1162 assertions on SQLite and MySQL 8.4"
       },
@@ -7360,7 +7291,6 @@
         "number": 133,
         "status": "merged",
         "merge_commit": "a50136ab8e30cfbb2df42f39600b877110f72c13",
-        "title": "Protect advertising campaign financial and analytics history",
         "ci_run": 45774158584,
         "tests": "301 passed / 1182 assertions on SQLite and MySQL 8.4"
       },
@@ -7368,7 +7298,6 @@
         "number": 135,
         "status": "merged",
         "merge_commit": "5c07068f0d3cc0c46ada541e2cb09444e0ce33ae",
-        "title": "Improve news, title submissions and admin catalogue UI",
         "ci_run": 45774166311,
         "tests": "297 passed / 1162 assertions on SQLite and MySQL 8.4"
       },
@@ -7376,16 +7305,31 @@
         "number": 138,
         "status": "merged",
         "merge_commit": "d32b7fdea656bdb631027f34bcb13ecdaf8bfffc",
-        "title": "Finalize admin people management and authentication UI",
         "ci_run": 45774999431,
         "tests": "301 passed / 1182 assertions on SQLite and MySQL 8.4"
       },
       {
         "number": 136,
         "status": "closed_superseded",
-        "replacement": 138,
-        "title": "Improve admin people management and login UI"
+        "replacement": 138
       }
+    ],
+    "safeguards": [
+      "هیچ Pull Request یا Issue بازی در مخزن اصلی در بررسی ۲۶ نوامبر ۲۰۲۶ مشاهده نشد.",
+      "CI مربوط به PRهای ادغام‌شده روی SQLite و MySQL 8.4 موفق بوده است؛ Vite production build و Blade cache/lint نیز موفق بوده‌اند.",
+      "پس از ادغام، هیچ تست محلی Laragon، QA تعاملی مرورگر/موبایل، Migration یا عملیات دیتابیس جدیدی در این مرحله اجرا نشده است.",
+      "مرورگر متصل در این گفتگو قابل دسترسی نبود؛ بنابراین QA بصری انجام‌شده تلقی نمی‌شود.",
+      "هیچ reset یا عملیات مخرب دیتابیس انجام نشده و انجام آن نیز مجاز نیست."
+    ],
+    "next_steps": [
+      "QA تعاملی مرورگر برای ورود، اخبار، ثبت اثر، مدیریت آثار، هنرمندان، کاربران، شرکت‌ها، نقش‌ها، درخواست‌های حرفه‌ای و اشتراک‌ها در en/fa-AF/ps و اندازه‌های موبایل/تبلت/دسکتاپ.",
+      "همگام‌سازی امن نسخه محلی Laragon با main پس از backup/stash تغییرات؛ سپس بررسی git status و migrate:status بدون reset یا حذف داده.",
+      "ممیزی Migrationها و یافته‌های دیتابیس تاریخی DB-010 تا DB-019 روی commit جاری؛ آزمون MySQL concurrency پس از تهیه backup و برنامه QA مجاز.",
+      "بررسی SMTP فرم تماس، صف‌ها، scheduler، Activitylog، Sitemap، Chart.js، SEO، اعلان‌ها، backup/restore و monitoring در محیط هدف.",
+      "تکمیل پذیرش عملیاتی پخش: trusted proxy/GeoIP، storage خصوصی، workerهای scan/probe/transcode، HLS delivery، entitlement و CDN؛ تا آن زمان feature flags خاموش بمانند.",
+      "برای پرداخت مصرف‌کننده provider، کشور و ارز مجاز را تعیین و adapter واقعی، sandbox، refund، chargeback و reconciliation را پیش از فعال‌سازی پیاده‌سازی و ارزیابی کن.",
+      "شروع اولویت P0 اعتماد داده: provenance منابع، تاریخچه تغییرات فیلدبه‌فیلد، پیشنهاد اصلاح، تشخیص تکراری و امتیاز کیفیت رکورد.",
+      "برای واردسازی کامل WordPress، export واقعی و مستندات schema/metadata/روابط عوامل را دریافت و فقط با شناسه‌های صریح نگاشت کن."
     ]
   },
   "advertising_invoice_billing": {
