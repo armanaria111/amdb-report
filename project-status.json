@@ -4558,7 +4558,7 @@
       "blocked": 0
     },
     "feature_count": 39,
-    "implementation_status": "PRهای #140، #141 و #142 در main ادغام شدند. تست‌های middleware کشور بیننده و CI آن (306 تست/1193 assertion روی SQLite و MySQL 8.4)، سند provenance/کیفیت داده و قفل تراکنشی پیشنهادهای اصلاح عنوان اکنون در main هستند. QA تعاملی مرورگر/موبایل و پذیرش محلی/عملیاتی هنوز انجام نشده‌اند. تست هم‌زمانی مستقل MySQL برای دو درخواست موازی، hardening پیشنهادی بعدی است.",
+    "implementation_status": "PRهای #140، #141، #142 و #143 در main ادغام شدند. CI آخرین تغییرات روی SQLite و MySQL 8.4 با 306 تست و 1193 assertion موفق است؛ Vite production build، Blade cache و lint نیز موفق‌اند. PR143 استایل‌های inline دو صفحه عمومی را به فایل CSS اصلی منتقل کرد. QA تعاملی مرورگر/موبایل و پذیرش محلی/عملیاتی هنوز انجام نشده‌اند.",
     "database_runtime": {
       "status": "partially_verified_local",
       "environment": "Windows 10 + Laragon 8 + MySQL",
@@ -4578,7 +4578,7 @@
     "quality": {
       "tests_in_repository": 45,
       "tests_executed": true,
-      "test_result": "PR142 CI run 45777616987: SQLite 306 passed / 1193 assertions; MySQL 8.4 306 passed / 1193 assertions; Vite production build, Blade view cache and compiled-view PHP lint passed. The merge commit is d1c1fad7959ad2f0902562e124bc8b7a13bf7dc4. Browser/mobile and local/production acceptance remain pending.",
+      "test_result": "PR143 CI run 45778123285: SQLite 306 passed / 1193 assertions; MySQL 8.4 306 passed / 1193 assertions; Vite production build, Blade view cache and compiled-view PHP lint passed. Merge commit 35e355f3dcab2447f0fccc05e73c1f0e6eca1101. Browser/mobile and local/production acceptance remain pending.",
       "vite_build_executed": true,
       "browser_verified": false,
       "production_smoke_test": false,
@@ -4590,9 +4590,9 @@
         "QA مرورگر، موبایل، Laragon و Production در این مرحله انجام نشده‌اند."
       ],
       "ci_migrations_executed": true,
-      "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45777616987",
+      "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45778123285",
       "mysql_runtime_verified": false,
-      "latest_ci_run": 45777616987,
+      "latest_ci_run": 45778123285,
       "main_ci_conclusion": "success",
       "pull_request_ci_conclusion": "success",
       "mysql_ci_verified": true,
@@ -7269,15 +7269,15 @@
       "database_migrations": "two_new_migrations_added_not_executed"
     }
   },
-  "latest_main_commit": "d1c1fad7959ad2f0902562e124bc8b7a13bf7dc4",
+  "latest_main_commit": "35e355f3dcab2447f0fccc05e73c1f0e6eca1101",
   "source_commit_audited": "d32b7fdea656bdb631027f34bcb13ecdaf8bfffc",
   "latest_main_commit_verified_on": "2026-11-26",
   "current_development": {
     "updated_at": "2026-11-26",
     "repository": "https://github.com/armanaria111/amdb-laravel2",
     "branch": "main",
-    "head_commit": "d1c1fad7959ad2f0902562e124bc8b7a13bf7dc4",
-    "status": "pr140_pr141_pr142_merged_ci_passed_browser_and_local_acceptance_pending",
+    "head_commit": "35e355f3dcab2447f0fccc05e73c1f0e6eca1101",
+    "status": "pr140_pr141_pr142_pr143_merged_ci_passed_browser_and_local_acceptance_pending",
     "merged_pull_requests": [
       {
         "number": 137,
@@ -7327,13 +7327,22 @@
         "ci_run": 45777616987,
         "tests": "306 passed / 1193 assertions on SQLite and MySQL 8.4; Vite and Blade checks passed",
         "title": "Serialize concurrent title correction suggestions"
+      },
+      {
+        "number": 143,
+        "status": "merged",
+        "merge_commit": "35e355f3dcab2447f0fccc05e73c1f0e6eca1101",
+        "ci_run": 45778123285,
+        "tests": "306 passed / 1193 assertions on SQLite and MySQL 8.4; Vite and Blade checks passed",
+        "title": "Centralize public information page styles"
       }
     ],
     "open_pull_requests": [],
     "changes": [
       "PR140 ادغام شد: تست‌های مستقل middleware کشور بیننده برای allowlist خالی، IPv4/IPv6، peer مجاز/غیرمجاز، کد کشور نامعتبر و نام هدر سفارشی؛ CI روی SQLite و MySQL 8.4 با 306 تست و 1193 assertion موفق.",
       "PR141 ادغام شد: سند governance برای provenance منبع، claimهای سطح فیلد، تاریخچه تغییرات ترجمه‌شده، پیشنهاد اصلاح، تشخیص تکراری، ادغام انسانی و واردسازی امن WordPress؛ README مخزن اصلی به سند پیوند دارد.",
-      "PR139 باز و Draft است: ثبت پیشنهاد اصلاح عنوان را با قفل ردیف اثر و تراکنش اتمیک می‌کند و مستندات GeoIP را با middleware موجود هماهنگ می‌سازد. CI روی SQLite/MySQL موفق است؛ تست هم‌زمانی اختصاصی MySQL پیش از ادغام هنوز توصیه می‌شود."
+      "PR139 باز و Draft است: ثبت پیشنهاد اصلاح عنوان را با قفل ردیف اثر و تراکنش اتمیک می‌کند و مستندات GeoIP را با middleware موجود هماهنگ می‌سازد. CI روی SQLite/MySQL موفق است؛ تست هم‌زمانی اختصاصی MySQL پیش از ادغام هنوز توصیه می‌شود.",
+      "PR143 ادغام شد: استایل‌های inline صفحه تماس و صفحه مشترک درباره/حریم خصوصی/شرایط استفاده به resources/css/app.css منتقل شدند؛ فرم تماس، ترجمه‌ها و responsive layout حفظ شدند. CI روی SQLite و MySQL 8.4 با 306 تست و 1193 assertion موفق."
     ],
     "safeguards": [
       "PR140، PR141 و PR142 در main ادغام شدند.",
@@ -7341,9 +7350,11 @@
       "PR139 شاخه قدیمی بود و به‌عنوان superseded بسته شد؛ تغییرات آن در PR142 ادغام شدند.",
       "تست هم‌زمانی اختصاصی با دو درخواست هم‌زمان MySQL اضافه نشده است؛ قفل تراکنشی با CI کامل پوشش داده شده اما concurrency race test مستقل همچنان پیشنهاد می‌شود.",
       "هیچ تست محلی Laragon، QA مرورگر/موبایل، Migration یا عملیات دیتابیس محلی انجام نشده است.",
-      "هیچ reset یا عملیات مخرب دیتابیس انجام نشده است."
+      "هیچ reset یا عملیات مخرب دیتابیس انجام نشده است.",
+      "PR143 یک refactor محدود CSS/Blade بود؛ route، controller، translation، mail configuration یا دیتابیس تغییر نکرد."
     ],
     "next_steps": [
+      "بررسی و انتقال باقی‌مانده style blockهای احتمالی در سایر Bladeها به resources/css/app.css؛ inventory کامل نیازمند جستجوی repo در محیط کد است.",
       "در صورت نیاز، آزمون integration هم‌زمانی دو درخواست اصلاح عنوان روی MySQL را در محیط تست ایزوله اضافه کن.",
       "QA تعاملی مرورگر و موبایل برای صفحات ورود، اخبار، آثار، هنرمندان، کاربران، شرکت‌ها و سه زبان.",
       "پذیرش محلی Laragon و ممیزی schema/Migrationها فقط پس از backup و بدون عملیات مخرب.",
