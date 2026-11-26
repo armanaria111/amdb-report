@@ -4576,7 +4576,7 @@
       "scope_note": "فقط سه جدول فوق به‌صورت مستقیم با Schema::hasTable بررسی شده‌اند؛ شمار کل جدول‌ها و وضعیت همه روابط هنوز ممیزی نشده است."
     },
     "quality": {
-      "tests_in_repository": 22,
+      "tests_in_repository": 44,
       "tests_executed": true,
       "test_result": "GitHub Actions run 45774999431: SQLite 301 passed / 1182 assertions; MySQL 8.4 301 passed / 1182 assertions; Vite production build, Blade view cache and compiled-view PHP lint all passed. Local Laragon/browser/mobile acceptance and production smoke tests were not part of this CI.",
       "vite_build_executed": true,
@@ -4591,9 +4591,9 @@
         "Schema::hasTable فقط برای چند جدول مشخص گزارش شده است؛ تعداد کل جداول و روابط کامل runtime ممیزی نشده است."
       ],
       "ci_migrations_executed": true,
-      "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
+      "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45774999431",
       "mysql_runtime_verified": false,
-      "latest_ci_run": 45049622525,
+      "latest_ci_run": 45774999431,
       "main_ci_conclusion": "success",
       "pull_request_ci_conclusion": "success",
       "mysql_ci_verified": true,
