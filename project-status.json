@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "d32b7fdea656bdb631027f34bcb13ecdaf8bfffc",
+    "source_commit_audited": "5a311e16a7607813115ef2951b78c12a629c6b89",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "d32b7fdea656bdb631027f34bcb13ecdaf8bfffc",
+    "latest_main_commit": "5a311e16a7607813115ef2951b78c12a629c6b89",
     "latest_main_commit_verified_on": "2026-11-26",
     "advertising_note": "گزارش عملکرد کمپین، درآمد پلتفرم و صورتحساب تبلیغ‌دهندگان در ماژول‌های جدا هستند؛ صورتحساب و دریافت وجه فقط به‌صورت ثبت دستی رسید بیرونی انجام می‌شود و ارزها مستقل می‌مانند.",
     "platform_revenue_export": "خروجی CSV فیلترپذیر دفتر درآمد پلتفرم با ستون‌های منبع، ارز، مبلغ، دوره، وضعیت، کمپین و ممیزی ثبت/تأیید؛ مسیر GET export در گروه route صحیح ثبت شده است."
@@ -1300,6 +1300,10 @@
     {
       "date": "2026-11-26",
       "text": "PR #138 نسخه تمیز مدیریت هنرمندان، کاربران، شرکت‌ها، حرفه‌ها، درخواست‌های حرفه‌ای، اشتراک‌ها، نقش‌ها و ورود را در main ادغام کرد؛ CI کامل SQLite و MySQL 8.4 هر دو 301 تست / 1182 assertion موفق، Vite و Blade موفق. PR #136 به‌عنوان شاخه وابسته قدیمی بسته و جایگزین شد؛ هیچ PR بازی باقی نمانده است."
+    },
+    {
+      "date": "2026-11-26",
+      "text": "PR #144 با روش squash در main ادغام شد: Source Registry و مستندات سطح فیلد برای فیلم‌ها/سریال‌ها، هنرمندان، شرکت‌ها و جشنواره‌ها؛ امکان اتصال چند ادعا به هر منبع؛ بررسی مستقل منبع و ادعا؛ مجوز مستقل، میانبر داشبورد و ترجمه‌های انگلیسی/دری/پشتو. تست، build، migration و QA مرورگر طبق درخواست کاربر اجرا نشدند."
     }
   ],
   "architecture": {
@@ -1536,6 +1540,11 @@
       "name": "یکپارچه‌سازی سرویس‌های Google و Firebase",
       "state": "planned",
       "detail": "نقشه راه شامل Firebase، Search Console، GA4، Tag Manager، Google OAuth، AdSense/Ad Manager، reCAPTCHA، Maps/Places، Drive و خدمات منتخب Google Cloud است. اتصال‌ها، رضایت، امنیت credentialها، هزینه و آزمون عملیاتی هنوز طراحی و پیاده‌سازی نشده‌اند."
+    },
+    {
+      "name": "ثبت منابع و مستندات سطح فیلد کاتالوگ",
+      "state": "implemented_unverified",
+      "detail": "PR #144 در main ادغام شد؛ منبع‌های HTTPS و ادعاهای سطح فیلد برای آثار، هنرمندان، شرکت‌ها و جشنواره‌ها با workflow تأیید مستقل، hash، زبان‌های en/fa-AF/ps و مجوز catalog.sources.manage. Migration و تست/QA این تغییر اجرا نشده‌اند."
     }
   ],
   "roadmap": [
@@ -1559,7 +1568,8 @@
         "عوامل، تیتراژ و workflow پیشنهاد/تأیید",
         "شرکت‌های تولید، توزیع و نقش‌های شرکتی",
         "گالری آثار و تصاویر ثابت قسمت‌ها",
-        "واردسازی CSV عوامل با preview و کنترل تکرار؛ نگاشت شناسه WordPress اثر در PR123 در انتظار CI است."
+        "واردسازی CSV عوامل با preview و کنترل تکرار؛ نگاشت شناسه WordPress اثر در PR123 در انتظار CI است.",
+        "ثبت منابع و مستندات سطح فیلد کاتالوگ، با بررسی مستقل منبع و ادعا — PR144 ادغام شد؛ runtime هنوز تأیید نشده است."
       ]
     },
     {
@@ -2138,8 +2148,8 @@
     }
   },
   "current_work": {
-    "stage": "company advertising invoices and multicurrency financial reporting",
-    "status": "feature_branch_committed_company_financial_summary_and_owner_finance_permission_split_tests_installation_and_migrations_deferred",
+    "stage": "catalog source registry",
+    "status": "pr144_merged_tests_build_migrations_and_browser_qa_deferred",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "report_repository": "https://github.com/armanaria111/amdb-report",
     "local_path": "C:\\laragon\\www\\amdb\\amdb-laravel2",
@@ -2558,7 +2568,7 @@
     "latest_pull_request": 123,
     "branch": "feature/company-advertising-performance-details",
     "next": "بازبینی نهایی دسترسی و سازگاری مسیرهای صورتحساب و گزارش مالی؛ تکمیل composer.lock، نصب PDF، Migration و تست‌ها فقط در مرحله نهایی.",
-    "source_commit": "44310a66c38109dbf6913577f7f475b3d202f5e4",
+    "source_commit": "5a311e16a7607813115ef2951b78c12a629c6b89",
     "completed": [
       "گزارش عملکرد روزانه اختصاصی هر کمپین برای شرکت مالک اضافه شد؛ دسترسی فقط برای owner و finance فعال شرکت مجاز است.",
       "کنترل مالکیت کمپین در مسیر جزئیات و خروجی با تطبیق company_id انجام می‌شود و دسترسی بین شرکت‌ها مسدود است.",
@@ -2580,7 +2590,8 @@
       "ci": "not_triggered; PR intentionally not opened",
       "source_review": "GitHub compare and source inspection only; runtime behavior remains unverified"
     },
-    "base_commit": "44310a66c38109dbf6913577f7f475b3d202f5e4"
+    "base_commit": "44310a66c38109dbf6913577f7f475b3d202f5e4",
+    "source_branch": "main"
   },
   "application_audit": {
     "audit_date": "2026-11-18",
@@ -4519,21 +4530,20 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "d32b7fdea656bdb631027f34bcb13ecdaf8bfffc",
+    "source_commit": "5a311e16a7607813115ef2951b78c12a629c6b89",
     "report_branch": "main",
     "source_inventory": {
-      "date": "2026-11-21",
+      "date": "2026-11-26",
       "branch": "main",
-      "commit": "eb12658e8e17f36f1f854bbe6d788634366f3b4a",
-      "audit_type": "GitHub recursive tree inventory + latest main CI",
-      "tree_entries": 929,
-      "migration_files": 68,
-      "eloquent_model_files": 74,
-      "blade_files": 94,
-      "translation_php_files": 150,
-      "test_php_files": 44,
-      "controller_php_files": 67,
-      "service_php_files": 15,
+      "commit": "5a311e16a7607813115ef2951b78c12a629c6b89",
+      "audit_type": "GitHub recursive tree inventory after PR #144",
+      "tree_entries": 1030,
+      "migration_files": 81,
+      "eloquent_model_files": 86,
+      "blade_files": 115,
+      "translation_php_files": 162,
+      "test_php_files": 56,
+      "controller_php_files": 78,
       "locales": [
         "en",
         "fa-AF",
@@ -4541,24 +4551,21 @@
       ],
       "truncated": false,
       "limitations": [
-        "این اعداد فایل‌های موجود در Git tree شاخه main هستند و تعداد جدول‌ها یا Migrationهای اجراشده در دیتابیس زنده را نشان نمی‌دهند.",
-        "CI روی محیط موقت GitHub Actions اجرا شده است؛ جایگزین MySQL محلی/staging نیست.",
-        "بررسی مرورگری و smoke test دامنه انجام نشده است."
+        "آمار از Git tree شاخه main استخراج شده و تعداد جدول‌ها یا Migrationهای اجراشده در دیتابیس زنده را نشان نمی‌دهد.",
+        "تست‌ها، build، migration و QA مرورگر برای تغییرات PR #144 اجرا نشده‌اند.",
+        "این بررسی فقط موجودی فایل‌ها و ساختار سورس را ثبت می‌کند."
       ],
-      "verified_at": "2026-11-21",
-      "web_route_lines": 1098,
-      "named_route_calls": 271,
-      "route_declarations": 262
+      "verified_at": "2026-11-26"
     },
     "feature_summary": {
-      "implemented_unverified": 37,
+      "implemented_unverified": 38,
       "partial": 0,
       "needs_review": 0,
       "planned": 2,
       "blocked": 0
     },
-    "feature_count": 39,
-    "implementation_status": "PRهای #140، #141، #142 و #143 در main ادغام شدند. CI آخرین تغییرات روی SQLite و MySQL 8.4 با 306 تست و 1193 assertion موفق است؛ Vite production build، Blade cache و lint نیز موفق‌اند. PR143 استایل‌های inline دو صفحه عمومی را به فایل CSS اصلی منتقل کرد. QA تعاملی مرورگر/موبایل و پذیرش محلی/عملیاتی هنوز انجام نشده‌اند.",
+    "feature_count": 40,
+    "implementation_status": "PR #144 ادغام شد: زیرساخت ثبت منابع کاتالوگ و مستندات سطح فیلد برای آثار، هنرمندان، شرکت‌ها و جشنواره‌ها؛ بررسی مستقل منبع و ادعا؛ اتصال چند ادعا به یک منبع؛ مجوز مستقل و رابط مدیریت سه‌زبانه. تست، build، migration و QA مرورگر این تغییر اجرا نشده‌اند.",
     "database_runtime": {
       "status": "partially_verified_local",
       "environment": "Windows 10 + Laragon 8 + MySQL",
@@ -4804,14 +4811,23 @@
         "assertions": 1120,
         "duration_seconds": 40.67,
         "qualification": "موفق در checkout محلی؛ commit دقیق checkout در خروجی ثبت نشده و این نتیجه تأیید CI یا main فعلی نیست."
+      },
+      "latest_change_verification": {
+        "checked_at": "2026-11-26",
+        "change": "PR #144 catalog source registry",
+        "tests_executed": false,
+        "build_executed": false,
+        "migrations_executed": false,
+        "browser_verified": false,
+        "note": "طبق درخواست کاربر، توسعه انجام شد و تست‌ها و migration برای مرحله بعد باقی ماندند."
       }
     },
     "release": {
-      "latest_merged_pr": 122,
-      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/122",
-      "latest_source_commit": "aaba384d50f19eb4f8e74454926d14c82bdb2b5e",
+      "latest_merged_pr": 144,
+      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/144",
+      "latest_source_commit": "5a311e16a7607813115ef2951b78c12a629c6b89",
       "source_branch": "main",
-      "verified_at": "2026-11-22",
+      "verified_at": "2026-11-26",
       "pr_ci_run": 44990252885,
       "pr_ci_conclusion": "success",
       "pr_tests": 254,
@@ -4820,7 +4836,7 @@
       "blade_compile": "success",
       "blade_lint": "success",
       "main_push_ci": "not_reported_by_commit_workflow_query",
-      "note": "دو اصلاح import مربوط به Spatie Activitylog در News و Festival مستقیماً در main ثبت شد. PR124 همچنان باز و draft است؛ MySQL staging و پذیرش مرورگر/موبایل هنوز انجام نشده‌اند.",
+      "note": "PR144 Source Registry در main ادغام شد. هیچ تست، Build، Migration یا QA مرورگر برای این تغییر اجرا نشده است؛ پذیرش محلی پس از backup و اجرای migration/Seeder باقی است.",
       "mysql_staging": "pending",
       "browser_mobile_acceptance": "pending",
       "mysql_ci_pr": 122,
@@ -5283,8 +5299,8 @@
         }
       ]
     },
-    "latest_main_commit": "d32b7fdea656bdb631027f34bcb13ecdaf8bfffc",
-    "source_commit_audited": "d32b7fdea656bdb631027f34bcb13ecdaf8bfffc",
+    "latest_main_commit": "5a311e16a7607813115ef2951b78c12a629c6b89",
+    "source_commit_audited": "5a311e16a7607813115ef2951b78c12a629c6b89",
     "latest_main_commit_verified_on": "2026-11-26",
     "local_activitylog_validation": {
       "checked_at": "2026-11-24",
@@ -5369,6 +5385,47 @@
       "passed_models": 5,
       "failed_models": 0,
       "scope_note": "این اعتبارسنجی runtime محلی و تراکنشی است؛ تست مرورگر، staging و production را پوشش نمی‌دهد. هیچ migration یا داده واقعی حذف/بازسازی نشد."
+    },
+    "catalog_source_registry": {
+      "status": "merged_code_unverified_runtime",
+      "merge_pr": 144,
+      "merge_commit": "5a311e16a7607813115ef2951b78c12a629c6b89",
+      "tables": [
+        "catalog_sources",
+        "catalog_source_claims"
+      ],
+      "models": [
+        "CatalogSource",
+        "CatalogSourceClaim"
+      ],
+      "supported_entities": [
+        "Title",
+        "Artist",
+        "Company",
+        "Festival"
+      ],
+      "permissions": [
+        "catalog.sources.manage"
+      ],
+      "admin_route": "/admin/catalog-sources",
+      "features": [
+        "ثبت منبع HTTPS با ناشر، نوع، عنوان، زبان، تاریخ انتشار، زمان ثبت و آخرین بررسی",
+        "ثبت ادعای سطح فیلد با snapshot، زبان، locator و SHA-256",
+        "اتصال چند ادعا از موجودیت‌ها و فیلدهای مختلف به یک منبع",
+        "بازبینی جداگانه منبع و هر ادعا؛ پذیرش ادعا فقط پس از تأیید منبع",
+        "وضعیت‌های pending، approved، rejected، accepted و disputed",
+        "رابط مدیریتی و ترجمه‌های en، fa-AF و ps"
+      ],
+      "safeguards": [
+        "تأیید منبع یا ادعا داده عمومی کاتالوگ را خودکار تغییر نمی‌دهد.",
+        "URLها فقط HTTPS هستند و برنامه آن‌ها را سمت سرور واکشی نمی‌کند.",
+        "فایل مدرک خصوصی در این مرحله بارگذاری نمی‌شود."
+      ],
+      "tests_executed": false,
+      "migrations_executed": false,
+      "build_executed": false,
+      "browser_verified": false,
+      "note": "کد در main ادغام شده است؛ پیش از اجرای migration روی دیتابیس محلی باید backup و بررسی migration انجام شود."
     }
   },
   "report_methodology": {
@@ -7269,15 +7326,15 @@
       "database_migrations": "two_new_migrations_added_not_executed"
     }
   },
-  "latest_main_commit": "35e355f3dcab2447f0fccc05e73c1f0e6eca1101",
-  "source_commit_audited": "d32b7fdea656bdb631027f34bcb13ecdaf8bfffc",
+  "latest_main_commit": "5a311e16a7607813115ef2951b78c12a629c6b89",
+  "source_commit_audited": "5a311e16a7607813115ef2951b78c12a629c6b89",
   "latest_main_commit_verified_on": "2026-11-26",
   "current_development": {
     "updated_at": "2026-11-26",
     "repository": "https://github.com/armanaria111/amdb-laravel2",
     "branch": "main",
-    "head_commit": "35e355f3dcab2447f0fccc05e73c1f0e6eca1101",
-    "status": "pr140_pr141_pr142_pr143_merged_ci_passed_browser_and_local_acceptance_pending",
+    "head_commit": "5a311e16a7607813115ef2951b78c12a629c6b89",
+    "status": "pr144_catalog_source_registry_merged_tests_migrations_browser_qa_deferred",
     "merged_pull_requests": [
       {
         "number": 137,
@@ -7335,6 +7392,14 @@
         "ci_run": 45778123285,
         "tests": "306 passed / 1193 assertions on SQLite and MySQL 8.4; Vite and Blade checks passed",
         "title": "Centralize public information page styles"
+      },
+      {
+        "number": 144,
+        "status": "merged",
+        "merge_commit": "5a311e16a7607813115ef2951b78c12a629c6b89",
+        "title": "Add catalog source registry and evidence review workflow",
+        "scope": "Source registry, field-level claims, source/claim review, permission and multilingual admin UI",
+        "tests": "not run by user instruction"
       }
     ],
     "open_pull_requests": [],
@@ -7342,7 +7407,8 @@
       "PR140 ادغام شد: تست‌های مستقل middleware کشور بیننده برای allowlist خالی، IPv4/IPv6، peer مجاز/غیرمجاز، کد کشور نامعتبر و نام هدر سفارشی؛ CI روی SQLite و MySQL 8.4 با 306 تست و 1193 assertion موفق.",
       "PR141 ادغام شد: سند governance برای provenance منبع، claimهای سطح فیلد، تاریخچه تغییرات ترجمه‌شده، پیشنهاد اصلاح، تشخیص تکراری، ادغام انسانی و واردسازی امن WordPress؛ README مخزن اصلی به سند پیوند دارد.",
       "PR139 باز و Draft است: ثبت پیشنهاد اصلاح عنوان را با قفل ردیف اثر و تراکنش اتمیک می‌کند و مستندات GeoIP را با middleware موجود هماهنگ می‌سازد. CI روی SQLite/MySQL موفق است؛ تست هم‌زمانی اختصاصی MySQL پیش از ادغام هنوز توصیه می‌شود.",
-      "PR143 ادغام شد: استایل‌های inline صفحه تماس و صفحه مشترک درباره/حریم خصوصی/شرایط استفاده به resources/css/app.css منتقل شدند؛ فرم تماس، ترجمه‌ها و responsive layout حفظ شدند. CI روی SQLite و MySQL 8.4 با 306 تست و 1193 assertion موفق."
+      "PR143 ادغام شد: استایل‌های inline صفحه تماس و صفحه مشترک درباره/حریم خصوصی/شرایط استفاده به resources/css/app.css منتقل شدند؛ فرم تماس، ترجمه‌ها و responsive layout حفظ شدند. CI روی SQLite و MySQL 8.4 با 306 تست و 1193 assertion موفق.",
+      "PR144 ادغام شد: دو جدول catalog_sources و catalog_source_claims، مدل‌های CatalogSource/CatalogSourceClaim، اتصال morphMany به Title/Artist/Company/Festival، ثبت HTTPS، snapshot و SHA-256، بررسی مستقل منبع و ادعا، امکان چند ادعا برای هر منبع، مجوز catalog.sources.manage، داشبورد و ترجمه سه‌زبانه."
     ],
     "safeguards": [
       "PR140، PR141 و PR142 در main ادغام شدند.",
@@ -7351,9 +7417,11 @@
       "تست هم‌زمانی اختصاصی با دو درخواست هم‌زمان MySQL اضافه نشده است؛ قفل تراکنشی با CI کامل پوشش داده شده اما concurrency race test مستقل همچنان پیشنهاد می‌شود.",
       "هیچ تست محلی Laragon، QA مرورگر/موبایل، Migration یا عملیات دیتابیس محلی انجام نشده است.",
       "هیچ reset یا عملیات مخرب دیتابیس انجام نشده است.",
-      "PR143 یک refactor محدود CSS/Blade بود؛ route، controller، translation، mail configuration یا دیتابیس تغییر نکرد."
+      "PR143 یک refactor محدود CSS/Blade بود؛ route، controller، translation، mail configuration یا دیتابیس تغییر نکرد.",
+      "برای PR144 هیچ تست، build، migration، seeder یا QA مرورگر اجرا نشد؛ داده دیتابیس محلی دست‌نخورده است."
     ],
     "next_steps": [
+      "پس از backup، اجرای migration جدید و seeder مجوزها در Laragon؛ سپس تست Feature/دسترسی و بررسی مرورگر.",
       "بررسی و انتقال باقی‌مانده style blockهای احتمالی در سایر Bladeها به resources/css/app.css؛ inventory کامل نیازمند جستجوی repo در محیط کد است.",
       "در صورت نیاز، آزمون integration هم‌زمانی دو درخواست اصلاح عنوان روی MySQL را در محیط تست ایزوله اضافه کن.",
       "QA تعاملی مرورگر و موبایل برای صفحات ورود، اخبار، آثار، هنرمندان، کاربران، شرکت‌ها و سه زبان.",
