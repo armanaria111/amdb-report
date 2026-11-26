@@ -4558,7 +4558,7 @@
       "blocked": 0
     },
     "feature_count": 39,
-    "implementation_status": "PR140 و PR141 ادغام شده‌اند. PR142 برای اتمیک‌سازی پیشنهادهای اصلاح عنوان روی آخرین main ساخته شده، آماده بازبینی است و CI کامل آن روی SQLite و MySQL 8.4 با 306 تست و 1193 assertion موفق است؛ تست هم‌زمانی اختصاصی MySQL به‌عنوان hardening بیشتر توصیه می‌شود. QA مرورگر/موبایل و پذیرش محلی/عملیاتی انجام نشده‌اند.",
+    "implementation_status": "PRهای #140، #141 و #142 در main ادغام شدند. تست‌های middleware کشور بیننده و CI آن (306 تست/1193 assertion روی SQLite و MySQL 8.4)، سند provenance/کیفیت داده و قفل تراکنشی پیشنهادهای اصلاح عنوان اکنون در main هستند. QA تعاملی مرورگر/موبایل و پذیرش محلی/عملیاتی هنوز انجام نشده‌اند. تست هم‌زمانی مستقل MySQL برای دو درخواست موازی، hardening پیشنهادی بعدی است.",
     "database_runtime": {
       "status": "partially_verified_local",
       "environment": "Windows 10 + Laragon 8 + MySQL",
@@ -4578,7 +4578,7 @@
     "quality": {
       "tests_in_repository": 45,
       "tests_executed": true,
-      "test_result": "PR142 CI run 45777616987: SQLite 306 passed / 1193 assertions; MySQL 8.4 306 passed / 1193 assertions; Vite production build, Blade view cache and compiled-view PHP lint passed. Browser/mobile and local/production acceptance remain pending.",
+      "test_result": "PR142 CI run 45777616987: SQLite 306 passed / 1193 assertions; MySQL 8.4 306 passed / 1193 assertions; Vite production build, Blade view cache and compiled-view PHP lint passed. The merge commit is d1c1fad7959ad2f0902562e124bc8b7a13bf7dc4. Browser/mobile and local/production acceptance remain pending.",
       "vite_build_executed": true,
       "browser_verified": false,
       "production_smoke_test": false,
@@ -7269,15 +7269,15 @@
       "database_migrations": "two_new_migrations_added_not_executed"
     }
   },
-  "latest_main_commit": "0cce35603bcef6f5d3096fc1d2ca39febe25011f",
+  "latest_main_commit": "d1c1fad7959ad2f0902562e124bc8b7a13bf7dc4",
   "source_commit_audited": "d32b7fdea656bdb631027f34bcb13ecdaf8bfffc",
   "latest_main_commit_verified_on": "2026-11-26",
   "current_development": {
     "updated_at": "2026-11-26",
     "repository": "https://github.com/armanaria111/amdb-laravel2",
     "branch": "main",
-    "head_commit": "0cce35603bcef6f5d3096fc1d2ca39febe25011f",
-    "status": "pr140_pr141_merged_pr142_ready_ci_passed_browser_and_local_acceptance_pending",
+    "head_commit": "d1c1fad7959ad2f0902562e124bc8b7a13bf7dc4",
+    "status": "pr140_pr141_pr142_merged_ci_passed_browser_and_local_acceptance_pending",
     "merged_pull_requests": [
       {
         "number": 137,
@@ -7319,35 +7319,32 @@
         "status": "merged",
         "merge_commit": "8b7646693860ddf5cf2cb9697290a41edff5a0b8",
         "scope": "Documentation: catalog data quality and provenance governance"
-      }
-    ],
-    "open_pull_requests": [
+      },
       {
         "number": 142,
-        "status": "open_ready_for_review_ci_passed",
-        "head": "3f7025b16b7dbc408a3a3cd5b189d1172ac9a1ad",
+        "status": "merged",
+        "merge_commit": "d1c1fad7959ad2f0902562e124bc8b7a13bf7dc4",
         "ci_run": 45777616987,
         "tests": "306 passed / 1193 assertions on SQLite and MySQL 8.4; Vite and Blade checks passed",
-        "title": "Serialize concurrent title correction suggestions",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/142",
-        "remaining": "Dedicated simultaneous-request MySQL integration coverage is recommended before merge."
+        "title": "Serialize concurrent title correction suggestions"
       }
     ],
+    "open_pull_requests": [],
     "changes": [
       "PR140 ادغام شد: تست‌های مستقل middleware کشور بیننده برای allowlist خالی، IPv4/IPv6، peer مجاز/غیرمجاز، کد کشور نامعتبر و نام هدر سفارشی؛ CI روی SQLite و MySQL 8.4 با 306 تست و 1193 assertion موفق.",
       "PR141 ادغام شد: سند governance برای provenance منبع، claimهای سطح فیلد، تاریخچه تغییرات ترجمه‌شده، پیشنهاد اصلاح، تشخیص تکراری، ادغام انسانی و واردسازی امن WordPress؛ README مخزن اصلی به سند پیوند دارد.",
       "PR139 باز و Draft است: ثبت پیشنهاد اصلاح عنوان را با قفل ردیف اثر و تراکنش اتمیک می‌کند و مستندات GeoIP را با middleware موجود هماهنگ می‌سازد. CI روی SQLite/MySQL موفق است؛ تست هم‌زمانی اختصاصی MySQL پیش از ادغام هنوز توصیه می‌شود."
     ],
     "safeguards": [
-      "PR140 و PR141 در main ادغام شدند؛ PR139 پس از انتقال همان تغییرات به شاخه به‌روزتر بسته شد.",
-      "PR142 از آخرین main ساخته شده و فقط دو فایل مربوط به قفل تراکنشی پیشنهادهای اصلاح و مستندات playback را تغییر می‌دهد.",
-      "CI مربوط به PR142 هنوز در زمان این snapshot در دسترس نبود؛ تا موفقیت CI و بازبینی، ادغام انجام نمی‌شود.",
+      "PR140، PR141 و PR142 در main ادغام شدند.",
+      "PR142 بر مبنای آخرین main اجرا شد؛ CI روی SQLite و MySQL 8.4 با 306 تست و 1193 assertion موفق بود؛ Vite و Blade checks نیز موفق بودند.",
+      "PR139 شاخه قدیمی بود و به‌عنوان superseded بسته شد؛ تغییرات آن در PR142 ادغام شدند.",
+      "تست هم‌زمانی اختصاصی با دو درخواست هم‌زمان MySQL اضافه نشده است؛ قفل تراکنشی با CI کامل پوشش داده شده اما concurrency race test مستقل همچنان پیشنهاد می‌شود.",
       "هیچ تست محلی Laragon، QA مرورگر/موبایل، Migration یا عملیات دیتابیس محلی انجام نشده است.",
       "هیچ reset یا عملیات مخرب دیتابیس انجام نشده است."
     ],
     "next_steps": [
-      "بازبینی PR142 و تصمیم درباره افزودن آزمون هم‌زمانی اختصاصی MySQL؛ CI کامل موجود روی SQLite و MySQL 8.4 موفق است.",
-      "پس از بازبینی نهایی، ادغام PR142.",
+      "در صورت نیاز، آزمون integration هم‌زمانی دو درخواست اصلاح عنوان روی MySQL را در محیط تست ایزوله اضافه کن.",
       "QA تعاملی مرورگر و موبایل برای صفحات ورود، اخبار، آثار، هنرمندان، کاربران، شرکت‌ها و سه زبان.",
       "پذیرش محلی Laragon و ممیزی schema/Migrationها فقط پس از backup و بدون عملیات مخرب.",
       "پیاده‌سازی source registry، field-level provenance و immutable catalog history طبق docs/catalog-data-quality-governance.md.",
