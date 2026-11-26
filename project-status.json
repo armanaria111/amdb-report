@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "68c4ba22c2ffa04316a8b7830369f8fd2c34070d",
+    "source_commit_audited": "78b5a2c46a6c54855590d6492c7ac7f0fd03358b",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "68c4ba22c2ffa04316a8b7830369f8fd2c34070d",
+    "latest_main_commit": "78b5a2c46a6c54855590d6492c7ac7f0fd03358b",
     "latest_main_commit_verified_on": "2026-11-26",
     "advertising_note": "گزارش عملکرد کمپین، درآمد پلتفرم و صورتحساب تبلیغ‌دهندگان در ماژول‌های جدا هستند؛ صورتحساب و دریافت وجه فقط به‌صورت ثبت دستی رسید بیرونی انجام می‌شود و ارزها مستقل می‌مانند.",
     "platform_revenue_export": "خروجی CSV فیلترپذیر دفتر درآمد پلتفرم با ستون‌های منبع، ارز، مبلغ، دوره، وضعیت، کمپین و ممیزی ثبت/تأیید؛ مسیر GET export در گروه route صحیح ثبت شده است."
@@ -4530,7 +4530,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "68c4ba22c2ffa04316a8b7830369f8fd2c34070d",
+    "source_commit": "78b5a2c46a6c54855590d6492c7ac7f0fd03358b",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-26",
@@ -4565,7 +4565,7 @@
       "blocked": 0
     },
     "feature_count": 41,
-    "implementation_status": "PR #144 ادغام شد: زیرساخت ثبت منابع کاتالوگ و مستندات سطح فیلد برای آثار، هنرمندان، شرکت‌ها و جشنواره‌ها؛ بررسی مستقل منبع و ادعا؛ اتصال چند ادعا به یک منبع؛ مجوز مستقل و رابط مدیریت سه‌زبانه. تست، build، migration و QA مرورگر این تغییر اجرا نشده‌اند. فیلدهای reviewer و reviewed_at برای همه تصمیم‌های ادعا نیز با Migration افزایشی اضافه شدند.",
+    "implementation_status": "PR #144 زیرساخت منابع کاتالوگ و PR #145/#146 تاریخچه فیلدبه‌فیلد و بازگردانی کنترل‌شده (شامل ترجمه‌های سه‌زبانه) را به main افزودند. تست‌ها، build، migration و QA مرورگر فعلاً طبق درخواست کاربر اجرا نشده‌اند.",
     "database_runtime": {
       "status": "partially_verified_local",
       "environment": "Windows 10 + Laragon 8 + MySQL",
@@ -4824,9 +4824,9 @@
       }
     },
     "release": {
-      "latest_merged_pr": 145,
-      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/145",
-      "latest_source_commit": "68c4ba22c2ffa04316a8b7830369f8fd2c34070d",
+      "latest_merged_pr": 146,
+      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/146",
+      "latest_source_commit": "78b5a2c46a6c54855590d6492c7ac7f0fd03358b",
       "source_branch": "main",
       "verified_at": "2026-11-26",
       "pr_ci_run": 44990252885,
@@ -4837,7 +4837,7 @@
       "blade_compile": "success",
       "blade_lint": "success",
       "main_push_ci": "not_reported_by_commit_workflow_query",
-      "note": "PR #145 در main ادغام شد: تاریخچه فیلدبه‌فیلد و بازگردانی کنترل‌شده برای Title، Artist، Company و Festival. Migration افزایشی و مجوز مدیریتی اضافه شده‌اند. طبق درخواست کاربر، تست‌ها، build، migration و QA مرورگر اجرا نشده‌اند؛ اجرای migration و seeder پس از backup در مرحله تست/فعال‌سازی باقی است.",
+      "note": "PR #145 و PR #146 در main ادغام شدند: دفتر تاریخچه فیلدبه‌فیلد و بازگردانی کنترل‌شده برای آثار، هنرمندان، شرکت‌ها و جشنواره‌ها، همراه با فیلدهای ترجمه‌شده en/fa-AF/ps. تست، build، migration و QA مرورگر این دو PR طبق درخواست کاربر اجرا نشده‌اند؛ migration افزایشی و seeder پس از backup باید در مرحله تست/فعال‌سازی اجرا شوند.",
       "mysql_staging": "pending",
       "browser_mobile_acceptance": "pending",
       "mysql_ci_pr": 122,
@@ -5300,8 +5300,8 @@
         }
       ]
     },
-    "latest_main_commit": "68c4ba22c2ffa04316a8b7830369f8fd2c34070d",
-    "source_commit_audited": "68c4ba22c2ffa04316a8b7830369f8fd2c34070d",
+    "latest_main_commit": "78b5a2c46a6c54855590d6492c7ac7f0fd03358b",
+    "source_commit_audited": "78b5a2c46a6c54855590d6492c7ac7f0fd03358b",
     "latest_main_commit_verified_on": "2026-11-26",
     "local_activitylog_validation": {
       "checked_at": "2026-11-24",
@@ -5441,7 +5441,7 @@
       "status": "merged_code_unverified_runtime",
       "pull_request": 145,
       "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/145",
-      "merge_commit": "68c4ba22c2ffa04316a8b7830369f8fd2c34070d",
+      "merge_commit": "78b5a2c46a6c54855590d6492c7ac7f0fd03358b",
       "table": "catalog_change_revisions",
       "entities": [
         "Title",
@@ -5451,8 +5451,9 @@
       ],
       "features": [
         "ثبت رویداد ایجاد و تغییر فیلدهای محتوایی مجاز با snapshot قبل/بعد، actor و زمان",
+        "تاریخچه فیلدهای ترجمه‌شده عنوان، هنرمند، شرکت و جشنواره؛ با ثبت زبان در کلید فیلد",
         "صفحه مدیریت تاریخچه با فیلتر نوع موجودیت، شناسه و نوع رویداد",
-        "بازگردانی فقط revision و فیلدهای allowlist شده با قفل تراکنشی و بررسی stale-value",
+        "بازگردانی revisionهای ویرایش با قفل تراکنشی و بررسی تطابق مقادیر فعلی",
         "ثبت دلیل و ایجاد رویداد restored جدید با ارجاع به revision اصلی",
         "مجوز catalog.history.manage و ترجمه‌های en، fa-AF و ps"
       ],
@@ -5461,8 +5462,8 @@
         "مالکیت و مجوزها",
         "فایل‌ها و مسیرهای رسانه",
         "درآمد و پرداخت",
-        "روابط pivot، عوامل و قسمت‌ها",
-        "ترجمه‌های مستقل"
+        "روابط pivot، عوامل، فصل‌ها و قسمت‌ها",
+        "ترجمه فصل‌ها و قسمت‌ها"
       ],
       "safeguards": [
         "Migration افزایشی است و داده‌های قبلی را تغییر نمی‌دهد.",
@@ -5475,12 +5476,18 @@
       "build_executed": false,
       "browser_verified": false,
       "next_work": [
-        "افزودن تاریخچه فیلدهای ترجمه‌شده",
-        "افزودن تاریخچه روابط و عوامل با سیاست‌های دقیق و بدون ثبت تغییرات حساس",
-        "اجرای migration و seeder پس از backup",
-        "تست restore، concurrency، authorization و نمایش مرورگر"
+        "تاریخچه و سیاست بازگردانی برای فصل‌ها، قسمت‌ها، عوامل و ارتباط شرکت با اثر",
+        "تست restore، concurrency، authorization و نمایش مرورگر",
+        "اجرای migration و seeder پس از backup"
       ],
-      "note": "کد ادغام شده است؛ این مرحله هنوز در سیستم محلی فعال یا runtime تأیید نشده است."
+      "note": "کد هر دو PR در main ادغام شده است؛ هنوز روی سیستم محلی فعال یا runtime تأیید نشده است.",
+      "translation_extension_pr": 146,
+      "translation_extension_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/146",
+      "locales": [
+        "en",
+        "fa-AF",
+        "ps"
+      ]
     }
   },
   "report_methodology": {
@@ -7381,8 +7388,8 @@
       "database_migrations": "two_new_migrations_added_not_executed"
     }
   },
-  "latest_main_commit": "68c4ba22c2ffa04316a8b7830369f8fd2c34070d",
-  "source_commit_audited": "68c4ba22c2ffa04316a8b7830369f8fd2c34070d",
+  "latest_main_commit": "78b5a2c46a6c54855590d6492c7ac7f0fd03358b",
+  "source_commit_audited": "78b5a2c46a6c54855590d6492c7ac7f0fd03358b",
   "latest_main_commit_verified_on": "2026-11-26",
   "current_development": {
     "updated_at": "2026-11-26",
