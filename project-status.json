@@ -4565,7 +4565,7 @@
       "blocked": 0
     },
     "feature_count": 41,
-    "implementation_status": "PR #144 زیرساخت منابع کاتالوگ و PRهای #145 تا #147 دفتر تاریخچه فیلدبه‌فیلد و بازگردانی کنترل‌شده را برای موجودیت‌های اصلی کاتالوگ، فصل/قسمت، عوامل و ترجمه‌های سه‌زبانه به main افزودند. تست‌ها، build، migration و QA مرورگر فعلاً طبق درخواست کاربر اجرا نشده‌اند.",
+    "implementation_status": "PR #148 تا #164 ادغام شدند؛ PR #165 به‌علت پنج advisory امنیتی Composer باز مانده است. تست‌ها و QA پس از ادغام طبق درخواست کاربر به مرحله نهایی موکول شدند.",
     "database_runtime": {
       "status": "partially_verified_local",
       "environment": "Windows 10 + Laragon 8 + MySQL",
@@ -5300,7 +5300,7 @@
         }
       ]
     },
-    "latest_main_commit": "6de4a5d25c7c249db4df3bfdabb8e953edfa185e",
+    "latest_main_commit": "729e6baab766ffd1d7892721cd03fa0be6c82a6e",
     "source_commit_audited": "6de4a5d25c7c249db4df3bfdabb8e953edfa185e",
     "latest_main_commit_verified_on": "2026-11-26",
     "local_activitylog_validation": {
@@ -7396,15 +7396,15 @@
       "database_migrations": "two_new_migrations_added_not_executed"
     }
   },
-  "latest_main_commit": "6de4a5d25c7c249db4df3bfdabb8e953edfa185e",
+  "latest_main_commit": "729e6baab766ffd1d7892721cd03fa0be6c82a6e",
   "source_commit_audited": "6de4a5d25c7c249db4df3bfdabb8e953edfa185e",
   "latest_main_commit_verified_on": "2026-11-26",
   "current_development": {
     "updated_at": "2026-11-26",
     "repository": "https://github.com/armanaria111/amdb-laravel2",
     "branch": "main",
-    "head_commit": "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab",
-    "status": "pr144_catalog_source_registry_merged_tests_migrations_browser_qa_deferred",
+    "head_commit": "729e6baab766ffd1d7892721cd03fa0be6c82a6e",
+    "status": "17_of_18_open_prs_merged_security_pr_165_blocked_by_composer_audit",
     "merged_pull_requests": [
       {
         "number": 137,
@@ -7470,16 +7470,149 @@
         "title": "Add catalog source registry and evidence review workflow",
         "scope": "Source registry, field-level claims, source/claim review, permission and multilingual admin UI",
         "tests": "not run by user instruction"
+      },
+      {
+        "number": 148,
+        "status": "merged",
+        "merge_commit": "97562f22e435eed9321f4f1d6838cf49792b6266",
+        "title": "Phase 3: duplicate detection and controlled catalog merges",
+        "tests": "deferred by user instruction; post-merge CI not verified"
+      },
+      {
+        "number": 149,
+        "status": "merged",
+        "merge_commit": "653699299e324798a650fec5a1eaf32df3130bb8",
+        "title": "Phase 4: admin dashboard queues and user governance",
+        "tests": "deferred by user instruction; post-merge CI not verified"
+      },
+      {
+        "number": 150,
+        "status": "merged",
+        "merge_commit": "ca33d4f8da09b400072e615af47513f3a0729ed2",
+        "title": "Phase 5: user dashboard submission visibility",
+        "tests": "deferred by user instruction; post-merge CI not verified"
+      },
+      {
+        "number": 151,
+        "status": "merged",
+        "merge_commit": "3822e33a97089d901ff611f8f11b3a5e8bb1360b",
+        "title": "Phase 6: artist panel workflow visibility",
+        "tests": "deferred by user instruction; post-merge CI not verified"
+      },
+      {
+        "number": 152,
+        "status": "merged",
+        "merge_commit": "b0792bf05ba071e0be48fdf43b4b7e5b7f83edd5",
+        "title": "Phase 7: company rights dashboard overview",
+        "tests": "deferred by user instruction; post-merge CI not verified"
+      },
+      {
+        "number": 153,
+        "status": "merged",
+        "merge_commit": "7329afe27208c05f6e5eab6b84d049b5ca7a2d48",
+        "title": "Phase 8: clarify company revenue and settlements",
+        "tests": "deferred by user instruction; post-merge CI not verified"
+      },
+      {
+        "number": 154,
+        "status": "merged",
+        "merge_commit": "68c895aa9f236f226998f719a0efa4444e86a6ab",
+        "title": "Phase 9: company advertising dashboard improvements",
+        "tests": "deferred by user instruction; post-merge CI not verified"
+      },
+      {
+        "number": 155,
+        "status": "merged",
+        "merge_commit": "2730f28c6d73923102d0925ef8fde4bb08b668f4",
+        "title": "Phase 10: company profile media self-service",
+        "tests": "deferred by user instruction; post-merge CI not verified"
+      },
+      {
+        "number": 156,
+        "status": "merged",
+        "merge_commit": "e0e7959feda15fa2baabd4d1882bce41a9104d90",
+        "title": "Phase 11: company public profile self-service",
+        "tests": "deferred by user instruction; post-merge CI not verified"
+      },
+      {
+        "number": 157,
+        "status": "merged",
+        "merge_commit": "6fa0380fd7d87defc79bf2cf835bb0330d99514b",
+        "title": "Phase 12: public company directory discovery",
+        "tests": "deferred by user instruction; post-merge CI not verified"
+      },
+      {
+        "number": 158,
+        "status": "merged",
+        "merge_commit": "560327e6389bf64f7489dc1a4db73af6e899f080",
+        "title": "Phase 13: harden artist directory and centralize public styles",
+        "tests": "deferred by user instruction; post-merge CI not verified"
+      },
+      {
+        "number": 159,
+        "status": "merged",
+        "merge_commit": "719f74a040dae67094676c42dd48b99ebe8aad33",
+        "title": "Phase 14: centralize admin and user dashboard CSS",
+        "tests": "deferred by user instruction; post-merge CI not verified"
+      },
+      {
+        "number": 160,
+        "status": "merged",
+        "merge_commit": "e26090a25b5992e210b8b41d7c12500647a0d28b",
+        "title": "Phase 15: centralize remaining admin page styles",
+        "tests": "deferred by user instruction; post-merge CI not verified"
+      },
+      {
+        "number": 161,
+        "status": "merged",
+        "merge_commit": "8c0862f6c6f4ac4a1e8ef1f5b5a10fc356ad87a7",
+        "title": "Phase 16: unify login and registration UI",
+        "tests": "deferred by user instruction; post-merge CI not verified"
+      },
+      {
+        "number": 162,
+        "status": "merged",
+        "merge_commit": "bee6869061aadc30c13688b369bd364c22a48b7e",
+        "title": "Phase 17: move global layout CSS into shared stylesheet",
+        "tests": "deferred by user instruction; post-merge CI not verified"
+      },
+      {
+        "number": 163,
+        "status": "merged",
+        "merge_commit": "9aedd38964a7f0fb26c877db6a3383034ce37e71",
+        "title": "Phase 18: centralize public catalog and workflow styles",
+        "tests": "deferred by user instruction; post-merge CI not verified"
+      },
+      {
+        "number": 164,
+        "status": "merged",
+        "merge_commit": "729e6baab766ffd1d7892721cd03fa0be6c82a6e",
+        "title": "Phase 19: consolidate independent locale font stacks",
+        "tests": "deferred by user instruction; post-merge CI not verified"
       }
     ],
-    "open_pull_requests": [],
+    "open_pull_requests": [
+      {
+        "number": 165,
+        "title": "Security hardening: headers, auth throttling, safer defaults",
+        "status": "open_blocked",
+        "url": "https://github.com/armanaria111/amdb-laravel2/pull/165",
+        "blockers": [
+          "Composer audit reported five advisories affecting symfony/http-kernel, symfony/mailer and symfony/routing.",
+          "CI PHPUnit on the pre-merge branch also reproduced a CatalogChangeRecorder translation-parent TypeError; the parent-relation resolution fix was included in merged PR #148, but PR #165 CI has not been rerun against updated main."
+        ],
+        "next_action": "Update locked Symfony packages to patched releases, refresh the security branch against current main, then rerun CI."
+      }
+    ],
     "changes": [
       "PR140 ادغام شد: تست‌های مستقل middleware کشور بیننده برای allowlist خالی، IPv4/IPv6، peer مجاز/غیرمجاز، کد کشور نامعتبر و نام هدر سفارشی؛ CI روی SQLite و MySQL 8.4 با 306 تست و 1193 assertion موفق.",
       "PR141 ادغام شد: سند governance برای provenance منبع، claimهای سطح فیلد، تاریخچه تغییرات ترجمه‌شده، پیشنهاد اصلاح، تشخیص تکراری، ادغام انسانی و واردسازی امن WordPress؛ README مخزن اصلی به سند پیوند دارد.",
       "PR139 باز و Draft است: ثبت پیشنهاد اصلاح عنوان را با قفل ردیف اثر و تراکنش اتمیک می‌کند و مستندات GeoIP را با middleware موجود هماهنگ می‌سازد. CI روی SQLite/MySQL موفق است؛ تست هم‌زمانی اختصاصی MySQL پیش از ادغام هنوز توصیه می‌شود.",
       "PR143 ادغام شد: استایل‌های inline صفحه تماس و صفحه مشترک درباره/حریم خصوصی/شرایط استفاده به resources/css/app.css منتقل شدند؛ فرم تماس، ترجمه‌ها و responsive layout حفظ شدند. CI روی SQLite و MySQL 8.4 با 306 تست و 1193 assertion موفق.",
       "PR144 ادغام شد: دو جدول catalog_sources و catalog_source_claims، مدل‌های CatalogSource/CatalogSourceClaim، اتصال morphMany به Title/Artist/Company/Festival، ثبت HTTPS، snapshot و SHA-256، بررسی مستقل منبع و ادعا، امکان چند ادعا برای هر منبع، مجوز catalog.sources.manage، داشبورد و ترجمه سه‌زبانه.",
-      "پس از ادغام PR144، ممیزی تکمیلی انجام شد: ثبت reviewer و reviewed_at برای تمام تصمیم‌های claim (accepted/rejected/disputed) با migration افزایشی؛ نمایش بازبین و زمان بررسی در پنل؛ فیلتر وضعیت از ورودی اعتبارسنجی‌شده خوانده می‌شود."
+      "پس از ادغام PR144، ممیزی تکمیلی انجام شد: ثبت reviewer و reviewed_at برای تمام تصمیم‌های claim (accepted/rejected/disputed) با migration افزایشی؛ نمایش بازبین و زمان بررسی در پنل؛ فیلتر وضعیت از ورودی اعتبارسنجی‌شده خوانده می‌شود.",
+      "PR #148 تا #164 در 2026-11-26 به main ادغام شدند؛ PR #148 ابتدا سه تست را به‌علت برخورد attribute ترجمه title با relation title شکست داد. دسترسی relation در AppServiceProvider به فراخوانی relation method تغییر کرد و در commit ادغام PR #148 ثبت شد.",
+      "PRهای #149 تا #164 پس از انتقال base به main و تأیید mergeability با merge commit ادغام شدند تا زنجیره stacked branches حفظ شود."
     ],
     "safeguards": [
       "PR140، PR141 و PR142 در main ادغام شدند.",
@@ -7490,19 +7623,18 @@
       "هیچ reset یا عملیات مخرب دیتابیس انجام نشده است.",
       "PR143 یک refactor محدود CSS/Blade بود؛ route، controller، translation، mail configuration یا دیتابیس تغییر نکرد.",
       "برای PR144 هیچ تست، build، migration، seeder یا QA مرورگر اجرا نشد؛ داده دیتابیس محلی دست‌نخورده است.",
-      "هیچ migration اجرا نشد؛ Migration ثبت ممیزی ادعا فقط به سورس اضافه شد و نیازمند backup و اجرای کنترل‌شده محلی است."
+      "هیچ migration اجرا نشد؛ Migration ثبت ممیزی ادعا فقط به سورس اضافه شد و نیازمند backup و اجرای کنترل‌شده محلی است.",
+      "هیچ Migration، Seeder، دیتابیس Laragon، فایل .env عملیاتی یا داده کاربر در این عملیات تغییر نکرد.",
+      "تست محلی و QA مرورگر/موبایل طبق درخواست کاربر اجرا نشد؛ CI پس از ادغام 17 PR نیز در این مرحله تأیید نشده است.",
+      "PR #165 عمداً ادغام نشد: Composer audit پنج advisory برای سه بسته Symfony گزارش کرد؛ باید lockfile به نسخه‌های اصلاح‌شده ارتقا یابد و CI مجدداً اجرا شود."
     ],
     "next_steps": [
-      "اجرای migration افزایشی 2026_11_26_100000_add_review_audit_to_catalog_source_claims.php پس از backup؛ سپس اجرای migration اصلی Source Registry و RolePermissionSeeder در ترتیب استاندارد Laravel.",
-      "پس از backup، اجرای migration جدید و seeder مجوزها در Laragon؛ سپس تست Feature/دسترسی و بررسی مرورگر.",
-      "بررسی و انتقال باقی‌مانده style blockهای احتمالی در سایر Bladeها به resources/css/app.css؛ inventory کامل نیازمند جستجوی repo در محیط کد است.",
-      "در صورت نیاز، آزمون integration هم‌زمانی دو درخواست اصلاح عنوان روی MySQL را در محیط تست ایزوله اضافه کن.",
-      "QA تعاملی مرورگر و موبایل برای صفحات ورود، اخبار، آثار، هنرمندان، کاربران، شرکت‌ها و سه زبان.",
-      "پذیرش محلی Laragon و ممیزی schema/Migrationها فقط پس از backup و بدون عملیات مخرب.",
-      "پیاده‌سازی source registry، field-level provenance و immutable catalog history طبق docs/catalog-data-quality-governance.md.",
-      "پیاده‌سازی duplicate candidate report و merge انسانی با lock ordering و alias redirects؛ بدون auto-merge.",
-      "تکمیل پذیرش پخش: بررسی trusted proxy واقعی، storage خصوصی، worker، HLS، CDN، entitlement و حقوق.",
-      "پرداخت مصرف‌کننده: انتخاب provider/کشورها/ارزها، sandbox، refund/chargeback و reconciliation."
+      "به‌روزرسانی composer.lock برای نسخه‌های اصلاح‌شده symfony/http-kernel، symfony/mailer و symfony/routing و رفع کامل composer audit.",
+      "به‌روزرسانی شاخه PR #165 از آخرین main و اجرای CI کامل؛ سپس ادغام امنیتی.",
+      "همگام‌سازی checkout محلی Laragon با main فعلی پس از backup/stash امن؛ هیچ reset مخربی انجام نشود.",
+      "اجرای Migrationهای افزایشی جدید فقط پس از backup و بررسی migrate:status؛ به‌ویژه migrationهای Source Registry و catalog duplicate/merge.",
+      "اجرای PHPUnit، Vite build، Blade compile/lint و QA مرورگر/موبایل/سه زبان در مرحله پذیرش نهایی.",
+      "بررسی جداسازی مجوزها و داده مالی شرکت‌ها، نقش owner/finance، و جلوگیری از ایجاد درآمد یا حقوق نشر برای هنرمندان."
     ],
     "closed_superseded_pull_requests": [
       {
