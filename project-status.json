@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab",
+    "source_commit_audited": "68c4ba22c2ffa04316a8b7830369f8fd2c34070d",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab",
+    "latest_main_commit": "68c4ba22c2ffa04316a8b7830369f8fd2c34070d",
     "latest_main_commit_verified_on": "2026-11-26",
     "advertising_note": "گزارش عملکرد کمپین، درآمد پلتفرم و صورتحساب تبلیغ‌دهندگان در ماژول‌های جدا هستند؛ صورتحساب و دریافت وجه فقط به‌صورت ثبت دستی رسید بیرونی انجام می‌شود و ارزها مستقل می‌مانند.",
     "platform_revenue_export": "خروجی CSV فیلترپذیر دفتر درآمد پلتفرم با ستون‌های منبع، ارز، مبلغ، دوره، وضعیت، کمپین و ممیزی ثبت/تأیید؛ مسیر GET export در گروه route صحیح ثبت شده است."
@@ -4530,7 +4530,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab",
+    "source_commit": "68c4ba22c2ffa04316a8b7830369f8fd2c34070d",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-26",
@@ -4558,13 +4558,13 @@
       "verified_at": "2026-11-26"
     },
     "feature_summary": {
-      "implemented_unverified": 38,
+      "implemented_unverified": 39,
       "partial": 0,
       "needs_review": 0,
       "planned": 2,
       "blocked": 0
     },
-    "feature_count": 40,
+    "feature_count": 41,
     "implementation_status": "PR #144 ادغام شد: زیرساخت ثبت منابع کاتالوگ و مستندات سطح فیلد برای آثار، هنرمندان، شرکت‌ها و جشنواره‌ها؛ بررسی مستقل منبع و ادعا؛ اتصال چند ادعا به یک منبع؛ مجوز مستقل و رابط مدیریت سه‌زبانه. تست، build، migration و QA مرورگر این تغییر اجرا نشده‌اند. فیلدهای reviewer و reviewed_at برای همه تصمیم‌های ادعا نیز با Migration افزایشی اضافه شدند.",
     "database_runtime": {
       "status": "partially_verified_local",
@@ -4824,9 +4824,9 @@
       }
     },
     "release": {
-      "latest_merged_pr": 144,
-      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/144",
-      "latest_source_commit": "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab",
+      "latest_merged_pr": 145,
+      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/145",
+      "latest_source_commit": "68c4ba22c2ffa04316a8b7830369f8fd2c34070d",
       "source_branch": "main",
       "verified_at": "2026-11-26",
       "pr_ci_run": 44990252885,
@@ -4837,7 +4837,7 @@
       "blade_compile": "success",
       "blade_lint": "success",
       "main_push_ci": "not_reported_by_commit_workflow_query",
-      "note": "PR144 در main ادغام شد و چند اصلاح تکمیلی ممیزی claim نیز در main ثبت شدند. تست، Build، Migration و QA مرورگر برای این تغییرات اجرا نشده‌اند؛ پذیرش محلی پس از backup و اجرای migration/Seeder باقی است.",
+      "note": "PR #145 در main ادغام شد: تاریخچه فیلدبه‌فیلد و بازگردانی کنترل‌شده برای Title، Artist، Company و Festival. Migration افزایشی و مجوز مدیریتی اضافه شده‌اند. طبق درخواست کاربر، تست‌ها، build، migration و QA مرورگر اجرا نشده‌اند؛ اجرای migration و seeder پس از backup در مرحله تست/فعال‌سازی باقی است.",
       "mysql_staging": "pending",
       "browser_mobile_acceptance": "pending",
       "mysql_ci_pr": 122,
@@ -5300,8 +5300,8 @@
         }
       ]
     },
-    "latest_main_commit": "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab",
-    "source_commit_audited": "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab",
+    "latest_main_commit": "68c4ba22c2ffa04316a8b7830369f8fd2c34070d",
+    "source_commit_audited": "68c4ba22c2ffa04316a8b7830369f8fd2c34070d",
     "latest_main_commit_verified_on": "2026-11-26",
     "local_activitylog_validation": {
       "checked_at": "2026-11-24",
@@ -5436,6 +5436,51 @@
         "525decf692e9a85066461d997273af2cc508a705",
         "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab"
       ]
+    },
+    "catalog_change_history": {
+      "status": "merged_code_unverified_runtime",
+      "pull_request": 145,
+      "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/145",
+      "merge_commit": "68c4ba22c2ffa04316a8b7830369f8fd2c34070d",
+      "table": "catalog_change_revisions",
+      "entities": [
+        "Title",
+        "Artist",
+        "Company",
+        "Festival"
+      ],
+      "features": [
+        "ثبت رویداد ایجاد و تغییر فیلدهای محتوایی مجاز با snapshot قبل/بعد، actor و زمان",
+        "صفحه مدیریت تاریخچه با فیلتر نوع موجودیت، شناسه و نوع رویداد",
+        "بازگردانی فقط revision و فیلدهای allowlist شده با قفل تراکنشی و بررسی stale-value",
+        "ثبت دلیل و ایجاد رویداد restored جدید با ارجاع به revision اصلی",
+        "مجوز catalog.history.manage و ترجمه‌های en، fa-AF و ps"
+      ],
+      "excluded_fields": [
+        "وضعیت انتشار و تأیید",
+        "مالکیت و مجوزها",
+        "فایل‌ها و مسیرهای رسانه",
+        "درآمد و پرداخت",
+        "روابط pivot، عوامل و قسمت‌ها",
+        "ترجمه‌های مستقل"
+      ],
+      "safeguards": [
+        "Migration افزایشی است و داده‌های قبلی را تغییر نمی‌دهد.",
+        "تا زمان نصب جدول، recorder غیرفعال می‌ماند و ذخیره عادی کاتالوگ را مختل نمی‌کند.",
+        "بازگردانی فقط وقتی مجاز است که مقدار فعلی هنوز با مقدار ثبت‌شده پس از تغییر برابر باشد.",
+        "در UI هیچ مسیر ویرایش یا حذف revision ارائه نشده است."
+      ],
+      "tests_executed": false,
+      "migrations_executed": false,
+      "build_executed": false,
+      "browser_verified": false,
+      "next_work": [
+        "افزودن تاریخچه فیلدهای ترجمه‌شده",
+        "افزودن تاریخچه روابط و عوامل با سیاست‌های دقیق و بدون ثبت تغییرات حساس",
+        "اجرای migration و seeder پس از backup",
+        "تست restore، concurrency، authorization و نمایش مرورگر"
+      ],
+      "note": "کد ادغام شده است؛ این مرحله هنوز در سیستم محلی فعال یا runtime تأیید نشده است."
     }
   },
   "report_methodology": {
@@ -7336,8 +7381,8 @@
       "database_migrations": "two_new_migrations_added_not_executed"
     }
   },
-  "latest_main_commit": "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab",
-  "source_commit_audited": "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab",
+  "latest_main_commit": "68c4ba22c2ffa04316a8b7830369f8fd2c34070d",
+  "source_commit_audited": "68c4ba22c2ffa04316a8b7830369f8fd2c34070d",
   "latest_main_commit_verified_on": "2026-11-26",
   "current_development": {
     "updated_at": "2026-11-26",
