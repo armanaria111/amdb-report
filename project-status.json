@@ -11,16 +11,16 @@
     "database": "MySQL",
     "development_environment": "Windows 10 + Laragon 8",
     "local_path": "C:\\laragon\\www\\amdb",
-    "last_verified": "2026-11-24",
+    "last_verified": "2026-11-26",
     "overall_progress": null,
     "progress_note": "درصد پیشرفت کلی نمایش داده نمی‌شود؛ وضعیت هر قابلیت، پنل، دیتابیس و QA مستقل است.",
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "c793b06f290f77da225996e68f25a865abcd9e94",
+    "source_commit_audited": "d32b7fdea656bdb631027f34bcb13ecdaf8bfffc",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "ffa11817c997f4c1f7cda3fd898475152c3503df",
-    "latest_main_commit_verified_on": "2026-11-24",
+    "latest_main_commit": "d32b7fdea656bdb631027f34bcb13ecdaf8bfffc",
+    "latest_main_commit_verified_on": "2026-11-26",
     "advertising_note": "گزارش عملکرد کمپین، درآمد پلتفرم و صورتحساب تبلیغ‌دهندگان در ماژول‌های جدا هستند؛ صورتحساب و دریافت وجه فقط به‌صورت ثبت دستی رسید بیرونی انجام می‌شود و ارزها مستقل می‌مانند.",
     "platform_revenue_export": "خروجی CSV فیلترپذیر دفتر درآمد پلتفرم با ستون‌های منبع، ارز، مبلغ، دوره، وضعیت، کمپین و ممیزی ثبت/تأیید؛ مسیر GET export در گروه route صحیح ثبت شده است."
   },
@@ -1284,6 +1284,22 @@
     {
       "date": "2026-11-24",
       "text": "PR132 در شاخه feature/chromium-advertising-pdf: خروجی PDF فیلترپذیر گزارش تبلیغات مدیریت با موتور Chromium، آمار روزانه و جایگاه‌ها، درآمد AFN و ترجمه‌های en/fa-AF/ps. تست محلی شاخه ۲۸۲ تست و ۱٬۱۲۰ assertion موفق؛ CI شماره 429 روی SQLite و MySQL 8.4 و Vite موفق؛ route ثبت‌شده و smoke test رندرر با PDF معتبر ۳۵٬۷۱۴ بایتی تأیید شدند. PR هنوز ادغام نشده؛ Chromium روی هاست و دانلود واقعی از پنل بررسی نشده‌اند."
+    },
+    {
+      "date": "2026-11-26",
+      "text": "PR #137 با اصلاح fixtureهای تست برای گردش‌کار امن قرارداد/تسویه ادغام شد؛ CI کامل SQLite و MySQL 8.4 هر دو 297 تست / 1162 assertion موفق، Vite و Blade موفق."
+    },
+    {
+      "date": "2026-11-26",
+      "text": "PR #133 حفاظت تاریخچه مالی و تحلیلی کمپین‌ها و قفل provider/company attribution پس از ثبت درآمد را در main ادغام کرد؛ CI کامل SQLite و MySQL 8.4 هر دو 301 تست / 1182 assertion موفق، Vite و Blade موفق."
+    },
+    {
+      "date": "2026-11-26",
+      "text": "PR #135 شامل اصلاحات PR #134، صفحات اخبار عمومی و مدیریت اخبار، فرم ثبت اثر و مدیریت کاتالوگ فیلم/سریال را در main ادغام کرد؛ CI کامل SQLite و MySQL 8.4 هر دو 297 تست / 1162 assertion موفق، Vite و Blade موفق."
+    },
+    {
+      "date": "2026-11-26",
+      "text": "PR #138 نسخه تمیز مدیریت هنرمندان، کاربران، شرکت‌ها، حرفه‌ها، درخواست‌های حرفه‌ای، اشتراک‌ها، نقش‌ها و ورود را در main ادغام کرد؛ CI کامل SQLite و MySQL 8.4 هر دو 301 تست / 1182 assertion موفق، Vite و Blade موفق. PR #136 به‌عنوان شاخه وابسته قدیمی بسته و جایگزین شد؛ هیچ PR بازی باقی نمانده است."
     }
   ],
   "architecture": {
@@ -4497,13 +4513,13 @@
     "notes": "گزارش ممیزی در docs/dependency-usage-audit.md مخزن اصلی قرار دارد. هیچ داده تجاری تغییر نکرده است."
   },
   "current_status": {
-    "snapshot_date": "2026-11-24",
+    "snapshot_date": "2026-11-26",
     "product_name": "Afghanistan Movie Database",
     "product_name_fa": "بانک اطلاعاتی فیلم افغانستان",
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "c793b06f290f77da225996e68f25a865abcd9e94",
+    "source_commit": "d32b7fdea656bdb631027f34bcb13ecdaf8bfffc",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-21",
@@ -4542,7 +4558,7 @@
       "blocked": 0
     },
     "feature_count": 39,
-    "implementation_status": "خروجی CSV دفتر درآمد پلتفرم اضافه شد؛ مسیر export در گروه صحیح ثبت و CI کامل SQLite/MySQL/Vite موفق شد. پذیرش محلی Laragon و مرورگر/موبایل باقی است.",
+    "implementation_status": "PR #133 حفاظت سابقه تبلیغات، PR #135 مدیریت اخبار/کاتالوگ آثار و PR #138 مدیریت هنرمندان/کاربران/ورود در main ادغام شدند. CI کامل SQLite و MySQL 8.4 با 301 تست و 1182 assertion موفق، Vite و Blade موفق؛ QA تعاملی مرورگر/موبایل و پذیرش محلی هنوز باقی است.",
     "database_runtime": {
       "status": "partially_verified_local",
       "environment": "Windows 10 + Laragon 8 + MySQL",
@@ -4562,7 +4578,7 @@
     "quality": {
       "tests_in_repository": 22,
       "tests_executed": true,
-      "test_result": "GitHub Actions main commit 7f6ffed0614ed0cdf2d06114c8929b3aa1bd1596: SQLite 261 passed / 1020 assertions; MySQL 8.4 261 passed / 1020 assertions; Vite production build, Blade view cache and compiled-view PHP lint all passed. Local Laragon/browser/mobile acceptance not covered.",
+      "test_result": "GitHub Actions run 45774999431: SQLite 301 passed / 1182 assertions; MySQL 8.4 301 passed / 1182 assertions; Vite production build, Blade view cache and compiled-view PHP lint all passed. Local Laragon/browser/mobile acceptance and production smoke tests were not part of this CI.",
       "vite_build_executed": true,
       "browser_verified": false,
       "production_smoke_test": false,
@@ -4609,7 +4625,12 @@
         "2026-11-24: PR134 برای اصلاح رابط صفحات عمومی اخبار، جزئیات خبر، مدیریت اخبار و فرم ثبت آثار در مخزن اصلی ایجاد شد؛ PR باز و ادغام‌نشده است. شش فایل Blade/CSS تغییر کرده‌اند؛ تست، Vite build و QA مرورگر عمداً اجرا نشده‌اند.",
         "2026-11-25: PR135 برای بازطراحی فهرست، فرم‌های ایجاد/ویرایش و جزئیات مدیریت آثار ایجاد شد. 10 فایل تغییر کرده‌اند؛ PR باز و ادغام‌نشده است. تست‌ها، Vite build و QA مرورگر اجرا نشده‌اند.",
         "2026-11-25: PR135 پس از بازبینی ایستا به‌روزرسانی شد؛ شاخه 13 commit جلو و 0 commit عقب main است. خطاهای اعتبارسنجی فرم به بالای فرم منتقل شدند.",
-        "2026-11-25: اصلاحات اخبار و فرم پیشنهاد اثر از PR134 در PR135 ادغام شاخه‌ای شدند؛ PR134 بسته و با PR135 جایگزین شد. PR135 اکنون 15 فایل را شامل می‌شود و 19 commit جلو / صفر عقب main است. هیچ تست یا QA مرورگری اجرا نشده است."
+        "2026-11-25: اصلاحات اخبار و فرم پیشنهاد اثر از PR134 در PR135 ادغام شاخه‌ای شدند؛ PR134 بسته و با PR135 جایگزین شد. PR135 اکنون 15 فایل را شامل می‌شود و 19 commit جلو / صفر عقب main است. هیچ تست یا QA مرورگری اجرا نشده است.",
+        "2026-11-26: PR137 اصلاح fixtureهای تست برای رعایت گردش‌کار draft → pending_review → approved و audit fields را اضافه کرد؛ CI run 45773735433 روی SQLite و MySQL 8.4 هر دو 297 تست / 1162 assertion موفق، Vite و Blade موفق؛ PR137 در main ادغام شد.",
+        "2026-11-26: PR133 حفاظت تاریخچه مالی/تحلیلی کمپین و قفل attribution پس از ثبت درآمد در main ادغام شد؛ CI run 45774158584 روی SQLite و MySQL 8.4 هر دو 301 تست / 1182 assertion موفق، Vite و Blade موفق.",
+        "2026-11-26: PR135 شامل اصلاحات PR134، رابط اخبار عمومی/مدیریت اخبار، فرم ارسال آثار و مدیریت کاتالوگ فیلم/سریال در main ادغام شد؛ CI run 45774166311 روی SQLite و MySQL 8.4 هر دو 297 تست / 1162 assertion موفق، Vite و Blade موفق.",
+        "2026-11-26: PR138 مدیریت هنرمندان، کاربران، شرکت‌ها، حرفه‌ها، درخواست‌های حرفه‌ای، اشتراک‌ها، نقش‌ها و صفحه ورود را روی main ادغام کرد؛ CI run 45774999431 روی SQLite و MySQL 8.4 هر دو 301 تست / 1182 assertion موفق، Vite و Blade موفق. PR136 به‌دلیل وابستگی قدیمی بسته و با PR138 جایگزین شد.",
+        "2026-11-26: بررسی GitHub نشان داد هیچ Pull Request بازی در مخزن amdb-laravel2 باقی نمانده است. این وضعیت به معنی پایان QA مرورگر/موبایل یا تأیید Production نیست."
       ],
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/44813275840",
@@ -5305,9 +5326,9 @@
         }
       ]
     },
-    "latest_main_commit": "ffa11817c997f4c1f7cda3fd898475152c3503df",
-    "source_commit_audited": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
-    "latest_main_commit_verified_on": "2026-11-24",
+    "latest_main_commit": "d32b7fdea656bdb631027f34bcb13ecdaf8bfffc",
+    "source_commit_audited": "d32b7fdea656bdb631027f34bcb13ecdaf8bfffc",
+    "latest_main_commit_verified_on": "2026-11-26",
     "local_activitylog_validation": {
       "checked_at": "2026-11-24",
       "package": "spatie/laravel-activitylog",
@@ -7048,7 +7069,7 @@
     ],
     "next_step": "بررسی چند صفحه نمونه هنرمند، سریال و اثر؛ سپس طراحی adapter واردسازی بر اساس فایل export واقعی و ساختار واقعی متادیتا."
   },
-  "last_updated": "2026-11-25",
+  "last_updated": "2026-11-26",
   "architecture_standards": {
     "catalog_domain": {
       "status": "implementation_in_review",
@@ -7291,16 +7312,16 @@
       "database_migrations": "two_new_migrations_added_not_executed"
     }
   },
-  "latest_main_commit": "c793b06f290f77da225996e68f25a865abcd9e94",
-  "source_commit_audited": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
-  "latest_main_commit_verified_on": "2026-11-24",
+  "latest_main_commit": "d32b7fdea656bdb631027f34bcb13ecdaf8bfffc",
+  "source_commit_audited": "d32b7fdea656bdb631027f34bcb13ecdaf8bfffc",
+  "latest_main_commit_verified_on": "2026-11-26",
   "current_development": {
-    "updated_at": "2026-11-24",
+    "updated_at": "2026-11-26",
     "repository": "https://github.com/armanaria111/amdb-laravel2",
     "branch": "main",
     "base": "main",
-    "compare": "PRهای 125، 126، 127، 129 و 130 ادغام شدند؛ main head e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
-    "status": "company_roles_rights_submission_guard_and_previous_company_finance_hardening_merged_tests_deferred",
+    "compare": "PR #137، #133، #135 و #138 با CI موفق در main ادغام شدند؛ PR #136 به‌عنوان شاخه وابسته قدیمی بسته و با PR #138 جایگزین شد. مخزن اکنون PR باز ندارد.",
+    "status": "pr133_pr135_pr138_merged_main_ci_success_no_open_pull_requests_browser_qa_pending",
     "changes": [
       "PR125 ادغام شد: مشاهده گزارش تبلیغات و CSV برای owner/finance فعال باقی می‌ماند؛ ایجاد کمپین فقط برای owner فعال مجاز است.",
       "PR126 ادغام شد: تغییر نقش، تعلیق یا حذف آخرین مالک فعال شرکت مسدود شد؛ مسیر syncWithoutDetaching نیز تحت پوشش است و عملیات با قفل تراکنشی شرکت انجام می‌شود.",
@@ -7325,42 +7346,45 @@
       "بازبینی گردش‌کار تسویه شرکت، مرجع پرداخت و ثبت حسابداری معکوس برای برگشت وجه.",
       "تکمیل composer.lock و وابستگی PDF در مرحله نصب نهایی؛ فعلاً نصب انجام نشود."
     ],
-    "head_commit": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4",
+    "head_commit": "d32b7fdea656bdb631027f34bcb13ecdaf8bfffc",
     "pull_requests": [
       {
-        "number": 125,
-        "title": "Restrict company advertising campaign creation to owners",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/125",
+        "number": 137,
         "status": "merged",
-        "merge_commit": "c5c8db04b9cd9bd146ab53518913537d844865fd"
+        "merge_commit": "ff31db8285e38d14ee84ba70c8475edf0aa895cd",
+        "title": "Fix revenue lifecycle test fixtures and CI validation",
+        "ci_run": 45773735433,
+        "tests": "297 passed / 1162 assertions on SQLite and MySQL 8.4"
       },
       {
-        "number": 126,
-        "title": "Prevent companies from losing their last active owner",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/126",
+        "number": 133,
         "status": "merged",
-        "merge_commit": "d51231c546917db5a962751b7a9e7e735bdc3597"
+        "merge_commit": "a50136ab8e30cfbb2df42f39600b877110f72c13",
+        "title": "Protect advertising campaign financial and analytics history",
+        "ci_run": 45774158584,
+        "tests": "301 passed / 1182 assertions on SQLite and MySQL 8.4"
       },
       {
-        "number": 127,
-        "title": "Prevent reopening finalized company settlements",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/127",
+        "number": 135,
         "status": "merged",
-        "merge_commit": "bb9771b7a5039b2ddbc78eac7e62c6cb631c3590"
+        "merge_commit": "5c07068f0d3cc0c46ada541e2cb09444e0ce33ae",
+        "title": "Improve news, title submissions and admin catalogue UI",
+        "ci_run": 45774166311,
+        "tests": "297 passed / 1162 assertions on SQLite and MySQL 8.4"
       },
       {
-        "number": 129,
-        "title": "Harden company rights evidence storage and access",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/129",
+        "number": 138,
         "status": "merged",
-        "merge_commit": "c381f1262d6481b49b5e9d30f5101e4887b3edda"
+        "merge_commit": "d32b7fdea656bdb631027f34bcb13ecdaf8bfffc",
+        "title": "Finalize admin people management and authentication UI",
+        "ci_run": 45774999431,
+        "tests": "301 passed / 1182 assertions on SQLite and MySQL 8.4"
       },
       {
-        "number": 130,
-        "title": "Enforce company roles for rights submissions",
-        "url": "https://github.com/armanaria111/amdb-laravel2/pull/130",
-        "status": "merged",
-        "merge_commit": "e133e1d1244f2560fb9aedb8a53a56cc118c6cd4"
+        "number": 136,
+        "status": "closed_superseded",
+        "replacement": 138,
+        "title": "Improve admin people management and login UI"
       }
     ]
   },
@@ -7713,13 +7737,13 @@
     "merge_commit": "75dcdf5f277336a7fedce8c12b64567da8941c39"
   },
   "news_and_title_submission_ui": {
-    "date": "2026-11-24",
+    "date": "2026-11-26",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "status": "open_pull_request_not_merged",
-    "pull_request": 134,
-    "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/134",
+    "status": "merged_in_main_ci_passed",
+    "pull_request": 135,
+    "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/135",
     "branch": "fix/news-and-title-submission-ui",
-    "head_commit": "3a4de5641d4875e34b82068ee06a5bb7894ce4a1",
+    "head_commit": "ac950f87068842c360a674381553cf0d53314e8b",
     "changed_files": [
       "resources/views/news/index.blade.php",
       "resources/views/news/show.blade.php",
@@ -7737,13 +7761,14 @@
     ],
     "safety_scope": "فقط کد برنامه در مخزن اصلی تغییر کرده است؛ هیچ داده‌ای حذف یا بازنشانی نشده و هیچ Migration اجرا نشده است.",
     "qa": {
-      "tests_run": false,
-      "vite_build_run": false,
-      "browser_visual_qa": false,
-      "reason": "طبق روال فعلی، تست‌ها و بررسی مرورگر به مرحله بعد موکول شده‌اند.",
-      "next": "پس از ادغام و همگام‌سازی نسخه محلی، تست Blade/Vite و بررسی صفحه‌ها در دسکتاپ و موبایل انجام شود."
+      "ci_run": 45774166311,
+      "sqlite": "297 passed / 1162 assertions",
+      "mysql_8_4": "297 passed / 1162 assertions",
+      "vite": "success",
+      "blade_compile_and_lint": "success",
+      "browser_visual_qa": "pending"
     },
-    "qualification": "PR باز است و هنوز در main ادغام نشده؛ تغییرات نباید به‌عنوان قابلیت تأییدشده یا runtime-tested گزارش شوند.",
+    "qualification": "PR #135 شامل اصلاحات قبلی PR #134 است و در main ادغام شده؛ CI روی SQLite و MySQL 8.4 و Vite و Blade موفق است. QA تعاملی مرورگر/موبایل هنوز انجام نشده است.",
     "branch_sync": {
       "status": "diverged",
       "ahead_by": 7,
@@ -7752,16 +7777,17 @@
       "main_head_at_comparison": "ffa11817c997f4c1f7cda3fd898475152c3503df",
       "overlap_with_main_changes": "none among the six changed paths",
       "note": "PR is not merged; branch synchronization is required before merge. No merge was attempted."
-    }
+    },
+    "merge_commit": "5c07068f0d3cc0c46ada541e2cb09444e0ce33ae"
   },
   "admin_title_management_ui": {
-    "date": "2026-11-25",
+    "date": "2026-11-26",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "status": "open_pull_request_not_merged",
+    "status": "merged_in_main_ci_passed",
     "pull_request": 135,
     "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/135",
     "branch": "improve/admin-title-management-ui",
-    "head_commit": "70452c0847860f61bbcd181ef41800dfc5da32e2",
+    "head_commit": "ac950f87068842c360a674381553cf0d53314e8b",
     "changed_files": [
       "app/Http/Controllers/Admin/TitleController.php",
       "lang/en/title-admin.php",
@@ -7792,55 +7818,33 @@
     ],
     "safety_scope": "فقط کد برنامه؛ بدون Migration، تغییر schema، حذف داده یا عملیات مخرب.",
     "qa": {
-      "tests_run": false,
-      "vite_build_run": false,
-      "browser_visual_qa": false,
-      "reason": "طبق اولویت فعلی توسعه بدون اجرای تست؛ تست و بررسی مرورگر به مرحله بعد موکول شده است.",
-      "next": "پس از همگام‌سازی شاخه‌ها، بررسی Blade compilation، route/view integration، Vite build و بررسی ظاهری در دسکتاپ و موبایل انجام شود."
+      "ci_run": 45774166311,
+      "sqlite": "297 passed / 1162 assertions",
+      "mysql_8_4": "297 passed / 1162 assertions",
+      "vite": "success",
+      "blade_compile_and_lint": "success",
+      "browser_visual_qa": "pending"
     },
-    "qualification": "PR #135 باز است و هنوز در main ادغام نشده؛ 15 فایل تغییر کرده‌اند. تست‌ها، Vite build و QA مرورگر اجرا نشده‌اند.",
+    "qualification": "PR #135 در main ادغام شد؛ اصلاحات فهرست و فرم‌های ایجاد/ویرایش/جزئیات مدیریت آثار و یکپارچه‌سازی خبر و ثبت اثر در CI موفق شدند. QA تعاملی مرورگر/موبایل باقی است.",
     "branch_sync": {
       "status": "in_sync_with_main",
       "ahead_by": 19,
       "behind_by": 0,
       "main_head_at_comparison": "ffa11817c997f4c1f7cda3fd898475152c3503df"
-    }
+    },
+    "merge_commit": "5c07068f0d3cc0c46ada541e2cb09444e0ce33ae"
   },
   "admin_people_auth_ui": {
-    "date": "2026-11-25",
+    "date": "2026-11-26",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "status": "open_dependent_pull_request_not_merged",
-    "pull_request": 136,
-    "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/136",
-    "branch": "improve/admin-people-and-auth-ui",
-    "base_branch": "improve/admin-title-management-ui",
+    "status": "merged_in_main_ci_passed",
+    "pull_request": 138,
+    "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/138",
+    "branch": "finalize/admin-people-auth-ui",
+    "base_branch": "main",
     "base_pull_request": 135,
-    "head_commit": "9cad2770968410954b42b6846ba9d17e15431192",
-    "changed_files": [
-      "app/Http/Middleware/PermissionMiddleware.php",
-      "app/Http/Middleware/RoleMiddleware.php",
-      "resources/css/app.css",
-      "resources/views/admin/artist-subscription-plans/index.blade.php",
-      "resources/views/admin/artist-subscription-requests/index.blade.php",
-      "resources/views/admin/artists/create.blade.php",
-      "resources/views/admin/artists/edit.blade.php",
-      "resources/views/admin/artists/import.blade.php",
-      "resources/views/admin/artists/index.blade.php",
-      "resources/views/admin/artists/show.blade.php",
-      "resources/views/admin/artists/subscriptions/index.blade.php",
-      "resources/views/admin/companies/representatives.blade.php",
-      "resources/views/admin/dashboard.blade.php",
-      "resources/views/admin/profession-groups/index.blade.php",
-      "resources/views/admin/professional-requests/index.blade.php",
-      "resources/views/admin/professional-requests/show.blade.php",
-      "resources/views/admin/professions/index.blade.php",
-      "resources/views/admin/profile-media/index.blade.php",
-      "resources/views/admin/roles/create.blade.php",
-      "resources/views/admin/roles/edit.blade.php",
-      "resources/views/admin/roles/index.blade.php",
-      "resources/views/admin/users/index.blade.php",
-      "resources/views/auth/login.blade.php"
-    ],
+    "head_commit": "5ef4805279532b2494667cc9d0c10d9336d5736e",
+    "changed_files": 23,
     "changes": [
       "صفحه ورود با labelهای قابل دسترس، autocomplete مناسب، نمایش خطا و چیدمان واکنش‌گرا بازطراحی شد.",
       "فهرست مدیریت کاربران با نمایش نقش‌ها، جستجو و صفحه‌بندی حفظ‌کننده query string بهبود یافت؛ مسیرهای مدیریت نقش و اتصال پروفایل هنرمند حفظ شدند.",
@@ -7867,7 +7871,7 @@
       "تطبیق مجوزهای Route با RolePermissionSeeder انجام شد؛ هر ۲۹ مجوز متمایز استفاده‌شده در مسیرهای مدیریت در Seeder تعریف شده‌اند. کنترل درخواست و Policy نیز محدودیت مجوزهای حساس را به مدیر ارشد اختصاصی اعمال می‌کنند."
     ],
     "safety_scope": "فقط رابط کاربری و CSS؛ بدون Migration، تغییر schema، حذف یا تغییر داده‌ها. نام routeها، نام فیلدهای فرم و قرارداد کنترلر حفظ شدند.",
-    "dependency": "این PR عمداً بر شاخه PR135 ساخته شده است؛ ابتدا باید PR135 ادغام شود و سپس این PR روی main بازپایه‌گذاری/بررسی شود.",
+    "dependency": "وابستگی PR #135 با ادغام آن برطرف شد؛ PR #138 بر پایه main ایجاد و ادغام شد.",
     "branch_sync": {
       "status": "based_on_pr135_head",
       "ahead_by": 26,
@@ -7875,20 +7879,14 @@
       "base_head_at_comparison": "70452c0847860f61bbcd181ef41800dfc5da32e2"
     },
     "qa": {
-      "tests_run": false,
-      "vite_build_run": false,
-      "browser_visual_qa": false,
-      "static_route_authorization_review": true,
-      "role_admin_translation_key_parity": true,
-      "reason": "بازبینی ایستای مسیرها و مجوزها و برابری کلیدهای ترجمه role-admin انجام شد؛ اتصال مرورگر به زمینه مرورگر متصل نبود و تست/build طبق اولویت فعلی به مرحله QA موکول است.",
-      "translation_groups_checked": [
-        "role-admin",
-        "admin",
-        "news-admin",
-        "title-admin"
-      ]
+      "ci_run": 45774999431,
+      "sqlite": "301 passed / 1182 assertions",
+      "mysql_8_4": "301 passed / 1182 assertions",
+      "vite": "success",
+      "blade_compile_and_lint": "success",
+      "browser_visual_qa": "pending"
     },
-    "qualification": "PR #136 باز و ادغام‌نشده است؛ head فعلی 9cad2770968410954b42b6846ba9d17e15431192، تعداد فایل‌های تغییرکرده 23 و mergeable در آخرین refresh برابر true است. این PR به PR135 وابسته است و باید پس از ادغام PR135 بازپایه‌گذاری/بررسی شود. تست‌ها، Vite build و QA مرورگر اجرا نشده‌اند.",
+    "qualification": "PR #138 روی main ادغام شد و نسخه تمیز اصلاحات هنرمندان/کاربران/مدیریت حرفه‌ها و اشتراک‌ها/ورود است. PR #136 شاخه وابسته قدیمی بود و به‌عنوان superseded بسته شد. CI SQLite/MySQL/Vite/Blade موفق؛ QA مرورگر/موبایل باقی است.",
     "mergeability_observation": "در refresh مورخ 2026-11-25 وضعیت mergeable ابتدا false و در refresh بعدی true گزارش شد؛ هیچ ادغامی انجام نشد.",
     "static_review": {
       "checked_at": "2026-11-25",
@@ -7928,6 +7926,7 @@
         "missing_from_seeder": [],
         "result": "passed_static"
       }
-    }
+    },
+    "merge_commit": "d32b7fdea656bdb631027f34bcb13ecdaf8bfffc"
   }
 }
