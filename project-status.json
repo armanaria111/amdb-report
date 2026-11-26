@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "5a311e16a7607813115ef2951b78c12a629c6b89",
+    "source_commit_audited": "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "5a311e16a7607813115ef2951b78c12a629c6b89",
+    "latest_main_commit": "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab",
     "latest_main_commit_verified_on": "2026-11-26",
     "advertising_note": "گزارش عملکرد کمپین، درآمد پلتفرم و صورتحساب تبلیغ‌دهندگان در ماژول‌های جدا هستند؛ صورتحساب و دریافت وجه فقط به‌صورت ثبت دستی رسید بیرونی انجام می‌شود و ارزها مستقل می‌مانند.",
     "platform_revenue_export": "خروجی CSV فیلترپذیر دفتر درآمد پلتفرم با ستون‌های منبع، ارز، مبلغ، دوره، وضعیت، کمپین و ممیزی ثبت/تأیید؛ مسیر GET export در گروه route صحیح ثبت شده است."
@@ -2568,7 +2568,7 @@
     "latest_pull_request": 123,
     "branch": "feature/company-advertising-performance-details",
     "next": "بازبینی نهایی دسترسی و سازگاری مسیرهای صورتحساب و گزارش مالی؛ تکمیل composer.lock، نصب PDF، Migration و تست‌ها فقط در مرحله نهایی.",
-    "source_commit": "5a311e16a7607813115ef2951b78c12a629c6b89",
+    "source_commit": "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab",
     "completed": [
       "گزارش عملکرد روزانه اختصاصی هر کمپین برای شرکت مالک اضافه شد؛ دسترسی فقط برای owner و finance فعال شرکت مجاز است.",
       "کنترل مالکیت کمپین در مسیر جزئیات و خروجی با تطبیق company_id انجام می‌شود و دسترسی بین شرکت‌ها مسدود است.",
@@ -4530,15 +4530,15 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "5a311e16a7607813115ef2951b78c12a629c6b89",
+    "source_commit": "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-26",
       "branch": "main",
-      "commit": "5a311e16a7607813115ef2951b78c12a629c6b89",
+      "commit": "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab",
       "audit_type": "GitHub recursive tree inventory after PR #144",
-      "tree_entries": 1030,
-      "migration_files": 81,
+      "tree_entries": 1031,
+      "migration_files": 82,
       "eloquent_model_files": 86,
       "blade_files": 115,
       "translation_php_files": 162,
@@ -4565,7 +4565,7 @@
       "blocked": 0
     },
     "feature_count": 40,
-    "implementation_status": "PR #144 ادغام شد: زیرساخت ثبت منابع کاتالوگ و مستندات سطح فیلد برای آثار، هنرمندان، شرکت‌ها و جشنواره‌ها؛ بررسی مستقل منبع و ادعا؛ اتصال چند ادعا به یک منبع؛ مجوز مستقل و رابط مدیریت سه‌زبانه. تست، build، migration و QA مرورگر این تغییر اجرا نشده‌اند.",
+    "implementation_status": "PR #144 ادغام شد: زیرساخت ثبت منابع کاتالوگ و مستندات سطح فیلد برای آثار، هنرمندان، شرکت‌ها و جشنواره‌ها؛ بررسی مستقل منبع و ادعا؛ اتصال چند ادعا به یک منبع؛ مجوز مستقل و رابط مدیریت سه‌زبانه. تست، build، migration و QA مرورگر این تغییر اجرا نشده‌اند. فیلدهای reviewer و reviewed_at برای همه تصمیم‌های ادعا نیز با Migration افزایشی اضافه شدند.",
     "database_runtime": {
       "status": "partially_verified_local",
       "environment": "Windows 10 + Laragon 8 + MySQL",
@@ -4819,13 +4819,14 @@
         "build_executed": false,
         "migrations_executed": false,
         "browser_verified": false,
-        "note": "طبق درخواست کاربر، توسعه انجام شد و تست‌ها و migration برای مرحله بعد باقی ماندند."
+        "note": "توسعه و اصلاح ممیزی انجام شد؛ تست‌ها، build، migration و QA مرورگر این تغییر اجرا نشده‌اند.",
+        "latest_commit": "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab"
       }
     },
     "release": {
       "latest_merged_pr": 144,
       "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/144",
-      "latest_source_commit": "5a311e16a7607813115ef2951b78c12a629c6b89",
+      "latest_source_commit": "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab",
       "source_branch": "main",
       "verified_at": "2026-11-26",
       "pr_ci_run": 44990252885,
@@ -4836,7 +4837,7 @@
       "blade_compile": "success",
       "blade_lint": "success",
       "main_push_ci": "not_reported_by_commit_workflow_query",
-      "note": "PR144 Source Registry در main ادغام شد. هیچ تست، Build، Migration یا QA مرورگر برای این تغییر اجرا نشده است؛ پذیرش محلی پس از backup و اجرای migration/Seeder باقی است.",
+      "note": "PR144 در main ادغام شد و چند اصلاح تکمیلی ممیزی claim نیز در main ثبت شدند. تست، Build، Migration و QA مرورگر برای این تغییرات اجرا نشده‌اند؛ پذیرش محلی پس از backup و اجرای migration/Seeder باقی است.",
       "mysql_staging": "pending",
       "browser_mobile_acceptance": "pending",
       "mysql_ci_pr": 122,
@@ -5299,8 +5300,8 @@
         }
       ]
     },
-    "latest_main_commit": "5a311e16a7607813115ef2951b78c12a629c6b89",
-    "source_commit_audited": "5a311e16a7607813115ef2951b78c12a629c6b89",
+    "latest_main_commit": "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab",
+    "source_commit_audited": "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab",
     "latest_main_commit_verified_on": "2026-11-26",
     "local_activitylog_validation": {
       "checked_at": "2026-11-24",
@@ -5392,7 +5393,8 @@
       "merge_commit": "5a311e16a7607813115ef2951b78c12a629c6b89",
       "tables": [
         "catalog_sources",
-        "catalog_source_claims"
+        "catalog_source_claims",
+        "catalog_source_claims.reviewed_by / reviewed_at (additive audit migration)"
       ],
       "models": [
         "CatalogSource",
@@ -5414,7 +5416,8 @@
         "اتصال چند ادعا از موجودیت‌ها و فیلدهای مختلف به یک منبع",
         "بازبینی جداگانه منبع و هر ادعا؛ پذیرش ادعا فقط پس از تأیید منبع",
         "وضعیت‌های pending، approved، rejected، accepted و disputed",
-        "رابط مدیریتی و ترجمه‌های en، fa-AF و ps"
+        "رابط مدیریتی و ترجمه‌های en، fa-AF و ps",
+        "ثبت هویت و زمان بررسی برای تمام تصمیم‌های ادعا، شامل پذیرش، رد و اختلاف"
       ],
       "safeguards": [
         "تأیید منبع یا ادعا داده عمومی کاتالوگ را خودکار تغییر نمی‌دهد.",
@@ -5425,7 +5428,14 @@
       "migrations_executed": false,
       "build_executed": false,
       "browser_verified": false,
-      "note": "کد در main ادغام شده است؛ پیش از اجرای migration روی دیتابیس محلی باید backup و بررسی migration انجام شود."
+      "note": "کد در main ادغام شده است؛ پیش از اجرای migration روی دیتابیس محلی باید backup و بررسی migration انجام شود.",
+      "follow_up_commits": [
+        "aeba88b3ce6c733c7878492de6ca0c08f791068a",
+        "a7bde707fa31ffdc0d927aeb25eab478ad7b4b3c",
+        "8b196112a9e4b0fbc35bcd0a997c93a28eda2879",
+        "525decf692e9a85066461d997273af2cc508a705",
+        "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab"
+      ]
     }
   },
   "report_methodology": {
@@ -7326,14 +7336,14 @@
       "database_migrations": "two_new_migrations_added_not_executed"
     }
   },
-  "latest_main_commit": "5a311e16a7607813115ef2951b78c12a629c6b89",
-  "source_commit_audited": "5a311e16a7607813115ef2951b78c12a629c6b89",
+  "latest_main_commit": "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab",
+  "source_commit_audited": "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab",
   "latest_main_commit_verified_on": "2026-11-26",
   "current_development": {
     "updated_at": "2026-11-26",
     "repository": "https://github.com/armanaria111/amdb-laravel2",
     "branch": "main",
-    "head_commit": "5a311e16a7607813115ef2951b78c12a629c6b89",
+    "head_commit": "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab",
     "status": "pr144_catalog_source_registry_merged_tests_migrations_browser_qa_deferred",
     "merged_pull_requests": [
       {
@@ -7408,7 +7418,8 @@
       "PR141 ادغام شد: سند governance برای provenance منبع، claimهای سطح فیلد، تاریخچه تغییرات ترجمه‌شده، پیشنهاد اصلاح، تشخیص تکراری، ادغام انسانی و واردسازی امن WordPress؛ README مخزن اصلی به سند پیوند دارد.",
       "PR139 باز و Draft است: ثبت پیشنهاد اصلاح عنوان را با قفل ردیف اثر و تراکنش اتمیک می‌کند و مستندات GeoIP را با middleware موجود هماهنگ می‌سازد. CI روی SQLite/MySQL موفق است؛ تست هم‌زمانی اختصاصی MySQL پیش از ادغام هنوز توصیه می‌شود.",
       "PR143 ادغام شد: استایل‌های inline صفحه تماس و صفحه مشترک درباره/حریم خصوصی/شرایط استفاده به resources/css/app.css منتقل شدند؛ فرم تماس، ترجمه‌ها و responsive layout حفظ شدند. CI روی SQLite و MySQL 8.4 با 306 تست و 1193 assertion موفق.",
-      "PR144 ادغام شد: دو جدول catalog_sources و catalog_source_claims، مدل‌های CatalogSource/CatalogSourceClaim، اتصال morphMany به Title/Artist/Company/Festival، ثبت HTTPS، snapshot و SHA-256، بررسی مستقل منبع و ادعا، امکان چند ادعا برای هر منبع، مجوز catalog.sources.manage، داشبورد و ترجمه سه‌زبانه."
+      "PR144 ادغام شد: دو جدول catalog_sources و catalog_source_claims، مدل‌های CatalogSource/CatalogSourceClaim، اتصال morphMany به Title/Artist/Company/Festival، ثبت HTTPS، snapshot و SHA-256، بررسی مستقل منبع و ادعا، امکان چند ادعا برای هر منبع، مجوز catalog.sources.manage، داشبورد و ترجمه سه‌زبانه.",
+      "پس از ادغام PR144، ممیزی تکمیلی انجام شد: ثبت reviewer و reviewed_at برای تمام تصمیم‌های claim (accepted/rejected/disputed) با migration افزایشی؛ نمایش بازبین و زمان بررسی در پنل؛ فیلتر وضعیت از ورودی اعتبارسنجی‌شده خوانده می‌شود."
     ],
     "safeguards": [
       "PR140، PR141 و PR142 در main ادغام شدند.",
@@ -7418,9 +7429,11 @@
       "هیچ تست محلی Laragon، QA مرورگر/موبایل، Migration یا عملیات دیتابیس محلی انجام نشده است.",
       "هیچ reset یا عملیات مخرب دیتابیس انجام نشده است.",
       "PR143 یک refactor محدود CSS/Blade بود؛ route، controller، translation، mail configuration یا دیتابیس تغییر نکرد.",
-      "برای PR144 هیچ تست، build، migration، seeder یا QA مرورگر اجرا نشد؛ داده دیتابیس محلی دست‌نخورده است."
+      "برای PR144 هیچ تست، build، migration، seeder یا QA مرورگر اجرا نشد؛ داده دیتابیس محلی دست‌نخورده است.",
+      "هیچ migration اجرا نشد؛ Migration ثبت ممیزی ادعا فقط به سورس اضافه شد و نیازمند backup و اجرای کنترل‌شده محلی است."
     ],
     "next_steps": [
+      "اجرای migration افزایشی 2026_11_26_100000_add_review_audit_to_catalog_source_claims.php پس از backup؛ سپس اجرای migration اصلی Source Registry و RolePermissionSeeder در ترتیب استاندارد Laravel.",
       "پس از backup، اجرای migration جدید و seeder مجوزها در Laragon؛ سپس تست Feature/دسترسی و بررسی مرورگر.",
       "بررسی و انتقال باقی‌مانده style blockهای احتمالی در سایر Bladeها به resources/css/app.css؛ inventory کامل نیازمند جستجوی repo در محیط کد است.",
       "در صورت نیاز، آزمون integration هم‌زمانی دو درخواست اصلاح عنوان روی MySQL را در محیط تست ایزوله اضافه کن.",
