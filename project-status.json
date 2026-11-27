@@ -258,7 +258,7 @@
     "detail": "شناسه‌های ar هنرمند و co شرکت در URLهای عمومی استفاده می‌شوند؛ شناسه am برای اثر در ساختار موجود است اما مسیر عمومی اثر همچنان بر slug استوار است. تست runtime انجام نشده است."
   },
   "latest_development": {
-    "date": "2026-11-24",
+    "date": "2026-11-27",
     "verified": [
       "مرحله اول ممیزی read-only سورس اصلی در commit a56e92080a227b9e4c531c9edf2e55a02e6946ab انجام شد.",
       "ساختار مخزن: ۴۶۰ ورودی در درخت، ۲۲ migration، ۳۴ فایل مدل PHP، ۳۷ فایل Blade، ۷۳ خط Route در web.php و ۷۱ فراخوانی name ثبت شد.",
@@ -696,7 +696,15 @@
       "جدول activity_log و migrationهای ایجاد جدول و افزودن ستون‌های v5 در MySQL محلی وضعیت Ran داشتند؛ هیچ migration در این مرحله اجرا نشد.",
       "کاربر در گفتگوهای 2026-11-24 مشکلات صفحه ورود و صفحات مدیریت اخبار، فیلم‌ها/سریال‌ها و چند صفحه مدیریت دیگر را گزارش کرد؛ QA تعاملی و رفع قطعی هنوز باز است.",
       "آخرین commit شاخه main مخزن کد از GitHub برابر 2a06f9d9a200c95bf6c206c53d52ef3d56c05968 مشاهده شد؛ ممیزی تفصیلی فعلی تا e133e1d1244f2560fb9aedb8a53a56cc118c6cd4 است.",
-      "2026-11-24: PR132 با commit نهایی c793b06f290f77da225996e68f25a865abcd9e94 به main ادغام شد؛ PR closed/merged است. تست محلی ۲۸۲/۱٬۱۲۰، CI پیش از ادغام run 45428873147 روی SQLite و MySQL 8.4 و Vite موفق، route ثبت‌شده، تولید PDF معتبر توسط Chromium و تأیید بصری کاربر برای متن دری/پشتو و RTL ثبت شد. بررسی دانلود تعاملی پنل و نصب Chromium روی هاست تولید انجام نشده؛ این موارد deployment/runtime follow-up هستند، نه مانع ادغام کد."
+      "2026-11-24: PR132 با commit نهایی c793b06f290f77da225996e68f25a865abcd9e94 به main ادغام شد؛ PR closed/merged است. تست محلی ۲۸۲/۱٬۱۲۰، CI پیش از ادغام run 45428873147 روی SQLite و MySQL 8.4 و Vite موفق، route ثبت‌شده، تولید PDF معتبر توسط Chromium و تأیید بصری کاربر برای متن دری/پشتو و RTL ثبت شد. بررسی دانلود تعاملی پنل و نصب Chromium روی هاست تولید انجام نشده؛ این موارد deployment/runtime follow-up هستند، نه مانع ادغام کد.",
+      "2026-11-27: پنج PR باز مخزن اصلی (#166، #172، #173، #174 و #175) با موفقیت در main ادغام شدند؛ پس از ادغام جستجوی GitHub هیچ PR بازی نشان نداد.",
+      "PR175 با commit c0dec2a15ffe202b053a0f3a75735fa603d7edd5 ادغام شد؛ ترتیب CI تغییر کرد تا PHPUnit SQLite پیش از Composer Audit اجرا شود. در CI سرشاخه PR، SQLite و MySQL 8.4 هر دو 308 تست و 1208 assertion موفق داشتند؛ Vite نیز موفق بود، اما Composer Audit به‌دلیل پنج advisory همچنان شکست خورد.",
+      "PR166 با commit d1c795fc0c94bc812d4fd646cb3543b534816498 ادغام شد؛ Dependabot برای بررسی روزانه Composer و هفتگی npm و GitHub Actions فعال شد. این تغییر به‌تنهایی advisoryهای Symfony را رفع نمی‌کند.",
+      "PR172 با commit 6c1e5b61c9c6f0b4fa50ae5ae11dac9aac6d496e ادغام شد؛ آداپتور OMDb به‌صورت dormant و disabled-by-default اضافه شد. OMDB_ENABLED و نمایش عمومی خاموش‌اند، API key وجود ندارد و هیچ route/job/import یا نمایش خودکاری متصل نیست.",
+      "PR173 با commit c4a5f60e9f1b3b5510dba4344adef9083f557121 ادغام شد؛ تشخیص تکراری اخبار به detector چندزبانه اضافه شد، با مقایسه metadata برای کاهش false positive و بدون ادغام/حذف خودکار. CI MySQL: 312 تست و 1213 assertion موفق؛ Vite موفق.",
+      "PR174 با commit 4fba5205420931dcdbba8ceaad1ffca19298af75 ادغام شد؛ انتخاب زبان در cookie یک‌ساله HTTP-only و SameSite=Lax حفظ می‌شود. CI MySQL: 311 تست و 1219 assertion موفق؛ Vite موفق. QA مرورگر انجام نشده است.",
+      "پس از ادغام پنج PR، main روی commit 4fba5205420931dcdbba8ceaad1ffca19298af75 قرار گرفت و جستجوی GitHub تعداد PRهای باز را صفر نشان داد.",
+      "CI پس از ادغام نهایی روی commit main هنوز از این بررسی تأیید نشده است؛ CI سرشاخه‌ها پیش از ادغام بررسی شد. Composer Audit همچنان پنج advisory در symfony/http-kernel، symfony/mailer و symfony/routing گزارش می‌کند."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -1545,6 +1553,31 @@
       "name": "ثبت منابع و مستندات سطح فیلد کاتالوگ",
       "state": "implemented_unverified",
       "detail": "PR #144 در main ادغام شد؛ منبع‌های HTTPS و ادعاهای سطح فیلد برای آثار، هنرمندان، شرکت‌ها و جشنواره‌ها با workflow تأیید مستقل، hash، زبان‌های en/fa-AF/ps و مجوز catalog.sources.manage. Migration و تست/QA این تغییر اجرا نشده‌اند."
+    },
+    {
+      "name": "تشخیص موارد تکراری اخبار",
+      "state": "implemented_unverified",
+      "detail": "PR173 در main ادغام شد؛ خبرهای چندزبانه با metadata و بازه زمانی مقایسه می‌شوند؛ تشخیص صرفاً advisory است و هیچ ادغام/حذف خودکار انجام نمی‌شود. CI MySQL با 312 تست و 1213 assertion موفق؛ QA مرورگر باقی است."
+    },
+    {
+      "name": "حفظ زبان انتخاب‌شده پس از خروج",
+      "state": "implemented_unverified",
+      "detail": "PR174 در main ادغام شد؛ locale با cookie یک‌ساله HTTP-only و SameSite=Lax حفظ می‌شود و localeهای غیرفعال/نامعتبر رد می‌شوند. CI MySQL با 311 تست و 1219 assertion موفق؛ QA مرورگر باقی است."
+    },
+    {
+      "name": "آداپتور OMDb غیرفعال",
+      "state": "implemented_unverified",
+      "detail": "PR172 در main ادغام شد؛ کلاینت مستقل با OMDB_ENABLED=false و نمایش عمومی خاموش، بدون API key و بدون route/job/import خودکار. فعال‌سازی تجاری و نمایش عمومی ممنوع تا بررسی حقوق و شرایط مجاز."
+    },
+    {
+      "name": "به‌روزرسانی خودکار وابستگی‌ها",
+      "state": "implemented_unverified",
+      "detail": "PR166 در main ادغام شد؛ Dependabot برای Composer روزانه و npm/GitHub Actions هفتگی پیکربندی شده است. این قابلیت جایگزین رفع advisoryها نیست."
+    },
+    {
+      "name": "ترتیب اجرای تست SQLite و Composer Audit",
+      "state": "implemented_unverified",
+      "detail": "PR175 در main ادغام شد؛ PHPUnit SQLite پیش از Composer Audit اجرا می‌شود تا گزارش تست مستقل از advisoryها ثبت شود. در CI سرشاخه PR، SQLite و MySQL هر دو 308 تست و 1208 assertion موفق و Vite موفق بودند؛ Composer Audit همچنان شکست امنیتی را اعلام می‌کند."
     }
   ],
   "roadmap": [
@@ -3250,6 +3283,12 @@
     ]
   },
   "current_open_items": [
+    "رفع پنج advisory Composer در symfony/http-kernel، symfony/mailer و symfony/routing؛ Dependabot فعال شده اما lockfile هنوز نیازمند به‌روزرسانی امن و composer audit --locked موفق است.",
+    "بررسی CI پس از ادغام نهایی روی main؛ CI سرشاخه PRها اجرا شده اما نتیجه main پس از آخرین merge هنوز تأیید نشده است.",
+    "همگام‌سازی امن checkout محلی Laragon با main commit 4fba5205420931dcdbba8ceaad1ffca19298af75؛ پیش از pull وضعیت git و تغییرات محلی حفظ شوند.",
+    "اجرای Migrationهای افزایشی فقط پس از backup و بررسی migrate:status؛ هیچ Migration محلی یا دیتابیس کاربر در این ادغام‌ها اجرا نشده است.",
+    "اجرای QA مرورگر برای حفظ زبان پس از refresh/login/logout و بررسی سه زبان؛ PR174 تست CI دارد اما QA مرورگر انجام نشده است.",
+    "تأیید OMDb همچنان خاموش بماند؛ فعال‌سازی فقط پس از تأیید حقوق تجاری، caching، attribution، retention و نمایش مجاز.",
     "نگاشت شناسه WordPress برای آثار و واردسازی عوامل اکنون در main موجود است؛ commit 209d99d9c0756653ab11ba563e0bc714061d56c9 و فایل‌های فعلی main آن را تأیید می‌کنند. شاخه قدیمی feature/wordpress-title-credit-mapping به‌علت ۸۳ commit عقب‌ماندگی نباید جداگانه ادغام شود.",
     "اجرای برنامه QA نهایی: PHPUnit، npm build، بررسی مرورگری و smoke test؛ طبق درخواست کاربر فعلاً اجرا نشده‌اند.",
     "بررسی همه Migrationهای جدید در محیط هدف، تهیه backup و تطبیق migrate:status قبل از اجرای هر Migration؛ هیچ عملیات مخرب انجام نشود.",
@@ -3261,10 +3300,7 @@
     "تأیید رفتار runtime Activitylog، Sitemap، Chart.js، SEO و اعلان‌ها.",
     "بررسی تکمیل تمام مسیرهای پنل مدیریت، کاربر عادی و هنرمند و رفع موارد ناقص.",
     "تعیین سیاست و اولویت توسعه درگاه پرداخت و قابلیت‌های باقی‌مانده پس از QA.",
-    "PR109 مرحله ۴ پیشنهادها، سفارش‌ها و entitlement در main ادغام شد؛ CI سرشاخه و main موفق است (۲۲۱ تست / ۸۵۶ assertion). Checkout عمومی هنوز فعال نیست.",
-    "PR110 تنظیم نگهداری تاریخچه تماشا ادغام شد؛ CI سرشاخه و main موفق است. اجرای Migration و scheduler در MySQL staging پس از backup باقی است.",
     "اجرای Migrationهای جدید فقط پس از backup، بررسی migrate:status و آزمون MySQL staging؛ هیچ Migration روی دیتابیس محلی یا عملیاتی کاربر اجرا نشده است.",
-    "PR113 زیرساخت provider-neutral checkout و webhook در main ادغام شد؛ CI شاخه و main موفق است (۲۳۲ تست / ۹۰۹ assertion). پرداخت واقعی همچنان خاموش است.",
     "برای فعال‌سازی پرداخت مصرف‌کننده باید provider، کشورها و ارزها جداگانه انتخاب شوند؛ adapter واقعی، sandbox، refund و reconciliation هنوز باقی‌اند.",
     "اجرای Migrationهای viewer commerce/payment و history retention فقط پس از backup، بررسی migrate:status و آزمون MySQL staging؛ هیچ Migration روی دیتابیس کاربر اجرا نشده است.",
     "گردش‌کار هزینه/صورتحساب کمپین‌های تبلیغاتی شرکت‌ها هنوز جدا از دفتر درآمد پلتفرم است و باید با مدل قرارداد و پرداخت دستی/آنلاین هماهنگ طراحی شود؛ هیچ تسویه‌ای خودکار فعال نشود."
@@ -4524,13 +4560,13 @@
     "notes": "گزارش ممیزی در docs/dependency-usage-audit.md مخزن اصلی قرار دارد. هیچ داده تجاری تغییر نکرده است."
   },
   "current_status": {
-    "snapshot_date": "2026-11-26",
+    "snapshot_date": "2026-11-27",
     "product_name": "Afghanistan Movie Database",
     "product_name_fa": "بانک اطلاعاتی فیلم افغانستان",
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "6de4a5d25c7c249db4df3bfdabb8e953edfa185e",
+    "source_commit": "4fba5205420931dcdbba8ceaad1ffca19298af75",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-26",
@@ -4555,7 +4591,9 @@
         "تست‌ها، build، migration و QA مرورگر برای تغییرات PR #144 اجرا نشده‌اند.",
         "این بررسی فقط موجودی فایل‌ها و ساختار سورس را ثبت می‌کند."
       ],
-      "verified_at": "2026-11-26"
+      "verified_at": "2026-11-26",
+      "stale_after_commit": "4fba5205420931dcdbba8ceaad1ffca19298af75",
+      "note": "شمارش موجودی قبلی مربوط به commit پیش از ادغام PRهای #166 و #172 تا #175 است؛ برای آمار دقیق فعلی باید inventory دوباره از main استخراج شود."
     },
     "feature_summary": {
       "implemented_unverified": 39,
@@ -4565,7 +4603,7 @@
       "blocked": 0
     },
     "feature_count": 41,
-    "implementation_status": "PR #148 تا #164 ادغام شدند؛ PR #165 به‌علت پنج advisory امنیتی Composer باز مانده است. تست‌ها و QA پس از ادغام طبق درخواست کاربر به مرحله نهایی موکول شدند.",
+    "implementation_status": "PRهای #166، #172، #173، #174 و #175 همگی در 2026-11-27 در main ادغام شدند؛ پس از ادغام هیچ PR بازی باقی نماند. تست‌های سرشاخه PRها و Vite طبق شواهد ثبت شده‌اند؛ CI پس از آخرین ادغام روی main هنوز تأیید نشده است. Composer Audit همچنان پنج advisory امنیتی Symfony دارد.",
     "database_runtime": {
       "status": "partially_verified_local",
       "environment": "Windows 10 + Laragon 8 + MySQL",
@@ -4599,9 +4637,9 @@
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45778123285",
       "mysql_runtime_verified": false,
-      "latest_ci_run": 45778123285,
-      "main_ci_conclusion": "success",
-      "pull_request_ci_conclusion": "success",
+      "latest_ci_run": 45888118560,
+      "main_ci_conclusion": "not_verified_after_latest_merge",
+      "pull_request_ci_conclusion": "test_jobs_passed_composer_audit_failed",
       "mysql_ci_verified": true,
       "local_http_smoke": {
         "checked_at": "2026-11-22",
@@ -4821,14 +4859,15 @@
         "browser_verified": false,
         "note": "توسعه و اصلاح ممیزی انجام شد؛ تست‌ها، build، migration و QA مرورگر این تغییر اجرا نشده‌اند.",
         "latest_commit": "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab"
-      }
+      },
+      "latest_ci_note": "PR175: SQLite 308 passed / 1208 assertions؛ MySQL 8.4 308 passed / 1208 assertions؛ Vite production build موفق؛ Composer Audit به‌دلیل پنج advisory شکست خورد. PR173 MySQL 312/1213 و PR174 MySQL 311/1219 موفق بودند. CI پس از ادغام نهایی روی main هنوز تأیید نشده است."
     },
     "release": {
-      "latest_merged_pr": 147,
-      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/147",
-      "latest_source_commit": "6de4a5d25c7c249db4df3bfdabb8e953edfa185e",
+      "latest_merged_pr": 174,
+      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/174",
+      "latest_source_commit": "4fba5205420931dcdbba8ceaad1ffca19298af75",
       "source_branch": "main",
-      "verified_at": "2026-11-26",
+      "verified_at": "2026-11-27",
       "pr_ci_run": 44990252885,
       "pr_ci_conclusion": "success",
       "pr_tests": 254,
@@ -4858,7 +4897,16 @@
       "mysql_version": "8.4.13",
       "mysql_migrations": "success",
       "mysql_tests": 254,
-      "mysql_assertions": 983
+      "mysql_assertions": 983,
+      "open_pull_requests": 0,
+      "latest_merged_prs": [
+        175,
+        166,
+        172,
+        173,
+        174
+      ],
+      "post_merge_ci": "not_verified"
     },
     "note": "در 2026-11-22، پس از اجرای ۴۳ Migration و ProfessionGroupSeeder در Laragon، سه صفحه /artists، /news و /festivals با HTTP 200 تأیید شدند. اصلاح namespace مدل‌های News و Festival نیز در main ثبت شد. این تأیید محدود محلی است و جایگزین QA کامل مرورگر، تست تمام مسیرها یا staging نیست. بررسی بعدی فرانت‌اند: صفحه اصلی HTTP 200، CSS/JS تولیدی HTTP 200، فایل hot غایب و نمایش هدر/فوتر توسط کاربر تأیید شد؛ build با زمان غیرعادی ۱۱ دقیقه و هشدار fontaine نیازمند بهینه‌سازی است. PR132 خروجی PDF چندزبانه گزارش تبلیغات روی شاخه مستقل و به‌صورت draft ثبت شده؛ تأیید PDF آزمایشی Chrome توسط کاربر فقط صحت نمایش حروف را نشان می‌دهد، نه تست Laravel/CI یا سازگاری هاست. آخرین سرشاخه main مخزن کد در 2026-11-24 به commit 2a06f9d9a200c95bf6c206c53d52ef3d56c05968 رسیده است؛ ممیزی تفصیلی ثبت‌شده در این snapshot تا commit e133e1d1244f2560fb9aedb8a53a56cc118c6cd4 است و commit جدیدتر هنوز ممیزی کامل نشده است. PR132 خروجی PDF چندزبانه تبلیغات در 2026-11-24 با commit c793b06f290f77da225996e68f25a865abcd9e94 به main ادغام شد؛ تست محلی و CI پیش از ادغام موفق و نمایش دری/پشتو و RTL توسط کاربر تأیید شد. دانلود تعاملی پنل و Chromium روی هاست تولید هنوز بررسی نشده‌اند. PR134 برای بهبود نمایش اخبار و فرم ثبت آثار باز است و هنوز ادغام نشده؛ QA مرورگر و build/test در مرحله بعد انجام می‌شود. PR135 برای بازطراحی مدیریت آثار در وضعیت open/not merged است؛ تست و QA در مرحله بعد انجام می‌شود. اصلاحات اخبار، پیشنهاد اثر و مدیریت آثار در یک PR واحد (#135) تجمیع شده‌اند؛ PR134 به‌عنوان مورد تکراری بسته شده است.",
     "panels": [
@@ -5496,7 +5544,11 @@
       ],
       "related_records_extension_pr": 147,
       "related_records_extension_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/147"
-    }
+    },
+    "open_pull_requests": 0,
+    "open_pull_requests_checked_at": "2026-11-27",
+    "latest_merged_pr": 174,
+    "latest_merged_commit": "4fba5205420931dcdbba8ceaad1ffca19298af75"
   },
   "report_methodology": {
     "version": 3,
@@ -7153,7 +7205,7 @@
     ],
     "next_step": "بررسی چند صفحه نمونه هنرمند، سریال و اثر؛ سپس طراحی adapter واردسازی بر اساس فایل export واقعی و ساختار واقعی متادیتا."
   },
-  "last_updated": "2026-11-26",
+  "last_updated": "2026-11-27",
   "architecture_standards": {
     "catalog_domain": {
       "status": "implementation_in_review",
@@ -7396,9 +7448,9 @@
       "database_migrations": "two_new_migrations_added_not_executed"
     }
   },
-  "latest_main_commit": "729e6baab766ffd1d7892721cd03fa0be6c82a6e",
+  "latest_main_commit": "4fba5205420931dcdbba8ceaad1ffca19298af75",
   "source_commit_audited": "6de4a5d25c7c249db4df3bfdabb8e953edfa185e",
-  "latest_main_commit_verified_on": "2026-11-26",
+  "latest_main_commit_verified_on": "2026-11-27",
   "current_development": {
     "updated_at": "2026-11-26",
     "repository": "https://github.com/armanaria111/amdb-laravel2",
