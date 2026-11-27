@@ -8423,7 +8423,7 @@
       "blade_php_lint": "passed",
       "sqlite_tests": "335 passed (1295 assertions)",
       "mysql_migrations": "passed",
-      "mysql_tests": "pending on latest commit; previous commit passed 332 tests (1289 assertions)",
+      "mysql_tests": "335 passed (1295 assertions)",
       "composer_audit": "failed_due_to_existing_locked_symfony_advisories",
       "advisories": [
         "CVE-2026-133743 symfony/http-kernel",
@@ -8432,7 +8432,7 @@
         "CVE-2026-133746 symfony/routing",
         "CVE-2026-133754 symfony/routing"
       ],
-      "note": "CI on latest source commit passed Vite build, Composer validation with lock metadata warning, dependency installation, Blade compilation/lint and 335 SQLite tests (1295 assertions). Composer audit remains failed due to pre-existing Symfony advisories. MySQL migration and test run for the latest OAuth refresh commit is still in progress; the previous commit completed MySQL migration and 332 tests (1289 assertions)."
+      "note": "CI on latest source commit 233d8df71d3f623c883c9af6ee569d7197f91109 completed successfully for frontend build, Composer install, Blade compilation/lint, MySQL migrations and full PHPUnit suites on SQLite and MySQL. Both test suites passed 335 tests and 1295 assertions. Composer audit alone remains failed due to pre-existing locked Symfony advisories."
     },
     "note": "این تغییرات هنوز در main ادغام نشده‌اند و نباید به‌عنوان قابلیت فعال در نسخه اصلی یا محیط محلی گزارش شوند."
   }
