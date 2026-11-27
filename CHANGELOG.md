@@ -1344,3 +1344,16 @@
 - فرم‌های ایجاد و ویرایش نقش نیز برای دری و پشتو راست‌چین شدند؛ labelهای نام، شناسه و توضیحات به ورودی‌های متناظر متصل شدند. PR136 اکنون ۲۳ فایل تغییرکرده دارد و آخرین refresh وضعیت mergeable=true را گزارش می‌کند؛ هنوز به PR135 وابسته است و ادغام نشده است.
 
 - مجوزهای Routeهای مدیریت با `RolePermissionSeeder` تطبیق داده شدند؛ هر ۲۹ مجوز متمایز استفاده‌شده در مسیرها تعریف شده است. بررسی ایستا همچنین نشان داد `StoreRoleRequest` و `UpdateRoleRequest` مجوزهای حساس را به مدیر ارشد اختصاصی محدود می‌کنند و `RolePolicy` ویرایش/حذف نقش سیستمی یا دارای مجوز محافظت‌شده را محدود می‌کند. این بررسی جایگزین تست runtime مجوزها نیست.
+
+
+## 2026-11-27 — ادغام تمام PRهای باز مخزن اصلی
+
+- PR [#175](https://github.com/armanaria111/amdb-laravel2/pull/175) با commit `c0dec2a15ffe202b053a0f3a75735fa603d7edd5` ادغام شد؛ تست‌های SQLite پیش از Composer Audit اجرا می‌شوند. در CI سرشاخه PR، SQLite و MySQL 8.4 هر دو 308 تست / 1208 assertion و Vite موفق بودند؛ Composer Audit همچنان پنج advisory را گزارش کرد.
+- PR [#166](https://github.com/armanaria111/amdb-laravel2/pull/166) با commit `d1c795fc0c94bc812d4fd646cb3543b534816498` ادغام شد؛ Dependabot برای Composer، npm و GitHub Actions پیکربندی شد. رفع advisoryها همچنان باقی است.
+- PR [#172](https://github.com/armanaria111/amdb-laravel2/pull/172) با commit `6c1e5b61c9c6f0b4fa50ae5ae11dac9aac6d496e` ادغام شد؛ آداپتور OMDb به‌صورت غیرفعال پیش‌فرض اضافه شد. هیچ API key، route، job، import یا نمایش خودکاری فعال نیست.
+- PR [#173](https://github.com/armanaria111/amdb-laravel2/pull/173) با commit `c4a5f60e9f1b3b5510dba4344adef9083f557121` ادغام شد؛ تشخیص تکراری اخبار با metadata و نرمال‌سازی چندزبانه اضافه شد؛ تشخیص advisory است و ادغام/حذف خودکار انجام نمی‌دهد. CI MySQL: 312 تست / 1213 assertion موفق.
+- PR [#174](https://github.com/armanaria111/amdb-laravel2/pull/174) با commit `4fba5205420931dcdbba8ceaad1ffca19298af75` ادغام شد؛ زبان انتخاب‌شده با cookie یک‌ساله HTTP-only و SameSite=Lax حفظ می‌شود. CI MySQL: 311 تست / 1219 assertion موفق؛ QA مرورگر هنوز انجام نشده است.
+- بررسی مجدد GitHub پس از ادغام نشان داد تعداد PRهای باز مخزن اصلی صفر است.
+- آخرین commit شاخه main: `4fba5205420931dcdbba8ceaad1ffca19298af75`.
+- CI پس از آخرین ادغام روی main هنوز تأیید نشده است؛ هیچ تست محلی، Migration یا عملیات دیتابیس در این مرحله اجرا نشد.
+- وضعیت امنیتی باز: پنج advisory مربوط به `symfony/http-kernel`، `symfony/mailer` و `symfony/routing` باید با به‌روزرسانی امن lockfile رفع و `composer audit --locked` دوباره موفق شود.
