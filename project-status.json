@@ -8421,9 +8421,9 @@
       "frontend_build": "passed",
       "blade_compile": "passed",
       "blade_php_lint": "passed",
-      "sqlite_tests": "332 passed (1289 assertions)",
+      "sqlite_tests": "335 passed (1295 assertions)",
       "mysql_migrations": "passed",
-      "mysql_tests": "332 passed (1289 assertions)",
+      "mysql_tests": "pending on latest commit; previous commit passed 332 tests (1289 assertions)",
       "composer_audit": "failed_due_to_existing_locked_symfony_advisories",
       "advisories": [
         "CVE-2026-133743 symfony/http-kernel",
@@ -8432,7 +8432,7 @@
         "CVE-2026-133746 symfony/routing",
         "CVE-2026-133754 symfony/routing"
       ],
-      "note": "CI on source commit a80b4976eaaa09ef514ad2d2ea9ac9f4cd3960fa completed frontend build, Composer install, Blade compile/lint, MySQL migration and full PHPUnit suite on both SQLite and MySQL. Both test jobs passed 332 tests and 1289 assertions. Composer audit alone failed due to pre-existing locked Symfony versions on main (routing/http-kernel v8.1.11, mailer v8.1.10); no composer.json or composer.lock changes were made in this feature branch. آزمون اختصاصی چرخه refresh توکن گوگل نیز به مجموعه تست اضافه شده و در انتظار اجرای CI روی آخرین commit است."
+      "note": "CI on latest source commit passed Vite build, Composer validation with lock metadata warning, dependency installation, Blade compilation/lint and 335 SQLite tests (1295 assertions). Composer audit remains failed due to pre-existing Symfony advisories. MySQL migration and test run for the latest OAuth refresh commit is still in progress; the previous commit completed MySQL migration and 332 tests (1289 assertions)."
     },
     "note": "این تغییرات هنوز در main ادغام نشده‌اند و نباید به‌عنوان قابلیت فعال در نسخه اصلی یا محیط محلی گزارش شوند."
   }
