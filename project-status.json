@@ -8418,8 +8418,20 @@
     ],
     "qa": {
       "frontend_build": "passed",
-      "phpunit": "not_run",
-      "reason": "آخرین اجرای CI روی commit a80b4976eaaa09ef514ad2d2ea9ac9f4cd3960fa در حال اجراست. اجرای قبلی پس از عبور از Composer validation، نصب وابستگی‌ها، build Blade و lint نماها به مرحله PHPUnit رسید اما به‌دلیل push بعدی لغو شد؛ نتیجه نهایی PHPUnit هنوز تأیید نشده است."
+      "blade_compile": "passed",
+      "blade_php_lint": "passed",
+      "sqlite_tests": "332 passed (1289 assertions)",
+      "mysql_migrations": "passed",
+      "mysql_tests": "332 passed (1289 assertions)",
+      "composer_audit": "failed_due_to_existing_locked_symfony_advisories",
+      "advisories": [
+        "CVE-2026-133743 symfony/http-kernel",
+        "CVE-2026-133751 symfony/mailer",
+        "CVE-2026-133755 symfony/mailer",
+        "CVE-2026-133746 symfony/routing",
+        "CVE-2026-133754 symfony/routing"
+      ],
+      "note": "CI on source commit a80b4976eaaa09ef514ad2d2ea9ac9f4cd3960fa completed frontend build, Composer install, Blade compile/lint, MySQL migration and full PHPUnit suite on both SQLite and MySQL. Both test jobs passed 332 tests and 1289 assertions. Composer audit alone failed due to pre-existing locked Symfony versions on main (routing/http-kernel v8.1.11, mailer v8.1.10); no composer.json or composer.lock changes were made in this feature branch."
     },
     "note": "این تغییرات هنوز در main ادغام نشده‌اند و نباید به‌عنوان قابلیت فعال در نسخه اصلی یا محیط محلی گزارش شوند."
   }
