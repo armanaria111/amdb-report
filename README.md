@@ -5,7 +5,7 @@
 **مخزن اصلی کد:** https://github.com/armanaria111/amdb-laravel2  
 **مخزن گزارش:** https://github.com/armanaria111/amdb-report
 
-## وضعیت جاری — ۲۶ نوامبر ۲۰۲۶
+## وضعیت جاری — ۲۷ نوامبر ۲۰۲۶
 
 - [داشبورد زنده پروژه](https://armanaria111.github.io/amdb-report/)
 - [مرجع وضعیت ساختاریافته](project-status.json)
@@ -15,9 +15,9 @@
 
 آخرین commit تأییدشده مخزن برنامه روی شاخه `main`:
 
-`35e355f3dcab2447f0fccc05e73c1f0e6eca1101`
+`4fba5205420931dcdbba8ceaad1ffca19298af75`
 
-PRهای #137، #133، #135، #138، #140، #141، #142 و #143 ادغام شده‌اند. PR #136 به‌عنوان شاخه قدیمی جایگزین‌شده بسته شد. PR #139 به‌عنوان شاخه قدیمی بسته شد و تغییرات آن در PR #142 روی آخرین main بازسازی و ادغام شد؛ در بررسی نهایی PR بازی باقی نمانده است.
+PRهای #166، #172، #173، #174 و #175 نیز در ۲۷ نوامبر ۲۰۲۶ ادغام شدند. اکنون هیچ PR بازی در مخزن اصلی وجود ندارد. آخرین commit شاخه main برابر `4fba5205420931dcdbba8ceaad1ffca19298af75` است. جزئیات ادغام‌ها در CHANGELOG و project-status.json ثبت شده‌اند.
 
 ## آخرین کارهای غیرعملیاتی انجام‌شده
 
@@ -26,16 +26,17 @@ PRهای #137، #133، #135، #138، #140، #141، #142 و #143 ادغام شد�
 - [PR #142 — قفل تراکنشی پیشنهادهای اصلاح عنوان](https://github.com/armanaria111/amdb-laravel2/pull/142) ادغام شد؛ CI با 306 تست و 1193 assertion روی SQLite و MySQL 8.4 موفق است. آزمون هم‌زمانی مستقل MySQL به‌عنوان hardening بیشتر توصیه می‌شود.
 - [PR #143 — انتقال CSS صفحات عمومی به فایل اصلی](https://github.com/armanaria111/amdb-laravel2/pull/143) ادغام شد؛ CI با 306 تست و 1193 assertion روی SQLite و MySQL 8.4 موفق است.
 
-## شواهد CI
+## شواهد CI و وضعیت امنیت وابستگی‌ها
 
-آخرین CI ادغام مدیریت کاربران/هنرمندان/ورود (PR #138، run `45774999431`) موفق بود:
+آخرین CI سرشاخه‌های PRهای ادغام‌شده:
 
-- PHPUnit روی SQLite: **301 passed / 1182 assertions**
-- PHPUnit روی MySQL 8.4: **301 passed / 1182 assertions**
-- Vite production build: موفق
-- Blade view cache و compiled-view PHP lint: موفق
+- PR #175: SQLite **308 passed / 1208 assertions** و MySQL 8.4 **308 passed / 1208 assertions**؛ Vite production build موفق.
+- PR #173: MySQL 8.4 **312 passed / 1213 assertions**؛ Vite موفق.
+- PR #174: MySQL 8.4 **311 passed / 1219 assertions**؛ Migrationها، Blade و Vite موفق.
+- Composer Audit همچنان به‌دلیل پنج advisory در `symfony/http-kernel`، `symfony/mailer` و `symfony/routing` شکست می‌خورد. PR #175 اجرای تست SQLite را قبل از Audit قرار داد؛ هشدارهای امنیتی را رفع نکرد.
+- Dependabot در PR #166 فعال شده تا به‌روزرسانی‌های وابستگی را پیشنهاد کند؛ این تنظیم به‌تنهایی lockfile را اصلاح نمی‌کند.
 
-این نتایج CI هستند؛ به معنی تأیید بصری صفحات در مرورگر، QA موبایل، پذیرش محلی Laragon یا smoke test محیط عملیاتی نیستند.
+CI پس از آخرین ادغام روی commit نهایی `main` هنوز در این snapshot تأیید نشده است. نتایج CI سرشاخه PRها جایگزین QA مرورگر، QA موبایل، پذیرش محلی Laragon یا smoke test محیط عملیاتی نیستند.
 
 ## موارد باقی‌مانده برای پذیرش نهایی
 
