@@ -8397,7 +8397,7 @@
     "branch": "feature/google-ai-integration-center",
     "pull_request": 183,
     "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/183",
-    "source_commit": "e0a01b1618994b372552c5f44a927d1d36938164",
+    "source_commit": "a80b4976eaaa09ef514ad2d2ea9ac9f4cd3960fa",
     "last_updated": "2026-11-27",
     "implemented": [
       "مرکز مدیریت اتصالات Google و هوش مصنوعی با رابط انگلیسی، دری و پشتو",
@@ -8407,7 +8407,8 @@
       "اتصال تولید متن از طریق OpenAI-compatible، Gemini و Cloudflare Workers AI با fallback بر اساس اولویت",
       "ثبت آمار درخواست و توکن بدون ذخیره متن prompt",
       "تست اتصال عمومی برای OpenAI، NVIDIA، Gemini، Cloudflare و endpoint سازگار سفارشی",
-      "تخصیص کاربرد برای هر اتصال هوش مصنوعی و انتخاب خودکار ارائه‌دهنده بر اساس کاربرد و اولویت"
+      "تخصیص کاربرد برای هر اتصال هوش مصنوعی و انتخاب خودکار ارائه‌دهنده بر اساس کاربرد و اولویت",
+      "اعتبارسنجی سخت‌گیرانه‌تر نشانی HTTPS ارائه‌دهنده سفارشی برای کاهش خطر SSRF"
     ],
     "not_yet_wired": [
       "گزارش‌گیری عملیاتی GA4، Search Console، AdSense و Google Ads",
@@ -8418,7 +8419,7 @@
     "qa": {
       "frontend_build": "passed",
       "phpunit": "not_run",
-      "reason": "CI متوقف شده پیش از نصب وابستگی‌ها؛ composer validate خطای قدیمی عدم همگامی composer.lock با composer.json را گزارش کرده است. هیچ تست PHP یا migration از این PR هنوز اجرا نشده است."
+      "reason": "آخرین اجرای CI روی commit a80b4976eaaa09ef514ad2d2ea9ac9f4cd3960fa در حال اجراست. اجرای قبلی پس از عبور از Composer validation، نصب وابستگی‌ها، build Blade و lint نماها به مرحله PHPUnit رسید اما به‌دلیل push بعدی لغو شد؛ نتیجه نهایی PHPUnit هنوز تأیید نشده است."
     },
     "note": "این تغییرات هنوز در main ادغام نشده‌اند و نباید به‌عنوان قابلیت فعال در نسخه اصلی یا محیط محلی گزارش شوند."
   }
