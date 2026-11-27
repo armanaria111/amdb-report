@@ -8390,5 +8390,35 @@
       "هیچ API request، API key، import یا تغییر داده کاتالوگ پیاده‌سازی نشده است."
     ],
     "qa": "feature test added but not executed in this session"
+  },
+  "google_ai_integration_center": {
+    "status": "in_progress_on_pull_request",
+    "source_repository": "https://github.com/armanaria111/amdb-laravel2",
+    "branch": "feature/google-ai-integration-center",
+    "pull_request": 183,
+    "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/183",
+    "source_commit": "9c457c01d4920fe7afdcfdd286b07ef0406b7749",
+    "last_updated": "2026-11-27",
+    "implemented": [
+      "مرکز مدیریت اتصالات Google و هوش مصنوعی با رابط انگلیسی، دری و پشتو",
+      "ثبت چند credential برای هر ارائه‌دهنده، اولویت‌بندی و فعال/غیرفعال‌سازی",
+      "رمزنگاری کلیدها و توکن‌های OAuth با Laravel Crypt",
+      "OAuth authorization برای Google Analytics، Search Console، AdSense، Google Ads و Google OAuth client",
+      "اتصال تولید متن از طریق OpenAI-compatible، Gemini و Cloudflare Workers AI با fallback بر اساس اولویت",
+      "ثبت آمار درخواست و توکن بدون ذخیره متن prompt",
+      "تست اتصال عمومی برای OpenAI، NVIDIA، Gemini، Cloudflare و endpoint سازگار سفارشی"
+    ],
+    "not_yet_wired": [
+      "گزارش‌گیری عملیاتی GA4، Search Console، AdSense و Google Ads",
+      "استفاده از Google OAuth برای ورود واقعی کاربران",
+      "اتصال reCAPTCHA به فرم‌های عمومی",
+      "اتصال قابلیت‌های AI به گردش‌کارهای ترجمه، اخبار، کاتالوگ و مدیریت"
+    ],
+    "qa": {
+      "frontend_build": "passed",
+      "phpunit": "not_run",
+      "reason": "CI متوقف شده پیش از نصب وابستگی‌ها؛ composer validate خطای قدیمی عدم همگامی composer.lock با composer.json را گزارش کرده است. هیچ تست PHP یا migration از این PR هنوز اجرا نشده است."
+    },
+    "note": "این تغییرات هنوز در main ادغام نشده‌اند و نباید به‌عنوان قابلیت فعال در نسخه اصلی یا محیط محلی گزارش شوند."
   }
 }
