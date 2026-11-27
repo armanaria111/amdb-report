@@ -15,9 +15,9 @@
 
 آخرین commit تأییدشده مخزن برنامه روی شاخه `main`:
 
-`4fba5205420931dcdbba8ceaad1ffca19298af75`
+`404a2a12ca663fc67f50d261f1bb8d9b327270f7`
 
-PRهای #166، #172، #173، #174 و #175 نیز در ۲۷ نوامبر ۲۰۲۶ ادغام شدند. اکنون هیچ PR بازی در مخزن اصلی وجود ندارد. آخرین commit شاخه main برابر `4fba5205420931dcdbba8ceaad1ffca19298af75` است. جزئیات ادغام‌ها در CHANGELOG و project-status.json ثبت شده‌اند.
+PRهای #166، #172 تا #175 و سپس PRهای Dependabot #177 تا #182 نیز در ۲۷ نوامبر ۲۰۲۶ ادغام شدند. اکنون هیچ PR بازی در مخزن اصلی وجود ندارد. آخرین commit شاخه main برابر `404a2a12ca663fc67f50d261f1bb8d9b327270f7` است. جزئیات ادغام‌ها در CHANGELOG و project-status.json ثبت شده‌اند.
 
 ## آخرین کارهای غیرعملیاتی انجام‌شده
 
@@ -72,3 +72,17 @@ CI پس از آخرین ادغام روی commit نهایی `main` هنوز در
 - `assets/style.css`: استایل داشبورد
 - `docs/reporting-methodology.md`: روش‌شناسی و محدودیت‌های گزارش
 - `CHANGELOG.md`: تاریخچه تغییرات
+
+
+## به‌روزرسانی وابستگی‌ها — ۲۷ نوامبر ۲۰۲۶
+
+شش PR خودکار Dependabot نیز بررسی و ادغام شدند:
+
+- [#177](https://github.com/armanaria111/amdb-laravel2/pull/177) — actions/setup-node v7
+- [#178](https://github.com/armanaria111/amdb-laravel2/pull/178) — actions/cache v6
+- [#179](https://github.com/armanaria111/amdb-laravel2/pull/179) — actions/download-artifact v8
+- [#180](https://github.com/armanaria111/amdb-laravel2/pull/180) — PHPUnit 13.4.8
+- [#181](https://github.com/armanaria111/amdb-laravel2/pull/181) — actions/upload-artifact v7
+- [#182](https://github.com/armanaria111/amdb-laravel2/pull/182) — actions/checkout v7
+
+در هر شش CI سرشاخه، PHPUnit روی SQLite و MySQL 8.4 و Vite build موفق بودند؛ مرحله Composer Audit در SQLite به‌دلیل پنج advisory امنیتی همچنان شکست نهایی داشت. CI پس از آخرین ادغام روی main هنوز تأیید نشده است. تعداد PRهای باز پس از ادغام: صفر.
