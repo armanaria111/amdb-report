@@ -8397,7 +8397,7 @@
     "branch": "feature/google-ai-integration-center",
     "pull_request": 183,
     "pull_request_url": "https://github.com/armanaria111/amdb-laravel2/pull/183",
-    "source_commit": "9c457c01d4920fe7afdcfdd286b07ef0406b7749",
+    "source_commit": "e0a01b1618994b372552c5f44a927d1d36938164",
     "last_updated": "2026-11-27",
     "implemented": [
       "مرکز مدیریت اتصالات Google و هوش مصنوعی با رابط انگلیسی، دری و پشتو",
@@ -8406,7 +8406,8 @@
       "OAuth authorization برای Google Analytics، Search Console، AdSense، Google Ads و Google OAuth client",
       "اتصال تولید متن از طریق OpenAI-compatible، Gemini و Cloudflare Workers AI با fallback بر اساس اولویت",
       "ثبت آمار درخواست و توکن بدون ذخیره متن prompt",
-      "تست اتصال عمومی برای OpenAI، NVIDIA، Gemini، Cloudflare و endpoint سازگار سفارشی"
+      "تست اتصال عمومی برای OpenAI، NVIDIA، Gemini، Cloudflare و endpoint سازگار سفارشی",
+      "تخصیص کاربرد برای هر اتصال هوش مصنوعی و انتخاب خودکار ارائه‌دهنده بر اساس کاربرد و اولویت"
     ],
     "not_yet_wired": [
       "گزارش‌گیری عملیاتی GA4، Search Console، AdSense و Google Ads",
