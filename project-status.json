@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "120d1027d91102e277840be916a9ac17577e22f7",
+    "source_commit_audited": "4ae3ed9544ecba5cb59a34d47c2278bd76a3511f",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "120d1027d91102e277840be916a9ac17577e22f7",
+    "latest_main_commit": "4ae3ed9544ecba5cb59a34d47c2278bd76a3511f",
     "latest_main_commit_verified_on": "2026-11-27",
     "advertising_note": "گزارش عملکرد کمپین، درآمد پلتفرم و صورتحساب تبلیغ‌دهندگان در ماژول‌های جدا هستند؛ صورتحساب و دریافت وجه فقط به‌صورت ثبت دستی رسید بیرونی انجام می‌شود و ارزها مستقل می‌مانند.",
     "platform_revenue_export": "خروجی CSV فیلترپذیر دفتر درآمد پلتفرم با ستون‌های منبع، ارز، مبلغ، دوره، وضعیت، کمپین و ممیزی ثبت/تأیید؛ مسیر GET export در گروه route صحیح ثبت شده است."
@@ -8355,5 +8355,26 @@
       "تأیید endpointهای Sandbox/Production با مستندات جاری زرین‌پال پیش از تراکنش واقعی.",
       "آزمون اتصال/تراکنش آزمایشی کنترل‌شده پس از آماده بودن callback عمومی HTTPS."
     ]
+  },
+  "admin_settings_hub": {
+    "status": "implemented_in_source_not_runtime_verified",
+    "source_repository": "https://github.com/armanaria111/amdb-laravel2",
+    "source_commit": "4ae3ed9544ecba5cb59a34d47c2278bd76a3511f",
+    "changes": [
+      "افزودن مرکز دسترسی یکپارچه به صفحه تنظیمات سایت",
+      "دسته‌بندی پیوندهای موجود برای کاتالوگ، هنرمندان و شرکت‌ها، اخبار و درخواست‌ها، درآمد و تبلیغات، سیستم و افزونه‌ها",
+      "افزودن ترجمه انگلیسی، دری و پشتو",
+      "نمایش پیوندها فقط در صورت ثبت بودن Route؛ مجوز هر مقصد همچنان توسط middleware همان Route کنترل می‌شود"
+    ],
+    "limitations": [
+      "این تغییر صفحه‌های تنظیمات اختصاصی جدید ایجاد نمی‌کند؛ فقط دسترسی به صفحه‌های مدیریتی موجود را یکپارچه می‌کند.",
+      "تنظیمات واقعی و قابل تغییر هر ماژول باید جداگانه بررسی و به منطق همان ماژول متصل شود.",
+      "بررسی Route در runtime، رندر Blade، تست PHPUnit و QA مرورگر هنوز انجام نشده است."
+    ],
+    "dashboard_shortcut": {
+      "status": "committed_not_user_runtime_confirmed",
+      "commit": "1079d18b4168a1ba605b02b52651678238e12e1a",
+      "path": "resources/views/admin/dashboard.blade.php"
+    }
   }
 }
