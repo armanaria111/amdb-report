@@ -11,16 +11,16 @@
     "database": "MySQL",
     "development_environment": "Windows 10 + Laragon 8",
     "local_path": "C:\\laragon\\www\\amdb",
-    "last_verified": "2026-11-26",
+    "last_verified": "2026-11-27",
     "overall_progress": null,
     "progress_note": "درصد پیشرفت کلی نمایش داده نمی‌شود؛ وضعیت هر قابلیت، پنل، دیتابیس و QA مستقل است.",
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "6de4a5d25c7c249db4df3bfdabb8e953edfa185e",
+    "source_commit_audited": "120d1027d91102e277840be916a9ac17577e22f7",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "6de4a5d25c7c249db4df3bfdabb8e953edfa185e",
-    "latest_main_commit_verified_on": "2026-11-26",
+    "latest_main_commit": "120d1027d91102e277840be916a9ac17577e22f7",
+    "latest_main_commit_verified_on": "2026-11-27",
     "advertising_note": "گزارش عملکرد کمپین، درآمد پلتفرم و صورتحساب تبلیغ‌دهندگان در ماژول‌های جدا هستند؛ صورتحساب و دریافت وجه فقط به‌صورت ثبت دستی رسید بیرونی انجام می‌شود و ارزها مستقل می‌مانند.",
     "platform_revenue_export": "خروجی CSV فیلترپذیر دفتر درآمد پلتفرم با ستون‌های منبع، ارز، مبلغ، دوره، وضعیت، کمپین و ممیزی ثبت/تأیید؛ مسیر GET export در گروه route صحیح ثبت شده است."
   },
@@ -712,7 +712,13 @@
       "PR179 با commit 27f79145ce871a419d6a30117a68474617741a23 ادغام شد: actions/download-artifact از v4 به v8 ارتقا یافت؛ Vite و MySQL 8.4 موفق و PHPUnit SQLite موفق بود؛ تنها Composer Audit به‌دلیل advisoryها شکست خورد.",
       "PR180 با commit 99e94223a229369bf7f625f9b8f5f099536df523 ادغام شد: PHPUnit از 12.5 به 13.4.8 ارتقا یافت؛ تست‌های PHPUnit روی SQLite و MySQL 8.4 موفق بودند و Vite نیز موفق بود؛ Composer Audit همچنان پنج advisory را گزارش کرد.",
       "PR182 با commit 404a2a12ca663fc67f50d261f1bb8d9b327270f7 ادغام شد: actions/checkout از v4 به v7 ارتقا یافت؛ Vite و MySQL 8.4 موفق و PHPUnit SQLite موفق بود؛ تنها Composer Audit به‌دلیل advisoryها شکست خورد.",
-      "پس از ادغام PRهای #177 تا #182، بررسی مجدد GitHub تعداد PRهای باز را صفر نشان داد؛ آخرین commit main برابر 404a2a12ca663fc67f50d261f1bb8d9b327270f7 است."
+      "پس از ادغام PRهای #177 تا #182، بررسی مجدد GitHub تعداد PRهای باز را صفر نشان داد؛ آخرین commit main برابر 404a2a12ca663fc67f50d261f1bb8d9b327270f7 است.",
+      "پس از دریافت commit 120d1027d91102e277840be916a9ac17577e22f7، تست‌های محلی امنیت و دسترسی ۱۵ مورد با ۶۸ assertion موفق شدند.",
+      "تست‌های محلی امنیت پخش و رسانه ۷۱ مورد با ۲۶۰ assertion موفق شدند؛ این نتایج fail-closed بودن قابلیت‌های غیرفعال را نیز پوشش می‌دهند و به‌تنهایی آمادگی عملیاتی سرور را اثبات نمی‌کنند.",
+      "تست اختصاصی تنظیمات سایت و درگاه زرین‌پال ۷ مورد با ۴۲ assertion موفق شد؛ تست Callback اشتراک زرین‌پال نیز ۴ مورد با ۶ assertion موفق شد.",
+      "جمع QA تأییدشده این نوبت: ۹۷ تست موفق و ۳۷۶ assertion؛ Vite production build و git diff --check هر دو موفق شدند. هشدار اختیاری نبود پکیج fontaine باقی است.",
+      "تغییرات اصلی با fast-forward از commit e567ccaf به 120d1027 دریافت شد؛ تغییر محلی composer.lock با stash/pop حفظ شد و همچنان modified و commit‌نشده است.",
+      "QA بصری مرورگر، viewport موبایل/دسکتاپ، اتصال واقعی زرین‌پال و آزمون عملیاتی محیط production هنوز انجام نشده‌اند."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -4579,7 +4585,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "404a2a12ca663fc67f50d261f1bb8d9b327270f7",
+    "source_commit": "120d1027d91102e277840be916a9ac17577e22f7",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-26",
@@ -4873,7 +4879,58 @@
         "note": "توسعه و اصلاح ممیزی انجام شد؛ تست‌ها، build، migration و QA مرورگر این تغییر اجرا نشده‌اند.",
         "latest_commit": "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab"
       },
-      "latest_ci_note": "PRهای #177 تا #182: در هر شش سرشاخه، Vite موفق، PHPUnit SQLite موفق و PHPUnit MySQL 8.4 موفق گزارش شد؛ SQLite job در مرحله بعدی Composer Audit به‌دلیل پنج advisory شکست نهایی داشت. ارتقای PHPUnit 13.4.8 در PR180 نیز در هر دو موتور تست موفق شد. CI پس از آخرین ادغام روی main هنوز تأیید نشده است."
+      "latest_ci_note": "PRهای #177 تا #182: در هر شش سرشاخه، Vite موفق، PHPUnit SQLite موفق و PHPUnit MySQL 8.4 موفق گزارش شد؛ SQLite job در مرحله بعدی Composer Audit به‌دلیل پنج advisory شکست نهایی داشت. ارتقای PHPUnit 13.4.8 در PR180 نیز در هر دو موتور تست موفق شد. CI پس از آخرین ادغام روی main هنوز تأیید نشده است.",
+      "local_verified_batch_2026_11_27": {
+        "checked_at": "2026-11-27",
+        "source_commit": "120d1027d91102e277840be916a9ac17577e22f7",
+        "environment": "Windows 10 + Laragon; local PHP artisan tests; Vite production build",
+        "security_access": {
+          "passed": 15,
+          "failed": 0,
+          "assertions": 68,
+          "exit_code": 0
+        },
+        "playback_media": {
+          "passed": 71,
+          "failed": 0,
+          "assertions": 260,
+          "exit_code": 0
+        },
+        "site_settings_and_zarinpal": {
+          "passed": 7,
+          "failed": 0,
+          "assertions": 42,
+          "exit_code": 0
+        },
+        "artist_subscription_zarinpal_callback": {
+          "passed": 4,
+          "failed": 0,
+          "assertions": 6,
+          "exit_code": 0
+        },
+        "totals": {
+          "passed": 97,
+          "failed": 0,
+          "assertions": 376
+        },
+        "vite_build": {
+          "result": "success",
+          "exit_code": 0,
+          "warning": "اختیاری: پکیج fontaine نصب نیست؛ build موفق است."
+        },
+        "git_diff_check": {
+          "result": "success",
+          "exit_code": 0
+        },
+        "browser_visual_qa": "pending",
+        "production_smoke_test": "pending",
+        "real_gateway_transaction": "not_performed",
+        "notes": [
+          "تست‌ها توسط کاربر روی checkout محلی پس از fast-forward به commit ثبت‌شده اجرا و خروجی موفق ارائه شدند.",
+          "قابلیت‌های پخش در تست‌ها عمدتاً با feature flag غیرفعال/فعال‌سازی کنترل‌شده بررسی شدند؛ این تست‌ها جایگزین آماده‌سازی زیرساخت production نیستند.",
+          "تغییر محلی composer.lock با stash/pop حفظ شد و هنوز commit نشده است."
+        ]
+      }
     },
     "release": {
       "latest_merged_pr": 182,
@@ -7467,8 +7524,8 @@
       "database_migrations": "two_new_migrations_added_not_executed"
     }
   },
-  "latest_main_commit": "404a2a12ca663fc67f50d261f1bb8d9b327270f7",
-  "source_commit_audited": "6de4a5d25c7c249db4df3bfdabb8e953edfa185e",
+  "latest_main_commit": "120d1027d91102e277840be916a9ac17577e22f7",
+  "source_commit_audited": "120d1027d91102e277840be916a9ac17577e22f7",
   "latest_main_commit_verified_on": "2026-11-27",
   "current_development": {
     "updated_at": "2026-11-26",
@@ -8256,5 +8313,47 @@
       }
     },
     "merge_commit": "d32b7fdea656bdb631027f34bcb13ecdaf8bfffc"
+  },
+  "admin_site_settings": {
+    "date": "2026-11-27",
+    "source_repository": "https://github.com/armanaria111/amdb-laravel2",
+    "commit": "120d1027d91102e277840be916a9ac17577e22f7",
+    "status": "implemented_local_tests_passed_browser_qa_pending",
+    "capabilities": [
+      "پنل تنظیمات شامل درگاه‌های پرداخت به تنظیمات موجود اضافه شد.",
+      "زرین‌پال برای پرداخت اشتراک هنرمندان قابل فعال/غیرفعال‌سازی است.",
+      "محیط Sandbox و Production از طریق تنظیمات مدیریتی انتخاب می‌شود؛ URLها preset ثابت‌اند و ورودی arbitrary برای endpoint وجود ندارد.",
+      "شناسه پذیرنده در دیتابیس با Laravel Crypt رمزنگاری می‌شود؛ مقدار ذخیره‌شده در صفحه دوباره نمایش داده نمی‌شود.",
+      "خالی گذاشتن ورودی شناسه پذیرنده مقدار رمزنگاری‌شده قبلی را حفظ می‌کند.",
+      "زرین‌پال به‌صورت پیش‌فرض غیرفعال و محیط پیش‌فرض Sandbox است.",
+      "خرید/پرداخت فیلم و سریال مستقل باقی می‌ماند و این صفحه آن قابلیت را فعال نمی‌کند.",
+      "میانبر تنظیمات سایت به داشبورد مدیریت اضافه شده و برچسب‌ها برای en، fa-AF و ps افزوده شده‌اند."
+    ],
+    "test_coverage": [
+      "مدیر صفحه تنظیمات را می‌بیند.",
+      "مدیر تنظیمات سایت و درگاه را ذخیره می‌کند.",
+      "شناسه پذیرنده رمزنگاری می‌شود و در صفحه نمایش داده نمی‌شود.",
+      "ورودی خالی، secret قبلی را حفظ می‌کند.",
+      "فعال‌سازی بدون شناسه پذیرنده رد می‌شود.",
+      "کاربر غیرمدیر به تنظیمات دسترسی ندارد.",
+      "Gateway از merchant رمزنگاری‌شده و endpoint آزمایشی انتخاب‌شده استفاده می‌کند."
+    ],
+    "validation": {
+      "SiteSettingManagementTest": "7 passed / 42 assertions",
+      "ArtistSubscriptionZarinpalCallbackTest": "4 passed / 6 assertions",
+      "vite": "success",
+      "browser_visual_qa": "pending",
+      "live_sandbox_transaction": "not_performed"
+    },
+    "security_notes": [
+      "کلید APP_KEY برای decrypt شدن تنظیمات رمزنگاری‌شده در استقرار باید پایدار و محرمانه بماند.",
+      "پیش از فعال‌سازی Production، Merchant ID واقعی را فقط در پنل امن سایت وارد کنید؛ آن را در گفتگو یا گزارش ثبت نکنید.",
+      "برای callback واقعی، سایت باید از بیرون با HTTPS در دسترس باشد."
+    ],
+    "next_steps": [
+      "بازبینی بصری صفحه تنظیمات در سه زبان و در موبایل/دسکتاپ.",
+      "تأیید endpointهای Sandbox/Production با مستندات جاری زرین‌پال پیش از تراکنش واقعی.",
+      "آزمون اتصال/تراکنش آزمایشی کنترل‌شده پس از آماده بودن callback عمومی HTTPS."
+    ]
   }
 }
