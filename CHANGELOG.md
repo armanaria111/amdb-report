@@ -1357,3 +1357,16 @@
 - آخرین commit شاخه main: `4fba5205420931dcdbba8ceaad1ffca19298af75`.
 - CI پس از آخرین ادغام روی main هنوز تأیید نشده است؛ هیچ تست محلی، Migration یا عملیات دیتابیس در این مرحله اجرا نشد.
 - وضعیت امنیتی باز: پنج advisory مربوط به `symfony/http-kernel`، `symfony/mailer` و `symfony/routing` باید با به‌روزرسانی امن lockfile رفع و `composer audit --locked` دوباره موفق شود.
+
+
+## 2026-11-27 — ادغام شش به‌روزرسانی خودکار وابستگی‌ها
+
+- PR [#177](https://github.com/armanaria111/amdb-laravel2/pull/177) با commit `e0dcc8e6233330b2daf5eaddbecfad1794418fc0` ادغام شد؛ actions/setup-node از v4 به v7 ارتقا یافت.
+- PR [#181](https://github.com/armanaria111/amdb-laravel2/pull/181) با commit `2a601c2524fad8475bccfc34273f7d96d1594a18` ادغام شد؛ actions/upload-artifact از v4 به v7 ارتقا یافت.
+- PR [#178](https://github.com/armanaria111/amdb-laravel2/pull/178) با commit `3adc6d886989ed22cc8a3a9b9098f9350be86ba8` ادغام شد؛ actions/cache از v4 به v6 ارتقا یافت.
+- PR [#179](https://github.com/armanaria111/amdb-laravel2/pull/179) با commit `27f79145ce871a419d6a30117a68474617741a23` ادغام شد؛ actions/download-artifact از v4 به v8 ارتقا یافت.
+- PR [#180](https://github.com/armanaria111/amdb-laravel2/pull/180) با commit `99e94223a229369bf7f625f9b8f5f099536df523` ادغام شد؛ PHPUnit به 13.4.8 ارتقا یافت و تست‌های SQLite و MySQL 8.4 موفق بودند.
+- PR [#182](https://github.com/armanaria111/amdb-laravel2/pull/182) با commit `404a2a12ca663fc67f50d261f1bb8d9b327270f7` ادغام شد؛ actions/checkout از v4 به v7 ارتقا یافت.
+- در CI هر شش PR، Vite build و اجرای PHPUnit روی SQLite و MySQL 8.4 موفق بودند؛ job مربوط به SQLite در مرحله Composer Audit به‌دلیل پنج advisory موجود شکست نهایی داشت.
+- آخرین commit main برابر `404a2a12ca663fc67f50d261f1bb8d9b327270f7` است و پس از بررسی مجدد GitHub هیچ PR بازی باقی نمانده است.
+- CI پس از آخرین ادغام روی main هنوز تأیید نشده؛ هیچ Migration یا دیتابیس محلی تغییر نکرد.
