@@ -704,7 +704,15 @@
       "PR173 با commit c4a5f60e9f1b3b5510dba4344adef9083f557121 ادغام شد؛ تشخیص تکراری اخبار به detector چندزبانه اضافه شد، با مقایسه metadata برای کاهش false positive و بدون ادغام/حذف خودکار. CI MySQL: 312 تست و 1213 assertion موفق؛ Vite موفق.",
       "PR174 با commit 4fba5205420931dcdbba8ceaad1ffca19298af75 ادغام شد؛ انتخاب زبان در cookie یک‌ساله HTTP-only و SameSite=Lax حفظ می‌شود. CI MySQL: 311 تست و 1219 assertion موفق؛ Vite موفق. QA مرورگر انجام نشده است.",
       "پس از ادغام پنج PR، main روی commit 4fba5205420931dcdbba8ceaad1ffca19298af75 قرار گرفت و جستجوی GitHub تعداد PRهای باز را صفر نشان داد.",
-      "CI پس از ادغام نهایی روی commit main هنوز از این بررسی تأیید نشده است؛ CI سرشاخه‌ها پیش از ادغام بررسی شد. Composer Audit همچنان پنج advisory در symfony/http-kernel، symfony/mailer و symfony/routing گزارش می‌کند."
+      "CI پس از ادغام نهایی روی commit main هنوز از این بررسی تأیید نشده است؛ CI سرشاخه‌ها پیش از ادغام بررسی شد. Composer Audit همچنان پنج advisory در symfony/http-kernel، symfony/mailer و symfony/routing گزارش می‌کند.",
+      "پس از ادغام PR166، Dependabot شش PR جدید #177 تا #182 ایجاد کرد؛ هر شش PR پس از بررسی CI نیز با موفقیت در main ادغام شدند.",
+      "PR177 با commit e0dcc8e6233330b2daf5eaddbecfad1794418fc0 ادغام شد: actions/setup-node از v4 به v7 ارتقا یافت؛ Vite و MySQL 8.4 موفق و PHPUnit SQLite موفق بود؛ تنها Composer Audit به‌دلیل advisoryها شکست خورد.",
+      "PR181 با commit 2a601c2524fad8475bccfc34273f7d96d1594a18 ادغام شد: actions/upload-artifact از v4 به v7 ارتقا یافت؛ Vite و MySQL 8.4 موفق و PHPUnit SQLite موفق بود؛ تنها Composer Audit به‌دلیل advisoryها شکست خورد.",
+      "PR178 با commit 3adc6d886989ed22cc8a3a9b9098f9350be86ba8 ادغام شد: actions/cache از v4 به v6 ارتقا یافت؛ Vite و MySQL 8.4 موفق و PHPUnit SQLite موفق بود؛ تنها Composer Audit به‌دلیل advisoryها شکست خورد.",
+      "PR179 با commit 27f79145ce871a419d6a30117a68474617741a23 ادغام شد: actions/download-artifact از v4 به v8 ارتقا یافت؛ Vite و MySQL 8.4 موفق و PHPUnit SQLite موفق بود؛ تنها Composer Audit به‌دلیل advisoryها شکست خورد.",
+      "PR180 با commit 99e94223a229369bf7f625f9b8f5f099536df523 ادغام شد: PHPUnit از 12.5 به 13.4.8 ارتقا یافت؛ تست‌های PHPUnit روی SQLite و MySQL 8.4 موفق بودند و Vite نیز موفق بود؛ Composer Audit همچنان پنج advisory را گزارش کرد.",
+      "PR182 با commit 404a2a12ca663fc67f50d261f1bb8d9b327270f7 ادغام شد: actions/checkout از v4 به v7 ارتقا یافت؛ Vite و MySQL 8.4 موفق و PHPUnit SQLite موفق بود؛ تنها Composer Audit به‌دلیل advisoryها شکست خورد.",
+      "پس از ادغام PRهای #177 تا #182، بررسی مجدد GitHub تعداد PRهای باز را صفر نشان داد؛ آخرین commit main برابر 404a2a12ca663fc67f50d261f1bb8d9b327270f7 است."
     ],
     "pending_at_that_point": [
       "افزودن و اجرای تست‌های Feature برای تمام سناریوهای امنیتی P0",
@@ -3283,11 +3291,16 @@
     ]
   },
   "current_open_items": [
+    "رفع پنج advisory Composer در symfony/http-kernel، symfony/mailer و symfony/routing؛ Dependabot و به‌روزرسانی PHPUnit/Actions ادغام شده‌اند اما lockfile همچنان نیازمند اصلاح امن و composer audit --locked موفق است.",
+    "بررسی CI پس از آخرین ادغام روی main؛ CI سرشاخه PRها موفقیت تست و Build را نشان می‌دهد اما Composer Audit هنوز شکست دارد و نتیجه push CI روی آخرین main تأیید نشده است.",
+    "همگام‌سازی امن checkout محلی Laragon با main commit 404a2a12ca663fc67f50d261f1bb8d9b327270f7؛ پیش از pull وضعیت git و تغییرات محلی حفظ شوند.",
+    "اجرای Migrationهای افزایشی فقط پس از backup و بررسی migrate:status؛ هیچ Migration محلی یا دیتابیس کاربر در این ادغام‌ها اجرا نشده است.",
+    "اجرای QA مرورگر برای حفظ زبان پس از refresh/login/logout و بررسی سه زبان؛ PR174 تست CI دارد اما QA مرورگر انجام نشده است.",
+    "OMDb همچنان باید خاموش بماند؛ فعال‌سازی فقط پس از تأیید حقوق تجاری، caching، attribution، retention و نمایش مجاز.",
     "رفع پنج advisory Composer در symfony/http-kernel، symfony/mailer و symfony/routing؛ Dependabot فعال شده اما lockfile هنوز نیازمند به‌روزرسانی امن و composer audit --locked موفق است.",
     "بررسی CI پس از ادغام نهایی روی main؛ CI سرشاخه PRها اجرا شده اما نتیجه main پس از آخرین merge هنوز تأیید نشده است.",
     "همگام‌سازی امن checkout محلی Laragon با main commit 4fba5205420931dcdbba8ceaad1ffca19298af75؛ پیش از pull وضعیت git و تغییرات محلی حفظ شوند.",
     "اجرای Migrationهای افزایشی فقط پس از backup و بررسی migrate:status؛ هیچ Migration محلی یا دیتابیس کاربر در این ادغام‌ها اجرا نشده است.",
-    "اجرای QA مرورگر برای حفظ زبان پس از refresh/login/logout و بررسی سه زبان؛ PR174 تست CI دارد اما QA مرورگر انجام نشده است.",
     "تأیید OMDb همچنان خاموش بماند؛ فعال‌سازی فقط پس از تأیید حقوق تجاری، caching، attribution، retention و نمایش مجاز.",
     "نگاشت شناسه WordPress برای آثار و واردسازی عوامل اکنون در main موجود است؛ commit 209d99d9c0756653ab11ba563e0bc714061d56c9 و فایل‌های فعلی main آن را تأیید می‌کنند. شاخه قدیمی feature/wordpress-title-credit-mapping به‌علت ۸۳ commit عقب‌ماندگی نباید جداگانه ادغام شود.",
     "اجرای برنامه QA نهایی: PHPUnit، npm build، بررسی مرورگری و smoke test؛ طبق درخواست کاربر فعلاً اجرا نشده‌اند.",
@@ -4566,7 +4579,7 @@
     "abbreviation": "AMDB",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
     "source_branch": "main",
-    "source_commit": "4fba5205420931dcdbba8ceaad1ffca19298af75",
+    "source_commit": "404a2a12ca663fc67f50d261f1bb8d9b327270f7",
     "report_branch": "main",
     "source_inventory": {
       "date": "2026-11-26",
@@ -4592,8 +4605,8 @@
         "این بررسی فقط موجودی فایل‌ها و ساختار سورس را ثبت می‌کند."
       ],
       "verified_at": "2026-11-26",
-      "stale_after_commit": "4fba5205420931dcdbba8ceaad1ffca19298af75",
-      "note": "شمارش موجودی قبلی مربوط به commit پیش از ادغام PRهای #166 و #172 تا #175 است؛ برای آمار دقیق فعلی باید inventory دوباره از main استخراج شود."
+      "stale_after_commit": "404a2a12ca663fc67f50d261f1bb8d9b327270f7",
+      "note": "شمارش موجودی قبلی مربوط به commit پیش از ادغام PRهای #166، #172 تا #175 و #177 تا #182 است؛ برای آمار دقیق فعلی باید inventory دوباره از main استخراج شود."
     },
     "feature_summary": {
       "implemented_unverified": 39,
@@ -4603,7 +4616,7 @@
       "blocked": 0
     },
     "feature_count": 41,
-    "implementation_status": "PRهای #166، #172، #173، #174 و #175 همگی در 2026-11-27 در main ادغام شدند؛ پس از ادغام هیچ PR بازی باقی نماند. تست‌های سرشاخه PRها و Vite طبق شواهد ثبت شده‌اند؛ CI پس از آخرین ادغام روی main هنوز تأیید نشده است. Composer Audit همچنان پنج advisory امنیتی Symfony دارد.",
+    "implementation_status": "تمام PRهای باز مشاهده‌شده در دو موج (#166، #172 تا #175 و Dependabot #177 تا #182) در main ادغام شدند؛ پس از آخرین بررسی هیچ PR بازی وجود ندارد. Vite، PHPUnit SQLite و MySQL 8.4 در CI سرشاخه‌های شش PR وابستگی موفق بودند؛ Composer Audit همچنان به‌دلیل پنج advisory شکست می‌خورد. CI پس از آخرین ادغام روی main هنوز تأیید نشده است.",
     "database_runtime": {
       "status": "partially_verified_local",
       "environment": "Windows 10 + Laragon 8 + MySQL",
@@ -4637,9 +4650,9 @@
       "ci_migrations_executed": true,
       "ci_workflow": "https://github.com/armanaria111/amdb-laravel2/actions/runs/45778123285",
       "mysql_runtime_verified": false,
-      "latest_ci_run": 45888118560,
+      "latest_ci_run": 45947749274,
       "main_ci_conclusion": "not_verified_after_latest_merge",
-      "pull_request_ci_conclusion": "test_jobs_passed_composer_audit_failed",
+      "pull_request_ci_conclusion": "tests_and_vite_passed_composer_audit_failed",
       "mysql_ci_verified": true,
       "local_http_smoke": {
         "checked_at": "2026-11-22",
@@ -4860,12 +4873,12 @@
         "note": "توسعه و اصلاح ممیزی انجام شد؛ تست‌ها، build، migration و QA مرورگر این تغییر اجرا نشده‌اند.",
         "latest_commit": "b13dd1d9b70f2dfbfe1b63d78ae1e9212257ddab"
       },
-      "latest_ci_note": "PR175: SQLite 308 passed / 1208 assertions؛ MySQL 8.4 308 passed / 1208 assertions؛ Vite production build موفق؛ Composer Audit به‌دلیل پنج advisory شکست خورد. PR173 MySQL 312/1213 و PR174 MySQL 311/1219 موفق بودند. CI پس از ادغام نهایی روی main هنوز تأیید نشده است."
+      "latest_ci_note": "PRهای #177 تا #182: در هر شش سرشاخه، Vite موفق، PHPUnit SQLite موفق و PHPUnit MySQL 8.4 موفق گزارش شد؛ SQLite job در مرحله بعدی Composer Audit به‌دلیل پنج advisory شکست نهایی داشت. ارتقای PHPUnit 13.4.8 در PR180 نیز در هر دو موتور تست موفق شد. CI پس از آخرین ادغام روی main هنوز تأیید نشده است."
     },
     "release": {
-      "latest_merged_pr": 174,
-      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/174",
-      "latest_source_commit": "4fba5205420931dcdbba8ceaad1ffca19298af75",
+      "latest_merged_pr": 182,
+      "latest_merged_pr_url": "https://github.com/armanaria111/amdb-laravel2/pull/182",
+      "latest_source_commit": "404a2a12ca663fc67f50d261f1bb8d9b327270f7",
       "source_branch": "main",
       "verified_at": "2026-11-27",
       "pr_ci_run": 44990252885,
@@ -4900,11 +4913,17 @@
       "mysql_assertions": 983,
       "open_pull_requests": 0,
       "latest_merged_prs": [
-        175,
         166,
         172,
         173,
-        174
+        174,
+        175,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182
       ],
       "post_merge_ci": "not_verified"
     },
@@ -5547,8 +5566,8 @@
     },
     "open_pull_requests": 0,
     "open_pull_requests_checked_at": "2026-11-27",
-    "latest_merged_pr": 174,
-    "latest_merged_commit": "4fba5205420931dcdbba8ceaad1ffca19298af75"
+    "latest_merged_pr": 182,
+    "latest_merged_commit": "404a2a12ca663fc67f50d261f1bb8d9b327270f7"
   },
   "report_methodology": {
     "version": 3,
@@ -7448,7 +7467,7 @@
       "database_migrations": "two_new_migrations_added_not_executed"
     }
   },
-  "latest_main_commit": "4fba5205420931dcdbba8ceaad1ffca19298af75",
+  "latest_main_commit": "404a2a12ca663fc67f50d261f1bb8d9b327270f7",
   "source_commit_audited": "6de4a5d25c7c249db4df3bfdabb8e953edfa185e",
   "latest_main_commit_verified_on": "2026-11-27",
   "current_development": {
