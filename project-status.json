@@ -17,9 +17,9 @@
     "database_name": "amdbl",
     "report_scope": "این مخزن فقط برای گزارش و پیگیری AMDB است و کد اصلی پروژه را تغییر نمی‌دهد.",
     "source_repository": "https://github.com/armanaria111/amdb-laravel2",
-    "source_commit_audited": "4ae3ed9544ecba5cb59a34d47c2278bd76a3511f",
+    "source_commit_audited": "71661592438d2911ba2072dc4c4159b23d262342",
     "report_repository": "https://github.com/armanaria111/amdb-report",
-    "latest_main_commit": "4ae3ed9544ecba5cb59a34d47c2278bd76a3511f",
+    "latest_main_commit": "71661592438d2911ba2072dc4c4159b23d262342",
     "latest_main_commit_verified_on": "2026-11-27",
     "advertising_note": "گزارش عملکرد کمپین، درآمد پلتفرم و صورتحساب تبلیغ‌دهندگان در ماژول‌های جدا هستند؛ صورتحساب و دریافت وجه فقط به‌صورت ثبت دستی رسید بیرونی انجام می‌شود و ارزها مستقل می‌مانند.",
     "platform_revenue_export": "خروجی CSV فیلترپذیر دفتر درآمد پلتفرم با ستون‌های منبع، ارز، مبلغ، دوره، وضعیت، کمپین و ممیزی ثبت/تأیید؛ مسیر GET export در گروه route صحیح ثبت شده است."
@@ -8376,5 +8376,19 @@
       "commit": "1079d18b4168a1ba605b02b52651678238e12e1a",
       "path": "resources/views/admin/dashboard.blade.php"
     }
+  },
+  "omdb_integration": {
+    "status": "registered_unavailable_disabled",
+    "source_commit": "71661592438d2911ba2072dc4c4159b23d262342",
+    "plugin_slug": "omdb",
+    "default_enabled": false,
+    "available": false,
+    "behavior": [
+      "در فهرست افزونه‌ها با وضعیت هنوز آماده نیست نمایش داده می‌شود.",
+      "PluginManager حتی در صورت وجود مقدار ذخیره‌شده true، ماژول را غیرفعال برمی‌گرداند.",
+      "کنترلر و PluginManager فعال‌سازی را رد می‌کنند.",
+      "هیچ API request، API key، import یا تغییر داده کاتالوگ پیاده‌سازی نشده است."
+    ],
+    "qa": "feature test added but not executed in this session"
   }
 }
